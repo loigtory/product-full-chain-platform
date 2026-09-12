@@ -2,13 +2,16 @@
 
 These rules apply to the implementation repository at `D:\项目管理\product-full-chain-platform`.
 
-## Active Handoff Scope - 2026-09-12
+## Active Handoff Scope - 2026-09-13
 
-- R1 approval: the user replied “同意” to the concrete R1 package in 29 section 9 (reviewed proposal `b0ff6eb`). Implement only its 14 exact source/test files, the seven handoff documents including [30](docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md), and the named synthetic report/evidence directory. Branch `feat/flow-prototype` starts at verified `origin/main=a9eec73`; the six proposal documents are carried from `b0ff6eb`. The scope includes local-only rehearsal, isolated browser/temporary memory tests and cleanup, feature opening/closing commits and push under 23. No M2c-3 governance implementation, PG writes, real tools/AI/CI, main merge, deployment or formal ledger advancement. Current status: R1 prototype interaction LOCAL_VERIFIED (12 commands plus static/config/delivery checks PASS); visual and business acceptance remains pending. Source entry remains index.html, 26 scripts. The current handoff is 30; do not treat the historical proposal notes below as the active task.
+- R1 acceptance closeout: on 2026-09-13, after being asked explicitly whether R1 commit `2cf9a3fca3a5898c873a96062663d75359bc792b` was accepted and could be merged/pushed to main, the user replied “确认”. This accepts the scoped prototype interaction and disclosed synthetic/PG limitations, and authorizes seven handoff-document updates (AGENTS, 19, 20, 29, 30, two READMEs), the named acceptance JSON, feature commit/push, `--no-ff` merge of `feat/flow-prototype` into main and main push under 23. See [30](docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md). The reviewed source and 30 entry-file fingerprints still match the prior 12 passing gates. This is docs-only acceptance closeout, not a new source iteration or deployment. R1 is ACCEPTED within its local prototype scope; formal CAP/Unit status and POD next route remain unchanged. No PG writes, real AI/tools, governance/domain implementation or branch deletion. After closeout, any new implementation requires its own confirmed design and exact scope.
 
 ### Historical authorization records
 
-These records preserve earlier decisions; the R1 approval above and the current checkpoint 30 take precedence.
+These records preserve earlier decisions; the R1 acceptance above and the current checkpoint 30 take precedence.
+
+- R1 approval: the user replied “同意” to the concrete R1 package in 29 section 9 (reviewed proposal `b0ff6eb`). Implement only its 14 exact source/test files, the seven handoff documents including [30](docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md), and the named synthetic report/evidence directory. Branch `feat/flow-prototype` starts at verified `origin/main=a9eec73`; the six proposal documents are carried from `b0ff6eb`. The scope includes local-only rehearsal, isolated browser/temporary memory tests and cleanup, feature opening/closing commits and push under 23. No M2c-3 governance implementation, PG writes, real tools/AI/CI, main merge, deployment or formal ledger advancement. Current status: R1 prototype interaction LOCAL_VERIFIED (12 commands plus static/config/delivery checks PASS); visual and business acceptance remains pending. Source entry remains index.html, 26 scripts. The current handoff is 30; do not treat the historical proposal notes below as the active task.
+
 
 - Current continuation after `c181af2`: finish the concrete continuous-collaboration interaction specification and a reviewable next prototype scope inside the same six Markdown files. Proposal 29 section 9 will describe the existing-workbench interaction, exceptions, validation and candidate R1 files. The user's “继续” continues this design work; it does not approve the new source whitelist, local rehearsal behavior, M2c-3 implementation or a main merge.
 
