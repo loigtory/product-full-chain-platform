@@ -1,0 +1,692 @@
+{
+  "baseline": "05af5ded7f5e3f192f1b7959397f2d46d9d90edd",
+  "sourceAndDocs": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 21171,
+      "added": "5",
+      "removed": "1",
+      "sha256": "b78e64efea4c191dfe4424aff37a78bc3e80f3bf8e733acbc11615b23f242d27",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+      "bytes": 10541,
+      "added": "4",
+      "removed": "2",
+      "sha256": "50c7d1cb9188c1c879accd156782e6c444504b6f7d38cab6c4cb7f2e09ca5c81",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+      "bytes": 5732,
+      "added": "11",
+      "removed": "11",
+      "sha256": "756f25ba03c40947d4cd667cd05f02d65d4057228836bdf45041c1c10f81654a",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "docs/planning/prototype-v3/27-M2c-2接入方案与范围确认-20260912.md",
+      "bytes": 42763,
+      "added": "311",
+      "removed": "0",
+      "sha256": "03b6392ffc4560877dfcb8bc05e549bf23e8797724d1cbecd82aa0b3480bd194",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "docs/planning/prototype-v3/28-M2c-2实施与验收-20260912.md",
+      "bytes": 13269,
+      "added": "95",
+      "removed": "0",
+      "sha256": "a3cbf366cdcf1b113cfcca085df24ec9ea13a3d5b01dbbbc4ea9c964b2ce4050",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "docs/planning/prototype-v3/README.md",
+      "bytes": 13597,
+      "added": "5",
+      "removed": "3",
+      "sha256": "0840f6fa17fb980fd3ca7684582d8792277b82d5b22075454582d3c079306d48",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912.md",
+      "bytes": 8365,
+      "added": "62",
+      "removed": "0",
+      "sha256": "75abe60f48b757f8c090bbc04bc2827af8dc0cd4901364378da77b64a3215639",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "bytes": 1695,
+      "added": "3",
+      "removed": "0",
+      "sha256": "ee72159a77baa419a677aef063c38d03760b3df2f20f5d70fbbf9eb8ee008f0b",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/actions.js",
+      "bytes": 25719,
+      "added": "1",
+      "removed": "1",
+      "sha256": "95d75dda0133f4ee5d941f6e13fdad52f87a6b8d53c544204b4ca9dd9f550125",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "bytes": 9452,
+      "added": "25",
+      "removed": "7",
+      "sha256": "480bb583cd0a3c0a15f6272daf04a78c88f6ec37b5d1e5c1eadd089349a50a73",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "bytes": 24533,
+      "added": "4",
+      "removed": "2",
+      "sha256": "7660fbf65576cec934e025324c208d9f3e796d20cd86ea91c2b328d3689a6aa8",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/attachments.js",
+      "bytes": 19151,
+      "added": "1",
+      "removed": "1",
+      "sha256": "39b8e9ea530242bbc69bb21533722018334d1f5712b0862b18ae3ab78f8250c8",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-actions.js",
+      "bytes": 16223,
+      "added": "443",
+      "removed": "0",
+      "sha256": "bfb2e1177d0e0efb1b1ed37b97ce3dbf8aca0a080a1f0aa6db77758aad785a9a",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-client.js",
+      "bytes": 7626,
+      "added": "5",
+      "removed": "0",
+      "sha256": "0fed1036c2b0db6a8caab8c789e4e221faff0401eeabd87bf5b32da96afbe61f",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "bytes": 8558,
+      "added": "274",
+      "removed": "0",
+      "sha256": "b11a9642bf42fbcd5671b42e0abe02dffffa296a587498181f12556b9f707a3f",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-view.js",
+      "bytes": 7731,
+      "added": "257",
+      "removed": "0",
+      "sha256": "afd90ba01153385917f3f87cd130c6c8b479d1c2435c748056106a53d88528ca",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/model.js",
+      "bytes": 49005,
+      "added": "13",
+      "removed": "2",
+      "sha256": "e2e623ae351059a226a6ff6eb3d4398fe53b427bc397670c76065f32354d07d3",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/ws-client.js",
+      "bytes": 3603,
+      "added": "9",
+      "removed": "2",
+      "sha256": "baec5b1d09d52c58700c447bd15970b835b99da02a8f537b36959d4fb97fe45a",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/README.md",
+      "bytes": 7254,
+      "added": "7",
+      "removed": "4",
+      "sha256": "9b43b2524ad8db4b3186b44eb6100f2011587d748da5f987aede5b5f56cf1a91",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "bytes": 16032,
+      "added": "497",
+      "removed": "0",
+      "sha256": "a9156f6b7b1e8005fcd5b616bb61bbbcd87d634326374100abc70133112542bc",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "bytes": 2529,
+      "added": "3",
+      "removed": "0",
+      "sha256": "257650feb74a08896c90f1997cfcfd1a0d930ade55469fa7c68fa79b02d2037c",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/.env.example",
+      "bytes": 1009,
+      "added": "17",
+      "removed": "6",
+      "sha256": "395c2fa77ca70fc5f5c0026426f06f076e2981481a87cba518a9ef19762d795b",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/scripts/migrate-m2c.mjs",
+      "bytes": 1030,
+      "added": "6",
+      "removed": "1",
+      "sha256": "8963e04c682bccc7babcf63747d35112e310234f738a771578136afe4742d4c1",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/sim-bridge.mjs",
+      "bytes": 4134,
+      "added": "52",
+      "removed": "24",
+      "sha256": "e5c232902b68551ded726dd849f6aca1240ff0bdb1a23944095a092dc82d5513",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/sql/m2c/002-domain-workspace.sql",
+      "bytes": 9261,
+      "added": "99",
+      "removed": "0",
+      "sha256": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/access.js",
+      "bytes": 1224,
+      "added": "47",
+      "removed": "0",
+      "sha256": "7e4fdb6eef73bbd8497a962bdce1f95238771d48b77a5abe8f033c76c3881d0c",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/auth.js",
+      "bytes": 2070,
+      "added": "32",
+      "removed": "3",
+      "sha256": "b6a1fff5da22868799299ef5698adcc8f69ecba2620031392ed58d063e687f39",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/contract.js",
+      "bytes": 3020,
+      "added": "8",
+      "removed": "0",
+      "sha256": "71ec8ab93ef4659a1175afb39380f7f45adbce672c0c7347f80262406459cdd9",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/db.js",
+      "bytes": 792,
+      "added": "18",
+      "removed": "81",
+      "sha256": "c9c8c5716ecdb630a373fba2a8fab852217a4a84b66da67f2f485d3ca28b23c2",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "bytes": 12100,
+      "added": "356",
+      "removed": "0",
+      "sha256": "fc81c24532d2daa6d0005298ecc7c4f49aa2f7be3fea954963af3423416245c2",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/dto.js",
+      "bytes": 2243,
+      "added": "92",
+      "removed": "0",
+      "sha256": "ffdce62bcc6802b052ab05884719bba460e9b1791c7df42510550bb067270302",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/events.js",
+      "bytes": 1160,
+      "added": "50",
+      "removed": "0",
+      "sha256": "a538434fce9ea4bba6b90cbcbbc98782db59c8f11073f3ebbbe96147102b5c67",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/execution-service.js",
+      "bytes": 30244,
+      "added": "985",
+      "removed": "0",
+      "sha256": "463d1cbf7a4697e3af4fd6fd02739f791c6ac4cc53f74db0df7256a40dadcdff",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/material-service.js",
+      "bytes": 7657,
+      "added": "223",
+      "removed": "0",
+      "sha256": "e91feebcf342daf2ac7f7faaa182d86cf6e5d4d077bd04ef991704362e1ed25c",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/notification-service.js",
+      "bytes": 1681,
+      "added": "63",
+      "removed": "0",
+      "sha256": "a4c05c90c445ba0e2f42d01531c608e947ca8977a38cb6e8808dc4664cfd12d0",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/requirement-service.js",
+      "bytes": 16639,
+      "added": "519",
+      "removed": "0",
+      "sha256": "444b2fc7f277ae956ccd66b11c9bc084c700b264a54febdb61228b4668f70697",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/service.js",
+      "bytes": 699,
+      "added": "20",
+      "removed": "405",
+      "sha256": "98050df2552045fe2a1392da14bafd660a31facd0fca163aaba56c92410f7eeb",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/store.js",
+      "bytes": 6259,
+      "added": "35",
+      "removed": "10",
+      "sha256": "6d76b899aa2760a457a9b3232f84c17643781d8d47db0454996ca2420b07a473",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/domain/templates.js",
+      "bytes": 1162,
+      "added": "41",
+      "removed": "0",
+      "sha256": "7d19d0823935fbd031283ddcc3524961eddd8511bf2198aa59f053baff781dda",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/files/local-files.js",
+      "bytes": 4286,
+      "added": "140",
+      "removed": "0",
+      "sha256": "dfd9139c0e65689aeb92352b1498dee0be199c6b82d68d6aa6f7d732f7d27210",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/index.js",
+      "bytes": 4566,
+      "added": "106",
+      "removed": "12",
+      "sha256": "087eb426e53d0203982b3704d7b7dea036e5d70573ec76388e8bc5bb0287dc07",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/commands.js",
+      "bytes": 1877,
+      "added": "49",
+      "removed": "0",
+      "sha256": "f2aac80ba2921517974663eff755aafc234406f6295fa90b83dcb9aa883b1d9d",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/connection.js",
+      "bytes": 3374,
+      "added": "5",
+      "removed": "2",
+      "sha256": "78a501ae5f0ca4e7cfa69c15eaddfd82963a0277674f8e4439c482f60f3826e2",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/events.js",
+      "bytes": 973,
+      "added": "36",
+      "removed": "0",
+      "sha256": "49a3e265f63ba3884753273c0df727c872bfafc845f53a7b90574e8fc1649dfc",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/identifiers.js",
+      "bytes": 1883,
+      "added": "14",
+      "removed": "0",
+      "sha256": "81cbd68d8a93af5bedbf1e5f7e4e4191707a9ede1ee294d23eb66a37e266ed85",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/leases.js",
+      "bytes": 1611,
+      "added": "48",
+      "removed": "0",
+      "sha256": "d9a7250e4cf7c48684596d62965ee3789569ce0321018bc46043fe5fea5bf973",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/materials.js",
+      "bytes": 2570,
+      "added": "84",
+      "removed": "0",
+      "sha256": "536d606edcfacc1b89b70ff9c0375451e886e9cb815b7ab13b14dd2053877907",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/messages.js",
+      "bytes": 6083,
+      "added": "181",
+      "removed": "0",
+      "sha256": "6e6b1d713bb521fe0a6deb05cd33bf1c2aa91d96bb3859d084b15c1024473667",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "bytes": 7609,
+      "added": "192",
+      "removed": "57",
+      "sha256": "15434b76b6cf571ac22ce8ac2ec9a75e6e2acdeaac8043b6d4b7a28b55ebd82d",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/notices.js",
+      "bytes": 1509,
+      "added": "34",
+      "removed": "0",
+      "sha256": "168442bf9997f116ce8efd35f5ff43010f69fcfe8939754be6f8c6c9f16a35b7",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/questions.js",
+      "bytes": 1032,
+      "added": "28",
+      "removed": "0",
+      "sha256": "54290497a6f83e767a7c81d2bd7220519d48201d4792454705e5727a8368b10b",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/requirements.js",
+      "bytes": 7058,
+      "added": "131",
+      "removed": "0",
+      "sha256": "1f8afb6ed266c55381d4a23daadd406c3e4f1254b28acb4e92b4224d1f79f1f6",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/run-output.js",
+      "bytes": 2992,
+      "added": "90",
+      "removed": "0",
+      "sha256": "3f7042d16df542a6632d15c89d04997ac4bd84d63b597a9a78cd326364c84bcf",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/runs.js",
+      "bytes": 1899,
+      "added": "60",
+      "removed": "0",
+      "sha256": "ce28b980fbeaef47a0fd0b4f336a2e5a068adf23b200204132c99d0bef715522",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/persistence/transaction.js",
+      "bytes": 1000,
+      "added": "11",
+      "removed": "0",
+      "sha256": "15df3ed8de81ff740471d9606b88b4c51b2c71c808a0886a7d278243b9b96ba6",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/auth.js",
+      "bytes": 1346,
+      "added": "21",
+      "removed": "1",
+      "sha256": "01d95f0734d7e400ad44d49c8737728c8e6491f4f972120893362e3bc6be156f",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/bridges.js",
+      "bytes": 2085,
+      "added": "40",
+      "removed": "4",
+      "sha256": "b454bbae307c9e6b878b07634b1066b6b2b85c059c842da055b8e94f1e761190",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/leases.js",
+      "bytes": 1176,
+      "added": "15",
+      "removed": "2",
+      "sha256": "4692489b83646dff8b4a095222264fc8a539c3016fa29d792baf98d9809eab33",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/notices.js",
+      "bytes": 568,
+      "added": "5",
+      "removed": "23",
+      "sha256": "2179f8c31cb5658fee01fdc348d1f88f7500b653a1238db45aaa2bdc5d17926e",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/reqs.js",
+      "bytes": 6457,
+      "added": "111",
+      "removed": "17",
+      "sha256": "ba1a7095333b3770739b1e6261052637f72c74927015350cd9fb25115cd03742",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/runs.js",
+      "bytes": 5432,
+      "added": "97",
+      "removed": "23",
+      "sha256": "249cee3ef76c06066ccef085683cd6a6b58daf2bdbc0ac8cbb5bf55ad793279a",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/routes/state.js",
+      "bytes": 1409,
+      "added": "5",
+      "removed": "1",
+      "sha256": "9fdc54859e534e46ebc60faa4eef39af6ce675d3bb50be35eb9db75e394ada10",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/runtime.js",
+      "bytes": 3659,
+      "added": "116",
+      "removed": "0",
+      "sha256": "7ec257d68a73d19eaf499c9cd54b272ec470a61f47e2434be9822db0a4b3c4d7",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/src/ws.js",
+      "bytes": 6635,
+      "added": "192",
+      "removed": "171",
+      "sha256": "271916147aeab228b50dcd72f66db2756eec3e875e48d93644e98edf85b65e76",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "bytes": 10105,
+      "added": "325",
+      "removed": "0",
+      "sha256": "7f7e5c4585e07a94925c70702fceb8a05113456e6dc8c40afa7def37566cf35c",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/verify-m2c-architecture.mjs",
+      "bytes": 4214,
+      "added": "136",
+      "removed": "0",
+      "sha256": "d5cfbd1606ca28f7a0d1cddee922467825a2ef994b6151dc4857da6905a80386",
+      "hashConvention": "UTF8 LF"
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "bytes": 43173,
+      "added": "1381",
+      "removed": "0",
+      "sha256": "4c0c34f42ce9d587fc36952bc25bd95753c2c7d8a02ef1ff6ae8e9c3fe005cde",
+      "hashConvention": "UTF8 LF"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/aborted-browser-cleanup.json",
+      "bytes": 535
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/activation-preflight.json",
+      "bytes": 367
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/browser.json",
+      "bytes": 1813441
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/cleanup-independent.json",
+      "bytes": 352
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/document-check.json",
+      "bytes": 92
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/domain.json",
+      "bytes": 2230286
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/gates.json",
+      "bytes": 3147
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-empty.png",
+      "bytes": 34094
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-file-restored.png",
+      "bytes": 195810
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-image-preview.png",
+      "bytes": 196938
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-read-error.png",
+      "bytes": 39178
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-workbench-1280.png",
+      "bytes": 201886
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-workbench-1440.png",
+      "bytes": 204382
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-workbench-1920.png",
+      "bytes": 205732
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/process-readback.json",
+      "bytes": 262
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/prototype-subgates.json",
+      "bytes": 10155
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/scope-check.json",
+      "bytes": 6156
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/source-manifest.json",
+      "bytes": 14466
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-guide-browser.mjs.log.txt",
+      "bytes": 2903
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-guide-model.mjs.log.txt",
+      "bytes": 575
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-integrity.mjs.log.txt",
+      "bytes": 772
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m1-e2e.mjs.txt",
+      "bytes": 1511
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m1-layer.mjs.txt",
+      "bytes": 550
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b.mjs.txt",
+      "bytes": 1168
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b2-browser.mjs.txt",
+      "bytes": 2788
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b2-domain.mjs.txt",
+      "bytes": 730
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b2-model.mjs.txt",
+      "bytes": 442
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-architecture.mjs.txt",
+      "bytes": 850
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-browser.mjs.txt",
+      "bytes": 945
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-domain.mjs.txt",
+      "bytes": 2380
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-pg.mjs.txt",
+      "bytes": 10189
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-production.cjs.log.txt",
+      "bytes": 10294
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-prototype.mjs.txt",
+      "bytes": 717
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-scope7.mjs.log.txt",
+      "bytes": 2338
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-server-m2.mjs.txt",
+      "bytes": 2087
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-server.mjs.txt",
+      "bytes": 2062
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-static.mjs.log.txt",
+      "bytes": 78
+    }
+  ],
+  "deleted": 0
+}

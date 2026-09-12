@@ -93,7 +93,7 @@
         )}</nav><div class="header-right"><button class="search-box" data-action="search">${i('search')} 全局搜索 / 命令</button><button class="icon-btn" data-action="notifications" aria-label="通知">${i('bell')}${(() => {
         const unread = (P.s.notices || []).filter((n) => !n.read).length;
         return unread ? `<span class="bell-dot" title="${unread} 条未读">${unread}</span>` : '';
-      })()}</button><button class="demo-tag" data-action="scenarios">交互原型 · 场景切换</button><span class="data-mode-tag" data-action="data-mode" title="数据层模式：点击切换 本地存储 / Mock 服务端 / API 模式（M1 后段）">${(() => {
+      })()}</button><button class="demo-tag" data-action="${P.domainView?.pg()?'pg-info':'scenarios'}">${P.domainView?.pg()?'PG 持久化 · 对话/执行模拟':'交互原型 · 场景切换'}</button><span class="data-mode-tag" data-action="data-mode" title="数据层模式：点击切换 本地存储 / Mock 服务端 / API 模式（M1 后段）">${(() => {
         try {
           return window.PFCStore ? window.PFCStore.label() : '本地存储';
         } catch {
@@ -115,7 +115,7 @@
               '切换体验角色',
             )
           : '';
-    const blocked = P.stateView();
+    const blocked = P.domainView?.loadingView() || P.stateView();
     app.innerHTML =
       notice +
       (blocked ||
@@ -128,6 +128,7 @@
               : P.s.ui.route === 'delivery'
                 ? P.renderDelivery()
                 : P.renderGovernance()));
+    P.domainActions?.decorate();
     scrolls.forEach(([s, y, follow]) => {
       const el = document.querySelector(s);
       if (el) el.scrollTop = follow ? el.scrollHeight : y;
@@ -644,6 +645,7 @@
     parse();
     P.render();
   });
+  P.domainActions?.install();
   parse();
   P.render();
   P.save();

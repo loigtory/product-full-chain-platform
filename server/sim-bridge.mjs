@@ -20,19 +20,34 @@ const token = process.env.PFC_BRIDGE_TOKEN || args.token;
 const name = args.name || '模拟开发终端';
 
 if (!token) {
-  console.error('[sim-bridge] 缺少 --token <bridgeToken>（先 POST /api/bridges/pair 获取）');
+  console.error(
+    '[sim-bridge] 缺少 --token <bridgeToken>（先 POST /api/bridges/pair 获取）',
+  );
   process.exit(1);
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const ws = new WebSocket('ws://127.0.0.1:' + port + '/ws/bridge?token=' + encodeURIComponent(token));
-const jobs=new Map();
+const ws = new WebSocket(
+  'ws://127.0.0.1:' + port + '/ws/bridge?token=' + encodeURIComponent(token),
+);
+const jobs = new Map(),
+  dispatches = new Map(),
+  sequences = new Map();
+function send(event) {
+  const dispatchId = dispatches.get(event.runId);
+  if (dispatchId) {
+    const seq = (sequences.get(event.runId) || 0) + 1;
+    sequences.set(event.runId, seq);
+    event = { ...event, dispatchId, seq, eventId: dispatchId + ':' + seq };
+  }
+  ws.send(JSON.stringify(event));
+}
 let heartbeat;
 
 ws.onopen = () => {
-  ws.send(JSON.stringify({type:'bridge.hello',simulated:true}));
+  ws.send(JSON.stringify({ type: 'bridge.hello', simulated: true }));
   console.log('[sim-bridge] 已连接 ' + name + ' @ ws://127.0.0.1:' + port);
-  heartbeat=setInterval(() => {
+  heartbeat = setInterval(() => {
     if (ws.readyState === 1) ws.send(JSON.stringify({ type: 'heartbeat' }));
   }, 30000);
 };
@@ -44,13 +59,23 @@ ws.onmessage = async (ev) => {
   } catch {
     return;
   }
-  if(m.type==='job.cancel') {
-    jobs.set(m.runId,'cancelled');
-    ws.send(JSON.stringify({type:'job.cancelled',runId:m.runId}));return;
+  if (m.type === 'job.cancel') {
+    jobs.set(m.runId, 'cancelled');
+    send({ type: 'job.cancelled', runId: m.runId });
+    return;
   }
   if (m.type === 'job.start' && !jobs.has(m.runId)) {
-    jobs.set(m.runId,'running');
-    console.log('[sim-bridge] 收到 job.start runId=' + m.runId + ' reqId=' + m.reqId + ' operation=' + m.operation);
+    jobs.set(m.runId, 'running');
+    dispatches.set(m.runId, m.dispatchId);
+    sequences.set(m.runId, 0);
+    console.log(
+      '[sim-bridge] 收到 job.start runId=' +
+        m.runId +
+        ' reqId=' +
+        m.reqId +
+        ' operation=' +
+        m.operation,
+    );
     const lines = [
       { cls: 'cmd', text: m.operation + '：已连接工作区（git@main）' },
       { cls: 'info', text: '读取需求 ' + m.reqId + ' 与现有接口…' },
@@ -60,23 +85,26 @@ ws.onmessage = async (ev) => {
     ];
     for (let i = 0; i < lines.length; i++) {
       const l = lines[i];
-      if (ws.readyState !== 1 || jobs.get(m.runId)!=='running') return;
-      ws.send(JSON.stringify({ type: 'job.line', runId: m.runId, cls: l.cls, text: '[模拟 Bridge] '+l.text }));
-      ws.send(
-        JSON.stringify({
-          type: 'job.snapshot',
-          runId: m.runId,
-          stepNo: i + 1,
-          label: l.cls + ' ' + l.text,
-          snapshotRef: 'sim://run/' + m.runId + '/step' + (i + 1),
-        }),
-      );
+      if (ws.readyState !== 1 || jobs.get(m.runId) !== 'running') return;
+      send({
+        type: 'job.line',
+        runId: m.runId,
+        cls: l.cls,
+        text: '[模拟 Bridge] ' + l.text,
+      });
+      send({
+        type: 'job.snapshot',
+        runId: m.runId,
+        stepNo: i + 1,
+        label: l.cls + ' ' + l.text,
+        snapshotRef: 'sim://run/' + m.runId + '/step' + (i + 1),
+      });
       console.log('[sim-bridge] job.line ' + l.cls + ' ' + l.text);
       await sleep(600);
     }
-    if(ws.readyState!==1 || jobs.get(m.runId)!=='running') return;
-    jobs.set(m.runId,'done');
-    ws.send(JSON.stringify({ type: 'job.done', runId: m.runId, exitCode: 0 }));
+    if (ws.readyState !== 1 || jobs.get(m.runId) !== 'running') return;
+    jobs.set(m.runId, 'done');
+    send({ type: 'job.done', runId: m.runId, exitCode: 0 });
     console.log('[sim-bridge] job.done exit=0');
   }
 };

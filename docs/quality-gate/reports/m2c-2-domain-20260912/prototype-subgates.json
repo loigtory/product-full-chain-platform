@@ -1,0 +1,323 @@
+{
+  "status": "PASS",
+  "at": "2026-09-12T11:08:30.579Z",
+  "source": [
+    {
+      "path": "index.html",
+      "sha256": "ee72159a77baa419a677aef063c38d03760b3df2f20f5d70fbbf9eb8ee008f0b"
+    },
+    {
+      "path": "original/base.css",
+      "sha256": "26c7c1c77ba323b4509f9b6dfeec319db18c99abecb4cde920413bf1d5818e21"
+    },
+    {
+      "path": "original/guide.css",
+      "sha256": "84fe4aee8fd611330b94f510b9d9edbe262ddcd1586b64bda2cb822df5824e16"
+    },
+    {
+      "path": "original/data.js",
+      "sha256": "e613fdc1354b6d254466e7eccc4e326c2ebeedb8cebaeac21298ea8f775c10de"
+    },
+    {
+      "path": "original/data-layer.js",
+      "sha256": "d05715a3b5674cdff9dba054c6fae2aad3a8a2681b55632393eeffa55712a69a"
+    },
+    {
+      "path": "original/api-client.js",
+      "sha256": "c790353f62d5012220ee1ddc1a849b601f78ded468f9ae4360c28ede6eb93169"
+    },
+    {
+      "path": "original/ws-client.js",
+      "sha256": "74c53c5e29fa1774a9d7f4f0c64602d594f0ce072c6c944d94f85a1a6e18d809"
+    },
+    {
+      "path": "original/model.js",
+      "sha256": "e2e623ae351059a226a6ff6eb3d4398fe53b427bc397670c76065f32354d07d3"
+    },
+    {
+      "path": "original/domain-client.js",
+      "sha256": "5f85f5b1fb2bb57baddbcd37ca9db50295a739a4611649ec0b5eb2b3d24b7a84"
+    },
+    {
+      "path": "original/domain-view.js",
+      "sha256": "7a306e1e1a56bf390d6fc76701583371c7f161ac4cf19c1ffb884e1a74169c6e"
+    },
+    {
+      "path": "original/ui.js",
+      "sha256": "b7bcd639c240dd7e658150f0c8ac928b20d7142d6a7f6be40b09541d4f131e54"
+    },
+    {
+      "path": "original/workbench.js",
+      "sha256": "0462a9e1f4e730362ddb99af6264903bd2773ff28bcd0d00b5bb49077df227fe"
+    },
+    {
+      "path": "original/spaces.js",
+      "sha256": "2054a3b9b961f17b3a5b8a17e48381263356908d3d28084816bb34c0cc725baa"
+    },
+    {
+      "path": "original/governance.js",
+      "sha256": "442bab421923d8786333e795386ab46397b0e81ac1871ce949911e0cda945d3e"
+    },
+    {
+      "path": "original/actions.js",
+      "sha256": "95d75dda0133f4ee5d941f6e13fdad52f87a6b8d53c544204b4ca9dd9f550125"
+    },
+    {
+      "path": "original/run-actions.js",
+      "sha256": "356f7d1542460b6f8af6b56723fefcefbd175c1607086dcc33dfdf664a085033"
+    },
+    {
+      "path": "original/delivery-actions.js",
+      "sha256": "c6d0235e0ea418d226508dc8fea42c9509048f834171fa311178c45e87bff5b9"
+    },
+    {
+      "path": "original/governance-actions.js",
+      "sha256": "4dbd6aa26380274bb845ad197eaf1b751aa2f4a100e54c002e55bf56b865e1b8"
+    },
+    {
+      "path": "original/downloads.js",
+      "sha256": "a388ed6dbc75848cd335a90841f45bbc64e9d967cbe50681a145009056f637f6"
+    },
+    {
+      "path": "original/attachments.js",
+      "sha256": "39b8e9ea530242bbc69bb21533722018334d1f5712b0862b18ae3ab78f8250c8"
+    },
+    {
+      "path": "original/conversation.js",
+      "sha256": "01190b21a64b788afe5bacb85de6053f760058eeea0486d253ff52a25866fbf7"
+    },
+    {
+      "path": "original/domain-actions.js",
+      "sha256": "ced690144912425a1615e928dc4c1f6064c68d0f9a63ae23e94d087cfe5a0b9d"
+    },
+    {
+      "path": "original/domain-conversation.js",
+      "sha256": "b11a9642bf42fbcd5671b42e0abe02dffffa296a587498181f12556b9f707a3f"
+    },
+    {
+      "path": "original/app.js",
+      "sha256": "7660fbf65576cec934e025324c208d9f3e796d20cd86ea91c2b328d3689a6aa8"
+    }
+  ],
+  "sourceUnchanged": true,
+  "results": [
+    {
+      "script": "verify-static.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "syntaxScripts": 21,
+        "lintModules": 16,
+        "externalEntryAssets": 0
+      }
+    },
+    {
+      "script": "verify-integrity.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "checks": 8,
+        "results": [
+          {
+            "name": "stale-write-without-storage-event-preserves-new-record-and-local-draft",
+            "status": "PASS"
+          },
+          {
+            "name": "quota-error-does-not-increment-revision-or-claim-save",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-dev-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-test-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-accept-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-target-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "frozen-artifacts-tests-acceptance-and-relations-are-independent-copies",
+            "status": "PASS"
+          },
+          {
+            "name": "prototype-module-ownership-and-single-entry",
+            "status": "PASS"
+          }
+        ]
+      }
+    },
+    {
+      "script": "verify-guide-model.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "checks": 11,
+        "results": [
+          "stage-gates-and-version-immutability",
+          "cancel-verify-retry-terminal-integrity",
+          "authorization-capability-snapshot-and-unknown",
+          "development-test-release-observation-chain",
+          "expired-approval-and-baseline-invalidation",
+          "session-capability-overrides-do-not-change-team-policy",
+          "concurrent-window-conflict-prevents-writes-and-ticks",
+          "verification-preserves-observed-result-and-evidence",
+          "acceptance-rejection-requires-new-successful-run",
+          "invalid-storage-shape-is-rejected",
+          "late-old-baseline-result-does-not-overwrite-current-handoff"
+        ]
+      }
+    },
+    {
+      "script": "verify-production.cjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "passed": 46,
+        "failed": 0,
+        "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-YRniHj"
+      }
+    },
+    {
+      "script": "verify-guide-browser.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "results": [
+          {
+            "name": "01-original-entry-and-mirrors",
+            "status": "PASS"
+          },
+          {
+            "name": "02-new-requirement-full-lifecycle",
+            "status": "PASS"
+          },
+          {
+            "name": "03-cancel-unknown-verification-retry",
+            "status": "PASS"
+          },
+          {
+            "name": "04-input-scope-and-controller-handoff",
+            "status": "PASS"
+          },
+          {
+            "name": "05-version-edit-diff-conflict-and-immutability",
+            "status": "PASS"
+          },
+          {
+            "name": "06-material-scope-upload-impact",
+            "status": "PASS"
+          },
+          {
+            "name": "07-session-team-policy-and-readonly",
+            "status": "PASS"
+          },
+          {
+            "name": "08-search-route-drafts-keyboard",
+            "status": "PASS"
+          },
+          {
+            "name": "09-error-empty-reset-and-storage-isolation",
+            "status": "PASS"
+          },
+          {
+            "name": "10-team-capability-workspace-bridge-and-audit",
+            "status": "PASS"
+          },
+          {
+            "name": "11-verification-outcomes-and-mcp-evidence",
+            "status": "PASS"
+          },
+          {
+            "name": "12-acceptance-rejection-rework-release-expiry-and-rollback",
+            "status": "PASS"
+          },
+          {
+            "name": "13-three-width-reference-and-navigation",
+            "status": "PASS"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-d38jjk",
+        "environment": "Windows / project Node / isolated Edge / blocked page HTTP(S)",
+        "data": "CODEx_TEST_GUIDE; deterministic local prototype factory; isolated context destroyed"
+      }
+    },
+    {
+      "script": "verify-scope7.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "results": [
+          {
+            "name": "01-multi-cap-orchestration",
+            "status": "PASS"
+          },
+          {
+            "name": "02-binary-structure-and-scope-reference",
+            "status": "PASS"
+          },
+          {
+            "name": "03-cross-stage-session-and-long-collapse",
+            "status": "PASS"
+          },
+          {
+            "name": "04-control-lease-and-bridge-revoke",
+            "status": "PASS"
+          },
+          {
+            "name": "05-capacity-and-budget",
+            "status": "PASS"
+          },
+          {
+            "name": "06-role-revocation-reassign-hint",
+            "status": "PASS"
+          },
+          {
+            "name": "07-project-loading",
+            "status": "PASS"
+          },
+          {
+            "name": "08-absorb-plan-gates-replay",
+            "status": "PASS"
+          },
+          {
+            "name": "09-absorb-knowledge-protocol",
+            "status": "PASS"
+          },
+          {
+            "name": "10-absorb-cicd-audit-export",
+            "status": "PASS"
+          },
+          {
+            "name": "11-absorb-taskpool-metrics-playbook",
+            "status": "PASS"
+          },
+          {
+            "name": "12-absorb-notices-plugins",
+            "status": "PASS"
+          }
+        ],
+        "errors": [],
+        "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-2HSVNm",
+        "environment": "Windows / project Node / isolated Edge / blocked page HTTP(S)",
+        "data": "deterministic local prototype factory; isolated context destroyed"
+      }
+    }
+  ],
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-JMcTjm",
+  "data": "CODEx_TEST_ synthetic deterministic factories; isolated browser contexts closed; no external calls or database writes",
+  "scope": "Original standalone prototype only; project Quick/Core/Full and business acceptance are separate"
+}

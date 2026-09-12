@@ -244,7 +244,7 @@
       form(
         P.field('name', '材料名称') +
           P.field('content', '文本内容 / 来源说明', '', 'textarea') +
-          `<label class="form-field" for="material-file"><span>可选附件（最大 10 MB）</span><input id="material-file" type="file" accept=".txt,.md,.pdf,.docx,.png,.jpg,.jpeg"><small>原型仅在当前浏览器保留文本预览或文件元信息，不上传。PDF / Word 解析属于正式接入。</small></label>` +
+          `<label class="form-field" for="material-file"><span>可选附件（最大 10 MB）</span><input id="material-file" type="file" accept=".txt,.md,.pdf,.docx,.png,.jpg,.jpeg"><small>${P.domainView?.pg()?'PG 模式保存服务端原件，可在重启后下载；PDF / Word 尚未解析。':'原型仅在当前浏览器保留文本预览或文件元信息，不上传。PDF / Word 解析属于正式接入。'}</small></label>` +
           P.select(
             'classification',
             '材料级别',

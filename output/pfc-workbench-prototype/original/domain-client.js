@@ -30,6 +30,7 @@
     run.rejectedReason = data.plan?.rejectedReason || null;
     run.replay = (data.replay || []).map(s => ({...s,at:s.stepNo,files:s.snapshotRef ? [s.snapshotRef] : []}));
     run.lease = data.lease || {controller:'Web',deviceId:raw.bridgeId || null,deviceName:raw.bridgeName || '未绑定',state:'unknown'};
+    if(P.domainView?.pg())run.controller=data.lease?.controller?({web:'Web',bridge:'模拟 Bridge',zed:'Zed（模拟）'}[data.lease.controller]||'未识别'):'Web（观察）';
     if (data.qualityGates?.length) run.qualityGates = data.qualityGates.map(g => ({id:g.gateId,name:g.name,status:({pass:'通过',fail:'失败'})[g.status] || '待执行',evidenceRef:g.evidenceRef}));
     P.s.seq = Math.max(P.s.seq, Number(raw.id.replace(/^R-/,'')) || 0);
     if (select) { P.s.ui.runId=run.id; P.s.ui.panel='terminal'; }
@@ -56,6 +57,7 @@
     items.forEach(data=>D.merge(data)); D.render();
   };
   D.sync = async () => {
+    if(P.domainView?.pg())return P.domainView.sync();
     const {items} = await api().req('GET','/api/reqs');
     for (const item of items) {
       const {req: remote} = await api().req('GET','/api/reqs/'+item.id);
@@ -74,6 +76,7 @@
     await D.syncRuns();
   };
   D.confirm = async (req,stage,id) => {
+    if(P.domainView?.pg())return P.domainActions.confirm(req,stage,id);
     P.write();
     const v=P.latest(req,stage);
     P.assert(v.id===id,'版本已更新，请比较最新内容。');
@@ -84,6 +87,7 @@
     P.confirmVersion(req,stage,id); D.render();
   };
   D.advance = async (req) => {
+    if(P.domainView?.pg())return P.domainActions.advance(req);
     P.write(); P.current(req);
     P.assert(!P.blockers(req).length,P.blockers(req).join('；'));
     P.assert(P.index(req.stage)<6,'请使用当前阶段的发布或复盘操作。');
@@ -94,6 +98,7 @@
   };
   let submitting = false;
   D.submitPlan = async (reject = false) => {
+    if(P.domainView?.pg())return P.domainActions.submitPlan(reject);
     P.assert(!submitting,'正在提交计划，请等待返回');
     P.write();
     const intent=P.domainPlan, req=P.r();

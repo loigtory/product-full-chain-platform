@@ -6,7 +6,8 @@ function storageError(code) {
 }
 function validateTarget({ connectionString, schema, authorizedSchema } = {}) {
   if (
-    !/^codex_test_m2c_[a-z0-9_]{1,40}$/.test(schema || '') ||
+    (!/^codex_test_m2c_[a-z0-9_]{1,40}$/.test(schema || '') &&
+      schema !== 'pfc_workbench') ||
     schema !== authorizedSchema
   ) {
     throw storageError('SCHEMA_NOT_AUTHORIZED');
@@ -60,13 +61,15 @@ async function openDatabase(options = {}) {
     idleTimeoutMillis: 1000,
     statement_timeout: statementTimeout,
     idle_in_transaction_session_timeout: 5000,
-    application_name: 'pfc-m2c-storage-test',
+    application_name:
+      schema === 'pfc_workbench' ? 'pfc-workbench' : 'pfc-m2c-storage-test',
   });
   pool.on('error', () => {}); // Idle failures are not fatal to the process; every subsequent query still fails explicitly.
   let closed = false;
   const db = Object.freeze({
     mode: 'pg',
     schema,
+    targetVersion: options.targetVersion || '001',
     pool,
     assertScope() {
       if (closed) throw storageError('DATABASE_CLOSED');

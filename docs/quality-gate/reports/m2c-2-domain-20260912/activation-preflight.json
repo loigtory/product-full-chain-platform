@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-12T11:11:29.554Z",
+  "status": "EMPTY_TARGET_NO_WRITES",
+  "server": {
+    "db": "pfc_local",
+    "role": "pfc_app_local",
+    "listen": "127.0.0.1",
+    "version": "180006"
+  },
+  "schema": [],
+  "tables": [],
+  "files": {
+    "path": ".local/pfc-workbench-files",
+    "exists": false
+  },
+  "writes": 0,
+  "businessActivation": "NOT_AUTHORIZED"
+}

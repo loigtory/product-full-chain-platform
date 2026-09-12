@@ -1,0 +1,20 @@
+{
+  "at": "2026-09-12T11:40:42.455Z",
+  "schemas": [
+    {
+      "name": "codex_test_m2c_20260912_domain",
+      "exists": false
+    },
+    {
+      "name": "codex_test_m2c_20260912_storage",
+      "exists": false
+    },
+    {
+      "name": "pfc_workbench",
+      "exists": false
+    }
+  ],
+  "testFilesRemaining": 0,
+  "writes": 0,
+  "status": "PASS"
+}

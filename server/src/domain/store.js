@@ -24,7 +24,17 @@ const S = {
   notices: [], // {id, title, kind, req, read, at}
   audit: [], // {id, actor, action, detail, at}
   leases: new Map(), // runId -> {controller, deviceId, deviceName, state, acquiredAt}
-  seq: { req: 1040, ver: 1, mat: 1, q: 1, msg: 1, run: 100, rel: 1, n: 100, a: 100 },
+  seq: {
+    req: 1040,
+    ver: 1,
+    mat: 1,
+    q: 1,
+    msg: 1,
+    run: 100,
+    rel: 1,
+    n: 100,
+    a: 100,
+  },
   seeded: false,
 };
 
@@ -35,6 +45,8 @@ function nextId(prefix) {
 
 /* 从状态树种子导入（M1 前端工厂数据 → 领域模型），保证数据连续 */
 async function seedFromState() {
+  if (require('../runtime').isPg())
+    require('../access').fail('DOMAIN_WRITE_REQUIRED', 409);
   if (S.seeded) return;
   const state = await db.getState();
   if (S.seeded) return;
@@ -110,7 +122,12 @@ async function seedFromState() {
     S.runs.set(run.id, {
       id: run.id,
       reqId: run.reqId || 'R-1042',
-      status: run.status === 'SUCCEEDED' ? 'SUCCEEDED' : run.status === 'RUNNING' ? 'RUNNING' : 'QUEUED',
+      status:
+        run.status === 'SUCCEEDED'
+          ? 'SUCCEEDED'
+          : run.status === 'RUNNING'
+            ? 'RUNNING'
+            : 'QUEUED',
       step: run.step || 0,
       pct: run.pct || 0,
       controller: run.controller || 'web',
@@ -131,12 +148,20 @@ async function seedFromState() {
       });
     }
     if (run.qualityGates) {
-      S.qualityGates.set(run.id, run.qualityGates.map((g) => ({
-        gateId: g.id,
-        name: g.name,
-        status: g.status === '通过' ? 'pass' : g.status === '待执行' ? 'pending' : 'pending',
-        evidenceRef: null,
-      })));
+      S.qualityGates.set(
+        run.id,
+        run.qualityGates.map((g) => ({
+          gateId: g.id,
+          name: g.name,
+          status:
+            g.status === '通过'
+              ? 'pass'
+              : g.status === '待执行'
+                ? 'pending'
+                : 'pending',
+          evidenceRef: null,
+        })),
+      );
     }
   }
   for (const n of state.notices || []) S.notices.push({ ...n });
@@ -145,7 +170,7 @@ async function seedFromState() {
 
 function pushAudit(actor, action, detail) {
   S.audit.push({
-    id: 'A-' + (++S.seq.a),
+    id: 'A-' + ++S.seq.a,
     actor,
     action,
     detail,
@@ -155,7 +180,7 @@ function pushAudit(actor, action, detail) {
 
 function pushNotice(title, kind, req) {
   S.notices.unshift({
-    id: 'NT-' + (++S.seq.n),
+    id: 'NT-' + ++S.seq.n,
     title,
     kind,
     req: req || null,

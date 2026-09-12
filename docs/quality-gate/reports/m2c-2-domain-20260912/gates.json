@@ -1,0 +1,106 @@
+[
+  {
+    "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 78590,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-prototype.mjs.txt"
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 4501,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-m1-layer.mjs.txt"
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 4367,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-m1-e2e.mjs.txt"
+  },
+  {
+    "command": "node server/verify-server.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 632,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-server.mjs.txt"
+  },
+  {
+    "command": "node server/verify-server-m2.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 724,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-server-m2.mjs.txt"
+  },
+  {
+    "command": "node server/verify-m2b.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 6726,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-m2b.mjs.txt"
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 89,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-m2b2-model.mjs.txt"
+  },
+  {
+    "command": "node server/verify-m2b2-domain.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 171,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-m2b2-domain.mjs.txt"
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 12960,
+    "environment": "loopback memory; empty DATABASE_URL",
+    "evidence": "verify-m2b2-browser.mjs.txt"
+  },
+  {
+    "command": "node server/verify-m2c-pg.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 1882,
+    "environment": "exact isolated local target or read-only architecture",
+    "evidence": "verify-m2c-pg.mjs.txt"
+  },
+  {
+    "command": "node server/verify-m2c-architecture.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 126,
+    "environment": "exact isolated local target or read-only architecture",
+    "evidence": "verify-m2c-architecture.mjs.txt"
+  },
+  {
+    "command": "node server/verify-m2c-domain.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 13150,
+    "environment": "exact codex_test_m2c_20260912_domain and owned files",
+    "evidence": "verify-m2c-domain.mjs.txt"
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "durationMs": 14171,
+    "environment": "exact isolated local PG and owned browser files",
+    "evidence": "verify-m2c-browser.mjs.txt"
+  }
+]

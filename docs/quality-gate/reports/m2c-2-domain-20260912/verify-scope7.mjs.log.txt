@@ -1,0 +1,25 @@
+{"case":"01-multi-cap-orchestration","phase":"start"}
+{"case":"01-multi-cap-orchestration","status":"PASS"}
+{"case":"02-binary-structure-and-scope-reference","phase":"start"}
+{"case":"02-binary-structure-and-scope-reference","status":"PASS"}
+{"case":"03-cross-stage-session-and-long-collapse","phase":"start"}
+{"case":"03-cross-stage-session-and-long-collapse","status":"PASS"}
+{"case":"04-control-lease-and-bridge-revoke","phase":"start"}
+{"case":"04-control-lease-and-bridge-revoke","status":"PASS"}
+{"case":"05-capacity-and-budget","phase":"start"}
+{"case":"05-capacity-and-budget","status":"PASS"}
+{"case":"06-role-revocation-reassign-hint","phase":"start"}
+{"case":"06-role-revocation-reassign-hint","status":"PASS"}
+{"case":"07-project-loading","phase":"start"}
+{"case":"07-project-loading","status":"PASS"}
+{"case":"08-absorb-plan-gates-replay","phase":"start"}
+{"case":"08-absorb-plan-gates-replay","status":"PASS"}
+{"case":"09-absorb-knowledge-protocol","phase":"start"}
+{"case":"09-absorb-knowledge-protocol","status":"PASS"}
+{"case":"10-absorb-cicd-audit-export","phase":"start"}
+{"case":"10-absorb-cicd-audit-export","status":"PASS"}
+{"case":"11-absorb-taskpool-metrics-playbook","phase":"start"}
+{"case":"11-absorb-taskpool-metrics-playbook","status":"PASS"}
+{"case":"12-absorb-notices-plugins","phase":"start"}
+{"case":"12-absorb-notices-plugins","status":"PASS"}
+{"status":"PASS","results":[{"name":"01-multi-cap-orchestration","status":"PASS"},{"name":"02-binary-structure-and-scope-reference","status":"PASS"},{"name":"03-cross-stage-session-and-long-collapse","status":"PASS"},{"name":"04-control-lease-and-bridge-revoke","status":"PASS"},{"name":"05-capacity-and-budget","status":"PASS"},{"name":"06-role-revocation-reassign-hint","status":"PASS"},{"name":"07-project-loading","status":"PASS"},{"name":"08-absorb-plan-gates-replay","status":"PASS"},{"name":"09-absorb-knowledge-protocol","status":"PASS"},{"name":"10-absorb-cicd-audit-export","status":"PASS"},{"name":"11-absorb-taskpool-metrics-playbook","status":"PASS"},{"name":"12-absorb-notices-plugins","status":"PASS"}],"errors":[],"evidence":"C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-2HSVNm","environment":"Windows / project Node / isolated Edge / blocked page HTTP(S)","data":"deterministic local prototype factory; isolated context destroyed"}

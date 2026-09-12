@@ -1,0 +1,38 @@
+PASS 001 to 002 and repeated migration
+PASS PG empty startup and snapshot write barriers
+PASS HTTP create atomically persists version questions material audit event
+PASS cross-process restart retains exact HTTP domain facts
+PASS command receipt survives restart and rejects altered body
+PASS identity is server configured and tenant scoped
+PASS unanswered question blocks confirmation
+PASS answer and new idea version persist together
+PASS stale two-client edit conflicts without half writes
+PASS ordered stage transition creates only current draft
+PASS file original stored and independently hashed
+PASS same hash deduplicates and download requires ownership
+PASS DB failure after file write removes only unreferenced owned bytes
+PASS exact 10 MiB files and 50 MiB logical message limit use original binary bytes
+PASS persistent simulated conversation with versioned attachment
+PASS stop and resend preserve message relationships
+PASS restart interrupts unfinished reply and keeps attachment bytes
+PASS plan approval gates start and persists dispatch identity
+PASS bridge durable line and cancel late done cannot become success
+PASS personal notice read does not change another account
+PASS all domain output survives server restart
+PASS two simultaneous command retries produce one requirement
+PASS all write families enforce viewer role and actor cannot be forged
+PASS file and reference boundaries reject before successful persistence
+PASS unavailable file directory rolls back metadata and receipt
+PASS row lock timeout reports 503 and original command safely retries
+PASS material version invalidates plan and old reference but retains original
+PASS review needs changes withdraws approval and invalidates downstream
+PASS controlled simulated Bridge completion replay and quality record persist
+PASS HTTP and WebSocket channel roles reject bridge and viewer escalation
+PASS dispatch retry does not resend and lease acquisition has one winner
+PASS bridge identity sequence idempotency and bounded history
+PASS restart turns unresolved run UNKNOWN and lease lost without dispatch
+PASS migration readiness detects checksum column and constraint corruption
+PASS rolled back event and version never appear as committed
+PASS quota and fail-closed startup configuration
+{"cleanup":{"remaining":0,"rows":1030,"filesRemaining":0,"processesRemaining":0}}
+{"status":"PASS","tests":36}
