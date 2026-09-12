@@ -123,7 +123,8 @@ function init(server) {
       if (!assigned || assigned.bridgeId !== bridgeId || !['RUNNING', 'CANCELLING'].includes(assigned.status)) return;
       if (m.type === 'job.cancelled' && assigned.status === 'CANCELLING') {
         assigned.status = 'CANCELLED';
-        broadcast('run.status', { runId: assigned.id, reqId: assigned.reqId, status: assigned.status });
+        assigned.revision++;
+        broadcast('run.status', { runId: assigned.id, reqId: assigned.reqId, status: assigned.status, revision:assigned.revision });
         return;
       }
       if (assigned.status === 'CANCELLING') return;
@@ -158,9 +159,10 @@ function init(server) {
         const run = S.runs.get(m.runId);
         if (run) {
           run.status = 'FAILED';
+          run.revision++;
           pushAudit('Bridge:' + name, '作业失败', m.runId + '：' + (m.message || ''));
         }
-        broadcast('run.status', { runId: m.runId, status: 'FAILED' });
+        broadcast('run.status', { runId: m.runId, reqId: run.reqId, status: 'FAILED', revision:run.revision });
       }
     });
 
@@ -170,7 +172,8 @@ function init(server) {
       for (const run of S.runs.values()) {
         if (run.bridgeId !== bridgeId || !['RUNNING', 'CANCELLING'].includes(run.status)) continue;
         run.status = 'UNKNOWN';
-        broadcast('run.status', {runId:run.id, reqId:run.reqId, status:'UNKNOWN'});
+        run.revision++;
+        broadcast('run.status', {runId:run.id, reqId:run.reqId, status:'UNKNOWN', revision:run.revision});
       }
       broadcast('bridge.status', { bridgeId, name, status: 'OFFLINE' });
     });

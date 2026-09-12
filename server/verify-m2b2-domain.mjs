@@ -49,5 +49,14 @@ await check('offline simulation readback and repeated start are stable', async (
   assert.equal(r.exitCode,0); assert.equal(r.executionMode,'server-simulation');
   assert.match(S.lines.get(r.id)[0].text,/模拟/);
 });
+await check('cancel advances revision and repeated cancel preserves the terminal result',async()=>{
+  const r=(await svc.createRun({reqId:req.id})).run;
+  const before=r.revision;
+  await svc.cancelRun(r.id);
+  assert.equal(r.status,'CANCELLED');assert.ok(r.revision>before);
+  const snapshot=JSON.stringify(await svc.getRun(r.id));
+  await svc.cancelRun(r.id);
+  assert.equal(JSON.stringify(await svc.getRun(r.id)),snapshot);
+});
 console.log(JSON.stringify({status:results.every(r=>r.status==='PASS')?'PASS':'FAIL',checks:results.length,results,data:prefix,cleanup:'process-local memory discarded on exit'}));
 process.exitCode=results.some(r=>r.status==='FAIL')?1:0;

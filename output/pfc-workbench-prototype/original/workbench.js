@@ -106,7 +106,7 @@
     );
   };
   P.terminal = (r, run, panel = false) =>
-    `<div class="${panel ? 'panel-term' : 'term-box'}" id="${panel ? 'panel-term' : 'mirror-term'}"><div class="t-head">${i('terminal')} ${e(run?.id || '尚未发起作业')} · ${e(r.workspace)} · ${e(run?.controller || 'Web')}</div>${run ? run.lines.map((l) => `<div class="term-line"><span class="${l.cls}">${e(l.text)}</span></div>`).join('') : '<div class="term-line">连接本地 Bridge 后，命令输出会在这里同步。</div>'}${run?.status === 'RUNNING' ? '<span class="term-cursor"></span>' : ''}<div class="source-note">${e(run ? P.labels[run.status] : '未开始')} · ${run?.exitCode === null || run?.exitCode === undefined ? '尚无退出码' : 'exit ' + run.exitCode} · 原型模拟输出</div></div>`;
+    `<div class="${panel ? 'panel-term' : 'term-box'}" id="${panel ? 'panel-term' : 'mirror-term'}"><div class="t-head">${i('terminal')} ${e(run?.id || '尚未发起作业')} · ${e(r.workspace)} · ${e(run?.controller || 'Web')}</div>${run ? run.lines.map((l) => `<div class="term-line"><span class="${l.cls}">${e(l.text)}</span></div>`).join('') : '<div class="term-line">连接本地 Bridge 后，命令输出会在这里同步。</div>'}${run?.status === 'RUNNING' ? '<span class="term-cursor"></span>' : ''}<div class="source-note">${e(run ? P.labels[run.status] : '未开始')} · ${run?.exitCode === null || run?.exitCode === undefined ? '尚无退出码' : 'exit ' + run.exitCode} · ${e(run?._remote ? P.domain.source(run) : '原型模拟输出')}${run?._remote && window.PFCWS?.state !== 'connected' ? ' · 实时连接已断开，显示最后已知结果' : ''}</div></div>`;
   P.runCard = (r) => {
     const run = P.run(r);
     if (!run)
@@ -140,11 +140,11 @@
       });
     if (['CANCELLED', 'FAILED'].includes(run.status) && run.verified)
       controls += b('plan-retry', '创建新尝试', { id: run.id }, 'primary');
-    if (run.status === 'WAITING_INPUT')
+    if (!run._remote && run.status === 'WAITING_INPUT')
       controls += b('run-input', '补充输入', {}, 'primary');
-    if (run.status === 'WAITING_APPROVAL')
+    if (!run._remote && run.status === 'WAITING_APPROVAL')
       controls += b('scope-approval', '查看新增范围', {}, 'primary');
-    if (['RUNNING', 'WAITING_INPUT'].includes(run.status))
+    if (!run._remote && ['RUNNING', 'WAITING_INPUT'].includes(run.status))
       controls += b(
         'run-control',
         run.controller === 'Web' ? '交给 Zed 控制' : '取回 Web 控制',
@@ -157,8 +157,8 @@
     if (run.status === 'SUCCEEDED')
       controls +=
         b('plan-run', '发起新作业', {}, 'primary') +
-        b('preview-toggle', run.preview ? '停止本地预览' : '启动本地预览');
-    if (run.preview) controls += b('preview-open', '查看预览');
+        (run._remote ? '' : b('preview-toggle', run.preview ? '停止本地预览' : '启动本地预览'));
+    if (!run._remote && run.preview) controls += b('preview-open', '查看预览');
     const history = `<div class="run-list">${r.runs.map((x) => b('select-run', e(x.id), { id: x.id }, x.id === run.id ? 'primary' : '')).join('')}</div>`;
     const pool = (() => {
       const all = Object.values(P.s.reqs).flatMap((q) =>
@@ -204,7 +204,7 @@
       card(
         i('cpu') + ' AgentRun #' + e(run.id),
         `<p class="muted">${e(run.operation)} · ${e(r.workspace)} · 控制端 ${e(run.controller)}${run.parentId ? ' · 关联旧作业 ' + e(run.parentId) : ''}</p>` +
-          `<div class="kv-row"><span>仓库</span><b>${e(git.repo)}</b></div><div class="kv-row"><span>分支 / 提交</span><b>${e(git.branch)} · ${e(git.commit)} ${git.dirty ? badge('dirty', 'orange') : badge('干净', 'green')}</b></div><div class="kv-row"><span>队列 / 预算</span><b>${queueLine} · 预算 ${Number(run.budget || 8000).toLocaleString()} 积分 · 已用 ${Number(run.spent ?? Math.round(((run.pct || 0) / 100) * (run.budget || 8000))).toLocaleString()}</b></div><div class="kv-row"><span>控制 / 设备 / 租约</span><b>${e(run.controller)} 控制 · ${e(run.lease?.deviceName || '未绑定')} · ${run.lease?.state === 'lost' ? badge('租约失效', 'red') : run.lease?.state === 'active' ? badge('租约有效', 'green') : badge('租约未知', 'gray')}</b></div><div class="kv-row"><span>计划审批</span><b>${run.planApproved?.by ? badge('已批准 · ' + e(run.planApproved.by), 'green') : badge('未批准', 'orange')}</b></div>` +
+          `<div class="kv-row"><span>仓库</span><b>${e(git.repo)}</b></div><div class="kv-row"><span>分支 / 提交</span><b>${e(git.branch)} · ${e(git.commit)} ${git.dirty === null || git.dirty === undefined ? badge('工作区待核验', 'gray') : git.dirty ? badge('dirty', 'orange') : badge('干净', 'green')}</b></div><div class="kv-row"><span>队列 / 预算</span><b>${run._remote ? '未接入真实计量' : queueLine + ' · 预算 ' + Number(run.budget || 8000).toLocaleString() + ' 积分 · 已用 ' + Number(run.spent ?? Math.round(((run.pct || 0) / 100) * (run.budget || 8000))).toLocaleString()}</b></div><div class="kv-row"><span>控制 / 设备 / 租约</span><b>${e(run.controller)} 控制 · ${e(run.lease?.deviceName || '未绑定')} · ${run.lease?.state === 'lost' ? badge('租约失效', 'red') : run.lease?.state === 'active' ? badge('租约有效', 'green') : badge('租约未知', 'gray')}</b></div><div class="kv-row"><span>计划审批</span><b>${run.planApproved?.by ? badge('已批准 · ' + e(run.planApproved.by), 'green') : badge('未批准', 'orange')}</b></div>` +
           (run.qualityGates?.length
             ? `<div class="rail-title">质量门（客观检查）</div><div class="gate-list">${run.qualityGates
                 .map(

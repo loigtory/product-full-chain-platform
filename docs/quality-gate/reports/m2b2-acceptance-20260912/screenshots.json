@@ -1,0 +1,47 @@
+[
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/cancelled.png",
+    "bytes": 247931,
+    "sha256": "2c118f7f52a4bd2358240c0b6eff70f89352311398b7c9b2548d4dcc3c8beded"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/complete-1280.png",
+    "bytes": 208834,
+    "sha256": "cf1ebdc616af144d2b2567f8c27f0e9cd3204999577dbe9312038f4b53f86b2b"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/complete-1440.png",
+    "bytes": 214595,
+    "sha256": "5fd00a40af8f9160842caa6e02bfc8127b79df297c62070ac1917986a819b616"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/complete-1920.png",
+    "bytes": 212849,
+    "sha256": "e860ea80e2c1f895d53253db00d8ac169d14bc1d299ba5577d70f5fe47bcf9d6"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/long-output.png",
+    "bytes": 242303,
+    "sha256": "a023ea4a5240dab9817582e63fb19af72f67d13c9b22cb63f78659ebcf90ef99"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/rejected.png",
+    "bytes": 191387,
+    "sha256": "594be00bfda885ad488e69ce57e3d17e24bd2283e56dd9610041d049b237dd1a"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/running-1440.png",
+    "bytes": 217055,
+    "sha256": "bc87e2a7b697b8e108ab6f2d87d261d5f39f9ec2f1783826679820f78d2de8c4"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/running-dual-1440.png",
+    "bytes": 187894,
+    "sha256": "545f32c3f2fe888423fece5e44024b3afae97c6353e825f8e4f0616c698b072a"
+  },
+  {
+    "path": "output/playwright/m2b2-acceptance-20260912/unknown.png",
+    "bytes": 193829,
+    "sha256": "71f911b7d74e8ca17dbbbfffbad80df001f715285d8d0832efc4d2535787d205"
+  }
+]

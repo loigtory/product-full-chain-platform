@@ -69,7 +69,8 @@
             '#mirror-term',
           ].map((s) => {
             const el=document.querySelector(s);
-            return [s,el?.scrollTop || 0,!!el && ['#panel-term','#mirror-term'].includes(s) && el.scrollHeight-el.clientHeight-el.scrollTop<32];
+            const terminalScroll = ['#panel-term','#mirror-term'].includes(s) || (s === '.panel-body' && P.s.ui.panel === 'terminal');
+            return [s,el?.scrollTop || 0,!!el && terminalScroll && el.scrollHeight-el.clientHeight-el.scrollTop<32];
           })
         : [];
     const focus = document.activeElement,
@@ -355,6 +356,7 @@
       P.assert(q, '先创建需求');
       let run = P.run(q);
       P.assert(run, '先发起一次作业');
+      P.assert(!run._remote, '领域作业状态由服务端回读；请在 local/mock 模式体验异常场景');
       if (['SUCCEEDED', 'CANCELLED', 'FAILED'].includes(run.status)) {
         run = {
           ...P.clone(run),

@@ -1,20 +1,21 @@
 # PFC 原版交互原型
 
-当前主线（2026-09-12）：`index.html` + `original/` 原生 JS 前端，以及仓库根 `server/` Express 后端。后续开发按以下三份交接资料一起阅读：
+当前主线（2026-09-12）：`index.html` + `original/` 原生 JS 前端，以及仓库根 `server/` Express 后端。后续开发按以下交接资料一起阅读（19/20/21/23/24）：
 
 | 当前入口 | 用途 |
 | --- | --- |
 | [19 · 开发路线图](../../docs/planning/prototype-v3/19-开发路线图-20260912.md) | 确认的阶段范围与 M2c 后续路径 |
 | [20 · M2b-2 交接任务](../../docs/planning/prototype-v3/20-Codex交接提示词-20260912.md) | 本轮动作切 API、实时终端与验收标准 |
-| [21 · 实施中检查点](../../docs/planning/prototype-v3/21-M2b-2前端切领域API-20260912.md) | 已有部分实现；模型 4/4、领域 7/7 通过，完整 UI 验收和额外接口范围待确认 |
+| [21 · 实施中检查点](../../docs/planning/prototype-v3/21-M2b-2前端切领域API-20260912.md) | 历史实施草稿：当时模型 4/4、领域 7/7；后续收尾结果转 24 号 |
 | [22 · 主线收口清单](../../docs/planning/prototype-v3/22-主线收口与历史代码整理建议-20260912.md) | 归档路径、保留资产、整理结果 |
 | [23 · Codex 防走偏协议](../../docs/planning/prototype-v3/23-Codex防走偏协议-20260912.md) | 每轮 Codex 会话的固定开局、范围锁、提交纪律、验收闸、差异评审、文档续编 |
+| [24 · M2b-2 验收收尾](../../docs/planning/prototype-v3/24-M2b-2验收收尾-20260912.md) | 本轮范围、实测修复、验证输出和人工评审状态 |
 
 打开 [当前原型](index.html)，保留同目录 `original/`。local/mock 模式使用浏览器数据；API 模式连接 `server/`，默认 `127.0.0.1:5188`。本轮联调明确设置 `PFC_DB=memory` 并清空 `DATABASE_URL`；模拟 Bridge 只验证协议与输出，不执行真实 Shell、Codex 或 Zed 工作区命令。服务端进程重启会丢失内存领域数据。
 
 前期 `apps/`、`packages/` 及根工程脚本原位保留，适用其原有规则；它们不是本次交接的默认开发入口。根依赖继续为当前原型提供 ESLint、Playwright 等测试工具。旧 V3 已移至 [历史参考归档](../../archive/prototype-v3-reference-20260912/README.md)，不再作为当前入口；`_backup/`、其他历史验证脚本和截图保留原位。
 
-当前原型读取 18 个 JS，包含 21 号的 `domain-client.js` 实施草稿。本次目录整理没有批准额外 API 范围或完成 M2b-2 验收；进度以 21 号为准，不能只读取历史 PASS 或“完成”标记。
+当前原型读取 18 个 JS，包含 `domain-client.js`。21 号保留草稿历史，24 号记录用户已同意的验收收尾。目录整理本身不授权接口扩展；当前验证与待人工评审状态见 24 号。
 
 当前回归命令（仓库根目录，使用已安装依赖）：
 
@@ -26,6 +27,9 @@ node output/pfc-workbench-prototype/verify-m1-e2e.mjs
 node server/verify-server.mjs
 node server/verify-server-m2.mjs
 node server/verify-m2b.mjs
+node output/pfc-workbench-prototype/verify-m2b2-model.mjs
+node server/verify-m2b2-domain.mjs
+node output/pfc-workbench-prototype/verify-m2b2-browser.mjs
 ```
 
 独立浏览器与内存测试只证明对应交互/协议。PostgreSQL 集成、真实工具执行、业务验收与发布分别需要自己的证据。

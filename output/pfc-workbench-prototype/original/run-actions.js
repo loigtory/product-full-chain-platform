@@ -205,6 +205,7 @@
   };
   A['confirm-verification'] = () => {
     const f = P.form();
+    P.assert(!P.run(r())?._remote, '领域作业只能回读服务端结果');
     commit(() => {
       P.run(r()).verificationResult = f.observed;
       P.runControl(r(), 'verify');
@@ -236,6 +237,7 @@
   A['preview-toggle'] = () =>
     commit(() => {
       const run = P.run(r());
+      P.assert(!run?._remote, '领域作业尚未提供真实预览地址');
       P.assert(run?.status === 'SUCCEEDED', '先完成当前作业');
       run.preview = !run.preview;
       P.log(

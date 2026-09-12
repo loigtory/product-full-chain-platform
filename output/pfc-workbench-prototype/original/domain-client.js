@@ -29,7 +29,7 @@
     run.planApproved = data.plan?.approvedAt ? {by:data.plan.approvedBy,at:data.plan.approvedAt,plan:data.plan.plan} : null;
     run.rejectedReason = data.plan?.rejectedReason || null;
     run.replay = (data.replay || []).map(s => ({...s,at:s.stepNo,files:s.snapshotRef ? [s.snapshotRef] : []}));
-    run.lease = data.lease || {controller:'Web',deviceId:raw.bridgeId || null,deviceName:raw.bridgeName || '未绑定',state:raw.bridgeId ? 'active' : 'none'};
+    run.lease = data.lease || {controller:'Web',deviceId:raw.bridgeId || null,deviceName:raw.bridgeName || '未绑定',state:'unknown'};
     if (data.qualityGates?.length) run.qualityGates = data.qualityGates.map(g => ({id:g.gateId,name:g.name,status:({pass:'通过',fail:'失败'})[g.status] || '待执行',evidenceRef:g.evidenceRef}));
     P.s.seq = Math.max(P.s.seq, Number(raw.id.replace(/^R-/,'')) || 0);
     if (select) { P.s.ui.runId=run.id; P.s.ui.panel='terminal'; }

@@ -1,0 +1,106 @@
+{
+  "status": "FAIL",
+  "runId": "CODEx_TEST_M2B2_20260912",
+  "results": [
+    {
+      "name": "page-identity",
+      "status": "PASS"
+    },
+    {
+      "name": "ui-create-confirm-advance-api",
+      "status": "PASS"
+    },
+    {
+      "name": "sim-lines-visible-before-completion",
+      "status": "PASS"
+    },
+    {
+      "name": "execution-source-and-unknown-git-lease",
+      "status": "PASS"
+    },
+    {
+      "name": "succeeded-lines-replay-readback",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-success-has-no-simulated-preview-action",
+      "status": "PASS"
+    },
+    {
+      "name": "refresh-restores-domain-run",
+      "status": "PASS"
+    },
+    {
+      "name": "three-desktop-widths",
+      "status": "PASS"
+    },
+    {
+      "name": "reject-reason-required-and-audited",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-simulation-is-labelled-and-read-back",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate-approval-does-not-create-another-run",
+      "status": "PASS"
+    },
+    {
+      "name": "long-output-follows-tail-and-preserves-reading",
+      "status": "PASS"
+    },
+    {
+      "name": "web-reconnect-recovers-missed-lines",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel-waits-for-bridge-ack-and-ignores-late-done",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-model-controls-never-simulate-state",
+      "status": "PASS"
+    },
+    {
+      "name": "bridge-disconnect-stays-unknown-after-verification",
+      "status": "PASS"
+    },
+    {
+      "name": "readonly-ui-blocks-run-command",
+      "status": "PASS"
+    },
+    {
+      "name": "demo-scenario-cannot-mutate-remote-job",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ '[{\"id\":\"R-137\",\"reqId\":\"R-1204\",\"_remote\":true,\"lines\":[],\"qualityGates\":[{\"id\":\"lint\",\"name\":\"Lint / 静态检查\",\"status\":\"待执行\"},{\"id\":\"unit\",\"name\":\"单元测试\",\"status\":\"待执行\"},{\"id\":\"coverage\",\"name\":\"覆盖率 ≥ 80%\",\"status\":\"待执行\"},{\"id\":\"build\",\"name\":\"构建\",\"status\":\"待执行\"},{\"id\":\"security\",\"name\":\"安全扫描\",\"status\":\"待执行\"}],\"replay\":[],\"scope\":\"仅协议模拟；未授权真实工作区操作\",\"snapshot\":[],\"stamp\":\"1|R-1204-idea-v3|R-1204-req-v1|R-1204-design-v1\",\"git\":{\"repo\":\"pfc-r-1204\",\"branch\":\"待核验\",\"commit\":\"待核验\",\"dirty\":null},\"files\":[],\"preview\":false,\"scopeId\":\"R-137-scope\",\"budget\":8000,\"spent\":0,\"limit\":3,\"queuePos\":1,\"parentId\":null,\"status\":\"FAILED\",\"revision\":2,\"step\":0,\"pct\":0,\"controller\":\"web\",\"exitCode\":null,\"operation\":\"开发实现\",\"createdAt\":\"2026-09-12T06:54:34.161Z\",\"verified\":true,\"planApproved\":{\"by\":\"产品全链路团队\",\"at\":\"2026-09-12T06:54:34.172Z\",\"plan\":\"1) 读取项目结构与目标文件 2) 按方案实现并测试 3) 格式化、构建与汇总差异；本轮仅模拟协议，不执行真实工作区命令\"},\"rejectedReason\":null,\"lease\":{\"controller\":\"Web\",\"deviceId\":\"BR-mty158c3\",\"deviceName\":\"CODEx_TEST_M2B2_20260912_controlled\",\"state\":\"unknown\"},\"startedAt\":\"2026-09-12T06:54:34.177Z\",\"bridgeId\":\"BR-mty158c3\",\"bridgeName\":\"CODEx_TEST_M2B2_20260912_controlled\",\"executionMode\":\"bridge-simulation\"}]'\n- '[{\"id\":\"R-137\",\"reqId\":\"R-1204\",\"_remote\":true,\"lines\":[],\"qualityGates\":[{\"id\":\"lint\",\"name\":\"Lint / 静态检查\",\"status\":\"待执行\"},{\"id\":\"unit\",\"name\":\"单元测试\",\"status\":\"待执行\"},{\"id\":\"coverage\",\"name\":\"覆盖率 ≥ 80%\",\"status\":\"待执行\"},{\"id\":\"build\",\"name\":\"构建\",\"status\":\"待执行\"},{\"id\":\"security\",\"name\":\"安全扫描\",\"status\":\"待执行\"}],\"replay\":[],\"scope\":\"仅协议模拟；未授权真实工作区操作\",\"snapshot\":[],\"stamp\":\"1|R-1204-idea-v3|R-1204-req-v1|R-1204-design-v1\",\"git\":{\"repo\":\"pfc-r-1204\",\"branch\":\"待核验\",\"commit\":\"待核验\",\"dirty\":null},\"files\":[],\"preview\":false,\"scopeId\":\"R-137-scope\",\"budget\":8000,\"spent\":0,\"limit\":3,\"queuePos\":1,\"parentId\":null,\"status\":\"UNKNOWN\",\"revision\":2,\"step\":0,\"pct\":0,\"controller\":\"web\",\"exitCode\":null,\"operation\":\"开发实现\",\"createdAt\":\"2026-09-12T06:54:34.161Z\",\"verified\":false,\"planApproved\":{\"by\":\"产品全链路团队\",\"at\":\"2026-09-12T06:54:34.172Z\",\"plan\":\"1) 读取项目结构与目标文件 2) 按方案实现并测试 3) 格式化、构建与汇总差异；本轮仅模拟协议，不执行真实工作区命令\"},\"rejectedReason\":null,\"lease\":{\"controller\":\"Web\",\"deviceId\":\"BR-mty158c3\",\"deviceName\":\"CODEx_TEST_M2B2_20260912_controlled\",\"state\":\"unknown\"},\"startedAt\":\"2026-09-12T06:54:34.177Z\",\"bridgeId\":\"BR-mty158c3\",\"bridgeName\":\"CODEx_TEST_M2B2_20260912_controlled\",\"executionMode\":\"bridge-simulation\"}]'\n"
+    },
+    {
+      "name": "console-health",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "children": [
+      {
+        "pid": 44584,
+        "exited": true
+      },
+      {
+        "pid": 39336,
+        "exited": true
+      }
+    ],
+    "port": 5194,
+    "portFree": true,
+    "contextsClosed": true,
+    "data": "memory discarded",
+    "createdIds": [
+      "R-1201",
+      "R-1202",
+      "R-1203",
+      "R-1204"
+    ]
+  },
+  "evidence": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-browser-2026-09-12T06-54-21-593Z"
+}

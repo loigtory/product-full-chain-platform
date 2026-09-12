@@ -1,0 +1,8 @@
+{"check":"m2b-pair-token","status":"PASS","note":""}
+{"check":"m2b-bridge-online-pushed","status":"PASS","note":"Web 端收到 Bridge 上线推送"}
+{"check":"m2b-realtime-lines","status":"PASS","note":"Web 端实时收到 job.line 5 条"}
+{"check":"m2b-line-content","status":"PASS","note":"推送内容为终端对话流"}
+{"check":"m2b-run-succeeded-pushed","status":"PASS","note":"job.done → run.status SUCCEEDED 推送"}
+{"check":"m2b-replay-recorded","status":"PASS","note":"Bridge 快照已落库"}
+{"check":"m2b-no-console-break","status":"PASS","note":""}
+{"status":"PASS","checks":7,"results":[{"name":"m2b-pair-token","status":"PASS","note":""},{"name":"m2b-bridge-online-pushed","status":"PASS","note":"Web 端收到 Bridge 上线推送"},{"name":"m2b-realtime-lines","status":"PASS","note":"Web 端实时收到 job.line 5 条"},{"name":"m2b-line-content","status":"PASS","note":"推送内容为终端对话流"},{"name":"m2b-run-succeeded-pushed","status":"PASS","note":"job.done → run.status SUCCEEDED 推送"},{"name":"m2b-replay-recorded","status":"PASS","note":"Bridge 快照已落库"},{"name":"m2b-no-console-break","status":"PASS","note":""}]}

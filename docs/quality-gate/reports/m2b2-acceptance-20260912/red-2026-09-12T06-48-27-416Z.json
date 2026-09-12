@@ -1,0 +1,95 @@
+{
+  "status": "FAIL",
+  "runId": "CODEx_TEST_M2B2_20260912",
+  "results": [
+    {
+      "name": "page-identity",
+      "status": "PASS"
+    },
+    {
+      "name": "ui-create-confirm-advance-api",
+      "status": "PASS"
+    },
+    {
+      "name": "sim-lines-visible-before-completion",
+      "status": "PASS"
+    },
+    {
+      "name": "execution-source-and-unknown-git-lease",
+      "status": "PASS"
+    },
+    {
+      "name": "succeeded-lines-replay-readback",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-success-has-no-simulated-preview-action",
+      "status": "PASS"
+    },
+    {
+      "name": "refresh-restores-domain-run",
+      "status": "PASS"
+    },
+    {
+      "name": "three-desktop-widths",
+      "status": "PASS"
+    },
+    {
+      "name": "reject-reason-required-and-audited",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-simulation-is-labelled-and-read-back",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate-approval-does-not-create-another-run",
+      "status": "PASS"
+    },
+    {
+      "name": "long-output-follows-tail-and-preserves-reading",
+      "status": "FAIL",
+      "error": "right terminal container follows tail"
+    },
+    {
+      "name": "web-reconnect-recovers-missed-lines",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel-waits-for-bridge-ack-and-ignores-late-done",
+      "status": "FAIL",
+      "error": "cancellation must invalidate older GET snapshots"
+    },
+    {
+      "name": "remote-model-controls-never-simulate-state",
+      "status": "FAIL",
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   blocked: false\n-   blocked: true,\n-   unchanged: true\n  }\n"
+    },
+    {
+      "name": "console-health",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "children": [
+      {
+        "pid": 45336,
+        "exited": true
+      },
+      {
+        "pid": 46540,
+        "exited": true
+      }
+    ],
+    "port": 5194,
+    "portFree": true,
+    "contextsClosed": true,
+    "data": "memory discarded",
+    "createdIds": [
+      "R-1201",
+      "R-1202",
+      "R-1203"
+    ]
+  },
+  "evidence": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-browser-2026-09-12T06-48-27-416Z"
+}
