@@ -1,0 +1,7 @@
+{"script":"verify-static.mjs","status":"PASS"}
+{"script":"verify-integrity.mjs","status":"PASS","checks":8}
+{"script":"verify-guide-model.mjs","status":"PASS","checks":11}
+{"script":"verify-production.cjs","status":"PASS","checks":46,"evidence":"C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-YRniHj"}
+{"script":"verify-guide-browser.mjs","status":"PASS","checks":13,"evidence":"C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-d38jjk"}
+{"script":"verify-scope7.mjs","status":"PASS","checks":12,"evidence":"C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-2HSVNm"}
+{"status":"PASS","evidence":"C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-JMcTjm","sourceUnchanged":true}

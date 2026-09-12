@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "routes and WebSocket never own domain store or SQL",
+      "status": "PASS"
+    },
+    {
+      "name": "service is a bounded mode facade and responsibilities have separate modules",
+      "status": "PASS"
+    },
+    {
+      "name": "PG has no automatic migration seed or snapshot persistence path",
+      "status": "PASS"
+    },
+    {
+      "name": "frontend domain mapping never fabricates requirement facts",
+      "status": "PASS"
+    },
+    {
+      "name": "canonical migration identity and targets retain version 001 contract",
+      "status": "PASS"
+    },
+    {
+      "name": "approved frontend and server contract additions match",
+      "status": "PASS"
+    },
+    {
+      "name": "future workbench target is exact and performs no initialization",
+      "status": "PASS"
+    }
+  ]
+}

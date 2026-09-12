@@ -120,3 +120,134 @@ async function getRequirement(db, ctx, publicId) {
   });
 }
 module.exports = { createRequirement, getRequirement, addVersion };
+
+async function lock(client, db, ctx, publicId) {
+  const row = (
+    await client.query(
+      'SELECT * FROM "' +
+        db.schema +
+        '".reqs WHERE tenant_id=$1 AND public_id=$2 FOR UPDATE',
+      [ctx.tenantId, publicId],
+    )
+  ).rows[0];
+  if (!row) require('../access').fail('NOT_FOUND', 404);
+  return row;
+}
+async function insert(client, db, ctx, input) {
+  const id = await allocateIdentifier(client, db, ctx.tenantId, 'reqs');
+  return (
+    await client.query(
+      'INSERT INTO "' +
+        db.schema +
+        '".reqs(id,tenant_id,public_id,name,goal,scope,owner) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',
+      [
+        id.id,
+        ctx.tenantId,
+        id.publicId,
+        input.name,
+        input.goal || '',
+        input.scope || '',
+        input.owner || ctx.actor,
+      ],
+    )
+  ).rows[0];
+}
+async function versions(client, db, ctx, reqId) {
+  return (
+    await client.query(
+      'SELECT * FROM "' +
+        db.schema +
+        '".req_versions WHERE tenant_id=$1 AND req_id=$2 ORDER BY created_at,version',
+      [ctx.tenantId, reqId],
+    )
+  ).rows;
+}
+async function appendVersion(
+  client,
+  db,
+  ctx,
+  req,
+  stage,
+  content,
+  base = null,
+) {
+  const number = Number(
+    (
+      await client.query(
+        'SELECT coalesce(max(version),0)+1 n FROM "' +
+          db.schema +
+          '".req_versions WHERE tenant_id=$1 AND req_id=$2 AND stage=$3',
+        [ctx.tenantId, req.id, stage],
+      )
+    ).rows[0].n,
+  );
+  const id = await allocateIdentifier(client, db, ctx.tenantId, 'req_versions');
+  const clean = {
+    id: req.public_id + '-' + stage + '-v' + number,
+    version: number,
+    title: content.title || '阶段草稿',
+    fields: content.fields,
+    confirmed: false,
+    review: '待评审',
+    comments: [],
+  };
+  return (
+    await client.query(
+      'INSERT INTO "' +
+        db.schema +
+        '".req_versions(id,tenant_id,req_id,public_id,stage,version,content,base_version_id) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *',
+      [
+        id.id,
+        ctx.tenantId,
+        req.id,
+        id.publicId,
+        stage,
+        number,
+        JSON.stringify(clean),
+        base,
+      ],
+    )
+  ).rows[0];
+}
+async function touch(client, db, ctx, req, action) {
+  const row = (
+    await client.query(
+      'UPDATE "' +
+        db.schema +
+        '".reqs SET revision=revision+1,updated_at=now() WHERE tenant_id=$1 AND id=$2 RETURNING *',
+      [ctx.tenantId, req.id],
+    )
+  ).rows[0];
+  await audit(client, db, ctx, req.id, action);
+  await require('./events').append(
+    client,
+    db,
+    ctx,
+    'req.updated',
+    req.public_id,
+    row.revision,
+    { reqId: req.public_id, action },
+  );
+  return row;
+}
+async function staleAfter(client, db, ctx, reqId, stage) {
+  const stages = require('../domain/state-machine').STAGES.slice(
+    require('../domain/state-machine').STAGES.indexOf(stage) + 1,
+  );
+  await client.query(
+    'UPDATE "' +
+      db.schema +
+      '".req_versions SET stale=true WHERE tenant_id=$1 AND req_id=$2 AND stage=ANY($3::text[])',
+    [ctx.tenantId, reqId, stages],
+  );
+}
+Object.assign(module.exports, {
+  lock,
+  insert,
+  versions,
+  appendVersion,
+  touch,
+  staleAfter,
+  audit,
+  validateContext,
+});

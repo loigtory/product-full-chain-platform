@@ -8,7 +8,11 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const state = await db.getState();
-    res.json({ state });
+    res.json({
+      state,
+      storage: db.storageMode(),
+      domainPersistence: db.storageMode() === 'pg',
+    });
   } catch (e) {
     next(e);
   }

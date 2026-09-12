@@ -7,19 +7,26 @@
     .filter(r=>!m.reqId || r.id===m.reqId)
     .flatMap(r=>r.runs).find(r=>r._remote && r.id===m.runId);
   const render = () => { window.PFC.save(); window.PFC.render({quiet:true}); };
-  const recover = () => window.PFC.domain?.syncRuns().catch(e=>{
+  const recover = () => Promise.resolve(window.PFC.domainView?.pg()?window.PFC.domainView.sync():window.PFC.domain?.syncRuns?.()).catch(e=>{
     window.PFC.toast('作业回读失败：'+e.message,'error');
   });
+  const seen=new Set();let refreshPending=false;
+  const pgRefresh=()=>{if(refreshPending)return;refreshPending=true;setTimeout(()=>{window.PFC.domainView.sync().catch(e=>window.PFC.toast('服务端回读失败：'+e.message,'error')).finally(()=>refreshPending=false);},120);};
   W.handle = (m) => {
     if(!enabled()) return;
     const P=window.PFC;
+    if(P.domainView?.pg()){
+      if(m.eventId){if(seen.has(m.eventId))return;seen.add(m.eventId);if(seen.size>1000)seen.delete(seen.values().next().value);}
+      if(['req.updated','message.updated','notice'].includes(m.type)){pgRefresh();return;}
+      if(m.type==='job.line')m={...m,seq:m.lineSeq};
+    }
     if(m.type==='job.line') {
       const run=find(m);
       if(!run) { recover(); return; }
       if(m.seq && run.lines.some(l=>l.seq===m.seq)) return;
       if(m.seq && m.seq>(run.lines.at(-1)?.seq || 0)+1) recover();
       run.lines.push({seq:m.seq,cls:['info','cmd','warn','error','ok'].includes(m.cls)?m.cls:'info',text:String(m.text || '')});
-      run.lines.sort((a,b)=>(a.seq || 0)-(b.seq || 0));render();
+      run.lines.sort((a,b)=>(a.seq || 0)-(b.seq || 0));if(P.domainView?.pg())run.lines=run.lines.slice(-200);render();
     } else if(m.type==='run.status') {
       const run=find(m);
       if(run) {

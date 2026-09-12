@@ -1,0 +1,16 @@
+PASS PG empty browser does not upload factory seed
+PASS UI creates persisted requirement and unanswered questions
+PASS UI answers create matching immutable versions
+PASS UI confirmation and advancement reach dev
+PASS unconfirmed draft survives browser reload
+PASS chat attachment and simulated reply persist
+PASS Diff acceptance appends a version
+PASS persisted simulated run visible in both terminals
+PASS three desktop widths keyboard and screenshot evidence
+PASS server and browser restart restore data and original download
+PASS image original preview renders and releases the temporary URL
+PASS message keeps historical attachment version after replacement
+PASS message paging bounds browser restore and exposes older history
+PASS PG read failure is visible and preserves the pending draft
+PASS unsupported PG writes cannot change local facts
+{"status":"PASS","tests":15,"cleanup":{"remaining":0,"filesRemaining":0,"processesRemaining":0}}

@@ -4,7 +4,11 @@ const { openDatabase } = require('../src/persistence/connection');
 const { migrate } = require('../src/persistence/migrations');
 let db;
 try {
-  if (process.argv.length !== 4 || process.argv[2] !== '--schema')
+  if (
+    ![4, 6].includes(process.argv.length) ||
+    process.argv[2] !== '--schema' ||
+    (process.argv.length === 6 && process.argv[4] !== '--target-version')
+  )
     throw Object.assign(Error('BAD_ARGUMENTS'), { code: 'BAD_ARGUMENTS' });
   db = await openDatabase({
     mode: 'pg',
@@ -12,6 +16,7 @@ try {
     schema: process.argv[3],
     authorizedSchema: process.env.PFC_M2C_AUTHORIZED_SCHEMA,
     requireReady: false,
+    targetVersion: process.argv[5] || '001',
   });
   console.log(JSON.stringify(await migrate(db)));
 } catch (e) {

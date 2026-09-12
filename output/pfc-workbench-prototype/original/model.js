@@ -502,7 +502,7 @@
             ),
         ),
     );
-  P.latest = (r, stage) => r.artifacts[stage].at(-1);
+  P.latest = (r, stage) => r.artifacts[stage].at(-1) || (r._pg ? {id:'',version:0,title:'尚未生成',fields:[],confirmed:false,stale:false,review:'尚未生成',comments:[],unavailable:true}:undefined);
   P.stamp = (r) =>
     `${r.baseline}|${['idea', 'req', 'design'].map((st) => P.latest(r, st).id).join('|')}`;
   P.gitMeta = (r, seed) => {
@@ -668,6 +668,7 @@
     return !P.conflict;
   };
   P.save = () => {
+    if(P.domainView?.pg())return P.domainView.savePreferences();
     if (!P.checkRevision()) return false;
     const revision = (P.s.revision || 0) + 1;
     try {
@@ -713,8 +714,9 @@
   P.assert = (ok, msg) => {
     if (!ok) throw Error(msg);
   };
-  P.canWrite = () => P.s.role !== 'viewer' && P.checkRevision();
+  P.canWrite = () => !P.remoteLoading && !P.remoteError && P.s.role !== 'viewer' && P.checkRevision();
   P.write = () => {
+    P.assert(!P.remoteLoading&&!P.remoteError,'服务端尚未就绪，请先恢复连接');
     P.assert(
       P.s.role !== 'viewer',
       '只读成员可以查看，修改需负责人或执行者权限。',
@@ -761,6 +763,14 @@
         (r.overrides[stage]?.[c.id] ?? P.s.bindings[stage]?.includes(c.id)),
     );
   P.blockers = (r) => {
+    if(r._pg) {
+      const v=P.latest(r,r.stage),reasons=[];
+      if(r.impact)reasons.push('处理材料变更影响');
+      if(!v.confirmed||v.stale)reasons.push('确认当前阶段最新版本');
+      if(r.stage==='idea'&&r.questions.some(q=>!q.answer.trim()))reasons.push('回答全部澄清问题');
+      if(P.index(r.stage)>=3)reasons.push('测试、验收及后续阶段 PG 写入尚未接入');
+      return reasons;
+    }
     const out = [];
     if (r.impact) out.push('处理材料变更影响');
     const st = r.stage,
@@ -1113,6 +1123,7 @@
     });
   };
   P.tick = () => {
+    if(P.domainView?.pg()||P.remoteLoading||P.remoteError)return;
     if (!P.canWrite()) return;
     let changed = false;
     for (const r of Object.values(P.s.reqs))

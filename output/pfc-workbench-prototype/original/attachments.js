@@ -86,7 +86,7 @@
     P.write();
     P.modal(
       '添加附件 · 随消息发送',
-      `<div class="attach-menu"><button class="attach-opt" data-action="attach-files">${i('clip')} 上传本地文件 / 粘贴截图</button><button class="attach-opt" data-action="attach-material-ref">${i('doc')} 引用已有材料</button><button class="attach-opt" data-action="attach-artifact-ref">${i('link')} 引用当前产物</button><button class="attach-opt" data-action="add-material">${i('plus')} 登记长期材料（材料区）</button></div><p class="source-note">上传文件只保存在当前浏览器会话；正式接入由对象存储与 Bridge 处理。</p>`,
+      `<div class="attach-menu"><button class="attach-opt" data-action="attach-files">${i('clip')} 上传本地文件 / 粘贴截图</button><button class="attach-opt" data-action="attach-material-ref">${i('doc')} 引用已有材料</button><button class="attach-opt" data-action="attach-artifact-ref">${i('link')} 引用当前产物</button><button class="attach-opt" data-action="add-material">${i('plus')} 登记长期材料（材料区）</button></div><p class="source-note">上传文件只保存在当前浏览器会话；正式接入由服务端本地文件区与 Bridge 处理。</p>`,
       b('close-modal', '取消'),
     );
   };

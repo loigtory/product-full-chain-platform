@@ -3,6 +3,7 @@ async function withTransaction(db, operation) {
   db.assertScope();
   const client = await db.pool.connect();
   let destroy = false;
+  client.rollbackTasks = [];
   try {
     await client.query('BEGIN');
     // No public/implicit temporary relation lookup; all runtime repository queries also qualify their schema.
@@ -18,8 +19,18 @@ async function withTransaction(db, operation) {
     } catch {
       destroy = true;
     }
+    for (const cleanup of client.rollbackTasks) {
+      try {
+        await cleanup();
+      } catch {
+        console.error(
+          'FILE_ORPHAN_PENDING: rollback cleanup requires operator review',
+        );
+      }
+    }
     throw error;
   } finally {
+    delete client.rollbackTasks;
     client.release(destroy);
   }
 }

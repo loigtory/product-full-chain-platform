@@ -4,6 +4,20 @@ const entities = Object.freeze({
   reqs: { prefix: 'R', initial: 1040 },
   req_versions: { prefix: 'SV', initial: 0 },
   audit_logs: { prefix: 'A', initial: 0 },
+  questions: { prefix: 'SQ', initial: 0 },
+  materials: { prefix: 'SM', initial: 0 },
+  material_versions: { prefix: 'MV', initial: 0 },
+  file_objects: { prefix: 'FO', initial: 0 },
+  messages: { prefix: 'SMSG', initial: 0 },
+  runs: { prefix: 'R', initial: 100 },
+  run_plans: { prefix: 'PLAN', initial: 0 },
+  notices: { prefix: 'N', initial: 0 },
+  domain_events: { prefix: 'EV', initial: 0 },
+  req_version_reviews: { prefix: 'RV', initial: 0 },
+  replays: { prefix: 'RP', initial: 0 },
+  quality_gates: { prefix: 'QG', initial: 0 },
+  leases: { prefix: 'L', initial: 0 },
+  message_references: { prefix: 'MR', initial: 0 },
 });
 const error = (code) => Object.assign(new Error(code), { code });
 function entityInfo(entity) {
