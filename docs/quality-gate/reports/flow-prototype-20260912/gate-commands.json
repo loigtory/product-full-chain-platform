@@ -1,0 +1,113 @@
+{
+  "environment": "Node 24.20.0; local synthetic; PFC_DB=memory; DATABASE_URL empty; no PG writes",
+  "results": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+      "started": "2026-09-12T14:37:55.278Z",
+      "elapsedMs": 79095,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"script\":\"verify-static.mjs\",\"status\":\"PASS\"}\n{\"script\":\"verify-integrity.mjs\",\"status\":\"PASS\",\"checks\":8}\n{\"script\":\"verify-guide-model.mjs\",\"status\":\"PASS\",\"checks\":11}\n{\"script\":\"verify-production.cjs\",\"status\":\"PASS\",\"checks\":46,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-remediation-EInV2F\"}\n{\"script\":\"verify-guide-browser.mjs\",\"status\":\"PASS\",\"checks\":13,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-guide-2gkhjB\"}\n{\"script\":\"verify-scope7.mjs\",\"status\":\"PASS\",\"checks\":12,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-scope7-X2Csiw\"}\n{\"status\":\"PASS\",\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-prototype-gate-vFR7S2\",\"sourceUnchanged\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "started": "2026-09-12T14:39:14.374Z",
+      "elapsedMs": 4582,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"default-mode-is-local-and-writes-baseline-key\",\"status\":\"PASS\"},{\"name\":\"mock-mode-isolated-from-baseline-key-and-persists\",\"status\":\"PASS\"},{\"name\":\"mock-mode-reload-restores-saved-mode-and-data\",\"status\":\"PASS\"},{\"name\":\"api-bridge-sync-surface-and-contract-mapping\",\"status\":\"PASS\"},{\"name\":\"index-html-loads-data-layer-before-model\",\"status\":\"PASS\"},{\"name\":\"browser-badge-and-mode-cycle\",\"status\":\"PASS\",\"note\":\"徽标/切换/无错\"}],\"browser\":{\"status\":\"PASS\",\"reason\":\"徽标/切换/无错\"}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "started": "2026-09-12T14:39:18.957Z",
+      "elapsedMs": 4413,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"check\":\"e2e-badge-api\",\"status\":\"PASS\",\"note\":\"徽标=API 模式\"}\n{\"check\":\"e2e-devlogin-token\",\"status\":\"PASS\",\"note\":\"dev-login 已签发 JWT\"}\n{\"check\":\"e2e-state-loaded\",\"status\":\"PASS\",\"note\":\"状态树已加载（工厂种子或服务端）\"}\n{\"check\":\"e2e-seed-on-server\",\"status\":\"PASS\",\"note\":\"工厂种子已 PUT 到服务端\"}\n{\"check\":\"e2e-flush-synced\",\"status\":\"PASS\",\"note\":\"页面修改已 flush 到服务端 seq=9999\"}\n{\"check\":\"e2e-flush-field\",\"status\":\"PASS\",\"note\":\"字段级修改已同步\"}\n{\"check\":\"e2e-reload-restore\",\"status\":\"PASS\",\"note\":\"重载后从服务端恢复 seq=9999\"}\n{\"check\":\"e2e-no-console-error\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":8,\"results\":[{\"name\":\"e2e-badge-api\",\"status\":\"PASS\",\"note\":\"徽标=API 模式\"},{\"name\":\"e2e-devlogin-token\",\"status\":\"PASS\",\"note\":\"dev-login 已签发 JWT\"},{\"name\":\"e2e-state-loaded\",\"status\":\"PASS\",\"note\":\"状态树已加载（工厂种子或服务端）\"},{\"name\":\"e2e-seed-on-server\",\"status\":\"PASS\",\"note\":\"工厂种子已 PUT 到服务端\"},{\"name\":\"e2e-flush-synced\",\"status\":\"PASS\",\"note\":\"页面修改已 flush 到服务端 seq=9999\"},{\"name\":\"e2e-flush-field\",\"status\":\"PASS\",\"note\":\"字段级修改已同步\"},{\"name\":\"e2e-reload-restore\",\"status\":\"PASS\",\"note\":\"重载后从服务端恢复 seq=9999\"},{\"name\":\"e2e-no-console-error\",\"status\":\"PASS\",\"note\":\"\"}],\"cleanup\":{\"pid\":8868,\"exited\":true,\"port\":5191,\"portFree\":true,\"browserClosed\":true,\"data\":\"synthetic memory discarded\"},\"loginDelayMs\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node server/verify-server.mjs",
+      "started": "2026-09-12T14:39:23.371Z",
+      "elapsedMs": 736,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"check\":\"health-200\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-requires-auth-401\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"dev-login-200-token\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"me-role-permissions\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-first-null\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-put-ok\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-readback\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"batch-apply-ok\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"batch-state-updated\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-list-filtered\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-get\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-messages\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-404\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-write-created\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"notices-unread\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"notices-mark-read\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"contract-domains\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"contract-plan-approve\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":18,\"results\":[{\"name\":\"health-200\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-requires-auth-401\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"dev-login-200-token\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"me-role-permissions\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-first-null\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-put-ok\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-readback\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"batch-apply-ok\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"batch-state-updated\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-list-filtered\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-get\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-messages\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-404\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-write-created\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"notices-unread\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"notices-mark-read\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"contract-domains\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"contract-plan-approve\",\"status\":\"PASS\",\"note\":\"\"}],\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-server-rFd9xR\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node server/verify-server-m2.mjs",
+      "started": "2026-09-12T14:39:24.108Z",
+      "elapsedMs": 845,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"check\":\"m2-login\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-seed-import\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-create-req\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-create-knowledge-refs\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-gate-blocked\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-gate-passed\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-material\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-answer\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-message\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-run-created\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-approval-hard-gate\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-reject-reason-required\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-reject-audit\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-run-succeeded\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-replay-steps\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-gates-recorded\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-lease-conflict\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-lease-handoff\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-notices-events\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":19,\"results\":[{\"name\":\"m2-login\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-seed-import\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-create-req\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-create-knowledge-refs\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-gate-blocked\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-gate-passed\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-material\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-answer\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-message\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-run-created\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-approval-hard-gate\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-reject-reason-required\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-reject-audit\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-run-succeeded\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-replay-steps\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-gates-recorded\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-lease-conflict\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-lease-handoff\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-notices-events\",\"status\":\"PASS\",\"note\":\"\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node server/verify-m2b.mjs",
+      "started": "2026-09-12T14:39:24.954Z",
+      "elapsedMs": 6844,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"check\":\"m2b-pair-token\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2b-bridge-online-pushed\",\"status\":\"PASS\",\"note\":\"Web 端收到 Bridge 上线推送\"}\n{\"check\":\"m2b-realtime-lines\",\"status\":\"PASS\",\"note\":\"Web 端实时收到 job.line 5 条\"}\n{\"check\":\"m2b-line-content\",\"status\":\"PASS\",\"note\":\"推送内容为终端对话流\"}\n{\"check\":\"m2b-run-succeeded-pushed\",\"status\":\"PASS\",\"note\":\"job.done → run.status SUCCEEDED 推送\"}\n{\"check\":\"m2b-replay-recorded\",\"status\":\"PASS\",\"note\":\"Bridge 快照已落库\"}\n{\"check\":\"m2b-no-console-break\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":7,\"results\":[{\"name\":\"m2b-pair-token\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2b-bridge-online-pushed\",\"status\":\"PASS\",\"note\":\"Web 端收到 Bridge 上线推送\"},{\"name\":\"m2b-realtime-lines\",\"status\":\"PASS\",\"note\":\"Web 端实时收到 job.line 5 条\"},{\"name\":\"m2b-line-content\",\"status\":\"PASS\",\"note\":\"推送内容为终端对话流\"},{\"name\":\"m2b-run-succeeded-pushed\",\"status\":\"PASS\",\"note\":\"job.done → run.status SUCCEEDED 推送\"},{\"name\":\"m2b-replay-recorded\",\"status\":\"PASS\",\"note\":\"Bridge 快照已落库\"},{\"name\":\"m2b-no-console-break\",\"status\":\"PASS\",\"note\":\"\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "started": "2026-09-12T14:39:31.799Z",
+      "elapsedMs": 94,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"remote tick does not simulate progress\",\"status\":\"PASS\"},{\"name\":\"WS finds nested run without cross-requirement writes\",\"status\":\"PASS\"},{\"name\":\"duplicate event is ignored\",\"status\":\"PASS\"},{\"name\":\"remote status carries exit code\",\"status\":\"PASS\"},{\"name\":\"older WS status cannot undo cancellation\",\"status\":\"PASS\"},{\"name\":\"remote control cannot enter local verification\",\"status\":\"PASS\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node server/verify-m2b2-domain.mjs",
+      "started": "2026-09-12T14:39:31.894Z",
+      "elapsedMs": 244,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"checks\":8,\"results\":[{\"name\":\"new requirement cannot overwrite seeded ID\",\"status\":\"PASS\"},{\"name\":\"run ID reserves nested seed IDs\",\"status\":\"PASS\"},{\"name\":\"retry command returns same pending run\",\"status\":\"PASS\"},{\"name\":\"canonical run readback includes plan and terminal\",\"status\":\"PASS\"},{\"name\":\"whitespace rejection refused without mutation\",\"status\":\"PASS\"},{\"name\":\"rejected plan cannot be approved or executed\",\"status\":\"PASS\"},{\"name\":\"offline simulation readback and repeated start are stable\",\"status\":\"PASS\"},{\"name\":\"cancel advances revision and repeated cancel preserves the terminal result\",\"status\":\"PASS\"}],\"data\":\"CODEx_TEST_M2B2_20260912\",\"cleanup\":\"process-local memory discarded on exit\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "started": "2026-09-12T14:39:32.139Z",
+      "elapsedMs": 13391,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"name\":\"page-identity\",\"status\":\"PASS\"}\n{\"name\":\"ui-create-confirm-advance-api\",\"status\":\"PASS\"}\n{\"name\":\"sim-lines-visible-before-completion\",\"status\":\"PASS\"}\n{\"name\":\"execution-source-and-unknown-git-lease\",\"status\":\"PASS\"}\n{\"name\":\"succeeded-lines-replay-readback\",\"status\":\"PASS\"}\n{\"name\":\"remote-success-has-no-simulated-preview-action\",\"status\":\"PASS\"}\n{\"name\":\"refresh-restores-domain-run\",\"status\":\"PASS\"}\n{\"name\":\"three-desktop-widths\",\"status\":\"PASS\"}\n{\"name\":\"reject-reason-required-and-audited\",\"status\":\"PASS\"}\n{\"name\":\"offline-simulation-is-labelled-and-read-back\",\"status\":\"PASS\"}\n{\"name\":\"duplicate-approval-does-not-create-another-run\",\"status\":\"PASS\"}\n{\"name\":\"long-output-follows-tail-and-preserves-reading\",\"status\":\"PASS\"}\n{\"name\":\"web-reconnect-recovers-missed-lines\",\"status\":\"PASS\"}\n{\"name\":\"cancel-waits-for-bridge-ack-and-ignores-late-done\",\"status\":\"PASS\"}\n{\"name\":\"remote-model-controls-never-simulate-state\",\"status\":\"PASS\"}\n{\"name\":\"bridge-disconnect-stays-unknown-after-verification\",\"status\":\"PASS\"}\n{\"name\":\"readonly-ui-blocks-run-command\",\"status\":\"PASS\"}\n{\"name\":\"demo-scenario-cannot-mutate-remote-job\",\"status\":\"PASS\"}\n{\"name\":\"console-health\",\"status\":\"PASS\"}\n{\"status\":\"PASS\",\"runId\":\"CODEx_TEST_M2B2_20260912\",\"results\":[{\"name\":\"page-identity\",\"status\":\"PASS\"},{\"name\":\"ui-create-confirm-advance-api\",\"status\":\"PASS\"},{\"name\":\"sim-lines-visible-before-completion\",\"status\":\"PASS\"},{\"name\":\"execution-source-and-unknown-git-lease\",\"status\":\"PASS\"},{\"name\":\"succeeded-lines-replay-readback\",\"status\":\"PASS\"},{\"name\":\"remote-success-has-no-simulated-preview-action\",\"status\":\"PASS\"},{\"name\":\"refresh-restores-domain-run\",\"status\":\"PASS\"},{\"name\":\"three-desktop-widths\",\"status\":\"PASS\"},{\"name\":\"reject-reason-required-and-audited\",\"status\":\"PASS\"},{\"name\":\"offline-simulation-is-labelled-and-read-back\",\"status\":\"PASS\"},{\"name\":\"duplicate-approval-does-not-create-another-run\",\"status\":\"PASS\"},{\"name\":\"long-output-follows-tail-and-preserves-reading\",\"status\":\"PASS\"},{\"name\":\"web-reconnect-recovers-missed-lines\",\"status\":\"PASS\"},{\"name\":\"cancel-waits-for-bridge-ack-and-ignores-late-done\",\"status\":\"PASS\"},{\"name\":\"remote-model-controls-never-simulate-state\",\"status\":\"PASS\"},{\"name\":\"bridge-disconnect-stays-unknown-after-verification\",\"status\":\"PASS\"},{\"name\":\"readonly-ui-blocks-run-command\",\"status\":\"PASS\"},{\"name\":\"demo-scenario-cannot-mutate-remote-job\",\"status\":\"PASS\"},{\"name\":\"console-health\",\"status\":\"PASS\"}],\"cleanup\":{\"children\":[{\"pid\":21760,\"exited\":true},{\"pid\":11604,\"exited\":true}],\"port\":5194,\"portFree\":true,\"contextsClosed\":true,\"data\":\"memory discarded\",\"createdIds\":[\"R-1201\",\"R-1202\",\"R-1203\",\"R-1204\"]},\"evidence\":\"D:\\\\项目管理\\\\product-full-chain-platform\\\\.local\\\\m2b2-acceptance-browser-2026-09-12T14-39-32-553Z\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "started": "2026-09-12T14:39:45.531Z",
+      "elapsedMs": 104,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"checks\":11,\"results\":[{\"name\":\"candidate-before-prd-confirmation-and-complete-chain\",\"status\":\"PASS\"},{\"name\":\"atomic-related-versions-history-and-reject\",\"status\":\"PASS\"},{\"name\":\"stale-command-and-stale-suggestion\",\"status\":\"PASS\"},{\"name\":\"permissions-before-replay-and-idempotency\",\"status\":\"PASS\"},{\"name\":\"partial-generation-and-independent-preparation\",\"status\":\"PASS\"},{\"name\":\"unknown-is-verified-before-resume-and-changes-block-active-run\",\"status\":\"PASS\"},{\"name\":\"failed-tests-and-release-recovery-preserve-evidence\",\"status\":\"PASS\"},{\"name\":\"acceptance-return-identifies-failed-item\",\"status\":\"PASS\"},{\"name\":\"invalid-stored-content-fails-before-render\",\"status\":\"PASS\"},{\"name\":\"request-isolation-and-limits\",\"status\":\"PASS\"},{\"name\":\"store-lock-concurrent-write-no-lock-quota-and-cleanup\",\"status\":\"PASS\"}],\"data\":\"synthetic process-local maps; no browser/PG/network\",\"cleanup\":\"maps discarded\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "started": "2026-09-12T14:39:45.636Z",
+      "elapsedMs": 15743,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "PASS ordinary-three-width-shell-reference\nPASS original-entry-and-early-interactive-candidate\nPASS three-width-prototype-prd-keyboard-and-expanded-canvas\nPASS related-change-quota-failure-retry-and-history\nPASS refresh-draft-context-and-stage-view-preservation\nPASS cross-window-stale-write-and-request-isolation\nPASS pending-decision-independent-work-and-readonly\nPASS development-dual-terminals-pause-unknown-and-test-recovery\nPASS human-acceptance-publication-observation-and-return\nPASS partial-generation-and-xss-as-text\nPASS pg-dto-view-and-mode-isolation\n{\"status\":\"PASS\",\"checks\":11,\"results\":[{\"name\":\"ordinary-three-width-shell-reference\",\"status\":\"PASS\"},{\"name\":\"original-entry-and-early-interactive-candidate\",\"status\":\"PASS\"},{\"name\":\"three-width-prototype-prd-keyboard-and-expanded-canvas\",\"status\":\"PASS\"},{\"name\":\"related-change-quota-failure-retry-and-history\",\"status\":\"PASS\"},{\"name\":\"refresh-draft-context-and-stage-view-preservation\",\"status\":\"PASS\"},{\"name\":\"cross-window-stale-write-and-request-isolation\",\"status\":\"PASS\"},{\"name\":\"pending-decision-independent-work-and-readonly\",\"status\":\"PASS\"},{\"name\":\"development-dual-terminals-pause-unknown-and-test-recovery\",\"status\":\"PASS\"},{\"name\":\"human-acceptance-publication-observation-and-return\",\"status\":\"PASS\"},{\"name\":\"partial-generation-and-xss-as-text\",\"status\":\"PASS\"},{\"name\":\"pg-dto-view-and-mode-isolation\",\"status\":\"PASS\"}]}\n{\"cleanup\":{\"pid\":43612,\"port\":58426,\"browserClosed\":true,\"serverClosed\":true,\"isolatedContextsClosed\":true,\"data\":\"synthetic browser contexts discarded\"}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "started": "2026-09-12T14:40:01.380Z",
+      "elapsedMs": 1432,
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"checks\":4,\"results\":[{\"name\":\"exact-approved-scope-and-protected-domain-fingerprints\",\"status\":\"PASS\"},{\"name\":\"shared-frame-preserves-original-eight-stage-three-panel-html\",\"status\":\"PASS\"},{\"name\":\"shell-has-no-business-state-and-flow-has-no-runtime-adapter\",\"status\":\"PASS\"},{\"name\":\"downstream-change-has-review-action-without-losing-running-control\",\"status\":\"PASS\"}],\"baseline\":\"a9eec73ed65610f09a80f11331edbda1b4252a67\",\"fingerprints\":{\"output/pfc-workbench-prototype/original/domain-client.js\":\"0fed1036c2b0db6a8caab8c789e4e221faff0401eeabd87bf5b32da96afbe61f\",\"output/pfc-workbench-prototype/original/domain-view.js\":\"afd90ba01153385917f3f87cd130c6c8b479d1c2435c748056106a53d88528ca\",\"output/pfc-workbench-prototype/original/domain-actions.js\":\"bfb2e1177d0e0efb1b1ed37b97ce3dbf8aca0a080a1f0aa6db77758aad785a9a\",\"output/pfc-workbench-prototype/original/api-client.js\":\"480bb583cd0a3c0a15f6272daf04a78c88f6ec37b5d1e5c1eadd089349a50a73\",\"output/pfc-workbench-prototype/original/data-layer.js\":\"d05715a3b5674cdff9dba054c6fae2aad3a8a2681b55632393eeffa55712a69a\",\"output/pfc-workbench-prototype/original/model.js\":\"e2e623ae351059a226a6ff6eb3d4398fe53b427bc397670c76065f32354d07d3\",\"output/pfc-workbench-prototype/original/base.css\":\"d491ef83ce6a8630f7735d5f46cbb2969710d0629097f9e5315be12023608511\",\"output/pfc-workbench-prototype/original/guide.css\":\"85c61363c00580cf85c581e62314ee264c8ede542d5a1753bbd14047dea67292\"},\"hashNormalization\":\"UTF-8 text CRLF to LF; unchanged tracked scope independently checked with git diff\",\"data\":\"synthetic VM objects only\",\"cleanup\":\"process-local objects discarded\"}\n",
+      "stderr": "warning: in the working copy of 'output/pfc-workbench-prototype/index.html', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'output/pfc-workbench-prototype/original/app.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'output/pfc-workbench-prototype/verify-static.mjs', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ]
+}

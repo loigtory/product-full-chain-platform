@@ -722,7 +722,7 @@
                 .join('');
           })()}<span class="ref-cap">待发送附件</span></div>`
         : '');
-    return `<div class="work-layout" data-context="${r.id}:${stage}">${rail}<main class="chat-main"><div class="req-context-bar"><strong class="name">${e(r.id + ' · ' + r.name)}</strong>${badge('阶段 · ' + P.stageName(r.stage))}${!isCurrent ? badge('查看 · ' + P.stageName(stage), 'gray') : ''}${badge('Owner ' + r.owner, 'gray')}${b('navigate', '返回工作台', { route: 'home' })}</div><div class="stream" id="stream">${r.impact ? P.notice('材料已有新版本，需评估对当前范围和产物的影响。', 'material-impact', '评估影响') : ''}${intro}${content}${filterBar}${msgs}</div>${footer}<div class="composer">${composerExtra ? `<div class="composer-context" tabindex="0" aria-label="待发送附件与引用">${composerExtra}</div>` : ''}<div class="composer-row"><button class="attch-btn" data-action="attach-menu" aria-label="添加附件" title="添加附件 / 引用上下文">${i('clip')}</button><div class="composer-box"><textarea id="chat-input" rows="1" aria-label="继续对话" placeholder="继续对话：描述意图、追问、或让 Agent 发起作业…（支持拖拽 / 粘贴截图）">${e(P.s.ui.drafts[r.id] || '')}</textarea></div><button class="send-btn" data-action="send" aria-label="发送" ${!P.canWrite() || queue.some((a) => a.status !== 'ready') ? 'disabled' : ''}>${i('send')}</button></div></div></main>${P.renderPanel(r)}</div>`;
+    return P.workbenchShell.frame({ context: r.id + ":" + stage, rail, main: `<main class="chat-main"><div class="req-context-bar"><strong class="name">${e(r.id + ' · ' + r.name)}</strong>${badge('阶段 · ' + P.stageName(r.stage))}${!isCurrent ? badge('查看 · ' + P.stageName(stage), 'gray') : ''}${badge('Owner ' + r.owner, 'gray')}${b('navigate', '返回工作台', { route: 'home' })}</div><div class="stream" id="stream">${r.impact ? P.notice('材料已有新版本，需评估对当前范围和产物的影响。', 'material-impact', '评估影响') : ''}${intro}${content}${filterBar}${msgs}</div>${footer}<div class="composer">${composerExtra ? `<div class="composer-context" tabindex="0" aria-label="待发送附件与引用">${composerExtra}</div>` : ''}<div class="composer-row"><button class="attch-btn" data-action="attach-menu" aria-label="添加附件" title="添加附件 / 引用上下文">${i('clip')}</button><div class="composer-box"><textarea id="chat-input" rows="1" aria-label="继续对话" placeholder="继续对话：描述意图、追问、或让 Agent 发起作业…（支持拖拽 / 粘贴截图）">${e(P.s.ui.drafts[r.id] || '')}</textarea></div><button class="send-btn" data-action="send" aria-label="发送" ${!P.canWrite() || queue.some((a) => a.status !== 'ready') ? 'disabled' : ''}>${i('send')}</button></div></div></main>`, panel: P.renderPanel(r) });
   };
   P.renderPanel = (r) => {
     const u = P.s.ui,
@@ -767,15 +767,6 @@
             `<div class="event"><b>${e(x.action)}</b><small>${e(x.detail)} · ${P.time(x.time)}</small></div>`,
         )
         .join('')}</div>`;
-    return `<aside class="side-panel"><div class="panel-tabs" role="tablist">${[
-      ['terminal', '终端', 'terminal'],
-      ['canvas', '画布', 'eye'],
-      ['evidence', '证据', 'list'],
-    ]
-      .map(
-        ([id, l, icon]) =>
-          `<button class="panel-tab ${u.panel === id ? 'active' : ''}" role="tab" aria-selected="${u.panel === id}" data-action="panel" data-panel="${id}">${i(icon)}${l}</button>`,
-      )
-      .join('')}</div><div class="panel-body">${body}</div></aside>`;
+    return P.workbenchShell.panel({selected:u.panel,body});
   };
 })();

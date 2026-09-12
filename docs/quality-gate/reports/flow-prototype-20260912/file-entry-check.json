@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "entry": "index.html via file URL in isolated Edge",
+  "capabilities": {
+    "secureContext": true,
+    "locks": true
+  },
+  "errors": [],
+  "browserClosed": true,
+  "data": "isolated synthetic context discarded"
+}

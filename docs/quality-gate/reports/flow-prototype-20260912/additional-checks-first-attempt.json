@@ -1,0 +1,18 @@
+{
+  "results": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "{\"status\":\"PASS\",\"syntaxScripts\":26,\"lintModules\":21,\"externalEntryAssets\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "npm run check:config",
+      "status": "FAIL",
+      "exitCode": 1,
+      "stdout": "\n> product-full-chain-platform@0.0.0 check:config\n> node scripts/check-config.mjs\n\n",
+      "stderr": "file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/scripts/check-config.mjs:27\r\n  throw new Error(\r\n        ^\r\n\r\nError: NODE_VERSION_MISMATCH: expected 24.x, received 18.17.1\r\n    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/scripts/check-config.mjs:27:9\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:194:25)\r\n\r\nNode.js v18.17.1\r\n"
+    }
+  ]
+}

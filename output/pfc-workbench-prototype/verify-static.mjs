@@ -40,6 +40,7 @@ const globals = Object.fromEntries(
     'setInterval',
     'clearInterval',
     'crypto',
+    'structuredClone',
     'requestAnimationFrame',
     'getComputedStyle',
     'console',
@@ -54,6 +55,11 @@ const eslint = new ESLint({
   overrideConfig: [js.configs.recommended, { languageOptions: { globals } }],
 });
 const modules = [
+  'workbench-shell',
+  'flow-demo-data',
+  'flow-model',
+  'flow-view',
+  'flow-actions',
   'api-client',
   'ws-client',
   'domain-client',

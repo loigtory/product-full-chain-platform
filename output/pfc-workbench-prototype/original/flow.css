@@ -1,0 +1,282 @@
+.flow-room .ctx-rail {
+  flex-shrink: 0;
+}
+.flow-room .req-name {
+  line-height: 1.6;
+}
+.flow-room .flow-req-select {
+  margin-top: 16px;
+}
+.flow-room .form-field {
+  margin-top: 12px;
+}
+.flow-room select,
+.flow-room input,
+.flow-room textarea {
+  max-width: 100%;
+}
+.flow-room .flow-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-strong);
+  background: var(--brand-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.flow-room .flow-ready {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  color: var(--text-2);
+}
+.flow-room .flow-ready span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.flow-room .flow-ready .icon {
+  color: var(--green);
+}
+.flow-room .flow-context-version {
+  margin-top: 12px;
+  line-height: 1.8;
+}
+.flow-room .flow-context-version p {
+  margin-top: 8px;
+}
+.flow-room .flow-result h3 {
+  margin-bottom: 6px;
+}
+.flow-room .flow-result .btn-group {
+  margin-top: 14px;
+}
+.flow-room .flow-artifact-tabs {
+  display: flex;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.flow-room .flow-artifact-tabs button {
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+}
+.flow-room .flow-artifact-tabs button[aria-selected='true'] {
+  color: var(--brand-strong);
+  background: var(--brand-soft);
+  font-weight: 600;
+}
+.flow-room .flow-version-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 0;
+}
+.flow-room .flow-version-bar label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-2);
+  flex: 1;
+  min-width: 0;
+}
+.flow-room .flow-version-bar select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-1);
+}
+.flow-room .flow-business {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.flow-room .flow-business-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.flow-room .flow-business-head > .icon {
+  color: var(--brand-strong);
+}
+.flow-room .flow-business-head > div {
+  flex: 1;
+}
+.flow-room .flow-business-head p,
+.flow-room .flow-switch small {
+  color: var(--text-2);
+  margin-top: 4px;
+  display: block;
+}
+.flow-room .flow-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 0;
+}
+.flow-room .flow-switch input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--brand-strong);
+}
+.flow-room .flow-input-unit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.flow-room .flow-input-unit input {
+  flex: 1;
+  min-width: 0;
+}
+.flow-room .flow-message-preview {
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  line-height: 1.7;
+}
+.flow-room .flow-preview-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  color: var(--text-2);
+}
+.flow-room .flow-message-preview .link {
+  display: inline-block;
+  margin-top: 10px;
+}
+.flow-room .flow-canvas-footer {
+  margin-top: 16px;
+}
+.flow-room .flow-canvas-empty {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 16px;
+  padding: 70px 16px;
+  color: var(--text-2);
+}
+.flow-room .flow-canvas-empty > .icon {
+  color: var(--brand);
+}
+.flow-room .flow-canvas-content {
+  overflow-wrap: anywhere;
+}
+.flow-room .flow-diff-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.flow-room .flow-diff-row del {
+  color: var(--text-2);
+}
+.flow-room .flow-diff-row strong {
+  color: var(--brand-strong);
+}
+.flow-room .flow-notice,
+.flow-room .flow-impact {
+  padding: 14px;
+  border: 1px solid var(--orange-border);
+  border-radius: var(--radius);
+  background: var(--orange-soft);
+}
+.flow-room .flow-error {
+  color: var(--red);
+  min-height: 1px;
+}
+.flow-room .flow-ac {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.flow-room .flow-ac > span:first-child {
+  white-space: nowrap;
+  color: var(--brand-strong);
+}
+.flow-room .flow-ac p {
+  flex: 1;
+}
+.flow-room .flow-handoff {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  background: var(--surface);
+}
+.flow-room .flow-handoff summary {
+  cursor: pointer;
+  color: var(--brand-strong);
+}
+.flow-room .flow-handoff p {
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+.flow-room .flow-test-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.flow-room .flow-terminal {
+  min-height: 150px;
+  max-height: 320px;
+  overflow: auto;
+  background: var(--text-1);
+  color: var(--surface);
+  padding: 16px;
+  border-radius: var(--radius);
+  font-family: var(--mono);
+}
+.flow-room .flow-terminal-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--text-2);
+  margin-bottom: 12px;
+}
+.flow-room .flow-terminal .term-line {
+  padding: 5px 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.flow-room .stage-footer {
+  flex-shrink: 0;
+  gap: 12px;
+}
+.flow-room .composer {
+  flex-shrink: 0;
+}
+.flow-room .composer .source-note {
+  margin-top: 6px;
+}
+.flow-room .composer-box textarea {
+  min-height: 44px;
+}
+.flow-room.is-expanded .ctx-rail {
+  display: none;
+}
+.flow-room.is-expanded .chat-main {
+  min-width: 420px;
+}
+.flow-room.is-expanded .side-panel {
+  width: 58%;
+  max-width: none;
+}
+.flow-room .msg-text {
+  white-space: pre-wrap;
+}
