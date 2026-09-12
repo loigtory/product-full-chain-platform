@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-12T23:17:08.606Z",
+  "approvedProposalHash": "d17d5c7383d3c4d51e342de265e855c630eda44f35a5894751683a2b72769bfe",
+  "option": "A",
+  "files": 51,
+  "sourceBaseline": "04fd81a28e16abe2d92ff87799a78750fbd497b4",
+  "gateCount": 22,
+  "scopeDocument": "docs/planning/prototype-v3/33-R2关联产物与阶段承接方案及范围确认-20260913.md",
+  "owner": "陈立",
+  "realExternalWrites": false
+}
