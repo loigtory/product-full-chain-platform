@@ -1,0 +1,12 @@
+{"name":"target-rejected-before-side-effects","status":"PASS"}
+{"name":"connect-does-not-migrate-and-readiness-fails","status":"PASS"}
+{"name":"versioned-migration-repeat-and-checksum","status":"PASS"}
+{"name":"requirement-version-audit-independent-sql-readback","status":"PASS"}
+{"name":"rollback-removes-requirement-version-audit-and-counter-change","status":"PASS"}
+{"name":"concurrent-identifiers-and-version-conflict-are-atomic","status":"PASS"}
+{"name":"tenant-identity-mapping-and-foreign-keys","status":"PASS"}
+{"name":"independent-process-restart-preserves-identifiers-and-records","status":"PASS"}
+{"name":"connection-and-sql-timeouts-fail-without-memory-fallback","status":"PASS"}
+{"name":"cli-refuses-unapproved-target-and-repeats-migration","status":"PASS"}
+{"name":"storage-does-not-depend-on-memory-domain-or-change-app-entry","status":"PASS"}
+{"status":"PASS","runId":"CODEx_TEST_M2C_20260912_storage","results":[{"name":"target-rejected-before-side-effects","status":"PASS"},{"name":"connect-does-not-migrate-and-readiness-fails","status":"PASS"},{"name":"versioned-migration-repeat-and-checksum","status":"PASS"},{"name":"requirement-version-audit-independent-sql-readback","status":"PASS"},{"name":"rollback-removes-requirement-version-audit-and-counter-change","status":"PASS"},{"name":"concurrent-identifiers-and-version-conflict-are-atomic","status":"PASS"},{"name":"tenant-identity-mapping-and-foreign-keys","status":"PASS"},{"name":"independent-process-restart-preserves-identifiers-and-records","status":"PASS"},{"name":"connection-and-sql-timeouts-fail-without-memory-fallback","status":"PASS"},{"name":"cli-refuses-unapproved-target-and-repeats-migration","status":"PASS"},{"name":"storage-does-not-depend-on-memory-domain-or-change-app-entry","status":"PASS"},{"name":"cleanup-independent-readback","status":"PASS"}],"cleanup":{"schema":"codex_test_m2c_20260912_storage","remaining":0,"totalRows":29,"externalSchemaMetadataUnchanged":true,"createdIds":["10000000-0000-4000-8000-000000000001","10000000-0000-4000-8000-000000000002","af6ff45d-2748-4170-82dc-ea1df75a1b03","6fa54630-4ce9-4a54-9021-3184b73fa537","545db316-19ac-4e0d-86cd-3cf9523cf4ca","f3884290-74c5-46a9-a856-3894a4239893","15b81243-e94d-43b8-b52a-a379e97e5339","76308acf-6241-44db-8632-81c59478662f"],"poolsClosed":true},"evidence":"D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\pg-2026-09-12T08-28-29-393Z","scope":"isolated PostgreSQL components only; business API still memory; no external effects"}

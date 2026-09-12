@@ -27,7 +27,17 @@ try {
     assert.equal((await current()).run.status,'RUNNING');
     for(const id of ['mirror-term','panel-term']) assert.match(await page.locator('#'+id).innerText(),/\[模拟 Bridge\]/);
     await page.screenshot({path:resolve(evidence,'running-1440.png')});
-    await page.locator('#mirror-term').scrollIntoViewIfNeeded();
+    if (process.env.PFC_E2E_REPAINT === '1') await page.evaluate(() => {
+      // Only the synthetic terminal DOM is replaced, reproducing a live-render detach.
+      const end = performance.now() + 600;
+      const redraw = () => {
+        const el = document.querySelector('#mirror-term');
+        if (el) el.replaceWith(el.cloneNode(true));
+        if (performance.now() < end) requestAnimationFrame(redraw);
+      };
+      requestAnimationFrame(redraw);
+    });
+    await page.locator('#mirror-term').evaluate(el => el.scrollIntoView({ block:'nearest', behavior:'instant' }));
     await page.screenshot({path:resolve(evidence,'running-dual-1440.png')});
   });
   await check('execution-source-and-unknown-git-lease',async()=>{

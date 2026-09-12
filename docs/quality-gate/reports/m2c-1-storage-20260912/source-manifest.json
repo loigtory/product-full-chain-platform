@@ -1,0 +1,68 @@
+[
+  {
+    "path": "server/src/persistence/connection.js",
+    "sha256": "fdbdb20565b7991ce5a65400116eaa2ec95f7979f6a339e9cf83e8f73eb0c7c1",
+    "sha256_lf": "fdbdb20565b7991ce5a65400116eaa2ec95f7979f6a339e9cf83e8f73eb0c7c1",
+    "lines": 109
+  },
+  {
+    "path": "server/src/persistence/transaction.js",
+    "sha256": "d8400a026c51aa6d8fdfdd789337aaa9265f54b0e4911568a91a74c1aeb42cad",
+    "sha256_lf": "d8400a026c51aa6d8fdfdd789337aaa9265f54b0e4911568a91a74c1aeb42cad",
+    "lines": 26
+  },
+  {
+    "path": "server/src/persistence/identifiers.js",
+    "sha256": "a8dbda430cf7e9a28c4bf6917ab70883458208dd3b8b39a9a32a5c24721e6828",
+    "sha256_lf": "a8dbda430cf7e9a28c4bf6917ab70883458208dd3b8b39a9a32a5c24721e6828",
+    "lines": 35
+  },
+  {
+    "path": "server/src/persistence/requirements.js",
+    "sha256": "b268cc593b4f4f91f1b8bb1518622747c575af20bb5baf4f987bcd4ecd4ade5c",
+    "sha256_lf": "b268cc593b4f4f91f1b8bb1518622747c575af20bb5baf4f987bcd4ecd4ade5c",
+    "lines": 122
+  },
+  {
+    "path": "server/src/persistence/migrations.js",
+    "sha256": "8e88d440a6a284cbb3473aa436dec8ffbe63d9ba8ebb481c9b0c3464d068bc53",
+    "sha256_lf": "8e88d440a6a284cbb3473aa436dec8ffbe63d9ba8ebb481c9b0c3464d068bc53",
+    "lines": 119
+  },
+  {
+    "path": "server/scripts/migrate-m2c.mjs",
+    "sha256": "1dcc8c381fcd0034cbd3cffe924e8970cff168b81adf6cf1cca780e366c97994",
+    "sha256_lf": "1dcc8c381fcd0034cbd3cffe924e8970cff168b81adf6cf1cca780e366c97994",
+    "lines": 29
+  },
+  {
+    "path": "server/sql/m2c/001-persistence-baseline.sql",
+    "sha256": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+    "sha256_lf": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+    "lines": 57
+  },
+  {
+    "path": "server/test-data/m2c-pg-fixture.mjs",
+    "sha256": "afc72bd8b570d6d1b7a60ef8a3ce9b7060d819461f1b20a297029f5c50a95c4d",
+    "sha256_lf": "afc72bd8b570d6d1b7a60ef8a3ce9b7060d819461f1b20a297029f5c50a95c4d",
+    "lines": 196
+  },
+  {
+    "path": "server/verify-m2c-pg.mjs",
+    "sha256": "a4aa749503f8e2e978f936e09daa93e19fc6a6f5d22a468a771b6ad0d4cf0e6d",
+    "sha256_lf": "a4aa749503f8e2e978f936e09daa93e19fc6a6f5d22a468a771b6ad0d4cf0e6d",
+    "lines": 441
+  },
+  {
+    "path": "output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "sha256": "c5632042fa12cae65eda0995746061c6833a1856893cfde7ad57a4ff0fc1a61a",
+    "sha256_lf": "251857575e121e4a5a1056f939269007f180f91bd6d4c4ecf18d58a355c37253",
+    "lines": 118
+  },
+  {
+    "path": "output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "sha256": "3bccd66c1b3a8a1b68bf5c0dd518a7c3681227a0a04d132475d3fc8bb022625a",
+    "sha256_lf": "414aafedee3a35580a7bb504e5adf9227ebee88db20165fcd7329232bf58cec6",
+    "lines": 188
+  }
+]

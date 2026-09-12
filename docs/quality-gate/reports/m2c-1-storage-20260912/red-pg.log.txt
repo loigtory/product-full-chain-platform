@@ -1,0 +1,1 @@
+{"status":"FAIL","runId":"CODEx_TEST_M2C_20260912_storage","results":[{"name":"load-storage-contract","status":"FAIL","code":"MODULE_NOT_FOUND"}],"evidence":"D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\pg-2026-09-12T08-23-28-406Z","scope":"isolated PostgreSQL components only; business API still memory; no external effects"}

@@ -1,0 +1,9 @@
+Commands executed with Node 24.20.0; all exit 0.
+node --check: all 10 changed/new JS/MJS files
+node node_modules/prettier/bin/prettier.cjs --check: 8 server JS/MJS files matched; original prototype ignored by existing formatter rules
+ESLint overrideConfigFile=true + @eslint/js recommended + commonjs/URL/__dirname: 5 storage modules, errors=0
+npm run check:config
+BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed
+npm run check:delivery-governance
+DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd
+git diff --check: exit 0
