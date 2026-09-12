@@ -497,21 +497,21 @@
       runId: id,
       contextFingerprint: result.plan?.contextFingerprint,
     };
-    G.formKey = 'plan:' + id;
     G.planBundle = result;
-    P.modal(
+    G.open(
+      'plan:' + id,
       '作业输入与批准',
       G.snapshot(result.plan) +
-        `<form>${P.field('reject-reason', '拒绝原因', '', 'textarea')}</form>`,
-      (result.run.status === 'WAITING_APPROVAL'
+        P.field('reject-reason', '拒绝原因', '', 'textarea'),
+      result.run.status === 'WAITING_APPROVAL'
         ? P.btn('reject-plan', '拒绝计划') +
-          P.btn(
-            'start-run',
-            result.plan?.approvedAt ? '启动已批准计划' : '批准并执行模拟',
-            {},
-            'primary',
-          )
-        : '') + P.btn('close-modal', '关闭'),
+            P.btn(
+              'start-run',
+              result.plan?.approvedAt ? '启动已批准计划' : '批准并执行模拟',
+              {},
+              'primary',
+            )
+        : '',
     );
   };
   G.submitPlan = async (reject = false) => {
@@ -536,6 +536,8 @@
       ].includes(run.status)
     ) {
       await P.domain.readRun(run.id, true);
+      delete prefs().drafts['plan:' + run.id];
+      P.save();
       P.close();
       P.toast('已回读同一作业：' + P.labels[run.status]);
       return;
@@ -562,6 +564,8 @@
       });
     }
     await P.domain.readRun(run.id, true);
+    delete prefs().drafts['plan:' + run.id];
+    P.save();
     P.close();
     P.domainPlan = null;
     P.toast(reject ? '计划已拒绝' : '模拟作业已启动');

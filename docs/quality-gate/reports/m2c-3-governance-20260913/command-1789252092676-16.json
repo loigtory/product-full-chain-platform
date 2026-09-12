@@ -1,0 +1,10 @@
+{
+  "command": "node output/pfc-workbench-prototype/verify-flow-model.mjs",
+  "executable": "D:\\项目管理\\product-full-chain-platform\\.tools\\node-v24.20.0-win-x64\\node.exe",
+  "startedAt": "2026-09-12T22:31:05.764Z",
+  "endedAt": "2026-09-12T22:31:05.872Z",
+  "exitCode": 0,
+  "status": "PASS",
+  "stdout": "{\"status\":\"PASS\",\"checks\":11,\"results\":[{\"name\":\"candidate-before-prd-confirmation-and-complete-chain\",\"status\":\"PASS\"},{\"name\":\"atomic-related-versions-history-and-reject\",\"status\":\"PASS\"},{\"name\":\"stale-command-and-stale-suggestion\",\"status\":\"PASS\"},{\"name\":\"permissions-before-replay-and-idempotency\",\"status\":\"PASS\"},{\"name\":\"partial-generation-and-independent-preparation\",\"status\":\"PASS\"},{\"name\":\"unknown-is-verified-before-resume-and-changes-block-active-run\",\"status\":\"PASS\"},{\"name\":\"failed-tests-and-release-recovery-preserve-evidence\",\"status\":\"PASS\"},{\"name\":\"acceptance-return-identifies-failed-item\",\"status\":\"PASS\"},{\"name\":\"invalid-stored-content-fails-before-render\",\"status\":\"PASS\"},{\"name\":\"request-isolation-and-limits\",\"status\":\"PASS\"},{\"name\":\"store-lock-concurrent-write-no-lock-quota-and-cleanup\",\"status\":\"PASS\"}],\"data\":\"synthetic process-local maps; no browser/PG/network\",\"cleanup\":\"maps discarded\"}\n",
+  "stderr": ""
+}

@@ -357,6 +357,24 @@ try {
       )
     ).rows[0];
     assert.equal(sql.context_fingerprint, snapshot);
+    const reason = runId + '_补充拒绝原因';
+    await fill({ 'reject-reason': reason });
+    await click('close-modal');
+    await closed();
+    await click('gov-plan-context', '[data-id="' + runIdCreated + '"]');
+    assert.equal(
+      await page.locator('#modal-root [name="reject-reason"]').inputValue(),
+      reason,
+      '重新打开同一计划必须恢复拒绝原因草稿',
+    );
+    await page.reload();
+    await page.waitForFunction(() => window.PFCAPI?.api.ready);
+    await click('gov-plan-context', '[data-id="' + runIdCreated + '"]');
+    assert.equal(
+      await page.locator('#modal-root [name="reject-reason"]').inputValue(),
+      reason,
+      '刷新后必须恢复同一计划草稿',
+    );
     await page.screenshot({
       path: resolve(evidence, 'governance-plan-review.png'),
     });
@@ -370,6 +388,14 @@ try {
     assert.equal(
       (await f.api('/runs/' + runIdCreated)).plan.contextFingerprint,
       snapshot,
+    );
+    assert.equal(
+      await page.evaluate(
+        (id) => window.PFC.s.ui.governance.drafts['plan:' + id] ?? null,
+        runIdCreated,
+      ),
+      null,
+      '成功处理后清理当前计划草稿',
     );
   });
   await test('G12 G16 three desktop widths, original columns and keyboard interaction', async () => {

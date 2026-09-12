@@ -1,0 +1,10 @@
+{
+  "command": "node output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+  "executable": "D:\\项目管理\\product-full-chain-platform\\.tools\\node-v24.20.0-win-x64\\node.exe",
+  "startedAt": "2026-09-12T22:30:21.593Z",
+  "endedAt": "2026-09-12T22:30:37.983Z",
+  "exitCode": 0,
+  "status": "PASS",
+  "stdout": "PASS PG empty browser does not upload factory seed\nPASS UI creates persisted requirement and unanswered questions\nPASS UI answers create matching immutable versions\nPASS UI confirmation and advancement reach dev\nPASS unconfirmed draft survives browser reload\nPASS chat attachment and simulated reply persist\nPASS Diff acceptance appends a version\nPASS persisted simulated run visible in both terminals\nPASS three desktop widths keyboard and screenshot evidence\nPASS server and browser restart restore data and original download\nPASS image original preview renders and releases the temporary URL\nPASS message keeps historical attachment version after replacement\nPASS message paging bounds browser restore and exposes older history\nPASS PG read failure is visible and preserves the pending draft\nPASS unsupported PG writes cannot change local facts\n{\"status\":\"PASS\",\"tests\":15,\"cleanup\":{\"remaining\":0,\"filesRemaining\":0,\"processesRemaining\":0}}\n",
+  "stderr": ""
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "at": "2026-09-12T22:32:21.254Z",
+  "command": "SELECT exact pg_namespace targets and pg_stat_activity for test application",
+  "config": "ignored .env.local; exact loopback pfc_local target",
+  "targets": [
+    "codex_test_m2c_20260913_governance",
+    "codex_test_m2c_20260912_domain",
+    "codex_test_m2c_20260912_storage"
+  ],
+  "remainingSchemas": [],
+  "testSessions": []
+}
