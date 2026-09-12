@@ -275,6 +275,7 @@ async function planReject(id, reason) {
     plan.rejectedReason = reason;
   }
   run.status = 'FAILED';
+  run.revision++;
   pushAudit('陈立', '拒绝计划', id + '：' + reason);
   const notice = pushNotice('作业计划被拒绝：' + id, 'warn', run.reqId);
   wsBridge.broadcast('notice', notice);
@@ -312,6 +313,7 @@ async function startRun(id) {
   run.pct = 100;
   run.exitCode = 0;
   run.status = 'SUCCEEDED';
+  run.revision++;
   pushAudit('陈立', '启动执行', id + ' → SUCCEEDED（模拟）');
   return { run };
 }
@@ -320,9 +322,10 @@ async function cancelRun(id) {
   await seedFromState();
   const run = S.runs.get(id);
   if (!run) return { error: 'NOT_FOUND' };
-  if (['SUCCEEDED','FAILED','CANCELLED'].includes(run.status)) return { run };
+  if (['SUCCEEDED','FAILED','CANCELLED','CANCELLING'].includes(run.status)) return { run };
   if (run.bridgeId) run.status = wsBridge.cancelJob(run) ? 'CANCELLING' : 'UNKNOWN';
   else run.status = 'CANCELLED';
+  run.revision++;
   pushAudit('陈立', '取消作业', id);
   return { run };
 }

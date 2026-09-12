@@ -1,0 +1,2 @@
+{"script":"verify-static.mjs","status":"FAIL"}
+{"status":"FAIL","evidence":"C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-ObpbBC","sourceUnchanged":true}

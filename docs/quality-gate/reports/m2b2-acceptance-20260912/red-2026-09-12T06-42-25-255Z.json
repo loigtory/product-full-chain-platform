@@ -1,0 +1,69 @@
+{
+  "status": "FAIL",
+  "runId": "CODEx_TEST_M2B2_20260912",
+  "results": [
+    {
+      "name": "page-identity",
+      "status": "PASS"
+    },
+    {
+      "name": "ui-create-confirm-advance-api",
+      "status": "PASS"
+    },
+    {
+      "name": "sim-lines-visible-before-completion",
+      "status": "PASS"
+    },
+    {
+      "name": "execution-source-and-unknown-git-lease",
+      "status": "FAIL",
+      "error": "The input did not match the regular expression /模拟 Bridge · 实时协议输出/. Input:\n\n' R-133 · pfc-r-1201 · web\\n' +\n  '[模拟 Bridge] 开发实现：已连接工作区（git@main）\\n' +\n  '[模拟 Bridge] 读取需求 R-1201 与现有接口…\\n' +\n  '运行中 · 尚无退出码 · 原型模拟输出'\n"
+    },
+    {
+      "name": "succeeded-lines-replay-readback",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-success-has-no-simulated-preview-action",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "refresh-restores-domain-run",
+      "status": "PASS"
+    },
+    {
+      "name": "three-desktop-widths",
+      "status": "PASS"
+    },
+    {
+      "name": "reject-reason-required-and-audited",
+      "status": "PASS"
+    },
+    {
+      "name": "flow-execution",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"new-requirement\"]').first()\u001b[22m\n\n    at click (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\m2b2-browser-fixture.mjs:69:98)\n    at Object.create (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\m2b2-browser-fixture.mjs:73:13)\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2b2-browser.mjs:78:11"
+    }
+  ],
+  "cleanup": {
+    "children": [
+      {
+        "pid": 9612,
+        "exited": true
+      },
+      {
+        "pid": 46628,
+        "exited": true
+      }
+    ],
+    "port": 5194,
+    "portFree": true,
+    "contextsClosed": true,
+    "data": "memory discarded",
+    "createdIds": [
+      "R-1201"
+    ]
+  },
+  "evidence": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-browser-2026-09-12T06-42-25-255Z"
+}

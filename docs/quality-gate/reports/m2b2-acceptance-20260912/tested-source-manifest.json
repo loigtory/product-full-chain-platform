@@ -1,0 +1,46 @@
+[
+  {
+    "path": "output/pfc-workbench-prototype/original/app.js",
+    "sha256": "fb002ddd00dd9eb47d2b8ec9f45b15727377f469c5daf06420beb10d0d00ebc2"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/domain-client.js",
+    "sha256": "5ab043b4cb854dd677c7ef87956d3638df09bf7161136a54df7ab615f016ef8f"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/model.js",
+    "sha256": "048d0821f836249390917f6aeb098cf5150cc77d2be3121031fd1769c989313b"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/run-actions.js",
+    "sha256": "4d402548f7daec84474038bcd8724f850870e8a3ed748daa3c461543f559b278"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/workbench.js",
+    "sha256": "0462a9e1f4e730362ddb99af6264903bd2773ff28bcd0d00b5bb49077df227fe"
+  },
+  {
+    "path": "server/src/domain/service.js",
+    "sha256": "796552e9650d4d6fc94b6d89e78ed50e81621957ff6a7e63e31bd27fc3a26eba"
+  },
+  {
+    "path": "server/src/ws.js",
+    "sha256": "8ba32a05b4f1f2e7d16f85d740db301db0f5f2d511721135367d9bcacaa438c1"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "sha256": "0fb77bf4ffda1cb9a56faba2c5e8ab49a6bc1d3692bd0c0733bf6ad9d4c64b97"
+  },
+  {
+    "path": "server/verify-m2b2-domain.mjs",
+    "sha256": "63afbe34bc118e6ac25eb0e37b8e73caf8b6cd1de87c064f13b7666269b6e29b"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "sha256": "220935c3ce3b78f5ca15c868a57ffefabcbb780e9aee1b07c302b33aa0968bb6"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/m2b2-browser-fixture.mjs",
+    "sha256": "198e818499999558f4cd56b5b95c272032dc57bcc0df4add0090a8c738f14067"
+  }
+]

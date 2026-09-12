@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+      "seconds": 81.1,
+      "log": "verify-prototype.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "seconds": 4.71,
+      "log": "verify-m1-layer.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "seconds": 10.3,
+      "log": "verify-m1-e2e.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node server/verify-server.mjs",
+      "seconds": 0.63,
+      "log": "verify-server.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node server/verify-server-m2.mjs",
+      "seconds": 0.75,
+      "log": "verify-server-m2.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node server/verify-m2b.mjs",
+      "seconds": 6.73,
+      "log": "verify-m2b.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "seconds": 0.08,
+      "log": "verify-m2b2-model.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node server/verify-m2b2-domain.mjs",
+      "seconds": 0.17,
+      "log": "verify-m2b2-domain.mjs.log.txt",
+      "exitCode": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "log": "verify-m2b2-browser-retry.mjs.log.txt",
+      "exitCode": 0,
+      "note": "仅修正测试定位器；同一业务源码上复跑19/19；首轮失败保留",
+      "firstAttemptSeconds": 28.29,
+      "retrySeconds": null
+    }
+  ],
+  "browserChecks": 19,
+  "scope": "local memory protocol only"
+}

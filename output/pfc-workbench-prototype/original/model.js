@@ -988,6 +988,7 @@
     P.write();
     const run = P.run(r);
     P.assert(run, '没有关联作业');
+    P.assert(!run._remote, '领域作业只能通过服务端控制和核验');
     if (action === 'cancel') {
       P.assert(
         ['RUNNING', 'WAITING_INPUT', 'WAITING_APPROVAL', 'QUEUED'].includes(

@@ -17,5 +17,16 @@ check('remote tick does not simulate progress',()=>{P.tick();assert.equal(run.pc
 check('WS finds nested run without cross-requirement writes',()=>{ctx.window.PFCWS.handle({type:'job.line',runId:run.id,reqId:r.id,seq:1,text:'合成行'});assert.equal(run.lines.length,1);ctx.window.PFCWS.handle({type:'job.line',runId:run.id,reqId:'other',seq:2,text:'foreign'});assert.equal(run.lines.length,1);});
 check('duplicate event is ignored',()=>{ctx.window.PFCWS.handle({type:'job.line',runId:run.id,reqId:r.id,seq:1,text:'合成行'});assert.equal(run.lines.length,1);});
 check('remote status carries exit code',()=>{ctx.window.PFCWS.handle({type:'run.status',runId:run.id,reqId:r.id,status:'SUCCEEDED',exitCode:0,pct:100});assert.equal(run.exitCode,0);assert.equal(run.status,'SUCCEEDED');});
+check('older WS status cannot undo cancellation',()=>{
+  Object.assign(run,{status:'CANCELLED',revision:3});
+  ctx.window.PFCWS.handle({type:'run.status',reqId:r.id,runId:run.id,status:'RUNNING',revision:1});
+  assert.equal(run.status,'CANCELLED');assert.equal(run.revision,3);
+});
+check('remote control cannot enter local verification',()=>{
+  P.s.ui.req=r.id;P.s.ui.runId=run.id;
+  const before=JSON.stringify(run);
+  assert.throws(()=>P.runControl(r,'verify'),/领域作业/);
+  assert.equal(JSON.stringify(run),before);
+});
 console.log(JSON.stringify({status:results.every(r=>r.status==='PASS')?'PASS':'FAIL',checks:results.length,results}));
 process.exitCode=results.some(r=>r.status==='FAIL')?1:0;

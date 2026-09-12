@@ -1,0 +1,38 @@
+[
+  {
+    "file": "red-2026-09-12T06-42-25-255Z.json",
+    "failures": [
+      "execution-source-and-unknown-git-lease",
+      "remote-success-has-no-simulated-preview-action",
+      "flow-execution"
+    ]
+  },
+  {
+    "file": "red-2026-09-12T06-44-04-723Z.json",
+    "failures": [
+      "long-output-follows-tail-and-preserves-reading",
+      "web-reconnect-recovers-missed-lines",
+      "cancel-waits-for-bridge-ack-and-ignores-late-done"
+    ]
+  },
+  {
+    "file": "red-2026-09-12T06-48-27-416Z.json",
+    "failures": [
+      "long-output-follows-tail-and-preserves-reading",
+      "cancel-waits-for-bridge-ack-and-ignores-late-done",
+      "remote-model-controls-never-simulate-state"
+    ]
+  },
+  {
+    "file": "red-2026-09-12T06-54-21-593Z.json",
+    "failures": [
+      "demo-scenario-cannot-mutate-remote-job"
+    ]
+  },
+  {
+    "file": "red-2026-09-12T06-58-48-777Z.json",
+    "failures": [
+      "demo-scenario-cannot-mutate-remote-job"
+    ]
+  }
+]

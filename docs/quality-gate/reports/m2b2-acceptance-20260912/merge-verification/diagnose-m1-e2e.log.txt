@@ -1,0 +1,74 @@
+{"diagnostic":"response","ms":401,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/index.html","status":200}
+{"diagnostic":"response","ms":502,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/base.css","status":200}
+{"diagnostic":"response","ms":507,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/guide.css","status":200}
+{"diagnostic":"response","ms":512,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/data.js","status":200}
+{"diagnostic":"response","ms":516,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/data-layer.js","status":200}
+{"diagnostic":"response","ms":518,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/api-client.js","status":200}
+{"diagnostic":"response","ms":522,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/ws-client.js","status":200}
+{"diagnostic":"response","ms":527,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/model.js","status":200}
+{"diagnostic":"response","ms":535,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/domain-client.js","status":200}
+{"diagnostic":"response","ms":539,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/ui.js","status":200}
+{"diagnostic":"response","ms":544,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/workbench.js","status":200}
+{"diagnostic":"response","ms":549,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/spaces.js","status":200}
+{"diagnostic":"response","ms":556,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/governance.js","status":200}
+{"diagnostic":"response","ms":564,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/actions.js","status":200}
+{"diagnostic":"response","ms":569,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/run-actions.js","status":200}
+{"diagnostic":"response","ms":580,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/delivery-actions.js","status":200}
+{"diagnostic":"response","ms":580,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/governance-actions.js","status":200}
+{"diagnostic":"response","ms":587,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/downloads.js","status":200}
+{"diagnostic":"response","ms":591,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/attachments.js","status":200}
+{"diagnostic":"response","ms":595,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/conversation.js","status":200}
+{"diagnostic":"response","ms":602,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/app.js","status":200}
+{"diagnostic":"response","ms":686,"path":"/api/auth/dev-login","status":200}
+{"diagnostic":"response","ms":695,"path":"/api/state","status":200}
+{"diagnostic":"response","ms":705,"path":"/api/state","status":200}
+{"diagnostic":"response","ms":716,"path":"/api/reqs","status":200}
+{"diagnostic":"response","ms":724,"path":"/api/reqs/R-1042","status":200}
+{"diagnostic":"response","ms":737,"path":"/api/reqs/R-1031","status":200}
+{"diagnostic":"response","ms":742,"path":"/api/reqs/R-1018","status":200}
+{"diagnostic":"response","ms":750,"path":"/api/runs","status":200}
+{"diagnostic":"response","ms":767,"path":"/api/runs","status":200}
+{"diagnostic":"response","ms":1278,"path":"/api/state","status":200}
+{"diagnostic":"response","ms":2341,"path":"/api/state","status":200}
+{"check":"e2e-badge-api","status":"PASS","note":"徽标=API 模式"}
+{"diagnostic":"token-read","ms":3161,"present":true}
+{"check":"e2e-devlogin-token","status":"PASS","note":"dev-login 已签发 JWT"}
+{"check":"e2e-state-loaded","status":"PASS","note":"状态树已加载（工厂种子或服务端）"}
+{"check":"e2e-seed-on-server","status":"PASS","note":"工厂种子已 PUT 到服务端"}
+{"diagnostic":"response","ms":3735,"path":"/api/state","status":200}
+{"diagnostic":"response","ms":4746,"path":"/api/state","status":200}
+{"check":"e2e-flush-synced","status":"PASS","note":"页面修改已 flush 到服务端 seq=9999"}
+{"check":"e2e-flush-field","status":"PASS","note":"字段级修改已同步"}
+{"diagnostic":"response","ms":5059,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/index.html","status":200}
+{"diagnostic":"response","ms":5091,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/base.css","status":200}
+{"diagnostic":"response","ms":5094,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/guide.css","status":200}
+{"diagnostic":"response","ms":5095,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/data.js","status":200}
+{"diagnostic":"response","ms":5098,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/data-layer.js","status":200}
+{"diagnostic":"response","ms":5100,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/api-client.js","status":200}
+{"diagnostic":"response","ms":5103,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/ws-client.js","status":200}
+{"diagnostic":"response","ms":5105,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/model.js","status":200}
+{"diagnostic":"response","ms":5108,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/domain-client.js","status":200}
+{"diagnostic":"response","ms":5110,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/ui.js","status":200}
+{"diagnostic":"response","ms":5112,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/workbench.js","status":200}
+{"diagnostic":"response","ms":5114,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/spaces.js","status":200}
+{"diagnostic":"response","ms":5119,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/governance.js","status":200}
+{"diagnostic":"response","ms":5120,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/actions.js","status":200}
+{"diagnostic":"response","ms":5122,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/run-actions.js","status":200}
+{"diagnostic":"response","ms":5125,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/delivery-actions.js","status":200}
+{"diagnostic":"response","ms":5128,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/governance-actions.js","status":200}
+{"diagnostic":"response","ms":5130,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/downloads.js","status":200}
+{"diagnostic":"response","ms":5134,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/attachments.js","status":200}
+{"diagnostic":"response","ms":5136,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/conversation.js","status":200}
+{"diagnostic":"response","ms":5138,"path":"/D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/app.js","status":200}
+{"diagnostic":"response","ms":5155,"path":"/api/state","status":200}
+{"diagnostic":"response","ms":5160,"path":"/api/reqs","status":200}
+{"diagnostic":"response","ms":5165,"path":"/api/reqs/R-1042","status":200}
+{"diagnostic":"response","ms":5170,"path":"/api/reqs/R-1031","status":200}
+{"diagnostic":"response","ms":5175,"path":"/api/reqs/R-1018","status":200}
+{"diagnostic":"response","ms":5181,"path":"/api/runs","status":200}
+{"diagnostic":"response","ms":5190,"path":"/api/runs","status":200}
+{"diagnostic":"response","ms":5698,"path":"/api/state","status":200}
+{"diagnostic":"response","ms":6866,"path":"/api/state","status":200}
+{"check":"e2e-reload-restore","status":"PASS","note":"重载后从服务端恢复 seq=9999"}
+{"check":"e2e-no-console-error","status":"PASS","note":""}
+{"status":"PASS","checks":8,"results":[{"name":"e2e-badge-api","status":"PASS","note":"徽标=API 模式"},{"name":"e2e-devlogin-token","status":"PASS","note":"dev-login 已签发 JWT"},{"name":"e2e-state-loaded","status":"PASS","note":"状态树已加载（工厂种子或服务端）"},{"name":"e2e-seed-on-server","status":"PASS","note":"工厂种子已 PUT 到服务端"},{"name":"e2e-flush-synced","status":"PASS","note":"页面修改已 flush 到服务端 seq=9999"},{"name":"e2e-flush-field","status":"PASS","note":"字段级修改已同步"},{"name":"e2e-reload-restore","status":"PASS","note":"重载后从服务端恢复 seq=9999"},{"name":"e2e-no-console-error","status":"PASS","note":""}]}

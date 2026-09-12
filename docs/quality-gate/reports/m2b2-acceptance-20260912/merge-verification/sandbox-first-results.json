@@ -1,0 +1,6 @@
+{
+  "exitCode": 1,
+  "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-prototype.mjs.log",
+  "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+  "seconds": 0.13
+}

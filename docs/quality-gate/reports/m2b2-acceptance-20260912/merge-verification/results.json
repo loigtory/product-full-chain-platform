@@ -1,0 +1,57 @@
+[
+  {
+    "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-prototype.mjs.log",
+    "exitCode": 0,
+    "seconds": 80.79
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m1-layer.mjs.log",
+    "exitCode": 0,
+    "seconds": 4.53
+  },
+  {
+    "exitCode": 0,
+    "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "seconds": 10.12,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m1-e2e.mjs.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "node server/verify-server.mjs",
+    "seconds": 0.59,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-server.mjs.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "node server/verify-server-m2.mjs",
+    "seconds": 0.69,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-server-m2.mjs.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "node server/verify-m2b.mjs",
+    "seconds": 6.78,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m2b.mjs.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "seconds": 0.08,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m2b2-model.mjs.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "node server/verify-m2b2-domain.mjs",
+    "seconds": 0.18,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m2b2-domain.mjs.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "seconds": 13.6,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m2b2-browser-retry.mjs.log",
+    "firstAttemptExitCode": 1
+  }
+]

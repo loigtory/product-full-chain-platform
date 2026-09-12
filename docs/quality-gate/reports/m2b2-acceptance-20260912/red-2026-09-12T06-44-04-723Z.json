@@ -1,0 +1,91 @@
+{
+  "status": "FAIL",
+  "runId": "CODEx_TEST_M2B2_20260912",
+  "results": [
+    {
+      "name": "page-identity",
+      "status": "PASS"
+    },
+    {
+      "name": "ui-create-confirm-advance-api",
+      "status": "PASS"
+    },
+    {
+      "name": "sim-lines-visible-before-completion",
+      "status": "PASS"
+    },
+    {
+      "name": "execution-source-and-unknown-git-lease",
+      "status": "PASS"
+    },
+    {
+      "name": "succeeded-lines-replay-readback",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-success-has-no-simulated-preview-action",
+      "status": "PASS"
+    },
+    {
+      "name": "refresh-restores-domain-run",
+      "status": "PASS"
+    },
+    {
+      "name": "three-desktop-widths",
+      "status": "PASS"
+    },
+    {
+      "name": "reject-reason-required-and-audited",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-simulation-is-labelled-and-read-back",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate-approval-does-not-create-another-run",
+      "status": "PASS"
+    },
+    {
+      "name": "long-output-follows-tail-and-preserves-reading",
+      "status": "FAIL",
+      "error": "The expression evaluated to a falsy value:\n\n  assert.ok(await page.locator('#'+id).evaluate(el=>el.scrollHeight>el.clientHeight))\n"
+    },
+    {
+      "name": "web-reconnect-recovers-missed-lines",
+      "status": "FAIL",
+      "error": "Timeout: missed line stored"
+    },
+    {
+      "name": "cancel-waits-for-bridge-ack-and-ignores-late-done",
+      "status": "FAIL",
+      "error": "page.waitForFunction: Timeout 15000ms exceeded."
+    },
+    {
+      "name": "console-health",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "children": [
+      {
+        "pid": 25048,
+        "exited": true
+      },
+      {
+        "pid": 39600,
+        "exited": true
+      }
+    ],
+    "port": 5194,
+    "portFree": true,
+    "contextsClosed": true,
+    "data": "memory discarded",
+    "createdIds": [
+      "R-1201",
+      "R-1202",
+      "R-1203"
+    ]
+  },
+  "evidence": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-browser-2026-09-12T06-44-04-723Z"
+}

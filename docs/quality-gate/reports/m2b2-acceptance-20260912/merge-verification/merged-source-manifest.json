@@ -1,0 +1,57 @@
+[
+  {
+    "path": "output/pfc-workbench-prototype/original/app.js",
+    "sha256": "da9c66371c776fb146fda048c281a1666d2610c0819c75cf4b7960bb0cc1638c",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/domain-client.js",
+    "sha256": "5ab043b4cb854dd677c7ef87956d3638df09bf7161136a54df7ab615f016ef8f",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/model.js",
+    "sha256": "bfad818c1e3e7daeec4cac7320f8f79173d8abf7f032c721021e97973210f1c2",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/run-actions.js",
+    "sha256": "356f7d1542460b6f8af6b56723fefcefbd175c1607086dcc33dfdf664a085033",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/workbench.js",
+    "sha256": "0462a9e1f4e730362ddb99af6264903bd2773ff28bcd0d00b5bb49077df227fe",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "server/src/domain/service.js",
+    "sha256": "38caabfa2f75813ed4c7db8e56a8f95136f80d9f972b3d858ae69cd9e196a2b2",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "server/src/ws.js",
+    "sha256": "c6d6d1e51ba84cfe074deae5c49da9a7bc2df37ba5f0809828828dab7bf69f4e",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "sha256": "5f4a651ba4bda20a533419bbe09736a762eb15903bf59451acb2b80541d7e44e",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "server/verify-m2b2-domain.mjs",
+    "sha256": "eff0296292853075b4b3381694abce7d86cde2f463563a3b5a03fe00dd47cb39",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "sha256": "220935c3ce3b78f5ca15c868a57ffefabcbb780e9aee1b07c302b33aa0968bb6",
+    "matchesReviewedGitContent": true
+  },
+  {
+    "path": "output/pfc-workbench-prototype/m2b2-browser-fixture.mjs",
+    "sha256": "198e818499999558f4cd56b5b95c272032dc57bcc0df4add0090a8c738f14067",
+    "matchesReviewedGitContent": true
+  }
+]

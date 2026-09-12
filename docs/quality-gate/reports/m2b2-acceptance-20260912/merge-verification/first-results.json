@@ -1,0 +1,20 @@
+[
+  {
+    "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-prototype.mjs.log",
+    "exitCode": 0,
+    "seconds": 80.79
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m1-layer.mjs.log",
+    "exitCode": 0,
+    "seconds": 4.53
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-merge-verification-20260912\\verify-m1-e2e.mjs.log",
+    "exitCode": 1,
+    "seconds": 10.49
+  }
+]

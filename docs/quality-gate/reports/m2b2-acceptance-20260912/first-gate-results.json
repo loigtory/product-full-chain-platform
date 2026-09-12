@@ -1,0 +1,56 @@
+[
+  {
+    "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+    "seconds": 81.1,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-prototype.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+    "seconds": 4.71,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-m1-layer.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "seconds": 10.3,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-m1-e2e.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node server/verify-server.mjs",
+    "seconds": 0.63,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-server.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node server/verify-server-m2.mjs",
+    "seconds": 0.75,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-server-m2.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node server/verify-m2b.mjs",
+    "seconds": 6.73,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-m2b.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "seconds": 0.08,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-m2b2-model.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node server/verify-m2b2-domain.mjs",
+    "seconds": 0.17,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-m2b2-domain.mjs.log",
+    "exitCode": 0
+  },
+  {
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "seconds": 28.29,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2b2-acceptance-gates-20260912\\verify-m2b2-browser.mjs.log",
+    "exitCode": 1
+  }
+]
