@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-09-12T23:13:41.106Z",
+  "reviewedCommit": "ce2c44cc09906da4588eb2993e07779d17fc3dd4",
+  "acceptor": "陈立",
+  "confirmation": "用户答复同意验收 ce2c44c 并合并 main，再按33号A方案及范围启动R2",
+  "scope": "M2c-3治理与项目上下文本地隔离PG/原型交付",
+  "status": "SCOPED_ACCEPTED",
+  "sourceFingerprints": 63,
+  "historicalFingerprints": 358,
+  "gateRun": 1789252092676,
+  "gateResult": "18/18 PASS; original evidence rechecked, not rerun",
+  "formalPodStatus": "UNCHANGED",
+  "businessPg": "NOT_ENABLED",
+  "deployment": "NOT_EXECUTED",
+  "r2": "SEPARATELY_CONFIRMED_IMPLEMENTATION_PACKAGE_33"
+}

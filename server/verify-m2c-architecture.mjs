@@ -101,7 +101,12 @@ check(
 check('approved frontend and server contract additions match', () => {
   const contract = require('./src/contract'),
     frontend = read('output/pfc-workbench-prototype/original/api-client.js');
-  for (const [name, path] of [...contract.reqs, ...contract.runs]) {
+  for (const [name, path] of [
+    ...contract.reqs,
+    ...contract.runs,
+    ...contract.governance,
+    ...contract.projects,
+  ]) {
     assert.ok(frontend.includes(name));
     assert.ok(frontend.includes(path));
   }
@@ -133,4 +138,34 @@ check('future workbench target is exact and performs no initialization', () => {
     /CREATE SCHEMA|INSERT INTO/,
   );
 });
+check(
+  'governance policy owns permissions and execution snapshots; UI dispatch is isolated',
+  () => {
+    for (const name of ['membership-policy', 'execution-plan-policy'])
+      assert.ok(read('server/src/domain/' + name + '.js').length > 500);
+    const commands = read('server/src/persistence/commands.js');
+    assert.ok(
+      commands.indexOf('authorizeCommand') < commands.indexOf('const previous'),
+    );
+    assert.match(
+      read('server/src/domain/execution-service.js'),
+      /planPolicy\.capture/,
+    );
+    assert.match(
+      read('server/src/domain/execution-service.js'),
+      /planPolicy\.approval/,
+    );
+    const actions = read(
+      'output/pfc-workbench-prototype/original/domain-actions.js',
+    );
+    assert.match(actions, /governanceDomain\?\.install/);
+    assert.match(actions, /if \(!V\.pg\(\)\) return original/);
+    for (const name of ['governance-domain', 'governance-domain-view'])
+      assert.doesNotMatch(
+        read('output/pfc-workbench-prototype/original/' + name + '.js'),
+        /require\(|child_process|INSERT INTO|UPDATE .+ SET|P\.log\(/,
+      );
+    assert.doesNotMatch(read('server/src/runtime.js'), /initializeMembers\(/);
+  },
+);
 console.log(JSON.stringify({ status: 'PASS', results }, null, 2));

@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "at": "2026-09-12T22:29:59.844Z",
+  "results": [
+    {
+      "command": "node --check output/pfc-workbench-prototype/original/governance-domain.js; installed Prettier check",
+      "status": "PASS"
+    },
+    {
+      "command": "node --check output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs; installed Prettier check",
+      "status": "PASS"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"syntaxScripts\":28,\"lintModules\":25,\"externalEntryAssets\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node .tools/node-v24.20.0-win-x64/node_modules/npm/bin/npm-cli.js run check:config",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "\n> product-full-chain-platform@0.0.0 check:config\n> node scripts/check-config.mjs\n\nBOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n",
+      "stderr": ""
+    },
+    {
+      "command": "node .tools/node-v24.20.0-win-x64/node_modules/npm/bin/npm-cli.js run check:delivery-governance",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "\n> product-full-chain-platform@0.0.0 check:delivery-governance\n> node --import tsx scripts/check-delivery-governance.ts\n\nDELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n",
+      "stderr": ""
+    }
+  ]
+}

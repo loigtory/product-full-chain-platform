@@ -1,0 +1,612 @@
+{
+  "status": "PASS",
+  "sourceRun": 1789238419489,
+  "roots": [
+    "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP",
+    "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1",
+    "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR",
+    "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM",
+    "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-LsPSIm"
+  ],
+  "copied": [
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238432474-R-1042-req-v1.md",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238432474-R-1042-req-v1.md",
+      "sha256": "18897b30e64fdc8c06cca6e92e76333c2015245f62009f61bf84ebd3133e56b9"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238449972-CODEx_TEST_LONG.txt",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238449972-CODEx_TEST_LONG.txt.json",
+      "sha256": "0f882452fe7ce72bb8b0ffaeb0f905029e1605adc866e01401e17c626f6cebd0"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238452386-R-1042-REL-1202-delivery-package.md",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238452386-R-1042-REL-1202-delivery-package.md.json",
+      "sha256": "b463bc75ee2cbfd99faa0977e7ed6698090994524b496d532c4c31a3ef340c9b",
+      "format": "Original generated Markdown captured as JSON text, including trailing spaces"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238460640-CODEx_TEST_RECOVER.txt",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238460640-CODEx_TEST_RECOVER.txt.json",
+      "sha256": "2e0851ceb080c77f659777f6d13c3440a8e4fd845ce1aa07b471a3dda838df91"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238465190-CODEx_TEST_IDENTITY.txt",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238465190-CODEx_TEST_IDENTITY.txt.json",
+      "sha256": "aa0486ba53523f1c8e4d4b8ebf2f5fa2ed203a5fb93ba34e3644ddd94beaa2f2"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238466125-CODEx_TEST_FROZEN-REL-1201-delivery-package.md",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238466125-CODEx_TEST_FROZEN-REL-1201-delivery-package.md.json",
+      "sha256": "f7f7678262157d487828c4287cb02bab5145f300e2c1e360d1873fc373fb3b47",
+      "format": "Original generated Markdown captured as JSON text, including trailing spaces"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\1789238466641-CODEx_TEST_FROZEN-REL-1201-delivery-package.md",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238466641-CODEx_TEST_FROZEN-REL-1201-delivery-package.md.json",
+      "sha256": "5e4f4e41775c275432feb49dec37aaa8f9982eff0f07afc83d90892b12a1313c",
+      "format": "Original generated Markdown captured as JSON text, including trailing spaces"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A01-PASS.png",
+      "sha256": "6fd87d4c5196a71ade7f7f67e71ed772862b5ff97200941cdde301dc1dfa4423"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A02-PASS.png",
+      "sha256": "68376a9e6cdc7d2969dcfe8481a09aab5f71cea15b8591a930816fcdc7d4780f"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A03-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A03-PASS.png",
+      "sha256": "1cfd8039ec82347671f42bff4fb07b02190581ee2e1c4c517f96162c81255238"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A04-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A04-PASS.png",
+      "sha256": "096e0cae29c7f2df305ef05a801a5e21904b31f1a2dc7f4af04b9a3de1488dae"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A05-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A05-PASS.png",
+      "sha256": "2b74ae45c63af486bbb83c2060603b85e10e94b721a415b186d97d2feb79a8c1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A06-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A06-PASS.png",
+      "sha256": "981d3bf5f6c8b18491332b1cdeb061a0aef4dba05dfb92d1e2bbd0827d5cce19"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A07-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A07-PASS.png",
+      "sha256": "41f2fb892c1cac6fea6eecc638cfc452ad1a342722d4af6fd104196c9f0175f5"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A08-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A08-PASS.png",
+      "sha256": "ea4babe58350ef1d452b470f7d6ec8242fbb5d2347f223a92b654cf57dc062a9"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\A09-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A09-PASS.png",
+      "sha256": "a705e8e4dc4ef1695512e46da354840c76def019120d1aaca5c984221c86170c"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\audit-results.json",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--audit-results.json",
+      "sha256": "f604f88248de52ab4fea835511b3a11f5fb35ad714a7395ee1dd9bffffa86be1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B01-PASS.png",
+      "sha256": "f98c916a0ad1e4b904c553c3d2b8225f9d12690cb95da9a6c0719eb2e7e80ad1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B02-PASS.png",
+      "sha256": "c7e58b918bfe0208677a7293a24511ddd550544f68b589a758c5aedfcc3ad6e1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B03-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B03-PASS.png",
+      "sha256": "3aaf157ab6317aff8448d13650d567b2b47c0cc4e482282ef52384e0d62f61d0"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B04-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B04-PASS.png",
+      "sha256": "2a8d528413788396b891c2adaec16c30f513e3d1500b45b8d949ad888830627f"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B05-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B05-PASS.png",
+      "sha256": "81424100e254c039fbc09f7f27597ba99f4539f65b7d6e30e8c642549c73e72d"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B06-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B06-PASS.png",
+      "sha256": "6cf2c045ba84c9ee4203afd65111aa542154373be5efc52e6cae949ef4f35c40"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B07-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B07-PASS.png",
+      "sha256": "9fefdae966b1e7d229c7c67dcf241ccb6fa1dc38095142b6e8fc549db5028d67"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B08-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B08-PASS.png",
+      "sha256": "1cfd8039ec82347671f42bff4fb07b02190581ee2e1c4c517f96162c81255238"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B09-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B09-PASS.png",
+      "sha256": "e3ac1ea3e3f32f64ff84b96d93d4bbb08928bc0deb489ce5547de6210d63ff5e"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B10-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B10-PASS.png",
+      "sha256": "c80e135edb5933b7f45ed39555de05afaee1028ca4b80cfb12bd1bb8c2d8dcc4"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\B11-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B11-PASS.png",
+      "sha256": "5801033cab54ce868d2ad079d448ef1b631b2e9414a7e3382f9f1445395a106c"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C01-PASS.png",
+      "sha256": "0e2c9f0baf1e3871d60c596820c2f903297780a0bead5fcd6cd39e4325c1894b"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C02-PASS.png",
+      "sha256": "66f0e8e055b45914b9f3fca570384ec79165ef177135d870ce06123398019999"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C03-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C03-PASS.png",
+      "sha256": "fe878631364a98cc5d1c89b3c5a3e36a868101bd48115fc616a9bf09bb438454"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C04-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C04-PASS.png",
+      "sha256": "ab2c66ca9812c96e144f8e3764f84ddd0c94d4e57972496cca3a83270454e64a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C05-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C05-PASS.png",
+      "sha256": "d786367eca6e68982d9850c10ff787cdb09021ff00d4df8955a155e97a90d5c1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C06-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C06-PASS.png",
+      "sha256": "1da67e6535e646df00a6e4f57360f43993defbc87b5483b188600a05e4ec03bb"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C07-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C07-PASS.png",
+      "sha256": "dda4579a1806c8bc820bf710b2a4b5e535c65e058577538c9787a2c4e1a41377"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C08-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C08-PASS.png",
+      "sha256": "dd301c8035eafe0fdaaa2829f3aa4581f20352b60a310d0aa29bf203248b8739"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C09-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C09-PASS.png",
+      "sha256": "8e07bd2dcf92aca92458004e379dd66bef43ae7c4351911c963361d7e8be2b24"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C10-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C10-PASS.png",
+      "sha256": "230cbddeb55b34171e97b1c7da742b9370b2ac49ec1428329bc3cebc1b1081e7"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\C11-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C11-PASS.png",
+      "sha256": "f1a6abd27db9f22b224473a42d7ce29a60d04a97e8719e1ddc64f1eba2496956"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\D01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D01-PASS.png",
+      "sha256": "fc694510a8e20ab07af48cbda36174c8027c13169489cf40599620beb12f5bd7"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\D02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D02-PASS.png",
+      "sha256": "48ccdf0fbd0aa254a471ffe3d1de2570f5941673d9aa54d3621b053ec7a5da22"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\D03-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D03-PASS.png",
+      "sha256": "3e8ccbf2314a85beea3c47bfd4dae2faed464de6ca8f4bd1c624aa8ef04ba62b"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\D04-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D04-PASS.png",
+      "sha256": "8ca84e6b88f599ba229fae43f8898b3df99399342b2dfdcc806f487dbf2de5d1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\D05-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D05-PASS.png",
+      "sha256": "f524637f0e17f1c77ca2bac12f384ff85ab149cf83624b1ed390d92db5a6af1a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\G01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G01-PASS.png",
+      "sha256": "f9470fa5c40c04e6b412289770b89eb2a17540815106a37d8ac6e54becd0e915"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\G02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G02-PASS.png",
+      "sha256": "54df90bb49a1321b65aa9e2428706e922570f63a04926990cebbabb5a37fe7ac"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\G03-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G03-PASS.png",
+      "sha256": "f7aaf12b8e8d60d9ced3c9c97a03186254e439d917e7538b2a2f1014fefc1788"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\G04-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G04-PASS.png",
+      "sha256": "32e038876394343ccae360ff31df46589266e4cc7c6a15cb56727cdf3df55f20"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\G05-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G05-PASS.png",
+      "sha256": "24a0bd1120cc8747fdbd0f8d5dca7b7a96ad0b17ce3291292a1116eb3be1ba86"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\G06-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G06-PASS.png",
+      "sha256": "ed4585f3838571d55f1bfdc2153ea9afeddd22cf355bdea9d117da1387dfb37b"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\V01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--V01-PASS.png",
+      "sha256": "effa2063aa534a2ad43d1d64ba92e0a56045003e4416b6af5d534f29e8c2c87a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\V02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--V02-PASS.png",
+      "sha256": "d85cc483aa42573ceb18681654216a3b822547b2dac4640122ba64e90ce0e1be"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-delivery-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-delivery-1280.png",
+      "sha256": "2a57f93f8a81148f43b9712e7b0da378580771fa54e6ea7f73142ea95a9184ec"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-delivery-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-delivery-1440.png",
+      "sha256": "5d80bca7d815a2bcd7c3525d477e953140d0b25aeac798057979acb42ca31a41"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-delivery-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-delivery-1920.png",
+      "sha256": "a165df07692012d03b7b9fae7d47e6b70198a02fb2fae8ffb23f5c253a3ea94d"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-gov-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-gov-1280.png",
+      "sha256": "357e4497056ce8e111047dd11fc6aa6cbb89ec0cb353bf7de6bb1eb6de9ba525"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-gov-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-gov-1440.png",
+      "sha256": "75cae8b9418088ba31c4970fa956b4699f00b3f18c597126d84b712af1f4ff28"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-gov-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-gov-1920.png",
+      "sha256": "effa2063aa534a2ad43d1d64ba92e0a56045003e4416b6af5d534f29e8c2c87a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-home-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-home-1280.png",
+      "sha256": "61902b7af42177e93850be29375a02bfad3389b41fd5838be25a594b89e0023b"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-home-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-home-1440.png",
+      "sha256": "e383325bdd9b09acce4c2944eb8f1980e81f9135cd5c0b2c1a2ba94342a65fc8"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-home-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-home-1920.png",
+      "sha256": "2f920222353dfccc417534f6a7fb96419f3fdef75765746bbce9e97fe862ae80"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-product-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-product-1280.png",
+      "sha256": "3eff5791a8d9cbec141a631e7708392419cee80bdb6e8aa7910442b447ee77ae"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-product-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-product-1440.png",
+      "sha256": "c6ec96d0f899eda384912ff8af27447f06fe878135d427262aef5bf87b674241"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-product-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-product-1920.png",
+      "sha256": "038dcbd424ceb0e6f4b486a726230e41b16880fa914a216e9066c9913aaeced7"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-work-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-work-1280.png",
+      "sha256": "bac5985a0b5bd59830366047426802bdfa62707600f897c0a7d4cd29016dd61c"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-work-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-work-1440.png",
+      "sha256": "4a50c093f0a06f208c57d3ee5903dde0b43ea4e3b805d4593665191cb255f059"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\view-work-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-work-1920.png",
+      "sha256": "77b6e15c126ec257b91322e16a03f591b0256701b8e2474974c736b7ca62f21e"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\W01-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--W01-PASS.png",
+      "sha256": "60d916ea7beec781f98d04651d0ebd65b4b6ffe895bcd4997f1c3de99fa39d5e"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-QvqSOP\\W02-PASS.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--W02-PASS.png",
+      "sha256": "28adf16c8c06c5817ecbcb1197df0cf37630d86f7bfc300a1b489c93d7a60f47"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\artifact-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--artifact-1280.png",
+      "sha256": "dc617942093edf1752263eb2adae77065e61deabbd5d4783ca8da653aa121526"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\artifact-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--artifact-1440.png",
+      "sha256": "b9043645c58693ded1fb2b0a9fbca3c85585f53d1e1ded221fa983d697379a62"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\artifact-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--artifact-1920.png",
+      "sha256": "8b740af421851960920a5cbee0c81462c4efedd59935f4a6fd75423c27175edb"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\delivery-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--delivery-1280.png",
+      "sha256": "2a57f93f8a81148f43b9712e7b0da378580771fa54e6ea7f73142ea95a9184ec"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\delivery-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--delivery-1440.png",
+      "sha256": "5d80bca7d815a2bcd7c3525d477e953140d0b25aeac798057979acb42ca31a41"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\delivery-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--delivery-1920.png",
+      "sha256": "a165df07692012d03b7b9fae7d47e6b70198a02fb2fae8ffb23f5c253a3ea94d"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\development-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--development-1440.png",
+      "sha256": "4a50c093f0a06f208c57d3ee5903dde0b43ea4e3b805d4593665191cb255f059"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\gov-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--gov-1280.png",
+      "sha256": "357e4497056ce8e111047dd11fc6aa6cbb89ec0cb353bf7de6bb1eb6de9ba525"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\gov-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--gov-1440.png",
+      "sha256": "75cae8b9418088ba31c4970fa956b4699f00b3f18c597126d84b712af1f4ff28"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\gov-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--gov-1920.png",
+      "sha256": "effa2063aa534a2ad43d1d64ba92e0a56045003e4416b6af5d534f29e8c2c87a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\home-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--home-1280.png",
+      "sha256": "61902b7af42177e93850be29375a02bfad3389b41fd5838be25a594b89e0023b"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\home-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--home-1440.png",
+      "sha256": "e383325bdd9b09acce4c2944eb8f1980e81f9135cd5c0b2c1a2ba94342a65fc8"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\home-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--home-1920.png",
+      "sha256": "7556e7c7af29c4e0dd74054819edeeabd993b97de707345c9f168537ffd38441"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\lifecycle-complete.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--lifecycle-complete.png",
+      "sha256": "cc3f049d3a9c844e2dfc122e1959376b9b4f540dd3c8196ba20135e4bd89989a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\product-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--product-1280.png",
+      "sha256": "3eff5791a8d9cbec141a631e7708392419cee80bdb6e8aa7910442b447ee77ae"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\product-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--product-1440.png",
+      "sha256": "c6ec96d0f899eda384912ff8af27447f06fe878135d427262aef5bf87b674241"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\product-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--product-1920.png",
+      "sha256": "038dcbd424ceb0e6f4b486a726230e41b16880fa914a216e9066c9913aaeced7"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\release-expired.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--release-expired.png",
+      "sha256": "14dd531fc70306bd358060bc7b861a427f87fca8685ce9379ef08bdaff67d564"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\release-failed.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--release-failed.png",
+      "sha256": "d2c402d992e2b298d76d73ab4c656b1cbe0ba2fb6250446a84edf87063eec195"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\report.json",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--report.json",
+      "sha256": "2b8edbb441a8274c3f662cff3b14cec1c02842cd2bf30835d78bbc620e7b5ce3"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\verified-success.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--verified-success.png",
+      "sha256": "0d9b5b0986e81313ade2bd9f1f2a9ac057fd3f75f7d7cd998c1519a9e38cab3e"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\version-conflict.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--version-conflict.png",
+      "sha256": "e22f468ee821f049ce0f701c2655dcebef35384c2742dfcbda3c5bc16461bb7f"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\work-1280.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--work-1280.png",
+      "sha256": "2051a69d95492c83fe46ca6737464a32c1c2fe0ef95a2523fa6708ec47c468b4"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\work-1440.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--work-1440.png",
+      "sha256": "4a50c093f0a06f208c57d3ee5903dde0b43ea4e3b805d4593665191cb255f059"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-qNZcD1\\work-1920.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--work-1920.png",
+      "sha256": "0d2db42e324027c8d0a3c3929f4b78bc657ae46be15d6a597299ed63ceef2e33"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-audit-export.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-audit-export.png",
+      "sha256": "62faf6dcdf3159054e07456bdf9ddcfd1d83e0c11e7fca5e2a45ce029a961f17"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-cicd.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-cicd.png",
+      "sha256": "79ba996b3fb20c960dea573f6928e40c0fc541bf72cc50bd044c5f9393a28f66"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-gates.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-gates.png",
+      "sha256": "392a4bebfeedc19fdf3bfceef796752c75472558461ff8d97d51469fa7b7ec0a"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-knowledge.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-knowledge.png",
+      "sha256": "4c9f27ba8a7a99264d1a054196042efdd933421698ec66d59650c9585c6ce0d1"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-metrics.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-metrics.png",
+      "sha256": "762b61d81259b729f3ee30c87cdd095a445d59af9355f37207b012022066587e"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-notices.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-notices.png",
+      "sha256": "fe5c54433db5a2b721e6cb9e51fa35fec65525febaa3343024417f3141997502"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-playbook.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-playbook.png",
+      "sha256": "c158f50f2a74b12870e8a55f6ca9da4e03579b2dd6c2255929807d6437454efe"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-plugins.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-plugins.png",
+      "sha256": "ccfca31c408fda84f0783dddffaa842979c9d350ed39c026361d2e5e2b243704"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\absorb-replay.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-replay.png",
+      "sha256": "0b208c5e53d1e757f1cc867e5e4733f9b6a8ed01546ba9b94b73e963cef56b7b"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\binary-scope-ref.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--binary-scope-ref.png",
+      "sha256": "c61b01090d19410a15fb08a6eca6fc052a40aaa91b2c96a207d3443f622aa0f6"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\budget-exhausted.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--budget-exhausted.png",
+      "sha256": "4d4cf7a4d37a0db3607362252cfbb82e0f9e8ebc0d2bcf7827733ed5979ce4b9"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\cap-orchestration.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--cap-orchestration.png",
+      "sha256": "0dc4bd1475c83ca87f7845fe75387aa43df4c0ad12b045657ada6ebf398e57d8"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\lease-lost.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--lease-lost.png",
+      "sha256": "904bb9d4737b99271e0da4ad4f5c7da03b7d8a687f5405f8a4723a3fa6d7598c"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\project-loading.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--project-loading.png",
+      "sha256": "0702eefa51335b09d8e38a4cbb172b0803735b7f1d2a22e699f220ebf1f8a794"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\report.json",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--report.json",
+      "sha256": "faf0c8c9da3bcb458be81d48e3c810f4b539843057795d34043e353dd9198581"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\role-revoked.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--role-revoked.png",
+      "sha256": "00713056de4bec3ded6da959255ecf875134dda8dd2142573ee6d905848d7109"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-scope7-Wlw8eR\\stage-all-view.png",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--stage-all-view.png",
+      "sha256": "68b3640b5a33c61b880674e5e26545b24d86649b1f65f4108e86da30a2837374"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\report.json",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--report.json",
+      "sha256": "91a453d7b5b48a14f9cd33ec9be3dc0923668ac600d9db3d70f20b71b47d2837"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\verify-guide-browser.mjs.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-guide-browser.mjs.log.json",
+      "sha256": "af8045df643f40eed63aface18c05659f8fb2e8251e74381f312b1708be64efc"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\verify-guide-model.mjs.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-guide-model.mjs.log.json",
+      "sha256": "f7bf36e42bcb58b23444fe63dffcb6a936884d5e870c42c396e3bb1ead07a2a4"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\verify-integrity.mjs.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-integrity.mjs.log.json",
+      "sha256": "8aa7e4adf0480567ec1676392de3aa78ef67210ff3f0635ca92540456326f4f6"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\verify-production.cjs.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-production.cjs.log.json",
+      "sha256": "a7e9cd2556ee83228275c8a1537701e319956616c8799647118283d8e0ec4233"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\verify-scope7.mjs.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-scope7.mjs.log.json",
+      "sha256": "9ab5aae24ffbfb07faa31605311fafec677729fc094ee976204fee55ac0fa3ae"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-heiKKM\\verify-static.mjs.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-static.mjs.log.json",
+      "sha256": "6cc9c83974f2a3b05aed86df420da78823a2b82a7f84cc587ee819f5187df667"
+    },
+    {
+      "source": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-LsPSIm\\server.log",
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-server-LsPSIm--server.log.json",
+      "sha256": "309384699fcf96b9e4d619fb7cb7901d8132a673c6ec16c58badb68fe59bb459"
+    }
+  ],
+  "retention": "Synthetic review evidence retained in this branch. Original OS temporary evidence remains for review; no test services remain."
+}

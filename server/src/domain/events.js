@@ -11,7 +11,7 @@ async function drain() {
   try {
     const rows = await repository.after(runtime.db(), cursor);
     for (const row of rows) {
-      require('../ws').broadcast(
+      await require('../ws').broadcast(
         row.type,
         {
           ...row.payload,

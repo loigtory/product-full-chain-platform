@@ -157,7 +157,9 @@
     if (run.status === 'SUCCEEDED')
       controls +=
         b('plan-run', '发起新作业', {}, 'primary') +
-        (run._remote ? '' : b('preview-toggle', run.preview ? '停止本地预览' : '启动本地预览'));
+        (run._remote
+          ? ''
+          : b('preview-toggle', run.preview ? '停止本地预览' : '启动本地预览'));
     if (!run._remote && run.preview) controls += b('preview-open', '查看预览');
     const history = `<div class="run-list">${r.runs.map((x) => b('select-run', e(x.id), { id: x.id }, x.id === run.id ? 'primary' : '')).join('')}</div>`;
     const pool = (() => {
@@ -333,9 +335,7 @@
             [
               '质量门',
               gates.length
-                ? gates
-                    .map((g) => `${e(g.name)}·${e(g.status)}`)
-                    .join('；')
+                ? gates.map((g) => `${e(g.name)}·${e(g.status)}`).join('；')
                 : '（旧记录无质量门）',
             ],
             ['版本与变更', e(P.stamp(r))],
@@ -424,7 +424,9 @@
                     s.status === '通过' ? 'green' : 'gray',
                   )}</div>`,
               )
-              .join('')}</div><p class="source-note">正式接入 CI 平台（如 GitLab CI / Jenkins）自动执行与回填；此处为原型模拟。</p>`
+              .join(
+                '',
+              )}</div><p class="source-note">正式接入 CI 平台（如 GitLab CI / Jenkins）自动执行与回填；此处为原型模拟。</p>`
           : '') +
         (rel?.status === 'APPROVED'
           ? P.notice(
@@ -506,7 +508,9 @@
             (m) =>
               `<div class="metric-cell"><span>${e(m[0])}</span><b>${e(m[1])}</b><small class="${m[2].startsWith('−') || m[2] === '0' ? 'ok' : ''}">${e(m[2])}</small></div>`,
           )
-          .join('')}</div><p class="source-note">演示指标，不声称真实业务数据；正式接入由数仓 / 埋点自动拉取并按需求维度聚合。</p>` +
+          .join(
+            '',
+          )}</div><p class="source-note">演示指标，不声称真实业务数据；正式接入由数仓 / 埋点自动拉取并按需求维度聚合。</p>` +
         (o?.entries?.length
           ? `<div class="rail-title">观测记录（${o.entries.length} 次）</div>` +
             P.table(
@@ -564,30 +568,42 @@
         .join(
           '',
         )}</div><div class="btn-group">${b('add-material', '添加材料')}</div>${(() => {
-          const pj = P.s.projects?.find((p) => p.id === r.projectId);
-          const name = pj?.name || r.workspace;
-          const srcBadge = pj
-            ? badge(pj.source === 'existing' ? '现有系统迭代' : '全新项目', pj.source === 'existing' ? 'cyan' : 'gray')
-            : badge('全新项目', 'gray');
-          return `<p class="rail-title">关联项目</p><div class="project-card"><div class="project-head"><b>${e(name)}</b>${srcBadge}</div>` +
-            (pj
-              ? `<p class="muted">${e(pj.path)}</p><div class="kv-row"><span>分支</span><b>${e(pj.branch)}</b></div><div class="kv-row"><span>技术栈</span><b>${e(pj.tech.join(' / '))}</b></div><div class="kv-row"><span>文件 / 加载</span><b>${pj.files || '—'} 个文件 · ${P.time(pj.loadedAt)}</b></div>`
-              : `<p class="muted">${e(r.workspace)}</p><p class="muted">从零创建，开发时初始化项目骨架</p>`) +
-            `<div class="btn-group">${b('attach-project', '切换 / 加载项目')}</div></div>`;
-        })()}<p class="muted">${e(r.capId)} · ${r.units.length} Units</p>${(() => {
-          const refs = (r.knowledgeRefs || [])
-            .map((id) => P.s.knowledge.find((k) => k.id === id))
-            .filter(Boolean);
-          return refs.length
-            ? `<p class="rail-title">知识库引用（自动检索 ${refs.length} 条）</p>` +
-                refs
-                  .map(
-                    (k) =>
-                      `<div class="kn-ref">${badge(k.type, 'purple')} <span title="${e(k.content)}">${e(k.title)}</span></div>`,
-                  )
-                  .join('')
-            : '';
-        })()}${b('space-tab', '关系追踪', { tab: 'trace' })}</div>` +
+        const pj = r._pg
+          ? r.project
+          : P.s.projects?.find((p) => p.id === r.projectId);
+        const name = pj?.name || r.workspace;
+        const srcBadge = pj
+          ? badge(
+              pj.source === 'existing' ? '现有系统迭代' : '全新项目',
+              pj.source === 'existing' ? 'cyan' : 'gray',
+            )
+          : badge(r._pg ? '未关联' : '全新项目', 'gray');
+        return (
+          `<p class="rail-title">关联项目</p><div class="project-card"><div class="project-head"><b>${e(name)}</b>${srcBadge}</div>` +
+          (pj
+            ? `<p class="muted">${e(pj.path)}</p><div class="kv-row"><span>分支</span><b>${e(pj.branch)}</b></div><div class="kv-row"><span>技术栈</span><b>${e(pj.tech.join(' / '))}</b></div><div class="kv-row"><span>文件 / 加载</span><b>${r._pg ? '已登记，未扫描' : (pj.files || '—') + ' 个文件'} · ${P.time(pj.loadedAt)}</b></div>`
+            : `<p class="muted">${e(r.workspace)}</p><p class="muted">${r._pg ? '可选择已登记项目作为后续计划输入' : '从零创建，开发时初始化项目骨架'}</p>`) +
+          `<div class="btn-group">${b('attach-project', '切换 / 加载项目')}</div></div>`
+        );
+      })()}<p class="muted">${e(r.capId)} · ${r.units.length} Units</p>${(() => {
+        const refs = r._pg
+          ? (r.knowledgeRefs || []).map((k) => ({
+              ...k,
+              content: k.summary + ' · ' + k.reason,
+            }))
+          : (r.knowledgeRefs || [])
+              .map((id) => P.s.knowledge.find((k) => k.id === id))
+              .filter(Boolean);
+        return refs.length
+          ? `<p class="rail-title">知识库引用（自动检索 ${refs.length} 条）</p>` +
+              refs
+                .map(
+                  (k) =>
+                    `<div class="kn-ref">${badge(k.type, 'purple')} <span title="${e(k.content)}">${e(k.title)}</span></div>`,
+                )
+                .join('')
+          : '';
+      })()}${b('space-tab', '关系追踪', { tab: 'trace' })}</div>` +
       `<div class="rail-section"><div class="rail-title">本阶段启用能力</div><div class="bind-cell">${
         P.effective(r, stage)
           .map(
@@ -667,9 +683,7 @@
         .map((m) => P.renderMsg(m, r))
         .join('');
     } else {
-      const visible = u.expandAll
-        ? r.messages
-        : r.messages.slice(-40);
+      const visible = u.expandAll ? r.messages : r.messages.slice(-40);
       const byStage = {};
       for (const m of visible) (byStage[m.stage] ||= []).push(m);
       msgs =
@@ -713,16 +727,23 @@
                 ? (bytes / 1048576).toFixed(1) + ' MB'
                 : Math.max(1, Math.round(bytes / 1024)) + ' KB';
             const pct = Math.min(100, (bytes / (50 * 1048576)) * 100);
-            return `<div class="att-cap"><span>附件 ${queue.length}/20 件 · ${sizeTxt} / 50 MB</span><div class="att-cap-bar" aria-hidden="true"><div class="att-cap-fill" style="width:${pct}%"></div></div></div>` +
+            return (
+              `<div class="att-cap"><span>附件 ${queue.length}/20 件 · ${sizeTxt} / 50 MB</span><div class="att-cap-bar" aria-hidden="true"><div class="att-cap-fill" style="width:${pct}%"></div></div></div>` +
               queue
                 .map(
                   (a, n) =>
                     `<div class="att-card ${a.status === 'error' ? 'err' : ''} ${a.status === 'parsing' ? 'busy' : ''}"><span class="att-ico">${i(attIcon(a))}</span><span class="att-name">${e(a.name)}</span><small>${e(a.size)}</small>${attBadge(a)}<div class="att-actions">${a.status === 'error' ? b('retry-pending', '重试', { idx: n }) + b('open-attachment', '查看 / 恢复', { id: a.id }) : b('open-attachment', '预览', { id: a.id })}${b('remove-pending', '移除', { idx: n })}</div></div>`,
                 )
-                .join('');
+                .join('')
+            );
           })()}<span class="ref-cap">待发送附件</span></div>`
         : '');
-    return P.workbenchShell.frame({ context: r.id + ":" + stage, rail, main: `<main class="chat-main"><div class="req-context-bar"><strong class="name">${e(r.id + ' · ' + r.name)}</strong>${badge('阶段 · ' + P.stageName(r.stage))}${!isCurrent ? badge('查看 · ' + P.stageName(stage), 'gray') : ''}${badge('Owner ' + r.owner, 'gray')}${b('navigate', '返回工作台', { route: 'home' })}</div><div class="stream" id="stream">${r.impact ? P.notice('材料已有新版本，需评估对当前范围和产物的影响。', 'material-impact', '评估影响') : ''}${intro}${content}${filterBar}${msgs}</div>${footer}<div class="composer">${composerExtra ? `<div class="composer-context" tabindex="0" aria-label="待发送附件与引用">${composerExtra}</div>` : ''}<div class="composer-row"><button class="attch-btn" data-action="attach-menu" aria-label="添加附件" title="添加附件 / 引用上下文">${i('clip')}</button><div class="composer-box"><textarea id="chat-input" rows="1" aria-label="继续对话" placeholder="继续对话：描述意图、追问、或让 Agent 发起作业…（支持拖拽 / 粘贴截图）">${e(P.s.ui.drafts[r.id] || '')}</textarea></div><button class="send-btn" data-action="send" aria-label="发送" ${!P.canWrite() || queue.some((a) => a.status !== 'ready') ? 'disabled' : ''}>${i('send')}</button></div></div></main>`, panel: P.renderPanel(r) });
+    return P.workbenchShell.frame({
+      context: r.id + ':' + stage,
+      rail,
+      main: `<main class="chat-main"><div class="req-context-bar"><strong class="name">${e(r.id + ' · ' + r.name)}</strong>${badge('阶段 · ' + P.stageName(r.stage))}${!isCurrent ? badge('查看 · ' + P.stageName(stage), 'gray') : ''}${badge('Owner ' + r.owner, 'gray')}${b('navigate', '返回工作台', { route: 'home' })}</div><div class="stream" id="stream">${r.impact ? P.notice('材料已有新版本，需评估对当前范围和产物的影响。', 'material-impact', '评估影响') : ''}${intro}${content}${filterBar}${msgs}</div>${footer}<div class="composer">${composerExtra ? `<div class="composer-context" tabindex="0" aria-label="待发送附件与引用">${composerExtra}</div>` : ''}<div class="composer-row"><button class="attch-btn" data-action="attach-menu" aria-label="添加附件" title="添加附件 / 引用上下文">${i('clip')}</button><div class="composer-box"><textarea id="chat-input" rows="1" aria-label="继续对话" placeholder="继续对话：描述意图、追问、或让 Agent 发起作业…（支持拖拽 / 粘贴截图）">${e(P.s.ui.drafts[r.id] || '')}</textarea></div><button class="send-btn" data-action="send" aria-label="发送" ${!P.canWrite() || queue.some((a) => a.status !== 'ready') ? 'disabled' : ''}>${i('send')}</button></div></div></main>`,
+      panel: P.renderPanel(r),
+    });
   };
   P.renderPanel = (r) => {
     const u = P.s.ui,
@@ -767,6 +788,6 @@
             `<div class="event"><b>${e(x.action)}</b><small>${e(x.detail)} · ${P.time(x.time)}</small></div>`,
         )
         .join('')}</div>`;
-    return P.workbenchShell.panel({selected:u.panel,body});
+    return P.workbenchShell.panel({ selected: u.panel, body });
   };
 })();

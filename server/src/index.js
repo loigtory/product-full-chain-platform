@@ -23,7 +23,8 @@ app.use((req, res, next) =>
 );
 app.use('/api', (req, res, next) => {
   if (!runtime.isPg() || /^\/(health|auth)(\/|$)/.test(req.path)) return next();
-  authMiddleware(req, res, () => {
+  authMiddleware(req, res, (error) => {
+    if (error) return next(error);
     try {
       require('./access').current(
         !['GET', 'HEAD'].includes(req.method) &&
@@ -68,16 +69,21 @@ app.use('/api/leases', authMiddleware, require('./routes/leases'));
 app.use('/api/bridges', authMiddleware, require('./routes/bridges'));
 app.use('/api/notices', authMiddleware, require('./routes/notices'));
 
+if (runtime.isPg()) app.use('/api/members', require('./routes/members'));
+if (runtime.isPg()) app.use('/api/caps', require('./routes/caps'));
+if (runtime.isPg()) app.use('/api/bindings', require('./routes/bindings'));
+if (runtime.isPg()) app.use('/api/projects', require('./routes/projects'));
+if (runtime.isPg()) app.use('/api/knowledge', require('./routes/knowledge'));
+if (runtime.isPg()) app.use('/api', require('./routes/governance-read'));
+
 /* 未注册路由 → 404 */
 app.use((req, res) =>
-  res
-    .status(404)
-    .json({
-      error: {
-        code: 'NOT_FOUND',
-        msg: '接口不存在：' + req.method + ' ' + req.path,
-      },
-    }),
+  res.status(404).json({
+    error: {
+      code: 'NOT_FOUND',
+      msg: '接口不存在：' + req.method + ' ' + req.path,
+    },
+  }),
 );
 
 /* 统一错误处理（不泄漏堆栈） */
@@ -95,21 +101,19 @@ app.use((err, req, res, next) => {
             ? 'STORAGE_UNAVAILABLE'
             : 'INTERNAL';
   console.error('[error]', code);
-  res
-    .status(status)
-    .json({
-      error: {
-        code,
-        msg:
-          err.status && err.code
-            ? err.message
-            : err.status && err.status < 500
-              ? '请求格式或大小无效'
-              : unavailable
-                ? '存储暂不可用，请保留输入并重试原命令'
-                : '服务内部错误',
-      },
-    });
+  res.status(status).json({
+    error: {
+      code,
+      msg:
+        err.status && err.code
+          ? err.message
+          : err.status && err.status < 500
+            ? '请求格式或大小无效'
+            : unavailable
+              ? '存储暂不可用，请保留输入并重试原命令'
+              : '服务内部错误',
+    },
+  });
 });
 
 const PORT = Number(process.env.PORT || 5188);

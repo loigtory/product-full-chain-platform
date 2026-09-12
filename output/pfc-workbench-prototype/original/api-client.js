@@ -14,13 +14,18 @@
   const mem = new Map(); // 同步镜像：apiStore.getItem 读此
   const queue = []; // 变更队列（batch 语义预留）
   const TOKEN_KEY = 'pfc.prototype.token';
-  const tokenKey=()=>P.api?.pg?TOKEN_KEY+':'+base():TOKEN_KEY;
+  const tokenKey = () => (P.api?.pg ? TOKEN_KEY + ':' + base() : TOKEN_KEY);
   let flushTimer = null;
   let hydrating = false; // hydrate 完成前禁止 flush，避免工厂数据覆盖后端状态
 
   const base = () => {
     try {
-      return (window.PFC_API_BASE || (location.protocol === 'file:' ? 'http://127.0.0.1:5188' : location.origin)).replace(/\/$/, '');
+      return (
+        window.PFC_API_BASE ||
+        (location.protocol === 'file:'
+          ? 'http://127.0.0.1:5188'
+          : location.origin)
+      ).replace(/\/$/, '');
     } catch {
       return '';
     }
@@ -39,10 +44,19 @@
       signal: AbortSignal.timeout(15000),
       body: body ? JSON.stringify(body) : undefined,
     }).then(async (res) => {
-      if (res.status === 401) throw Object.assign(Error('API 401 ' + method + ' ' + path), { code: 'UNAUTHORIZED' });
+      if (res.status === 401)
+        throw Object.assign(Error('API 401 ' + method + ' ' + path), {
+          code: 'UNAUTHORIZED',
+          status: 401,
+        });
       if (!res.ok) {
-        const data=await res.json().catch(()=>({}));
-        throw Object.assign(Error(data.error?.msg || 'API '+res.status+' '+method+' '+path),{code:data.error?.code,status:res.status});
+        const data = await res.json().catch(() => ({}));
+        throw Object.assign(
+          Error(
+            data.error?.msg || 'API ' + res.status + ' ' + method + ' ' + path,
+          ),
+          { code: data.error?.code, status: res.status },
+        );
       }
       return res.json();
     });
@@ -88,7 +102,7 @@
       })();
       const r = await req('POST', '/api/auth/dev-login', { name });
       P.api.setToken(r.token);
-      P.api.user=r.user;
+      P.api.user = r.user;
       return r;
     },
 
@@ -118,7 +132,7 @@
       return false;
     },
     seed: async () => {
-      if(P.api.pg)throw Error('PG 不接受演示种子');
+      if (P.api.pg) throw Error('PG 不接受演示种子');
       const PFC = window.PFC;
       const r = await req('PUT', '/api/state', {
         state: PFC.s,
@@ -155,20 +169,44 @@
 
     /* ---- 启动：api 模式入口（app.js 调用） ---- */
     init: async () => {
-      hydrating=true;P.api.ready=false;
-      if(window.PFC){window.PFC.remoteLoading=true;window.PFC.remoteError=null;window.PFC.render?.();}
+      hydrating = true;
+      P.api.ready = false;
+      if (window.PFC) {
+        window.PFC.remoteLoading = true;
+        window.PFC.remoteError = null;
+        window.PFC.render?.();
+      }
       try {
-        const health=await req('GET','/api/health');P.api.pg=health.storage==='pg';P.api.capabilities=health;
-        if(P.api.pg){
-          if(!P.api.token())await P.api.devLogin();
-          try{P.api.user=(await req('GET','/api/auth/me')).user;}catch(e){if(e.code!=='UNAUTHORIZED')throw e;await P.api.devLogin();}
-          window.PFC.domainView.reset();await window.PFC.domainView.sync();P.api.ready=true;return true;
+        const health = await req('GET', '/api/health');
+        P.api.pg = health.storage === 'pg';
+        P.api.capabilities = health;
+        if (P.api.pg) {
+          if (!P.api.token()) await P.api.devLogin();
+          try {
+            P.api.user = (await req('GET', '/api/auth/me')).user;
+          } catch (e) {
+            if (e.code !== 'UNAUTHORIZED') throw e;
+            await P.api.devLogin();
+          }
+          window.PFC.domainView.reset();
+          await window.PFC.domainView.sync();
+          P.api.ready = true;
+          return true;
         }
         const ok = await P.api.hydrate();
         if (!ok) await P.api.seed();
         await window.PFC?.domain?.sync();
-        P.api.ready=true;window.PFC.remoteLoading=false;window.PFC.remoteError=null;window.PFC.render();return ok;
-      } catch(e){window.PFC.remoteLoading=false;window.PFC.remoteError='API 连接失败：'+e.message;window.PFC.render();throw e;} finally {
+        P.api.ready = true;
+        window.PFC.remoteLoading = false;
+        window.PFC.remoteError = null;
+        window.PFC.render();
+        return ok;
+      } catch (e) {
+        window.PFC.remoteLoading = false;
+        window.PFC.remoteError = 'API 连接失败：' + e.message;
+        window.PFC.render();
+        throw e;
+      } finally {
         hydrating = false;
         P.api.scheduleFlush();
       }
@@ -190,14 +228,17 @@
         ['create', 'POST /api/reqs'],
         ['get', 'GET /api/reqs/:id'],
         ['advanceStage', 'PATCH /api/reqs/:id/stage'],
+        ['associateProject', 'PATCH /api/reqs/:id/project'],
+        ['capOverrides', 'GET /api/reqs/:id/cap-overrides'],
+        ['setCapOverrides', 'PUT /api/reqs/:id/cap-overrides'],
         ['versions', 'GET /api/reqs/:id/versions'],
-        ["saveVersion","POST /api/reqs/:id/versions"],
-        ["reviewVersion","POST /api/reqs/:id/versions/:vid/reviews"],
-        ["replaceMaterial","POST /api/reqs/:id/materials/:mid/versions"],
-        ["materialImpact","POST /api/reqs/:id/materials/:mid/impact"],
-        ["materialContent","GET /api/reqs/:id/materials/:mid/content"],
-        ["stopMessage","POST /api/reqs/:id/messages/:mid/stop"],
-        ["messageDiff","POST /api/reqs/:id/messages/:mid/diff"],
+        ['saveVersion', 'POST /api/reqs/:id/versions'],
+        ['reviewVersion', 'POST /api/reqs/:id/versions/:vid/reviews'],
+        ['replaceMaterial', 'POST /api/reqs/:id/materials/:mid/versions'],
+        ['materialImpact', 'POST /api/reqs/:id/materials/:mid/impact'],
+        ['materialContent', 'GET /api/reqs/:id/materials/:mid/content'],
+        ['stopMessage', 'POST /api/reqs/:id/messages/:mid/stop'],
+        ['messageDiff', 'POST /api/reqs/:id/messages/:mid/diff'],
         ['confirmVersion', 'POST /api/reqs/:id/versions/:vid/confirm'],
         ['addMaterial', 'POST /api/reqs/:id/materials'],
         ['answerQuestion', 'POST /api/reqs/:id/questions/:qid/answer'],
@@ -224,6 +265,9 @@
         ['toggleCap', 'PATCH /api/caps/:id/toggle'],
         ['bindings', 'GET/PUT /api/bindings'],
         ['members', 'GET /api/members'],
+        ['addMember', 'POST /api/members'],
+        ['disableMember', 'DELETE /api/members/:uid'],
+        ['exportAudit', 'GET /api/audit/export'],
         ['setRole', 'PATCH /api/members/:uid/role'],
         ['audit', 'GET /api/audit'],
         ['budget', 'GET /api/budgets/me'],
@@ -246,6 +290,7 @@
       projects: [
         ['list', 'GET /api/projects'],
         ['create', 'POST /api/projects'],
+        ['get', 'GET /api/projects/:id'],
       ],
     }),
   };

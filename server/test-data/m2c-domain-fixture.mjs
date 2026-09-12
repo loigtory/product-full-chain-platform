@@ -43,6 +43,7 @@ export function config() {
 }
 const tables = [
   ...require('../src/persistence/migrations').domainTables,
+  ...(require('../src/persistence/migrations').governanceTables || []),
   'schema_migrations',
   'tenants',
   'reqs',
@@ -50,24 +51,31 @@ const tables = [
   'audit_logs',
   'id_counters',
 ];
-const fingerprint = async (pool) => {
+const fingerprint = async (pool, targetSchema) => {
   const { rows } = await pool.query(
     `SELECT n.nspname,c.relname,c.relkind,a.attname,a.atttypid,a.attnotnull
     FROM pg_namespace n JOIN pg_class c ON c.relnamespace=n.oid
     LEFT JOIN pg_attribute a ON a.attrelid=c.oid AND a.attnum>0 AND NOT a.attisdropped
     WHERE n.nspname NOT LIKE 'pg_%' AND n.nspname<>'information_schema' AND n.nspname<>$1
     ORDER BY 1,2,3,4`,
-    [schema],
+    [targetSchema],
   );
   return createHash('sha256').update(JSON.stringify(rows)).digest('hex');
 };
-export async function fixture() {
+export async function fixture({ governance = false } = {}) {
+  const schema = governance
+    ? 'codex_test_m2c_20260913_governance'
+    : 'codex_test_m2c_20260912_domain';
+  const runId = governance
+    ? 'CODEx_TEST_M2C_20260913_governance'
+    : 'CODEx_TEST_M2C_20260912_domain';
   const {
     openDatabase,
     validateTarget,
   } = require('../src/persistence/connection');
-  const options = config();
+  const options = { ...config(), schema, authorizedSchema: schema };
   const validated = validateTarget(options); // Must reject before connecting or writing.
+  if (validated.pg.port !== 5432) throw Error('PG_PORT_NOT_AUTHORIZED');
   const admin = new Pool({
     ...validated.pg,
     max: 1,
@@ -78,7 +86,12 @@ export async function fixture() {
   const marker = runId + ':' + randomUUID();
   const createdIds = [];
   const base = fileURLToPath(
-    new URL('../../.local/m2c-2-domain-20260912/files/', import.meta.url),
+    new URL(
+      governance
+        ? '../../.local/m2c-3-governance-20260913/files/'
+        : '../../.local/m2c-2-domain-20260912/files/',
+      import.meta.url,
+    ),
   );
   const attempt = resolve(base, runId + '_' + randomUUID()),
     filesRoot = resolve(attempt, 'blobs'),
@@ -100,6 +113,16 @@ export async function fixture() {
     { name: runId + '_viewer', role: 'viewer', tenantId: context.tenantId },
     { name: runId + '_other', role: 'owner', tenantId: secondContext.tenantId },
   ];
+  if (governance)
+    users.push(
+      { name: runId + '_owner2', role: 'owner', tenantId: context.tenantId },
+      { name: runId + '_inactive', role: 'viewer', tenantId: context.tenantId },
+      {
+        name: runId + '_pending',
+        role: 'executor',
+        tenantId: context.tenantId,
+      },
+    );
   const env = {
     ...process.env,
     PFC_DB: 'pg',
@@ -240,7 +263,10 @@ export async function fixture() {
           )
         ).rows[0].n,
       );
-      if (remaining || (before && before !== (await fingerprint(admin))))
+      if (
+        remaining ||
+        (before && before !== (await fingerprint(admin, schema)))
+      )
         throw Error('CLEANUP_OR_EXTERNAL_SCHEMA_MISMATCH');
       const files = fileManifest();
       if (filesOwned) {
@@ -288,7 +314,7 @@ export async function fixture() {
       ).rowCount
     )
       throw Error('TEST_SCHEMA_EXISTS');
-    before = await fingerprint(admin);
+    before = await fingerprint(admin, schema);
     await admin.query(`CREATE SCHEMA "${schema}"`);
     ownedOid = (
       await admin.query('SELECT oid FROM pg_namespace WHERE nspname=$1', [
@@ -305,7 +331,24 @@ export async function fixture() {
       JSON.stringify({ schema, ownedOid, marker, pids: [], filesRoot }),
     );
     return {
-      db,
+      get db() {
+        return db;
+      },
+      schema,
+      runId,
+      async prepareRuntime() {
+        await require('../src/persistence/migrations').migrate(db, {
+          targetVersion: '003',
+        });
+        await db.close();
+        db = await openDatabase({ ...options, targetVersion: '003' });
+        const { initializeMembers } =
+          await import('../scripts/initialize-m2c-members.mjs');
+        return initializeMembers(
+          db,
+          users.filter((u) => !u.name.endsWith('_pending')),
+        );
+      },
       admin,
       options,
       createdIds,

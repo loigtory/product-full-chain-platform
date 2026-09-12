@@ -1,0 +1,450 @@
+{
+  "results": [
+    {
+      "name": "ordinary-three-width-shell-reference",
+      "status": "PASS"
+    },
+    {
+      "name": "original-entry-and-early-interactive-candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "three-width-prototype-prd-keyboard-and-expanded-canvas",
+      "status": "PASS"
+    },
+    {
+      "name": "related-change-quota-failure-retry-and-history",
+      "status": "PASS"
+    },
+    {
+      "name": "refresh-draft-context-and-stage-view-preservation",
+      "status": "PASS"
+    },
+    {
+      "name": "cross-window-stale-write-and-request-isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "pending-decision-independent-work-and-readonly",
+      "status": "PASS"
+    },
+    {
+      "name": "development-dual-terminals-pause-unknown-and-test-recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "human-acceptance-publication-observation-and-return",
+      "status": "PASS"
+    },
+    {
+      "name": "partial-generation-and-xss-as-text",
+      "status": "PASS"
+    },
+    {
+      "name": "pg-dto-view-and-mode-isolation",
+      "status": "PASS"
+    }
+  ],
+  "createdIds": [
+    "CODEx_TEST_FLOW_20260912_manual_0cedffb5-c2f1-42c7-9d9f-d7caaf468c22-A",
+    "CODEx_TEST_FLOW_20260912_manual_0cedffb5-c2f1-42c7-9d9f-d7caaf468c22-B",
+    "CODEx_TEST_FLOW_20260912_manual_b06d6e67-e693-4b4d-bb1a-8e2028ef5348-A",
+    "CODEx_TEST_FLOW_20260912_manual_b06d6e67-e693-4b4d-bb1a-8e2028ef5348-B"
+  ],
+  "cleanup": {
+    "pid": 23892,
+    "port": 51888,
+    "browserClosed": true,
+    "serverClosed": true,
+    "isolatedContextsClosed": true,
+    "data": "synthetic browser contexts discarded"
+  },
+  "errors": [],
+  "requests": [
+    {
+      "url": "/",
+      "method": "GET"
+    },
+    {
+      "url": "/original/base.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/guide.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data-layer.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/api-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ws-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ui.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench-shell.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-demo-data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/spaces.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/run-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/delivery-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/attachments.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-domain.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/app.js",
+      "method": "GET"
+    },
+    {
+      "url": "/",
+      "method": "GET"
+    },
+    {
+      "url": "/original/base.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/guide.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data-layer.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/api-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ws-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ui.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench-shell.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-demo-data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/spaces.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/run-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/delivery-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/attachments.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-domain.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/app.js",
+      "method": "GET"
+    },
+    {
+      "url": "/",
+      "method": "GET"
+    },
+    {
+      "url": "/original/base.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/guide.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data-layer.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/api-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ws-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ui.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench-shell.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-demo-data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/spaces.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/run-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/delivery-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/attachments.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-domain.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/app.js",
+      "method": "GET"
+    }
+  ],
+  "source": "synthetic local rehearsal; PG DTO view only"
+}

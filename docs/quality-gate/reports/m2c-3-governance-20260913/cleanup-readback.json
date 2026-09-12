@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "at": "2026-09-12T18:46:15.140Z",
+  "environment": "127.0.0.1:5432/pfc_local/pfc_app_local",
+  "configSource": "ignored .env.local",
+  "command": "SELECT exact three pg_namespace targets and test application pg_stat_activity",
+  "targets": [
+    "codex_test_m2c_20260913_governance",
+    "codex_test_m2c_20260912_domain",
+    "codex_test_m2c_20260912_storage"
+  ],
+  "remainingSchemas": [],
+  "testSessions": [],
+  "sideEffects": "read only"
+}

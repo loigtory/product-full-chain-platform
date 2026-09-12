@@ -1,6 +1,10 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const entities = Object.freeze({
+  members: { prefix: 'MEM', initial: 0 },
+  caps: { prefix: 'CP', initial: 0 },
+  projects: { prefix: 'PRJ', initial: 0 },
+  knowledge: { prefix: 'KN', initial: 0 },
   reqs: { prefix: 'R', initial: 1040 },
   req_versions: { prefix: 'SV', initial: 0 },
   audit_logs: { prefix: 'A', initial: 0 },

@@ -1,0 +1,381 @@
+{
+  "status": "PASS",
+  "baseline": "c3f6c1869d1dad06c9b316ff61cbce359eba8358",
+  "branch": "feat/m2c-governance",
+  "sourceFiles": [
+    {
+      "path": "server/sql/m2c/003-governance-projects.sql",
+      "status": "added",
+      "added": 68,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "status": "modified",
+      "added": 74,
+      "removed": 6
+    },
+    {
+      "path": "server/src/persistence/members.js",
+      "status": "added",
+      "added": 66,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/caps.js",
+      "status": "added",
+      "added": 82,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/bindings.js",
+      "status": "added",
+      "added": 57,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/projects.js",
+      "status": "added",
+      "added": 49,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/knowledge.js",
+      "status": "added",
+      "added": 66,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/governance-read.js",
+      "status": "added",
+      "added": 30,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/identifiers.js",
+      "status": "modified",
+      "added": 4,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/commands.js",
+      "status": "modified",
+      "added": 33,
+      "removed": 1
+    },
+    {
+      "path": "server/src/persistence/requirements.js",
+      "status": "modified",
+      "added": 35,
+      "removed": 0
+    },
+    {
+      "path": "server/src/persistence/runs.js",
+      "status": "modified",
+      "added": 6,
+      "removed": 3
+    },
+    {
+      "path": "server/src/domain/membership-policy.js",
+      "status": "added",
+      "added": 92,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/member-service.js",
+      "status": "added",
+      "added": 111,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/capability-service.js",
+      "status": "added",
+      "added": 300,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/project-service.js",
+      "status": "added",
+      "added": 82,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/knowledge-service.js",
+      "status": "added",
+      "added": 99,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/governance-read-service.js",
+      "status": "added",
+      "added": 117,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/execution-plan-policy.js",
+      "status": "added",
+      "added": 178,
+      "removed": 0
+    },
+    {
+      "path": "server/src/domain/execution-service.js",
+      "status": "modified",
+      "added": 36,
+      "removed": 14
+    },
+    {
+      "path": "server/src/domain/requirement-service.js",
+      "status": "modified",
+      "added": 62,
+      "removed": 7
+    },
+    {
+      "path": "server/src/domain/dto.js",
+      "status": "modified",
+      "added": 4,
+      "removed": 3
+    },
+    {
+      "path": "server/src/domain/events.js",
+      "status": "modified",
+      "added": 1,
+      "removed": 1
+    },
+    {
+      "path": "server/src/routes/caps.js",
+      "status": "added",
+      "added": 32,
+      "removed": 0
+    },
+    {
+      "path": "server/src/routes/bindings.js",
+      "status": "added",
+      "added": 18,
+      "removed": 0
+    },
+    {
+      "path": "server/src/routes/members.js",
+      "status": "added",
+      "added": 32,
+      "removed": 0
+    },
+    {
+      "path": "server/src/routes/projects.js",
+      "status": "added",
+      "added": 25,
+      "removed": 0
+    },
+    {
+      "path": "server/src/routes/knowledge.js",
+      "status": "added",
+      "added": 18,
+      "removed": 0
+    },
+    {
+      "path": "server/src/routes/governance-read.js",
+      "status": "added",
+      "added": 35,
+      "removed": 0
+    },
+    {
+      "path": "server/src/routes/reqs.js",
+      "status": "modified",
+      "added": 49,
+      "removed": 14
+    },
+    {
+      "path": "server/src/routes/auth.js",
+      "status": "modified",
+      "added": 30,
+      "removed": 10
+    },
+    {
+      "path": "server/src/auth.js",
+      "status": "modified",
+      "added": 14,
+      "removed": 16
+    },
+    {
+      "path": "server/src/access.js",
+      "status": "modified",
+      "added": 61,
+      "removed": 0
+    },
+    {
+      "path": "server/src/runtime.js",
+      "status": "modified",
+      "added": 23,
+      "removed": 5
+    },
+    {
+      "path": "server/src/index.js",
+      "status": "modified",
+      "added": 28,
+      "removed": 24
+    },
+    {
+      "path": "server/src/ws.js",
+      "status": "modified",
+      "added": 70,
+      "removed": 29
+    },
+    {
+      "path": "server/src/contract.js",
+      "status": "modified",
+      "added": 7,
+      "removed": 0
+    },
+    {
+      "path": "server/scripts/initialize-m2c-members.mjs",
+      "status": "added",
+      "added": 94,
+      "removed": 0
+    },
+    {
+      "path": "server/.env.example",
+      "status": "modified",
+      "added": 5,
+      "removed": 3
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-domain.js",
+      "status": "added",
+      "added": 604,
+      "removed": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-domain-view.js",
+      "status": "added",
+      "added": 382,
+      "removed": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-actions.js",
+      "status": "modified",
+      "added": 11,
+      "removed": 7
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance.js",
+      "status": "modified",
+      "added": 47,
+      "removed": 34
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/spaces.js",
+      "status": "modified",
+      "added": 11,
+      "removed": 7
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "status": "modified",
+      "added": 58,
+      "removed": 37
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-actions.js",
+      "status": "modified",
+      "added": 10,
+      "removed": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-view.js",
+      "status": "modified",
+      "added": 10,
+      "removed": 9
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "status": "modified",
+      "added": 68,
+      "removed": 23
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/ws-client.js",
+      "status": "modified",
+      "added": 161,
+      "removed": 55
+    },
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "status": "modified",
+      "added": 2,
+      "removed": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "modified",
+      "added": 5,
+      "removed": 0
+    },
+    {
+      "path": "server/test-data/m2c-governance-fixture.mjs",
+      "status": "added",
+      "added": 165,
+      "removed": 0
+    },
+    {
+      "path": "server/verify-m2c-governance.mjs",
+      "status": "added",
+      "added": 1019,
+      "removed": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "added",
+      "added": 525,
+      "removed": 0
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "status": "modified",
+      "added": 51,
+      "removed": 8
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "status": "modified",
+      "added": 35,
+      "removed": 25
+    },
+    {
+      "path": "server/verify-m2c-architecture.mjs",
+      "status": "modified",
+      "added": 36,
+      "removed": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "modified",
+      "added": 9,
+      "removed": 5
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "modified",
+      "added": 73,
+      "removed": 6
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "status": "modified",
+      "added": 10,
+      "removed": 3
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "status": "modified",
+      "added": 7,
+      "removed": 1
+    }
+  ],
+  "approvedButUnchanged": [
+    "server/scripts/migrate-m2c.mjs",
+    "output/pfc-workbench-prototype/original/actions.js"
+  ],
+  "deleted": [],
+  "sourceCount": 61,
+  "added": 26,
+  "modified": 35
+}

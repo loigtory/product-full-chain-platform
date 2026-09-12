@@ -22,7 +22,7 @@ async function baseline(client, db, ctx, req) {
     versions,
   });
 }
-async function create(client, db, ctx, req, input, parent) {
+async function create(client, db, ctx, req, input, parent, snapshot) {
   const id = await allocateIdentifier(client, db, ctx.tenantId, 'runs');
   const run = (
     await client.query(
@@ -37,7 +37,7 @@ async function create(client, db, ctx, req, input, parent) {
     'run_plans',
   );
   await client.query(
-    `INSERT INTO "${db.schema}".run_plans(id,tenant_id,run_id,public_id,plan,baseline) VALUES($1,$2,$3,$4,$5,$6)`,
+    `INSERT INTO "${db.schema}".run_plans(id,tenant_id,run_id,public_id,plan,baseline,snapshot_version,context_snapshot,context_fingerprint) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
     [
       planId.id,
       ctx.tenantId,
@@ -45,6 +45,9 @@ async function create(client, db, ctx, req, input, parent) {
       planId.publicId,
       input.plan || '模拟：读取需求、生成输出、汇总结果',
       await baseline(client, db, ctx, req),
+      snapshot.snapshotVersion,
+      JSON.stringify(snapshot),
+      snapshot.fingerprint,
     ],
   );
   return run;
@@ -52,7 +55,7 @@ async function create(client, db, ctx, req, input, parent) {
 async function plan(client, db, ctx, runId) {
   return (
     await client.query(
-      `SELECT * FROM "${db.schema}".run_plans WHERE tenant_id=$1 AND run_id=$2`,
+      `SELECT p.*,m.public_id approved_member_public_id FROM "${db.schema}".run_plans p LEFT JOIN "${db.schema}".members m ON m.tenant_id=p.tenant_id AND m.id=p.approved_member_id WHERE p.tenant_id=$1 AND p.run_id=$2`,
       [ctx.tenantId, runId],
     )
   ).rows[0];

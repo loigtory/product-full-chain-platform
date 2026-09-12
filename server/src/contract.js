@@ -14,6 +14,9 @@ module.exports = {
     ['create', 'POST /api/reqs'],
     ['get', 'GET /api/reqs/:id'],
     ['advanceStage', 'PATCH /api/reqs/:id/stage'],
+    ['associateProject', 'PATCH /api/reqs/:id/project'],
+    ['capOverrides', 'GET /api/reqs/:id/cap-overrides'],
+    ['setCapOverrides', 'PUT /api/reqs/:id/cap-overrides'],
     ['versions', 'GET /api/reqs/:id/versions'],
     ['saveVersion', 'POST /api/reqs/:id/versions'],
     ['reviewVersion', 'POST /api/reqs/:id/versions/:vid/reviews'],
@@ -48,6 +51,9 @@ module.exports = {
     ['toggleCap', 'PATCH /api/caps/:id/toggle'],
     ['bindings', 'GET/PUT /api/bindings'],
     ['members', 'GET /api/members'],
+    ['addMember', 'POST /api/members'],
+    ['disableMember', 'DELETE /api/members/:uid'],
+    ['exportAudit', 'GET /api/audit/export'],
     ['setRole', 'PATCH /api/members/:uid/role'],
     ['audit', 'GET /api/audit'],
     ['budget', 'GET /api/budgets/me'],
@@ -70,5 +76,6 @@ module.exports = {
   projects: [
     ['list', 'GET /api/projects'],
     ['create', 'POST /api/projects'],
+    ['get', 'GET /api/projects/:id'],
   ],
 };

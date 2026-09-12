@@ -44,17 +44,39 @@ const domainTables = [
   'command_receipts',
   'domain_events',
 ];
+const governanceTables = [
+  'members',
+  'caps',
+  'binding_sets',
+  'cap_bindings',
+  'req_cap_overrides',
+  'projects',
+  'knowledge',
+  'knowledge_links',
+  'budget_accounts',
+];
 function registry(target = '001') {
-  if (!['001', '002'].includes(target))
+  if (!['001', '002', '003'].includes(target))
     throw error('MIGRATION_VERSION_INVALID');
   const list = [baseline()];
-  if (target === '002') {
+  if (target !== '001') {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/002-domain-workspace.sql'),
       'utf8',
     ).replace(/\r\n/g, '\n');
     list.push({
       version: '002',
+      sql,
+      checksum: createHash('sha256').update(sql).digest('hex'),
+    });
+  }
+  if (target === '003') {
+    const sql = readFileSync(
+      resolve(__dirname, '../../sql/m2c/003-governance-projects.sql'),
+      'utf8',
+    ).replace(/\r\n/g, '\n');
+    list.push({
+      version: '003',
       sql,
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
@@ -105,12 +127,14 @@ async function assertReady(
     )
   ).rows.map((r) => r.tablename);
   if (
-    ![...tables, ...(target === '002' ? domainTables : [])].every((t) =>
-      actual.includes(t),
-    )
+    ![
+      ...tables,
+      ...(target !== '001' ? domainTables : []),
+      ...(target === '003' ? governanceTables : []),
+    ].every((t) => actual.includes(t))
   )
     throw error('MIGRATION_NOT_READY');
-  if (target === '002') {
+  if (target !== '001') {
     const cols = (
       await queryable.query(
         'SELECT table_name,column_name,is_nullable FROM information_schema.columns WHERE table_schema=$1',
@@ -169,6 +193,49 @@ async function assertReady(
         )
       )
         throw error('MIGRATION_NOT_READY');
+  }
+  if (target === '003') {
+    const columns = (
+      await queryable.query(
+        'SELECT table_name,column_name FROM information_schema.columns WHERE table_schema=$1',
+        [db.schema],
+      )
+    ).rows;
+    for (const [table, fields] of Object.entries({
+      members: ['active', 'revision'],
+      caps: ['reviewed_by', 'fingerprint'],
+      reqs: ['project_id'],
+      run_plans: [
+        'snapshot_version',
+        'context_snapshot',
+        'context_fingerprint',
+        'approved_member_id',
+        'approved_role',
+        'approved_context_fingerprint',
+      ],
+      audit_logs: ['entity_type', 'entity_id'],
+    }))
+      for (const field of fields)
+        if (
+          !columns.some(
+            (c) => c.table_name === table && c.column_name === field,
+          )
+        )
+          throw error('MIGRATION_NOT_READY');
+    const constraints = (
+      await queryable.query(
+        'SELECT c.relname,k.contype,k.convalidated FROM pg_constraint k JOIN pg_class c ON c.oid=k.conrelid JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname=$1',
+        [db.schema],
+      )
+    ).rows;
+    for (const table of governanceTables)
+      for (const type of ['p', 'f'])
+        if (
+          !constraints.some(
+            (c) => c.relname === table && c.contype === type && c.convalidated,
+          )
+        )
+          throw error('MIGRATION_NOT_READY');
   }
 }
 async function migrate(db, options = {}) {
@@ -251,4 +318,5 @@ module.exports = {
   migrate,
   tables,
   domainTables,
+  governanceTables,
 };

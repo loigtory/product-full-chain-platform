@@ -1,0 +1,10 @@
+{
+  "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+  "executable": "D:\\项目管理\\product-full-chain-platform\\.tools\\node-v24.20.0-win-x64\\node.exe",
+  "startedAt": "2026-09-12T22:29:32.365Z",
+  "endedAt": "2026-09-12T22:29:37.036Z",
+  "exitCode": 0,
+  "status": "PASS",
+  "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"default-mode-is-local-and-writes-baseline-key\",\"status\":\"PASS\"},{\"name\":\"mock-mode-isolated-from-baseline-key-and-persists\",\"status\":\"PASS\"},{\"name\":\"mock-mode-reload-restores-saved-mode-and-data\",\"status\":\"PASS\"},{\"name\":\"api-bridge-sync-surface-and-contract-mapping\",\"status\":\"PASS\"},{\"name\":\"index-html-loads-data-layer-before-model\",\"status\":\"PASS\"},{\"name\":\"browser-badge-and-mode-cycle\",\"status\":\"PASS\",\"note\":\"徽标/切换/无错\"}],\"browser\":{\"status\":\"PASS\",\"reason\":\"徽标/切换/无错\"}}\n",
+  "stderr": ""
+}

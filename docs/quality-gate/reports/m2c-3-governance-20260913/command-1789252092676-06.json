@@ -1,0 +1,10 @@
+{
+  "command": "node server/verify-m2b.mjs",
+  "executable": "D:\\项目管理\\product-full-chain-platform\\.tools\\node-v24.20.0-win-x64\\node.exe",
+  "startedAt": "2026-09-12T22:29:43.319Z",
+  "endedAt": "2026-09-12T22:29:50.234Z",
+  "exitCode": 0,
+  "status": "PASS",
+  "stdout": "{\"check\":\"m2b-pair-token\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2b-bridge-online-pushed\",\"status\":\"PASS\",\"note\":\"Web 端收到 Bridge 上线推送\"}\n{\"check\":\"m2b-realtime-lines\",\"status\":\"PASS\",\"note\":\"Web 端实时收到 job.line 5 条\"}\n{\"check\":\"m2b-line-content\",\"status\":\"PASS\",\"note\":\"推送内容为终端对话流\"}\n{\"check\":\"m2b-run-succeeded-pushed\",\"status\":\"PASS\",\"note\":\"job.done → run.status SUCCEEDED 推送\"}\n{\"check\":\"m2b-replay-recorded\",\"status\":\"PASS\",\"note\":\"Bridge 快照已落库\"}\n{\"check\":\"m2b-no-console-break\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":7,\"results\":[{\"name\":\"m2b-pair-token\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2b-bridge-online-pushed\",\"status\":\"PASS\",\"note\":\"Web 端收到 Bridge 上线推送\"},{\"name\":\"m2b-realtime-lines\",\"status\":\"PASS\",\"note\":\"Web 端实时收到 job.line 5 条\"},{\"name\":\"m2b-line-content\",\"status\":\"PASS\",\"note\":\"推送内容为终端对话流\"},{\"name\":\"m2b-run-succeeded-pushed\",\"status\":\"PASS\",\"note\":\"job.done → run.status SUCCEEDED 推送\"},{\"name\":\"m2b-replay-recorded\",\"status\":\"PASS\",\"note\":\"Bridge 快照已落库\"},{\"name\":\"m2b-no-console-break\",\"status\":\"PASS\",\"note\":\"\"}]}\n",
+  "stderr": ""
+}

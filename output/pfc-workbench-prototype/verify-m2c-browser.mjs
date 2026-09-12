@@ -14,10 +14,12 @@ import {
 import { createHash } from 'node:crypto';
 const require = createRequire(import.meta.url),
   root = fileURLToPath(new URL('.', import.meta.url));
-const evidence = resolve(
-  root,
-  '../../docs/quality-gate/reports/m2c-2-domain-20260912',
-);
+if (
+  process.env.PFC_M2C_EVIDENCE_DIR !==
+  'docs/quality-gate/reports/m2c-3-governance-20260913/domain'
+)
+  throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
+const evidence = resolve(process.env.PFC_M2C_EVIDENCE_DIR);
 mkdirSync(evidence, { recursive: true });
 const results = [],
   errors = [],
@@ -40,6 +42,7 @@ try {
       runId + '_other',
     ],
   );
+  await f.prepareRuntime();
   server = await f.startServer();
   browser = await chromium.launch({
     channel: 'msedge',
@@ -452,7 +455,8 @@ try {
       const P = window.PFC,
         before = JSON.stringify(P.s.reqs);
       try {
-        P.actions['save-project']({});
+        // Projects are implemented by 003; release remains outside this package.
+        P.actions['submit-release']({});
       } catch {
         return before === JSON.stringify(P.s.reqs);
       }

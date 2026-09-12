@@ -2,6 +2,7 @@
   const P = window.PFC,
     { esc: e, btn: b, card, badge, icon: i } = P;
   P.renderGovernance = () => {
+    if (P.domainView?.pg()) return P.governanceDomain.render();
     const tab = P.s.ui.govTab;
     let body = '';
     if (tab === 'catalog')
@@ -46,7 +47,10 @@
           P.table(
             ['项', '值'],
             [
-              ['当前用户', '陈立（负责人）' + badge('企业 SSO 已登录', 'green')],
+              [
+                '当前用户',
+                '陈立（负责人）' + badge('企业 SSO 已登录', 'green'),
+              ],
               ['租户', 'PFC-DEMO · 单租户隔离' + badge('内网部署', 'cyan')],
               ['成员数', String(P.s.team.members.length) + ' · 含只读观察员'],
               [
@@ -58,37 +62,43 @@
         ) +
         card(
           '团队与角色',
-        `<p>当前团队：${e(P.s.team.name)}</p>` +
-          P.table(
-            ['成员', '角色', '分工', '操作'],
-            P.s.team.members.map((m) => [
-              e(m.name),
-              e(m.role),
-              m.role === '负责人'
-                ? '产品、研发、测试与发布确认'
-                : m.role === '执行者'
-                  ? '开发作业控制、测试执行、缺陷修复'
-                  : '查看需求、版本及执行记录',
-              b('edit-member', '改角色', { name: m.name }) +
-                (m.name !== '陈立' ? b('remove-member', '移除', { name: m.name }, 'danger') : ''),
-            ]),
-          ) +
-          `<div class="btn-group">${b('add-member', '登记成员')}</div>` +
-          `<div class="rail-title">角色矩阵 · 可执行动作</div>` +
-          P.table(
-            ['动作', '负责人', '执行者', '只读'],
-            [
-              ['发起 / 停止作业', '✓', '✓', '—'],
-              ['采纳建议 / 编辑产物', '✓', '✓', '—'],
-              ['确认版本 / 推进阶段', '✓', '—', '—'],
-              ['测试执行 / 缺陷处理', '✓', '✓', '—'],
-              ['产品验收 / 发布审批', '✓', '—', '—'],
-              ['治理中心配置', '✓', '—', '—'],
-              ['查看全部记录', '✓', '✓', '✓'],
-            ].map((row) => row.map((c) => (c === '—' ? '<span class="muted">—</span>' : e(c)))),
-          ) +
-          `<p class="source-note">原型使用单团队演示；切换只读角色可在“原型场景”验证。正式成员邀请与身份由服务端处理。</p>`,
-      );
+          `<p>当前团队：${e(P.s.team.name)}</p>` +
+            P.table(
+              ['成员', '角色', '分工', '操作'],
+              P.s.team.members.map((m) => [
+                e(m.name),
+                e(m.role),
+                m.role === '负责人'
+                  ? '产品、研发、测试与发布确认'
+                  : m.role === '执行者'
+                    ? '开发作业控制、测试执行、缺陷修复'
+                    : '查看需求、版本及执行记录',
+                b('edit-member', '改角色', { name: m.name }) +
+                  (m.name !== '陈立'
+                    ? b('remove-member', '移除', { name: m.name }, 'danger')
+                    : ''),
+              ]),
+            ) +
+            `<div class="btn-group">${b('add-member', '登记成员')}</div>` +
+            `<div class="rail-title">角色矩阵 · 可执行动作</div>` +
+            P.table(
+              ['动作', '负责人', '执行者', '只读'],
+              [
+                ['发起 / 停止作业', '✓', '✓', '—'],
+                ['采纳建议 / 编辑产物', '✓', '✓', '—'],
+                ['确认版本 / 推进阶段', '✓', '—', '—'],
+                ['测试执行 / 缺陷处理', '✓', '✓', '—'],
+                ['产品验收 / 发布审批', '✓', '—', '—'],
+                ['治理中心配置', '✓', '—', '—'],
+                ['查看全部记录', '✓', '✓', '✓'],
+              ].map((row) =>
+                row.map((c) =>
+                  c === '—' ? '<span class="muted">—</span>' : e(c),
+                ),
+              ),
+            ) +
+            `<p class="source-note">原型使用单团队演示；切换只读角色可在“原型场景”验证。正式成员邀请与身份由服务端处理。</p>`,
+        );
     if (tab === 'workspace')
       body = card(
         '仓库工作区与本地 Bridge',
@@ -110,10 +120,13 @@
           P.table(
             ['项目', '路径 / 分支', '技术栈', '加载'],
             P.s.projects.map((pj) => [
-              e(pj.name) + badge(pj.source === 'existing' ? '现有系统' : '全新', 'cyan'),
+              e(pj.name) +
+                badge(pj.source === 'existing' ? '现有系统' : '全新', 'cyan'),
               e(pj.path) + '<br>' + e(pj.branch),
               e(pj.tech.join(' / ')),
-              e(P.time(pj.loadedAt)) + '<br>' + (pj.files ? pj.files + ' 个文件' : '待 Bridge 扫描'),
+              e(P.time(pj.loadedAt)) +
+                '<br>' +
+                (pj.files ? pj.files + ' 个文件' : '待 Bridge 扫描'),
             ]),
           ) +
           `<div class="btn-group">${b('load-project', '加载本地项目')}</div>` +

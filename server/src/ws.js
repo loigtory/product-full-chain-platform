@@ -15,7 +15,7 @@ function auth(url) {
     return null;
   }
 }
-function broadcast(type, payload, tenantId) {
+async function broadcast(type, payload, tenantId) {
   const msg = JSON.stringify({ type, ...payload });
   if (Buffer.byteLength(msg) > 65536) return;
   for (const c of webClients) {
@@ -26,9 +26,21 @@ function broadcast(type, payload, tenantId) {
       continue;
     }
     try {
-      c.send(msg);
+      if (runtime.isPg()) {
+        if (c.claims.exp * 1000 <= Date.now()) {
+          c.close(4001, 'TOKEN_EXPIRED');
+          continue;
+        }
+        await require('./domain/membership-policy').authorizePush(
+          runtime.db(),
+          c.identity,
+          () => {
+            if (c.readyState === 1) c.send(msg);
+          },
+        );
+      } else c.send(msg);
     } catch {
-      c.terminate();
+      c.close(4003, 'MEMBERSHIP_RESYNC');
     }
   }
 }
@@ -184,36 +196,65 @@ function init(server) {
       void offline(b);
     });
   });
-  wssWeb.on('connection', (ws, req) => {
-    const user = auth(req.url),
-      configured = runtime.isPg()
-        ? runtime
-            .config()
-            .users.find(
-              (u) =>
-                u.name === user?.sub &&
-                u.tenantId === user?.tenant &&
-                u.role === user?.role,
-            )
-        : user;
-    if (!configured || user?.role === 'bridge') {
+  wssWeb.on('connection', async (ws, req) => {
+    const user = auth(req.url);
+    if (!user || user.role === 'bridge') {
       ws.close(4001, 'UNAUTHORIZED');
       return;
     }
-    ws.tenantId = user.tenant;
-    webClients.add(ws);
-    for (const b of bridges.values())
-      if (!runtime.isPg() || b.tenantId === user.tenant)
-        ws.send(
-          JSON.stringify({
-            type: 'bridge.status',
-            bridgeId: b.id,
-            name: b.name,
-            status: b.status,
-          }),
-        );
-    ws.on('close', () => webClients.delete(ws));
     ws.on('error', () => webClients.delete(ws));
+    ws.on('close', () => webClients.delete(ws));
+    try {
+      ws.identity = runtime.isPg()
+        ? await require('./domain/membership-policy').identity(
+            runtime.db(),
+            user,
+            runtime.config().users,
+          )
+        : user;
+      ws.claims = user;
+      ws.tenantId = user.tenant;
+      if (ws.readyState !== 1) return;
+      webClients.add(ws);
+      const sendInitial = () => {
+        for (const b of bridges.values())
+          if (!runtime.isPg() || b.tenantId === user.tenant)
+            ws.send(
+              JSON.stringify({
+                type: 'bridge.status',
+                bridgeId: b.id,
+                name: b.name,
+                status: b.status,
+              }),
+            );
+      };
+      if (runtime.isPg())
+        await require('./domain/membership-policy').authorizePush(
+          runtime.db(),
+          ws.identity,
+          sendInitial,
+        );
+      else sendInitial();
+      let pending = false;
+      ws.on('message', async () => {
+        if (pending) return ws.close(4008, 'EVENT_BACKPRESSURE');
+        pending = true;
+        try {
+          if (runtime.isPg())
+            await require('./domain/membership-policy').authorizePush(
+              runtime.db(),
+              ws.identity,
+              () => {},
+            );
+        } catch {
+          ws.close(4003, 'MEMBERSHIP_RESYNC');
+        } finally {
+          pending = false;
+        }
+      });
+    } catch {
+      ws.close(4003, 'MEMBERSHIP_RESYNC');
+    }
   });
   heartbeat = setInterval(() => {
     for (const b of bridges.values())

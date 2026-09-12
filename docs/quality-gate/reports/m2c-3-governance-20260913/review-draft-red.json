@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "at": "2026-09-12T22:24:58.358Z",
+  "source": "3a2bd81",
+  "command": "pinned node inline vm: evaluate original governance-domain.js, install, showPlan, dispatch synthetic input",
+  "scenario": "open plan, enter reject reason",
+  "observed": {
+    "formKey": null,
+    "savedDraft": null
+  },
+  "expected": "reason saved under plan:R-TEST",
+  "data": "process-local synthetic CODEx_TEST_review_reason",
+  "sideEffects": "none"
+}
