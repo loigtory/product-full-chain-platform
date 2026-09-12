@@ -4,7 +4,11 @@ These rules apply to the implementation repository at `D:\项目管理\product-f
 
 ## Active Handoff Scope - 2026-09-12
 
-- R1 approval: the user replied “同意” to the concrete R1 package in 29 section 9 (reviewed proposal `b0ff6eb`). Implement only its 14 exact source/test files, the seven handoff documents including [30](docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md), and the named synthetic report/evidence directory. Branch `feat/flow-prototype` starts at verified `origin/main=a9eec73`; the six proposal documents are carried from `b0ff6eb`. The scope includes local-only rehearsal, isolated browser/temporary memory tests and cleanup, feature opening/closing commits and push under 23. No M2c-3 governance implementation, PG writes, real tools/AI/CI, main merge, deployment or formal ledger advancement. Current status: R1 IN_PROGRESS; visual and business acceptance remains pending.
+- R1 approval: the user replied “同意” to the concrete R1 package in 29 section 9 (reviewed proposal `b0ff6eb`). Implement only its 14 exact source/test files, the seven handoff documents including [30](docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md), and the named synthetic report/evidence directory. Branch `feat/flow-prototype` starts at verified `origin/main=a9eec73`; the six proposal documents are carried from `b0ff6eb`. The scope includes local-only rehearsal, isolated browser/temporary memory tests and cleanup, feature opening/closing commits and push under 23. No M2c-3 governance implementation, PG writes, real tools/AI/CI, main merge, deployment or formal ledger advancement. Current status: R1 prototype interaction LOCAL_VERIFIED (12 commands plus static/config/delivery checks PASS); visual and business acceptance remains pending. Source entry remains index.html, 26 scripts. The current handoff is 30; do not treat the historical proposal notes below as the active task.
+
+### Historical authorization records
+
+These records preserve earlier decisions; the R1 approval above and the current checkpoint 30 take precedence.
 
 - Current continuation after `c181af2`: finish the concrete continuous-collaboration interaction specification and a reviewable next prototype scope inside the same six Markdown files. Proposal 29 section 9 will describe the existing-workbench interaction, exceptions, validation and candidate R1 files. The user's “继续” continues this design work; it does not approve the new source whitelist, local rehearsal behavior, M2c-3 implementation or a main merge.
 

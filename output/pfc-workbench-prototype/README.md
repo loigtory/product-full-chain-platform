@@ -1,19 +1,17 @@
 # PFC 原版交互原型
 
-当前 R1 已获批准，按 29 第九节在原入口实现连续协作演练；进度/验证见 [30 号](../../docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md)。实施分支 feat/flow-prototype，视觉与业务验收待完成。下方方案形成时的待确认记录保留历史含义。
+当前 R1 连续协作演练已实现并通过本地验证，入口仍是 [index.html](index.html)。打开后使用“交互原型 · 场景切换 → 连续协作演练”；需处于“本地存储”模式。已在隔离 Edge 验证直接打开此文件，也已验证本地 HTTP 路径。
 
-当前主线（2026-09-12）：`index.html` + `original/` 原生 JS 前端，以及仓库根 `server/` Express 后端。后续开发按以下交接资料一起阅读（19/20/21/23/24/25/26/27/28/29）：
+体验顺序：输入目标 → 原型/PRD/验收项共同生成 → 在对话输入“提醒时间改成提前 3 天” → 比较并采纳关联差异 → 确认业务与设计 → 沿当前主动作完成开发、测试、验收、发布与观察演练。右侧可展开体验；异常与角色演练可验证部分失败、等待决定、只读和未知结果。退出保留进度，在场景窗口点击“恢复”；“清除此演练”只删除当前记录。
 
-最新：M2c-2 已验收并合并推送 main（a9eec73）；当前准备 29 号 M2c-3 治理与项目方案，尚未实施，日常业务 PG 仍未启用。
+分支 feat/flow-prototype。原九条 + 新三条门禁通过；当前仅原型交互 LOCAL_VERIFIED，待陈立视觉/业务评审，未合并 main。固定业务模板、角色、AI 回复、测试、终端、发布与观察均为合成演练；不写原需求/API/PG。设计见 29 第九节，完整证据见 **30 号**。
 
-最新产品要求已记录于 29 号：业务需求的原型与 PRD 草稿共同演进、各阶段高效完成并无缝衔接。连续工作区、上下文承接、增量更新和中断恢复仍需完整交互设计与实现；本次只修订文档，不代表当前 `index.html` 已具备这些能力。
-
-29 号第九节现已提供具体交互规格及 R1 候选范围：在当前 `index.html` 增加显式本地连续协作演练，原型/PRD 页签、关联差异、阶段承接和异常恢复共用原三栏。该原型改动尚待确认，演练存储拟与现有需求/API 数据隔离，后续不会用演练结果声称真实 AI、PG 或工具已接入。
+当前主线为原生 JS 前端及 server/ Express 后端。M2c-2 已验收合并 main（a9eec73）；治理/项目方案、业务 PG 启用与真实工具接入仍是后续独立范围。先读 19/20/21/23/29/30，其余按历史设计追溯。
 
 | 当前入口 | 用途 |
 | --- | --- |
 | [19 · 开发路线图](../../docs/planning/prototype-v3/19-开发路线图-20260912.md) | 确认的阶段范围与 M2c 后续路径 |
-| [20 · 可复用交接任务](../../docs/planning/prototype-v3/20-Codex交接提示词-20260912.md) | M2c-3 文档方案范围；实施参数须确认后再填写 |
+| [20 · 可复用交接任务](../../docs/planning/prototype-v3/20-Codex交接提示词-20260912.md) | R1 已批准范围、当前交付状态及待评审事项 |
 | [21 · 实施中检查点](../../docs/planning/prototype-v3/21-M2b-2前端切领域API-20260912.md) | 历史实施草稿：当时模型 4/4、领域 7/7；后续收尾结果转 24 号 |
 | [22 · 主线收口清单](../../docs/planning/prototype-v3/22-主线收口与历史代码整理建议-20260912.md) | 归档路径、保留资产、整理结果 |
 | [23 · Codex 防走偏协议](../../docs/planning/prototype-v3/23-Codex防走偏协议-20260912.md) | 每轮 Codex 会话的固定开局、范围锁、提交纪律、验收闸、差异评审、文档续编 |
@@ -22,13 +20,14 @@
 | [26 · M2c-1 实施与验收](../../docs/planning/prototype-v3/26-M2c-1存储基础实施与验收-20260912.md) | 存储组件交付已人工验收（af709eb），已授权合并推送 main；业务 API 未切换 PG |
 | [27 · M2c-2 接入方案](../../docs/planning/prototype-v3/27-M2c-2接入方案与范围确认-20260912.md) | 已确认的 schema、空库、权限、文件/会话/执行持久化及测试范围 |
 | [28 · M2c-2 实施与验收](../../docs/planning/prototype-v3/28-M2c-2实施与验收-20260912.md) | 13 闸通过，11d1fdf 原型交付已人工验收并合并推送 main（a9eec73），业务 PG 尚未启用 |
-| [29 · M2c-3 治理与项目方案](../../docs/planning/prototype-v3/29-M2c-3治理与项目方案及范围确认-20260912.md) | 当前方案准备：范围、契约差异与验收设计；尚未批准实施 |
+| [29 · M2c-3 治理与项目方案](../../docs/planning/prototype-v3/29-M2c-3治理与项目方案及范围确认-20260912.md) | 第九节 R1 已批准；治理/项目原方案仍待确认 |
+| [30 · 连续协作原型实施与验收](../../docs/planning/prototype-v3/30-连续协作原型实施与验收-20260912.md) | 当前 R1 交付、差异、实测证据、限制与后续输入 |
 
 打开 [当前原型](index.html)，保留同目录 `original/`。local/mock 模式使用浏览器数据；API 模式连接 `server/`，默认 `127.0.0.1:5188`。当前已验证的联调路径明确设置 `PFC_DB=memory` 并清空 `DATABASE_URL`；模拟 Bridge 只验证协议与输出，不执行真实 Shell、Codex 或 Zed 工作区命令。服务端进程重启会丢失内存领域数据。
 
 前期 `apps/`、`packages/` 及根工程脚本原位保留，适用其原有规则；它们不是本次交接的默认开发入口。根依赖继续为当前原型提供 ESLint、Playwright 等测试工具。旧 V3 已移至 [历史参考归档](../../archive/prototype-v3-reference-20260912/README.md)，不再作为当前入口；`_backup/`、其他历史验证脚本和截图保留原位。
 
-当前原型读取 21 个 JS，包含 domain-client、domain-view、domain-actions、domain-conversation。21 号保留草稿历史，24 号记录 M2b-2 已合并（12d1733），26 号记录 M2c-1 已验收并合并推送 main（05af5de）。M2c-2 的 PG 路径已实现，设计见 27 号，本轮原型交付验收、Git 授权和实测见 28 号。PG 显式配置并预迁移后才可启动，文件原件可恢复；日常业务区未启用，对话与执行仍是模拟。
+当前原型读取 26 个 JS，包含既有领域适配和新增共享框架、演练工厂/模型/视图/动作模块。21 号保留草稿历史，24 号记录 M2b-2 已合并（12d1733），26 号记录 M2c-1 已验收并合并推送 main（05af5de）。M2c-2 的 PG 路径已实现，设计见 27 号，本轮原型交付验收、Git 授权和实测见 28 号。PG 显式配置并预迁移后才可启动，文件原件可恢复；日常业务区未启用，对话与执行仍是模拟。
 
 当前回归命令（仓库根目录，使用已安装依赖）：
 
@@ -44,6 +43,8 @@ node output/pfc-workbench-prototype/verify-m2b2-model.mjs
 node server/verify-m2b2-domain.mjs
 node output/pfc-workbench-prototype/verify-m2b2-browser.mjs
 ```
+
+R1 另运行 `node output/pfc-workbench-prototype/verify-flow-model.mjs`、`node output/pfc-workbench-prototype/verify-flow-browser.mjs`、`node output/pfc-workbench-prototype/verify-flow-architecture.mjs`，共 12 条。测试服务和浏览器按 finally 关闭。
 
 上面是既有九条入口；M2c-2 另有 verify-m2c-pg、verify-m2c-architecture、verify-m2c-domain 和 verify-m2c-browser，完整 13 闸原文见 28 号。本地隔离 PG 验证、日常业务集成、真实工具、业务验收与发布分别记录。
 

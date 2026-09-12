@@ -1,0 +1,158 @@
+{
+  "1280": {
+    ".work-layout": {
+      "x": 0,
+      "y": 52,
+      "width": 1280,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    ".ctx-rail": {
+      "x": 0,
+      "y": 52,
+      "width": 252,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".chat-main": {
+      "x": 252,
+      "y": 52,
+      "width": 660,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".side-panel": {
+      "x": 912,
+      "y": 52,
+      "width": 368,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".composer": {
+      "x": 252,
+      "y": 879.3125,
+      "width": 660,
+      "height": 80.6875,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    }
+  },
+  "1440": {
+    ".work-layout": {
+      "x": 0,
+      "y": 52,
+      "width": 1440,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    ".ctx-rail": {
+      "x": 0,
+      "y": 52,
+      "width": 252,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".chat-main": {
+      "x": 252,
+      "y": 52,
+      "width": 820,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".side-panel": {
+      "x": 1072,
+      "y": 52,
+      "width": 368,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".composer": {
+      "x": 252,
+      "y": 879.3125,
+      "width": 820,
+      "height": 80.6875,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    }
+  },
+  "1920": {
+    ".work-layout": {
+      "x": 0,
+      "y": 52,
+      "width": 1920,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    ".ctx-rail": {
+      "x": 0,
+      "y": 52,
+      "width": 252,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".chat-main": {
+      "x": 252,
+      "y": 52,
+      "width": 1300,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".side-panel": {
+      "x": 1552,
+      "y": 52,
+      "width": 368,
+      "height": 908,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    ".composer": {
+      "x": 252,
+      "y": 879.3125,
+      "width": 1300,
+      "height": 80.6875,
+      "font": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+      "size": "14px",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-09-12T15:09:39.620Z",
+  "testedEntryFiles": 30,
+  "testedSourceUnchanged": true,
+  "files": [
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "lines": 44,
+      "sha256": "b252a15e0d14089623a80457b403c83c80579783afc487b92fbb1e14251bc7fd"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "lines": 685,
+      "sha256": "64de8785d2abc07d07f387822ff4fbf2657d04f74008136c7c075d628a058541"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "lines": 772,
+      "sha256": "e7c98ab46f430f909c632239a8a9543eb3865a0a13d87973bd9cc0bb3127a864"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench-shell.js",
+      "lines": 18,
+      "sha256": "b32b7db5393c06d6e82f50824a48b9073a660ba6bc3da43e16ad52d6a79244e8"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/flow-model.js",
+      "lines": 576,
+      "sha256": "16a190e4c375cb2aba030fbca95348e432fd392e20e7261ba578ad3f017c0016"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/flow-view.js",
+      "lines": 293,
+      "sha256": "29183e018523f5badf8e22430645b57ac2282a6a3f2d308e88d58822d2515f56"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/flow-actions.js",
+      "lines": 486,
+      "sha256": "a5121d4f05d5c75cbe7c1ae2d7a255fed48812e8ec0b5c8d9db3202e46a53c45"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/flow-demo-data.js",
+      "lines": 116,
+      "sha256": "90aece80620739c256b6b4a00db46652d1c92002bf43cd06f98fc78a62d97f9b"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/flow.css",
+      "lines": 282,
+      "sha256": "d74ecd1c0d3924d5f053ef5e179537885a69752194a3083c23b4c31f0eaf987d"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "lines": 102,
+      "sha256": "605d0b490f6dbfb4479a1cf7ea647fb346998b95fe3249bd2c7d8bdc6fd2ffb0"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "lines": 184,
+      "sha256": "2263bb4762e65fc8253b9be350d7146fede9ecf4060e8aa99adb0a58b59c4679"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "lines": 264,
+      "sha256": "e4ba769c59917797473a4f2842d679f7a5687956e0a9fbd6923dbfa22b96d4a1"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "lines": 440,
+      "sha256": "315c3d222699d3d70bf5f2124f16a643c8dd30a74c03a636d619dfb1dae97fd8"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "lines": 248,
+      "sha256": "258b66d6bb256965fbfec8669fd9a0441f06a003ce9aad450777035fc4a8138b"
+    }
+  ]
+}

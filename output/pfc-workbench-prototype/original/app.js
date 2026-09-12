@@ -4,6 +4,7 @@
     A = P.actions;
   const routes = new Set(['home', 'work', 'product', 'delivery', 'gov']);
   P.go = (patch) => {
+    if (P.flowUI?.active()) P.flowUI.exit();
     Object.assign(P.s.ui, patch);
     if (!P.s.reqs[P.s.ui.req]) P.s.ui.req = Object.keys(P.s.reqs)[0] || '';
     const u = P.s.ui;
@@ -25,6 +26,7 @@
     P.render();
   };
   function parse() {
+    if (P.flowUI?.syncLocation()) return;
     const [path, query = ''] = location.hash.slice(2).split('?');
     const route = routes.has(path) ? path : 'home';
     P.s.ui.route = route;
@@ -100,6 +102,7 @@
           return '本地存储';
         }
       })()}</span><span class="avatar" title="${P.s.role === 'viewer' ? '只读体验' : '负责人体验'}">${P.s.role === 'viewer' ? '读' : '陈'}</span></div>`;
+    if (P.flowUI?.active()) { P.flowUI.render(); return; }
     const notice = P.conflict
       ? P.notice(
           '另一窗口已更新。为避免覆盖，当前只读；草稿保留。',
@@ -319,7 +322,7 @@
   A.scenarios = () =>
     P.modal(
       '原型场景 · 仅改变演示记录',
-      `<p class="muted">用这些场景检查例外路径。所有结果均为模拟，不调用实际工具。</p><div class="scenario-grid">${[
+      `<p class="muted">用这些场景检查例外路径。所有结果均为模拟，不调用实际工具。</p><div class="btn-group">${b('flow-open','连续协作演练',{disabled:window.PFCStore?.mode!=='local'},'primary')}</div><p class="source-note">连续协作演练仅在本地存储模式开放，独立保存合成数据。</p>${P.flowUI?.resumeLinks()||''}<div class="scenario-grid">${[
         ['normal', '正常显示'],
         ['loading', '加载中'],
         ['error', '加载失败'],
@@ -462,6 +465,11 @@
     const el = event.target.closest('[data-action]');
     if (!el || el.disabled) return;
     try {
+      if (P.flowUI?.active() && !el.dataset.action.startsWith('flow-')) {
+        if (el.dataset.action === 'scenarios') { A['flow-options'](); return; }
+        if (['navigate', 'data-mode'].includes(el.dataset.action)) P.flowUI.exit();
+        else if (el.dataset.action !== 'close-modal') { P.toast('请先返回原工作区，再使用此操作'); return; }
+      }
       /* 对话建议绑定校验：对象或版本变化后过期，需重新评估 */
       if (el.dataset.proposal) {
         const p = P.r()?.messages.find(
@@ -493,6 +501,7 @@
     }
   });
   document.addEventListener('paste', async (event) => {
+    if (P.flowUI?.active()) return;
     const t = event.target;
     if (t && (t.id === 'chat-input' || t.closest('.composer'))) {
       const files = [...(event.clipboardData?.files || [])].filter((f) =>
@@ -528,6 +537,7 @@
       box.classList.remove('drag-over');
   });
   document.addEventListener('drop', async (event) => {
+    if (P.flowUI?.active()) { event.preventDefault(); P.toast('演练使用固定合成材料，不读取拖入文件'); return; }
     const t = event.target;
     if (t && t.closest && t.closest('.composer')) {
       event.preventDefault();
@@ -548,6 +558,7 @@
     }
   });
   document.addEventListener('input', (event) => {
+    if (P.flowUI?.active()) return;
     const el = event.target;
     if (el.id === 'chat-input') {
       P.s.ui.drafts[P.s.ui.req] = el.value;
@@ -567,6 +578,7 @@
     }
   });
   document.addEventListener('change', (event) => {
+    if (P.flowUI?.active()) return;
     if (event.target.id === 'version-select')
       P.go({ version: event.target.value });
   });
@@ -648,7 +660,7 @@
   P.domainActions?.install();
   parse();
   P.render();
-  P.save();
+  if (!P.flowUI?.active()) P.save();
   if (P.loadNotice) P.toast(P.loadNotice);
   /* api 模式：启动时从后端 hydrate（无状态则工厂种子 PUT），此后 P.save 自动同步 */
   try {
@@ -668,6 +680,6 @@
   } catch {
     /* ignore */
   }
-  const tick = setInterval(P.tick, 1200);
+  const tick = setInterval(() => { if (!P.flowUI?.active()) P.tick(); }, 1200);
   window.addEventListener('pagehide', () => { clearInterval(tick);window.PFCWS?.disconnect(); });
 })();

@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "{\"status\":\"PASS\",\"syntaxScripts\":26,\"lintModules\":21,\"externalEntryAssets\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "npm run check:config",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "\n> product-full-chain-platform@0.0.0 check:config\n> node scripts/check-config.mjs\n\nBOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n",
+      "stderr": ""
+    },
+    {
+      "command": "npm run check:delivery-governance",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "\n> product-full-chain-platform@0.0.0 check:delivery-governance\n> node --import tsx scripts/check-delivery-governance.ts\n\nDELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n",
+      "stderr": ""
+    }
+  ]
+}

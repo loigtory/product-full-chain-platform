@@ -1,0 +1,152 @@
+{
+  "results": [
+    {
+      "name": "ordinary-three-width-shell-reference",
+      "status": "PASS"
+    },
+    {
+      "name": "original-entry-and-early-interactive-candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "three-width-prototype-prd-keyboard-and-expanded-canvas",
+      "status": "PASS"
+    }
+  ],
+  "createdIds": [
+    "CODEx_TEST_FLOW_20260912_manual_29c00186-3e0c-4dfa-9221-c8fda7e0ad34-A",
+    "CODEx_TEST_FLOW_20260912_manual_29c00186-3e0c-4dfa-9221-c8fda7e0ad34-B"
+  ],
+  "cleanup": {
+    "pid": 47904,
+    "port": 54563,
+    "browserClosed": true,
+    "serverClosed": true,
+    "isolatedContextsClosed": true,
+    "data": "synthetic browser contexts discarded"
+  },
+  "errors": [],
+  "requests": [
+    {
+      "url": "/",
+      "method": "GET"
+    },
+    {
+      "url": "/original/base.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/guide.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow.css",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/data-layer.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/api-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ws-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-client.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/ui.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench-shell.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-demo-data.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-model.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-view.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/workbench.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/spaces.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/run-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/delivery-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/governance-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/attachments.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/domain-conversation.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/flow-actions.js",
+      "method": "GET"
+    },
+    {
+      "url": "/original/app.js",
+      "method": "GET"
+    }
+  ],
+  "source": "synthetic local rehearsal; PG DTO view only"
+}
