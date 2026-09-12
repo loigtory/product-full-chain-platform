@@ -5,7 +5,7 @@
 | 当前入口 | 用途 |
 | --- | --- |
 | [19 · 开发路线图](../../docs/planning/prototype-v3/19-开发路线图-20260912.md) | 确认的阶段范围与 M2c 后续路径 |
-| [20 · 可复用交接任务](../../docs/planning/prototype-v3/20-Codex交接提示词-20260912.md) | M2c-2 已确认实施范围；评审入口为 28 号 |
+| [20 · 可复用交接任务](../../docs/planning/prototype-v3/20-Codex交接提示词-20260912.md) | M2c-2 验收及已授权 Git 收尾范围；下轮需重新填写 |
 | [21 · 实施中检查点](../../docs/planning/prototype-v3/21-M2b-2前端切领域API-20260912.md) | 历史实施草稿：当时模型 4/4、领域 7/7；后续收尾结果转 24 号 |
 | [22 · 主线收口清单](../../docs/planning/prototype-v3/22-主线收口与历史代码整理建议-20260912.md) | 归档路径、保留资产、整理结果 |
 | [23 · Codex 防走偏协议](../../docs/planning/prototype-v3/23-Codex防走偏协议-20260912.md) | 每轮 Codex 会话的固定开局、范围锁、提交纪律、验收闸、差异评审、文档续编 |
@@ -13,14 +13,13 @@
 | [25 · M2c 方案与范围确认](../../docs/planning/prototype-v3/25-M2c方案与范围确认-20260912.md) | 已确认分轮和 M2c-1 隔离测试；后续契约缺口保留 |
 | [26 · M2c-1 实施与验收](../../docs/planning/prototype-v3/26-M2c-1存储基础实施与验收-20260912.md) | 存储组件交付已人工验收（af709eb），已授权合并推送 main；业务 API 未切换 PG |
 | [27 · M2c-2 接入方案](../../docs/planning/prototype-v3/27-M2c-2接入方案与范围确认-20260912.md) | 已确认的 schema、空库、权限、文件/会话/执行持久化及测试范围 |
-
-| [28 · M2c-2 实施与验收](../../docs/planning/prototype-v3/28-M2c-2实施与验收-20260912.md) | LOCAL_VERIFIED，13 闸通过：原件恢复、PG/API/WS/浏览器证据与差异，待人工评审 |
+| [28 · M2c-2 实施与验收](../../docs/planning/prototype-v3/28-M2c-2实施与验收-20260912.md) | 13 闸通过，11d1fdf 原型交付已人工验收；已授权合并推送 main，业务 PG 尚未启用 |
 
 打开 [当前原型](index.html)，保留同目录 `original/`。local/mock 模式使用浏览器数据；API 模式连接 `server/`，默认 `127.0.0.1:5188`。当前已验证的联调路径明确设置 `PFC_DB=memory` 并清空 `DATABASE_URL`；模拟 Bridge 只验证协议与输出，不执行真实 Shell、Codex 或 Zed 工作区命令。服务端进程重启会丢失内存领域数据。
 
 前期 `apps/`、`packages/` 及根工程脚本原位保留，适用其原有规则；它们不是本次交接的默认开发入口。根依赖继续为当前原型提供 ESLint、Playwright 等测试工具。旧 V3 已移至 [历史参考归档](../../archive/prototype-v3-reference-20260912/README.md)，不再作为当前入口；`_backup/`、其他历史验证脚本和截图保留原位。
 
-当前原型读取 21 个 JS，包含 domain-client、domain-view、domain-actions、domain-conversation。21 号保留草稿历史，24 号记录 M2b-2 已合并（12d1733），26 号记录 M2c-1 已验收并合并推送 main（05af5de）。M2c-2 的 PG 路径已实现，设计见 27 号，实测与待评审状态见 28 号。PG 显式配置并预迁移后才可启动，文件原件可恢复；日常业务区未启用，对话与执行仍是模拟。
+当前原型读取 21 个 JS，包含 domain-client、domain-view、domain-actions、domain-conversation。21 号保留草稿历史，24 号记录 M2b-2 已合并（12d1733），26 号记录 M2c-1 已验收并合并推送 main（05af5de）。M2c-2 的 PG 路径已实现，设计见 27 号，本轮原型交付验收、Git 授权和实测见 28 号。PG 显式配置并预迁移后才可启动，文件原件可恢复；日常业务区未启用，对话与执行仍是模拟。
 
 当前回归命令（仓库根目录，使用已安装依赖）：
 
