@@ -1,0 +1,45 @@
+{
+  "time": "2026-09-12T17:03:03.9374484+08:00",
+  "classification": "M2c-1 acceptance and git closeout; docs-only",
+  "reviewedCommit": "af709eb17f558ec5e768e1bb40c0eb070c3a8a78",
+  "mainBefore": "12d17339d03b2f7858c007ff757eacc4c272036d",
+  "authorization": "Chen Li replied 同意 to the concrete M2c-1 review and merge/push main question",
+  "fetchedRemoteUnchanged": true,
+  "mainAncestorOfReviewedFeature": true,
+  "testedSourceHashMatches": 11,
+  "archivedSuccessfulRuns": 12,
+  "archivedRunsRerun": false,
+  "commands": [
+    {
+      "output": "PASS syntaxScripts=18 lintModules=13 externalEntryAssets=0",
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "exitCode": 0
+    },
+    {
+      "output": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed",
+      "command": "npm run check:config",
+      "exitCode": 0
+    },
+    {
+      "output": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+      "command": "npm run check:delivery-governance",
+      "exitCode": 0
+    }
+  ],
+  "allowedChanges": [
+    "AGENTS.md",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+    "docs/planning/prototype-v3/26-M2c-1存储基础实施与验收-20260912.md",
+    "docs/planning/prototype-v3/README.md",
+    "output/pfc-workbench-prototype/README.md",
+    "docs/quality-gate/reports/m2c-1-storage-20260912.md",
+    "docs/quality-gate/reports/m2c-1-storage-20260912/merge-preflight.json"
+  ],
+  "spawnedPersistentProcesses": 0,
+  "databaseConnections": 0,
+  "databaseWrites": 0,
+  "status": "PASS",
+  "localLinksVerified": 67,
+  "gitDiffCheckExitCode": 0
+}
