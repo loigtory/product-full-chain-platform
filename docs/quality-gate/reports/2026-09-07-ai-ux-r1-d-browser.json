@@ -1,0 +1,284 @@
+{
+  "status": "PASS",
+  "parentPOD": "POD-PFC-001",
+  "milestone": "M2",
+  "scope": "AI-UX-R1-D",
+  "environment": "LOCAL_ISOLATED_POSTGRESQL",
+  "dataSource": "DETERMINISTIC_SYNTHETIC_PRODUCT_FACTS",
+  "agentExecution": "REAL_LOCAL_BRIDGE_AND_CODEX_APP_SERVER",
+  "protocolVersion": "product-work-turn/1",
+  "testDataDesign": {
+    "scenario": "completed product discovery turn with authorized INTERNAL material",
+    "riskCovered": [
+      "server-owned-work-session-state",
+      "real-context-transmission",
+      "three-width-layout",
+      "keyboard-focus",
+      "unavailable-capability-honesty",
+      "url-session-preservation"
+    ],
+    "construction": "createAIWorkSessionTestData with isolated schema",
+    "businessValidity": "synthetic requirement, baseline, material, role, grant, Skill and Bridge satisfy the same repository invariants as product facts",
+    "sensitiveData": "NONE_SYNTHETIC_ONLY",
+    "isolation": "codex_test_aiux_ui_8e1d250c187c",
+    "cleanup": "DROPPED_AND_READ_BACK_IN_FINALLY"
+  },
+  "createdIds": {
+    "runId": "CODEx_TEST_AIUX_UI_8e1d250c187c",
+    "requirementId": "CODEx_TEST_AIUX_UI_8e1d250c187c_REQ_1",
+    "sessionId": "CODEx_TEST_AIUX_UI_8e1d250c187c_WORK_SESSION_1",
+    "turnId": "CODEx_TEST_AIUX_UI_8e1d250c187c_WORK_TURN_3"
+  },
+  "agentReadback": {
+    "turnStatus": "COMPLETED",
+    "visibleResponsePresent": true,
+    "externalThreadHash": "a7b31ca06b6d1ec9",
+    "skillReleaseId": "CODEx_TEST_AIUX_UI_8e1d250c187c_SKILL_RELEASE_1",
+    "skillContentHash": "sha256:7ab40c7367bbe49a12c1c9fb69c1e51196981711e5fa378f40da6a4b50da8ef0",
+    "bridgeId": "CODEx_TEST_AIUX_UI_8e1d250c187c_BRIDGE_1"
+  },
+  "browser": {
+    "browser": "EDGE_PLAYWRIGHT",
+    "consoleErrors": 0,
+    "screenshots": [
+      "ai-workspace-1280.png",
+      "ai-workspace-1440.png",
+      "ai-workspace-1920.png"
+    ],
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 720,
+        "shell": {
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "globalHeader": {
+          "top": 0,
+          "right": 1280,
+          "bottom": 56,
+          "left": 0,
+          "width": 1280,
+          "height": 56
+        },
+        "contextHeader": {
+          "top": 56,
+          "right": 1280,
+          "bottom": 160,
+          "left": 0,
+          "width": 1280,
+          "height": 104
+        },
+        "lifecycle": {
+          "top": 160,
+          "right": 1280,
+          "bottom": 219,
+          "left": 0,
+          "width": 1280,
+          "height": 59
+        },
+        "workspace": {
+          "top": 219,
+          "right": 1280,
+          "bottom": 668,
+          "left": 0,
+          "width": 1280,
+          "height": 449
+        },
+        "stream": {
+          "top": 220,
+          "right": 608,
+          "bottom": 668,
+          "left": 0,
+          "width": 608,
+          "height": 448
+        },
+        "artifact": {
+          "top": 220,
+          "right": 1280,
+          "bottom": 668,
+          "left": 608,
+          "width": 672,
+          "height": 448
+        },
+        "evidence": {
+          "top": 668,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0,
+          "width": 1280,
+          "height": 52
+        },
+        "contextDisplay": "none",
+        "gridTemplateColumns": "608px 672px",
+        "lifecycleItemCount": 13,
+        "horizontalOverflow": false,
+        "fontFamily": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "composerFocused": true
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "shell": {
+          "top": 0,
+          "right": 1440,
+          "bottom": 900,
+          "left": 0,
+          "width": 1440,
+          "height": 900
+        },
+        "globalHeader": {
+          "top": 0,
+          "right": 1440,
+          "bottom": 56,
+          "left": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "contextHeader": {
+          "top": 56,
+          "right": 1440,
+          "bottom": 160,
+          "left": 0,
+          "width": 1440,
+          "height": 104
+        },
+        "lifecycle": {
+          "top": 160,
+          "right": 1440,
+          "bottom": 219,
+          "left": 0,
+          "width": 1440,
+          "height": 59
+        },
+        "workspace": {
+          "top": 219,
+          "right": 1440,
+          "bottom": 848,
+          "left": 0,
+          "width": 1440,
+          "height": 629
+        },
+        "stream": {
+          "top": 220,
+          "right": 684,
+          "bottom": 848,
+          "left": 0,
+          "width": 684,
+          "height": 628
+        },
+        "artifact": {
+          "top": 220,
+          "right": 1440,
+          "bottom": 848,
+          "left": 684,
+          "width": 756,
+          "height": 628
+        },
+        "evidence": {
+          "top": 848,
+          "right": 1440,
+          "bottom": 900,
+          "left": 0,
+          "width": 1440,
+          "height": 52
+        },
+        "contextDisplay": "none",
+        "gridTemplateColumns": "684px 755.984px",
+        "lifecycleItemCount": 13,
+        "horizontalOverflow": false,
+        "fontFamily": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "composerFocused": true
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "shell": {
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "globalHeader": {
+          "top": 0,
+          "right": 1920,
+          "bottom": 56,
+          "left": 0,
+          "width": 1920,
+          "height": 56
+        },
+        "contextHeader": {
+          "top": 56,
+          "right": 1920,
+          "bottom": 160,
+          "left": 0,
+          "width": 1920,
+          "height": 104
+        },
+        "lifecycle": {
+          "top": 160,
+          "right": 1920,
+          "bottom": 219,
+          "left": 0,
+          "width": 1920,
+          "height": 59
+        },
+        "workspace": {
+          "top": 219,
+          "right": 1920,
+          "bottom": 1028,
+          "left": 0,
+          "width": 1920,
+          "height": 809
+        },
+        "stream": {
+          "top": 220,
+          "right": 1000,
+          "bottom": 1028,
+          "left": 248,
+          "width": 752,
+          "height": 808
+        },
+        "artifact": {
+          "top": 220,
+          "right": 1920,
+          "bottom": 1028,
+          "left": 1000,
+          "width": 920,
+          "height": 808
+        },
+        "evidence": {
+          "top": 1028,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0,
+          "width": 1920,
+          "height": 52
+        },
+        "contextDisplay": "block",
+        "gridTemplateColumns": "248px 752.391px 919.609px",
+        "lifecycleItemCount": 13,
+        "horizontalOverflow": false,
+        "fontFamily": "\"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "composerFocused": true
+      }
+    ]
+  },
+  "visualAcceptance": "PENDING_PRODUCT_OWNER_REVIEW",
+  "standardPfcMigrations006007": "NOT_APPLIED_NOT_AUTHORIZED",
+  "tooling": "project Playwright used because no Build Web Apps browser plugin was exposed in this session",
+  "cleanup": {
+    "web": "CLOSED",
+    "browser": "CLOSED_IN_BROWSER_CHECKS",
+    "api": "CLOSED",
+    "appServers": "CLOSED",
+    "schemaRemainingTableCount": 0,
+    "syntheticWorkspace": "REMOVED"
+  }
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\index.html",
+    "Hash": "01421BBDB6E69BBD697CD919E05E9AB65A4B79B21F3F3C1A62CE35ECDC39AE93"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\sim-bridge.mjs",
+    "Hash": "77EE842F099EEDEC0ECB585841679A0BE65100480FB24DCEE541FFA6E08F18BF"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\actions.js",
+    "Hash": "ECD46B4D20DCC347C0C3D59C323D68430702B55E3BB5AD93F4CA2B699CF93A46"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\api-client.js",
+    "Hash": "B58DEF1E2B5B99D874D9BA4C6026913D7286A9080256C694AFBBDA65ABF852FF"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\app.js",
+    "Hash": "B5D8F0A219156A84D0785D15E0ADAF2D20D1001045BBEEA97374F6F775789BA9"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\attachments.js",
+    "Hash": "21812D3CAB25863C011BABBE6AD8A475E68A02E4A6672662EC774151515AB3EF"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\base.css",
+    "Hash": "26C7C1C77BA323B4509F9B6DFEEC319DB18C99ABECB4CDE920413BF1D5818E21"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\conversation.js",
+    "Hash": "01190B21A64B788AFE5BACB85DE6053F760058EEEA0486D253FF52A25866FBF7"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\data-layer.js",
+    "Hash": "D05715A3B5674CDFF9DBA054C6FAE2AAD3A8A2681B55632393EEFFA55712A69A"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\data.js",
+    "Hash": "E613FDC1354B6D254466E7ECCC4E326C2EBEEDB8CEBAEAC21298EA8F775C10DE"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\delivery-actions.js",
+    "Hash": "C6D0235E0EA418D226508DC8FEA42C9509048F834171FA311178C45E87BFF5B9"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\downloads.js",
+    "Hash": "A388ED6DBC75848CD335A90841F45BBC64E9D967CBE50681A145009056F637F6"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\governance-actions.js",
+    "Hash": "4DBD6AA26380274BB845AD197EAF1B751AA2F4A100E54C002E55BF56B865E1B8"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\governance.js",
+    "Hash": "442BAB421923D8786333E795386AB46397B0E81AC1871CE949911E0CDA945D3E"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\guide.css",
+    "Hash": "84FE4AEE8FD611330B94F510B9D9EDBE262DDCD1586B64BDA2CB822DF5824E16"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\model.js",
+    "Hash": "A5236B6597FB02238BC796AB0625259EE60A339A0AC989164FFE7351F9B3DCE8"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\run-actions.js",
+    "Hash": "67D8B460C37C224908FA6B3C56CCDA8C66F6F94FB6901441812858F4797AB482"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\spaces.js",
+    "Hash": "2054A3B9B961F17B3A5B8A17E48381263356908D3D28084816BB34C0CC725BAA"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\ui.js",
+    "Hash": "B7BCD639C240DD7E658150F0C8AC928B20D7142D6A7F6BE40B09541D4F131E54"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\workbench.js",
+    "Hash": "707878575CBFD165467EB3143FEF9D07A3CCB60D8FDEE38FC8B5882405FDD4A7"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\original\\ws-client.js",
+    "Hash": "4DB7BA4B28E01BC0D9452357351801F33C16F85A86A2DC7F0F36B258D5F2EFEE"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\auth.js",
+    "Hash": "FB65877DC88CE5DCDD2B8851EDEF9E0A8BF2BB047BB453B2A0ACDF5801AD9C88"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\contract.js",
+    "Hash": "4DE0FF43F2216439282882C258EE2DE52C7485FA73FAB09DF425FA362225AE86"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\db.js",
+    "Hash": "AE8E1BB31A2C9E4DF6AC4A72E091208E70D44BE8319C7EE9F2B1F8EA1CD3CE12"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\index.js",
+    "Hash": "8C1F863C9C7151103C58E2E9138A9CEDA34001743BA3E5B5BE2C3D170E96C23E"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\ws.js",
+    "Hash": "19CC56ECF4AA6E80C1D80F6BDB88275303EE3F741F769512610BACC677491A67"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\domain\\service.js",
+    "Hash": "BC83CF0C0D33468D87676962551111A92C1D84D1F07A128E180CA3963F26443A"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\domain\\state-machine.js",
+    "Hash": "46DB2BCA03F8EADF2D30A901694B31689D72C3AEE436C91E960E9ED1B27F6A42"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\domain\\store.js",
+    "Hash": "F2E24E87C74509014D8ECF590B9EA94345642196D6E4FD167AD6522A0643EBAE"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\auth.js",
+    "Hash": "93ABDE24EE21138EAD9C812D1C1450EDAF13F3A728847A4002FF92C1FC3B2F3E"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\batch.js",
+    "Hash": "348FF0AD96B538C7F945E370C936B660DB86F7AF1239636A8A20D6B9D2D7EB66"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\bridges.js",
+    "Hash": "7336F68B790A2F2F7F61C4699CE5D73A752C5A8D46C0908C8AACFDC5EED1AF3C"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\contract.js",
+    "Hash": "C64F1C30E1E7177E47A7D6C924C5F58701CC3DE4227B6107E42CC5CA26B8777B"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\leases.js",
+    "Hash": "295FC9C108D8320D4297D590D8CBC652EB2A478CF9543A678FAA01B472DF8637"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\notices.js",
+    "Hash": "518089107F95DA4FB6A60661164198256A511BCB021505BE3C79F69A4E52255A"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\reqs.js",
+    "Hash": "3243A00241193B0E300629F14A08103A9181A066AFB730860D4B5522F165FC05"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\runs.js",
+    "Hash": "E0B07BC9DDAA287BE97C7822F5D0FDF39D1C6ACDDFBBA174BF64E2DAF2A411AE"
+  },
+  {
+    "Path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\_backup\\m2b2-before-20260912\\server-src\\routes\\state.js",
+    "Hash": "16627B29C1ED3121E13C8875ADAC902A21A043FCE1D27D2CAE7486D70533B298"
+  }
+]

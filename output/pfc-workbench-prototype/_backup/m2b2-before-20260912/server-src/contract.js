@@ -1,0 +1,66 @@
+'use strict';
+/* =====================================================================
+ * PFC API 契约定义（服务端）
+ * 与前端 original/api-client.js 的 PFCAPI.api.contract() 结构一致，
+ * GET /api/contract 对外暴露，供前端验证与文档对照（对齐《13-M1接口清单》）。
+ * ===================================================================== */
+module.exports = {
+  auth: [
+    ['devLogin', 'POST /api/auth/dev-login'],
+    ['me', 'GET /api/auth/me'],
+  ],
+  reqs: [
+    ['list', 'GET /api/reqs'],
+    ['create', 'POST /api/reqs'],
+    ['get', 'GET /api/reqs/:id'],
+    ['advanceStage', 'PATCH /api/reqs/:id/stage'],
+    ['versions', 'GET /api/reqs/:id/versions'],
+    ['confirmVersion', 'POST /api/reqs/:id/versions/:vid/confirm'],
+    ['addMaterial', 'POST /api/reqs/:id/materials'],
+    ['answerQuestion', 'POST /api/reqs/:id/questions/:qid/answer'],
+    ['messages', 'GET /api/reqs/:id/messages'],
+    ['sendMessage', 'POST /api/reqs/:id/messages'],
+  ],
+  runs: [
+    ['createRun', 'POST /api/runs'],
+    ['planApprove', 'POST /api/runs/:id/plan-approve'],
+    ['planReject', 'POST /api/runs/:id/plan-reject'],
+    ['start', 'POST /api/runs/:id/start'],
+    ['cancel', 'POST /api/runs/:id/cancel'],
+    ['verify', 'POST /api/runs/:id/verify'],
+    ['qualityGates', 'POST /api/runs/:id/quality-gates'],
+    ['replay', 'GET /api/runs/:id/replay'],
+    ['acquireLease', 'POST /api/leases/acquire'],
+    ['handoffLease', 'POST /api/leases/handoff'],
+  ],
+  governance: [
+    ['caps', 'GET /api/caps'],
+    ['registerCap', 'POST /api/caps'],
+    ['reviewCap', 'POST /api/caps/:id/review'],
+    ['toggleCap', 'PATCH /api/caps/:id/toggle'],
+    ['bindings', 'GET/PUT /api/bindings'],
+    ['members', 'GET /api/members'],
+    ['setRole', 'PATCH /api/members/:uid/role'],
+    ['audit', 'GET /api/audit'],
+    ['budget', 'GET /api/budgets/me'],
+    ['knowledge', 'GET /api/knowledge'],
+    ['addKnowledge', 'POST /api/knowledge'],
+  ],
+  release: [
+    ['submit', 'POST /api/reqs/:id/releases'],
+    ['approve', 'POST /api/releases/:id/approve'],
+    ['reject', 'POST /api/releases/:id/reject'],
+    ['execute', 'POST /api/releases/:id/execute'],
+    ['rollback', 'POST /api/releases/:id/rollback'],
+    ['cicd', 'POST /api/releases/:id/cicd'],
+  ],
+  notices: [
+    ['list', 'GET /api/notices'],
+    ['markRead', 'POST /api/notices/:id/read'],
+    ['readAll', 'POST /api/notices/read-all'],
+  ],
+  projects: [
+    ['list', 'GET /api/projects'],
+    ['create', 'POST /api/projects'],
+  ],
+};

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0.0",
+  "generator": "codex app-server generate-ts --experimental",
+  "codexCliVersion": "0.153.4",
+  "compatibleHarness": "codex-app-server/0.153",
+  "generatedDirectory": "src/generated/app-server-0.153.4",
+  "generatedFileCount": 827,
+  "formattedBundleSha256": "0672ff069dd39b72d9f3d7584697d30e4b9da05d341453250bec982293639667"
+}

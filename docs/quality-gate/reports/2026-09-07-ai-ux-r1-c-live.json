@@ -1,0 +1,51 @@
+{
+  "runId": "CODEx_TEST_AIUX_LIVE_4ca417e9f353",
+  "status": "PASS",
+  "environment": "LOCAL_ISOLATED_POSTGRESQL",
+  "dataSource": "DETERMINISTIC_SYNTHETIC",
+  "protocolVersion": "product-work-turn/1",
+  "skill": {
+    "name": "pfc-ai-product-work-session",
+    "contentHash": "sha256:7ab40c7367bbe49a12c1c9fb69c1e51196981711e5fa378f40da6a4b50da8ef0"
+  },
+  "scenarios": {
+    "completed": {
+      "turnStatus": "COMPLETED",
+      "visibleResponsePresent": true,
+      "externalThreadHash": "190219da08196559"
+    },
+    "cancelled": {
+      "turnStatus": "CANCELLED"
+    },
+    "unknown": {
+      "turnStatus": "UNKNOWN",
+      "sessionStatus": "BLOCKED",
+      "recoveryAction": "VERIFY_TURN"
+    }
+  },
+  "eventTypes": [
+    "SESSION_CREATED",
+    "TURN_QUEUED",
+    "TURN_STARTED",
+    "TURN_MESSAGE_AVAILABLE",
+    "TURN_COMPLETED",
+    "TURN_CANCEL_REQUESTED",
+    "TURN_CANCELLED",
+    "TURN_UNKNOWN"
+  ],
+  "createdIds": {
+    "sessionId": "CODEx_TEST_AIUX_LIVE_4ca417e9f353_WORK_SESSION_1",
+    "turnIds": [
+      "CODEx_TEST_AIUX_LIVE_4ca417e9f353_WORK_TURN_3",
+      "CODEx_TEST_AIUX_LIVE_4ca417e9f353_WORK_TURN_10",
+      "CODEx_TEST_AIUX_LIVE_4ca417e9f353_WORK_TURN_18"
+    ]
+  },
+  "cleanup": {
+    "appServers": "CLOSED_BY_WORKER",
+    "loopbackServer": "CLOSED_IN_FINALLY",
+    "schema": "DROPPED_IN_FINALLY"
+  },
+  "sensitiveData": "NONE_SYNTHETIC_ONLY",
+  "schemaRemainingTableCount": 0
+}

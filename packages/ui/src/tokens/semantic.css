@@ -1,0 +1,205 @@
+:root {
+  color: var(--pfc-gray-900);
+  background: var(--pfc-gray-50);
+  font-family: var(--pfc-font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --pfc-color-primary: var(--pfc-blue-600);
+  --pfc-color-primary-hover: var(--pfc-blue-700);
+  --pfc-color-primary-active: var(--pfc-blue-800);
+  --pfc-color-primary-soft: var(--pfc-blue-50);
+  --pfc-color-accent: var(--pfc-cyan-500);
+  --pfc-color-text: var(--pfc-gray-900);
+  --pfc-color-text-secondary: var(--pfc-gray-600);
+  --pfc-color-text-tertiary: var(--pfc-gray-500);
+  --pfc-color-text-inverse: var(--pfc-white);
+  --pfc-color-border: var(--pfc-gray-200);
+  --pfc-color-border-strong: var(--pfc-gray-300);
+  --pfc-color-canvas: var(--pfc-gray-50);
+  --pfc-color-surface: var(--pfc-white);
+  --pfc-color-surface-subtle: var(--pfc-gray-25);
+  --pfc-color-surface-hover: var(--pfc-gray-100);
+  --pfc-color-surface-translucent: var(--pfc-alpha-surface-96);
+  --pfc-color-scrim: var(--pfc-alpha-scrim-52);
+  --pfc-color-primary-border: var(--pfc-alpha-blue-24);
+  --pfc-color-module-requirements: var(--pfc-blue-600);
+  --pfc-color-module-requirements-soft: var(--pfc-blue-50);
+  --pfc-color-module-gates: var(--pfc-violet-600);
+  --pfc-color-module-gates-hover: var(--pfc-violet-700);
+  --pfc-color-module-gates-soft: var(--pfc-violet-50);
+  --pfc-color-module-gates-border: var(--pfc-alpha-violet-24);
+  --pfc-color-module-materials: var(--pfc-teal-600);
+  --pfc-color-module-materials-hover: var(--pfc-teal-700);
+  --pfc-color-module-materials-soft: var(--pfc-teal-50);
+  --pfc-color-module-materials-border: var(--pfc-alpha-teal-24);
+  --pfc-color-module-agents: var(--pfc-orange-700);
+  --pfc-color-module-agents-soft: var(--pfc-orange-50);
+  --pfc-color-agent-workspace: var(--pfc-gray-50);
+  --pfc-color-agent-stream: var(--pfc-white);
+  --pfc-color-agent-artifact: var(--pfc-gray-25);
+  --pfc-color-agent-message: var(--pfc-blue-50);
+  --pfc-color-user-message: var(--pfc-teal-50);
+  --pfc-color-proposal-surface: var(--pfc-amber-50);
+  --pfc-color-proposal-border: var(--pfc-color-warning-border);
+  --pfc-color-running-surface: var(--pfc-violet-50);
+  --pfc-color-running-border: var(--pfc-color-module-gates-border);
+  --pfc-color-unknown-surface: var(--pfc-red-50);
+  --pfc-color-unknown-border: var(--pfc-color-danger-border);
+  --pfc-color-evidence-surface: var(--pfc-gray-900);
+  --pfc-color-evidence-text: var(--pfc-white);
+  --pfc-color-evidence-muted: var(--pfc-gray-300);
+  --pfc-color-artifact-workspace: var(--pfc-gray-50);
+  --pfc-color-artifact-editor: var(--pfc-white);
+  --pfc-color-artifact-diff-added: var(--pfc-green-50);
+  --pfc-color-artifact-diff-added-text: var(--pfc-green-600);
+  --pfc-color-artifact-diff-removed: var(--pfc-red-50);
+  --pfc-color-artifact-diff-removed-text: var(--pfc-red-600);
+  --pfc-font-family-code: var(--pfc-font-mono);
+  --pfc-size-artifact-version-rail: var(
+    --pfc-layout-artifact-version-rail-width
+  );
+  --pfc-size-artifact-context: var(--pfc-layout-artifact-context-width);
+  --pfc-size-artifact-workspace-min-height: var(
+    --pfc-layout-artifact-workspace-min-height
+  );
+  --pfc-color-unknown-border: var(--pfc-color-danger-border);
+  --pfc-color-evidence-surface: var(--pfc-gray-900);
+  --pfc-color-evidence-text: var(--pfc-white);
+  --pfc-color-evidence-muted: var(--pfc-gray-300);
+
+  --pfc-color-success: var(--pfc-green-600);
+  --pfc-color-success-soft: var(--pfc-green-50);
+  --pfc-color-success-border: var(--pfc-alpha-green-28);
+  --pfc-color-warning: var(--pfc-amber-700);
+  --pfc-color-warning-soft: var(--pfc-amber-50);
+  --pfc-color-warning-border: var(--pfc-alpha-amber-28);
+  --pfc-color-warning-border-soft: var(--pfc-alpha-amber-24);
+  --pfc-color-danger: var(--pfc-red-600);
+  --pfc-color-danger-soft: var(--pfc-red-50);
+  --pfc-color-danger-border: var(--pfc-alpha-red-28);
+  --pfc-color-danger-border-soft: var(--pfc-alpha-red-24);
+  --pfc-color-neutral-soft: var(--pfc-gray-100);
+
+  --pfc-color-reference-primary: var(--pfc-cyan-500);
+  --pfc-color-reference-primary-strong: var(--pfc-cyan-700);
+  --pfc-color-reference-primary-soft: var(--pfc-cyan-50);
+  --pfc-color-reference-text: var(--pfc-charcoal-900);
+  --pfc-color-reference-text-muted: var(--pfc-charcoal-600);
+  --pfc-color-reference-border: var(--pfc-cool-gray-200);
+  --pfc-color-reference-canvas: var(--pfc-cool-gray-50);
+  --pfc-color-reference-surface-translucent: var(--pfc-alpha-surface-70);
+  --pfc-color-metric-blue: var(--pfc-blue-500);
+  --pfc-color-metric-orange: var(--pfc-orange-500);
+  --pfc-color-metric-purple: var(--pfc-purple-500);
+  --pfc-color-metric-red: var(--pfc-rose-500);
+
+  --pfc-reference-font-family: var(--pfc-font-sans-reference);
+  --pfc-reference-font-size-page: var(--pfc-font-size-30);
+  --pfc-reference-font-size-body: var(--pfc-font-size-16);
+  --pfc-reference-font-size-control: var(--pfc-font-size-14);
+  --pfc-reference-font-size-caption: var(--pfc-font-size-12);
+  --pfc-reference-font-size-summary-value: var(--pfc-font-size-20);
+  --pfc-reference-line-height-page: var(--pfc-line-height-36);
+  --pfc-reference-line-height-body: var(--pfc-line-height-24);
+  --pfc-reference-line-height-control: var(--pfc-line-height-20);
+  --pfc-reference-line-height-section: var(--pfc-line-height-26);
+  --pfc-reference-line-height-caption: var(--pfc-line-height-18);
+  --pfc-reference-line-height-summary-value: var(--pfc-line-height-28);
+  --pfc-reference-font-weight-control: var(--pfc-font-weight-regular);
+  --pfc-reference-font-weight-navigation: var(--pfc-font-weight-medium);
+  --pfc-reference-font-weight-table-header: var(--pfc-font-weight-medium);
+  --pfc-reference-font-weight-section: var(--pfc-font-weight-semibold);
+  --pfc-reference-font-weight-page: var(--pfc-font-weight-bold);
+  --pfc-reference-size-control: var(--pfc-size-8);
+  --pfc-reference-size-table-header: var(--pfc-size-10);
+  --pfc-reference-size-table-row: var(--pfc-size-11-25);
+  --pfc-reference-size-operation-row: var(--pfc-size-14);
+  --pfc-reference-space-table-cell-x: var(--pfc-size-2);
+  --pfc-reference-size-work-content: var(--pfc-layout-work-content-width);
+  --pfc-reference-size-metric-card: var(--pfc-layout-metric-card-height);
+  --pfc-reference-size-summary-panel: var(--pfc-layout-summary-panel-height);
+  --pfc-size-detail-drawer: var(--pfc-layout-drawer-width);
+  --pfc-size-confirm-dialog: var(--pfc-layout-dialog-width);
+  --pfc-size-scope-column-min: var(--pfc-layout-scope-column-min-width);
+
+  --pfc-font-size-caption: var(--pfc-font-size-12);
+  --pfc-font-size-label: var(--pfc-font-size-13);
+  --pfc-font-size-body: var(--pfc-font-size-14);
+  --pfc-font-size-navigation: var(--pfc-font-size-15);
+  --pfc-font-size-emphasis: var(--pfc-font-size-17);
+  --pfc-font-size-section: var(--pfc-font-size-18);
+  --pfc-font-size-workspace-title: var(--pfc-font-size-24);
+  --pfc-font-size-page: var(--pfc-font-size-28);
+  --pfc-font-size-display: var(--pfc-font-size-32);
+  --pfc-line-height-caption: var(--pfc-line-height-18);
+  --pfc-line-height-label: var(--pfc-line-height-20);
+  --pfc-line-height-compact: var(--pfc-line-height-16);
+  --pfc-line-height-dense: var(--pfc-line-height-17);
+  --pfc-line-height-body: var(--pfc-line-height-22);
+  --pfc-line-height-emphasis: var(--pfc-line-height-24);
+  --pfc-line-height-section: var(--pfc-line-height-28);
+  --pfc-line-height-workspace-title: var(--pfc-line-height-32);
+  --pfc-line-height-page: var(--pfc-line-height-36);
+  --pfc-line-height-display: var(--pfc-line-height-42);
+
+  --pfc-space-1: var(--pfc-size-1);
+  --pfc-space-2: var(--pfc-size-2);
+  --pfc-space-3: var(--pfc-size-3);
+  --pfc-space-4: var(--pfc-size-4);
+  --pfc-space-5: var(--pfc-size-5);
+  --pfc-space-6: var(--pfc-size-6);
+  --pfc-space-7: var(--pfc-size-7);
+  --pfc-space-8: var(--pfc-size-8);
+
+  --pfc-radius-control: var(--pfc-radius-6);
+  --pfc-radius-panel: var(--pfc-radius-8);
+  --pfc-radius-dialog: var(--pfc-radius-8);
+  --pfc-radius-full: var(--pfc-radius-round);
+  --pfc-radius-avatar: var(--pfc-radius-circle);
+  --pfc-focus-ring: 0 0 0 3px var(--pfc-alpha-blue-18);
+  --pfc-shadow-subtle: 0 1px 2px var(--pfc-alpha-gray-08);
+  --pfc-shadow-raised: 0 8px 24px var(--pfc-alpha-gray-12);
+  --pfc-shadow-sheet: -12px 0 32px var(--pfc-alpha-gray-12);
+  --pfc-shadow-dialog: 0 18px 48px var(--pfc-alpha-gray-16);
+  --pfc-outline-primary: 0 0 0 1px var(--pfc-color-primary);
+  --pfc-outline-danger: 0 0 0 1px var(--pfc-color-danger);
+  --pfc-outline-primary-soft: 0 0 0 1px var(--pfc-color-primary-border);
+
+  --pfc-motion-fast: var(--pfc-duration-fast);
+  --pfc-motion-standard: var(--pfc-duration-standard);
+  --pfc-motion-spinner: var(--pfc-duration-spinner);
+  --pfc-motion-skeleton: var(--pfc-duration-skeleton);
+  --pfc-ease: var(--pfc-easing-standard);
+}
+
+.pfc-reference-theme {
+  color: var(--pfc-color-reference-text);
+  background: var(--pfc-color-surface);
+  font-family: var(--pfc-reference-font-family);
+  font-size: var(--pfc-font-size-16);
+  line-height: var(--pfc-line-height-24);
+  --pfc-color-primary: var(--pfc-color-reference-primary);
+  --pfc-color-primary-hover: var(--pfc-color-reference-primary-strong);
+  --pfc-color-primary-active: var(--pfc-color-reference-primary-strong);
+  --pfc-color-primary-soft: var(--pfc-color-reference-primary-soft);
+  --pfc-color-text: var(--pfc-color-reference-text);
+  --pfc-color-text-secondary: var(--pfc-color-reference-text-muted);
+  --pfc-color-text-tertiary: var(--pfc-gray-500);
+  --pfc-color-border: var(--pfc-color-reference-border);
+  --pfc-color-canvas: var(--pfc-color-surface);
+  --pfc-color-surface-translucent: var(
+    --pfc-color-reference-surface-translucent
+  );
+  --pfc-color-module-requirements: var(--pfc-color-reference-primary);
+  --pfc-color-module-requirements-soft: var(--pfc-color-reference-primary-soft);
+  --pfc-font-size-body: var(--pfc-font-size-16);
+  --pfc-font-size-label: var(--pfc-reference-font-size-control);
+  --pfc-font-size-navigation: var(--pfc-reference-font-size-control);
+  --pfc-font-size-section: var(--pfc-font-size-18);
+  --pfc-font-size-page: var(--pfc-reference-font-size-page);
+  --pfc-line-height-body: var(--pfc-line-height-24);
+  --pfc-line-height-section: var(--pfc-reference-line-height-section);
+  --pfc-line-height-page: var(--pfc-reference-line-height-page);
+  --pfc-focus-ring: 0 0 0 3px var(--pfc-alpha-cyan-18);
+}

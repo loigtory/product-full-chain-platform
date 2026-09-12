@@ -1,0 +1,225 @@
+.team-context-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.team-context-bar label {
+  display: grid;
+  gap: 6px;
+  color: var(--pfc-color-text-secondary);
+  font-size: var(--pfc-font-size-caption);
+  font-weight: var(--pfc-font-weight-semibold);
+}
+.team-context-bar form {
+  display: flex;
+  gap: 8px;
+}
+.team-context-bar input {
+  width: 220px;
+}
+.team-tabs {
+  display: flex;
+  gap: 26px;
+  height: 43px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--pfc-color-border);
+}
+.team-tabs button {
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: var(--pfc-color-text-secondary);
+  font: inherit;
+  font-size: var(--pfc-font-size-body);
+  font-weight: var(--pfc-font-weight-semibold);
+  cursor: pointer;
+}
+.team-tabs button[aria-current='page'] {
+  color: var(--pfc-color-primary);
+}
+.team-tabs button[aria-current='page']::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: var(--pfc-color-primary);
+}
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 20px;
+  align-items: start;
+}
+.admin-grid.equal {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.admin-table-section,
+.admin-form {
+  border: 1px solid var(--pfc-color-border);
+  border-radius: var(--pfc-radius-panel);
+  background: var(--pfc-color-surface);
+}
+.admin-table-section > header,
+.admin-form > header {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--pfc-color-border);
+}
+.admin-table-section h2,
+.admin-form h2 {
+  margin: 0;
+  font-size: var(--pfc-font-size-16);
+  line-height: var(--pfc-line-height-body);
+  letter-spacing: 0;
+}
+.admin-table-section p,
+.admin-form p {
+  margin: 3px 0 0;
+  color: var(--pfc-color-text-tertiary);
+  font-size: var(--pfc-font-size-caption);
+}
+.admin-table-section table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.admin-table-section th,
+.admin-table-section td {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--pfc-color-border);
+  text-align: left;
+  font-size: var(--pfc-font-size-label);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.admin-table-section th {
+  background: var(--pfc-color-surface-subtle);
+  color: var(--pfc-color-text-secondary);
+  font-weight: var(--pfc-font-weight-semibold);
+}
+.admin-form {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+.admin-form > header {
+  margin-bottom: 2px;
+}
+.admin-form > label {
+  display: grid;
+  gap: 6px;
+  padding: 0 20px;
+  color: var(--pfc-color-text-secondary);
+  font-size: var(--pfc-font-size-caption);
+  font-weight: var(--pfc-font-weight-semibold);
+}
+.admin-form__hint {
+  color: var(--pfc-color-text-tertiary);
+  font-size: var(--pfc-font-size-caption);
+  font-weight: var(--pfc-font-weight-regular);
+}
+.admin-form > .module-message {
+  margin: 0 20px;
+}
+.admin-form > button {
+  margin: 2px 20px 0;
+  justify-content: center;
+}
+.team-context-bar input,
+.team-context-bar select,
+.admin-form input,
+.admin-form select {
+  height: var(--pfc-input-height);
+  box-sizing: border-box;
+  padding: 0 10px;
+  border: 1px solid var(--pfc-input-border);
+  border-radius: var(--pfc-input-radius);
+  background: var(--pfc-input-bg);
+  color: var(--pfc-color-text);
+  font: inherit;
+  font-size: var(--pfc-font-size-label);
+}
+.team-context-bar input:focus,
+.team-context-bar select:focus,
+.admin-form input:focus,
+.admin-form select:focus {
+  border-color: var(--pfc-input-border-focus);
+  outline: none;
+  box-shadow: var(--pfc-focus-ring);
+}
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pfc-color-success);
+  font-size: var(--pfc-font-size-caption);
+}
+.status-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--pfc-radius-avatar);
+  background: currentColor;
+}
+.status-dot.muted {
+  color: var(--pfc-color-text-tertiary);
+}
+.module-message {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--pfc-color-success-border);
+  border-radius: var(--pfc-radius-control);
+  background: var(--pfc-color-success-soft);
+  color: var(--pfc-color-success);
+  font-size: var(--pfc-font-size-label);
+}
+.module-message.error {
+  border-color: var(--pfc-color-danger-border);
+  background: var(--pfc-color-danger-soft);
+  color: var(--pfc-color-danger);
+}
+.module-loading {
+  color: var(--pfc-color-text-secondary);
+  font-size: var(--pfc-font-size-label);
+}
+.invite-token {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  margin: 0 20px;
+  padding: 10px 38px 10px 11px;
+  border: 1px solid var(--pfc-color-warning-border);
+  border-radius: var(--pfc-radius-control);
+  background: var(--pfc-color-warning-soft);
+}
+.invite-token span {
+  color: var(--pfc-color-warning);
+  font-size: var(--pfc-font-size-caption);
+  font-weight: var(--pfc-font-weight-bold);
+}
+.invite-token code {
+  overflow: hidden;
+  color: var(--pfc-color-text-secondary);
+  font-size: var(--pfc-font-size-caption);
+  text-overflow: ellipsis;
+}
+.invite-token button {
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--pfc-color-warning);
+  cursor: pointer;
+}

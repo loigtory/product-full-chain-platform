@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "profileVersion": "1.0.0",
+  "project": "product-full-chain-platform",
+  "defaultPolicy": "fail-closed",
+  "environment": {
+    "runtime": "project-local Node 24.x",
+    "database": "local PostgreSQL 18.x on 127.0.0.1",
+    "externalWrites": false,
+    "realCustomerData": false
+  },
+  "testData": {
+    "prefix": "CODEx_TEST_",
+    "source": "synthetic-only",
+    "factoryRequiredForStatefulWork": true
+  },
+  "gates": {
+    "quick": {
+      "command": "npm run test:gate:quick",
+      "required": true,
+      "covers": [
+        "config",
+        "pod-delivery-governance",
+        "ui-design-governance",
+        "lint",
+        "format",
+        "typecheck",
+        "unit",
+        "ai-workspace-contract-domain-ui-architecture"
+      ]
+    },
+    "core": {
+      "command": "npm run test:gate:core",
+      "requiredBeforeBusinessHandoff": true,
+      "covers": [
+        "quick",
+        "migration-discovery",
+        "migration-integration",
+        "repository-integration",
+        "ai-work-session-isolated-postgresql-api-sse-bridge",
+        "test-schema-cleanup-readback",
+        "build",
+        "local-database"
+      ]
+    },
+    "full": {
+      "command": "npm run test:gate:full",
+      "requiredBeforeReleaseCandidate": true,
+      "status": "READY_TO_RUN_LOCAL",
+      "covers": [
+        "core",
+        "pc-e2e",
+        "permission",
+        "concurrency",
+        "recovery",
+        "security",
+        "performance",
+        "dependency-audit",
+        "ai-workspace-real-codex-three-width-browser"
+      ]
+    }
+  },
+  "formalAcceptance": {
+    "status": "BLOCKED",
+    "blockers": [
+      "g10-product-acceptance",
+      "one-workday-isolated-observation",
+      "g11-release-authorization",
+      "g12-business-acceptance"
+    ]
+  },
+  "evidenceDirectory": "docs/quality-gate/reports",
+  "generatedArtifacts": [
+    "coverage",
+    "dist",
+    "playwright-report",
+    "test-results"
+  ],
+  "forbiddenSideEffects": [
+    "remote-git-mutation",
+    "external-environment-write",
+    "production-data",
+    "public-network-listener"
+  ]
+}

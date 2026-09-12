@@ -1,0 +1,959 @@
+{
+  "reviewDate": "2026-09-12",
+  "verdict": "NOT_READY",
+  "sourceManifest": [
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\index.html",
+      "sha256": "FD3887C4447A9D7D9E0E20FB899562DD1B22DA4C3CCE29C7E44D1D0FC5C5821E",
+      "bytes": 1167,
+      "modified": "2026-09-11T12:12:48.713307+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\index.html"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\actions.js",
+      "sha256": "FB20C6C19169590F677630C8C65947CC3A6809C6F042471DA583F0981B16ACB0",
+      "bytes": 17665,
+      "modified": "2026-09-12T00:47:53.365661+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\app.js",
+      "sha256": "C0F78F858FB7860D726FE1608430BC42E451FA803F09A489068ED4FD5CB33645",
+      "bytes": 44656,
+      "modified": "2026-09-12T00:37:00.332577+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\app.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\base.css",
+      "sha256": "26C7C1C77BA323B4509F9B6DFEEC319DB18C99ABECB4CDE920413BF1D5818E21",
+      "bytes": 25256,
+      "modified": "2026-09-11T20:41:42.326191+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\base.css"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\data.js",
+      "sha256": "E613FDC1354B6D254466E7ECCC4E326C2EBEEDB8CEBAEAC21298EA8F775C10DE",
+      "bytes": 34676,
+      "modified": "2026-09-11T19:58:09.928315+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\data.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\delivery-actions.js",
+      "sha256": "B923B1729688FE23916092D3B09689F141DAC3CAF6BF360659CA4524D7F23A4E",
+      "bytes": 11264,
+      "modified": "2026-09-12T00:40:12.085677+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\delivery-actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\governance-actions.js",
+      "sha256": "486CBE4DD8A13FE62BC8393026C95910EBC4D73D3CBD949ADCDED173662CB3C0",
+      "bytes": 9480,
+      "modified": "2026-09-11T20:07:01.293249+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\governance-actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\governance.js",
+      "sha256": "A01B8FB171C208F0F4D6ABB8EE76A99C3725E0890A3E36A832CA0E1AEB2D68F2",
+      "bytes": 6354,
+      "modified": "2026-09-12T00:39:01.015534+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\governance.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\guide.css",
+      "sha256": "9757DEFB0514F5C70BDD0E3DA04F53E5ECF3BAFA50E912A21208E46AD5A27A86",
+      "bytes": 16511,
+      "modified": "2026-09-12T00:42:10.550093+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\guide.css"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\model.js",
+      "sha256": "5EABB1C9785859B93F98076C2E9AC79B4B80F99CAAC93B926AA08F507A2E4739",
+      "bytes": 32107,
+      "modified": "2026-09-12T00:44:38.618097+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\model.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\run-actions.js",
+      "sha256": "2339677E1BF61EF27DFAC8C9A9D7F4D64BF8E7BE107B5CDFC98BA3C9F0AB4622",
+      "bytes": 6341,
+      "modified": "2026-09-12T00:38:00.085909+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\run-actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\spaces.js",
+      "sha256": "F0724C3DFBE54E74FC2858F72EBB4A953FE5F6530AD8C316626B5FD0C4332FEB",
+      "bytes": 9367,
+      "modified": "2026-09-12T00:40:39.433412+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\spaces.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\ui.js",
+      "sha256": "B7BCD639C240DD7E658150F0C8AC928B20D7142D6A7F6BE40B09541D4F131E54",
+      "bytes": 4541,
+      "modified": "2026-09-11T20:39:02.725183+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\ui.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\workbench.js",
+      "sha256": "46D8407D54376C420E98C77726C4A38BC9890FA2D115B014CF4D53D3E8857327",
+      "bytes": 32466,
+      "modified": "2026-09-12T00:55:10.882335+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\original\\workbench.js"
+    }
+  ],
+  "unchangedAtReadback": "2026-09-12T04:42:13.655409+08:00",
+  "originalScenarios": {
+    "review": "production-grade prototype audit",
+    "source": "C:/Users/hz19114673/AppData/Local/Temp/pfc-recheck-20260912-043547/source",
+    "results": [
+      {
+        "id": "A01",
+        "title": "纯附件发送与已发送文本预览",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "attachment": "CODEx_TEST_PROD_REVIEW.md",
+            "version": "user updated original"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A01-PASS.png"
+      },
+      {
+        "id": "A02",
+        "title": "待发送附件可预览",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "toast": "",
+            "dialog": 1
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A02-PASS.png"
+      },
+      {
+        "id": "A03",
+        "title": "附件草稿按需求隔离",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "req": "R-1031",
+            "queue": []
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A03-PASS.png"
+      },
+      {
+        "id": "A04",
+        "title": "引用草稿按需求隔离",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "req": "R-1031",
+            "refs": []
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A04-PASS.png"
+      },
+      {
+        "id": "A05",
+        "title": "受限且禁止AI材料不能加入本轮上下文",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "material": {
+              "id": "M-1201",
+              "name": "CODEx_TEST_RESTRICTED",
+              "type": "文本",
+              "size": 6,
+              "content": "合成受限资料",
+              "classification": "受限",
+              "allowed": false,
+              "status": "仅登记",
+              "version": 1
+            }
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A05-PASS.png"
+      },
+      {
+        "id": "A06",
+        "title": "重试不能绕过不支持文件类型",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "id": "ATT-1201",
+            "name": "CODEx_TEST_INVALID.exe",
+            "size": "1 KB",
+            "status": "error",
+            "error": "不支持的文件类型",
+            "origin": "browser"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A06-PASS.png"
+      },
+      {
+        "id": "A07",
+        "title": "文件读取中发送不能留下永久解析附件",
+        "status": "FAIL",
+        "error": "已发送附件永久解析中，完成的读取未回写消息",
+        "notes": [
+          {
+            "sent": true,
+            "attachment": {
+              "id": "ATT-1201",
+              "name": "CODEx_TEST_SLOW.md",
+              "size": "1 KB",
+              "status": "parsing",
+              "error": "",
+              "origin": "browser"
+            }
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A07-FAIL.png"
+      },
+      {
+        "id": "A08",
+        "title": "截图粘贴和放大预览保留原图尺寸",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "width": 1200,
+            "height": 800
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A08-PASS.png"
+      },
+      {
+        "id": "A09",
+        "title": "上下文引用可以回到来源",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "dialog": 1,
+            "clickable": true
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "A09-PASS.png"
+      },
+      {
+        "id": "D01",
+        "title": "单个差异采纳保存并立即更新画布",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "memory": "R-1042-idea-v2",
+            "storage": "R-1042-idea-v2",
+            "remainingButtons": 0
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "D01-PASS.png"
+      },
+      {
+        "id": "D02",
+        "title": "点击哪条差异就处理哪条",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "version": "R-1042-idea-v2",
+            "content": "会员积分过期提醒\n提前触达积分即将过期的会员，减少积分浪费，提升 App 活跃与满意度\n积分到期前 45 天开始提醒；7 天、1 天各加强一次；不包含积分清零后的补救\n不做积分商城、不做积分延期兑换\n1) 到期前 30/7/1 天准时触发；2) 双渠道送达；3) 退订后不再打扰"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "D02-PASS.png"
+      },
+      {
+        "id": "D03",
+        "title": "选择历史版本后下载相同版本",
+        "status": "FAIL",
+        "error": "画布选择v1，下载却返回最新v2\n+ actual - expected\n\n+ 'R-1042-req-v2.md'\n- 'R-1042-req-v1.md'\n               ^\n",
+        "notes": [
+          {
+            "viewed": "R-1042-req-v1",
+            "download": "R-1042-req-v2.md",
+            "firstLine": "# 需求文档 · R-1042-req-v2"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "D03-FAIL.png"
+      },
+      {
+        "id": "D04",
+        "title": "失败消息重发形成可继续的答复",
+        "status": "FAIL",
+        "error": "重发只新增用户气泡，没有回合处理或答复",
+        "notes": [
+          [
+            {
+              "id": "CODEx_TEST_FAILED",
+              "role": "user",
+              "status": "failed"
+            },
+            {
+              "id": "MSG-1201",
+              "role": "user",
+              "status": "ok",
+              "resent": true
+            }
+          ]
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "D04-FAIL.png"
+      },
+      {
+        "id": "D05",
+        "title": "刷新恢复未执行且未过期的对话建议",
+        "status": "FAIL",
+        "error": "无版本变化，刷新后所有建议索引丢失\n\n0 !== 1\n",
+        "notes": [
+          {
+            "toast": "此建议已失效，请重新发起对话",
+            "dialog": 0
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "D05-FAIL.png"
+      },
+      {
+        "id": "W01",
+        "title": "工作区文件下载返回所选文件内容",
+        "status": "FAIL",
+        "error": "下载源码按钮实际下载整个开发交接Markdown\n+ actual - expected\n\n+ '# 代码变更与提测交接 · R-1042-dev-v2\\n' +\n+   '\\n' +\n+   '需求：R-1042 · 会员积分过期提醒\\n' +\n+   '基线：1|R-1042-idea-v1|R-1042-req-v1|R-1042-design-v1\\n' +\n+   '\\n' +\n+   '## 来源作业\\n' +\n+   '\\n' +\n+   'R-102 · 1|R-1042-idea-v1|R-1042-req-v1|R-1042-design-v1\\n' +\n+   '\\n' +\n+   '## 变更与范围\\n' +\n+   '\\n' +\n+   'src/feature/service.ts、测试及配置，共 3 个文件（演示）；仅本需求工作区\\n' +\n+   '\\n' +\n+   '## 工程验证\\n' +\n+   '\\n' +\n+   '单元测试 4 passed；构建完成；exit 0（模拟）\\n' +\n+   '\\n' +\n+   '## 提测交接\\n' +\n+   '\\n' +\n+   'AC-01 规则命中时生成任务，边界条件正确\\n' +\n+   'AC-02 关闭开关后停止触达，结果可追踪\\n' +\n+   '\\n' +\n+   '## 风险与回退\\n' +\n+   '\\n' +\n+   '迁移未应用；未连接真实外部系统。回退到原工作区基线。\\n' +\n+   '\\n' +\n+   '草稿 · 待确认'\n- 'export async function handleExpiryNotify(userId: string) {\\n' +\n-   '  const plan = await loadPlan(userId);\\n' +\n-   '  if (!plan?.expiresAt) return;\\n' +\n-   '  const hours = diffHours(plan.expiresAt, new Date());\\n' +\n-   '  if (hours <= 24 && !plan.notifiedAt) {\\n' +\n-   '    await enqueueReminder(userId, { hours });\\n' +\n-   '  }\\n' +\n-   '}\\n'\n",
+        "notes": [
+          {
+            "selected": "src/feature/service.ts",
+            "download": "R-1042-dev-v2.md",
+            "body": "# 代码变更与提测交接 · R-1042-dev-v2\n\n需求：R-1042 · 会员积分过期提醒\n基线：1|R-1042-idea-v1|R-1042-req-v1|R-1042-design-v1\n\n## 来源作业\n\nR-102 · 1|R-1042-id"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "W01-FAIL.png"
+      },
+      {
+        "id": "W02",
+        "title": "历史作业搜索定位准确runId",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "resultHTML": "<button type=\"button\" class=\"btn \" data-action=\"search-open\" data-req=\"R-1042\" data-stage=\"dev\" data-panel=\"terminal\" data-runid=\"R-102\">R-1042 · R-102 · 开发实现</button>"
+          },
+          {
+            "selectedRun": "R-102",
+            "terminal": " R-102 · pfc-notify · Web"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "W02-PASS.png"
+      },
+      {
+        "id": "G01",
+        "title": "多窗口冲突不能通过导航覆盖新数据",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "created": "R-1201",
+            "conflict": true,
+            "presentBefore": true,
+            "presentAfter": true
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "G01-PASS.png"
+      },
+      {
+        "id": "G02",
+        "title": "只读成员拖入文件有受控拒绝",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "errors": [],
+            "queue": 0
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "G02-PASS.png"
+      },
+      {
+        "id": "G03",
+        "title": "需求范围重排保留身份且追踪不改变",
+        "status": "FAIL",
+        "error": "仅重排Unit却改变其关联AC\n\nfalse !== true\n",
+        "notes": [
+          {
+            "oldRows": [
+              "R-1042-U01陈立—待开始AC-01R-102 / 未测试",
+              "R-1042-U02陈立R-1042-U01待开始AC-02R-102 / 未测试"
+            ],
+            "rows": [
+              "R-1042-U02陈立R-1042-U01待开始AC-01R-102 / 未测试",
+              "R-1042-U01陈立—待开始AC-02R-102 / 未测试"
+            ]
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "G03-FAIL.png"
+      },
+      {
+        "id": "G04",
+        "title": "多材料影响逐项有明确处理对象",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "dialog": "评估材料变更影响\n关闭\nCODEx_TEST_IMPACT_1 · v1\n编号\nM-1201\n级别\n内部\n摘要\n合成材料1\n\n另还有 1 条待处理变更，将按队列逐条评估。\n\n纳入后建立新材料基线，返回需求阶段重新评审；旧版本与旧执行记录保留。受影响对象：需求文档、技术方案、开发作业、测试和发布审批。\n\n纳入并重新评审\n排除本次变更\n稍后处理"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "G04-PASS.png"
+      },
+      {
+        "id": "G05",
+        "title": "测试批次失败详情可回看",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "history": ["TEST-1204", "TEST-1207"],
+            "buttons": [
+              "我的工作台",
+              "产品空间",
+              "交付中心",
+              "治理中心",
+              " 全局搜索 / 命令",
+              "",
+              "交互原型 · 场景切换",
+              " 切换需求",
+              "想法",
+              "需求",
+              "设计",
+              "开发",
+              "测试当前",
+              "验收",
+              "发布",
+              "观察复盘",
+              " 原始想法",
+              "添加材料",
+              "关系追踪",
+              "临时装载 / 调整",
+              "治理中心",
+              "返回工作台",
+              "执行测试（演示）",
+              "演示测试失败",
+              "用例与提测说明",
+              "TEST-1207 · PASS",
+              "TEST-1204 · FAIL",
+              "登记修复",
+              "进入验收",
+              "",
+              "",
+              "终端",
+              "画布",
+              "证据",
+              "执行范围与证据"
+            ]
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "G05-PASS.png"
+      },
+      {
+        "id": "G06",
+        "title": "材料加入引用后刷新仍保留草稿",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "refs": [
+              {
+                "kind": "material",
+                "id": "R-1042-M1",
+                "label": "原始想法 v1",
+                "version": 1,
+                "target": "R-1042-M1"
+              }
+            ]
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "G06-PASS.png"
+      },
+      {
+        "id": "V01",
+        "title": "三档PC常规页面与输入区布局",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          [
+            {
+              "route": "home",
+              "width": 1280,
+              "scroll": 1280,
+              "header": 52,
+              "body": 420
+            },
+            {
+              "route": "work",
+              "width": 1280,
+              "scroll": 1280,
+              "header": 52,
+              "body": 1075
+            },
+            {
+              "route": "product",
+              "width": 1280,
+              "scroll": 1280,
+              "header": 52,
+              "body": 295
+            },
+            {
+              "route": "delivery",
+              "width": 1280,
+              "scroll": 1280,
+              "header": 52,
+              "body": 263
+            },
+            {
+              "route": "gov",
+              "width": 1280,
+              "scroll": 1280,
+              "header": 52,
+              "body": 975
+            },
+            {
+              "route": "home",
+              "width": 1440,
+              "scroll": 1440,
+              "header": 52,
+              "body": 420
+            },
+            {
+              "route": "work",
+              "width": 1440,
+              "scroll": 1440,
+              "header": 52,
+              "body": 1075
+            },
+            {
+              "route": "product",
+              "width": 1440,
+              "scroll": 1440,
+              "header": 52,
+              "body": 295
+            },
+            {
+              "route": "delivery",
+              "width": 1440,
+              "scroll": 1440,
+              "header": 52,
+              "body": 263
+            },
+            {
+              "route": "gov",
+              "width": 1440,
+              "scroll": 1440,
+              "header": 52,
+              "body": 975
+            },
+            {
+              "route": "home",
+              "width": 1920,
+              "scroll": 1920,
+              "header": 52,
+              "body": 420
+            },
+            {
+              "route": "work",
+              "width": 1920,
+              "scroll": 1920,
+              "header": 52,
+              "body": 1075
+            },
+            {
+              "route": "product",
+              "width": 1920,
+              "scroll": 1920,
+              "header": 52,
+              "body": 295
+            },
+            {
+              "route": "delivery",
+              "width": 1920,
+              "scroll": 1920,
+              "header": 52,
+              "body": 263
+            },
+            {
+              "route": "gov",
+              "width": 1920,
+              "scroll": 1920,
+              "header": 52,
+              "body": 975
+            }
+          ]
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "V01-PASS.png"
+      },
+      {
+        "id": "V02",
+        "title": "多附件时聊天输入和对话区仍可使用",
+        "status": "FAIL",
+        "error": "多附件占满工作区并挤掉对话/输入",
+        "notes": [
+          {
+            ".stream": {
+              "top": -142,
+              "bottom": -102,
+              "height": 40
+            },
+            ".composer": {
+              "top": -52,
+              "bottom": 720.046875,
+              "height": 772.046875
+            },
+            "#chat-input": {
+              "top": 662.359375,
+              "bottom": 696.046875,
+              "height": 33.6875
+            }
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "V02-FAIL.png"
+      }
+    ],
+    "passed": 17,
+    "failed": 7,
+    "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547",
+    "environment": "Windows/project Node/isolated Edge/file-only/page HTTP(S) blocked",
+    "data": "CODEx_TEST_PROD_REVIEW; synthetic fixtures; contexts closed; no external writes"
+  },
+  "boundaryScenarios": {
+    "review": "production-grade prototype audit",
+    "source": "C:/Users/hz19114673/AppData/Local/Temp/pfc-recheck-20260912-043547/source",
+    "results": [
+      {
+        "id": "B01",
+        "title": "冲突后编辑输入不得覆盖另一窗口记录",
+        "status": "FAIL",
+        "error": "导航已防冲突，但输入事件仍全量保存旧快照并丢失另一窗口需求",
+        "notes": [
+          {
+            "created": "R-1201",
+            "conflict": true,
+            "survives": false,
+            "draft": "CODEx_TEST_LOCAL_DRAFT"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B01-FAIL.png"
+      },
+      {
+        "id": "B02",
+        "title": "点击历史消息引用返回该消息来源",
+        "status": "FAIL",
+        "error": "点击第一条材料引用却打开最后一条消息的产物引用",
+        "notes": [
+          {
+            "clicked": "原始想法 v1",
+            "dialog": "引用来源 · 产物版本\n关闭\n标题\n需求文档\n版本\nR-1042-req-v1\n状态\n通过\n背景\n积分过期无提醒导致资产流失感知，客诉占比 8%\n用户故事\n作为会员，我希望在积分到期前收到提醒，以便及时使用\n功能需求\nF1 到期提醒任务 · F2 渠道触达（推送/短信）· F3 退订管理 · F4 送达回执\n非功能\n提醒任务 p95 延迟 < 30s；送达率 ≥ 97%\n\n关闭"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B02-FAIL.png"
+      },
+      {
+        "id": "B03",
+        "title": "下载全文包含截断之后的文本",
+        "status": "FAIL",
+        "error": "下载全文仍返回已截断的50000字符",
+        "notes": [
+          {
+            "inputLength": 59038,
+            "downloadLength": 50000,
+            "name": "CODEx_TEST_LONG.txt",
+            "hasEnd": false
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B03-FAIL.png"
+      },
+      {
+        "id": "B04",
+        "title": "已发送附件也能下载正文",
+        "status": "FAIL",
+        "error": "发送后附件从队列移除，下载未查消息附件而报告不存在",
+        "notes": [
+          {
+            "download": false,
+            "toast": "该附件没有可下载的文本内容"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B04-FAIL.png"
+      },
+      {
+        "id": "B05",
+        "title": "冻结交付包不能混入批准后新增产物",
+        "status": "FAIL",
+        "error": "按此快照生成交付包仍混入审批后的新版本正文",
+        "notes": [
+          {
+            "frozen": "R-1042-req-v1",
+            "current": "R-1042-req-v2",
+            "containsNew": true,
+            "labelsFrozen": true
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B05-FAIL.png"
+      },
+      {
+        "id": "B06",
+        "title": "引用后被排除的材料在发送时重新校验",
+        "status": "FAIL",
+        "error": "排除材料后仍把旧草稿引用随消息送出",
+        "notes": [
+          {
+            "material": {
+              "id": "M-1201",
+              "name": "CODEx_TEST_REVOKED_SOURCE",
+              "type": "文本",
+              "size": 7,
+              "content": "合成可撤销内容",
+              "classification": "内部",
+              "allowed": false,
+              "status": "排除",
+              "version": 1
+            },
+            "badReferenceSent": true,
+            "reply": "已记录在「会员积分过期提醒」的开发对话中。已引用 CODEx_TEST_REVOKED_SOURCE v1，按此上下文处理。当前需要处理：确认当前代码变更与提测交接版本；完成当前基线的开发作业。"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B06-FAIL.png"
+      },
+      {
+        "id": "B07",
+        "title": "旧版待发送附件和引用升级后仍可见",
+        "status": "FAIL",
+        "error": "旧全局队列没有迁移到新的按需求草稿，旧附件不可见\n\n0 !== 1\n",
+        "notes": [
+          {
+            "currentAtts": [],
+            "currentRefs": []
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B07-FAIL.png"
+      },
+      {
+        "id": "B08",
+        "title": "多选文件读取中切换需求仍保持整批归属",
+        "status": "FAIL",
+        "error": "一批多选文件的第二个附件被后续需求接收",
+        "notes": [
+          {
+            "R-1042": {
+              "atts": [
+                {
+                  "id": "ATT-1201",
+                  "name": "CODEx_TEST_BATCH_FIRST.md",
+                  "size": "1 KB",
+                  "status": "ready",
+                  "error": "",
+                  "origin": "browser",
+                  "type": "text",
+                  "content": "合成首个文件",
+                  "meta": {
+                    "origin": "text",
+                    "charCount": 6,
+                    "truncated": false,
+                    "fullInMemory": true
+                  }
+                }
+              ],
+              "refs": [],
+              "reply": null
+            },
+            "R-1031": {
+              "atts": [
+                {
+                  "id": "ATT-1202",
+                  "name": "CODEx_TEST_BATCH_SECOND.md",
+                  "size": "1 KB",
+                  "status": "ready",
+                  "error": "",
+                  "origin": "browser",
+                  "type": "text",
+                  "content": "two",
+                  "meta": {
+                    "origin": "text",
+                    "charCount": 3,
+                    "truncated": false,
+                    "fullInMemory": true
+                  }
+                }
+              ],
+              "refs": [],
+              "reply": null
+            }
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B08-FAIL.png"
+      },
+      {
+        "id": "B09",
+        "title": "读取失败重试必须恢复实际正文",
+        "status": "FAIL",
+        "error": "重试只改ready，没有重读原件或恢复正文\n+ actual - expected\n\n+ undefined\n- '合成恢复后的正文'\n",
+        "notes": [
+          {
+            "id": "ATT-1201",
+            "name": "CODEx_TEST_READ_RETRY.md",
+            "size": "1 KB",
+            "status": "ready",
+            "error": "",
+            "origin": "browser"
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B09-FAIL.png"
+      },
+      {
+        "id": "B10",
+        "title": "新增观测保留多条历史与后续事项",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "startedAt": 1788994800000,
+            "hours": 24,
+            "metrics": "CODEx_TEST_METRIC_2 来源：合成",
+            "conclusion": "",
+            "entries": [
+              {
+                "at": "2026-09-11T00:00:00.000Z",
+                "metrics": "CODEx_TEST_METRIC_1 来源：合成",
+                "source": "成员录入（演示标识）",
+                "releaseStamp": "1|R-1018-idea-v1|R-1018-req-v1|R-1018-design-v1"
+              },
+              {
+                "at": "2026-09-11T00:00:01.000Z",
+                "metrics": "CODEx_TEST_METRIC_2 来源：合成",
+                "source": "成员录入（演示标识）",
+                "releaseStamp": "1|R-1018-idea-v1|R-1018-req-v1|R-1018-design-v1"
+              }
+            ],
+            "followups": [
+              {
+                "text": "CODEx_TEST_FOLLOWUP",
+                "owner": "陈立",
+                "status": "进行中"
+              }
+            ]
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B10-PASS.png"
+      },
+      {
+        "id": "B11",
+        "title": "新增Unit负责人分配保存并回显",
+        "status": "PASS",
+        "error": "",
+        "notes": [
+          {
+            "id": "R-1042-U01",
+            "name": "规则与数据处理",
+            "status": "进行中",
+            "owner": "体验成员",
+            "dep": null
+          }
+        ],
+        "errors": [],
+        "outbound": [],
+        "screenshot": "B11-PASS.png"
+      }
+    ],
+    "passed": 2,
+    "failed": 9,
+    "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547",
+    "environment": "Windows/project Node/isolated Edge/file-only/page HTTP(S) blocked",
+    "data": "CODEx_TEST_PROD_REVIEW; synthetic fixtures; contexts closed; no external writes"
+  },
+  "previous22Issues": {
+    "closed": ["A02", "A04", "A08", "D01", "D02", "W02", "G02", "G04", "G05"],
+    "partiallyFixed": ["A03", "A05", "A06", "A09", "G01", "G06"],
+    "unresolved": ["A07", "D03", "D04", "D05", "W01", "G03", "V02"]
+  },
+  "newlyExposedIssues": ["B03", "B04", "B05"],
+  "baselineModel": {
+    "pass": 11,
+    "script": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\verify-guide-model.mjs"
+  },
+  "baselineBrowser": {
+    "pass": 13,
+    "script": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-recheck-20260912-043547\\source\\verify-guide-browser.mjs",
+    "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-UvuifL",
+    "adaptation": "Only import/source paths and initial clock time adjusted; all original assertions retained."
+  },
+  "data": "Synthetic CODEx_TEST_ fixtures in isolated Edge; browser closed, no real external writes, no source edits."
+}

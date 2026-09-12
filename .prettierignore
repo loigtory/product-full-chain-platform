@@ -1,0 +1,22 @@
+# 原型产物、备份与验证脚本：走 node --check + Playwright 运行验证，不参与 Prettier
+output/**/_backup/**
+output/pfc-workbench-prototype/*.cjs
+output/pfc-workbench-prototype/*.mjs
+output/pfc-workbench-prototype/original/**
+archive/prototype-v3-reference-20260912/prototype-v3.js
+archive/prototype-v3-reference-20260912/prototype-v3-data.js
+archive/prototype-v3-reference-20260912/verify-v3.mjs
+archive/prototype-v3-reference-20260912/verify-v3-check.cjs
+archive/prototype-v3-reference-20260912/verify-v3-gov.cjs
+archive/prototype-v3-reference-20260912/debug-gov-v3.cjs
+output/pfc-workbench-prototype/evidence-guide-20260911/**
+archive/prototype-v3-reference-20260912/V3-验证报告.md
+archive/prototype-v3-reference-20260912/v3-baseline.json
+output/*.html
+
+# 历史交接与验收文档：既有内容不因格式化批量改动
+docs/planning/prototype-v3/**
+docs/quality-gate/reports/**
+
+# 生成物与依赖
+package-lock.json

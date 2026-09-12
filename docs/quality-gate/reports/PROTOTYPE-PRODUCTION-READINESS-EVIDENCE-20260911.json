@@ -1,0 +1,760 @@
+{
+  "review": "production-grade prototype audit",
+  "source": "C:/Users/hz19114673/AppData/Local/Temp/pfc-production-review-20260911-203156/source-2107",
+  "results": [
+    {
+      "id": "A01",
+      "title": "纯附件发送与已发送文本预览",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "attachment": "CODEx_TEST_PROD_REVIEW.md",
+          "version": "user updated original"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A01-PASS.png"
+    },
+    {
+      "id": "A02",
+      "title": "待发送附件可预览",
+      "status": "FAIL",
+      "error": "发送前点预览没有打开预览\n\n0 !== 1\n",
+      "notes": [
+        {
+          "toast": "附件不存在",
+          "dialog": 0
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A02-FAIL.png"
+    },
+    {
+      "id": "A03",
+      "title": "附件草稿按需求隔离",
+      "status": "FAIL",
+      "error": "切换需求后仍携带前一需求附件\n\n1 !== 0\n",
+      "notes": [
+        {
+          "req": "R-1031",
+          "queue": ["CODEx_TEST_A_ONLY.md"]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A03-FAIL.png"
+    },
+    {
+      "id": "A04",
+      "title": "引用草稿按需求隔离",
+      "status": "FAIL",
+      "error": "新需求消息带有旧需求材料引用\n\n1 !== 0\n",
+      "notes": [
+        {
+          "req": "R-1031",
+          "refs": [
+            {
+              "kind": "material",
+              "id": "R-1042-M1",
+              "label": "原始想法 v1",
+              "version": 1,
+              "target": "R-1042-M1"
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A04-FAIL.png"
+    },
+    {
+      "id": "A05",
+      "title": "受限且禁止AI材料不能加入本轮上下文",
+      "status": "FAIL",
+      "error": "禁止用于AI的材料仍可引用，答复声称已使用\n\ntrue !== false\n",
+      "notes": [
+        {
+          "material": {
+            "id": "M-1201",
+            "name": "CODEx_TEST_RESTRICTED",
+            "type": "文本",
+            "size": 6,
+            "content": "合成受限资料",
+            "classification": "受限",
+            "allowed": false,
+            "status": "仅登记",
+            "version": 1
+          },
+          "message": "已记录在「会员积分过期提醒」的开发对话中。已引用 CODEx_TEST_RESTRICTED v1，按此上下文处理。当前需要处理：确认当前代码变更与提测交接版本；完成当前基线的开发作业。"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A05-FAIL.png"
+    },
+    {
+      "id": "A06",
+      "title": "重试不能绕过不支持文件类型",
+      "status": "FAIL",
+      "error": "重试未重做校验，直接把无效文件改为可引用\n\n'ready' !== 'error'\n",
+      "notes": [
+        {
+          "id": "ATT-1201",
+          "name": "CODEx_TEST_INVALID.exe",
+          "size": "1 KB",
+          "status": "ready",
+          "error": "",
+          "origin": "browser"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A06-FAIL.png"
+    },
+    {
+      "id": "A07",
+      "title": "文件读取中发送不能留下永久解析附件",
+      "status": "FAIL",
+      "error": "已发送附件永久解析中，完成的读取未回写消息",
+      "notes": [
+        {
+          "sent": true,
+          "attachment": {
+            "id": "ATT-1201",
+            "name": "CODEx_TEST_SLOW.md",
+            "size": "1 KB",
+            "status": "parsing",
+            "error": "",
+            "origin": "browser"
+          }
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A07-FAIL.png"
+    },
+    {
+      "id": "A08",
+      "title": "截图粘贴和放大预览保留原图尺寸",
+      "status": "FAIL",
+      "error": "放大预览只能拿到160px缩略图，原图已丢失\n\n160 !== 1200\n",
+      "notes": [
+        {
+          "width": 160,
+          "height": 107
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A08-FAIL.png"
+    },
+    {
+      "id": "A09",
+      "title": "上下文引用可以回到来源",
+      "status": "FAIL",
+      "error": "引用仅是标签，没有来源定位\n\n0 !== 1\n",
+      "notes": [
+        {
+          "dialog": 0,
+          "clickable": false
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A09-FAIL.png"
+    },
+    {
+      "id": "D01",
+      "title": "单个差异采纳保存并立即更新画布",
+      "status": "FAIL",
+      "error": "采纳只改内存；静止时钟下没有保存，刷新可丢失\n+ actual - expected\n\n+ 'R-1042-idea-v1'\n- 'R-1042-idea-v2'\n                ^\n",
+      "notes": [
+        {
+          "memory": "R-1042-idea-v2",
+          "storage": "R-1042-idea-v1",
+          "remainingButtons": 1
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D01-FAIL.png"
+    },
+    {
+      "id": "D02",
+      "title": "点击哪条差异就处理哪条",
+      "status": "FAIL",
+      "error": "点击第一条45天建议，实际应用了最新60天建议",
+      "notes": [
+        {
+          "version": "R-1042-idea-v2",
+          "content": "会员积分过期提醒\n提前触达积分即将过期的会员，减少积分浪费，提升 App 活跃与满意度\n积分到期前 60 天开始提醒；7 天、1 天各加强一次；不包含积分清零后的补救\n不做积分商城、不做积分延期兑换\n1) 到期前 30/7/1 天准时触发；2) 双渠道送达；3) 退订后不再打扰"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D02-FAIL.png"
+    },
+    {
+      "id": "D03",
+      "title": "选择历史版本后下载相同版本",
+      "status": "FAIL",
+      "error": "画布选择v1，下载却返回最新v2\n+ actual - expected\n\n+ 'R-1042-req-v2.md'\n- 'R-1042-req-v1.md'\n               ^\n",
+      "notes": [
+        {
+          "viewed": "R-1042-req-v1",
+          "download": "R-1042-req-v2.md",
+          "firstLine": "# 需求文档 · R-1042-req-v2"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D03-FAIL.png"
+    },
+    {
+      "id": "D04",
+      "title": "失败消息重发形成可继续的答复",
+      "status": "FAIL",
+      "error": "重发只新增用户气泡，没有回合处理或答复",
+      "notes": [
+        [
+          {
+            "id": "CODEx_TEST_FAILED",
+            "role": "user",
+            "status": "failed"
+          },
+          {
+            "id": "MSG-1201",
+            "role": "user",
+            "status": "ok",
+            "resent": true
+          }
+        ]
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D04-FAIL.png"
+    },
+    {
+      "id": "D05",
+      "title": "刷新恢复未执行且未过期的对话建议",
+      "status": "FAIL",
+      "error": "无版本变化，刷新后所有建议索引丢失\n\n0 !== 1\n",
+      "notes": [
+        {
+          "toast": "此建议已失效，请重新发起对话",
+          "dialog": 0
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D05-FAIL.png"
+    },
+    {
+      "id": "W01",
+      "title": "工作区文件下载返回所选文件内容",
+      "status": "FAIL",
+      "error": "下载源码按钮实际下载整个开发交接Markdown\n+ actual - expected\n\n+ '# 代码变更与提测交接 · R-1042-dev-v2\\n' +\n+   '\\n' +\n+   '需求：R-1042 · 会员积分过期提醒\\n' +\n+   '基线：1|R-1042-idea-v1|R-1042-req-v1|R-1042-design-v1\\n' +\n+   '\\n' +\n+   '## 来源作业\\n' +\n+   '\\n' +\n+   'R-102 · 1|R-1042-idea-v1|R-1042-req-v1|R-1042-design-v1\\n' +\n+   '\\n' +\n+   '## 变更与范围\\n' +\n+   '\\n' +\n+   'src/feature/service.ts、测试及配置，共 3 个文件（演示）；仅本需求工作区\\n' +\n+   '\\n' +\n+   '## 工程验证\\n' +\n+   '\\n' +\n+   '单元测试 4 passed；构建完成；exit 0（模拟）\\n' +\n+   '\\n' +\n+   '## 提测交接\\n' +\n+   '\\n' +\n+   'AC-01 规则命中时生成任务，边界条件正确\\n' +\n+   'AC-02 关闭开关后停止触达，结果可追踪\\n' +\n+   '\\n' +\n+   '## 风险与回退\\n' +\n+   '\\n' +\n+   '迁移未应用；未连接真实外部系统。回退到原工作区基线。\\n' +\n+   '\\n' +\n+   '草稿 · 待确认'\n- 'export async function handleExpiryNotify(userId: string) {\\n' +\n-   '  const plan = await loadPlan(userId);\\n' +\n-   '  if (!plan?.expiresAt) return;\\n' +\n-   '  const hours = diffHours(plan.expiresAt, new Date());\\n' +\n-   '  if (hours <= 24 && !plan.notifiedAt) {\\n' +\n-   '    await enqueueReminder(userId, { hours });\\n' +\n-   '  }\\n' +\n-   '}\\n'\n",
+      "notes": [
+        {
+          "selected": "src/feature/service.ts",
+          "download": "R-1042-dev-v2.md",
+          "body": "# 代码变更与提测交接 · R-1042-dev-v2\n\n需求：R-1042 · 会员积分过期提醒\n基线：1|R-1042-idea-v1|R-1042-req-v1|R-1042-design-v1\n\n## 来源作业\n\nR-102 · 1|R-1042-id"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "W01-FAIL.png"
+    },
+    {
+      "id": "W02",
+      "title": "历史作业搜索定位准确runId",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\nnull !== 'R-102'\n",
+      "notes": [
+        {
+          "resultHTML": "<button type=\"button\" class=\"btn \" data-action=\"search-open\" data-req=\"R-1042\" data-stage=\"dev\" data-panel=\"terminal\" data-runid=\"R-102\">R-1042 · R-102</button>"
+        },
+        {
+          "selectedRun": null,
+          "terminal": " CODEx_TEST_SECOND_RUN · pfc-notify · Web"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "W02-FAIL.png"
+    },
+    {
+      "id": "G01",
+      "title": "多窗口冲突不能通过导航覆盖新数据",
+      "status": "FAIL",
+      "error": "已提示冲突的旧窗口仍保存整份旧状态，删除另一窗口新需求\n\nfalse !== true\n",
+      "notes": [
+        {
+          "created": "R-1201",
+          "conflict": true,
+          "presentBefore": true,
+          "presentAfter": false
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G01-FAIL.png"
+    },
+    {
+      "id": "G02",
+      "title": "只读成员拖入文件有受控拒绝",
+      "status": "FAIL",
+      "error": "只读拖拽抛出未捕获异常，未给受控反馈\n\n1 !== 0\n",
+      "notes": [
+        {
+          "errors": ["只读成员可以查看，修改需负责人或执行者权限。"],
+          "queue": 0
+        }
+      ],
+      "errors": ["只读成员可以查看，修改需负责人或执行者权限。"],
+      "outbound": [],
+      "screenshot": "G02-FAIL.png"
+    },
+    {
+      "id": "G03",
+      "title": "需求范围重排保留身份且追踪不改变",
+      "status": "FAIL",
+      "error": "仅重排Unit却改变其关联AC\n\nfalse !== true\n",
+      "notes": [
+        {
+          "oldRows": [
+            "R-1042-CAP-01 / R-1042-U01AC-01R-1042-req-v1R-102 / 未测试需求版本执行证据",
+            "R-1042-CAP-01 / R-1042-U02AC-02R-1042-req-v1R-102 / 未测试需求版本执行证据"
+          ],
+          "rows": [
+            "R-1042-CAP-01 / R-1042-U02AC-01R-1042-req-v2R-102 / 未测试需求版本执行证据",
+            "R-1042-CAP-01 / R-1042-U01AC-02R-1042-req-v2R-102 / 未测试需求版本执行证据"
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G03-FAIL.png"
+    },
+    {
+      "id": "G04",
+      "title": "多材料影响逐项有明确处理对象",
+      "status": "FAIL",
+      "error": "已有队列，但批准弹窗不展示正在处理哪份材料",
+      "notes": [
+        {
+          "dialog": "评估材料变更影响\n关闭\n\n新材料可能改变范围、方案或验收标准。纳入后建立新材料基线，返回需求阶段重新评审；旧版本与旧执行记录保留。\n\n受影响对象：需求文档、技术方案、开发作业、测试和发布审批。\n\n纳入并重新评审\n排除本次变更\n稍后处理"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G04-FAIL.png"
+    },
+    {
+      "id": "G05",
+      "title": "测试批次失败详情可回看",
+      "status": "FAIL",
+      "error": "测试历史需要可打开入口",
+      "notes": [
+        {
+          "history": ["TEST-1204", "TEST-1207"],
+          "buttons": [
+            "我的工作台",
+            "产品空间",
+            "交付中心",
+            "治理中心",
+            " 全局搜索 / 命令",
+            "",
+            "交互原型 · 场景切换",
+            " 切换需求",
+            "想法",
+            "需求",
+            "设计",
+            "开发",
+            "测试当前",
+            "验收",
+            "发布",
+            "观察复盘",
+            " 原始想法",
+            "添加材料",
+            "关系追踪",
+            "临时装载 / 调整",
+            "治理中心",
+            "返回工作台",
+            "执行测试（演示）",
+            "演示测试失败",
+            "用例与提测说明",
+            "登记修复",
+            "进入验收",
+            "",
+            "",
+            "终端",
+            "画布",
+            "证据",
+            "执行范围与证据"
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G05-FAIL.png"
+    },
+    {
+      "id": "G06",
+      "title": "材料加入引用后刷新仍保留草稿",
+      "status": "FAIL",
+      "error": "添加引用未保存，刷新丢失\n\n0 !== 1\n",
+      "notes": [
+        {
+          "refs": []
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G06-FAIL.png"
+    },
+    {
+      "id": "V01",
+      "title": "三档PC常规页面与输入区布局",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        [
+          {
+            "route": "home",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 421
+          },
+          {
+            "route": "work",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 975
+          },
+          {
+            "route": "product",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 300
+          },
+          {
+            "route": "delivery",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 225
+          },
+          {
+            "route": "gov",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 975
+          },
+          {
+            "route": "home",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 421
+          },
+          {
+            "route": "work",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 975
+          },
+          {
+            "route": "product",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 300
+          },
+          {
+            "route": "delivery",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 225
+          },
+          {
+            "route": "gov",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 975
+          },
+          {
+            "route": "home",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 421
+          },
+          {
+            "route": "work",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 975
+          },
+          {
+            "route": "product",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 300
+          },
+          {
+            "route": "delivery",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 225
+          },
+          {
+            "route": "gov",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 975
+          }
+        ]
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "V01-PASS.png"
+    },
+    {
+      "id": "V02",
+      "title": "多附件时聊天输入和对话区仍可使用",
+      "status": "FAIL",
+      "error": "多附件占满工作区并挤掉对话/输入",
+      "notes": [
+        {
+          ".stream": {
+            "top": -142,
+            "bottom": -102,
+            "height": 40
+          },
+          ".composer": {
+            "top": -52,
+            "bottom": 720.046875,
+            "height": 772.046875
+          },
+          "#chat-input": {
+            "top": 662.359375,
+            "bottom": 696.046875,
+            "height": 33.6875
+          }
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "V02-FAIL.png"
+    }
+  ],
+  "passed": 2,
+  "failed": 22,
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\latest-audit",
+  "environment": "Windows/project Node/isolated Edge/file-only/page HTTP(S) blocked",
+  "data": "CODEx_TEST_PROD_REVIEW; synthetic fixtures; contexts closed; no external writes",
+  "auditedEntry": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\index.html",
+  "sourceManifest": [
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\index.html",
+      "sha256": "FD3887C4447A9D7D9E0E20FB899562DD1B22DA4C3CCE29C7E44D1D0FC5C5821E",
+      "bytes": 1167,
+      "modified": "2026-09-11T12:12:48.713307+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\index.html"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\actions.js",
+      "sha256": "300F13880321231281264D0525142FB17A44CE754853DA96DA3013A60A385C8D",
+      "bytes": 15285,
+      "modified": "2026-09-11T20:05:33.219036+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\app.js",
+      "sha256": "81B19AFE2BD291F1B1AD43C8033D1D085BBA45635C0137C61779DA739BE3B8EF",
+      "bytes": 34550,
+      "modified": "2026-09-11T20:40:05.101877+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\app.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\base.css",
+      "sha256": "26C7C1C77BA323B4509F9B6DFEEC319DB18C99ABECB4CDE920413BF1D5818E21",
+      "bytes": 25256,
+      "modified": "2026-09-11T20:41:42.326191+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\base.css"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\data.js",
+      "sha256": "E613FDC1354B6D254466E7ECCC4E326C2EBEEDB8CEBAEAC21298EA8F775C10DE",
+      "bytes": 34676,
+      "modified": "2026-09-11T19:58:09.928315+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\data.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\delivery-actions.js",
+      "sha256": "A7B3CA4E985EBC098D7CC5C168C7742E9FF1C43735EE14DC406607503053076B",
+      "bytes": 7907,
+      "modified": "2026-09-11T20:04:58.033076+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\delivery-actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\governance-actions.js",
+      "sha256": "486CBE4DD8A13FE62BC8393026C95910EBC4D73D3CBD949ADCDED173662CB3C0",
+      "bytes": 9480,
+      "modified": "2026-09-11T20:07:01.293249+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\governance-actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\governance.js",
+      "sha256": "6E13D2E813838FEF8097ED5FEBB1D8CA6F5C12343FA3AAB7355607B646B23914",
+      "bytes": 5489,
+      "modified": "2026-09-11T12:04:46.401521+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\governance.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\guide.css",
+      "sha256": "67091F56FE91CB75B2B139DDB9D9136DEB309FA5EC3E6C8E39F02F0B900755E2",
+      "bytes": 13086,
+      "modified": "2026-09-11T20:42:38.185210+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\guide.css"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\model.js",
+      "sha256": "BE238B24EF871B97097C3B89C615E42A7E59D3391774116883EC3B25FD2CF273",
+      "bytes": 28755,
+      "modified": "2026-09-11T20:06:14.915786+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\model.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\run-actions.js",
+      "sha256": "4E98C96D56CCAD4759B833AB66298A4306F734A08BD1E68FABD4259FDA0CD9C4",
+      "bytes": 5909,
+      "modified": "2026-09-11T20:04:43.057608+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\run-actions.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\spaces.js",
+      "sha256": "9DCD7D1801DF124D2780F549D88B66AC4DB296C7265917E3BB9072B76C6916A2",
+      "bytes": 8580,
+      "modified": "2026-09-11T20:05:21.182672+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\spaces.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\ui.js",
+      "sha256": "B7BCD639C240DD7E658150F0C8AC928B20D7142D6A7F6BE40B09541D4F131E54",
+      "bytes": 4541,
+      "modified": "2026-09-11T20:39:02.725183+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\ui.js"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\workbench.js",
+      "sha256": "6C55062F3E74D360075E4EB5DA6E62CD3D1586C733982657D3B9D6B4051EC981",
+      "bytes": 27493,
+      "modified": "2026-09-11T20:39:50.817964+08:00",
+      "snapshot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\source-2107\\original\\workbench.js"
+    }
+  ],
+  "initialSourceManifest": [
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\index.html",
+      "sha256": "FD3887C4447A9D7D9E0E20FB899562DD1B22DA4C3CCE29C7E44D1D0FC5C5821E",
+      "bytes": 1167,
+      "modified": "2026-09-11T12:12:48.7133067+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\actions.js",
+      "sha256": "300F13880321231281264D0525142FB17A44CE754853DA96DA3013A60A385C8D",
+      "bytes": 15285,
+      "modified": "2026-09-11T20:05:33.2190360+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\app.js",
+      "sha256": "6840A064A5CDB9C4029B71144592B49149FD90CE1FCADB94E7C9613535608D2E",
+      "bytes": 34551,
+      "modified": "2026-09-11T20:06:31.2492009+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\base.css",
+      "sha256": "6DE67FCB316DE0E1DA89BE6BBC7A177376F46034047BF1A6E21D7A68BAA19460",
+      "bytes": 24872,
+      "modified": "2026-09-11T11:40:58.4951588+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\data.js",
+      "sha256": "E613FDC1354B6D254466E7ECCC4E326C2EBEEDB8CEBAEAC21298EA8F775C10DE",
+      "bytes": 34676,
+      "modified": "2026-09-11T19:58:09.9283148+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\delivery-actions.js",
+      "sha256": "A7B3CA4E985EBC098D7CC5C168C7742E9FF1C43735EE14DC406607503053076B",
+      "bytes": 7907,
+      "modified": "2026-09-11T20:04:58.0330756+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\governance-actions.js",
+      "sha256": "486CBE4DD8A13FE62BC8393026C95910EBC4D73D3CBD949ADCDED173662CB3C0",
+      "bytes": 9480,
+      "modified": "2026-09-11T20:07:01.2932487+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\governance.js",
+      "sha256": "6E13D2E813838FEF8097ED5FEBB1D8CA6F5C12343FA3AAB7355607B646B23914",
+      "bytes": 5489,
+      "modified": "2026-09-11T12:04:46.4015207+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\guide.css",
+      "sha256": "F633B7C83BCF531F2CDA07116968BED5C8AF8EBAA837DDD2B250F390CC097B4B",
+      "bytes": 12716,
+      "modified": "2026-09-11T20:06:02.3929947+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\model.js",
+      "sha256": "BE238B24EF871B97097C3B89C615E42A7E59D3391774116883EC3B25FD2CF273",
+      "bytes": 28755,
+      "modified": "2026-09-11T20:06:14.9157863+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\run-actions.js",
+      "sha256": "4E98C96D56CCAD4759B833AB66298A4306F734A08BD1E68FABD4259FDA0CD9C4",
+      "bytes": 5909,
+      "modified": "2026-09-11T20:04:43.0576077+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\spaces.js",
+      "sha256": "9DCD7D1801DF124D2780F549D88B66AC4DB296C7265917E3BB9072B76C6916A2",
+      "bytes": 8580,
+      "modified": "2026-09-11T20:05:21.1826719+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\ui.js",
+      "sha256": "53916B859BB5F75938008DDAB523DB025C9D6002DA6FE9A56E00B5F491B09BA2",
+      "bytes": 4436,
+      "modified": "2026-09-11T12:04:46.4746911+08:00"
+    },
+    {
+      "path": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\original\\workbench.js",
+      "sha256": "4D9962EAE80936A8670662B6AC4B58FE240188F4E334615D2B555294D9D0B636",
+      "bytes": 27454,
+      "modified": "2026-09-11T20:04:10.7229033+08:00"
+    }
+  ],
+  "refreshNote": "Five source files changed externally at 20:39-20:42 during review. Froze all 14 files at 21:07 and reran all 24 cases with corrected input and deterministic clock. Current results are from this complete rerun; prior follow-up results retained only in the initial evidence directory. Source snapshot hash checked against current files after execution.",
+  "originalAuditEvidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-production-review-20260911-203156\\audit-final.json"
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "fd3887c4447a9d7d9e0e20fb899562dd1b22da4c3cce29c7e44d1d0fc5c5821e",
+    "bytes": 1167
+  },
+  {
+    "path": "original\\actions.js",
+    "sha256": "fb20c6c19169590f677630c8c65947cc3a6809c6f042471da583f0981b16acb0",
+    "bytes": 17665
+  },
+  {
+    "path": "original\\app.js",
+    "sha256": "c0f78f858fb7860d726fe1608430bc42e451fa803f09a489068ed4fd5cb33645",
+    "bytes": 44656
+  },
+  {
+    "path": "original\\base.css",
+    "sha256": "26c7c1c77ba323b4509f9b6dfeec319db18c99abecb4cde920413bf1d5818e21",
+    "bytes": 25256
+  },
+  {
+    "path": "original\\data.js",
+    "sha256": "e613fdc1354b6d254466e7eccc4e326c2ebeedb8cebaeac21298ea8f775c10de",
+    "bytes": 34676
+  },
+  {
+    "path": "original\\delivery-actions.js",
+    "sha256": "b923b1729688fe23916092d3b09689f141dac3caf6bf360659ca4524d7f23a4e",
+    "bytes": 11264
+  },
+  {
+    "path": "original\\governance-actions.js",
+    "sha256": "486cbe4dd8a13fe62bc8393026c95910ebc4d73d3cbd949adcded173662cb3c0",
+    "bytes": 9480
+  },
+  {
+    "path": "original\\governance.js",
+    "sha256": "a01b8fb171c208f0f4d6abb8ee76a99c3725e0890a3e36a832ca0e1aeb2d68f2",
+    "bytes": 6354
+  },
+  {
+    "path": "original\\guide.css",
+    "sha256": "9757defb0514f5c70bdd0e3da04f53e5ecf3bafa50e912a21208e46ad5a27a86",
+    "bytes": 16511
+  },
+  {
+    "path": "original\\model.js",
+    "sha256": "5eabb1c9785859b93f98076c2e9ac79b4b80f99caac93b926aa08f507a2e4739",
+    "bytes": 32107
+  },
+  {
+    "path": "original\\run-actions.js",
+    "sha256": "2339677e1bf61ef27dfac8c9a9d7f4d64bf8e7be107b5cdfc98ba3c9f0ab4622",
+    "bytes": 6341
+  },
+  {
+    "path": "original\\spaces.js",
+    "sha256": "f0724c3dfbe54e74fc2858f72ebb4a953fe5f6530ad8c316626b5fd0c4332feb",
+    "bytes": 9367
+  },
+  {
+    "path": "original\\ui.js",
+    "sha256": "b7bcd639c240dd7e658150f0c8ac928b20d7142d6a7f6be40b09541d4f131e54",
+    "bytes": 4541
+  },
+  {
+    "path": "original\\workbench.js",
+    "sha256": "46d8407d54376c420e98c77726c4a38bc9890fa2d115b014cf4d53d3e8857327",
+    "bytes": 32466
+  },
+  {
+    "path": "verify-guide-browser.mjs",
+    "sha256": "968db84e37a8bfb1abdaf4af59f033f72592681de6e2adf349f7518cd76b6759",
+    "bytes": 21746
+  },
+  {
+    "path": "verify-guide-model.mjs",
+    "sha256": "39461168846106eae8deb452dcd75da1484ee76f9ae5d554af2fb34d3da2f3cc",
+    "bytes": 7450
+  }
+]

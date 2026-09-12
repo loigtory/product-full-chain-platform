@@ -1,0 +1,10 @@
+{
+  "name": "@pfc/codex-adapter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "@pfc/contracts": "0.0.0"
+  }
+}

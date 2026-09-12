@@ -1,0 +1,174 @@
+{
+  "status": "FAIL",
+  "at": "2026-09-11T21:22:30.855Z",
+  "source": [
+    {
+      "path": "index.html",
+      "sha256": "64f1467bd43d6d024b06cfe5ad65a6ae0bf9749978252f30d07d1e25f9706f6d"
+    },
+    {
+      "path": "original/base.css",
+      "sha256": "26c7c1c77ba323b4509f9b6dfeec319db18c99abecb4cde920413bf1d5818e21"
+    },
+    {
+      "path": "original/guide.css",
+      "sha256": "2b5d0635ce0b5190b9f55caa8ca5b9d82c3e0dd732d0972bb27b2fb018228bc3"
+    },
+    {
+      "path": "original/data.js",
+      "sha256": "e613fdc1354b6d254466e7eccc4e326c2ebeedb8cebaeac21298ea8f775c10de"
+    },
+    {
+      "path": "original/model.js",
+      "sha256": "922bbf29252ab55da464cc4612697229de62488edd9f131b222acfa2ad135f78"
+    },
+    {
+      "path": "original/ui.js",
+      "sha256": "b7bcd639c240dd7e658150f0c8ac928b20d7142d6a7f6be40b09541d4f131e54"
+    },
+    {
+      "path": "original/workbench.js",
+      "sha256": "0b93345636d2ff50b29cfc553d4967c994ffacd9d7d0b2849b52a3458ba5fb11"
+    },
+    {
+      "path": "original/spaces.js",
+      "sha256": "6ff8bfd839493038541711766b9d270c5180832889ea29bb4fd0fa87e23ff2a3"
+    },
+    {
+      "path": "original/governance.js",
+      "sha256": "a01b8fb171c208f0f4d6abb8ee76a99c3725e0890a3e36a832ca0e1aeb2d68f2"
+    },
+    {
+      "path": "original/actions.js",
+      "sha256": "7a59a46a691b9fecb08073fc7ccb2f34772ad91a9c32c9785576677b3e05f70e"
+    },
+    {
+      "path": "original/run-actions.js",
+      "sha256": "66390b3f25affad5aaa9f824e80ead0b0693d5b3ec00d6c45c3bf7781cae90b1"
+    },
+    {
+      "path": "original/delivery-actions.js",
+      "sha256": "9efb3d7af53bc0c5ea6f3bccde097698e6d7c66a57493ce49201be1128a91d82"
+    },
+    {
+      "path": "original/governance-actions.js",
+      "sha256": "486cbe4dd8a13fe62bc8393026c95910ebc4d73d3cbd949adcded173662cb3c0"
+    },
+    {
+      "path": "original/downloads.js",
+      "sha256": "a388ed6dbc75848cd335a90841f45bbc64e9d967cbe50681a145009056f637f6"
+    },
+    {
+      "path": "original/attachments.js",
+      "sha256": "87d78a518260ef0a55885e1144f38da751648b1d4db2eb4a4dfcda942f6613c5"
+    },
+    {
+      "path": "original/conversation.js",
+      "sha256": "4c0ce5507e488b58f1581bdfa730ea8f5cca703dd6ea12bf3a2f42e95a33f8de"
+    },
+    {
+      "path": "original/app.js",
+      "sha256": "9f337e7ae183c2a374b4bf7312253139471a297de28d65b257dcd56d59c03f4b"
+    }
+  ],
+  "sourceUnchanged": true,
+  "results": [
+    {
+      "script": "verify-static.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "syntaxScripts": 14,
+        "lintModules": 10,
+        "externalEntryAssets": 0
+      }
+    },
+    {
+      "script": "verify-integrity.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "checks": 8,
+        "results": [
+          {
+            "name": "stale-write-without-storage-event-preserves-new-record-and-local-draft",
+            "status": "PASS"
+          },
+          {
+            "name": "quota-error-does-not-increment-revision-or-claim-save",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-dev-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-test-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-accept-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "approval-invalidates-on-target-change-without-upstream-version-change",
+            "status": "PASS"
+          },
+          {
+            "name": "frozen-artifacts-tests-acceptance-and-relations-are-independent-copies",
+            "status": "PASS"
+          },
+          {
+            "name": "prototype-module-ownership-and-single-entry",
+            "status": "PASS"
+          }
+        ]
+      }
+    },
+    {
+      "script": "verify-guide-model.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "status": "PASS",
+        "checks": 11,
+        "results": [
+          "stage-gates-and-version-immutability",
+          "cancel-verify-retry-terminal-integrity",
+          "authorization-capability-snapshot-and-unknown",
+          "development-test-release-observation-chain",
+          "expired-approval-and-baseline-invalidation",
+          "session-capability-overrides-do-not-change-team-policy",
+          "concurrent-window-conflict-prevents-writes-and-ticks",
+          "verification-preserves-observed-result-and-evidence",
+          "acceptance-rejection-requires-new-successful-run",
+          "invalid-storage-shape-is-rejected",
+          "late-old-baseline-result-does-not-overwrite-current-handoff"
+        ]
+      }
+    },
+    {
+      "script": "verify-production.cjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": {
+        "passed": 46,
+        "failed": 0,
+        "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-YUPLlx"
+      }
+    },
+    {
+      "script": "verify-guide-browser.mjs",
+      "status": "FAIL",
+      "exitCode": null,
+      "details": {
+        "error": "spawnSync D:\\项目管理\\product-full-chain-platform\\.tools\\node-v24.20.0-win-x64\\node.exe ETIMEDOUT"
+      }
+    }
+  ],
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-prototype-gate-UlUMuv",
+  "data": "CODEx_TEST_ synthetic deterministic factories; isolated browser contexts closed; no external calls or database writes",
+  "scope": "Original standalone prototype only; project Quick/Core/Full and business acceptance are separate"
+}

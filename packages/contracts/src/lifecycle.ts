@@ -1,0 +1,108 @@
+export const LIFECYCLE_STAGES = [
+  'G0',
+  'G1',
+  'G2',
+  'G3',
+  'G4',
+  'G5',
+  'G6',
+  'G7',
+  'G8',
+  'G9',
+  'G10',
+  'G11',
+  'G12',
+] as const;
+
+export const MATERIAL_SOURCE_TYPES = [
+  'BUSINESS_FEEDBACK',
+  'USER_INTERVIEW',
+  'OPERATIONS_ISSUE',
+  'INTERNAL_IMPROVEMENT',
+  'POLICY_OR_COMPLIANCE',
+  'OTHER',
+] as const;
+
+export const MATERIAL_PURPOSES = [
+  'FACT',
+  'CONSTRAINT',
+  'ASSUMPTION',
+  'HISTORICAL_DESIGN',
+  'REGRESSION_SAMPLE',
+] as const;
+
+export const SENSITIVITY_LEVELS = ['INTERNAL', 'RESTRICTED', 'PUBLIC'] as const;
+
+export const QUESTION_STATUSES = [
+  'OPEN',
+  'ANSWERED',
+  'CONFIRMED',
+  'SUPERSEDED',
+  'DEFERRED',
+] as const;
+
+export const GATE_RESULTS = [
+  'PASS',
+  'BLOCK',
+  'WARN',
+  'NOT_APPLICABLE',
+  'UNKNOWN',
+] as const;
+
+export const GATE_RUN_RESULTS = ['PASS', 'BLOCK', 'WARN', 'UNKNOWN'] as const;
+
+export const LIFECYCLE_ERROR_CODES = [
+  'VALIDATION_FAILED',
+  'AUTHENTICATION_REQUIRED',
+  'AUTHENTICATION_FAILED',
+  'CSRF_INVALID',
+  'RATE_LIMITED',
+  'NOT_FOUND',
+  'PERMISSION_DENIED',
+  'SENSITIVE_ACTION_AUTH_REQUIRED',
+  'VERSION_CONFLICT',
+  'IDEMPOTENCY_CONFLICT',
+  'DEPENDENCY_UNAVAILABLE',
+  'RUN_ALREADY_IN_PROGRESS',
+  'RESULT_UNKNOWN',
+  'STALE_BASELINE_RESULT',
+  'INVALID_STATE_TRANSITION',
+  'SENSITIVE_SUMMARY_FIELD',
+  'WORK_SESSION_BLOCKED',
+  'CONTEXT_STALE',
+  'TRANSMISSION_AUTH_REQUIRED',
+  'PROPOSAL_STALE',
+  'PROPOSAL_SCOPE_MISMATCH',
+  'WORK_TURN_ALREADY_ACTIVE',
+  'BRIDGE_CAPABILITY_UNAVAILABLE',
+  'EVENT_GAP_REQUIRES_RELOAD',
+  'ARTIFACT_CONTENT_UNAVAILABLE',
+  'ARTIFACT_CONTENT_TOO_LARGE',
+  'ARTIFACT_DIFF_LIMIT_EXCEEDED',
+  'ARTIFACT_REVIEW_VERSION_STALE',
+  'TRACE_SUBJECT_UNVERIFIED',
+  'TRACE_CROSS_REQUIREMENT_FORBIDDEN',
+  'TRACE_LINK_ALREADY_EXISTS',
+  'MCP_READ_INPUT_INVALID',
+  'MCP_READ_NOT_ALLOWED',
+  'MCP_CAPABILITY_DRIFTED',
+  'MCP_TRANSMISSION_AUTHORIZATION_REQUIRED',
+  'MCP_READ_CONCURRENCY_LIMIT',
+  'MCP_READ_LIMIT_EXCEEDED',
+  'MCP_RESULT_UNKNOWN',
+  'MCP_READ_TRANSITION_INVALID',
+  'MCP_CAPABILITY_UNAVAILABLE',
+  'MCP_OUTPUT_LIMIT_EXCEEDED',
+  'EVIDENCE_ARCHIVE_PENDING',
+] as const;
+
+export type LifecycleStage = (typeof LIFECYCLE_STAGES)[number];
+export type MaterialSourceType = (typeof MATERIAL_SOURCE_TYPES)[number];
+export type MaterialPurpose = (typeof MATERIAL_PURPOSES)[number];
+export type SensitivityLevel = (typeof SENSITIVITY_LEVELS)[number];
+export type QuestionStatus = (typeof QUESTION_STATUSES)[number];
+export type GateResult = (typeof GATE_RESULTS)[number];
+export type GateRunResult = (typeof GATE_RUN_RESULTS)[number];
+export type LifecycleErrorCode = (typeof LIFECYCLE_ERROR_CODES)[number];
+export type SummaryScalar = string | number | boolean | null;
+export type EventSummary = Readonly<Record<string, SummaryScalar>>;

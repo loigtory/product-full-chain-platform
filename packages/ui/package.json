@@ -1,0 +1,17 @@
+{
+  "name": "@pfc/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./src/tokens.css",
+    "./tokens/primitives.css": "./src/tokens/primitives.css",
+    "./tokens/semantic.css": "./src/tokens/semantic.css",
+    "./tokens/components.css": "./src/tokens/components.css",
+    "./components.css": "./src/components/components.css"
+  },
+  "peerDependencies": {
+    "react": "19.2.8"
+  }
+}

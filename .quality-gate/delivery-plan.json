@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "podId": "POD-PFC-001",
+  "productVersion": "V0.1",
+  "authority": {
+    "source": "product-full-chain/.work/reviews/estimation/POD-PFC-001/POD-PFC-001-产品作业全链路管理平台-主Spec_V0.1.md",
+    "sourceVersion": "V0.1/R3",
+    "confirmedCapabilityCount": 5,
+    "confirmedUnitCount": 26
+  },
+  "currentMilestone": "M2",
+  "milestones": [
+    {
+      "id": "M1",
+      "name": "生命周期骨架",
+      "status": "IN_PROGRESS",
+      "requiredUnitIds": [
+        "UNIT-PFC-01-01",
+        "UNIT-PFC-01-02",
+        "UNIT-PFC-01-03",
+        "UNIT-PFC-01-04",
+        "UNIT-PFC-01-05",
+        "UNIT-PFC-02-01",
+        "UNIT-PFC-04-01",
+        "UNIT-PFC-04-02",
+        "UNIT-PFC-04-03"
+      ],
+      "exitCriteria": "PFC-01 全部能力、PFC-02 产物目录及 PFC-04 团队/角色/工作区最小能力使用标准本地 PostgreSQL 持久化并完成真实本地集成验证。"
+    },
+    {
+      "id": "M2",
+      "name": "受控作业闭环",
+      "status": "IN_PROGRESS",
+      "requiredUnitIds": [
+        "UNIT-PFC-02-02",
+        "UNIT-PFC-02-03",
+        "UNIT-PFC-02-04",
+        "UNIT-PFC-02-05",
+        "UNIT-PFC-03-01",
+        "UNIT-PFC-03-02",
+        "UNIT-PFC-03-03",
+        "UNIT-PFC-03-05",
+        "UNIT-PFC-03-06",
+        "UNIT-PFC-04-04",
+        "UNIT-PFC-04-05"
+      ],
+      "exitCriteria": "Codex/Skill 作业可受控启动、观察、审批、取消、恢复和归档，Bridge 与审计完成真实本地集成，未授权动作保持拒绝。"
+    },
+    {
+      "id": "M3",
+      "name": "端到端试点",
+      "status": "NOT_STARTED",
+      "requiredUnitIds": [
+        "UNIT-PFC-03-04",
+        "UNIT-PFC-05-01",
+        "UNIT-PFC-05-02",
+        "UNIT-PFC-05-03",
+        "UNIT-PFC-05-04",
+        "UNIT-PFC-05-05"
+      ],
+      "exitCriteria": "Web/Zed 使用同一 runId 完成交接，一个真实但非生产写入需求形成 G0-G12 的测试、发布演练、观察和复盘证据。"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "CAP-PFC-01",
+      "name": "需求生命周期工作台",
+      "implementationStatus": "INTEGRATED",
+      "integrationStatus": "INTEGRATED",
+      "acceptanceStatus": "BLOCKED",
+      "dependencySources": ["POSTGRESQL"],
+      "nextRoute": "POD-PFC-001/M1-R1/named-acceptance",
+      "units": [
+        { "id": "UNIT-PFC-01-01", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-01-02", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-01-03", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-01-04", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-01-05", "status": "INTEGRATED" }
+      ]
+    },
+    {
+      "id": "CAP-PFC-02",
+      "name": "产品产物与版本评审",
+      "implementationStatus": "IMPLEMENTING",
+      "integrationStatus": "IN_PROGRESS",
+      "acceptanceStatus": "BLOCKED",
+      "dependencySources": ["POSTGRESQL"],
+      "nextRoute": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+      "units": [
+        { "id": "UNIT-PFC-02-01", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-02-02", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-02-03", "status": "PLANNED" },
+        { "id": "UNIT-PFC-02-04", "status": "PLANNED" },
+        { "id": "UNIT-PFC-02-05", "status": "PLANNED" }
+      ]
+    },
+    {
+      "id": "CAP-PFC-03",
+      "name": "AI 执行与 Zed 协同",
+      "implementationStatus": "IMPLEMENTING",
+      "integrationStatus": "IN_PROGRESS",
+      "acceptanceStatus": "NOT_STARTED",
+      "dependencySources": ["LOCAL_CODEX_APP_SERVER", "POSTGRESQL"],
+      "nextRoute": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+      "units": [
+        { "id": "UNIT-PFC-03-01", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-03-02", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-03-03", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-03-04", "status": "PLANNED" },
+        { "id": "UNIT-PFC-03-05", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-03-06", "status": "PLANNED" }
+      ]
+    },
+    {
+      "id": "CAP-PFC-04",
+      "name": "团队空间与权限治理",
+      "implementationStatus": "INTEGRATED",
+      "integrationStatus": "INTEGRATED",
+      "acceptanceStatus": "BLOCKED",
+      "dependencySources": ["POSTGRESQL"],
+      "nextRoute": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+      "units": [
+        { "id": "UNIT-PFC-04-01", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-04-02", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-04-03", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-04-04", "status": "INTEGRATED" },
+        { "id": "UNIT-PFC-04-05", "status": "INTEGRATED" }
+      ]
+    },
+    {
+      "id": "CAP-PFC-05",
+      "name": "验证发布与复盘闭环",
+      "implementationStatus": "PLANNED",
+      "integrationStatus": "NOT_STARTED",
+      "acceptanceStatus": "NOT_STARTED",
+      "dependencySources": ["UNAVAILABLE"],
+      "nextRoute": "POD-PFC-001/M3/PFC-05-design",
+      "units": [
+        { "id": "UNIT-PFC-05-01", "status": "PLANNED" },
+        { "id": "UNIT-PFC-05-02", "status": "PLANNED" },
+        { "id": "UNIT-PFC-05-03", "status": "PLANNED" },
+        { "id": "UNIT-PFC-05-04", "status": "PLANNED" },
+        { "id": "UNIT-PFC-05-05", "status": "PLANNED" }
+      ]
+    }
+  ],
+  "runtimeDataPolicy": {
+    "businessStateStore": "POSTGRESQL",
+    "standardDatabase": "pfc_local",
+    "standardSchema": "pfc",
+    "interactiveFixturePolicy": "TEST_ONLY",
+    "testSchemaPattern": "codex_test_*",
+    "acceptanceMayUseFixture": false,
+    "legacyModes": [
+      {
+        "name": "pfc_experience",
+        "status": "RETIRE_BEFORE_M1_EXIT",
+        "countedAsCapability": false
+      }
+    ]
+  },
+  "platformStatus": {
+    "implementation": "PARTIAL",
+    "integration": "M1_INTEGRATED_M2_R2_INTEGRATED_AI_UX_R1_STAGE_E_ISOLATED_VERIFIED_STANDARD_SCHEMA_READY_E42_STANDARD_WINDOW_VERIFIED_SCOPE_DRIFT_REVOKED_AUTOMATED_GATES_PASS",
+    "acceptance": "BLOCKED",
+    "release": "NOT_AUTHORIZED",
+    "nextRoute": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+  }
+}

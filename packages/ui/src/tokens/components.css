@@ -1,0 +1,103 @@
+:root {
+  --pfc-button-height-sm: 32px;
+  --pfc-button-height-md: 38px;
+  --pfc-button-padding-sm: 0 var(--pfc-space-3);
+  --pfc-button-padding-md: 0 var(--pfc-space-4);
+  --pfc-button-radius: var(--pfc-radius-control);
+  --pfc-button-bg: var(--pfc-color-primary);
+  --pfc-button-bg-hover: var(--pfc-color-primary-hover);
+  --pfc-button-bg-active: var(--pfc-color-primary-active);
+  --pfc-button-fg: var(--pfc-color-text-inverse);
+
+  --pfc-input-height: 38px;
+  --pfc-input-bg: var(--pfc-color-surface);
+  --pfc-input-border: var(--pfc-color-border-strong);
+  --pfc-input-border-hover: var(--pfc-gray-500);
+  --pfc-input-border-focus: var(--pfc-color-primary);
+  --pfc-input-radius: var(--pfc-radius-control);
+
+  --pfc-segmented-bg: var(--pfc-color-surface);
+  --pfc-segmented-item-bg-active: var(--pfc-color-primary-soft);
+  --pfc-segmented-item-fg-active: var(--pfc-color-primary);
+
+  --pfc-surface-bg: var(--pfc-color-surface);
+  --pfc-surface-border: var(--pfc-color-border);
+  --pfc-surface-radius: var(--pfc-radius-panel);
+  --pfc-table-header-bg: var(--pfc-color-surface-subtle);
+  --pfc-table-row-hover: var(--pfc-blue-50);
+  --pfc-table-row-selected: var(--pfc-blue-100);
+  --pfc-nav-indicator-radius: 0 var(--pfc-radius-4) var(--pfc-radius-4) 0;
+  --pfc-header-height: 68px;
+  --pfc-header-height-compact: 56px;
+  --pfc-content-max-width: 1560px;
+  --pfc-workbench-max-width: 1320px;
+  --pfc-workbench-search-width: 320px;
+  --pfc-page-gutter: var(--pfc-space-8);
+  --pfc-page-intro-bg: var(--pfc-blue-50);
+  --pfc-page-intro-height-compact: 88px;
+  --pfc-reference-header-height: 65px;
+  --pfc-reference-header-blur: 24px;
+  --pfc-reference-content-width: 1280px;
+  --pfc-reference-min-width: 1120px;
+  --pfc-reference-page-gutter: var(--pfc-space-4);
+  --pfc-reference-work-content-width: var(--pfc-reference-size-work-content);
+  --pfc-reference-control-height: var(--pfc-reference-size-control);
+  --pfc-reference-table-header-height: var(--pfc-reference-size-table-header);
+  --pfc-reference-table-cell-padding-x: var(--pfc-reference-space-table-cell-x);
+  --pfc-reference-metric-icon-size: var(--pfc-size-10);
+  --pfc-reference-metric-card-min-height: var(--pfc-reference-size-metric-card);
+  --pfc-reference-summary-panel-min-height: var(
+    --pfc-reference-size-summary-panel
+  );
+  --pfc-reference-summary-value-font-size: var(
+    --pfc-reference-font-size-summary-value
+  );
+  --pfc-reference-summary-value-line-height: var(
+    --pfc-reference-line-height-summary-value
+  );
+  --pfc-reference-row-height: var(--pfc-reference-size-table-row);
+  --pfc-reference-operation-row-height: var(--pfc-reference-size-operation-row);
+  --pfc-reference-detail-width: 432px;
+  --pfc-reference-state-min-height: 360px;
+  --pfc-reference-stage-min-width: 248px;
+  --pfc-drawer-width: var(--pfc-size-detail-drawer);
+  --pfc-dialog-width: var(--pfc-size-confirm-dialog);
+  --pfc-scope-column-min-width: var(--pfc-size-scope-column-min);
+  --pfc-agent-context-width: var(--pfc-layout-agent-context-width);
+  --pfc-agent-stream-min-width: var(--pfc-layout-agent-stream-min-width);
+  --pfc-agent-artifact-min-width: var(--pfc-layout-agent-artifact-min-width);
+  --pfc-agent-composer-min-height: var(--pfc-layout-agent-composer-min-height);
+  --pfc-agent-evidence-height: var(--pfc-layout-agent-evidence-height);
+  --pfc-agent-lifecycle-height: var(--pfc-layout-agent-lifecycle-height);
+  --pfc-agent-context-header-height: var(
+    --pfc-layout-agent-context-header-height
+  );
+  --pfc-agent-preview-height: var(--pfc-layout-agent-preview-height);
+  --pfc-agent-min-desktop-width: var(--pfc-layout-agent-min-desktop-width);
+  --pfc-agent-workspace-bg: var(--pfc-color-agent-workspace);
+  --pfc-agent-stream-bg: var(--pfc-color-agent-stream);
+  --pfc-agent-artifact-bg: var(--pfc-color-agent-artifact);
+  --pfc-agent-message-bg: var(--pfc-color-agent-message);
+  --pfc-user-message-bg: var(--pfc-color-user-message);
+  --pfc-proposal-bg: var(--pfc-color-proposal-surface);
+  --pfc-proposal-border: var(--pfc-color-proposal-border);
+  --pfc-running-bg: var(--pfc-color-running-surface);
+  --pfc-running-border: var(--pfc-color-running-border);
+  --pfc-unknown-bg: var(--pfc-color-unknown-surface);
+  --pfc-unknown-border: var(--pfc-color-unknown-border);
+  --pfc-evidence-bg: var(--pfc-color-evidence-surface);
+  --pfc-evidence-fg: var(--pfc-color-evidence-text);
+  --pfc-evidence-muted: var(--pfc-color-evidence-muted);
+  --pfc-artifact-workspace-bg: var(--pfc-color-artifact-workspace);
+  --pfc-artifact-editor-bg: var(--pfc-color-artifact-editor);
+  --pfc-artifact-version-rail-width: var(--pfc-size-artifact-version-rail);
+  --pfc-artifact-context-width: var(--pfc-size-artifact-context);
+  --pfc-artifact-workspace-min-height: var(
+    --pfc-size-artifact-workspace-min-height
+  );
+  --pfc-artifact-diff-added-bg: var(--pfc-color-artifact-diff-added);
+  --pfc-artifact-diff-added-fg: var(--pfc-color-artifact-diff-added-text);
+  --pfc-artifact-diff-removed-bg: var(--pfc-color-artifact-diff-removed);
+  --pfc-artifact-diff-removed-fg: var(--pfc-color-artifact-diff-removed-text);
+  --pfc-artifact-code-font: var(--pfc-font-family-code);
+}

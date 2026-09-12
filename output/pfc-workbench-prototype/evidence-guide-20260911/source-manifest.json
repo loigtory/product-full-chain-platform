@@ -1,0 +1,30 @@
+{
+  "entry": "index.html",
+  "sourceSha256": {
+    "index.html": "fd3887c4447a9d7d9e0e20fb899562dd1b22da4c3cce29c7e44d1d0fc5c5821e",
+    "original/actions.js": "1b0fe1f0793d4be9315c2698efff18e3414cd12cbc214ca6db5c34ee615582c1",
+    "original/app.js": "856abae1a7b5dfabd7fbd5bd7519693409fdce8d52c62ab649e636719e63206f",
+    "original/base.css": "6de67fcb316de0e1da89be6bbc7a177376f46034047bf1a6e21d7a68baa19460",
+    "original/data.js": "f3d0bb13848b038686ee3a880f12d13372403190ac8227e92dc3b98c6119e058",
+    "original/delivery-actions.js": "929dd50c600c7f8d6ad1ad5165f77cdfeed828bcb8be3b57f561a7b604a898e0",
+    "original/governance-actions.js": "eb53ad171e7685c11f289506d8bc99dd5951636ca09e23f59b06418d7566e9e7",
+    "original/governance.js": "6e13d2e813838fef8097ed5febb1d8ca6f5c12343fa3aab7355607b646b23914",
+    "original/guide.css": "d212666b825ed9d8a170576a9087fa1ced60faedcc875e436ba6159f6846bc6f",
+    "original/model.js": "ab76fa97a968c5fa7bfc8a11b60629ce5fbb5975200464c9763eb9f4f1883f00",
+    "original/run-actions.js": "827f63fdee1d4134ad672e803b8eda0b59b2dff6a35b2098f596bae872c97671",
+    "original/spaces.js": "61bed834bba5f8082517b9a0a636c1d490d2a13ae893adfb516c7ebac049f0ed",
+    "original/ui.js": "53916b859bb5f75938008ddab523db025c9d6002da6fe9a56e00b5f491b09ba2",
+    "original/workbench.js": "f2d6eec8228dd353c11e3bf27bbf8a6b0a9b55dd55a1bc82714700c9c676a07e",
+    "verify-guide-model.mjs": "39461168846106eae8deb452dcd75da1484ee76f9ae5d554af2fb34d3da2f3cc",
+    "verify-guide-browser.mjs": "968db84e37a8bfb1abdaf4af59f033f72592681de6e2adf349f7518cd76b6759"
+  },
+  "protectedSha256": {
+    "_backup/index-before-development-guide-20260911.html": "441230ba98ec8da6cd0ac8fa5415f2ef35996ce9da10ae41275802cbeb09602e",
+    "index-v3.html": "711311046b13724784a1ee5c6bfb07c89fa2a6011d5f356d81f5c0dddec216e4",
+    "prototype-v3.js": "c24266dce69ae067a3b9d9c3965ae00dcf20511322ddb5b5ce74eda62e1ce84d",
+    "prototype-v3-data.js": "09001b7e3c84b69736405e5f2fa06b43053ff2718f8440f722c0830037947bfa",
+    "prototype-v3.css": "1fd6202c3dfb467e2cd4a33586ca941af4f1a72bf1077d983f126a5ba7e3228c"
+  },
+  "browserResults": "report.json",
+  "screenshots": 24
+}

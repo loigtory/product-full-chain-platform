@@ -1,0 +1,74 @@
+[
+  {
+    "source": "output/pfc-workbench-prototype/debug-gov-v3.cjs",
+    "destination": "archive/prototype-v3-reference-20260912/debug-gov-v3.cjs",
+    "sha256": "D441A38AEBC7CC62BA5CC08B410C114E5B1670221BA67AC5B4D27BEAF2352A18",
+    "bytes": 1379
+  },
+  {
+    "source": "output/pfc-workbench-prototype/index-v3.html",
+    "destination": "archive/prototype-v3-reference-20260912/index-v3.html",
+    "sha256": "711311046B13724784A1EE5C6BFB07C89FA2A6011D5F356D81F5C0DDDEC216E4",
+    "bytes": 736
+  },
+  {
+    "source": "output/pfc-workbench-prototype/prototype-v3-data.js",
+    "destination": "archive/prototype-v3-reference-20260912/prototype-v3-data.js",
+    "sha256": "09001B7E3C84B69736405E5F2FA06B43053FF2718F8440F722C0830037947BFA",
+    "bytes": 32478
+  },
+  {
+    "source": "output/pfc-workbench-prototype/prototype-v3.css",
+    "destination": "archive/prototype-v3-reference-20260912/prototype-v3.css",
+    "sha256": "1FD6202C3DFB467E2CD4A33586CA941AF4F1A72BF1077D983F126A5BA7E3228C",
+    "bytes": 46085
+  },
+  {
+    "source": "output/pfc-workbench-prototype/prototype-v3.js",
+    "destination": "archive/prototype-v3-reference-20260912/prototype-v3.js",
+    "sha256": "C24266DCE69AE067A3B9D9C3965AE00DCF20511322DDB5B5CE74EDA62E1CE84D",
+    "bytes": 62434
+  },
+  {
+    "source": "output/pfc-workbench-prototype/V3-说明.md",
+    "destination": "archive/prototype-v3-reference-20260912/V3-说明.md",
+    "sha256": "E96E9FE2ED06106820380D33DBEC101B4AAC723E48BC3B989260BC4688FEA5E8",
+    "bytes": 4145
+  },
+  {
+    "source": "output/pfc-workbench-prototype/V3-验证报告.md",
+    "destination": "archive/prototype-v3-reference-20260912/V3-验证报告.md",
+    "sha256": "6A5B6864A9F86767D0D0C6E005F3F259EE4ABB7364BE7C5498BDB38464A72F85",
+    "bytes": 6210
+  },
+  {
+    "source": "output/pfc-workbench-prototype/v3-baseline.json",
+    "destination": "archive/prototype-v3-reference-20260912/v3-baseline.json",
+    "sha256": "4D6A0DB5549FFC05BC5C262BC3D4CA17A9C73BF90B0C58963634E2C016C7C8FD",
+    "bytes": 199
+  },
+  {
+    "source": "output/pfc-workbench-prototype/v3-check-shot.png",
+    "destination": "archive/prototype-v3-reference-20260912/v3-check-shot.png",
+    "sha256": "39370C34563837EAF791ED79D7FCB750D7C015C34ED5E3B7A1557BD88BFAF621",
+    "bytes": 93919
+  },
+  {
+    "source": "output/pfc-workbench-prototype/verify-v3-check.cjs",
+    "destination": "archive/prototype-v3-reference-20260912/verify-v3-check.cjs",
+    "sha256": "4A0E15EADA138B4654DA613FDCA4C80ECFDDF3AC3FA371F8B3A656FA889262BE",
+    "bytes": 4021
+  },
+  {
+    "source": "output/pfc-workbench-prototype/verify-v3-gov.cjs",
+    "destination": "archive/prototype-v3-reference-20260912/verify-v3-gov.cjs",
+    "sha256": "F7E7644D7105DAF0DF2BD2BE15AA9571701F8DEEBF9796C7E7AAC817B7A85A65",
+    "bytes": 2388
+  },
+  {
+    "source": "output/pfc-workbench-prototype/verify-v3.mjs",
+    "destination": "archive/prototype-v3-reference-20260912/verify-v3.mjs",
+    "sha256": "C624BA0E21F7943F8817DC1017AE28E96CF76C132F924075A9FC7549E40CE700",
+    "bytes": 21324
+  }
+]

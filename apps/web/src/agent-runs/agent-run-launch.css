@@ -1,0 +1,124 @@
+.agent-run-launch-section {
+  overflow: hidden;
+}
+
+.agent-run-launch-body {
+  margin-top: var(--pfc-space-4);
+  padding-top: var(--pfc-space-4);
+  border-top: 1px solid var(--pfc-color-border);
+}
+
+.agent-run-launch-body > p {
+  margin: 0;
+  color: var(--pfc-color-text-secondary);
+}
+
+.agent-run-launch-body > .agent-run-launch-error {
+  color: var(--pfc-color-danger);
+}
+
+.agent-run-launch-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--pfc-space-4);
+}
+
+.agent-run-launch-mode {
+  width: fit-content;
+  margin-bottom: var(--pfc-space-4);
+}
+
+.agent-run-launch-fields label {
+  display: grid;
+  min-width: 0;
+  gap: var(--pfc-space-2);
+}
+
+.agent-run-launch-fields label > span {
+  color: var(--pfc-color-text-tertiary);
+  font-size: var(--pfc-font-size-caption);
+  line-height: var(--pfc-line-height-caption);
+}
+
+.agent-run-launch-fields code,
+.agent-run-launch-fields select {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--pfc-input-height);
+  padding: var(--pfc-space-2) var(--pfc-space-3);
+  border: 1px solid var(--pfc-color-border-strong);
+  border-radius: var(--pfc-radius-control);
+  background: var(--pfc-color-surface);
+}
+
+.agent-run-launch-fields code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agent-run-launch-evidence {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--pfc-space-3);
+  margin-top: var(--pfc-space-4);
+  padding: var(--pfc-space-3);
+  border: 1px solid var(--pfc-color-success-border);
+  border-radius: var(--pfc-radius-panel);
+  color: var(--pfc-color-text-secondary);
+  background: var(--pfc-color-success-soft);
+}
+
+.agent-run-launch-scope {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--pfc-space-3);
+  margin-top: var(--pfc-space-4);
+  padding: var(--pfc-space-3);
+  border: 1px solid var(--pfc-color-warning-border);
+  border-radius: var(--pfc-radius-panel);
+  color: var(--pfc-color-text-secondary);
+  background: var(--pfc-color-warning-soft);
+}
+
+.agent-run-launch-scope code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.agent-run-launch-scope small {
+  color: var(--pfc-color-text-tertiary);
+  font-size: var(--pfc-font-size-caption);
+  line-height: var(--pfc-line-height-caption);
+}
+
+.agent-run-launch-evidence code {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agent-run-launch-evidence small {
+  margin-left: auto;
+  color: var(--pfc-color-text-tertiary);
+  font-size: var(--pfc-font-size-caption);
+  line-height: var(--pfc-line-height-caption);
+  white-space: nowrap;
+}
+
+.agent-run-launch-body form > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pfc-space-4);
+  margin-top: var(--pfc-space-4);
+}
+
+.agent-run-launch-body form > footer > span {
+  color: var(--pfc-color-text-tertiary);
+  font-size: var(--pfc-font-size-caption);
+  line-height: var(--pfc-line-height-caption);
+}

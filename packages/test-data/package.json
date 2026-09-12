@@ -1,0 +1,12 @@
+{
+  "name": "@pfc/test-data",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "@pfc/contracts": "0.0.0",
+    "@pfc/domain": "0.0.0",
+    "@pfc/persistence": "0.0.0"
+  }
+}
