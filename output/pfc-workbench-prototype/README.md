@@ -8,6 +8,7 @@
 | [20 · M2b-2 交接任务](../../docs/planning/prototype-v3/20-Codex交接提示词-20260912.md) | 本轮动作切 API、实时终端与验收标准 |
 | [21 · 实施中检查点](../../docs/planning/prototype-v3/21-M2b-2前端切领域API-20260912.md) | 已有部分实现；模型 4/4、领域 7/7 通过，完整 UI 验收和额外接口范围待确认 |
 | [22 · 主线收口清单](../../docs/planning/prototype-v3/22-主线收口与历史代码整理建议-20260912.md) | 归档路径、保留资产、整理结果 |
+| [23 · Codex 防走偏协议](../../docs/planning/prototype-v3/23-Codex防走偏协议-20260912.md) | 每轮 Codex 会话的固定开局、范围锁、提交纪律、验收闸、差异评审、文档续编 |
 
 打开 [当前原型](index.html)，保留同目录 `original/`。local/mock 模式使用浏览器数据；API 模式连接 `server/`，默认 `127.0.0.1:5188`。本轮联调明确设置 `PFC_DB=memory` 并清空 `DATABASE_URL`；模拟 Bridge 只验证协议与输出，不执行真实 Shell、Codex 或 Zed 工作区命令。服务端进程重启会丢失内存领域数据。
 
