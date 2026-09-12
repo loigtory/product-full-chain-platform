@@ -104,11 +104,11 @@
       ...remote,
       _pg: true,
       baseline: remote.materialRevision,
-      workspace: '未绑定真实工作区',
+      workspace: remote.project?.name || '未关联项目',
       capId: null,
       units: [],
       acs: [],
-      caps: [],
+      caps: [], // 工具能力不是产品 CAP，不进入产品完成度统计。
       artifacts,
       materials,
       attachments,
@@ -118,7 +118,11 @@
       messageOffset: prior?.messageOffset ?? 0,
       messageTotal: prior?.messageTotal ?? 0,
       runs: prior?.runs || [],
-      overrides: {},
+      overrides: {
+        [remote.stage]: Object.fromEntries(
+          (remote.overrides || []).map((o) => [o.capId, o.enabled]),
+        ),
+      },
       timeline: remote.audit || [],
       tests: [],
       testRuns: [],
@@ -131,7 +135,7 @@
         .filter((m) => m.status === '待确认影响')
         .map((m) => m.id),
       contextRefs: [],
-      knowledgeRefs: [],
+      knowledgeRefs: remote.knowledgeRefs || [],
     };
     req.impact = req.impactList[0] || null;
     P.s.reqs[req.id] = req;
@@ -218,6 +222,7 @@
     return P.s.reqs[id];
   };
   V.sync = async () => {
+    await P.governanceDomain?.sync();
     const epoch = generation,
       { items } = await api().req('GET', '/api/reqs');
     for (const item of items) await V.read(item.id);
@@ -246,11 +251,7 @@
       return '<main class="page"><div class="empty-state" role="status">正在连接服务端并读取存储模式…</div></main>';
     if (P.remoteError)
       return `<main class="page"><div class="empty-state" role="alert">${P.esc(P.remoteError)}<p>输入已保留，可重试读取服务端。</p>${P.btn('pg-reload', '重试连接')}</div></main>`;
-    if (
-      V.pg() &&
-      (P.s.ui.route === 'gov' ||
-        (P.s.ui.route === 'work' && P.index(P.s.ui.stage) > 3))
-    )
+    if (V.pg() && P.s.ui.route === 'work' && P.index(P.s.ui.stage) > 3)
       return `<main class="page"><div class="empty-state">${P.esc(api().capabilities.unsupportedReason)}${P.btn('open-work', '返回当前需求', { stage: P.r()?.stage || 'idea' })}</div></main>`;
     return '';
   };

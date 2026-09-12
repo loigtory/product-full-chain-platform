@@ -1,0 +1,594 @@
+{
+  "status": "FAIL",
+  "browser": "installed Microsoft Edge / Playwright; Browser plugin unavailable",
+  "results": [
+    {
+      "name": "G12 empty governance and current identity use real PG facts",
+      "status": "PASS"
+    },
+    {
+      "name": "browser flow",
+      "status": "FAIL",
+      "error": "page.waitForFunction: Timeout 10000ms exceeded.",
+      "stack": "page.waitForFunction: Timeout 10000ms exceeded.\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-governance-browser.mjs:36:14\n    at async test (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-governance-browser.mjs:11:29)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs:32:2",
+      "diagnostic": {
+        "toasts": "",
+        "caps": [
+          {
+            "id": "CP-1",
+            "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+            "type": "Skill",
+            "protocol": "原生 Skill",
+            "endpoint": "synthetic://tool",
+            "src": "合成测试",
+            "ver": "1",
+            "desc": "仅登记的测试能力",
+            "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46",
+            "pending": true,
+            "enabled": false,
+            "revision": 0,
+            "reviewedAt": null,
+            "perm": "仅登记，未调用"
+          }
+        ],
+        "pending": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/health"
+        },
+        {
+          "method": "POST",
+          "path": "/api/auth/dev-login"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/reqs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/notices"
+        },
+        {
+          "method": "GET",
+          "path": "/api/runs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/reqs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/notices"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/runs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "POST",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "POST",
+          "path": "/api/caps/CP-1/review"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/reqs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/notices"
+        },
+        {
+          "method": "GET",
+          "path": "/api/runs"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 345,
+        "hash": "054072861abde0e4ced498d8bf857af7de802e77ee1e25bbb0a5bed158ec6db4"
+      },
+      {
+        "path": "users.json",
+        "size": 838,
+        "hash": "ee4c17b2ef924663a1e7f4ae9da52cafafce1feddeaea369f391e29b6efab4a8"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_governance",
+    "remaining": 0,
+    "totalRows": 23,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-12T18:09:00.809Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-12T18:09:00.809Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-12T18:09:01.052Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_governance_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-12T18:09:01.048Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "plan": "internal",
+          "created_at": "2026-09-12T18:09:01.048Z"
+        }
+      ],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "caps",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "domain_events",
+          "value": "2"
+        }
+      ],
+      "reqs": [],
+      "audit_logs": [
+        {
+          "id": "a4bccf0b-755c-48a2-a9c4-e8f2eaa41d9a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "cap.created",
+          "detail": "revision=0",
+          "created_at": "2026-09-12T18:09:05.388Z",
+          "entity_type": "cap",
+          "entity_id": "CP-1"
+        },
+        {
+          "id": "6fc353d0-a42c-40e3-a48b-35b5636db55a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-2",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "cap.reviewed",
+          "detail": "revision=1",
+          "created_at": "2026-09-12T18:09:05.593Z",
+          "entity_type": "cap",
+          "entity_id": "CP-1"
+        }
+      ],
+      "req_versions": [],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "materials": [],
+      "material_versions": [],
+      "messages": [],
+      "message_references": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "quality_gates": [],
+      "run_plans": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "cap.create",
+          "command_id": "79a1b23b-538e-4168-863c-bb04915d7561",
+          "fingerprint": "86b09da91647e6ff4a77f5c992884fdbd9af0d336c8f57248d3093f39b52835d",
+          "result": {
+            "cap": {
+              "id": "CP-1",
+              "src": "合成测试",
+              "ver": "1",
+              "desc": "仅登记的测试能力",
+              "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+              "perm": "仅登记，未调用",
+              "type": "Skill",
+              "enabled": false,
+              "pending": true,
+              "endpoint": "synthetic://tool",
+              "protocol": "原生 Skill",
+              "revision": 0,
+              "reviewedAt": null,
+              "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46"
+            }
+          },
+          "created_at": "2026-09-12T18:09:05.388Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "cap.review:CP-1",
+          "command_id": "8155af87-504c-47a9-bf31-672e9f69e0b9",
+          "fingerprint": "dc488f626ee6480e2a5a187137dad5895555afc79af49adb3b8594cab4bef0b5",
+          "result": {
+            "cap": {
+              "id": "CP-1",
+              "src": "合成测试",
+              "ver": "1",
+              "desc": "仅登记的测试能力",
+              "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+              "perm": "仅登记，未调用",
+              "type": "Skill",
+              "enabled": false,
+              "pending": false,
+              "endpoint": "synthetic://tool",
+              "protocol": "原生 Skill",
+              "revision": 1,
+              "reviewedAt": "2026-09-12T18:09:05.593Z",
+              "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46"
+            }
+          },
+          "created_at": "2026-09-12T18:09:05.593Z"
+        }
+      ],
+      "domain_events": [
+        {
+          "id": "ed4767d3-38f3-4919-9472-c2faf5f65440",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-1",
+          "seq": "1",
+          "aggregate_id": "CP-1",
+          "revision": 0,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "CP-1",
+            "entityType": "cap"
+          },
+          "created_at": "2026-09-12T18:09:05.388Z"
+        },
+        {
+          "id": "b206f72e-4a42-4a16-b62e-317ee168a7ff",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-2",
+          "seq": "2",
+          "aggregate_id": "CP-1",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "CP-1",
+            "entityType": "cap"
+          },
+          "created_at": "2026-09-12T18:09:05.593Z"
+        }
+      ],
+      "members": [
+        {
+          "id": "8f5077a1-0516-49bc-a343-8d55a458f179",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:09:01.286Z",
+          "disabled_at": null
+        },
+        {
+          "id": "b106c65f-15e9-403b-86ae-5a4a4ca37882",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_governance_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:09:01.286Z",
+          "disabled_at": null
+        },
+        {
+          "id": "d4ae8ce3-f20d-43b9-b272-66de77bc336d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_governance_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:09:01.286Z",
+          "disabled_at": null
+        },
+        {
+          "id": "efe93cb8-1652-4921-9dc0-8017ad90dbb5",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:09:01.286Z",
+          "disabled_at": null
+        },
+        {
+          "id": "221285f4-8db4-4ea5-a8d0-37ff06b02f28",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:09:01.286Z",
+          "disabled_at": null
+        },
+        {
+          "id": "26eeccd4-d64d-493b-9f54-8c0105fae73a",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:09:01.286Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [
+        {
+          "id": "1fda808c-6902-451d-971b-6581be20d757",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "CP-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+          "type": "Skill",
+          "protocol": "原生 Skill",
+          "endpoint": "synthetic://tool",
+          "src": "合成测试",
+          "ver": "1",
+          "description": "仅登记的测试能力",
+          "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46",
+          "reviewed_by": "8f5077a1-0516-49bc-a343-8d55a458f179",
+          "reviewed_at": "2026-09-12T18:09:05.593Z",
+          "enabled": false,
+          "revision": 1,
+          "created_at": "2026-09-12T18:09:05.388Z"
+        }
+      ],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": []
+    },
+    "poolsClosed": true
+  },
+  "sourceFingerprint": "3e6a080198873347898c1068f0cfd248fbdb9aade029add731c9abc84fe43543"
+}

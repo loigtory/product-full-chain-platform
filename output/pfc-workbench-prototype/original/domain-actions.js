@@ -175,7 +175,13 @@
           P.field('goal', '原始想法 / 目标', '', 'textarea') +
           P.field('scope', '本次范围', '', 'textarea') +
           P.field('owner', '负责人', api().user.name) +
-          '<p class="muted">新需求从空白开始，项目关联尚未接入。</p></form>',
+          P.select(
+            'projectId',
+            '关联项目',
+            [['', '暂不关联'], ...P.s.projects.map((p) => [p.id, p.name])],
+            '',
+          ) +
+          '<p class="muted">按当前项目库选择；新需求最多引用三条标题或标签命中的知识。</p></form>',
         P.btn('close-modal', '取消') +
           P.btn('create-requirement', '创建并开始澄清', {}, 'primary'),
       );
@@ -192,6 +198,7 @@
         goal: f.goal.trim(),
         scope: f.scope.trim(),
         owner: f.owner.trim(),
+        projectId: f.projectId || null,
       });
       V.map(result.req);
       P.close();
@@ -374,6 +381,7 @@
   D.remote = remote;
   D.decorate = () => {
     if (!V.pg()) return;
+    P.governanceDomain?.decorate();
     for (const label of document.querySelectorAll('#app .rail-title'))
       if (label.textContent === '质量门（客观检查）')
         label.textContent = '质量门（模拟记录，未执行真实检查）';
@@ -413,6 +421,7 @@
       }
   };
   D.install = () => {
+    P.governanceDomain?.install(remote);
     P.domainConversation.install(remote);
     const A = P.actions;
     const edit = A['edit-artifact'];

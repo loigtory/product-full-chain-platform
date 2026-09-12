@@ -2,6 +2,45 @@
 const express = require('express');
 const svc = require('../domain/service');
 const router = express.Router();
+router.patch('/:id/project', async (req, res, next) => {
+  try {
+    if (!require('../runtime').isPg()) return next();
+    res.json(
+      await require('../domain/requirement-service').associateProject(
+        req.params.id,
+        req.body || {},
+      ),
+    );
+  } catch (e) {
+    next(e);
+  }
+});
+router.get('/:id/cap-overrides', async (req, res, next) => {
+  try {
+    if (!require('../runtime').isPg()) return next();
+    res.json(
+      await require('../domain/capability-service').getOverrides(
+        req.params.id,
+        req.query,
+      ),
+    );
+  } catch (e) {
+    next(e);
+  }
+});
+router.put('/:id/cap-overrides', async (req, res, next) => {
+  try {
+    if (!require('../runtime').isPg()) return next();
+    res.json(
+      await require('../domain/capability-service').setOverrides(
+        req.params.id,
+        req.body || {},
+      ),
+    );
+  } catch (e) {
+    next(e);
+  }
+});
 
 /* ============ 需求域（M2a：领域模型，服务端状态机门控） ============ */
 
@@ -66,12 +105,10 @@ router.patch('/:id/stage', async (req, res, next) => {
         .status(404)
         .json({ error: { code: 'NOT_FOUND', msg: '需求不存在' } });
     if (r.blockers?.length)
-      return res
-        .status(409)
-        .json({
-          error: { code: 'STAGE_BLOCKED', msg: r.blockers.join('；') },
-          blockers: r.blockers,
-        });
+      return res.status(409).json({
+        error: { code: 'STAGE_BLOCKED', msg: r.blockers.join('；') },
+        blockers: r.blockers,
+      });
     res.json({ req: r.req, blockers: [] });
   } catch (e) {
     next(e);
@@ -93,14 +130,12 @@ router.post('/:id/versions', async (req, res, next) => {
   try {
     const result = await svc.saveVersion(req.params.id, req.body || {});
     if (result.error)
-      return res
-        .status(result.error === 'NOT_FOUND' ? 404 : 409)
-        .json({
-          error: {
-            code: result.error,
-            msg: '草稿内容无效或服务端已有更新版本，请重新载入',
-          },
-        });
+      return res.status(result.error === 'NOT_FOUND' ? 404 : 409).json({
+        error: {
+          code: result.error,
+          msg: '草稿内容无效或服务端已有更新版本，请重新载入',
+        },
+      });
     res.status(201).json(result);
   } catch (e) {
     next(e);

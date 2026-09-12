@@ -15,7 +15,7 @@
           (x) => !['SUCCEEDED', 'CANCELLED', 'FAILED'].includes(x.run.status),
         );
     return (
-      `<main class="guide-page"><div class="page-head"><div><h1>早上好，陈立</h1><p>围绕需求继续推进。${pending.length} 条需求待处理，${runs.length} 个作业需关注。</p></div><div class="actions">${b('new-requirement', i('plus') + ' 创建需求')}${P.r() ? b('open-work', i('terminal') + ' 继续作业：' + e(P.r().id), { req: P.r().id }, 'primary') : ''}</div></div><div class="guide-grid">` +
+      `<main class="guide-page"><div class="page-head"><div><h1>${P.domainView?.pg() ? '我的工作台 · ' + e(window.PFCAPI.api.user?.name) : '早上好，陈立'}</h1><p>围绕需求继续推进。${pending.length} 条需求待处理，${runs.length} 个作业需关注。</p></div><div class="actions">${b('new-requirement', i('plus') + ' 创建需求')}${P.r() ? b('open-work', i('terminal') + ' 继续作业：' + e(P.r().id), { req: P.r().id }, 'primary') : ''}</div></div><div class="guide-grid">` +
       card(
         i('clock') + ' 我的待办',
         pending
@@ -69,12 +69,14 @@
         ['需求 / 负责人', 'CAP / Unit', '阶段', '待完成', '操作'],
         filtered.map((x) => [
           e(x.id + ' · ' + x.name) + '<p class="muted">' + e(x.owner) + '</p>',
-          e(x.capId) +
-            '<br>' +
-            (x.caps?.length || 1) +
-            ' CAP · ' +
-            x.units.length +
-            ' Units',
+          P.domainView?.pg() && !x.caps?.length
+            ? 'CAP / Unit 尚未建立'
+            : e(x.capId) +
+              '<br>' +
+              (x.caps?.length || 1) +
+              ' CAP · ' +
+              x.units.length +
+              ' Units',
           P.stageName(x.stage),
           e(x.closed ? '已完成' : P.blockers(x).join('；') || '可推进'),
           open(x),
@@ -122,6 +124,8 @@
         `<p class="muted">需求 → CAP → Unit → AC → 产物版本 → 作业/测试 → 证据。下方引用可定位同一条需求。</p>` +
           (() => {
             const cs = P.capStatus(r);
+            if (P.domainView?.pg() && !cs.total)
+              return '<div class="empty-stage">CAP / Unit 尚未建立</div>';
             return (
               cs.caps
                 .map((c) => {

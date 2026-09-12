@@ -1,0 +1,26 @@
+{
+  "status": "FAIL",
+  "phase": "integration",
+  "results": [
+    {
+      "name": "G01 explicit 003 extends immutable 001 and 002",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 fresh role replaces stale token role; inactive and absent deny",
+      "status": "FAIL",
+      "code": "Unexpected end of input"
+    },
+    {
+      "name": "G03 inaccessible storage never falls back to configured role",
+      "status": "FAIL",
+      "code": "Unexpected end of input"
+    },
+    {
+      "name": "G04 body-shaped bridge context cannot bypass human authorization",
+      "status": "FAIL",
+      "code": "Unexpected end of input"
+    }
+  ],
+  "data": "deterministic local fixtures only"
+}

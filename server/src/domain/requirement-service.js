@@ -207,6 +207,22 @@ const { withTransaction } = require('../persistence/transaction');
 const questionRepo = require('../persistence/questions'),
   materialRepo = require('../persistence/materials');
 async function detail(client, db, ctx, row) {
+  const project = row.project_id
+    ? require('./project-service').dto(
+        await require('./project-service').required(
+          client,
+          db,
+          ctx,
+          row.project_id,
+        ),
+      )
+    : null;
+  const capabilityContext = await require('./capability-service').context(
+    client,
+    db,
+    ctx,
+    row,
+  );
   const versions = await repo.versions(client, db, ctx, row.id);
   const reviews = (
     await client.query(
@@ -228,6 +244,17 @@ async function detail(client, db, ctx, row) {
   ).rows;
   return {
     ...dto.req(row),
+    projectId: project?.id || null,
+    project,
+    knowledgeRefs: await require('../persistence/knowledge').refs(
+      client,
+      db,
+      ctx,
+      row.id,
+    ),
+    overrides: capabilityContext.overrides,
+    effectiveCaps: capabilityContext.effectiveCaps,
+    bindingRevision: capabilityContext.bindingRevision,
     audit,
     versions: versions.map((v) =>
       dto.version(
@@ -249,7 +276,7 @@ async function detail(client, db, ctx, row) {
     materials: (await materialRepo.list(client, db, ctx, row.id)).map((m) =>
       dto.material(m, row.public_id),
     ),
-    caps: [],
+    caps: [], // 产品 CAP 尚未接入；工具能力单独通过 effectiveCaps 返回。
     units: [],
   };
 }
@@ -305,9 +332,11 @@ module.exports.listReqs = async (stage, q) => {
     db = runtime.db();
   const rows = (
     await db.pool.query(
-      'SELECT * FROM "' +
+      'SELECT q.*,p.public_id project_public_id FROM "' +
         db.schema +
-        '".reqs WHERE tenant_id=$1 AND ($2::text IS NULL OR stage=$2) AND (name ILIKE $3 OR public_id ILIKE $3) ORDER BY created_at LIMIT 200',
+        '".reqs q LEFT JOIN "' +
+        db.schema +
+        '".projects p ON p.tenant_id=q.tenant_id AND p.id=q.project_id WHERE q.tenant_id=$1 AND ($2::text IS NULL OR q.stage=$2) AND (q.name ILIKE $3 OR q.public_id ILIKE $3) ORDER BY q.created_at LIMIT 200',
       [ctx.tenantId, stage || null, '%' + (q || '') + '%'],
     )
   ).rows;
@@ -320,10 +349,24 @@ module.exports.createReq = async (input) => {
   access.text(input.goal || '', 8000);
   access.text(input.scope || '', 8000);
   access.text(input.owner || ctx.actor, 160, true);
-  if (input.projectId)
-    access.fail('CAPABILITY_UNAVAILABLE', 409, 'PG 尚未接入项目关联');
   return command(db, ctx, 'requirement.create', input, async (client) => {
-    const row = await repo.insert(client, db, ctx, input);
+    const project = input.projectId
+      ? await require('./project-service').required(
+          client,
+          db,
+          ctx,
+          input.projectId,
+        )
+      : null;
+    let row = await repo.insert(client, db, ctx, input);
+    if (project)
+      row = await repo.associateProject(client, db, ctx, row, project.id);
+    const knowledgeRefs = await require('./knowledge-service').capture(
+      client,
+      db,
+      ctx,
+      row,
+    );
     await repo.appendVersion(
       client,
       db,
@@ -348,7 +391,7 @@ module.exports.createReq = async (input) => {
       row,
       'requirement.created',
     );
-    return { req: await detail(client, db, ctx, updated), knowledgeRefs: [] };
+    return { req: await detail(client, db, ctx, updated), knowledgeRefs };
   });
 };
 module.exports.getVersions = async (id, stage) => {
@@ -515,5 +558,17 @@ module.exports.answerQuestion = (id, qid, input) =>
     return { question: dto.question(q, id), version: dto.version(v, id) };
   });
 module.exports.mutate = mutate;
+module.exports.associateProject = (id, input) =>
+  mutate(id, input, 'requirement.project', async (client, db, ctx, row) => {
+    const project = await require('./project-service').required(
+      client,
+      db,
+      ctx,
+      input.projectId,
+    );
+    if (row.project_id !== project.id)
+      await repo.associateProject(client, db, ctx, row, project.id, true);
+    return {};
+  });
 module.exports.detail = detail;
 module.exports.latest = latest;

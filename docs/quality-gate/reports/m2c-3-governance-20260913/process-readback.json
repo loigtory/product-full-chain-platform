@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-09-13T02:46:17.2472854+08:00",
+  "testProcesses": [],
+  "testPorts": [],
+  "originalPg": {
+    "ProcessId": 13528,
+    "Name": "postgres.exe",
+    "CreationDate": "2026-09-10T12:47:17.615295+08:00"
+  },
+  "serviceState": "Stopped"
+}

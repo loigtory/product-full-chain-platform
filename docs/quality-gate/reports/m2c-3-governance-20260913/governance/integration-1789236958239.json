@@ -1,0 +1,820 @@
+{
+  "status": "FAIL",
+  "phase": "integration",
+  "results": [
+    {
+      "name": "G01 explicit 003 extends immutable 001 and 002",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 fresh role replaces stale token role; inactive and absent deny",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 inaccessible storage never falls back to configured role",
+      "status": "PASS"
+    },
+    {
+      "name": "G04 body-shaped bridge context cannot bypass human authorization",
+      "status": "PASS"
+    },
+    {
+      "name": "G01 G02 PG readiness, members and role authority",
+      "status": "PASS"
+    },
+    {
+      "name": "G02 register configured identity, role revision, current JWT, soft disable and replay",
+      "status": "FAIL",
+      "code": "ERR_ASSERTION",
+      "error": "{\"path\":\"/reqs\",\"status\":401,\"body\":{\"error\":{\"code\":\"UNAUTHORIZED\",\"msg\":\"UNAUTHORIZED\"}}}\n\n401 !== 403\n"
+    },
+    {
+      "name": "G03 revoked member socket closes before subsequent sensitive delivery",
+      "status": "PASS"
+    },
+    {
+      "name": "G02 concurrent owner demotion never removes last owner",
+      "status": "PASS"
+    },
+    {
+      "name": "G05 G06 capabilities require review and enablement, binding revision and tenant isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "G08 G09 project metadata, tenant boundary and immutable knowledge references",
+      "status": "FAIL",
+      "code": "ERR_ASSERTION",
+      "error": "{\"path\":\"/projects\",\"status\":403,\"body\":{\"error\":{\"code\":\"FORBIDDEN\",\"msg\":\"FORBIDDEN\"}}}\n\n403 !== 201\n"
+    },
+    {
+      "name": "G10 G11 bounded audit export and budget has no invented usage",
+      "status": "PASS"
+    },
+    {
+      "name": "G07 G14 G15 immutable plan, configuration changes, approver revocation and project guard",
+      "status": "FAIL",
+      "error": "Cannot read properties of undefined (reading 'id')"
+    }
+  ],
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 345,
+        "hash": "378d0dbb67b752a14f2743406d248cbb590098359ffd328413fe0f6a7a1d3d3f"
+      },
+      {
+        "path": "users.json",
+        "size": 838,
+        "hash": "ee4c17b2ef924663a1e7f4ae9da52cafafce1feddeaea369f391e29b6efab4a8"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_governance",
+    "remaining": 0,
+    "totalRows": 55,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "MEM-6"
+    ],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-12T18:15:56.181Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-12T18:15:56.181Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-12T18:15:56.413Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_governance_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-12T18:15:56.409Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "plan": "internal",
+          "created_at": "2026-09-12T18:15:56.409Z"
+        }
+      ],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "6"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "caps",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "domain_events",
+          "value": "11"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "12"
+        }
+      ],
+      "reqs": [],
+      "audit_logs": [
+        {
+          "id": "f3aad5ed-b368-4da0-a1ef-03b64749be5f",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.created",
+          "detail": "role=executor;active=true",
+          "created_at": "2026-09-12T18:15:57.301Z",
+          "entity_type": "member",
+          "entity_id": "MEM-6"
+        },
+        {
+          "id": "6b7d4026-6530-4173-8ff4-070ab3040f5e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-2",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-12T18:15:57.395Z",
+          "entity_type": "member",
+          "entity_id": "MEM-2"
+        },
+        {
+          "id": "30524fbc-adf1-4d83-a5e3-336ba9331dd9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-3",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.disabled",
+          "detail": "role=viewer;active=false",
+          "created_at": "2026-09-12T18:15:57.458Z",
+          "entity_type": "member",
+          "entity_id": "MEM-5"
+        },
+        {
+          "id": "f23ea7f3-bf5f-4eb1-8d1b-fd086428b9de",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-4",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-12T18:15:57.520Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "5ffedb57-3e94-4812-9fe4-59465fc6eb1c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-5",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=owner;active=true",
+          "created_at": "2026-09-12T18:15:57.567Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "130572a7-490f-4102-936d-59839f98045c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-6",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-12T18:15:57.590Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "1a8bbca4-98e1-49a6-91c1-4d5ed37289f9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-7",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=owner;active=true",
+          "created_at": "2026-09-12T18:15:57.630Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "16d368ee-6716-4f08-98a7-28eca9341926",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-8",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "cap.created",
+          "detail": "revision=0",
+          "created_at": "2026-09-12T18:15:57.645Z",
+          "entity_type": "cap",
+          "entity_id": "CP-1"
+        },
+        {
+          "id": "24b5cd8a-c1d0-42d0-a99e-b5d40c85c2ac",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-9",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "cap.reviewed",
+          "detail": "revision=1",
+          "created_at": "2026-09-12T18:15:57.665Z",
+          "entity_type": "cap",
+          "entity_id": "CP-1"
+        },
+        {
+          "id": "06f96abe-dc31-437f-a03c-74ba1869063b",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-10",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "cap.toggled",
+          "detail": "revision=2",
+          "created_at": "2026-09-12T18:15:57.675Z",
+          "entity_type": "cap",
+          "entity_id": "CP-1"
+        },
+        {
+          "id": "f0787bf4-d966-4fbb-af4e-25be289ee1bb",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-11",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "binding.updated",
+          "detail": "count=1",
+          "created_at": "2026-09-12T18:15:57.737Z",
+          "entity_type": "binding",
+          "entity_id": "dev"
+        },
+        {
+          "id": "dddd3f5a-7cbf-41d0-b9a5-8de8e3990a90",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-12",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "audit.export",
+          "detail": "{\"requestId\":\"9c830bf5-abcb-491d-80a8-7527f25dae78\",\"filter\":{\"actor\":null,\"action\":\"cap.created\"},\"count\":1,\"snapshotAt\":\"2026-09-12T18:15:57.830Z\",\"outcome\":\"response-prepared\"}",
+          "created_at": "2026-09-12T18:15:57.830Z",
+          "entity_type": "audit",
+          "entity_id": "9c830bf5-abcb-491d-80a8-7527f25dae78"
+        }
+      ],
+      "req_versions": [],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "materials": [],
+      "material_versions": [],
+      "messages": [],
+      "message_references": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "quality_gates": [],
+      "run_plans": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_ba5783fd-9b55-4591-8e61-5baa81355682",
+          "fingerprint": "b978ec61612ffe05f567e52454ac50220de4b5a4b1a14d9e75f4be203c96e982",
+          "result": {
+            "member": {
+              "id": "MEM-6",
+              "name": "CODEx_TEST_M2C_20260913_governance_pending",
+              "role": "executor",
+              "active": true,
+              "revision": 0,
+              "createdAt": "2026-09-12T18:15:57.301Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.301Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-2",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_86b6a810-f693-4255-9325-e478490d1a97",
+          "fingerprint": "cb63bce82b3345af83650625e5f7d6ec89f8aed71fbc7c8afc42c9b0f2742def",
+          "result": {
+            "member": {
+              "id": "MEM-2",
+              "name": "CODEx_TEST_M2C_20260913_governance_executor",
+              "role": "viewer",
+              "active": true,
+              "revision": 1,
+              "createdAt": "2026-09-12T18:15:56.639Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.395Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.disabled:MEM-5",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_9df347be-6155-44b5-af86-6098cd330329",
+          "fingerprint": "f6a159e87f71313dc9178f9eb5bcc74f4bd0c352f5006b90baa49ba0a936ca63",
+          "result": {
+            "member": {
+              "id": "MEM-5",
+              "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+              "role": "viewer",
+              "active": false,
+              "revision": 1,
+              "createdAt": "2026-09-12T18:15:56.639Z",
+              "disabledAt": "2026-09-12T18:15:57.458Z"
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.458Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_39b93274-ef94-4122-a11e-da1105939f35",
+          "fingerprint": "ccfa36ecad48b090007df2e164a6616cf3bf7cb4e1d8d2823408e311a175e51c",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "viewer",
+              "active": true,
+              "revision": 1,
+              "createdAt": "2026-09-12T18:15:56.639Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.520Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_b74520f7-8236-4a44-a94f-656bd655871c",
+          "fingerprint": "6968c2ab9fa59ce49ad01ae0ed8190befe73b073055156db1dc3be543fde3d02",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "owner",
+              "active": true,
+              "revision": 2,
+              "createdAt": "2026-09-12T18:15:56.639Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.567Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_ada133aa-a311-4613-a1a3-324215bf4df8",
+          "fingerprint": "8d7496577c5acb1fcc7e2ae012ff4f854d0588157a80216c9903efc301e3465c",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "viewer",
+              "active": true,
+              "revision": 3,
+              "createdAt": "2026-09-12T18:15:56.639Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.590Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_8a1800bc-a9de-43e8-9313-a7d2fe795f47",
+          "fingerprint": "ad18d9f9d977f74f4aedb9f6df9c21c7d83a1aba1d9b95a6ad7128c23ddbcb55",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "owner",
+              "active": true,
+              "revision": 4,
+              "createdAt": "2026-09-12T18:15:56.639Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.630Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "cap.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_8487b1c4-1230-4f79-b3f6-6c894c8edaa0",
+          "fingerprint": "a080e4d719c381559e09ff55901b5cc9dc932c4273c60290eb95b0268f272a1d",
+          "result": {
+            "cap": {
+              "id": "CP-1",
+              "src": "synthetic",
+              "ver": "1",
+              "desc": "合成能力，登记不执行",
+              "name": "CODEx_TEST_M2C_20260913_governance_tool",
+              "perm": "仅登记，未调用",
+              "type": "MCP",
+              "enabled": false,
+              "pending": true,
+              "endpoint": "synthetic://read-only",
+              "protocol": "MCP",
+              "revision": 0,
+              "reviewedAt": null,
+              "fingerprint": "a56d902377662f8692262677843eafb6a5318cb538793cedd935ef7ef01407fe"
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.645Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "cap.review:CP-1",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_e5a7eb60-eafa-415e-a095-730dfdf91b72",
+          "fingerprint": "a8b6ffbe1db89194e32140faa3fdf76e9edcabe85e195b411f6a90eeae81198c",
+          "result": {
+            "cap": {
+              "id": "CP-1",
+              "src": "synthetic",
+              "ver": "1",
+              "desc": "合成能力，登记不执行",
+              "name": "CODEx_TEST_M2C_20260913_governance_tool",
+              "perm": "仅登记，未调用",
+              "type": "MCP",
+              "enabled": false,
+              "pending": false,
+              "endpoint": "synthetic://read-only",
+              "protocol": "MCP",
+              "revision": 1,
+              "reviewedAt": "2026-09-12T18:15:57.665Z",
+              "fingerprint": "a56d902377662f8692262677843eafb6a5318cb538793cedd935ef7ef01407fe"
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.665Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "cap.toggle:CP-1",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_fd0b38c8-74ea-4c56-84b1-348cef722927",
+          "fingerprint": "61685fab57485bdde9514c007826d28786ddef46f627e33882f8f478873b2523",
+          "result": {
+            "cap": {
+              "id": "CP-1",
+              "src": "synthetic",
+              "ver": "1",
+              "desc": "合成能力，登记不执行",
+              "name": "CODEx_TEST_M2C_20260913_governance_tool",
+              "perm": "仅登记，未调用",
+              "type": "MCP",
+              "enabled": true,
+              "pending": false,
+              "endpoint": "synthetic://read-only",
+              "protocol": "MCP",
+              "revision": 2,
+              "reviewedAt": "2026-09-12T18:15:57.665Z",
+              "fingerprint": "a56d902377662f8692262677843eafb6a5318cb538793cedd935ef7ef01407fe"
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.675Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "binding.save:dev",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_b31f8044-7889-464e-a925-4055ba95fa81",
+          "fingerprint": "ca9291dd30c7cbe7f041f7ef9060529c64df64dd7b151e7235d582f9c4988181",
+          "result": {
+            "binding": {
+              "stage": "dev",
+              "capIds": [
+                "CP-1"
+              ],
+              "revision": 1
+            }
+          },
+          "created_at": "2026-09-12T18:15:57.737Z"
+        }
+      ],
+      "domain_events": [
+        {
+          "id": "9d17ef20-db5c-410b-8bfa-a95f501fb5ed",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-1",
+          "seq": "1",
+          "aggregate_id": "MEM-6",
+          "revision": 0,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-6",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.301Z"
+        },
+        {
+          "id": "376417b0-3bb2-46d4-8968-8d34340d6d41",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-2",
+          "seq": "2",
+          "aggregate_id": "MEM-2",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-2",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.395Z"
+        },
+        {
+          "id": "bf433b41-8202-4ddc-8f73-5ec22f598299",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-3",
+          "seq": "3",
+          "aggregate_id": "MEM-5",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-5",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.458Z"
+        },
+        {
+          "id": "f1df0560-90b6-4f31-ad3d-c1a6140b90e7",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-4",
+          "seq": "4",
+          "aggregate_id": "MEM-4",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.520Z"
+        },
+        {
+          "id": "c47660cc-ad67-4d34-ac07-fb8ed4a82a52",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-5",
+          "seq": "5",
+          "aggregate_id": "MEM-4",
+          "revision": 2,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.567Z"
+        },
+        {
+          "id": "80f6cee4-a68a-42c2-a2af-4fc957c3715d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-6",
+          "seq": "6",
+          "aggregate_id": "MEM-4",
+          "revision": 3,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.590Z"
+        },
+        {
+          "id": "3d7d165e-de54-4b30-ae3b-993d76f44574",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-7",
+          "seq": "7",
+          "aggregate_id": "MEM-4",
+          "revision": 4,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-12T18:15:57.630Z"
+        },
+        {
+          "id": "0078c533-9f5a-4c99-b841-b71060f387db",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-8",
+          "seq": "8",
+          "aggregate_id": "CP-1",
+          "revision": 0,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "CP-1",
+            "entityType": "cap"
+          },
+          "created_at": "2026-09-12T18:15:57.645Z"
+        },
+        {
+          "id": "a9ffe9c3-2720-4698-a608-cf54ae714184",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-9",
+          "seq": "9",
+          "aggregate_id": "CP-1",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "CP-1",
+            "entityType": "cap"
+          },
+          "created_at": "2026-09-12T18:15:57.665Z"
+        },
+        {
+          "id": "81a66a64-34c0-40c7-9631-737c522459be",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-10",
+          "seq": "10",
+          "aggregate_id": "CP-1",
+          "revision": 2,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "CP-1",
+            "entityType": "cap"
+          },
+          "created_at": "2026-09-12T18:15:57.675Z"
+        },
+        {
+          "id": "7bea3c7d-7495-4f97-99db-67d34ad9375b",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-11",
+          "seq": "11",
+          "aggregate_id": "dev",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "stage": "dev",
+            "entityType": "binding"
+          },
+          "created_at": "2026-09-12T18:15:57.737Z"
+        }
+      ],
+      "members": [
+        {
+          "id": "ef626ae6-17f4-4d49-ae88-215209dfdfb9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:15:56.639Z",
+          "disabled_at": null
+        },
+        {
+          "id": "cf104425-f917-4cbe-836c-f685d0c12a7a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_governance_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:15:56.639Z",
+          "disabled_at": null
+        },
+        {
+          "id": "4240ce63-7455-4c93-bb96-cc7b73d79f1f",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:15:56.639Z",
+          "disabled_at": null
+        },
+        {
+          "id": "68a82c19-8c6e-4ff0-9049-230b5f6ff3b6",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-6",
+          "name": "CODEx_TEST_M2C_20260913_governance_pending",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T18:15:57.301Z",
+          "disabled_at": null
+        },
+        {
+          "id": "2b305bce-1261-4724-9ae7-093de1d24b59",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_governance_executor",
+          "role": "viewer",
+          "active": true,
+          "revision": 1,
+          "created_at": "2026-09-12T18:15:56.639Z",
+          "disabled_at": null
+        },
+        {
+          "id": "25f551bf-7194-41a0-ade4-56d0b4ec8f58",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+          "role": "viewer",
+          "active": false,
+          "revision": 1,
+          "created_at": "2026-09-12T18:15:56.639Z",
+          "disabled_at": "2026-09-12T18:15:57.458Z"
+        },
+        {
+          "id": "81080f0d-7c5e-40ba-b998-0d4926f2c61a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 4,
+          "created_at": "2026-09-12T18:15:56.639Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [
+        {
+          "id": "26474838-d028-4d40-a792-49aff24b1f92",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "CP-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_tool",
+          "type": "MCP",
+          "protocol": "MCP",
+          "endpoint": "synthetic://read-only",
+          "src": "synthetic",
+          "ver": "1",
+          "description": "合成能力，登记不执行",
+          "fingerprint": "a56d902377662f8692262677843eafb6a5318cb538793cedd935ef7ef01407fe",
+          "reviewed_by": "ef626ae6-17f4-4d49-ae88-215209dfdfb9",
+          "reviewed_at": "2026-09-12T18:15:57.665Z",
+          "enabled": true,
+          "revision": 2,
+          "created_at": "2026-09-12T18:15:57.645Z"
+        }
+      ],
+      "binding_sets": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "stage": "dev",
+          "revision": 1
+        }
+      ],
+      "cap_bindings": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "stage": "dev",
+          "cap_id": "26474838-d028-4d40-a792-49aff24b1f92"
+        }
+      ],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "period": "2026-09",
+          "quota": "100",
+          "used": "30",
+          "source": "synthetic-test",
+          "revision": 0
+        }
+      ]
+    },
+    "poolsClosed": true
+  },
+  "data": "deterministic local fixtures only"
+}

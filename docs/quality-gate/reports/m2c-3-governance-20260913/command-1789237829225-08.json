@@ -1,0 +1,10 @@
+{
+  "command": "node server/verify-m2b2-domain.mjs",
+  "executable": "D:\\项目管理\\product-full-chain-platform\\.tools\\node-v24.20.0-win-x64\\node.exe",
+  "startedAt": "2026-09-12T18:32:28.375Z",
+  "endedAt": "2026-09-12T18:32:28.582Z",
+  "exitCode": 0,
+  "status": "PASS",
+  "stdout": "{\"status\":\"PASS\",\"checks\":8,\"results\":[{\"name\":\"new requirement cannot overwrite seeded ID\",\"status\":\"PASS\"},{\"name\":\"run ID reserves nested seed IDs\",\"status\":\"PASS\"},{\"name\":\"retry command returns same pending run\",\"status\":\"PASS\"},{\"name\":\"canonical run readback includes plan and terminal\",\"status\":\"PASS\"},{\"name\":\"whitespace rejection refused without mutation\",\"status\":\"PASS\"},{\"name\":\"rejected plan cannot be approved or executed\",\"status\":\"PASS\"},{\"name\":\"offline simulation readback and repeated start are stable\",\"status\":\"PASS\"},{\"name\":\"cancel advances revision and repeated cancel preserves the terminal result\",\"status\":\"PASS\"}],\"data\":\"CODEx_TEST_M2B2_20260912\",\"cleanup\":\"process-local memory discarded on exit\"}\n",
+  "stderr": ""
+}

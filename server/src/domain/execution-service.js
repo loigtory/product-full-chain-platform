@@ -270,6 +270,7 @@ const runtime = require('../runtime'),
   repo = require('../persistence/runs'),
   reqRepo = require('../persistence/requirements'),
   dto = require('./dto');
+const planPolicy = require('./execution-plan-policy');
 const output = require('../persistence/run-output'),
   leases = require('../persistence/leases'),
   notices = require('../persistence/notices'),
@@ -306,6 +307,12 @@ async function readBundle(client, db, ctx, run) {
           approvedAt: dto.iso(p.approved_at),
           rejectedReason: p.rejected_reason,
           baseline: p.baseline,
+          snapshotVersion: p.snapshot_version,
+          contextSnapshot: p.context_snapshot,
+          contextFingerprint: p.context_fingerprint,
+          approvedMemberId: p.approved_member_public_id || null,
+          approvedRole: p.approved_role,
+          approvedContextFingerprint: p.approved_context_fingerprint,
         }
       : null,
     lines: await output.lines(client, db, ctx, run),
@@ -415,7 +422,16 @@ module.exports.createRun = async (input) => {
       : null;
     if (input.parentId && (!parent || parent.req_id !== req.id))
       access.fail('INVALID_PARENT', 400);
-    const run = await repo.create(client, db, ctx, req, input, parent);
+    const snapshot = await planPolicy.capture(client, db, ctx, req);
+    const run = await repo.create(
+      client,
+      db,
+      ctx,
+      req,
+      input,
+      parent,
+      snapshot,
+    );
     await reqRepo.audit(client, db, ctx, req.id, 'run.created');
     await events.append(
       client,
@@ -430,20 +446,30 @@ module.exports.createRun = async (input) => {
   });
 };
 async function validPlan(client, db, ctx, req, run) {
-  const p = await repo.plan(client, db, ctx, run.id);
-  if (!p || p.baseline !== (await repo.baseline(client, db, ctx, req)))
-    access.fail('STALE_PLAN', 409, '计划基线已变化，请重新发起计划');
-  return p;
+  return planPolicy.valid(client, db, ctx, req, run);
 }
 module.exports.planApprove = (id, by, input = {}) =>
   runCommand(id, input, 'run.approved', async (client, db, ctx, req, run) => {
     if (run.status !== 'WAITING_APPROVAL') access.fail('INVALID_RUN_STATE');
-    await validPlan(client, db, ctx, req, run);
+    const p = await validPlan(client, db, ctx, req, run);
+    if (p.approved_at)
+      access.fail(
+        'PLAN_ALREADY_APPROVED',
+        409,
+        '此计划已批准，历史批准保持不变',
+      );
     await client.query(
       'UPDATE "' +
         db.schema +
-        '".run_plans SET approved_by=$1,approved_at=coalesce(approved_at,now()) WHERE tenant_id=$2 AND run_id=$3 AND rejected_reason IS NULL',
-      [ctx.actor, ctx.tenantId, run.id],
+        '".run_plans SET approved_by=$1,approved_at=now(),approved_member_id=$4,approved_role=$5,approved_context_fingerprint=$6 WHERE tenant_id=$2 AND run_id=$3 AND rejected_reason IS NULL',
+      [
+        ctx.actor,
+        ctx.tenantId,
+        run.id,
+        ctx.memberId,
+        ctx.role,
+        p.context_fingerprint,
+      ],
     );
   });
 module.exports.planReject = (id, reason, input = {}) =>
@@ -480,7 +506,7 @@ module.exports.startRun = async (id, input = {}) => {
     'run.started',
     async (client, db, ctx, req, run) => {
       const p = await validPlan(client, db, ctx, req, run);
-      if (!p.approved_at) access.fail('PLAN_NOT_APPROVED');
+      await planPolicy.approval(client, db, ctx, p);
       if (run.status !== 'WAITING_APPROVAL' || run.started_at)
         access.fail('INVALID_RUN_STATE');
       const bridge = require('../ws').selectBridge(ctx.tenantId);
@@ -663,11 +689,7 @@ module.exports.handoffLease = (input) =>
     },
   );
 async function receive(bridge, m) {
-  const ctx = {
-      tenantId: bridge.tenantId,
-      actor: 'Bridge:' + bridge.id,
-      role: 'bridge',
-    },
+  const ctx = access.internalContext(bridge.tenantId, 'Bridge:' + bridge.id),
     db = runtime.db();
   if (
     !bridge.simulated ||

@@ -2,6 +2,12 @@ import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 
+const evidenceDirectory = process.env.PFC_M2C_EVIDENCE_DIR;
+if (
+  evidenceDirectory !==
+  'docs/quality-gate/reports/m2c-3-governance-20260913/domain'
+)
+  throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
 await integration();
 
 async function integration() {
@@ -35,6 +41,7 @@ async function integration() {
         runId + '_other',
       ],
     );
+    await f.prepareRuntime();
     server = await f.startServer();
     let tokens = {};
     const raw = async (path, method = 'GET', body, who = 'owner') => {
@@ -934,30 +941,33 @@ async function integration() {
       ).req;
     });
     const renewDesign = async () => {
-      const old = req.versions.filter((v) => v.stage === 'design').at(-1);
-      req = (
-        await api(
-          '/reqs/' + req.id + '/versions',
-          'POST',
-          {
-            ...command(),
-            expectedRevision: req.revision,
-            baseVersionId: old.id,
-            stage: 'design',
-            content: old.content,
-          },
-          'owner',
-          201,
-        )
-      ).req;
-      const v = req.versions.filter((v) => v.stage === 'design').at(-1);
-      req = (
-        await api(
-          '/reqs/' + req.id + '/versions/' + v.id + '/confirm',
-          'POST',
-          { ...command(), expectedRevision: req.revision },
-        )
-      ).req;
+      // 003 freezes the latest confirmed idea, requirement and design inputs.
+      for (const stage of ['idea', 'req', 'design']) {
+        const old = req.versions.filter((v) => v.stage === stage).at(-1);
+        req = (
+          await api(
+            '/reqs/' + req.id + '/versions',
+            'POST',
+            {
+              ...command(),
+              expectedRevision: req.revision,
+              baseVersionId: old.id,
+              stage,
+              content: old.content,
+            },
+            'owner',
+            201,
+          )
+        ).req;
+        const v = req.versions.filter((v) => v.stage === stage).at(-1);
+        req = (
+          await api(
+            '/reqs/' + req.id + '/versions/' + v.id + '/confirm',
+            'POST',
+            { ...command(), expectedRevision: req.revision },
+          )
+        ).req;
+      }
     };
     await renewDesign();
     await test('material version invalidates plan and old reference but retains original', async () => {
@@ -1365,7 +1375,7 @@ async function integration() {
         results.push({ status: 'FAIL', cleanup: e.message });
         process.exitCode = 1;
       }
-    const directory = 'docs/quality-gate/reports/m2c-2-domain-20260912';
+    const directory = evidenceDirectory;
     mkdirSync(directory, { recursive: true });
     writeFileSync(
       directory + '/domain.json',

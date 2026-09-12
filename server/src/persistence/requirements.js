@@ -121,6 +121,41 @@ async function getRequirement(db, ctx, publicId) {
 }
 module.exports = { createRequirement, getRequirement, addVersion };
 
+async function associateProject(
+  client,
+  db,
+  ctx,
+  req,
+  projectId,
+  stale = false,
+) {
+  if (stale) {
+    const active = (
+      await client.query(
+        `SELECT 1 FROM "${db.schema}".runs WHERE tenant_id=$1 AND req_id=$2 AND status IN ('WAITING_APPROVAL','RUNNING','CANCELLING','UNKNOWN') LIMIT 1`,
+        [ctx.tenantId, req.id],
+      )
+    ).rows.length;
+    if (active)
+      require('../access').fail(
+        'PROJECT_HAS_ACTIVE_RUN',
+        409,
+        '先取消待批作业；运行结果未知时先核验同一运行',
+      );
+    await client.query(
+      `UPDATE "${db.schema}".req_versions SET stale=true WHERE tenant_id=$1 AND req_id=$2`,
+      [ctx.tenantId, req.id],
+    );
+  }
+  return (
+    await client.query(
+      `UPDATE "${db.schema}".reqs SET project_id=$1 WHERE tenant_id=$2 AND id=$3 RETURNING *`,
+      [projectId, ctx.tenantId, req.id],
+    )
+  ).rows[0];
+}
+module.exports.associateProject = associateProject;
+
 async function lock(client, db, ctx, publicId) {
   const row = (
     await client.query(

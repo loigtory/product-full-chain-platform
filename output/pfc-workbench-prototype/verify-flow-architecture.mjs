@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = dirname(fileURLToPath(import.meta.url)),
   repo = resolve(root, '../..');
 const baseline = 'a9eec73ed65610f09a80f11331edbda1b4252a67';
+const accepted = 'c3f6c1869d1dad06c9b316ff61cbce359eba8358';
 const git = (...args) =>
   execFileSync('git', args, {
     cwd: repo,
@@ -56,8 +57,7 @@ check('exact-approved-scope-and-protected-domain-fingerprints', () => {
     'docs/quality-gate/reports/flow-prototype-20260912.md',
   ]);
   const changed = [
-    ...git('diff', '--name-only', '-z', baseline).split('\0'),
-    ...git('ls-files', '--others', '--exclude-standard', '-z').split('\0'),
+    ...git('diff', '--name-only', '-z', baseline, accepted).split('\0'),
   ].filter(Boolean);
   assert.deepEqual(
     changed.filter(
@@ -80,11 +80,76 @@ check('exact-approved-scope-and-protected-domain-fingerprints', () => {
     'original/guide.css',
   ]) {
     const path = 'output/pfc-workbench-prototype/' + file,
-      actual = normalize(readFileSync(resolve(repo, path), 'utf8'));
+      actual = normalize(git('show', accepted + ':' + path));
     assert.equal(
       actual,
       normalize(git('show', baseline + ':' + path)),
       path + ' changed',
+    );
+    fingerprints[path] = createHash('sha256').update(actual).digest('hex');
+  }
+});
+check('current-governance-scope-and-preserved-reference', () => {
+  const design = readFileSync(
+    resolve(
+      repo,
+      'docs/planning/prototype-v3/31-R1后续治理衔接方案与范围确认-20260913.md',
+    ),
+    'utf8',
+  );
+  const section = design.slice(
+    design.indexOf('## 四、候选实施白名单'),
+    design.indexOf('## 五、隔离数据'),
+  );
+  const files = [
+    ...section.matchAll(/\| \x60((?:server|output)\/[^\x60]+)\x60 \|/g),
+  ].map((m) => m[1]);
+  assert.equal(files.length, 63);
+  const allowed = new Set([
+    ...files,
+    'AGENTS.md',
+    'output/pfc-workbench-prototype/README.md',
+    ...[
+      '19-开发路线图-20260912.md',
+      '20-Codex交接提示词-20260912.md',
+      '31-R1后续治理衔接方案与范围确认-20260913.md',
+      '32-M2c-3实施与验收-20260913.md',
+      'README.md',
+    ].map((p) => 'docs/planning/prototype-v3/' + p),
+    'docs/quality-gate/reports/m2c-3-governance-20260913.md',
+  ]);
+  const changed = [
+    ...git('diff', '--name-only', '-z', accepted).split('\0'),
+    ...git('ls-files', '--others', '--exclude-standard', '-z').split('\0'),
+  ].filter(Boolean);
+  assert.deepEqual(
+    changed.filter(
+      (p) =>
+        !allowed.has(p) &&
+        !/^docs\/quality-gate\/reports\/m2c-3-governance-20260913\/(?:(?:governance|domain|flow|legacy)\/)?[^/]+\.(?:json|png|md)$/.test(
+          p,
+        ),
+    ),
+    [],
+  );
+  for (const name of [
+    'flow-demo-data.js',
+    'flow-model.js',
+    'flow-view.js',
+    'flow-actions.js',
+    'flow.css',
+    'workbench-shell.js',
+    'data-layer.js',
+    'model.js',
+    'base.css',
+    'guide.css',
+  ]) {
+    const path = 'output/pfc-workbench-prototype/original/' + name,
+      actual = normalize(source(name));
+    assert.equal(
+      actual,
+      normalize(git('show', accepted + ':' + path)),
+      name + ' is protected',
     );
     fingerprints[path] = createHash('sha256').update(actual).digest('hex');
   }
@@ -236,10 +301,12 @@ const report = {
   data: 'synthetic VM objects only',
   cleanup: 'process-local objects discarded',
 };
-const evidence = resolve(
-  repo,
-  'docs/quality-gate/reports/flow-prototype-20260912',
+assert.equal(
+  process.env.PFC_FLOW_EVIDENCE_DIR,
+  'docs/quality-gate/reports/m2c-3-governance-20260913/flow',
+  'EXPLICIT_EVIDENCE_TARGET_REQUIRED',
 );
+const evidence = resolve(repo, process.env.PFC_FLOW_EVIDENCE_DIR);
 mkdirSync(evidence, { recursive: true });
 writeFileSync(
   resolve(evidence, 'architecture-report.json'),

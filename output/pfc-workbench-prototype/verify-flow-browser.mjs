@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import {
   fixture,
   ordinaryPage,
   shellSnapshot,
-  evidence,
+  referenceEvidence,
 } from './flow-browser-fixture.mjs';
 const f = await fixture(),
   results = [];
@@ -51,9 +52,15 @@ let createdIds = [],
   cleanup;
 try {
   await check('ordinary-three-width-shell-reference', async () => {
-    const before = JSON.parse(
-      await readFile(resolve(evidence, 'reference-shell.json'), 'utf8'),
+    const reference = (
+      await readFile(resolve(referenceEvidence, 'reference-shell.json'), 'utf8')
+    ).replace(/\r\n/g, '\n');
+    assert.equal(
+      createHash('sha256').update(reference).digest('hex'),
+      '23f1dbf44773c73561ae29a6271e8adbf3486945d6e4a62e38c00fda35ad7069',
+      'accepted reference must remain unchanged',
     );
+    const before = JSON.parse(reference);
     for (const width of [1280, 1440, 1920]) {
       await page.setViewportSize({ width, height: 960 });
       await ordinaryPage(page);

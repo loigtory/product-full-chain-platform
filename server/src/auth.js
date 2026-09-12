@@ -34,7 +34,7 @@ function issue(user) {
   );
 }
 
-function authMiddleware(req, res, next) {
+async function authMiddleware(req, res, next) {
   const h = req.headers.authorization || '';
   if (!h.startsWith('Bearer ')) {
     return res
@@ -44,22 +44,20 @@ function authMiddleware(req, res, next) {
   try {
     req.user = jwt.verify(h.slice(7), SECRET, { algorithms: ['HS256'] });
     if (require('./runtime').isPg()) {
-      const user = require('./runtime')
-        .config()
-        .users.find(
-          (u) =>
-            u.name === req.user.sub &&
-            u.role === req.user.role &&
-            u.tenantId === req.user.tenant,
+      const runtime = require('./runtime');
+      let ctx;
+      try {
+        ctx = await require('./domain/membership-policy').identity(
+          runtime.db(),
+          req.user,
+          runtime.config().users,
         );
-      if (!user)
-        return res
-          .status(403)
-          .json({ error: { code: 'FORBIDDEN', msg: '账号或租户无权限' } });
-      return require('./access').run(
-        { tenantId: user.tenantId, actor: user.name, role: user.role },
-        next,
-      );
+      } catch (e) {
+        return next(e);
+      }
+      req.user.role = ctx.role;
+      req.user.memberId = ctx.memberPublicId;
+      return require('./access').run(ctx, next);
     }
     return next();
   } catch {

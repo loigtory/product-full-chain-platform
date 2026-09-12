@@ -34,7 +34,10 @@ async function start() {
     !users.length ||
     users.some(
       (u) =>
-        !u.name ||
+        typeof u.name !== 'string' ||
+        !u.name.trim() ||
+        u.name !== u.name.trim() ||
+        u.name.length > 160 ||
         !['owner', 'executor', 'viewer'].includes(u.role) ||
         !/^[-a-f0-9]{36}$/.test(u.tenantId || ''),
     )
@@ -47,7 +50,12 @@ async function start() {
     fail('FILE_QUOTA_CONFIG_REQUIRED', 500);
   const filesRoot = resolve(process.env.PFC_FILES_ROOT || '');
   const fileRel = relative(
-    resolve(root, '.local/m2c-2-domain-20260912/files'),
+    resolve(
+      root,
+      process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_governance'
+        ? '.local/m2c-3-governance-20260913/files'
+        : '.local/m2c-2-domain-20260912/files',
+    ),
     filesRoot,
   );
   const workbenchTarget =
@@ -63,7 +71,7 @@ async function start() {
     connectionString: process.env.DATABASE_URL,
     schema: process.env.PFC_DB_SCHEMA,
     authorizedSchema: process.env.PFC_AUTHORIZED_SCHEMA,
-    targetVersion: '002',
+    targetVersion: '003',
   });
   const tenants = (
     await database.pool.query(`SELECT id FROM "${database.schema}".tenants`)
@@ -72,6 +80,7 @@ async function start() {
     await database.close();
     fail('TENANT_NOT_READY', 500);
   }
+  await require('./domain/membership-policy').assertOwners(database, users);
 }
 function db() {
   if (!database || closing) fail('STORAGE_UNAVAILABLE', 503);
@@ -85,7 +94,7 @@ async function health() {
     readiness: true,
     storage: 'pg',
     domainPersistence: true,
-    schemaVersion: '002',
+    schemaVersion: '003',
     supportedActions: [
       'requirements',
       'versions',
@@ -95,8 +104,17 @@ async function health() {
       'simulatedRuns',
       'leases',
       'notices',
+      'members',
+      'caps',
+      'bindings',
+      'projects',
+      'knowledge',
+      'audit',
+      'budgets',
+      'planContext',
     ],
-    unsupportedReason: 'PG 尚未接入治理、项目、知识、测试验收、发布与观察写入',
+    unsupportedReason:
+      'PG 尚未接入关联原型/PRD联动、测试验收、发布与观察写入；真实工具尚未启用',
   };
 }
 async function stop() {

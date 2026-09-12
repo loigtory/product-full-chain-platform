@@ -1,6 +1,6 @@
 (() => {
   const P = window.PFC,
-    { esc: e, btn: b, icon: i } = P,
+    { esc: e, btn: b } = P,
     A = P.actions;
   const commit = (fn, close = true) => {
     P.write();
@@ -105,7 +105,13 @@
         name: f.name.trim(),
         endpoint: f.endpoint?.trim() || '',
         protocol:
-          f.type === 'MCP' ? 'MCP' : f.type === 'ACP' ? 'ACP' : f.type === '终端工具' ? '终端' : '原生 Skill',
+          f.type === 'MCP'
+            ? 'MCP'
+            : f.type === 'ACP'
+              ? 'ACP'
+              : f.type === '终端工具'
+                ? '终端'
+                : '原生 Skill',
         pending: true,
         perm: f.type === 'MCP' ? '已登记只读' : '任务范围内执行',
         ico: 'cpu',
@@ -168,7 +174,8 @@
       P.s.caps.push({
         id: 'CAP-' + ++P.s.seq,
         name: p.name,
-        type: p.protocol === 'ACP' ? 'ACP' : p.protocol === 'MCP' ? 'MCP' : 'Skill',
+        type:
+          p.protocol === 'ACP' ? 'ACP' : p.protocol === 'MCP' ? 'MCP' : 'Skill',
         protocol: p.protocol,
         endpoint: p.endpoint,
         src: p.author,
@@ -210,10 +217,7 @@
   };
   A['save-knowledge'] = () => {
     const f = P.form();
-    P.assert(
-      f['k-title'].trim() && f['k-content'].trim(),
-      '填写标题与内容',
-    );
+    P.assert(f['k-title'].trim() && f['k-content'].trim(), '填写标题与内容');
     commit(() => {
       const kid = 'KN-' + String(P.s.knowledge.length + 1).padStart(2, '0');
       P.s.knowledge.push({

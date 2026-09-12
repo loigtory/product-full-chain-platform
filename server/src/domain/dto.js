@@ -11,7 +11,7 @@ function req(r) {
     revision: r.revision,
     materialRevision: r.material_revision,
     closed: !!r.closed_at,
-    projectId: null,
+    projectId: r.project_public_id || null,
     createdAt: iso(r.created_at),
   };
 }
@@ -85,8 +85,9 @@ function run(r, reqPublicId, parentPublicId = null) {
     startedAt: iso(r.started_at),
     createdAt: iso(r.created_at),
     operation: '模拟开发实现',
-    budget: 0,
-    spent: 0,
+    budget: null,
+    spent: null,
+    budgetSource: 'unconfigured',
   };
 }
 module.exports = { req, version, question, material, run, iso };

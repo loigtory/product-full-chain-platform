@@ -23,6 +23,13 @@ async function command(db, ctx, operation, input, work) {
     fail('COMMAND_ID_REQUIRED', 400);
   const hash = fingerprint(input);
   const result = await withTransaction(db, async (client) => {
+    if (db.targetVersion === '003')
+      await require('../domain/membership-policy').authorizeCommand(
+        client,
+        db,
+        ctx,
+        operation,
+      );
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
       ctx.tenantId + ctx.actor + operation + key,
     ]);
@@ -46,4 +53,29 @@ async function command(db, ctx, operation, input, work) {
   require('../domain/events').kick(); // Only after COMMIT. Event failure must not rewrite command outcome.
   return result;
 }
-module.exports = { command, fingerprint };
+async function governanceAudit(
+  client,
+  db,
+  ctx,
+  entityType,
+  entityId,
+  action,
+  detail = '',
+) {
+  const { allocateIdentifier } = require('./identifiers');
+  const id = await allocateIdentifier(client, db, ctx.tenantId, 'audit_logs');
+  await client.query(
+    `INSERT INTO "${db.schema}".audit_logs(id,tenant_id,public_id,actor,action,detail,entity_type,entity_id) VALUES($1,$2,$3,$4,$5,$6,$7,$8)`,
+    [
+      id.id,
+      ctx.tenantId,
+      id.publicId,
+      ctx.actor,
+      action,
+      detail,
+      entityType,
+      entityId,
+    ],
+  );
+}
+module.exports = { command, fingerprint, governanceAudit };

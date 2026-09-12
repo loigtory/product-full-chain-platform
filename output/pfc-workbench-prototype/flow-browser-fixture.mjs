@@ -4,7 +4,13 @@ import { dirname, resolve, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 export const root = dirname(fileURLToPath(import.meta.url));
-export const evidence = resolve(
+if (
+  process.env.PFC_FLOW_EVIDENCE_DIR !==
+  'docs/quality-gate/reports/m2c-3-governance-20260913/flow'
+)
+  throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
+export const evidence = resolve(process.env.PFC_FLOW_EVIDENCE_DIR);
+export const referenceEvidence = resolve(
   root,
   '../../docs/quality-gate/reports/flow-prototype-20260912',
 );
