@@ -1,0 +1,74 @@
+[
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m2c-pg.mjs.log",
+    "seconds": 2.04,
+    "command": "node server/verify-m2c-pg.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-prototype.mjs.log",
+    "seconds": 79.64,
+    "command": "node output/pfc-workbench-prototype/verify-prototype.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m1-layer.mjs.log",
+    "seconds": 4.55,
+    "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m1-e2e.mjs.log",
+    "seconds": 4.32,
+    "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-server.mjs.log",
+    "seconds": 0.64,
+    "command": "node server/verify-server.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-server-m2.mjs.log",
+    "seconds": 0.71,
+    "command": "node server/verify-server-m2.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m2b.mjs.log",
+    "seconds": 6.78,
+    "command": "node server/verify-m2b.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m2b2-model.mjs.log",
+    "seconds": 0.08,
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m2b2-domain.mjs.log",
+    "seconds": 0.18,
+    "command": "node server/verify-m2b2-domain.mjs"
+  },
+  {
+    "exitCode": 0,
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-verify-m2b2-browser.mjs.log",
+    "seconds": 13.75,
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs"
+  },
+  {
+    "exitCode": 0,
+    "condition": "delay",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-stress-delay.log",
+    "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs"
+  },
+  {
+    "exitCode": 0,
+    "condition": "repaint",
+    "log": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\final-stress-repaint.log",
+    "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs"
+  }
+]

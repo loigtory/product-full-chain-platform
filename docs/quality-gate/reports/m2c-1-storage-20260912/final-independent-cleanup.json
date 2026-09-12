@@ -1,0 +1,17 @@
+{
+  "preservedExistingPG": {
+    "Id": 13528,
+    "ProcessName": "postgres"
+  },
+  "spawnedPersistentProcesses": 0,
+  "at": "2026-09-12T16:38:53.7690378+08:00",
+  "listeningTestPorts": [],
+  "postgres": {
+    "db": "pfc_local",
+    "role": "pfc_app_local",
+    "listen": "127.0.0.1",
+    "remaining": 0
+  },
+  "service": "Stopped",
+  "testHelpers": []
+}

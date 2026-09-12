@@ -1,0 +1,392 @@
+{
+  "status": "PASS",
+  "runId": "CODEx_TEST_M2C_20260912_storage",
+  "results": [
+    {
+      "name": "target-rejected-before-side-effects",
+      "status": "PASS"
+    },
+    {
+      "name": "connect-does-not-migrate-and-readiness-fails",
+      "status": "PASS"
+    },
+    {
+      "name": "versioned-migration-repeat-and-checksum",
+      "status": "PASS"
+    },
+    {
+      "name": "readiness-detects-missing-table-despite-migration-ledger",
+      "status": "PASS"
+    },
+    {
+      "name": "requirement-version-audit-independent-sql-readback",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback-removes-requirement-version-audit-and-counter-change",
+      "status": "PASS"
+    },
+    {
+      "name": "concurrent-identifiers-and-version-conflict-are-atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "tenant-identity-mapping-and-foreign-keys",
+      "status": "PASS"
+    },
+    {
+      "name": "independent-process-restart-preserves-identifiers-and-records",
+      "status": "PASS"
+    },
+    {
+      "name": "connection-and-sql-timeouts-fail-without-memory-fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "cli-refuses-unapproved-target-and-repeats-migration",
+      "status": "PASS"
+    },
+    {
+      "name": "storage-does-not-depend-on-memory-domain-or-change-app-entry",
+      "status": "PASS"
+    },
+    {
+      "name": "cleanup-independent-readback",
+      "status": "PASS"
+    }
+  ],
+  "observations": [
+    {
+      "scenario": "restart",
+      "writerPid": 29312,
+      "readerPid": 15288,
+      "publicId": "R-1045",
+      "uuid": "d2455ff2-571f-4ced-a3b9-6f802578f2b8"
+    }
+  ],
+  "cleanup": {
+    "schema": "codex_test_m2c_20260912_storage",
+    "remaining": 0,
+    "totalRows": 29,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "10000000-0000-4000-8000-000000000001",
+      "10000000-0000-4000-8000-000000000002",
+      "e6ea0b56-d846-4805-88de-64ec25cefb67",
+      "670364a9-bcc5-465f-9e1f-93a3bd7392a9",
+      "eec65aef-0731-4aed-9fc2-62abfa9175e2",
+      "d9e15ac3-4ed5-4df0-ad1f-291716697fa2",
+      "9519972c-d3f0-4c1d-9eed-ce14c7f6ab94",
+      "d2455ff2-571f-4ced-a3b9-6f802578f2b8"
+    ],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-12T08:35:00.592Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260912_storage_A",
+          "plan": "internal",
+          "created_at": "2026-09-12T08:35:00.821Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260912_storage_B",
+          "plan": "internal",
+          "created_at": "2026-09-12T08:35:00.821Z"
+        }
+      ],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "reqs",
+          "value": "1041"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "req_versions",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "audit_logs",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "reqs",
+          "value": "1045"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "req_versions",
+          "value": "6"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "6"
+        }
+      ],
+      "reqs": [
+        {
+          "id": "e6ea0b56-d846-4805-88de-64ec25cefb67",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1041",
+          "name": "CODEx_TEST_M2C_20260912_storage_valid",
+          "goal": "合成提醒",
+          "scope": "仅隔离验证",
+          "owner": "CODEx_TEST_M2C_20260912_storage",
+          "stage": "idea",
+          "created_at": "2026-09-12T08:35:00.907Z",
+          "updated_at": "2026-09-12T08:35:00.907Z"
+        },
+        {
+          "id": "670364a9-bcc5-465f-9e1f-93a3bd7392a9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1042",
+          "name": "CODEx_TEST_M2C_20260912_storage_retry",
+          "goal": "",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260912_storage",
+          "stage": "idea",
+          "created_at": "2026-09-12T08:35:00.930Z",
+          "updated_at": "2026-09-12T08:35:00.930Z"
+        },
+        {
+          "id": "eec65aef-0731-4aed-9fc2-62abfa9175e2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1043",
+          "name": "CODEx_TEST_M2C_20260912_storage_parallel_1",
+          "goal": "",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260912_storage",
+          "stage": "idea",
+          "created_at": "2026-09-12T08:35:00.935Z",
+          "updated_at": "2026-09-12T08:35:00.935Z"
+        },
+        {
+          "id": "d9e15ac3-4ed5-4df0-ad1f-291716697fa2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1044",
+          "name": "CODEx_TEST_M2C_20260912_storage_parallel_2",
+          "goal": "",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260912_storage",
+          "stage": "idea",
+          "created_at": "2026-09-12T08:35:01.008Z",
+          "updated_at": "2026-09-12T08:35:01.008Z"
+        },
+        {
+          "id": "9519972c-d3f0-4c1d-9eed-ce14c7f6ab94",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "R-1041",
+          "name": "CODEx_TEST_M2C_20260912_storage_other_tenant",
+          "goal": "",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260912_storage",
+          "stage": "idea",
+          "created_at": "2026-09-12T08:35:01.025Z",
+          "updated_at": "2026-09-12T08:35:01.025Z"
+        },
+        {
+          "id": "d2455ff2-571f-4ced-a3b9-6f802578f2b8",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1045",
+          "name": "CODEx_TEST_M2C_20260912_storage_restart",
+          "goal": "",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260912_storage",
+          "stage": "idea",
+          "created_at": "2026-09-12T08:35:01.251Z",
+          "updated_at": "2026-09-12T08:35:01.251Z"
+        }
+      ],
+      "req_versions": [
+        {
+          "id": "b7cf3d24-0bc7-470a-8b54-10b6487c2df1",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "e6ea0b56-d846-4805-88de-64ec25cefb67",
+          "public_id": "SV-1",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "title": "提醒草案"
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:00.907Z"
+        },
+        {
+          "id": "8bc9a8a4-feab-417c-81ce-40389d18412a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "670364a9-bcc5-465f-9e1f-93a3bd7392a9",
+          "public_id": "SV-2",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "valid": true
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:00.930Z"
+        },
+        {
+          "id": "7dc06cbf-8520-4c1f-a726-c183df6f1578",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "eec65aef-0731-4aed-9fc2-62abfa9175e2",
+          "public_id": "SV-3",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "title": "CODEx_TEST_M2C_20260912_storage_parallel_1"
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:00.935Z"
+        },
+        {
+          "id": "597e6aab-5649-446a-a617-4daf598b6c81",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "d9e15ac3-4ed5-4df0-ad1f-291716697fa2",
+          "public_id": "SV-4",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "title": "CODEx_TEST_M2C_20260912_storage_parallel_2"
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:01.008Z"
+        },
+        {
+          "id": "66f76264-04ca-4cc6-b8de-dd7af70e8531",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "e6ea0b56-d846-4805-88de-64ec25cefb67",
+          "public_id": "SV-5",
+          "stage": "idea",
+          "version": 2,
+          "content": {},
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:01.018Z"
+        },
+        {
+          "id": "ffdba8ef-7419-426a-b5cb-c2e3505302b2",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "req_id": "9519972c-d3f0-4c1d-9eed-ce14c7f6ab94",
+          "public_id": "SV-1",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "title": "CODEx_TEST_M2C_20260912_storage_other_tenant"
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:01.025Z"
+        },
+        {
+          "id": "04493cfb-e9b9-41d6-8aed-25712157f97e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "d2455ff2-571f-4ced-a3b9-6f802578f2b8",
+          "public_id": "SV-6",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "title": "合成提醒"
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T08:35:01.251Z"
+        }
+      ],
+      "audit_logs": [
+        {
+          "id": "40636aed-c23d-4b16-9030-8b078b21fbc0",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "e6ea0b56-d846-4805-88de-64ec25cefb67",
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:00.907Z"
+        },
+        {
+          "id": "1cc02320-d1b6-4450-8e74-c6620b463b89",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "670364a9-bcc5-465f-9e1f-93a3bd7392a9",
+          "public_id": "A-2",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:00.930Z"
+        },
+        {
+          "id": "96b37273-a64a-409b-bdb2-85726646a01d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "eec65aef-0731-4aed-9fc2-62abfa9175e2",
+          "public_id": "A-3",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:00.935Z"
+        },
+        {
+          "id": "dfc423e1-1214-4bcd-88ae-f3f76f5fd1fd",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "d9e15ac3-4ed5-4df0-ad1f-291716697fa2",
+          "public_id": "A-4",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:01.008Z"
+        },
+        {
+          "id": "c3c4e4ee-8e42-4a35-86bb-8b53df011d6a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "e6ea0b56-d846-4805-88de-64ec25cefb67",
+          "public_id": "A-5",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "version.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:01.018Z"
+        },
+        {
+          "id": "4f74269b-2357-49ed-92b4-84b0cf4c67f7",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "req_id": "9519972c-d3f0-4c1d-9eed-ce14c7f6ab94",
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:01.025Z"
+        },
+        {
+          "id": "c17c728e-b0bc-42ab-b20e-e14956561664",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "d2455ff2-571f-4ced-a3b9-6f802578f2b8",
+          "public_id": "A-6",
+          "actor": "CODEx_TEST_M2C_20260912_storage",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T08:35:01.251Z"
+        }
+      ]
+    },
+    "poolsClosed": true
+  },
+  "evidence": "D:\\项目管理\\product-full-chain-platform\\.local\\m2c-1-storage-20260912\\pg-2026-09-12T08-35-00-324Z",
+  "scope": "isolated PostgreSQL components only; business API still memory; no external effects"
+}

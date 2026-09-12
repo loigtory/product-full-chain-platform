@@ -1,0 +1,47 @@
+[
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/cancelled.png",
+    "sha256": "2c118f7f52a4bd2358240c0b6eff70f89352311398b7c9b2548d4dcc3c8beded",
+    "bytes": 247931
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/complete-1280.png",
+    "sha256": "cf1ebdc616af144d2b2567f8c27f0e9cd3204999577dbe9312038f4b53f86b2b",
+    "bytes": 208834
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/complete-1440.png",
+    "sha256": "9a1fc39f0e29966fac3844bafc39f1e1647490ddded6071ab272161128efd4eb",
+    "bytes": 214597
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/complete-1920.png",
+    "sha256": "e860ea80e2c1f895d53253db00d8ac169d14bc1d299ba5577d70f5fe47bcf9d6",
+    "bytes": 212849
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/long-output.png",
+    "sha256": "6a9eb769790606924b907e21d7efc4f48e09cd87829d52285c858638576d70d8",
+    "bytes": 242299
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/rejected.png",
+    "sha256": "2f256024fb5d525848c57bf8c728fa4a9eaeff473f979021a0d9642878202be0",
+    "bytes": 191334
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/running-1440.png",
+    "sha256": "bc87e2a7b697b8e108ab6f2d87d261d5f39f9ec2f1783826679820f78d2de8c4",
+    "bytes": 217055
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/running-dual-1440.png",
+    "sha256": "3e82b308671b0e3cb9a03705551e0766483e647637f838e67d510a0d3b3e9247",
+    "bytes": 198381
+  },
+  {
+    "path": ".local/m2b2-acceptance-browser-2026-09-12T08-36-39-530Z/unknown.png",
+    "sha256": "ccced6c02c9bbc2fb67020ed840120d1affd20d1c9a6efe806350b10ad7853d4",
+    "bytes": 193435
+  }
+]

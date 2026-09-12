@@ -1,0 +1,192 @@
+[
+  {
+    "path": "output/pfc-workbench-prototype/index.html",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "cdc6b3acaf94489660a8e53f682c854c79a0f7bd872a3d46eea97e62df3f94f1"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/actions.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "ece924c336beb866794ce2c7f430c6fe7de83aa952a1afc96ece6188efd432ef"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/api-client.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "09fe3a148d1c21104cc10285911315b1ce1cc3f8f01a8237d9049016ac5d391f"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/app.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "fb002ddd00dd9eb47d2b8ec9f45b15727377f469c5daf06420beb10d0d00ebc2"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/attachments.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "21812d3cab25863c011babbe6ad8a475e68a02e4a6672662ec774151515ab3ef"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/base.css",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "d491ef83ce6a8630f7735d5f46cbb2969710d0629097f9e5315be12023608511"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/conversation.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "01190b21a64b788afe5bacb85de6053f760058eeea0486d253ff52a25866fbf7"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/data-layer.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "d05715a3b5674cdff9dba054c6fae2aad3a8a2681b55632393eeffa55712a69a"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/data.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "e613fdc1354b6d254466e7eccc4e326c2ebeedb8cebaeac21298ea8f775c10de"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/delivery-actions.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "c6d0235e0ea418d226508dc8fea42c9509048f834171fa311178c45e87bff5b9"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/domain-client.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "1dc39504160bbb1300adc1c815f2bc50ba8fd913e059265dcec02b8dc65b2004"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/downloads.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "a388ed6dbc75848cd335a90841f45bbc64e9d967cbe50681a145009056f637f6"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/governance-actions.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "4dbd6aa26380274bb845ad197eaf1b751aa2f4a100e54c002e55bf56b865e1b8"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/governance.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "442bab421923d8786333e795386ab46397b0e81ac1871ce949911e0cda945d3e"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/guide.css",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "85c61363c00580cf85c581e62314ee264c8ede542d5a1753bbd14047dea67292"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/model.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "048d0821f836249390917f6aeb098cf5150cc77d2be3121031fd1769c989313b"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/run-actions.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "3d385df4e184a323c83987e31026049bcfa3943b00e668d00700737ed4ddb7d6"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/spaces.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "2054a3b9b961f17b3a5b8a17e48381263356908d3d28084816bb34c0cc725baa"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/ui.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "b7bcd639c240dd7e658150f0c8ac928b20d7142d6a7f6be40b09541d4f131e54"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/workbench.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "54c3be9385c9a38ed88abb0a5eb8a708328af26ce6896250be336a7a9f9b2dc4"
+  },
+  {
+    "path": "output/pfc-workbench-prototype/original/ws-client.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "801115405e26bf7f64ba391c79143f114b801cc7578b80f07a6234cf41c9b9b9"
+  },
+  {
+    "path": "server/src/auth.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "fb65877dc88ce5dcdd2b8851edef9e0a8bf2bb047bb453b2a0acdf5801ad9c88"
+  },
+  {
+    "path": "server/src/contract.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "4de0ff43f2216439282882c258ee2de52c7485fa73fab09df425fa362225ae86"
+  },
+  {
+    "path": "server/src/db.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "ae8e1bb31a2c9e4df6ac4a72e091208e70d44be8319c7ee9f2b1f8ea1cd3ce12"
+  },
+  {
+    "path": "server/src/domain/service.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "796552e9650d4d6fc94b6d89e78ed50e81621957ff6a7e63e31bd27fc3a26eba"
+  },
+  {
+    "path": "server/src/domain/state-machine.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "46db2bca03f8eadf2d30a901694b31689d72c3aee436c91e960e9ed1b27f6a42"
+  },
+  {
+    "path": "server/src/domain/store.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "4d5f35d38a8fc2d7f0127a4b3ed759747147715c2d8e60c528bebb6cf2894d1c"
+  },
+  {
+    "path": "server/src/index.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "56ee007b57e6571b5d2e1104ca0a4790864a8ebffbce2dfa9134d20e397bd9bd"
+  },
+  {
+    "path": "server/src/routes/auth.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "93abde24ee21138ead9c812d1c1450edaf13f3a728847a4002ff92c1fc3b2f3e"
+  },
+  {
+    "path": "server/src/routes/batch.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "348ff0ad96b538c7f945e370c936b660db86f7af1239636a8a20d6b9d2d7eb66"
+  },
+  {
+    "path": "server/src/routes/bridges.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "7336f68b790a2f2f7f61c4699ce5d73a752c5a8d46c0908c8aacfdc5eed1af3c"
+  },
+  {
+    "path": "server/src/routes/contract.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "c64f1c30e1e7177e47a7d6c924c5f58701cc3de4227b6107e42cc5ca26b8777b"
+  },
+  {
+    "path": "server/src/routes/leases.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "295fc9c108d8320d4297d590d8cbc652eb2a478cf9543a678faa01b472df8637"
+  },
+  {
+    "path": "server/src/routes/notices.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "518089107f95da4fb6a60661164198256a511bcb021505be3c79f69a4e52255a"
+  },
+  {
+    "path": "server/src/routes/reqs.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "186d62458b7545e9d87e2dae1f3f2500a7a6b52e06ea0ebebb0a51e63c34bb6d"
+  },
+  {
+    "path": "server/src/routes/runs.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "61a3f6c48ff4bffa7a8e6144b7e6a23808a60f5c1d230c6fb245cd4d08b15d13"
+  },
+  {
+    "path": "server/src/routes/state.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "16627b29c1ed3121e13c8875adac902a21a043fce1d27d2cae7486d70533b298"
+  },
+  {
+    "path": "server/src/ws.js",
+    "unchangedFrom": "bc79cd4",
+    "sha256_lf": "8ba32a05b4f1f2e7d16f85d740db301db0f5f2d511721135367d9bcacaa438c1"
+  }
+]
