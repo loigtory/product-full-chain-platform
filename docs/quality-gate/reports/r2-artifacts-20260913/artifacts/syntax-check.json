@@ -1,0 +1,203 @@
+{
+  "at": "2026-09-13T01:48:00.497Z",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe --check <each approved JS/MJS path>",
+  "status": "PASS",
+  "results": [
+    {
+      "path": "server/src/domain/artifact-policy.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/artifact-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/artifact-confirmation-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/artifact-impact-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/artifact-dto.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/prototype-spec.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/persistence/artifacts.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/routes/artifacts.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/index.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/contract.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/runtime.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/requirement-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/material-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/execution-plan-policy.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/execution-service.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/domain/dto.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/persistence/requirements.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/persistence/messages.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/persistence/runs.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/persistence/identifiers.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/files/local-files.js",
+      "status": "PASS"
+    },
+    {
+      "path": "server/src/routes/reqs.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-client.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-view.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-actions.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/prototype-preview.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-view.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-actions.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-domain.js",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/test-data/r2-artifact-fixture.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/verify-r2-artifact-model.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/verify-r2-artifacts.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/verify-r2-architecture.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/test-data/m2c-governance-fixture.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/verify-m2c-governance.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "server/verify-m2c-architecture.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "status": "PASS"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "PASS"
+    }
+  ]
+}

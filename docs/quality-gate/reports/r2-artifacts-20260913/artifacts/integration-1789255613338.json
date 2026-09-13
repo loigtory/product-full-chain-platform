@@ -1,0 +1,172 @@
+{
+  "at": "2026-09-12T23:26:52.450Z",
+  "status": "FAIL",
+  "results": [],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n\n'003' !== '004'\n"
+  },
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 340,
+        "hash": "2f8442f8a61f5f3fe15e26076d8dd5bc90e2e2d12f866f1a3e6d98f9d570a3d6"
+      },
+      {
+        "path": "users.json",
+        "size": 838,
+        "hash": "ee4c17b2ef924663a1e7f4ae9da52cafafce1feddeaea369f391e29b6efab4a8"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_governance",
+    "remaining": 0,
+    "totalRows": 13,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-12T23:26:52.675Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-12T23:26:52.675Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-12T23:26:52.898Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_governance_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-12T23:26:52.895Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "plan": "internal",
+          "created_at": "2026-09-12T23:26:52.895Z"
+        }
+      ],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        }
+      ],
+      "reqs": [],
+      "audit_logs": [],
+      "req_versions": [],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "materials": [],
+      "material_versions": [],
+      "messages": [],
+      "message_references": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "quality_gates": [],
+      "run_plans": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [],
+      "domain_events": [],
+      "members": [
+        {
+          "id": "5f408ead-8dd6-4e76-9a63-06c10ce95c92",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:26:53.125Z",
+          "disabled_at": null
+        },
+        {
+          "id": "17e3a6d1-6aca-49b9-bb89-7f4b246aef7e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_governance_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:26:53.125Z",
+          "disabled_at": null
+        },
+        {
+          "id": "59729df5-e909-4a8b-abac-8cf367943e2a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_governance_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:26:53.125Z",
+          "disabled_at": null
+        },
+        {
+          "id": "2b2e9fc8-7529-4c8b-abf2-8c3012a7cec0",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:26:53.125Z",
+          "disabled_at": null
+        },
+        {
+          "id": "4c3bbd18-3228-4e16-9655-578f8688af03",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:26:53.125Z",
+          "disabled_at": null
+        },
+        {
+          "id": "70807f2c-0ac2-4005-b1a4-ffe41292685d",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:26:53.125Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": []
+    },
+    "poolsClosed": true
+  }
+}

@@ -10,6 +10,27 @@ module.exports = {
     ['me', 'GET /api/auth/me'],
   ],
   reqs: [
+    ['artifactWorkspace', 'GET /api/reqs/:id/artifact-workspace'],
+    ['artifactGroups', 'GET /api/reqs/:id/artifact-groups'],
+    ['artifactGroup', 'GET /api/reqs/:id/artifact-groups/:gid'],
+    ['linkedArtifact', 'GET /api/reqs/:id/linked-artifacts/:vid'],
+    ['artifactProposals', 'GET /api/reqs/:id/artifact-proposals'],
+    ['artifactProposal', 'GET /api/reqs/:id/artifact-proposals/:pid'],
+    ['createArtifactProposal', 'POST /api/reqs/:id/artifact-proposals'],
+    [
+      'adoptArtifactProposal',
+      'POST /api/reqs/:id/artifact-proposals/:pid/adopt',
+    ],
+    [
+      'rejectArtifactProposal',
+      'POST /api/reqs/:id/artifact-proposals/:pid/reject',
+    ],
+    [
+      'confirmBusiness',
+      'POST /api/reqs/:id/artifact-groups/:gid/confirm-business',
+    ],
+    ['confirmDesign', 'POST /api/reqs/:id/artifact-groups/:gid/confirm-design'],
+    ['stageInputs', 'GET /api/reqs/:id/stage-inputs'],
     ['list', 'GET /api/reqs'],
     ['create', 'POST /api/reqs'],
     ['get', 'GET /api/reqs/:id'],

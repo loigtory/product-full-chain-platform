@@ -113,7 +113,7 @@ if (
     const { fixture } = await import('./test-data/m2c-governance-fixture.mjs');
     f = await fixture();
     await test('G01 G02 PG readiness, members and role authority', async () => {
-      assert.equal((await f.api('/health')).schemaVersion, '003');
+      assert.equal((await f.api('/health')).schemaVersion, '004');
       assert.equal((await f.login('viewer')).role, 'viewer');
       const list = await f.api('/members');
       assert.equal(list.total, 5);
@@ -225,7 +225,11 @@ if (
       );
       const { initializeMembers } =
         await import('./scripts/initialize-m2c-members.mjs');
-      await initializeMembers(f.db, f.users);
+      // The 003-only bootstrap fails closed after 004; it must not reset roles.
+      await assert.rejects(
+        initializeMembers(f.db, f.users),
+        (e) => e.code === 'MIGRATION_VERSION_INVALID',
+      );
       assert.equal(
         (await f.api('/members')).items.find((m) => m.id === inactive.id)
           .active,
@@ -590,7 +594,7 @@ if (
         'owner',
         201,
       );
-      assert.equal(plan.plan.snapshotVersion, 1);
+      assert.equal(plan.plan.snapshotVersion, 2);
       const snapshot = plan.plan.contextSnapshot;
       assert.equal(snapshot.project.id, project.id);
       assert.equal(snapshot.artifacts.length, 3);
@@ -990,7 +994,7 @@ const report = {
   cleanup,
   data: 'deterministic local fixtures only',
 };
-const out = 'docs/quality-gate/reports/m2c-3-governance-20260913/governance';
+const out = 'docs/quality-gate/reports/r2-artifacts-20260913/governance';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/' + report.phase + '-' + Date.now() + '.json',

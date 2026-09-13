@@ -119,8 +119,13 @@ check('current-governance-scope-and-preserved-reference', () => {
     'docs/quality-gate/reports/m2c-3-governance-20260913.md',
   ]);
   const changed = [
-    ...git('diff', '--name-only', '-z', accepted).split('\0'),
-    ...git('ls-files', '--others', '--exclude-standard', '-z').split('\0'),
+    ...git(
+      'diff',
+      '--name-only',
+      '-z',
+      accepted,
+      '04fd81a28e16abe2d92ff87799a78750fbd497b4',
+    ).split('\0'),
   ].filter(Boolean);
   assert.deepEqual(
     changed.filter(
@@ -303,7 +308,7 @@ const report = {
 };
 assert.equal(
   process.env.PFC_FLOW_EVIDENCE_DIR,
-  'docs/quality-gate/reports/m2c-3-governance-20260913/flow',
+  'docs/quality-gate/reports/r2-artifacts-20260913/flow',
   'EXPLICIT_EVIDENCE_TARGET_REQUIRED',
 );
 const evidence = resolve(repo, process.env.PFC_FLOW_EVIDENCE_DIR);

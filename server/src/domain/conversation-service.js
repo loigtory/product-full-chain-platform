@@ -133,7 +133,7 @@ module.exports.sendMessage = async (id, input) => {
         ['stopped', ctx.tenantId, row.id, 'generating'],
       );
       const cleanRefs = refs.map(
-        ({ materialVersionId, reqVersionId, ...r }) => ({
+        ({ materialVersionId, reqVersionId, artifactVersionId, ...r }) => ({
           ...r,
           requirementId: id,
         }),
@@ -281,6 +281,12 @@ module.exports.messageDiff = (id, mid, input) =>
         diffRejected: input.decision === 'reject',
       };
       if (input.decision === 'accept') {
+        if (diff.stage === 'req')
+          access.fail(
+            'LINKED_WRITE_REQUIRED',
+            409,
+            '请在关联成果中比较并采纳PRD变更',
+          );
         const v = require('./requirement-service').latest(
           await reqRepo.versions(client, db, ctx, row.id),
           diff.stage,
@@ -319,6 +325,15 @@ module.exports.messageDiff = (id, mid, input) =>
           v.id,
         );
         await reqRepo.staleAfter(client, db, ctx, row.id, diff.stage);
+        if (diff.stage === 'design')
+          await require('./artifact-impact-service').invalidate(
+            client,
+            db,
+            ctx,
+            row,
+            '设计差异采纳',
+            'design',
+          );
         meta.diffDecisions = diff.fields.map((f, i) => ({
           name: f.name,
           accepted: selected.includes(i),

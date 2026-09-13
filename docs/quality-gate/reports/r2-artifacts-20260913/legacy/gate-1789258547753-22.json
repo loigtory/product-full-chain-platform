@@ -1,0 +1,11 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+  "command": "node output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "signal": null,
+  "pid": 28956,
+  "durationMs": 8293,
+  "stdout": "PASS A01/A10 template preview before adoption and required validation\nPASS A10 desktop three widths preserve columns and render preview\nPASS A06 UI business and design confirmation advance atomically\nPASS A12 503 and committed write followed by failed read preserve receipt\nPASS A11 sandbox destroys iframe and forged messages do not mutate parent\n{\"status\":\"PASS\",\"tests\":5}\n",
+  "stderr": ""
+}

@@ -1,0 +1,12 @@
+{
+  "gate": "server/verify-r2-artifact-model.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe server/verify-r2-artifact-model.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 103,
+  "evidence": "legacy/gate-1789265262932-19.json",
+  "at": "2026-09-13T02:10:58.977Z",
+  "stdout": "{\n  \"at\": \"2026-09-13T02:10:58.964Z\",\n  \"status\": \"PASS\",\n  \"results\": [\n    {\n      \"name\": \"A11 prototype schema rejects executable/unknown properties and invalid targets\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A14 bounded prototype permits data text without executing it\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A01/A02 candidate completeness, rule references and independent content comparison\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A12 superseded independent read preserves command receipt and draft\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A14 page, node, table row and payload boundaries fail without truncation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A13 schema004 rechecks current membership before command receipt replay\",\n      \"status\": \"PASS\"\n    }\n  ]\n}\n",
+  "stderr": "",
+  "error": null
+}

@@ -10,8 +10,9 @@ const require = createRequire(import.meta.url);
 export { context, secondContext };
 export const runId = 'CODEx_TEST_M2C_20260913_governance';
 export const schema = 'codex_test_m2c_20260913_governance';
-export async function fixture({ start = true } = {}) {
-  const f = await base({ governance: true });
+export async function fixture({ start = true, artifacts = false } = {}) {
+  const f = await base({ governance: true, artifacts });
+  const { schema, runId } = f;
   const tokens = {};
   let server;
   try {
@@ -118,7 +119,7 @@ export async function fixture({ start = true } = {}) {
             },
           )
         ).req;
-      for (const to of ['req', 'design', 'dev']) {
+      for (const to of ['req']) {
         const v = req.versions
           .filter((v) => v.stage === req.stage)
           .sort((a, b) => b.version - a.version)[0];
@@ -137,7 +138,11 @@ export async function fixture({ start = true } = {}) {
           })
         ).req;
       }
-      return req;
+      return (await import('./r2-artifact-fixture.mjs')).completeArtifacts(
+        api,
+        req,
+        command,
+      );
     };
     return {
       ...f,

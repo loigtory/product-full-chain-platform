@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 94,
+  "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"remote tick does not simulate progress\",\"status\":\"PASS\"},{\"name\":\"WS finds nested run without cross-requirement writes\",\"status\":\"PASS\"},{\"name\":\"duplicate event is ignored\",\"status\":\"PASS\"},{\"name\":\"remote status carries exit code\",\"status\":\"PASS\"},{\"name\":\"older WS status cannot undo cancellation\",\"status\":\"PASS\"},{\"name\":\"remote control cannot enter local verification\",\"status\":\"PASS\"}]}\n",
+  "stderr": ""
+}

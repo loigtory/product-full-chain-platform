@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 4407,
+  "stdout": "{\"check\":\"e2e-badge-api\",\"status\":\"PASS\",\"note\":\"徽标=API 模式\"}\n{\"check\":\"e2e-devlogin-token\",\"status\":\"PASS\",\"note\":\"dev-login 已签发 JWT\"}\n{\"check\":\"e2e-state-loaded\",\"status\":\"PASS\",\"note\":\"状态树已加载（工厂种子或服务端）\"}\n{\"check\":\"e2e-seed-on-server\",\"status\":\"PASS\",\"note\":\"工厂种子已 PUT 到服务端\"}\n{\"check\":\"e2e-flush-synced\",\"status\":\"PASS\",\"note\":\"页面修改已 flush 到服务端 seq=9999\"}\n{\"check\":\"e2e-flush-field\",\"status\":\"PASS\",\"note\":\"字段级修改已同步\"}\n{\"check\":\"e2e-reload-restore\",\"status\":\"PASS\",\"note\":\"重载后从服务端恢复 seq=9999\"}\n{\"check\":\"e2e-no-console-error\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":8,\"results\":[{\"name\":\"e2e-badge-api\",\"status\":\"PASS\",\"note\":\"徽标=API 模式\"},{\"name\":\"e2e-devlogin-token\",\"status\":\"PASS\",\"note\":\"dev-login 已签发 JWT\"},{\"name\":\"e2e-state-loaded\",\"status\":\"PASS\",\"note\":\"状态树已加载（工厂种子或服务端）\"},{\"name\":\"e2e-seed-on-server\",\"status\":\"PASS\",\"note\":\"工厂种子已 PUT 到服务端\"},{\"name\":\"e2e-flush-synced\",\"status\":\"PASS\",\"note\":\"页面修改已 flush 到服务端 seq=9999\"},{\"name\":\"e2e-flush-field\",\"status\":\"PASS\",\"note\":\"字段级修改已同步\"},{\"name\":\"e2e-reload-restore\",\"status\":\"PASS\",\"note\":\"重载后从服务端恢复 seq=9999\"},{\"name\":\"e2e-no-console-error\",\"status\":\"PASS\",\"note\":\"\"}],\"cleanup\":{\"pid\":15980,\"exited\":true,\"port\":5191,\"portFree\":true,\"browserClosed\":true,\"data\":\"synthetic memory discarded\"},\"loginDelayMs\":0}\n",
+  "stderr": ""
+}

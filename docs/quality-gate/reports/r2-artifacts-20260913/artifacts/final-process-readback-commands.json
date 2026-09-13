@@ -1,0 +1,57 @@
+{
+  "at": "2026-09-13T10:13:50.9151999+08:00",
+  "status": "PASS",
+  "scopedNodes": [
+    {
+      "ProcessId": 31152,
+      "ParentProcessId": 38472,
+      "Name": "node.exe",
+      "CreationDate": "2026-09-10T12:49:12.190679+08:00"
+    },
+    {
+      "ProcessId": 37744,
+      "ParentProcessId": 38472,
+      "Name": "node.exe",
+      "CreationDate": "2026-09-10T12:49:12.207908+08:00"
+    },
+    {
+      "ProcessId": 42552,
+      "ParentProcessId": 23656,
+      "Name": "node.exe",
+      "CreationDate": "2026-09-11T00:06:56.439603+08:00"
+    },
+    {
+      "ProcessId": 25260,
+      "ParentProcessId": 19708,
+      "Name": "node.exe",
+      "CreationDate": "2026-09-11T00:06:56.460967+08:00"
+    }
+  ],
+  "extraNodes": [],
+  "playwrightBrowsers": [],
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5432,
+      "OwningProcess": 13528
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5173,
+      "OwningProcess": 37744
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3001,
+      "OwningProcess": 31152
+    }
+  ],
+  "preservedPostgres": [
+    {
+      "ProcessId": 13528,
+      "Name": "postgres.exe",
+      "CreationDate": "2026-09-10T12:47:17.615295+08:00"
+    }
+  ],
+  "note": "Original services and Codex kernels preserved; no round-owned process remains."
+}

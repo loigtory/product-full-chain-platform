@@ -1,6 +1,12 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const entities = Object.freeze({
+  artifact_versions: { prefix: 'AV', initial: 0 },
+  artifact_groups: { prefix: 'AG', initial: 0 },
+  artifact_group_sources: { prefix: 'AS', initial: 0 },
+  artifact_proposals: { prefix: 'AP', initial: 0 },
+  artifact_confirmations: { prefix: 'ACF', initial: 0 },
+  artifact_impacts: { prefix: 'AI', initial: 0 },
   members: { prefix: 'MEM', initial: 0 },
   caps: { prefix: 'CP', initial: 0 },
   projects: { prefix: 'PRJ', initial: 0 },

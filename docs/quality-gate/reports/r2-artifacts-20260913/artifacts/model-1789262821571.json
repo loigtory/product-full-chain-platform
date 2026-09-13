@@ -1,0 +1,32 @@
+{
+  "at": "2026-09-13T01:27:01.569Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "A11 prototype schema rejects executable/unknown properties and invalid targets",
+      "status": "PASS"
+    },
+    {
+      "name": "A14 bounded prototype permits data text without executing it",
+      "status": "PASS"
+    },
+    {
+      "name": "A01/A02 candidate completeness, rule references and independent content comparison",
+      "status": "PASS"
+    },
+    {
+      "name": "A12 superseded independent read preserves command receipt and draft",
+      "status": "FAIL",
+      "error": "Background refresh must share the post-write readback\n+ actual - expected\n\n+ [Function (anonymous)]\n- [Function (anonymous)]\n"
+    },
+    {
+      "name": "A14 page, node, table row and payload boundaries fail without truncation",
+      "status": "PASS"
+    },
+    {
+      "name": "A13 schema004 rechecks current membership before command receipt replay",
+      "status": "FAIL",
+      "error": "Missing expected rejection."
+    }
+  ]
+}

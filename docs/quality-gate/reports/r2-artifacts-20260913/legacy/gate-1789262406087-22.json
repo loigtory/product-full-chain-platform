@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 15754,
+  "stdout": "PASS A01/A10 template preview before adoption and required validation\nPASS A10 desktop three widths preserve columns and render preview\nPASS A12 background readback during a pointer gesture preserves intended comparison\nPASS A06 UI business and design confirmation advance atomically\nPASS A12 503 and committed write followed by failed read preserve receipt\nPASS A11 sandbox destroys iframe and forged messages do not mutate parent\nPASS A11 HTML original import is escaped, bytes downloadable, never executed\nPASS A10 JSON candidate supports page navigation, dialog, state and rule location\nPASS A12 revision conflict keeps editable draft across close, reload and explicit rebase\nPASS A12 late comparison response cannot open an artifact from another requirement\n{\"status\":\"PASS\",\"tests\":10}\n",
+  "stderr": ""
+}

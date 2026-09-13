@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-13T02:12:57.296Z",
+  "status": "PASS",
+  "command": "read-only pg_namespace exact four names; readdir exact three roots",
+  "target": {
+    "db": "pfc_local",
+    "role": "pfc_app_local",
+    "listen": "127.0.0.1"
+  },
+  "schemas": [
+    "codex_test_m2c_20260913_artifacts",
+    "codex_test_m2c_20260913_governance",
+    "codex_test_m2c_20260912_domain",
+    "codex_test_m2c_20260912_storage"
+  ],
+  "remaining": [],
+  "files": [
+    {
+      "root": ".local/r2-artifacts-20260913/files",
+      "remaining": []
+    },
+    {
+      "root": ".local/m2c-3-governance-20260913/files",
+      "remaining": []
+    },
+    {
+      "root": ".local/m2c-2-domain-20260912/files",
+      "remaining": []
+    }
+  ]
+}

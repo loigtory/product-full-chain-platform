@@ -55,8 +55,16 @@ const governanceTables = [
   'knowledge_links',
   'budget_accounts',
 ];
+const artifactTables = [
+  'artifact_versions',
+  'artifact_groups',
+  'artifact_group_sources',
+  'artifact_proposals',
+  'artifact_confirmations',
+  'artifact_impacts',
+];
 function registry(target = '001') {
-  if (!['001', '002', '003'].includes(target))
+  if (!['001', '002', '003', '004'].includes(target))
     throw error('MIGRATION_VERSION_INVALID');
   const list = [baseline()];
   if (target !== '001') {
@@ -70,13 +78,24 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (target === '003') {
+  if (['003', '004'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/003-governance-projects.sql'),
       'utf8',
     ).replace(/\r\n/g, '\n');
     list.push({
       version: '003',
+      sql,
+      checksum: createHash('sha256').update(sql).digest('hex'),
+    });
+  }
+  if (target === '004') {
+    const sql = readFileSync(
+      resolve(__dirname, '../../sql/m2c/004-linked-artifacts.sql'),
+      'utf8',
+    ).replace(/\r\n/g, '\n');
+    list.push({
+      version: '004',
       sql,
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
@@ -130,7 +149,8 @@ async function assertReady(
     ![
       ...tables,
       ...(target !== '001' ? domainTables : []),
-      ...(target === '003' ? governanceTables : []),
+      ...(['003', '004'].includes(target) ? governanceTables : []),
+      ...(target === '004' ? artifactTables : []),
     ].every((t) => actual.includes(t))
   )
     throw error('MIGRATION_NOT_READY');
@@ -194,7 +214,8 @@ async function assertReady(
       )
         throw error('MIGRATION_NOT_READY');
   }
-  if (target === '003') {
+  if (target === '004') await assertArtifacts(db, queryable);
+  if (['003', '004'].includes(target)) {
     const columns = (
       await queryable.query(
         'SELECT table_name,column_name FROM information_schema.columns WHERE table_schema=$1',
@@ -237,6 +258,41 @@ async function assertReady(
         )
           throw error('MIGRATION_NOT_READY');
   }
+}
+async function assertArtifacts(db, client) {
+  const rows = (
+    await client.query(
+      'SELECT c.relname,k.contype,k.convalidated FROM pg_constraint k JOIN pg_class c ON c.oid=k.conrelid JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname=$1',
+      [db.schema],
+    )
+  ).rows;
+  for (const table of artifactTables)
+    for (const type of ['p', 'f'])
+      if (
+        !rows.some(
+          (x) => x.relname === table && x.contype === type && x.convalidated,
+        )
+      )
+        throw error('MIGRATION_NOT_READY');
+  const triggers = (
+    await client.query(
+      'SELECT t.tgname,t.tgenabled FROM pg_trigger t JOIN pg_class c ON c.oid=t.tgrelid JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname=$1 AND NOT t.tgisinternal',
+      [db.schema],
+    )
+  ).rows;
+  for (const name of [
+    'artifact_versions_immutable',
+    'artifact_groups_immutable',
+    'artifact_sources_immutable',
+    'artifact_confirmations_immutable',
+    'artifact_proposal_immutable',
+    'artifact_proposal_no_delete',
+    'artifact_prd_content_immutable',
+    'artifact_group_kind',
+    'artifact_source_owner',
+  ])
+    if (!triggers.some((t) => t.tgname === name && t.tgenabled === 'O'))
+      throw error('MIGRATION_NOT_READY');
 }
 async function migrate(db, options = {}) {
   db.assertScope();
@@ -319,4 +375,5 @@ module.exports = {
   tables,
   domainTables,
   governanceTables,
+  artifactTables,
 };

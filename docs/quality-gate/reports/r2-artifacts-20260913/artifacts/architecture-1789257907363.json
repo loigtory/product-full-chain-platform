@@ -1,0 +1,7 @@
+{
+  "at": "2026-09-13T00:05:07.359Z",
+  "status": "FAIL",
+  "results": [],
+  "fingerprints": {},
+  "error": "spawnSync git EPERM"
+}
