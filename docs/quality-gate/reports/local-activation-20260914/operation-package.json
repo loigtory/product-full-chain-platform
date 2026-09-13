@@ -1,0 +1,202 @@
+{
+  "at": "2026-09-13T19:30:05.480Z",
+  "status": "PENDING_USER_CONFIRMATION",
+  "packageId": "LOCAL_ACTIVATION_20260914_E1_E6",
+  "proposal": "docs/planning/prototype-v3/42-本机启用方案与范围确认-20260914.md",
+  "acceptedSourceCommit": "e3f5d455d274cb95af4493138031e86da0236953",
+  "integratedMainCommit": "a20e16e53fa0d5661bd81f830749864a31dba3fd",
+  "implementationChangesAllowed": false,
+  "scope": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "E6"
+  ],
+  "primaryTarget": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "pfc_local",
+    "role": "pfc_app_local",
+    "schema": "pfc_workbench",
+    "apiPort": 5188,
+    "owner": "陈立",
+    "workspace": "陈立的工作空间",
+    "roots": [
+      ".local/pfc-workbench",
+      ".local/pfc-workbench-files",
+      ".local/pfc-workbench-backups"
+    ]
+  },
+  "initialization": {
+    "emptyTargetRequired": true,
+    "tables": 58,
+    "migrationRows": 6,
+    "tenants": 1,
+    "owners": 1,
+    "otherBusinessRows": 0,
+    "maximumOwnedResumeAttempts": 1,
+    "existingMigrations": [
+      {
+        "version": "001",
+        "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+        "tables": [
+          "tenants",
+          "id_counters",
+          "reqs",
+          "req_versions",
+          "audit_logs"
+        ]
+      },
+      {
+        "version": "002",
+        "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+        "tables": [
+          "req_version_reviews",
+          "questions",
+          "file_objects",
+          "materials",
+          "material_versions",
+          "messages",
+          "message_references",
+          "runs",
+          "run_plans",
+          "run_lines",
+          "replays",
+          "quality_gates",
+          "leases",
+          "notices",
+          "notice_reads",
+          "command_receipts",
+          "domain_events"
+        ]
+      },
+      {
+        "version": "003",
+        "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+        "tables": [
+          "members",
+          "caps",
+          "binding_sets",
+          "cap_bindings",
+          "req_cap_overrides",
+          "projects",
+          "knowledge",
+          "knowledge_links",
+          "budget_accounts"
+        ]
+      },
+      {
+        "version": "004",
+        "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+        "tables": [
+          "artifact_versions",
+          "artifact_groups",
+          "artifact_group_sources",
+          "artifact_proposals",
+          "artifact_confirmations",
+          "artifact_impacts"
+        ]
+      },
+      {
+        "version": "005",
+        "checksum": "5a7120022fa3183351327245e77683d2601976e2a69bddfad4823758849cd354",
+        "tables": [
+          "test_suites",
+          "test_cases",
+          "delivery_baselines",
+          "test_batches",
+          "test_results",
+          "defects",
+          "defect_events",
+          "product_acceptances",
+          "verification_refs"
+        ]
+      },
+      {
+        "version": "006",
+        "checksum": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076",
+        "tables": [
+          "release_plans",
+          "release_reviews",
+          "release_attempts",
+          "release_result_events",
+          "release_observations",
+          "release_metric_events",
+          "release_followups",
+          "release_followup_events",
+          "final_acceptances",
+          "release_returns",
+          "release_refs"
+        ]
+      }
+    ]
+  },
+  "restore": {
+    "count": 1,
+    "source": "First empty-workspace registered backup only; no user materials",
+    "port": 5548,
+    "apiPort": 5198,
+    "physicalParent": ".local/local-use-baseline-20260913/restore",
+    "runIdRule": "CODEx_TEST_M2C_20260913_localuse_<tool-generated-UUID>",
+    "schema": "pfc_workbench",
+    "maxBytes": 1073741824,
+    "maxDurationMs": 120000,
+    "cleanup": "Only owned temporary cluster/API/runId root after identity/path checks and independent readback",
+    "sourceWrites": false,
+    "cutback": false
+  },
+  "limits": {
+    "maxCompletedBackupsThisRun": 2,
+    "systemCompletedBackupLimit": 7,
+    "backupRootMaxBytes": 1073741824,
+    "fileQuotaBytes": 104857600,
+    "singleFileMaxBytes": 10485760,
+    "uploadConcurrency": 2,
+    "minFreeDiskBytes": 3221225472,
+    "startReadyDeadlineMs": 20000,
+    "sessions": 4,
+    "sessionIdleMinutes": 30,
+    "sessionAbsoluteHours": 8
+  },
+  "observation": {
+    "duration": "One actual owner workday from first personal use; exact timestamps and owner confirmation required",
+    "retainedProcess": "Owned loopback5188 service and CLI controller with exact PIDs; no scheduler or remote tools",
+    "checkpoints": [
+      "handoff",
+      "after first actual use",
+      "owner workday closeout"
+    ],
+    "stateUntilOwnerConclusion": "LOCAL_ENABLED / OBSERVING"
+  },
+  "rollback": "Stop owned5188 service; retain schema/files/config/backups; no business DROP/reset/overwrite recovery",
+  "git": {
+    "branch": "feat/local-activation",
+    "featureOpeningClosingCommitAndPush": true,
+    "mainMerge": false
+  },
+  "executionDocuments": [
+    "AGENTS.md",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+    "docs/planning/prototype-v3/42-本机启用方案与范围确认-20260914.md",
+    "docs/planning/prototype-v3/43-本机启用与观察记录-20260914.md",
+    "docs/planning/prototype-v3/README.md",
+    "output/pfc-workbench-prototype/README.md"
+  ],
+  "evidenceRoot": "docs/quality-gate/reports/local-activation-20260914",
+  "evidencePolicy": "Redacted JSON/Markdown only. No real business payloads, credentials, cookies, connection URLs, raw logs or backups in Git.",
+  "forbidden": [
+    "source/SQL/dependency/formal-ledger/historical-evidence edits",
+    "new fixtures or business CRUD test seeds",
+    "production/SIT/staging/remote database writes",
+    "real AI/Shell/IDE Bridge/CI/deployment",
+    "business overwrite restore/DROP/key reset",
+    "branch deletion",
+    "subagents"
+  ],
+  "pod": "POD-PFC-001",
+  "milestone": "M2",
+  "next": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+}
