@@ -1,0 +1,290 @@
+{
+  "at": "2026-09-13T21:39:31.727Z",
+  "status": "PASS",
+  "command": "independent PG BEGIN READ ONLY table counts/migration/ownership plus file metadata",
+  "attemptId": "e19af7b9-9cce-425b-95db-9dd059e519d9",
+  "schemaOid": 1314193,
+  "ownership": {
+    "oid": 1314193,
+    "owned": true,
+    "marker": "PFC_WORKBENCH_M2C_002"
+  },
+  "tableCounts": [
+    {
+      "table": "artifact_confirmations",
+      "rows": 0
+    },
+    {
+      "table": "artifact_group_sources",
+      "rows": 0
+    },
+    {
+      "table": "artifact_groups",
+      "rows": 0
+    },
+    {
+      "table": "artifact_impacts",
+      "rows": 0
+    },
+    {
+      "table": "artifact_proposals",
+      "rows": 0
+    },
+    {
+      "table": "artifact_versions",
+      "rows": 0
+    },
+    {
+      "table": "audit_logs",
+      "rows": 0
+    },
+    {
+      "table": "binding_sets",
+      "rows": 0
+    },
+    {
+      "table": "budget_accounts",
+      "rows": 0
+    },
+    {
+      "table": "cap_bindings",
+      "rows": 0
+    },
+    {
+      "table": "caps",
+      "rows": 0
+    },
+    {
+      "table": "command_receipts",
+      "rows": 0
+    },
+    {
+      "table": "defect_events",
+      "rows": 0
+    },
+    {
+      "table": "defects",
+      "rows": 0
+    },
+    {
+      "table": "delivery_baselines",
+      "rows": 0
+    },
+    {
+      "table": "domain_events",
+      "rows": 0
+    },
+    {
+      "table": "file_objects",
+      "rows": 0
+    },
+    {
+      "table": "final_acceptances",
+      "rows": 0
+    },
+    {
+      "table": "id_counters",
+      "rows": 0
+    },
+    {
+      "table": "knowledge",
+      "rows": 0
+    },
+    {
+      "table": "knowledge_links",
+      "rows": 0
+    },
+    {
+      "table": "leases",
+      "rows": 0
+    },
+    {
+      "table": "material_versions",
+      "rows": 0
+    },
+    {
+      "table": "materials",
+      "rows": 0
+    },
+    {
+      "table": "members",
+      "rows": 1
+    },
+    {
+      "table": "message_references",
+      "rows": 0
+    },
+    {
+      "table": "messages",
+      "rows": 0
+    },
+    {
+      "table": "notice_reads",
+      "rows": 0
+    },
+    {
+      "table": "notices",
+      "rows": 0
+    },
+    {
+      "table": "product_acceptances",
+      "rows": 0
+    },
+    {
+      "table": "projects",
+      "rows": 0
+    },
+    {
+      "table": "quality_gates",
+      "rows": 0
+    },
+    {
+      "table": "questions",
+      "rows": 0
+    },
+    {
+      "table": "release_attempts",
+      "rows": 0
+    },
+    {
+      "table": "release_followup_events",
+      "rows": 0
+    },
+    {
+      "table": "release_followups",
+      "rows": 0
+    },
+    {
+      "table": "release_metric_events",
+      "rows": 0
+    },
+    {
+      "table": "release_observations",
+      "rows": 0
+    },
+    {
+      "table": "release_plans",
+      "rows": 0
+    },
+    {
+      "table": "release_refs",
+      "rows": 0
+    },
+    {
+      "table": "release_result_events",
+      "rows": 0
+    },
+    {
+      "table": "release_returns",
+      "rows": 0
+    },
+    {
+      "table": "release_reviews",
+      "rows": 0
+    },
+    {
+      "table": "replays",
+      "rows": 0
+    },
+    {
+      "table": "req_cap_overrides",
+      "rows": 0
+    },
+    {
+      "table": "req_version_reviews",
+      "rows": 0
+    },
+    {
+      "table": "req_versions",
+      "rows": 0
+    },
+    {
+      "table": "reqs",
+      "rows": 0
+    },
+    {
+      "table": "run_lines",
+      "rows": 0
+    },
+    {
+      "table": "run_plans",
+      "rows": 0
+    },
+    {
+      "table": "runs",
+      "rows": 0
+    },
+    {
+      "table": "schema_migrations",
+      "rows": 6
+    },
+    {
+      "table": "tenants",
+      "rows": 1
+    },
+    {
+      "table": "test_batches",
+      "rows": 0
+    },
+    {
+      "table": "test_cases",
+      "rows": 0
+    },
+    {
+      "table": "test_results",
+      "rows": 0
+    },
+    {
+      "table": "test_suites",
+      "rows": 0
+    },
+    {
+      "table": "verification_refs",
+      "rows": 0
+    }
+  ],
+  "migrations": [
+    {
+      "version": "001",
+      "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021"
+    },
+    {
+      "version": "002",
+      "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b"
+    },
+    {
+      "version": "003",
+      "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3"
+    },
+    {
+      "version": "004",
+      "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026"
+    },
+    {
+      "version": "005",
+      "checksum": "5a7120022fa3183351327245e77683d2601976e2a69bddfad4823758849cd354"
+    },
+    {
+      "version": "006",
+      "checksum": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076"
+    }
+  ],
+  "tenant": {
+    "id": "a8dc197a-8b20-4831-ad93-c7d20ae77050",
+    "name": "陈立的工作空间"
+  },
+  "owner": {
+    "id": "4e40d7a9-ce61-4380-bd2f-1ce1fb46b409",
+    "tenantId": "a8dc197a-8b20-4831-ad93-c7d20ae77050",
+    "role": "owner",
+    "active": true
+  },
+  "businessRows": 0,
+  "originalFiles": 0,
+  "keyFileFormatValid": true,
+  "keyContentsRecorded": false,
+  "profileState": "READY",
+  "nonTargetStructureUnchanged": true,
+  "nonTargetStructureHash": "a3f3d43d3676291237a8abc6c264ede3b131e2ed84da1fcccf027e6218231377",
+  "databaseWrites": false
+}

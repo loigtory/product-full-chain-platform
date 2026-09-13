@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-13T21:39:30.901Z",
+  "command": "node server/scripts/local-workbench.mjs initialize",
+  "authorization": "authorization-execution.json",
+  "chunk_id": "4651bc",
+  "wall_time_seconds": 6.3310892,
+  "exit_code": 0,
+  "original_token_count": 35,
+  "output": "{\"status\":\"INITIALIZED\",\"schemaVersion\":\"006\",\"tenants\":1,\"owners\":1,\"requirements\":0,\"attemptId\":\"e19af7b9-9cce-425b-95db-9dd059e519d9\"}\n"
+}

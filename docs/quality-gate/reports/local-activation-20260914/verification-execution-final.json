@@ -1,0 +1,115 @@
+{
+  "at": "2026-09-13T22:02:40.304Z",
+  "status": "PASS",
+  "classification": "system iteration / strict runtime activation, unchanged product source",
+  "documents": [
+    "AGENTS.md",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+    "docs/planning/prototype-v3/42-本机启用方案与范围确认-20260914.md",
+    "docs/planning/prototype-v3/43-本机启用与观察记录-20260914.md",
+    "docs/planning/prototype-v3/README.md",
+    "output/pfc-workbench-prototype/README.md"
+  ],
+  "priorExecution": {
+    "status": "BLOCKED",
+    "error": "spawnSync git EPERM",
+    "resolution": "Same readonly Git checks with approved subprocess access; no source changes"
+  },
+  "branch": "feat/local-activation",
+  "openingCommit": "d9dfa7a5d2a62b6ded4a4c3d71599a0379ab63aa",
+  "refreshedMain": "a20e16e53fa0d5661bd81f830749864a31dba3fd",
+  "sourceHashes": 68,
+  "protectedHashes": 3009,
+  "immutableEvidence": 9,
+  "original35Gates": {
+    "status": "PASS",
+    "commands": 35,
+    "rerun": false,
+    "sha256": "49004e30b6dc5abcf394a162f4bc5a2430f15fe22af8c0e35b153da2cf967a79",
+    "reason": "68 accepted source hashes identical; current run executes actual activation checks only"
+  },
+  "scope": {
+    "modified": [
+      "AGENTS.md",
+      "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+      "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+      "docs/planning/prototype-v3/42-本机启用方案与范围确认-20260914.md",
+      "docs/planning/prototype-v3/43-本机启用与观察记录-20260914.md",
+      "docs/planning/prototype-v3/README.md",
+      "output/pfc-workbench-prototype/README.md"
+    ],
+    "untracked": [
+      "docs/quality-gate/reports/local-activation-20260914/api-readiness.json",
+      "docs/quality-gate/reports/local-activation-20260914/backup-acl-readback.json",
+      "docs/quality-gate/reports/local-activation-20260914/backup-readback.json",
+      "docs/quality-gate/reports/local-activation-20260914/backup-result.json",
+      "docs/quality-gate/reports/local-activation-20260914/browser-final-cleanup.json",
+      "docs/quality-gate/reports/local-activation-20260914/browser-first-cleanup.json",
+      "docs/quality-gate/reports/local-activation-20260914/browser-readiness-final.json",
+      "docs/quality-gate/reports/local-activation-20260914/browser-readiness.json",
+      "docs/quality-gate/reports/local-activation-20260914/initialize-acl-readback.json",
+      "docs/quality-gate/reports/local-activation-20260914/initialize-readback.json",
+      "docs/quality-gate/reports/local-activation-20260914/initialize-result.json",
+      "docs/quality-gate/reports/local-activation-20260914/process-acl-final.json",
+      "docs/quality-gate/reports/local-activation-20260914/readiness-execution-final.json",
+      "docs/quality-gate/reports/local-activation-20260914/restore-independent-readback.json",
+      "docs/quality-gate/reports/local-activation-20260914/restore-result.json",
+      "docs/quality-gate/reports/local-activation-20260914/runtime-independent-final.json",
+      "docs/quality-gate/reports/local-activation-20260914/start-request.json",
+      "docs/quality-gate/reports/local-activation-20260914/start-status.json",
+      "docs/quality-gate/reports/local-activation-20260914/verification-execution-final.json"
+    ],
+    "allInWhitelist": true,
+    "sourceChanges": 0
+  },
+  "localLinks": 119,
+  "jsonFiles": 27,
+  "sensitiveValueScan": {
+    "files": 34,
+    "leaks": 0,
+    "actualPrivateValues": "Compared in memory, never emitted",
+    "runtimeAssetsIgnored": true
+  },
+  "format": {
+    "command": "pinned Node node_modules/prettier/bin/prettier.cjs --ignore-path NUL --check <seven exact authorized documents>",
+    "exitCode": 0,
+    "status": "PASS",
+    "previous": "First explicit check found4 formatting warnings; formatted only those documents and reran PASS"
+  },
+  "diffCheck": {
+    "command": "git diff --check",
+    "exitCode": 0,
+    "status": "PASS"
+  },
+  "review": {
+    "status": "PASS",
+    "method": "Controller source/evidence/scope/link/secret review and screenshot inspection",
+    "independentAgent": false,
+    "blockingFindings": [],
+    "resolvedFindings": [
+      "Updated stale current-state and reusable-template references to actual E1-E4 authorization and E5 exclusion; retained historical proposal facts",
+      "4 document formatting warnings fixed; no source modifications"
+    ]
+  },
+  "runtimeEvidence": "readiness-execution-final.json",
+  "gitCloseout": "Verification complete before feature closing commit; push/readback still performed after this record",
+  "configChecks": [
+    {
+      "command": "npm run check:config",
+      "chunk_id": "1faa25",
+      "wall_time_seconds": 1.0207016,
+      "exit_code": 0,
+      "original_token_count": 34,
+      "output": "\n> product-full-chain-platform@0.0.0 check:config\n> node scripts/check-config.mjs\n\nBOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n"
+    },
+    {
+      "command": "npm run check:delivery-governance",
+      "chunk_id": "fe2309",
+      "wall_time_seconds": 1.0798799,
+      "exit_code": 0,
+      "original_token_count": 60,
+      "output": "\n> product-full-chain-platform@0.0.0 check:delivery-governance\n> node --import tsx scripts/check-delivery-governance.ts\n\nDELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n"
+    }
+  ]
+}

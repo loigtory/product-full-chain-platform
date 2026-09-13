@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-13T21:45:38.857Z",
+  "command": "node server/scripts/local-workbench.mjs status",
+  "chunk_id": "409a70",
+  "wall_time_seconds": 2.7765202,
+  "exit_code": 0,
+  "original_token_count": 50,
+  "output": "{\"status\":\"RUNNING\",\"pid\":19412,\"port\":5188,\"instanceId\":\"939cb87c-8a12-4f05-a8a3-bc2ffc3eeb79\",\"schemaVersion\":\"006\",\"sourceCommit\":\"d9dfa7a5d2a62b6ded4a4c3d71599a0379ab63aa\",\"sourceDirty\":false}\n"
+}

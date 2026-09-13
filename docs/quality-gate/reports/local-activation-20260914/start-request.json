@@ -1,0 +1,12 @@
+{
+  "status": "LAUNCH_REQUESTED_NOT_YET_VERIFIED",
+  "command": "Pinned Node local-workbench.mjs start via Start-Process -WindowStyle Hidden",
+  "port": 5188,
+  "stderr": ".local/pfc-workbench/launcher.stderr.log",
+  "retention": "User explicitly requested5188 available for use",
+  "stdout": ".local/pfc-workbench/launcher.stdout.log",
+  "controllerStarted": "2026-09-13T21:44:06.5248723Z",
+  "controllerPid": 14924,
+  "sourceCommit": "d9dfa7a5d2a62b6ded4a4c3d71599a0379ab63aa",
+  "at": "2026-09-13T21:44:06.5589110Z"
+}
