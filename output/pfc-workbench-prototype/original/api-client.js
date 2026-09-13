@@ -14,6 +14,23 @@
   const mem = new Map(); // 同步镜像：apiStore.getItem 读此
   const queue = []; // 变更队列（batch 语义预留）
   const artifactErrors = {
+    TEST_HANDOFF_REQUIRED: '请先完成本次开发交付与提测条件。',
+    TEST_COMPLETION_REQUIRED: '请从测试批次完成测试。',
+    PRODUCT_ACCEPTANCE_REQUIRED: '请完成当前产品验收。',
+    VERIFICATION_WRITE_REQUIRED: '派生报告只读，请从测试或产品验收入口登记。',
+    TEST_SUITE_INCOMPLETE: '套件尚不完整，请补齐用例及验收项覆盖。',
+    TEST_BASELINE_STALE: '交付依据已有变化，请重新比较并提测。',
+    TEST_RESULT_REQUIRED: '请补齐全部必测结果与有效证据。',
+    TEST_BATCH_FINAL: '批次已结束，请创建新批次。',
+    DEFECT_RETEST_REQUIRED: '请完成当前缺陷的新版本回归。',
+    VERIFICATION_EVIDENCE_UNAVAILABLE:
+      '证据不可用，请核对附件版本、权限和原件。',
+    PRODUCT_ACCEPTANCE_FORBIDDEN: '仅当前Owner可登记产品验收。',
+    VERIFICATION_LIMIT_EXCEEDED: '数量或内容已超限，请分批登记。',
+    INVALID_TEST_SOURCE: '本版仅接受具名人工登记结果。',
+    INVALID_TEST_REFERENCE: '用例或验收项引用不属于当前版本。',
+    DUPLICATE_TEST_CASE: '用例编号重复，请保留唯一编号。',
+
     INVALID_ARTIFACT: '候选格式不正确，请核对产物字段与内容。',
     INVALID_RULE_REFERENCE:
       '原型、PRD与验收项的规则编号未对应，请检查规则关联。',
@@ -57,7 +74,13 @@
     fetch(base() + path, {
       method,
       headers: authHeaders(),
-      signal: AbortSignal.timeout(15000),
+      signal: AbortSignal.timeout(
+        /\/(verification-workspace|test-suites|delivery-baselines|test-batches|defects|product-acceptances|release-inputs)(?:\/|\?|$)/.test(
+          path,
+        )
+          ? 12000
+          : 15000,
+      ),
       body: body ? JSON.stringify(body) : undefined,
     }).then(async (res) => {
       if (res.status === 401)
@@ -244,6 +267,29 @@
         ['me', 'GET /api/auth/me'],
       ],
       reqs: [
+        ['verificationWorkspace', 'GET /api/reqs/:id/verification-workspace'],
+        ['testSuites', 'GET /api/reqs/:id/test-suites'],
+        ['testSuite', 'GET /api/reqs/:id/test-suites/:sid'],
+        ['createTestSuite', 'POST /api/reqs/:id/test-suites'],
+        ['adoptTestSuite', 'POST /api/reqs/:id/test-suites/:sid/adopt'],
+        ['deliveryBaselines', 'GET /api/reqs/:id/delivery-baselines'],
+        ['deliveryBaseline', 'GET /api/reqs/:id/delivery-baselines/:bid'],
+        ['createDeliveryBaseline', 'POST /api/reqs/:id/delivery-baselines'],
+        ['testBatches', 'GET /api/reqs/:id/test-batches'],
+        ['testBatch', 'GET /api/reqs/:id/test-batches/:bid'],
+        ['createTestBatch', 'POST /api/reqs/:id/test-batches'],
+        ['appendTestResults', 'POST /api/reqs/:id/test-batches/:bid/results'],
+        ['completeTestBatch', 'POST /api/reqs/:id/test-batches/:bid/complete'],
+        ['cancelTestBatch', 'POST /api/reqs/:id/test-batches/:bid/cancel'],
+        ['defects', 'GET /api/reqs/:id/defects'],
+        ['defect', 'GET /api/reqs/:id/defects/:did'],
+        ['createDefect', 'POST /api/reqs/:id/defects'],
+        ['resolveDefect', 'POST /api/reqs/:id/defects/:did/resolve'],
+        ['retestDefect', 'POST /api/reqs/:id/defects/:did/retest'],
+        ['productAcceptances', 'GET /api/reqs/:id/product-acceptances'],
+        ['productAcceptance', 'GET /api/reqs/:id/product-acceptances/:aid'],
+        ['createProductAcceptance', 'POST /api/reqs/:id/product-acceptances'],
+        ['releaseInputs', 'GET /api/reqs/:id/release-inputs'],
         ['artifactWorkspace', 'GET /api/reqs/:id/artifact-workspace'],
         ['artifactGroups', 'GET /api/reqs/:id/artifact-groups'],
         ['artifactGroup', 'GET /api/reqs/:id/artifact-groups/:gid'],

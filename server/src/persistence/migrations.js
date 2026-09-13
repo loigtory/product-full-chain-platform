@@ -64,7 +64,7 @@ const artifactTables = [
   'artifact_impacts',
 ];
 function registry(target = '001') {
-  if (!['001', '002', '003', '004'].includes(target))
+  if (!['001', '002', '003', '004', '005'].includes(target))
     throw error('MIGRATION_VERSION_INVALID');
   const list = [baseline()];
   if (target !== '001') {
@@ -78,7 +78,7 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (['003', '004'].includes(target)) {
+  if (['003', '004', '005'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/003-governance-projects.sql'),
       'utf8',
@@ -89,13 +89,24 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (target === '004') {
+  if (['004', '005'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/004-linked-artifacts.sql'),
       'utf8',
     ).replace(/\r\n/g, '\n');
     list.push({
       version: '004',
+      sql,
+      checksum: createHash('sha256').update(sql).digest('hex'),
+    });
+  }
+  if (target === '005') {
+    const sql = readFileSync(
+      resolve(__dirname, '../../sql/m2c/005-testing-acceptance.sql'),
+      'utf8',
+    ).replace(/\r\n/g, '\n');
+    list.push({
+      version: '005',
       sql,
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
@@ -149,8 +160,8 @@ async function assertReady(
     ![
       ...tables,
       ...(target !== '001' ? domainTables : []),
-      ...(['003', '004'].includes(target) ? governanceTables : []),
-      ...(target === '004' ? artifactTables : []),
+      ...(['003', '004', '005'].includes(target) ? governanceTables : []),
+      ...(['004', '005'].includes(target) ? artifactTables : []),
     ].every((t) => actual.includes(t))
   )
     throw error('MIGRATION_NOT_READY');
@@ -214,8 +225,10 @@ async function assertReady(
       )
         throw error('MIGRATION_NOT_READY');
   }
-  if (target === '004') await assertArtifacts(db, queryable);
-  if (['003', '004'].includes(target)) {
+  if (['004', '005'].includes(target)) await assertArtifacts(db, queryable);
+  if (target === '005')
+    await require('./verification-readiness').assertReady(db, queryable);
+  if (['003', '004', '005'].includes(target)) {
     const columns = (
       await queryable.query(
         'SELECT table_name,column_name FROM information_schema.columns WHERE table_schema=$1',

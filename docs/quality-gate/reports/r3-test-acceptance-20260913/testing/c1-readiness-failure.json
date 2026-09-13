@@ -1,0 +1,198 @@
+{
+  "at": "2026-09-13T04:03:41.087Z",
+  "status": "FAIL",
+  "data": "CODEx_TEST_M2C_20260913_verification: deterministic synthetic only",
+  "results": [],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Missing expected rejection."
+  },
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 348,
+        "hash": "976a9a48c4894b07f4ba022053c2ba3e81b30a05330d119b399445cebd61bede"
+      },
+      {
+        "path": "users.json",
+        "size": 852,
+        "hash": "8c23ba5a258c55a9ea88105d5fad693dce1f9a61c1814a5f68605f0ae1b0039c"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_verification",
+    "remaining": 0,
+    "totalRows": 15,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-13T04:03:41.262Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-13T04:03:41.262Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-13T04:03:41.502Z"
+        },
+        {
+          "version": "004",
+          "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+          "applied_at": "2026-09-13T04:03:41.766Z"
+        },
+        {
+          "version": "005",
+          "checksum": "0f2c4a0fb1c06a88713042d898e91b7ca180c721d01271a67dc5bd4adca699f5",
+          "applied_at": "2026-09-13T04:03:41.989Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_verification_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-13T04:03:41.499Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_verification_other",
+          "plan": "internal",
+          "created_at": "2026-09-13T04:03:41.499Z"
+        }
+      ],
+      "reqs": [],
+      "audit_logs": [],
+      "req_versions": [],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        }
+      ],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "materials": [],
+      "message_references": [],
+      "material_versions": [],
+      "messages": [],
+      "runs": [],
+      "run_plans": [],
+      "run_lines": [],
+      "replays": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [],
+      "domain_events": [],
+      "members": [
+        {
+          "id": "f10580af-5c63-4902-9b62-58a33fac8b03",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_verification_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T04:03:41.729Z",
+          "disabled_at": null
+        },
+        {
+          "id": "c735aaba-d97f-4795-8a45-ef36edd1f6ad",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_verification_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T04:03:41.729Z",
+          "disabled_at": null
+        },
+        {
+          "id": "5b815da7-bde7-4758-bb6d-77442c336118",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_verification_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T04:03:41.729Z",
+          "disabled_at": null
+        },
+        {
+          "id": "8701929b-7768-4af8-88fb-60641011b436",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_verification_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T04:03:41.729Z",
+          "disabled_at": null
+        },
+        {
+          "id": "7a3a0dd1-0f9f-4e44-b0ca-fa02634a1200",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_verification_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T04:03:41.729Z",
+          "disabled_at": null
+        },
+        {
+          "id": "54d31c4e-355a-49e1-bfe7-d1e94eaf218a",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_verification_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T04:03:41.729Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [],
+      "artifact_versions": [],
+      "artifact_groups": [],
+      "artifact_group_sources": [],
+      "artifact_proposals": [],
+      "artifact_confirmations": [],
+      "artifact_impacts": [],
+      "test_suites": [],
+      "test_cases": [],
+      "delivery_baselines": [],
+      "test_batches": [],
+      "test_results": [],
+      "defects": [],
+      "defect_events": [],
+      "product_acceptances": [],
+      "verification_refs": []
+    },
+    "poolsClosed": true
+  }
+}

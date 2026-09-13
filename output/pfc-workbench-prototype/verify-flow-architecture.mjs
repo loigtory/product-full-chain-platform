@@ -308,7 +308,7 @@ const report = {
 };
 assert.equal(
   process.env.PFC_FLOW_EVIDENCE_DIR,
-  'docs/quality-gate/reports/r2-artifacts-20260913/flow',
+  'docs/quality-gate/reports/r3-test-acceptance-20260913/flow',
   'EXPLICIT_EVIDENCE_TARGET_REQUIRED',
 );
 const evidence = resolve(repo, process.env.PFC_FLOW_EVIDENCE_DIR);

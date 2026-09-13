@@ -1,0 +1,87 @@
+{
+  "at": "2026-09-13T05:23:33.921Z",
+  "status": "BLOCKED_APPROVAL",
+  "implementation": "IN_PROGRESS",
+  "acceptance": "PENDING",
+  "release": "NOT_AUTHORIZED",
+  "branch": "feat/r3-test-acceptance",
+  "approvalSource": "functions.exec_command automatic approval reviewer",
+  "action": "Run R3 browser and remaining authorized verification commands",
+  "reasons": [
+    "Automatic approval reviewer deadline expired; permitted retry used",
+    "Reviewer service returned 502 Bad Gateway",
+    "After authorization and zero-cleanup proof recheck, reviewer rejected with prompt filtering error"
+  ],
+  "workaroundUsed": false,
+  "questionPending": true,
+  "allowedScope": "proposal35 A / 59 source paths / five named disposable local schemas and bounded synthetic files / 26 gates / cleanup",
+  "latestChecks": {
+    "model": "9/9 PASS",
+    "frontendStatic": "37 script syntax / 34 lint modules PASS",
+    "config": "PASS",
+    "deliveryGovernance": "PASS",
+    "protectedRawFiles": "2589/2589 unchanged",
+    "integration": {
+      "at": "2026-09-13T04:33:55.357Z",
+      "status": "PASS",
+      "checks": 13,
+      "currentSourceVerified": false
+    },
+    "browser": {
+      "at": "2026-09-13T04:46:17.376Z",
+      "status": "FAIL",
+      "checks": 2,
+      "failed": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button[data-action=\"r3-batch-complete\"]').first()\u001b[22m\n",
+      "fixesPendingVerification": [
+        "stage view boundary",
+        "legacy batch shape replaced by domain summaries"
+      ]
+    }
+  },
+  "cleanup": {
+    "schema": "codex_test_m2c_20260913_verification",
+    "remaining": 0,
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "externalSchemaMetadataUnchanged": true
+  },
+  "next": [
+    "Resume browser verification only after pending reviewer-related confirmation",
+    "Complete negative/fault/recovery coverage and inspect three PC screenshots",
+    "Run all 26 gates and supplemental checks on final source hashes",
+    "Refresh36/diff review; feature closing commit and push; human acceptance"
+  ],
+  "gates": [
+    "output/pfc-workbench-prototype/verify-prototype.mjs",
+    "output/pfc-workbench-prototype/verify-m1-layer.mjs",
+    "output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "server/verify-server.mjs",
+    "server/verify-server-m2.mjs",
+    "server/verify-m2b.mjs",
+    "output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "server/verify-m2b2-domain.mjs",
+    "output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+    "server/verify-m2c-pg.mjs",
+    "server/verify-m2c-architecture.mjs",
+    "server/verify-m2c-domain.mjs",
+    "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+    "server/verify-m2c-governance.mjs",
+    "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+    "output/pfc-workbench-prototype/verify-flow-model.mjs",
+    "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+    "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+    "server/verify-r2-artifact-model.mjs",
+    "server/verify-r2-artifacts.mjs",
+    "server/verify-r2-architecture.mjs",
+    "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+    "server/verify-r3-verification-model.mjs",
+    "server/verify-r3-verification.mjs",
+    "server/verify-r3-architecture.mjs",
+    "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs"
+  ],
+  "environment": {
+    "PFC_R3_EVIDENCE_DIR": "docs/quality-gate/reports/r3-test-acceptance-20260913",
+    "PFC_M2C_EVIDENCE_DIR": "docs/quality-gate/reports/r3-test-acceptance-20260913/domain",
+    "PFC_FLOW_EVIDENCE_DIR": "docs/quality-gate/reports/r3-test-acceptance-20260913/flow"
+  }
+}

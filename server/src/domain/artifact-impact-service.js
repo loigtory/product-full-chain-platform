@@ -73,7 +73,7 @@ async function invalidate(
   const designOnly = kind === 'design';
   const updated = (
     await client.query(
-      `UPDATE ${repo.table(db, 'reqs')} SET artifact_business_epoch=artifact_business_epoch+$1,artifact_design_epoch=artifact_design_epoch+1,stage=CASE WHEN stage IN ('req','design','dev') THEN $2 ELSE stage END WHERE tenant_id=$3 AND id=$4 RETURNING *`,
+      `UPDATE ${repo.table(db, 'reqs')} SET artifact_business_epoch=artifact_business_epoch+$1,artifact_design_epoch=artifact_design_epoch+1,stage=CASE WHEN stage IN ('req','design','dev','test','accept','release') THEN $2 ELSE stage END WHERE tenant_id=$3 AND id=$4 RETURNING *`,
       [designOnly ? 0 : 1, designOnly ? 'design' : 'req', ctx.tenantId, req.id],
     )
   ).rows[0];

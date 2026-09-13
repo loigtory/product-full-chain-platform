@@ -1,0 +1,57 @@
+{
+  "at": "2026-09-13T06:20:42.634Z",
+  "scope": "proposal35 approved59; no design expansion",
+  "reviewer": "Codex source and diff self-review; human owner review pending",
+  "checks": [
+    "request tenant and current member checks precede receipts",
+    "new writes use per-requirement revision transaction and immutable snapshots",
+    "manual source only, no real execution or bypass",
+    "client identity epoch and persisted command readback recovery",
+    "source scope and old gates protected independently"
+  ],
+  "findings": [
+    {
+      "issue": "交付信息更新后409草稿不能更新依据",
+      "reproduction": "原提测表单提交409后无r3-check-current按钮",
+      "fix": "显式比较当前依据，确认后保留文字并更新版本；变更附件取消勾选",
+      "coverage": "browser T03/T13"
+    },
+    {
+      "issue": "只读批次详情复用旧修订号",
+      "reproduction": "结果追加成功后完成测试仍携带旧revision",
+      "fix": "仅保存有输入控件的表单草稿；详情重开重新读取",
+      "coverage": "browser T04/T08"
+    },
+    {
+      "issue": "写入成功而GET失败时核验入口不可见",
+      "reproduction": "数据库已创建1批次，草稿pending保留但读取失败页无r3-retry",
+      "fix": "读回失败刷新界面；错误视图保留原提交核验入口",
+      "coverage": "browser T13 readback, repeat total remains1"
+    },
+    {
+      "issue": "长缺陷历史只能读取前100项",
+      "reproduction": "仓储原查询固定LIMIT100且无offset",
+      "fix": "默认20/最大100分页及UI前后页；保持事件不可变",
+      "coverage": "integration T14 pagination 3 one-item pages"
+    },
+    {
+      "issue": "缺陷登记需重复填写失败信息",
+      "reproduction": "原新表单标题和描述为空，仅携带resultId",
+      "fix": "带入用例/AC/实际值/预期/步骤及证据供确认",
+      "coverage": "browser T07"
+    },
+    {
+      "issue": "R2 A12准备阶段DOM被背景读回替换，scrollIntoViewIfNeeded失败",
+      "reproduction": "gates-1789281429358.json gate22 Element is not attached to the DOM at verify-r2-artifact-browser.mjs:177",
+      "fix": "使用脚本已有的click trial准备方式，Playwright重新定位并检查可操作性；后续pointerdown重绘注入、真实点击和比较窗口断言保持",
+      "coverage": "targeted R2 browser rerun plus four R3 gates"
+    }
+  ],
+  "remaining": "human visual/business acceptance; real execution and production performance outside approved scope",
+  "formatFix": {
+    "file": "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+    "reason": "final Prettier check found formatting mismatch",
+    "astEquivalentBeforeWrite": true,
+    "verification": "full26 gates rerun on final59 fingerprints, gates-1789281429358.json"
+  }
+}

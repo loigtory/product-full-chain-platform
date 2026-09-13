@@ -63,6 +63,8 @@ app.use('/api/contract', authMiddleware, require('./routes/contract'));
 /* 受保护路由（M1 全部需 Bearer token） */
 app.use('/api/state', authMiddleware, require('./routes/state'));
 app.use('/api/batch', authMiddleware, require('./routes/batch'));
+app.use('/api/reqs', authMiddleware, require('./routes/testing'));
+app.use('/api/reqs', authMiddleware, require('./routes/product-acceptance'));
 app.use('/api/reqs', authMiddleware, require('./routes/artifacts'));
 app.use('/api/reqs', authMiddleware, require('./routes/reqs'));
 app.use('/api/runs', authMiddleware, require('./routes/runs'));

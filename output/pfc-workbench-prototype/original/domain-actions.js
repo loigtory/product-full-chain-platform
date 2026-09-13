@@ -433,6 +433,7 @@
     P.governanceDomain?.install(remote);
     P.domainConversation.install(remote);
     P.artifactActions?.install(remote);
+    P.testingActions?.install(remote);
     const A = P.actions;
     const edit = A['edit-artifact'];
     A['edit-artifact'] = (d) => {

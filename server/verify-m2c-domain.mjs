@@ -4,7 +4,8 @@ const require = createRequire(import.meta.url);
 
 const evidenceDirectory = process.env.PFC_M2C_EVIDENCE_DIR;
 if (
-  evidenceDirectory !== 'docs/quality-gate/reports/r2-artifacts-20260913/domain'
+  evidenceDirectory !==
+  'docs/quality-gate/reports/r3-test-acceptance-20260913/domain'
 )
   throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
 await integration();

@@ -1,0 +1,28 @@
+{
+  "at": "2026-09-13T06:48:35.1144350Z",
+  "method": "read-only OS readback after final26 results",
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5432,
+      "OwningProcess": 13528
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5173,
+      "OwningProcess": 37744
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3001,
+      "OwningProcess": 31152
+    }
+  ],
+  "recentNodeAndEdge": [],
+  "ownedGateHelpersRemaining": 0,
+  "preserved": [
+    13528,
+    31152,
+    37744
+  ]
+}

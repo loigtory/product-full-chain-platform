@@ -24,7 +24,8 @@ async function authorizeCommand(client, db, ctx, operation) {
   }
   await repo.lockTenant(client, db, ctx.tenantId);
   const row = await member(client, db, ctx);
-  const ownerOnly = /^(?:member\.|cap\.|binding\.|audit\.)/.test(operation);
+  const ownerOnly =
+    /^(?:member\.|cap\.|binding\.|audit\.|productAcceptance\.)/.test(operation);
   requireRole(row, ownerOnly, !operation.startsWith('notice.'));
   Object.assign(ctx, {
     role: row.role,

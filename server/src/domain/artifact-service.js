@@ -108,7 +108,11 @@ async function workspace(client, db, ctx, req) {
 const getWorkspace = (id) => read(id, workspace);
 async function createProposal(id, input) {
   return mutate(id, input, 'proposal.created', async (client, db, ctx, req) => {
-    if (!['idea', 'req', 'design', 'dev'].includes(req.stage))
+    if (
+      !['idea', 'req', 'design', 'dev', 'test', 'accept', 'release'].includes(
+        req.stage,
+      )
+    )
       access.fail('CAPABILITY_UNAVAILABLE');
     const g = await repo.group(client, db, ctx, req),
       current = await repo.inputs(

@@ -1,0 +1,76 @@
+{
+  "at": "2026-09-13T07:08:57.935Z",
+  "classification": "docs-only / light",
+  "acceptedSource": "b07dadf0b8482149119e2b16a37cb4c46b9134ec",
+  "acceptor": "陈立",
+  "confirmation": {
+    "method": "current conversation after concrete R3 delivery",
+    "verbatim": "已验收完毕，继续"
+  },
+  "status": "SCOPED_ACCEPTED",
+  "scope": "35/36 R3 prototype testing and product-acceptance handoff; disclosed USER_REPORTED and isolated local integration limits",
+  "sourceRevalidation": {
+    "count": 59,
+    "mismatches": [],
+    "method": "raw SHA256 against gates-final.json"
+  },
+  "protectedRevalidation": {
+    "count": 2589,
+    "mismatches": [],
+    "method": "raw SHA256 against protected-baseline.json"
+  },
+  "existingGates": {
+    "status": "PASS",
+    "count": 26,
+    "file": "gates-final.json",
+    "sha256": "5246a13fefe5dc505c64a563588eaa73cac337ae9b3619160a7e1c517dda670c",
+    "rerunThisCloseout": false,
+    "provenance": "first21 from gates-1789281429358; gate22 and four R3 gates rerun after test-driver-only correction"
+  },
+  "checks": {
+    "bootstrap": "PASS; Node24.20.0/npm11.19.0; root/server npm ls --depth=0 --offline",
+    "dryRun": "READY_TO_RUN; npm run test:gate:quick -- --dry-run; not runtime PASS",
+    "documents": {
+      "status": "PASS",
+      "formatFiles": 6,
+      "localLinks": 106,
+      "errors": [],
+      "method": "one-off read-only Node with prettier.check and resolved local Markdown links"
+    },
+    "config": {
+      "command": "node scripts/check-config.mjs",
+      "status": "PASS",
+      "output": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed"
+    },
+    "delivery": {
+      "command": "node --import tsx scripts/check-delivery-governance.ts",
+      "status": "PASS",
+      "output": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+    },
+    "diff": { "command": "git diff --check", "status": "PASS", "exitCode": 0 }
+  },
+  "git": {
+    "branch": "feat/r3-test-acceptance",
+    "refreshedMain": "2afce7a683c08cf6c318f8668581539be5aa09ea",
+    "authorization": "user acceptance and protocol23 feature closeout, --no-ff main merge and push; independent remote readback required",
+    "receipt": "actual Git commits and remote readback, not prefilled",
+    "transport": "fetch first two attempts empty reply; third succeeded. Initial independent ls-remote empty reply; final push/readback pending actual receipt."
+  },
+  "formal": {
+    "pod": "POD-PFC-001",
+    "milestone": "M2",
+    "caps": 5,
+    "units": 26,
+    "next": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+    "ledgerUnchanged": true
+  },
+  "excluded": [
+    "new implementation",
+    "business PostgreSQL enablement",
+    "real tools or deployment",
+    "branch deletion",
+    "formal CAP/Unit acceptance advancement"
+  ],
+  "data": { "newTestData": 0, "historicalEvidence": "preserved byte for byte" },
+  "processes": { "spawned": [], "preexisting": "not operated" }
+}
