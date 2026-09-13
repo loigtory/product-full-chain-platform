@@ -1030,7 +1030,7 @@ try {
       process.exitCode = 1;
     }
   const root = resolve(
-    'docs/quality-gate/reports/m2c-4-release-observation-20260913/release',
+    'docs/quality-gate/reports/local-use-baseline-20260913/release',
   );
   mkdirSync(root, { recursive: true });
   writeFileSync(

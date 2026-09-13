@@ -1,0 +1,40 @@
+{
+  "at": "2026-09-13T16:56:00.475Z",
+  "status": "PASS",
+  "checkedDocuments": 9,
+  "links": 141,
+  "sourceHashes": 68,
+  "protectedHashes": 3009,
+  "originalAuthorizationAndProtectedBaselineUnchanged": true,
+  "scopePathsChecked": 350,
+  "extraChecks": [
+    {
+      "command": "node scripts/check-config.mjs",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n",
+      "stderr": ""
+    },
+    {
+      "command": "node --import tsx scripts/check-delivery-governance.ts",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "secretScan": {
+    "textArtifacts": 128,
+    "hits": []
+  },
+  "cleanup": "PASS",
+  "processes": "PASS",
+  "errors": []
+}

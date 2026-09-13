@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-13T16:12:43.781Z",
+  "classification": "test readiness and diagnostic improvement; no business source change",
+  "firstFailure": {
+    "evidence": "gates-1789315025032.json",
+    "gate": 26,
+    "passed": 25,
+    "sourceUnchanged": true,
+    "error": "release inputs dialog wait timed out after accepted retry; retained screenshot and full JSON"
+  },
+  "secondFailure": {
+    "evidence": "testing/browser-diagnostic-1789315611808.json",
+    "error": "first click actionability timeout; no capture click, pending action or page error; cleanup zero"
+  },
+  "unchangedDiagnosticRetest": {
+    "evidence": "testing/browser-diagnostic-pass-20260914.json",
+    "status": "PASS",
+    "tests": 9
+  },
+  "finding": "R3 go helper only waited verification state. Current release helper waits releaseClient.states. Entering release starts asynchronous A.ensure, and release actions require that loaded state. R3 now waits the same release readiness condition before interacting; no forced clicks, sleep, retries or disabled assertions.",
+  "limits": "The original timeouts were not consistently reproduced. This is a verified missing test precondition, not a proven business defect or claim that transient browser failures are eliminated.",
+  "scope": "existing approved verify-r3-verification-browser.mjs only; effective source scope remains68",
+  "next": "freeze68 source hashes and rerun all35 commands"
+}

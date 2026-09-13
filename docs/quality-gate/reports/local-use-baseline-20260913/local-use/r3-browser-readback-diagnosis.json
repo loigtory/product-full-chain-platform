@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-13T16:35:26.813Z",
+  "failedRun": "gates-1789316615747.json",
+  "failureEvidence": "testing/browser-failure-1789316615747.json",
+  "passedBeforeFailure": 8,
+  "error": "API 401 GET /api/bindings during synthetic Owner-to-Viewer switch",
+  "sourceTrace": "WS pgRefresh schedules automatic domain/governance sync after writes. The verifier directly clears its token while those preceding-scenario requests may still be running, then joins governance sync. The manual switch now starts after HTTP networkidle; its intentionally delayed old requirement response is injected afterward.",
+  "retainedAssertions": [
+    "old response returns null",
+    "old identity state not repopulated",
+    "owner draft absent for viewer",
+    "viewer canWrite false",
+    "create control disabled"
+  ],
+  "businessSourcesChanged": false,
+  "staticDiagnosticCorrection": "MutationObserver reference made explicit as window.MutationObserver after actual no-undef failure; current architecture check passed4/4 with3009 protected files and lintErrors empty",
+  "focusedRetest": "testing/browser-readiness-pass-20260914.json",
+  "focusedStatus": "PASS9/9",
+  "limits": "This changes test isolation/readiness only; no claim that all legacy token-switch UI races were fixed. New personal cookie mode has separate session-revocation/browser coverage.",
+  "next": "fresh full35 run on frozen68 source files"
+}

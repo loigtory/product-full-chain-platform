@@ -18,8 +18,7 @@ const require = createRequire(import.meta.url);
 const results = [],
   observations = [];
 const evidence = resolve(
-  '.local/m2c-1-storage-20260912/pg-' +
-    new Date().toISOString().replace(/[:.]/g, '-'),
+  'docs/quality-gate/reports/local-use-baseline-20260913/domain',
 );
 mkdirSync(evidence, { recursive: true });
 let f,
@@ -433,7 +432,7 @@ try {
       'isolated PostgreSQL components only; business API still memory; no external effects',
   };
   writeFileSync(
-    resolve(evidence, 'report.json'),
+    resolve(evidence, 'storage-report.json'),
     JSON.stringify(report, null, 2) + '\n',
   );
   console.log(JSON.stringify(report));

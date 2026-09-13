@@ -10,7 +10,7 @@ const root = dirname(fileURLToPath(import.meta.url));
 const html = readFileSync(join(root, 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
 assert.equal(new Set(scripts).size, scripts.length);
-assert.equal(scripts.length, 42);
+assert.equal(scripts.length, 43);
 for (const file of scripts) {
   assert.match(file, /^original\/[\w-]+\.js$/);
   new vm.Script(readFileSync(join(root, file), 'utf8'), { filename: file });

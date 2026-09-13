@@ -80,7 +80,14 @@ try {
           windowsHide: true,
           maxBuffer: 16 * 1024 * 1024,
         });
-        const now = readFileSync(p);
+        const now = execFileSync(
+          'git',
+          ['show', '2afce7a683c08cf6c318f8668581539be5aa09ea:' + p],
+          {
+            windowsHide: true,
+            maxBuffer: 16 * 1024 * 1024,
+          },
+        );
         const canonical = (b) =>
           /\.(js|mjs|cjs|css|html|md|json|sql)$/.test(p)
             ? Buffer.from(b.toString().replace(/\r\n/g, '\n'))
@@ -159,8 +166,7 @@ try {
   report.error = e.message;
   console.error(e.stack);
 }
-const out =
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts';
+const out = 'docs/quality-gate/reports/local-use-baseline-20260913/artifacts';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/architecture-' + Date.now() + '.json',

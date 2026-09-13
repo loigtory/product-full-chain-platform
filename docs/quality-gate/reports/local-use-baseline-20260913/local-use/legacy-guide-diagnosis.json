@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-13T16:23:28.091Z",
+  "failure": "gates-1789315996476.json",
+  "details": "legacy/guide-failure-1789315996476.json",
+  "scenario": "08-search-route-drafts-keyboard",
+  "observation": "One full-suite immediate title assertion after search Enter read the old requirement. The other12 cases passed. The same08 case was rerun without source changes and passed; no browser console errors or outbound HTTP requests.",
+  "focused": "legacy/guide08-1789316556935.json",
+  "sourceChanged": false,
+  "classification": "intermittent verification failure; stable business defect not established",
+  "remainingRisk": "The protected legacy verifier uses immediate assertions after key press/history navigation. No scope expansion or assertion weakening was made. Retain this timing risk for acceptance review.",
+  "next": "one further full35 run on unchanged68-source snapshot; do not discard any failed evidence"
+}

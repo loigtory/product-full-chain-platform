@@ -11,7 +11,7 @@ import {
   context,
 } from '../../server/test-data/m2c-governance-fixture.mjs';
 const evidence = resolve(
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/governance',
+  'docs/quality-gate/reports/local-use-baseline-20260913/governance',
 );
 mkdirSync(evidence, { recursive: true });
 const results = [],

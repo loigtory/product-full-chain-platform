@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { planData, resultData } from './test-data/m2c-release-fixture.mjs';
 const require = createRequire(import.meta.url),
-  root = 'docs/quality-gate/reports/m2c-4-release-observation-20260913/release';
+  root = 'docs/quality-gate/reports/local-use-baseline-20260913/release';
 const report = {
   at: new Date().toISOString(),
   status: 'FAIL',

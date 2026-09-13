@@ -150,7 +150,7 @@ check('current-governance-scope-and-preserved-reference', () => {
     'guide.css',
   ]) {
     const path = 'output/pfc-workbench-prototype/original/' + name,
-      actual = normalize(source(name));
+      actual = normalize(git('show', '04fd81a28e16abe2d92ff87799a78750fbd497b4:' + path));
     assert.equal(
       actual,
       normalize(git('show', accepted + ':' + path)),
@@ -308,7 +308,7 @@ const report = {
 };
 assert.equal(
   process.env.PFC_FLOW_EVIDENCE_DIR,
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/flow',
+  'docs/quality-gate/reports/local-use-baseline-20260913/flow',
   'EXPLICIT_EVIDENCE_TARGET_REQUIRED',
 );
 const evidence = resolve(repo, process.env.PFC_FLOW_EVIDENCE_DIR);

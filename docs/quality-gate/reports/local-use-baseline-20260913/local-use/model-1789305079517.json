@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-13T13:11:19.512Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "D1/D3 exact personal and disposable target tuples",
+      "status": "PASS"
+    },
+    {
+      "name": "D2 HTTP origin/host/body boundary and spoofed forwarding",
+      "status": "PASS"
+    }
+  ],
+  "error": {
+    "code": "LOCAL_KEY_INVALID",
+    "message": "LOCAL_KEY_INVALID"
+  }
+}

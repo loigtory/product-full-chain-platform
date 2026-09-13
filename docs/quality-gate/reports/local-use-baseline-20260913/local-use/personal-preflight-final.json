@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-13T16:41:48.667Z",
+  "command": "node server/scripts/local-workbench.mjs preflight",
+  "exitCode": 0,
+  "readOnly": true,
+  "result": {
+    "status": "INITIALIZATION_REQUIRED",
+    "schemaExists": false,
+    "fileRootExists": false,
+    "apiPortFree": true
+  },
+  "interpretation": "Business workspace not initialized; this does not authorize initialize/start or count as personal acceptance."
+}

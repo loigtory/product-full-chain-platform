@@ -45,7 +45,7 @@
     }, 120);
   };
   W.handle = (m) => {
-    if (!enabled()) return;
+    if (!enabled() || window.PFC?.localSession?.locked) return;
     const P = window.PFC;
     if (P.domainView?.pg()) {
       if (m.eventId) {
@@ -120,11 +120,10 @@
     if (!enabled() || (ws && [0, 1].includes(ws.readyState))) return;
     stopped = false;
     const api = window.PFCAPI?.api;
-    if (!api?.token()) return;
+    if (window.PFC_LOCAL_PERSONAL ? !api?.ready || window.PFC.localSession.locked : !api?.token()) return;
     const socket = new WebSocket(
       api.base().replace(/^http/, 'ws') +
-        '/ws/web?token=' +
-        encodeURIComponent(api.token()),
+        (window.PFC_LOCAL_PERSONAL ? '/ws/web' : '/ws/web?token=' + encodeURIComponent(api.token())),
     );
     ws = socket;
     socket.onopen = () => {
@@ -147,6 +146,10 @@
       if (ws !== socket) return;
       ws = null;
       W.state = 'disconnected';
+      if (window.PFC_LOCAL_PERSONAL && event.code === 4001) {
+        window.PFC.localSession.lock('登录已失效，未提交内容暂存于当前页面。');
+        return;
+      }
       if (event.code === 4003 && window.PFC.domainView?.pg()) {
         try {
           await window.PFC.governanceDomain.identity();

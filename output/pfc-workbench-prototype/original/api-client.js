@@ -52,6 +52,7 @@
   let hydrating = false; // hydrate 完成前禁止 flush，避免工厂数据覆盖后端状态
 
   const base = () => {
+    if (window.PFC_LOCAL_PERSONAL) return location.origin;
     try {
       return (
         window.PFC_API_BASE ||
@@ -70,8 +71,10 @@
       ...(t ? { Authorization: 'Bearer ' + t } : {}),
     };
   };
-  const req = (method, path, body) =>
-    fetch(base() + path, {
+  const req = (method, path, body) => {
+    const epoch = window.PFC?.localSession?.epoch;
+    const current = () => !window.PFC_LOCAL_PERSONAL || epoch === window.PFC?.localSession?.epoch;
+    return fetch(base() + path, {
       method,
       headers: authHeaders(),
       signal: AbortSignal.timeout(
@@ -83,11 +86,14 @@
       ),
       body: body ? JSON.stringify(body) : undefined,
     }).then(async (res) => {
-      if (res.status === 401)
+      if (!current()) throw Object.assign(Error('会话已改变，请重新核对记录'), { code: 'LOCAL_SESSION_CHANGED' });
+      if (res.status === 401) {
+        if (window.PFC_LOCAL_PERSONAL) window.PFC?.localSession?.lock('登录已失效，未提交内容暂存于当前页面。重新解锁后请核对结果再提交。');
         throw Object.assign(Error('API 401 ' + method + ' ' + path), {
           code: 'UNAUTHORIZED',
           status: 401,
         });
+      }
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw Object.assign(
@@ -101,8 +107,11 @@
           { code: data.error?.code, status: res.status },
         );
       }
-      return res.json();
+      const data = await res.json();
+      if (!current()) throw Object.assign(Error('会话已改变，请重新核对记录'), { code: 'LOCAL_SESSION_CHANGED' });
+      return data;
     });
+  };
 
   P.api = {
     /* ---- 同步表面（apiStore 桥接） ---- */
@@ -122,6 +131,7 @@
 
     /* ---- token ---- */
     token: () => {
+      if (window.PFC_LOCAL_PERSONAL) return '';
       try {
         return localStorage.getItem(tokenKey()) || '';
       } catch {
@@ -129,6 +139,7 @@
       }
     },
     setToken: (t) => {
+      if (window.PFC_LOCAL_PERSONAL) return;
       try {
         localStorage.setItem(tokenKey(), t);
       } catch {
@@ -136,6 +147,7 @@
       }
     },
     devLogin: async () => {
+      if (window.PFC_LOCAL_PERSONAL) throw Object.assign(Error('请使用本机登录'), { code: 'DEV_LOGIN_DISABLED' });
       const name = (() => {
         try {
           return window.PFC_USER_NAME || '陈立';
@@ -221,14 +233,15 @@
       }
       try {
         const health = await req('GET', '/api/health');
+        if (window.PFC_LOCAL_PERSONAL && (health.storage !== 'pg' || health.profile !== 'personal' || health.identityMode !== 'local-session')) throw Object.assign(Error('本地工作空间服务不匹配'), { code: 'LOCAL_PROFILE_MISMATCH' });
         P.api.pg = health.storage === 'pg';
         P.api.capabilities = health;
         if (P.api.pg) {
-          if (!P.api.token()) await P.api.devLogin();
+          if (!window.PFC_LOCAL_PERSONAL && !P.api.token()) await P.api.devLogin();
           try {
             P.api.user = (await req('GET', '/api/auth/me')).user;
           } catch (e) {
-            if (e.code !== 'UNAUTHORIZED') throw e;
+            if (window.PFC_LOCAL_PERSONAL || e.code !== 'UNAUTHORIZED') throw e;
             await P.api.devLogin();
           }
           window.PFC.domainView.reset();

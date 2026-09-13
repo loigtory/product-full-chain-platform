@@ -1,0 +1,48 @@
+{
+  "at": "2026-09-13T15:17:47.938Z",
+  "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "FAIL",
+  "results": [
+    {
+      "scenario": "L04 fixed same-origin personal mode, keyboard unlock and no legacy token/seed fallback",
+      "status": "PASS",
+      "elapsedMs": 2190
+    },
+    {
+      "scenario": "L04 create via UI, persist/readback and desktop reference states at three widths",
+      "status": "PASS",
+      "elapsedMs": 1528
+    },
+    {
+      "scenario": "L04 session loss preserves current unsent input, re-unlock reads back without replay",
+      "status": "PASS",
+      "elapsedMs": 481
+    }
+  ],
+  "cleanup": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_d0f375f4-37f0-4c74-8964-005212a615e4",
+    "ownedOid": 1229870,
+    "createdIds": [
+      "R-1041"
+    ],
+    "schemaAbsent": true,
+    "filesAbsent": true,
+    "portFree": true,
+    "outsideFingerprintUnchanged": true
+  },
+  "browser": "Browser plugin unavailable; existing Playwright Edge; PC only",
+  "errors": [],
+  "external": [],
+  "ws": [
+    "/ws/web",
+    "/ws/web",
+    "/ws/web"
+  ],
+  "error": {
+    "code": "CHECK_FAILED",
+    "location": "    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-local-use-browser.mjs:181:73\n    at D:\\项目管理\\product-full-chain-platform\\server\\test-data\\local-use-fixture.mjs:32:13\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-local-use-browser.mjs:180:11\n    at async gate (D:\\项目管理\\product-full-chain-platform\\server\\test-data\\local-use-fixture.mjs:30:5)"
+  },
+  "elapsedMs": 37298
+}

@@ -118,6 +118,7 @@
   const modes = { local: localStore, mock: mockStore, api: apiStore };
   const MODE_KEY = 'pfc.prototype.dataMode';
   let mode = (() => {
+    if (window.PFC_LOCAL_PERSONAL) return 'api';
     let m = '';
     try {
       m = window.PFC_DATA_MODE || '';
@@ -140,6 +141,7 @@
     }, // 动态读取闭包模式（setMode/cycle 后即时反映）
     active: () => modes[mode],
     setMode: (m) => {
+      if (window.PFC_LOCAL_PERSONAL) return;
       if (modes[m]) {
         mode = m;
         try {
@@ -150,6 +152,7 @@
       }
     },
     cycle: () => {
+      if (window.PFC_LOCAL_PERSONAL) return 'api';
       const order = ['local', 'mock', 'api'];
       mode = order[(order.indexOf(mode) + 1) % order.length];
       try {

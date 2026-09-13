@@ -36,13 +36,27 @@ function issue(user) {
 
 async function authMiddleware(req, res, next) {
   const h = req.headers.authorization || '';
-  if (!h.startsWith('Bearer ')) {
+  const personal = require('./local/profile').current();
+  if (!personal && !h.startsWith('Bearer ')) {
     return res
       .status(401)
       .json({ error: { code: 'UNAUTHORIZED', msg: '缺少 Bearer token' } });
   }
   try {
-    req.user = jwt.verify(h.slice(7), SECRET, { algorithms: ['HS256'] });
+    if (personal) {
+      const sessions = require('./local/session-store');
+      const id = sessions.cookieId(req.headers.cookie);
+      const session = !h && sessions.current().get(id, true);
+      if (!session)
+        return res.status(401).json({
+          error: {
+            code: 'LOCAL_SESSION_REQUIRED',
+            msg: '请重新打开本机工作台',
+          },
+        });
+      req.localSessionId = id;
+      req.user = { ...session.claims };
+    } else req.user = jwt.verify(h.slice(7), SECRET, { algorithms: ['HS256'] });
     if (require('./runtime').isPg()) {
       const runtime = require('./runtime');
       let ctx;

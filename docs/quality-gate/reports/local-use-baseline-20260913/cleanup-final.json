@@ -1,0 +1,75 @@
+{
+  "at": "2026-09-13T16:48:36.045Z",
+  "command": "pinned Node readonly PG schema and file/port readback after final35",
+  "status": "PASS",
+  "schemasChecked": [
+    "codex_test_m2c_20260912_storage",
+    "codex_test_m2c_20260912_domain",
+    "codex_test_m2c_20260913_governance",
+    "codex_test_m2c_20260913_artifacts",
+    "codex_test_m2c_20260913_verification",
+    "codex_test_m2c_20260913_release",
+    "codex_test_m2c_20260913_localuse",
+    "pfc_workbench"
+  ],
+  "schemasPresent": [],
+  "roots": [
+    {
+      "path": ".local/local-use-baseline-20260913/source",
+      "entries": []
+    },
+    {
+      "path": ".local/local-use-baseline-20260913/restore",
+      "entries": []
+    },
+    {
+      "path": ".local/m2c-2-domain-20260912/files",
+      "entries": []
+    },
+    {
+      "path": ".local/m2c-3-governance-20260913/files",
+      "entries": []
+    },
+    {
+      "path": ".local/r2-artifacts-20260913/files",
+      "entries": []
+    },
+    {
+      "path": ".local/r3-test-acceptance-20260913/files",
+      "entries": []
+    },
+    {
+      "path": ".local/m2c-4-release-observation-20260913/files",
+      "entries": []
+    }
+  ],
+  "portsFree": {
+    "5188": true,
+    "5189": true,
+    "5190": true,
+    "5191": true,
+    "5192": true,
+    "5193": true,
+    "5194": true,
+    "5195": true,
+    "5196": true,
+    "5197": true,
+    "5198": true,
+    "5548": true
+  },
+  "personalPaths": [
+    {
+      "path": ".local/pfc-workbench",
+      "exists": false
+    },
+    {
+      "path": ".local/pfc-workbench-files",
+      "exists": false
+    },
+    {
+      "path": ".local/pfc-workbench-backups",
+      "exists": false
+    }
+  ],
+  "authorization": "40/41 and static supplement; readonly independent verification"
+}
