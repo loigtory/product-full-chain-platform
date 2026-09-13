@@ -358,6 +358,31 @@ function final(v) {
     source: source(v.source),
   };
 }
+// Original bound confirmations only; all semantic validity checks stay live.
+function frozenConfirmations(upstream, q, baseline) {
+  const matching = (id, kind) =>
+    upstream.history.find(
+      (r) =>
+        r.id === id &&
+        r.kind === kind &&
+        r.group_id === upstream.group?.id &&
+        r.business_epoch === q.artifact_business_epoch &&
+        r.input_fingerprint === upstream.inputs.fingerprint,
+    );
+  const business = matching(baseline.business_confirmation_id, 'BUSINESS'),
+    candidate = matching(baseline.design_confirmation_id, 'DESIGN'),
+    version = upstream.latest('design');
+  const design =
+    business &&
+    candidate &&
+    candidate.design_epoch === q.artifact_design_epoch &&
+    candidate.design_version_id === version?.id &&
+    !version?.stale &&
+    version?.confirmed_at
+      ? candidate
+      : null;
+  return { business, design };
+}
 module.exports = {
   limits,
   size,
@@ -374,4 +399,5 @@ module.exports = {
   followup,
   followupEvent,
   final,
+  frozenConfirmations,
 };

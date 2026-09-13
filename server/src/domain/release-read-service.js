@@ -80,7 +80,14 @@ async function snapshot(c, d, x, q) {
     },
   };
 }
-async function current(c, d, x, q, p, { approved = false, live = true } = {}) {
+async function current(
+  c,
+  d,
+  x,
+  q,
+  p,
+  { approved = false, live = true, historicalMembers = false } = {},
+) {
   if (q.closed_at || p.release_epoch !== q.release_epoch)
     access.fail('RELEASE_BASELINE_STALE', 409);
   if (
@@ -89,7 +96,9 @@ async function current(c, d, x, q, p, { approved = false, live = true } = {}) {
   )
     access.fail('RELEASE_APPROVAL_REQUIRED', 409);
   if (live) {
-    const inputs = await verification.releaseInputs(c, d, x, q);
+    const inputs = await verification.releaseInputs(c, d, x, q, {
+      historicalMembers,
+    });
     if (!inputs.inputsReady)
       access.fail(
         'RELEASE_PREPARATION_REQUIRED',

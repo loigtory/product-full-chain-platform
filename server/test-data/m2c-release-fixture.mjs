@@ -119,5 +119,96 @@ export async function fixture(options = {}) {
       comment: 'CODEx_TEST_只批准准备记录',
     });
   };
-  return { ...f, accepted, plan, approve };
+  // Valid historical chain first, then change only the original Owner's access.
+  const recovery = async (suffix, disabled = false) => {
+    await f.login('owner2');
+    const item = await accepted(suffix),
+      p = await plan(item);
+    await approve(item, p);
+    const original = resultData([item.evidence]);
+    const unknown = (
+      await f.write(
+        item.id,
+        '/releases/' + p.id + '/reported-results',
+        {
+          ...original,
+          status: 'UNKNOWN',
+          endedAt: null,
+          locator: 'CODEx_TEST_原尝试待核实',
+          responsible: runId + '_owner',
+        },
+        201,
+      )
+    ).record;
+    const member = (await f.api('/members')).items.find(
+      (m) => m.name === runId + '_owner',
+    );
+    const changed = await f.api(
+      '/members/' + member.id + (disabled ? '' : '/role'),
+      disabled ? 'DELETE' : 'PATCH',
+      {
+        ...f.command(),
+        expectedRevision: member.revision,
+        ...(disabled ? {} : { role: 'viewer' }),
+      },
+      'owner2',
+    );
+    const read = (path) => f.api(path, 'GET', undefined, 'owner2');
+    const write = async (
+      path,
+      body,
+      status = 200,
+      who = 'owner2',
+      global = false,
+    ) =>
+      f.api(
+        global ? path : '/reqs/' + item.id + path,
+        'POST',
+        {
+          ...body,
+          ...f.command(),
+          expectedRevision: (await read('/reqs/' + item.id)).req.revision,
+        },
+        who,
+        status,
+      );
+    const review = (status = 200, who = 'owner2') =>
+      write(
+        '/releases/' + p.id + '/approve',
+        {
+          comment: 'CODEx_TEST_现任Owner核对冻结验收与原尝试',
+        },
+        status,
+        who,
+        true,
+      );
+    const restore = () =>
+      disabled
+        ? f.admin.query(
+            `UPDATE "${schema}".members SET active=true,disabled_at=NULL,revision=revision+1 WHERE public_id=$1 AND name=$2 AND NOT active`,
+            [member.id, runId + '_owner'],
+          )
+        : f.api(
+            '/members/' + member.id + '/role',
+            'PATCH',
+            {
+              role: 'owner',
+              expectedRevision: changed.member.revision,
+              ...f.command(),
+            },
+            'owner2',
+          );
+    return {
+      item,
+      plan: p,
+      original,
+      unknown,
+      member,
+      read,
+      write,
+      review,
+      restore,
+    };
+  };
+  return { ...f, accepted, plan, approve, recovery };
 }

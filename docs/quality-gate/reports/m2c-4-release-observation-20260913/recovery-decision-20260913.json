@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-13T10:46:04.931Z",
+  "status": "CONFIRMED",
+  "userReply": "同意",
+  "priorCheckpoint": "31f50e7fea8444db048f3752a43e6e47687fe063",
+  "question": "当发布结果未知，原负责人离职或降权又使历史验收依据失效时，允许现任Owner重评同一冻结计划、沿用原验收快照，仅核实原发布尝试。",
+  "selected": "允许；同一未变计划、同一原尝试，当前Owner重评后沿用历史验收",
+  "scope": "Original63/seven documents/six exact schemas/30 gates package; no expansion",
+  "forbidden": [
+    "main merge",
+    "business PG enablement",
+    "real tools or deployments",
+    "new attempts based on historical-only acceptance"
+  ],
+  "acceptance": "PENDING_REVIEW",
+  "nextRoute": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+}

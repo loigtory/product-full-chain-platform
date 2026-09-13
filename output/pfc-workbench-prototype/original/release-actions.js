@@ -528,6 +528,11 @@
             ]),
           ) +
           V.evidence(p.evidence) +
+          (p.canReReview
+            ? '<p>如存在待核实结果，本次重评将沿用冻结验收 ' +
+              e(p.snapshot.acceptanceId) +
+              '，仅用于核实原尝试。业务版本和证据仍须有效；不会发起新的发布。</p>'
+            : '') +
           X.field('comment', '评审意见', '', 'textarea'),
         b('m4-plan-submit', '送Owner评审', {
           disabled:
@@ -616,6 +621,13 @@
                   ' ～ ' +
                   e(v.endedAt || '待核实') +
                   '</p>' +
+                  (v.reconciliation
+                    ? '<p>沿用冻结验收 ' +
+                      e(v.reconciliation.acceptanceId) +
+                      ' · 重评依据 ' +
+                      e(v.reconciliation.reviewId) +
+                      '</p>'
+                    : '') +
                   V.evidence(v.evidence) +
                   (v.status === 'UNKNOWN'
                     ? b('m4-result-new', '核实原记录', {
@@ -691,10 +703,17 @@
       ),
     'm4-check-current': async () => {
       X.remember();
-      const q = X.current(),
+      const q = P.r(),
         old = form;
+      P.assert(
+        q && old?.id === q.id && old.identity === A.key(q.id),
+        '身份或窗口变化',
+      );
       const w = await A.load(q.id);
-      P.assert(form === old && old.identity === A.key(q.id), '身份或窗口变化');
+      P.assert(
+        w && form === old && old.identity === A.key(q.id),
+        '身份或窗口变化，请重新核对',
+      );
       const d = A.draft(q.id);
       X.open(
         'compare',

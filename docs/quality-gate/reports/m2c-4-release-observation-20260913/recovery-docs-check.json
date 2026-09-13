@@ -1,0 +1,41 @@
+{
+  "at": "2026-09-13T11:18:57.275Z",
+  "format": [
+    {
+      "file": "AGENTS.md",
+      "pass": true
+    },
+    {
+      "file": "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+      "pass": true
+    },
+    {
+      "file": "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+      "pass": true
+    },
+    {
+      "file": "docs/planning/prototype-v3/37-M2c-4发布观察与最终复盘方案及范围确认-20260913.md",
+      "pass": true
+    },
+    {
+      "file": "docs/planning/prototype-v3/38-M2c-4发布观察实施与验收-20260913.md",
+      "pass": true
+    },
+    {
+      "file": "docs/planning/prototype-v3/README.md",
+      "pass": true
+    },
+    {
+      "file": "output/pfc-workbench-prototype/README.md",
+      "pass": true
+    },
+    {
+      "file": "docs/quality-gate/reports/m2c-4-release-observation-20260913.md",
+      "pass": true
+    }
+  ],
+  "localLinks": 125,
+  "broken": [],
+  "sourceDrift": [],
+  "status": "PASS"
+}

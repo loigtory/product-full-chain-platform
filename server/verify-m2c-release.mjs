@@ -733,6 +733,167 @@ try {
       });
     }
   });
+  for (const disabled of [false, true])
+    await test(
+      'D2/D3 confirmed historical acceptance recovery after ' +
+        (disabled ? 'disable' : 'demotion'),
+      async () => {
+        const r = await f.recovery('historical-' + disabled, disabled);
+        const path = '/releases/' + r.plan.id + '/reported-results';
+        const frozen = async () =>
+          (
+            await f.admin.query(
+              `SELECT p.snapshot,p.fingerprint,a.review_id,a.id attempt_id,pa.id acceptance_id,pa.member_id,pa.decision FROM "${schema}".release_plans p JOIN "${schema}".release_attempts a ON a.plan_id=p.id JOIN "${schema}".product_acceptances pa ON pa.req_id=p.req_id WHERE p.public_id=$1`,
+              [r.plan.id],
+            )
+          ).rows;
+        try {
+          const before = await frozen();
+          assert.equal(
+            (await r.read('/reqs/' + r.item.id + '/release-inputs'))
+              .inputsReady,
+            false,
+          );
+          await r.write(
+            path,
+            { ...r.original, previousRecordId: r.unknown.id },
+            409,
+          );
+          await r.review(403, 'viewer');
+          await r.review(403, 'executor');
+          await r.review(); // Red before implementing the user-confirmed exception.
+          const review = (
+            await r.read(
+              '/reqs/' + r.item.id + '/releases/' + r.plan.id + '/reviews',
+            )
+          ).items[0];
+          assert.match(review.comment, /沿用冻结验收/);
+          assert.equal(
+            (await r.read('/reqs/' + r.item.id + '/release-inputs'))
+              .inputsReady,
+            false,
+          );
+          await r.write('/release-plans', { target: 'CODEx_TEST_new' }, 409);
+          await r.write(path, { ...r.original, historicalMembers: true }, 409);
+          await r.write(
+            path,
+            {
+              ...r.original,
+              previousRecordId: r.unknown.id,
+              startedAt: new Date(
+                Date.parse(r.original.startedAt) + 1000,
+              ).toISOString(),
+            },
+            409,
+          );
+          const secondUnknown = (
+            await r.write(
+              path,
+              {
+                ...r.original,
+                status: 'UNKNOWN',
+                endedAt: null,
+                previousRecordId: r.unknown.id,
+                locator: 'CODEx_TEST_继续核查',
+                responsible: runId + '_owner2',
+              },
+              201,
+            )
+          ).record;
+          await r.write(
+            path,
+            { ...r.original, previousRecordId: r.unknown.id },
+            409,
+          );
+          const resolved = await r.write(
+            path,
+            { ...r.original, previousRecordId: secondUnknown.id },
+            201,
+          );
+          assert.equal(
+            resolved.record.reconciliation.acceptanceId,
+            r.plan.snapshot.acceptanceId,
+          );
+          assert.equal(resolved.record.reconciliation.reviewId, review.id);
+          assert.equal(resolved.record.source, 'USER_REPORTED');
+          assert.equal(resolved.executionAvailable, false);
+          assert.deepEqual(await frozen(), before);
+          assert.equal(
+            (await r.read('/reqs/' + r.item.id + '/observations')).total,
+            1,
+          );
+          assert.equal(
+            (
+              await r.read(
+                '/reqs/' + r.item.id + '/releases/' + r.plan.id + '/reviews',
+              )
+            ).total,
+            2,
+          );
+          await r.write(
+            path,
+            { ...r.original, previousRecordId: secondUnknown.id },
+            409,
+          );
+        } finally {
+          await r.restore();
+        }
+      },
+    );
+  await test('D2/D3 historical reconciliation preserves evidence and business fingerprint blockers', async () => {
+    const r = await f.recovery('historical-guards');
+    const path = '/releases/' + r.plan.id + '/reported-results';
+    try {
+      // Isolated fault injection; restore exact field before the next assertion.
+      await f.admin.query(
+        `UPDATE "${schema}".reqs SET goal=goal || '_CHANGED' WHERE public_id=$1`,
+        [r.item.id],
+      );
+      await r.review(409);
+      await f.admin.query(
+        `UPDATE "${schema}".reqs SET goal=$2 WHERE public_id=$1`,
+        [r.item.id, r.plan.snapshot.goal],
+      );
+      await f.admin.query(
+        `UPDATE "${schema}".materials SET allowed=false WHERE public_id=$1`,
+        [r.item.evidence.id],
+      );
+      await r.review(409);
+      await f.admin.query(
+        `UPDATE "${schema}".materials SET allowed=true WHERE public_id=$1`,
+        [r.item.evidence.id],
+      );
+      await r.review();
+      await f.admin.query(
+        `UPDATE "${schema}".reqs SET artifact_design_epoch=artifact_design_epoch+1 WHERE public_id=$1`,
+        [r.item.id],
+      );
+      await r.write(
+        path,
+        { ...r.original, previousRecordId: r.unknown.id },
+        409,
+      );
+      await f.admin.query(
+        `UPDATE "${schema}".reqs SET artifact_design_epoch=artifact_design_epoch-1 WHERE public_id=$1`,
+        [r.item.id],
+      );
+      await f.admin.query(
+        `UPDATE "${schema}".materials SET allowed=false WHERE public_id=$1`,
+        [r.item.evidence.id],
+      );
+      await r.write(
+        path,
+        { ...r.original, previousRecordId: r.unknown.id },
+        409,
+      );
+      assert.equal(
+        (await r.read('/reqs/' + r.item.id + '/observations')).total,
+        0,
+      );
+    } finally {
+      await r.restore();
+    }
+  });
   await test('T13 explicit repair requires new delivery/test/acceptance and keeps prior observation', async () => {
     const t = await f.accepted('second-round'),
       p = await f.plan(t);

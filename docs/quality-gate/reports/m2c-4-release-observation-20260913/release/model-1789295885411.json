@@ -1,0 +1,51 @@
+{
+  "at": "2026-09-13T10:38:05.405Z",
+  "status": "PASS",
+  "results": [
+    {
+      "name": "T08 unknown result does not invent a smoke outcome",
+      "status": "PASS"
+    },
+    {
+      "name": "T01 T03 incomplete drafts retain input but cannot be submitted",
+      "status": "PASS"
+    },
+    {
+      "name": "T03 T19 stable ids, limits and bounded payloads",
+      "status": "PASS"
+    },
+    {
+      "name": "T07 reject fake sources and evidence duplication",
+      "status": "PASS"
+    },
+    {
+      "name": "T06 T07 manual outcome matches target, version, evidence and time",
+      "status": "PASS"
+    },
+    {
+      "name": "T08 unknown has nullable end and must carry reconciliation context",
+      "status": "PASS"
+    },
+    {
+      "name": "T07 T09 authorization and declared rollback scope are enforced",
+      "status": "PASS"
+    },
+    {
+      "name": "T10 observation clock and evidence, independent of client shortcut",
+      "status": "PASS"
+    },
+    {
+      "name": "T11 T12 blocking and nonblocking followups keep named accountability",
+      "status": "PASS"
+    },
+    {
+      "name": "T11 explicit prior event and sequence prevent stale judgments",
+      "status": "PASS"
+    },
+    {
+      "name": "D2/D3 frozen confirmation selection ignores historical access only, never versions or epochs",
+      "status": "PASS"
+    }
+  ],
+  "data": "CODEx_TEST_ deterministic process-local only; no database/external effects"
+}

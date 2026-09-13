@@ -107,7 +107,15 @@ function review(id, pid, input, decision) {
       if (p.review_state !== 'PENDING' && !reReview)
         access.fail('RELEASE_APPROVAL_REQUIRED', 409);
       const comment = policy.field(input.comment, true);
-      await s.current(c, d, x, q, p, { live: q.stage !== 'observe' });
+      const reconcile =
+        !!unknown &&
+        reReview &&
+        unknown.plan_id === p.id &&
+        decision === 'APPROVED';
+      await s.current(c, d, x, q, p, {
+        live: q.stage !== 'observe',
+        historicalMembers: reconcile,
+      });
       if (
         Date.now() > new Date(p.expires_at).getTime() &&
         !unknown &&
@@ -131,7 +139,17 @@ function review(id, pid, input, decision) {
       await repo.insert(c, d, x, q, 'release_reviews', {
         plan_id: p.id,
         decision,
-        comment,
+        comment: policy.field(
+          reconcile
+            ? '沿用冻结验收 ' +
+                p.snapshot.acceptanceId +
+                ' 核实原记录 ' +
+                unknown.public_id +
+                '；' +
+                comment
+            : comment,
+          true,
+        ),
       });
       await repo.reviewState(c, d, x, q, p, decision);
       return { release: await dto.plan(c, d, x, q, p) };

@@ -1,0 +1,92 @@
+{
+  "at": "2026-09-13T11:11:04.632Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "confirmed63 source / seven documents / 30 gates / exact feature and diff",
+      "status": "PASS"
+    },
+    {
+      "name": "all protected original bytes and historical evidence unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit006 extends five immutable migration prefixes / all release tables and guards",
+      "status": "PASS"
+    },
+    {
+      "name": "three business mutation boundaries and membership before cached receipts",
+      "status": "PASS"
+    },
+    {
+      "name": "routes delegate; pure policy; 42 ordered scripts and no direct browser tool execution",
+      "status": "PASS"
+    }
+  ],
+  "sourceHashes": {
+    "server/sql/m2c/006-release-observation.sql": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076",
+    "server/src/domain/release-policy.js": "204231095acd6d3ad670ae75796c54dc3cb711e0590f4deb152f5f49dc6e5dba",
+    "server/src/domain/release-read-service.js": "f0a90cf2ef6fa3e5b6bbf6b862756a39a36055d57dd1c00e53ede165b3ed8c31",
+    "server/src/domain/release-dto.js": "4ee19129bba78b7ce6d557647794940872e145dabca4f25c9401c4630a55ee09",
+    "server/src/domain/release-plan-service.js": "ee3e99fec88182925311e6a78f29dc1dc26962ec2dcb2308bf467efa7f75e096",
+    "server/src/domain/release-record-service.js": "20dc0c55823a5a46f2a44f1c48982876e8b25b9549e6dd918a898b64845fc935",
+    "server/src/domain/observation-service.js": "830957120e53e82b0eb4f2413aa99ab39d8c9aa5ea33f88000fae6bd4c4b62ea",
+    "server/src/domain/final-acceptance-service.js": "0de35382e1438ee8fdf52f5a0a4a1d2fa4b514a1c7c2bc3182361c81609b5a49",
+    "server/src/domain/release-guard.js": "f367d3b2c2fa1d790b2a3aabbbb9fb89b16670032856f86687340b7326f2ee30",
+    "server/src/persistence/release-plans.js": "0e2185bbce1c07cb69433f9f823d235868c1c7c2c4ecc60f535ff8f44cad4698",
+    "server/src/persistence/release-records.js": "1f885ec5fa136cc2e5fd5bb31fe118cabc39c0797a456992b19ae1e074cde0c6",
+    "server/src/persistence/release-observations.js": "014f89d329e700ae22cd8c2ca366f628bc1e3c7b9b2177e1380b05ae08952bd8",
+    "server/src/persistence/release-closure.js": "cf1c56600087bf7d3c830e058210e4935fd8ddb7e6334d54334531565bb31370",
+    "server/src/persistence/release-evidence.js": "19cfe23cc6573cdc61dbd48395872888fefc259cf47ae21d8d3e4a8981f495ed",
+    "server/src/persistence/release-readiness.js": "b701e0abd5cc31b26571af09e2be7fe804c2b2349b06853c47584eaee0ee37b5",
+    "server/src/routes/releases.js": "a79eb9a686e0382151e3f57d3ef35c0bfd05baa4894d53b0e16f8ba012d6f83e",
+    "server/src/routes/observations.js": "3f91fd002517daa934a304ce47274a7a5bb6a5a04107c8597e3d507ebb4fbcb1",
+    "output/pfc-workbench-prototype/original/release-client.js": "48d373690600fdba4fe86db968b55e7f377e268154caf4e9306bcb1efda28134",
+    "output/pfc-workbench-prototype/original/release-view.js": "5bcbfbd4bbfc7886925648c4d669df34995aaf029a9f662aa9bb71ebfff941ba",
+    "output/pfc-workbench-prototype/original/release-actions.js": "bfd5f462a7a8c8a88f38530d0fa35c47ae0fa99d670bdbcb640018691e7673a1",
+    "output/pfc-workbench-prototype/original/observation-view.js": "34f2dc1886281afb51b7ff61eaf131b9476a3642b1c19c8915d2cabcd8dcf358",
+    "output/pfc-workbench-prototype/original/observation-actions.js": "74cbe31fd972f1a2bbdfb25c2b761f4d27b76342a17dcf597b8eadac8e277892",
+    "server/test-data/m2c-release-fixture.mjs": "e71ef6a4f09c119a8aa77cdf9dc5789e070c7c9c83b684196d33570561acc911",
+    "server/verify-m2c-release-model.mjs": "add5389c75b47eeefca31cf5e65ac0de4ef6efea48c22249454b7902c88c7ffa",
+    "server/verify-m2c-release.mjs": "28065e6241465498542149682dc43f8be6c29c47e8a3f2c2ef6e0bc1f60f7d8c",
+    "server/verify-m2c-release-architecture.mjs": "055b492a68723dc1b37f3d212bd6e89b60bf4e6b34a42a83db2bdcfb715ffc2a",
+    "output/pfc-workbench-prototype/verify-m2c-release-browser.mjs": "bc26e8963a80e47b2c828296b827c1153e43a30a258ca47df46962dcf27833a7",
+    "server/src/index.js": "c4fb993edbbadebdb77cc9c36cac78dc9c2ec4b1949629f5b069581d23e6a0ad",
+    "server/src/contract.js": "3c0046782d25b315c16484d8f9e6850ab22c5a1ce01b67f893d9da7bf76b9c53",
+    "server/src/runtime.js": "635abfb087238cb6c176cb52e9de66311e326ad39bdb83d7796bdbc6eabeaaba",
+    "server/src/domain/membership-policy.js": "7be2e6430ad292c48830935b1c2c1dda84436bc42c7a6477146640340e449f63",
+    "server/src/persistence/commands.js": "d7705ff28cb5e4dc4f0b10017f53dcb63d8e97079ca41f8c6d0f7300cc9dc0bc",
+    "server/src/persistence/migrations.js": "ab64ad2a3b8089531cdc263b360c0b64f54419020d60c1b28fd87b24b20ad4f6",
+    "server/src/persistence/identifiers.js": "7ccc76aedc54f9a9d577e5e0808f28395b1f52a7b9c7d65354778b679451a377",
+    "server/src/domain/requirement-service.js": "0e1b44cb19588cd8b7751083ae09daba2dec0e4278e7fcddce35cdd46f9b9461",
+    "server/src/domain/artifact-service.js": "514279cd9e908567a1c729151d7a6313a46a5abb697475434370a18238d9854f",
+    "server/src/domain/verification-read-service.js": "08d2913447642f5612de613066156187be60547138035d4e233c803fd5f17ffa",
+    "server/src/domain/conversation-service.js": "6fbfbd9f787207a1ee76d2ebca01ef368db12954d60f19e1a9088116eb1d8d96",
+    "output/pfc-workbench-prototype/index.html": "a799e5afd619e3391bc02afaf942696f00df377f50ff25a952fd18e40269b772",
+    "output/pfc-workbench-prototype/original/api-client.js": "8c1d185342c71b84208e6bde7722b6f3bcb29d3e0f5fcaa91825e7eafa27624b",
+    "output/pfc-workbench-prototype/original/domain-view.js": "8a65d9bee797290594f1433742e34602cc03914c4dd41659aea643835fc282a7",
+    "output/pfc-workbench-prototype/original/domain-actions.js": "9b2c0ccf1f603b5698a180b9eb3450accfda632d3b87cd896c13aa604f4edd8a",
+    "output/pfc-workbench-prototype/original/testing-view.js": "bcfac729cf9c41876a29b769a4d1c70fc009cc321cee6935380b7094fc39eed3",
+    "output/pfc-workbench-prototype/original/acceptance-view.js": "324bd0fd718f7ff90a4c89a0e09464840b6fe9d16be8bd9b2ab102df56f5448a",
+    "output/pfc-workbench-prototype/verify-static.mjs": "571fe5f879596c32984a53f810016b2e242b9cddd60664d0ad78f55eb077a70e",
+    "server/test-data/m2c-domain-fixture.mjs": "6fd4eab2ee5f24f8d7ac0de2f0d75810f490e810eb403ec1f60785be58ae9a94",
+    "server/test-data/m2c-governance-fixture.mjs": "ebf3d8e35c40ea851cfd8f862eda07c7586d2f1ee7976573046790e7b5344c0d",
+    "server/test-data/r2-artifact-fixture.mjs": "6335bbcffc45dfdc1e35badd26cc2d0801dcef2555da53280dad661dd7293474",
+    "server/test-data/r3-verification-fixture.mjs": "8341d1c5429068d7d898987e5119b3feae6d14c5fea34783f5f9815a204f7f8d",
+    "server/verify-m2c-domain.mjs": "f1849a8e8f0c8785b70f2804b812cd1ead181885053b19552379eaa523b927fb",
+    "server/verify-m2c-governance.mjs": "af9000323979c3b98890a160e89ec77a16efc087e47d129d4bdea4f276af786f",
+    "server/verify-r2-artifact-model.mjs": "83ee58d11d91a040f98143125b3c06ef4de5e26727dc1c5e4b6e136339352f35",
+    "server/verify-r2-artifacts.mjs": "307c53c5694ecc8bd1f87cd5c94488312715c17629b5926e204a1a9248a12775",
+    "server/verify-r2-architecture.mjs": "7733692091d05fcae966b07618137ebfff6b2c5700864aa7ed46f53b9e74e34e",
+    "server/verify-r3-verification-model.mjs": "b574890652d863dd1c2d0620504a43edb842da46cd7aa7e8f858c6618855ffbc",
+    "server/verify-r3-verification.mjs": "eac4c82d55199142c9b51181adee12898a2cd5932478738131bd5ef3043248fe",
+    "server/verify-r3-architecture.mjs": "9148357f875e855c64e410a96ef4ea1f7c2faebf16ee892b9b891cd3f1c6127f",
+    "output/pfc-workbench-prototype/verify-m2c-browser.mjs": "f51f214286242378bc54e93fab6291eef802dfc51ae4857dcd7e4125cf8af819",
+    "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs": "32f7a00e64c7110f8b5f97d7e9af996a5efd04a4611292549483768e06cdefb1",
+    "output/pfc-workbench-prototype/flow-browser-fixture.mjs": "e1ada8a4730ee5fc5f624d62913f4a4671e0a9e88208fd79adb5b465fa472fa7",
+    "output/pfc-workbench-prototype/verify-flow-architecture.mjs": "e6cd0b988d93cb39dcf921c347468f57ddb922bdcf4d1c1472e5b8e16561b5b9",
+    "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs": "32ddb174046d522fea74715c27737c9c792c0f8c3c6215f4e302e1c801bcb8b3",
+    "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs": "b004d74e1268778e994fbb59192c7deec26a91388f8c3048c88d69a2ac651749"
+  },
+  "protectedCount": 2806
+}

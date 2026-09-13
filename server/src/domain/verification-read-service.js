@@ -74,7 +74,13 @@ async function ownerEvidence(c, d, x, q, kind, id, required = true) {
 async function activeRuns(c, d, x, q) {
   return repo.activeRun(c, d, x, q);
 }
-async function inspect(c, d, x, q, { files = true } = {}) {
+async function inspect(
+  c,
+  d,
+  x,
+  q,
+  { files = true, historicalMembers = false } = {},
+) {
   let upstream;
   const blockers = [];
   try {
@@ -91,8 +97,6 @@ async function inspect(c, d, x, q, { files = true } = {}) {
   }
   blockers.push(...upstream.blockers);
   if (upstream.questions.length) blockers.push('仍有待决定问题');
-  if (!upstream.business) blockers.push('业务方案尚未有效确认');
-  if (!upstream.design) blockers.push('实施设计尚未有效确认');
   const suite = q.current_test_suite_id
     ? await repo.find(c, d, x, q, 'test_suites', q.current_test_suite_id, true)
     : null;
@@ -107,6 +111,15 @@ async function inspect(c, d, x, q, { files = true } = {}) {
         true,
       )
     : null;
+  // Internal release reconciliation only. Bind the original confirmations;
+  // epochs, inputs, design version and evidence must still match current facts.
+  if (historicalMembers && baseline)
+    Object.assign(
+      upstream,
+      require('./release-policy').frozenConfirmations(upstream, q, baseline),
+    );
+  if (!upstream.business) blockers.push('业务方案尚未有效确认');
+  if (!upstream.design) blockers.push('实施设计尚未有效确认');
   if (
     !suite ||
     suite.status !== 'READY' ||
@@ -127,7 +140,10 @@ async function inspect(c, d, x, q, { files = true } = {}) {
     )
       blockers.push('交付基线已变化，请重新提测');
     const author = await repo.member(c, d, x, baseline.created_by);
-    if (!author?.active || !['owner', 'executor'].includes(author.role))
+    if (
+      !historicalMembers &&
+      (!author?.active || !['owner', 'executor'].includes(author.role))
+    )
       blockers.push('交付登记者已无权限');
     if (files)
       try {
@@ -145,7 +161,14 @@ async function ready(c, d, x, q) {
     access.fail('TEST_BASELINE_STALE', 409, state.blockers.join('；'));
   return state;
 }
-async function validResults(c, d, x, q, batch) {
+async function validResults(
+  c,
+  d,
+  x,
+  q,
+  batch,
+  { historicalMembers = false } = {},
+) {
   const results = await require('../persistence/test-executions').latest(
     c,
     d,
@@ -155,7 +178,10 @@ async function validResults(c, d, x, q, batch) {
   );
   for (const r of results) {
     const author = await repo.member(c, d, x, r.registered_by);
-    if (!author?.active || !['owner', 'executor'].includes(author.role))
+    if (
+      !historicalMembers &&
+      (!author?.active || !['owner', 'executor'].includes(author.role))
+    )
       access.fail(
         'TEST_RESULT_REQUIRED',
         409,
@@ -173,13 +199,21 @@ async function validResults(c, d, x, q, batch) {
   }
   return results;
 }
-async function testComplete(c, d, x, q, state, batch) {
+async function testComplete(
+  c,
+  d,
+  x,
+  q,
+  state,
+  batch,
+  { historicalMembers = false } = {},
+) {
   if (!batch || batch.baseline_id !== state.baseline?.id)
     access.fail('TEST_RESULT_REQUIRED', 409, '缺少当前交付的测试批次');
   const cases = (
       await require('../persistence/test-suites').cases(c, d, x, q, state.suite)
     ).map((r) => r.content),
-    results = await validResults(c, d, x, q, batch),
+    results = await validResults(c, d, x, q, batch, { historicalMembers }),
     defects = await require('../persistence/defects').unclosed(c, d, x, q);
   policy.complete(cases, results, defects);
   for (const event of await require('../persistence/defects').latestProofs(
@@ -189,7 +223,10 @@ async function testComplete(c, d, x, q, state, batch) {
     q,
   )) {
     const author = await repo.member(c, d, x, event.member_id);
-    if (!author?.active || !['owner', 'executor'].includes(author.role))
+    if (
+      !historicalMembers &&
+      (!author?.active || !['owner', 'executor'].includes(author.role))
+    )
       access.fail('DEFECT_RETEST_REQUIRED', 409, '缺陷回归登记者已无权限');
     await ownerEvidence(c, d, x, q, 'defect_event_id', event.id);
   }
@@ -249,8 +286,8 @@ async function workspace(c, d, x, q) {
   policy.size(value);
   return value;
 }
-async function releaseInputs(c, d, x, q) {
-  const s = await inspect(c, d, x, q),
+async function releaseInputs(c, d, x, q, { historicalMembers = false } = {}) {
+  const s = await inspect(c, d, x, q, { historicalMembers }),
     blockers = [...s.blockers],
     a = await require('../persistence/product-acceptances').current(
       c,
@@ -269,15 +306,14 @@ async function releaseInputs(c, d, x, q) {
   if (
     !a ||
     a.decision !== 'ACCEPTED' ||
-    !a.member_active ||
-    a.current_role !== 'owner' ||
+    (!historicalMembers && (!a.member_active || a.current_role !== 'owner')) ||
     a.batch_id !== batch?.id ||
     q.stage !== 'release'
   )
     blockers.push('缺少当前Owner有效产品验收');
   if (s.ready)
     try {
-      await testComplete(c, d, x, q, s, batch);
+      await testComplete(c, d, x, q, s, batch, { historicalMembers });
       if (a) await ownerEvidence(c, d, x, q, 'acceptance_id', a.id);
     } catch (e) {
       if (!e.status) throw e;

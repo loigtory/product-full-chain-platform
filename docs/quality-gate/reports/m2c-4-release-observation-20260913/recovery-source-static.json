@@ -1,0 +1,69 @@
+{
+  "at": "2026-09-13T11:19:44.811Z",
+  "format": [
+    {
+      "file": "server/src/domain/release-policy.js",
+      "pass": true
+    },
+    {
+      "file": "server/src/domain/release-read-service.js",
+      "pass": true
+    },
+    {
+      "file": "server/src/domain/release-plan-service.js",
+      "pass": true
+    },
+    {
+      "file": "server/src/domain/release-record-service.js",
+      "pass": true
+    },
+    {
+      "file": "output/pfc-workbench-prototype/original/release-actions.js",
+      "pass": true
+    },
+    {
+      "file": "server/test-data/m2c-release-fixture.mjs",
+      "pass": true
+    },
+    {
+      "file": "server/verify-m2c-release-model.mjs",
+      "pass": true
+    },
+    {
+      "file": "server/verify-m2c-release.mjs",
+      "pass": true
+    },
+    {
+      "file": "output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "pass": true
+    },
+    {
+      "file": "server/src/domain/verification-read-service.js",
+      "pass": true
+    }
+  ],
+  "lint": [
+    {
+      "file": "server/src/domain/release-policy.js",
+      "messages": []
+    },
+    {
+      "file": "server/src/domain/release-read-service.js",
+      "messages": []
+    },
+    {
+      "file": "server/src/domain/release-plan-service.js",
+      "messages": []
+    },
+    {
+      "file": "server/src/domain/release-record-service.js",
+      "messages": []
+    },
+    {
+      "file": "server/src/domain/verification-read-service.js",
+      "messages": []
+    }
+  ],
+  "status": "PASS",
+  "driverNote": "Supplemental recheck first referenced unavailable globals package before executing; corrected to built-in Node globals plus CommonJS bindings. No install or repo lint config change."
+}

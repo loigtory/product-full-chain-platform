@@ -398,6 +398,11 @@ try {
       ),
       false,
     );
+    // A background sync may invalidate the workspace while this draft remains
+    // open; comparing current facts must not require the invalidated cache.
+    await page.evaluate((id) => {
+      delete window.PFC.releaseClient.states[id];
+    }, other.id);
     await click('m4-check-current');
     await click('m4-use-current');
     await closed();
@@ -620,6 +625,132 @@ try {
       return { rejected, draft };
     }, other.id);
     assert.deepEqual(isolated, { rejected: true, draft: {} });
+  });
+  await test('D2/D3 current Owner visibly re-reviews frozen acceptance and reconciles disabled author original attempt', async () => {
+    // End the preceding identity/failure-injection session before disabling its
+    // member. The new Owner's evidence must come from a clean real session.
+    await ctx.close();
+    const r = await f.recovery('browser-historical', true);
+    try {
+      const recoveryContext = await browser.newContext({
+        viewport: { width: 1440, height: 960 },
+      });
+      await recoveryContext.route(/^https?:\/\//, (route) => {
+        if (new URL(route.request().url()).hostname !== '127.0.0.1') {
+          report.external.push('NON_LOOPBACK');
+          return route.abort();
+        }
+        return route.continue();
+      });
+      await recoveryContext.addInitScript(
+        ({ base, name }) => {
+          window.PFC_DATA_MODE = 'api';
+          window.PFC_API_BASE = base;
+          window.PFC_USER_NAME = name;
+        },
+        { base: f.baseUrl, name: runId + '_owner2' },
+      );
+      page = await recoveryContext.newPage();
+      page.setDefaultTimeout(12000);
+      report.recoveryUi = {
+        console: [],
+        httpErrors: [],
+        keyboardReview: false,
+      };
+      page.on('pageerror', (error) => report.errors.push(error.message));
+      page.on('console', (message) => {
+        if (['error', 'warning'].includes(message.type()))
+          report.recoveryUi.console.push({
+            type: message.type(),
+            text: message.text(),
+          });
+      });
+      page.on('response', (response) => {
+        if (response.status() >= 400)
+          report.recoveryUi.httpErrors.push({
+            status: response.status(),
+            path: new URL(response.url()).pathname,
+          });
+      });
+      const url = pathToFileURL(
+        resolve('output/pfc-workbench-prototype/index.html'),
+      ).href;
+      await page.goto(url);
+      await page.waitForFunction(
+        () => window.PFCAPI?.api.ready || window.PFC?.remoteError,
+      );
+      assert.equal(await page.evaluate(() => window.PFC.remoteError), null);
+      assert.equal(page.url(), url);
+      report.recoveryUi.title = await page.title();
+      assert.equal(report.recoveryUi.title, 'PFC · 我的工作台');
+      await go(r.item.id);
+      await click('m4-plan-detail', '[data-id="' + r.plan.id + '"]');
+      assert.ok(
+        (await page.locator('#modal-root').innerText()).includes(
+          '沿用冻结验收 ' + r.plan.snapshot.acceptanceId,
+        ),
+      );
+      assert.ok(
+        (await page.locator('#modal-root').innerText()).includes('已停用'),
+      );
+      await fill('comment', 'CODEx_TEST_现任Owner核对原冻结验收及未变计划');
+      await page.screenshot({ path: resolve(out, 'recovery-review-1440.png') });
+      await idle();
+      await page
+        .locator(
+          '#modal-root button[data-action="m4-plan-review"][data-decision="APPROVED"]',
+        )
+        .focus();
+      await page.keyboard.press('Enter');
+      await idle();
+      await closed();
+      report.recoveryUi.keyboardReview = true;
+      const reviews = await r.read(
+        '/reqs/' + r.item.id + '/releases/' + r.plan.id + '/reviews',
+      );
+      assert.equal(reviews.total, 2);
+      assert.match(reviews.items[0].comment, /沿用冻结验收/);
+      await click('m4-results', '[data-id="' + r.plan.id + '"]');
+      await click('m4-result-new', '[data-record="' + r.unknown.id + '"]');
+      await page.locator('#modal-root [name="status"]').selectOption('SUCCESS');
+      await fill('endedAt', r.original.endedAt);
+      await fill('checkedAt', new Date().toISOString());
+      await fill('actual', 'CODEx_TEST_仅核实原尝试实际结果');
+      await page
+        .locator(
+          '#modal-root [name="evidence"][value="' + r.item.evidence.id + '"]',
+        )
+        .check();
+      await click('m4-result-save');
+      await closed();
+      await go(r.item.id, 'observe');
+      assert.ok((await page.locator('#app').innerText()).includes('观察'));
+      const events = await r.read(
+        '/reqs/' + r.item.id + '/releases/' + r.plan.id + '/reported-results',
+      );
+      assert.equal(events.items[0].previousRecordId, r.unknown.id);
+      assert.equal(
+        events.items[0].reconciliation.acceptanceId,
+        r.plan.snapshot.acceptanceId,
+      );
+      assert.equal(
+        (await r.read('/reqs/' + r.item.id + '/observations')).total,
+        1,
+      );
+      await go(r.item.id, 'release');
+      await click('m4-results', '[data-id="' + r.plan.id + '"]');
+      assert.ok(
+        (await page.locator('#modal-root').innerText()).includes(
+          '重评依据 ' + reviews.items[0].id,
+        ),
+      );
+      await page.screenshot({ path: resolve(out, 'recovery-result-1440.png') });
+      await click('close-modal');
+      assert.deepEqual(report.recoveryUi.console, []);
+      assert.deepEqual(report.recoveryUi.httpErrors, []);
+    } finally {
+      await r.restore();
+    }
   });
   assert.deepEqual(report.errors, []);
   assert.deepEqual(report.external, []);

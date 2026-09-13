@@ -232,6 +232,71 @@ try {
       { sequence: 2, previousRecordId: 'OME-1' },
     );
   });
+  test('D2/D3 frozen confirmation selection ignores historical access only, never versions or epochs', () => {
+    const q = { artifact_business_epoch: 3, artifact_design_epoch: 4 };
+    const baseline = {
+      business_confirmation_id: 'B1',
+      design_confirmation_id: 'D1',
+    };
+    const common = {
+      group_id: 'G1',
+      business_epoch: 3,
+      input_fingerprint: 'F1',
+      member_active: false,
+      current_role: 'viewer',
+    };
+    const u = {
+      group: { id: 'G1' },
+      inputs: { fingerprint: 'F1' },
+      history: [
+        { ...common, id: 'B1', kind: 'BUSINESS' },
+        {
+          ...common,
+          id: 'D1',
+          kind: 'DESIGN',
+          design_epoch: 4,
+          design_version_id: 'V1',
+        },
+      ],
+      latest: () => ({ id: 'V1', stale: false, confirmed_at: '2026-09-13' }),
+    };
+    const selected = p.frozenConfirmations(u, q, baseline);
+    assert.equal(selected.business.id, 'B1');
+    assert.equal(selected.design.id, 'D1');
+    assert.equal(
+      p.frozenConfirmations(u, { ...q, artifact_business_epoch: 5 }, baseline)
+        .business,
+      undefined,
+    );
+    assert.equal(
+      p.frozenConfirmations(u, { ...q, artifact_design_epoch: 5 }, baseline)
+        .design,
+      null,
+    );
+    assert.equal(
+      p.frozenConfirmations(
+        { ...u, latest: () => ({ id: 'V2', confirmed_at: '2026-09-13' }) },
+        q,
+        baseline,
+      ).design,
+      null,
+    );
+    assert.equal(
+      p.frozenConfirmations(
+        { ...u, inputs: { fingerprint: 'CHANGED' } },
+        q,
+        baseline,
+      ).business,
+      undefined,
+    );
+    assert.equal(
+      p.frozenConfirmations(u, q, {
+        ...baseline,
+        business_confirmation_id: 'OTHER',
+      }).business,
+      undefined,
+    );
+  });
   report.status = 'PASS';
 } catch (e) {
   report.error = { code: e.code, message: e.message };

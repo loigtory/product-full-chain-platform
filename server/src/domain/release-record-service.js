@@ -37,7 +37,19 @@ function create(id, pid, input, kind = 'DEPLOY') {
       const hasSuccess = latest.some(
         (r) => r.status === 'SUCCESS' && r.content.kind === 'DEPLOY',
       );
-      await s.current(c, d, x, q, p, { approved: true, live: !hasSuccess });
+      const review = await records.review(c, d, x, q, p),
+        originalAttempt = previous
+          ? await records.attempt(c, d, x, q, previous.attempt_id)
+          : null,
+        reconciledReview =
+          !!originalAttempt &&
+          !!review &&
+          review.id !== originalAttempt.review_id;
+      await s.current(c, d, x, q, p, {
+        approved: true,
+        live: !hasSuccess,
+        historicalMembers: reconciledReview,
+      });
       if (q.closed_at) access.fail('RELEASE_PHASE_LOCKED', 409);
       if (kind === 'ROLLBACK' && !hasSuccess)
         access.fail('RELEASE_RECORD_REQUIRED', 409, '先登记成功发布');
@@ -54,6 +66,12 @@ function create(id, pid, input, kind = 'DEPLOY') {
       )
         access.fail('RELEASE_RETURN_REQUIRED', 409, '已有回退记录，请返回修复');
       const value = policy.result(input, p.content, kind);
+      if (reconciledReview)
+        value.reconciliation = {
+          mode: 'FROZEN_ACCEPTANCE',
+          acceptanceId: p.snapshot.acceptanceId,
+          reviewId: review.public_id,
+        };
       if (kind === 'ROLLBACK') {
         const deployed = latest.find(
           (r) => r.content.kind === 'DEPLOY' && r.status === 'SUCCESS',
@@ -80,9 +98,8 @@ function create(id, pid, input, kind = 'DEPLOY') {
         value.evidence,
         value.status !== 'UNKNOWN',
       );
-      const review = await records.review(c, d, x, q, p);
       const attempt = previous
-        ? await records.attempt(c, d, x, q, previous.attempt_id)
+        ? originalAttempt
         : await repo.insert(c, d, x, q, 'release_attempts', {
             plan_id: p.id,
             review_id: review.id,
