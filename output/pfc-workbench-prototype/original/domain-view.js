@@ -251,7 +251,11 @@
       return '<main class="page"><div class="empty-state" role="status">正在连接服务端并读取存储模式…</div></main>';
     if (P.remoteError)
       return `<main class="page"><div class="empty-state" role="alert">${P.esc(P.remoteError)}<p>输入已保留，可重试读取服务端。</p>${P.btn('pg-reload', '重试连接')}</div></main>`;
-    if (V.pg() && P.s.ui.route === 'work' && P.index(P.s.ui.stage) > 3)
+    if (
+      V.pg() &&
+      P.s.ui.route === 'work' &&
+      P.index(P.s.ui.stage) > (P.verificationClient?.enabled() ? 6 : 3)
+    )
       return `<main class="page"><div class="empty-state">${P.esc(api().capabilities.unsupportedReason)}${P.btn('open-work', '返回当前需求', { stage: P.r()?.stage || 'idea' })}</div></main>`;
     return '';
   };

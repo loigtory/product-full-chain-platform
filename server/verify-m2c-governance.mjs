@@ -113,7 +113,7 @@ if (
     const { fixture } = await import('./test-data/m2c-governance-fixture.mjs');
     f = await fixture();
     await test('G01 G02 PG readiness, members and role authority', async () => {
-      assert.equal((await f.api('/health')).schemaVersion, '004');
+      assert.equal((await f.api('/health')).schemaVersion, '005');
       assert.equal((await f.login('viewer')).role, 'viewer');
       const list = await f.api('/members');
       assert.equal(list.total, 5);
@@ -994,7 +994,7 @@ const report = {
   cleanup,
   data: 'deterministic local fixtures only',
 };
-const out = 'docs/quality-gate/reports/r2-artifacts-20260913/governance';
+const out = 'docs/quality-gate/reports/r3-test-acceptance-20260913/governance';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/' + report.phase + '-' + Date.now() + '.json',

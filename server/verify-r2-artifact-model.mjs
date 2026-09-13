@@ -284,7 +284,7 @@ const report = {
   status: results.every((x) => x.status === 'PASS') ? 'PASS' : 'FAIL',
   results,
 };
-const out = 'docs/quality-gate/reports/r2-artifacts-20260913/artifacts';
+const out = 'docs/quality-gate/reports/r3-test-acceptance-20260913/artifacts';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/model-' + Date.now() + '.json',

@@ -244,6 +244,16 @@ async function detail(client, db, ctx, row) {
   ).rows;
   return {
     ...dto.req(row),
+    ...(db.targetVersion === '005'
+      ? {
+          verification: await require('./verification-read-service').workspace(
+            client,
+            db,
+            ctx,
+            row,
+          ),
+        }
+      : {}),
     projectId: project?.id || null,
     project,
     knowledgeRefs: await require('../persistence/knowledge').refs(
@@ -351,6 +361,17 @@ async function mutate(id, input, operation, work) {
           'design',
         );
     }
+    if (
+      db.targetVersion === '005' &&
+      operation === 'version.saved' &&
+      input.stage === 'dev'
+    )
+      await require('../persistence/verification-baselines').invalidate(
+        client,
+        db,
+        ctx,
+        row,
+      );
     const current = await repo.touch(client, db, ctx, row, operation);
     return { ...result, req: await detail(client, db, ctx, current) };
   });
@@ -449,6 +470,12 @@ module.exports.getVersions = async (id, stage) => {
 };
 module.exports.saveVersion = (id, input) =>
   mutate(id, input, 'version.saved', async (client, db, ctx, row) => {
+    if (['test', 'accept', 'release'].includes(input.stage))
+      access.fail(
+        'VERIFICATION_WRITE_REQUIRED',
+        409,
+        '请使用测试或产品验收动作生成报告',
+      );
     if (input.stage === 'req')
       access.fail(
         'LINKED_WRITE_REQUIRED',
@@ -490,6 +517,14 @@ module.exports.confirmVersion = (id, vid, input = {}) =>
     const versions = await repo.versions(client, db, ctx, row.id),
       v = versions.find((v) => v.public_id === vid);
     if (!v) access.fail('NOT_FOUND', 404);
+    if (db.targetVersion === '005')
+      await require('./verification-read-service').guardVersion(
+        client,
+        db,
+        ctx,
+        row,
+        v,
+      );
     if (['req', 'design'].includes(v.stage))
       access.fail(
         'ARTIFACT_CONFIRMATION_REQUIRED',
@@ -513,6 +548,17 @@ module.exports.confirmVersion = (id, vid, input = {}) =>
   });
 module.exports.advanceStage = (id, to, input = {}) =>
   mutate(id, input, 'requirement.advanced', async (client, db, ctx, row) => {
+    const verificationGate = {
+      test: 'TEST_HANDOFF_REQUIRED',
+      accept: 'TEST_COMPLETION_REQUIRED',
+      release: 'PRODUCT_ACCEPTANCE_REQUIRED',
+    }[to];
+    if (verificationGate)
+      access.fail(
+        verificationGate,
+        409,
+        '请使用当前测试/验收主动作完成阶段交接',
+      );
     if (!['req', 'design', 'dev'].includes(to))
       access.fail('CAPABILITY_UNAVAILABLE', 409, '该阶段 PG 写入尚未接入');
     if (['design', 'dev'].includes(to))
@@ -562,6 +608,14 @@ module.exports.reviewVersion = (id, vid, input) =>
       v = versions.find((v) => v.public_id === vid);
     if (!v || latest(versions, v.stage)?.id !== v.id || v.stale)
       access.fail('STALE_VERSION');
+    if (db.targetVersion === '005')
+      await require('./verification-read-service').guardVersion(
+        client,
+        db,
+        ctx,
+        row,
+        v,
+      );
     const identity =
       await require('../persistence/identifiers').allocateIdentifier(
         client,

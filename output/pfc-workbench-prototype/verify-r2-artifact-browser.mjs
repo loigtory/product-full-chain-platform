@@ -9,7 +9,7 @@ import {
   runId,
 } from '../../server/test-data/r2-artifact-fixture.mjs';
 const out = resolve(
-  'docs/quality-gate/reports/r2-artifacts-20260913/artifacts',
+  'docs/quality-gate/reports/r3-test-acceptance-20260913/artifacts',
 );
 mkdirSync(out, { recursive: true });
 const report = {
@@ -174,7 +174,7 @@ try {
     await page
       .locator('button[data-action="r2-proposal"]')
       .first()
-      .scrollIntoViewIfNeeded();
+      .click({ trial: true });
     await page.evaluate(() =>
       document.addEventListener(
         'pointerdown',

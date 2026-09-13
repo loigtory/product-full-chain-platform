@@ -146,6 +146,8 @@ async function confirm(id, gid, input, kind) {
   );
 }
 async function stageInputs(id, stage) {
+  if (['test', 'accept', 'release'].includes(stage))
+    return require('./verification-read-service').stageInputs(id, stage);
   if (!['design', 'dev'].includes(stage)) access.fail('INVALID_STAGE', 400);
   return artifacts.read(id, async (c, d, x, r) => {
     const state = await impact.inspect(c, d, x, r, { files: true });

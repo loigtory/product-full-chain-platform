@@ -1,0 +1,36 @@
+{
+  "at": "2026-09-13T06:40:25.259Z",
+  "status": "PASS",
+  "sourceCheckout": "D:/项目管理/product-full-chain-platform",
+  "environment": "Node24.20.0/npm11.19.0; existing offline-installed dependencies; no dependency changes",
+  "commands": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "PASS",
+      "output": "syntaxScripts37 lintModules34 externalEntryAssets0"
+    },
+    {
+      "command": "node scripts/check-config.mjs",
+      "status": "PASS",
+      "output": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed"
+    },
+    {
+      "command": "node --import tsx scripts/check-delivery-governance.ts",
+      "status": "PASS",
+      "output": "DELIVERY_GOVERNANCE_OK POD-PFC-001 caps5 units26 milestoneM2 nextPOD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "output": "empty, exit0"
+    },
+    {
+      "command": "inline Espree/Prettier/ESLint and local links/rawSHA checks",
+      "status": "PASS",
+      "output": "57syntax66format16new-server-lint120links2589protected",
+      "evidence": "testing/static-review.json"
+    }
+  ],
+  "scope": "supplemental to26 native prototype gates; legacy React workspace gates remain distinct",
+  "acceptance": "PENDING"
+}

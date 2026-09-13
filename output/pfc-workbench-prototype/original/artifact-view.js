@@ -93,6 +93,7 @@
       b('r2-import', '导入原件') +
       b('r2-history', '版本与确认历史') +
       b('r2-refresh', '刷新成果') +
+      (P.verificationClient?.enabled() ? b('r3-tests', '测试准备与记录') : '') +
       '</div>';
     if (A.draft(q.id).pending)
       html += P.notice(

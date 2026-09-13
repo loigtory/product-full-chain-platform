@@ -46,7 +46,7 @@ try {
   await test('A04 explicit004 migration and immutable history constraints', async () => {
     const r = require('./src/persistence/migrations').registry('004');
     assert.equal(r.length, 4);
-    assert.equal(f.db.targetVersion, '004');
+    assert.equal(f.db.targetVersion, '005');
     await require('./src/persistence/migrations').assertReady(f.db);
     const rows = (
       await f.admin.query(
@@ -57,7 +57,7 @@ try {
     ).rows;
     assert.deepEqual(
       rows.map((x) => x.version),
-      ['001', '002', '003', '004'],
+      ['001', '002', '003', '004', '005'],
     );
   });
   await f.startRuntime();
@@ -820,7 +820,7 @@ try {
       report.status = 'FAIL';
       report.cleanupError = { code: e.code, message: e.message };
     }
-  const out = 'docs/quality-gate/reports/r2-artifacts-20260913/artifacts';
+  const out = 'docs/quality-gate/reports/r3-test-acceptance-20260913/artifacts';
   mkdirSync(out, { recursive: true });
   writeFileSync(
     out + '/integration-' + Date.now() + '.json',

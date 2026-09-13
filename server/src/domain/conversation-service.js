@@ -102,7 +102,9 @@ module.exports.sendMessage = async (id, input) => {
     async (client, db, ctx, row) => {
       const stage = input.stage || row.stage;
       if (
-        !['idea', 'req', 'design', 'dev'].includes(stage) ||
+        !['idea', 'req', 'design', 'dev', 'test', 'accept', 'release'].includes(
+          stage,
+        ) ||
         sm.STAGES.indexOf(stage) > sm.STAGES.indexOf(row.stage)
       )
         access.fail('INVALID_STAGE', 400);
@@ -174,14 +176,15 @@ module.exports.sendMessage = async (id, input) => {
             changes.push({ name: f.name, before: f.value, after });
         }
       }
-      const diff = changes.length
-        ? {
-            stage,
-            base: base.content.id,
-            baseVersionId: base.public_id,
-            fields: changes,
-          }
-        : null;
+      const diff =
+        !['test', 'accept', 'release'].includes(stage) && changes.length
+          ? {
+              stage,
+              base: base.content.id,
+              baseVersionId: base.public_id,
+              fields: changes,
+            }
+          : null;
       const full =
         '【模拟回复】已保存本次对话' +
         (refs.length ? '及 ' + refs.length + ' 项版本引用' : '') +
@@ -299,6 +302,8 @@ module.exports.messageDiff = (id, mid, input) =>
         )
           access.fail('STALE_VERSION');
         await repo.references(client, db, ctx, row.id, m.metadata.refs || []);
+        if (['test', 'accept', 'release'].includes(diff.stage))
+          access.fail('VERIFICATION_WRITE_REQUIRED');
         const selected = input.selected || diff.fields.map((_, i) => i);
         if (
           !Array.isArray(selected) ||
@@ -325,6 +330,13 @@ module.exports.messageDiff = (id, mid, input) =>
           v.id,
         );
         await reqRepo.staleAfter(client, db, ctx, row.id, diff.stage);
+        if (db.targetVersion === '005' && diff.stage === 'dev')
+          await require('../persistence/verification-baselines').invalidate(
+            client,
+            db,
+            ctx,
+            row,
+          );
         if (diff.stage === 'design')
           await require('./artifact-impact-service').invalidate(
             client,

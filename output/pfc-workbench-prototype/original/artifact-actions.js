@@ -479,12 +479,24 @@
     'r2-inputs': async () => {
       const q = current(),
         key = A.key(q.id),
-        stage = q.stage === 'req' ? 'design' : 'dev',
+        stage =
+          {
+            req: 'design',
+            design: 'dev',
+            dev: 'test',
+            test: 'accept',
+            accept: 'release',
+            release: 'release',
+          }[q.stage] || 'design',
         value = await A.request(q.id, '/stage-inputs?stage=' + stage);
       unchanged(q.id, key);
       P.modal(
         '进入' + P.stageName(stage) + '的输入',
-        P.notice(value.ready ? '输入已就绪' : value.blockers.join('；')) +
+        P.notice(
+          value.ready || value.inputsReady
+            ? '输入已就绪'
+            : value.blockers.join('；'),
+        ) +
           '<pre>' +
           e(JSON.stringify(value, null, 2)) +
           '</pre>',

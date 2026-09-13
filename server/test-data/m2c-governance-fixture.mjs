@@ -10,8 +10,12 @@ const require = createRequire(import.meta.url);
 export { context, secondContext };
 export const runId = 'CODEx_TEST_M2C_20260913_governance';
 export const schema = 'codex_test_m2c_20260913_governance';
-export async function fixture({ start = true, artifacts = false } = {}) {
-  const f = await base({ governance: true, artifacts });
+export async function fixture({
+  start = true,
+  artifacts = false,
+  testing = false,
+} = {}) {
+  const f = await base({ governance: true, artifacts, testing });
   const { schema, runId } = f;
   const tokens = {};
   let server;

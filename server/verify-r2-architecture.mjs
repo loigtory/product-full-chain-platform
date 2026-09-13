@@ -24,7 +24,7 @@ const check = (name, fn) => {
 };
 try {
   check(
-    'R2 exact whitelist, no dependencies/history/legacy source edits',
+    'Accepted R2 exact whitelist; current R3 scope checked by verify-r3-architecture',
     () => {
       const design = read(
         'docs/planning/prototype-v3/33-R2关联产物与阶段承接方案及范围确认-20260913.md',
@@ -51,8 +51,13 @@ try {
         'docs/quality-gate/reports/r2-artifacts-20260913.md',
       ]);
       const changed = [
-        ...git('diff', '--name-only', '-z', base).split('\0'),
-        ...git('ls-files', '--others', '--exclude-standard', '-z').split('\0'),
+        ...git(
+          'diff',
+          '--name-only',
+          '-z',
+          base,
+          '2afce7a683c08cf6c318f8668581539be5aa09ea',
+        ).split('\0'),
       ].filter(Boolean);
       assert.deepEqual(
         changed.filter(
@@ -154,7 +159,7 @@ try {
   report.error = e.message;
   console.error(e.stack);
 }
-const out = 'docs/quality-gate/reports/r2-artifacts-20260913/artifacts';
+const out = 'docs/quality-gate/reports/r3-test-acceptance-20260913/artifacts';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/architecture-' + Date.now() + '.json',

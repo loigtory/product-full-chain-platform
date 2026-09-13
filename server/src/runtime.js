@@ -52,11 +52,13 @@ async function start() {
   const fileRel = relative(
     resolve(
       root,
-      process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_artifacts'
-        ? '.local/r2-artifacts-20260913/files'
-        : process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_governance'
-          ? '.local/m2c-3-governance-20260913/files'
-          : '.local/m2c-2-domain-20260912/files',
+      process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_verification'
+        ? '.local/r3-test-acceptance-20260913/files'
+        : process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_artifacts'
+          ? '.local/r2-artifacts-20260913/files'
+          : process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_governance'
+            ? '.local/m2c-3-governance-20260913/files'
+            : '.local/m2c-2-domain-20260912/files',
     ),
     filesRoot,
   );
@@ -73,7 +75,7 @@ async function start() {
     connectionString: process.env.DATABASE_URL,
     schema: process.env.PFC_DB_SCHEMA,
     authorizedSchema: process.env.PFC_AUTHORIZED_SCHEMA,
-    targetVersion: '004',
+    targetVersion: '005',
   });
   const tenants = (
     await database.pool.query(`SELECT id FROM "${database.schema}".tenants`)
@@ -96,8 +98,11 @@ async function health() {
     readiness: true,
     storage: 'pg',
     domainPersistence: true,
-    schemaVersion: '004',
+    schemaVersion: '005',
     supportedActions: [
+      'testing',
+      'productAcceptance',
+      'releaseInputs',
       'linkedArtifacts',
       'requirements',
       'versions',
@@ -117,7 +122,7 @@ async function health() {
       'planContext',
     ],
     unsupportedReason:
-      'PG 尚未接入关联原型/PRD联动、测试验收、发布与观察写入；真实工具尚未启用',
+      '测试结果为具名人工登记；发布执行、观察写入与真实工具尚未启用',
   };
 }
 async function stop() {

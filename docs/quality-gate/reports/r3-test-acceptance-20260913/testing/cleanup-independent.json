@@ -1,0 +1,46 @@
+{
+  "at": "2026-09-13T06:47:15.474Z",
+  "status": "PASS",
+  "method": "independent read-only local PG and filesystem after final26 gate results",
+  "schemas": [
+    {
+      "schema": "codex_test_m2c_20260913_verification",
+      "remaining": 0
+    },
+    {
+      "schema": "codex_test_m2c_20260913_artifacts",
+      "remaining": 0
+    },
+    {
+      "schema": "codex_test_m2c_20260913_governance",
+      "remaining": 0
+    },
+    {
+      "schema": "codex_test_m2c_20260912_domain",
+      "remaining": 0
+    },
+    {
+      "schema": "codex_test_m2c_20260912_storage",
+      "remaining": 0
+    }
+  ],
+  "files": [
+    {
+      "root": ".local/r3-test-acceptance-20260913/files",
+      "remaining": 0
+    },
+    {
+      "root": ".local/r2-artifacts-20260913/files",
+      "remaining": 0
+    },
+    {
+      "root": ".local/m2c-3-governance-20260913/files",
+      "remaining": 0
+    },
+    {
+      "root": ".local/m2c-2-domain-20260912/files",
+      "remaining": 0
+    }
+  ],
+  "realBusinessWrites": false
+}

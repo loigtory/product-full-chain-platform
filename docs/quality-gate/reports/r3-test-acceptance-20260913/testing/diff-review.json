@@ -1,0 +1,368 @@
+{
+  "baseline": "2afce7a683c08cf6c318f8668581539be5aa09ea",
+  "sourceScope": 59,
+  "files": [
+    {
+      "path": "server/sql/m2c/005-testing-acceptance.sql",
+      "kind": "new",
+      "added": 153,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/verification-policy.js",
+      "kind": "new",
+      "added": 237,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/verification-read-service.js",
+      "kind": "new",
+      "added": 354,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/verification-dto.js",
+      "kind": "new",
+      "added": 136,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/delivery-baseline-service.js",
+      "kind": "new",
+      "added": 145,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/test-suite-service.js",
+      "kind": "new",
+      "added": 105,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/test-execution-service.js",
+      "kind": "new",
+      "added": 211,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/defect-service.js",
+      "kind": "new",
+      "added": 266,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/product-acceptance-service.js",
+      "kind": "new",
+      "added": 101,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/verification-readiness.js",
+      "kind": "new",
+      "added": 173,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/verification-baselines.js",
+      "kind": "new",
+      "added": 245,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/test-suites.js",
+      "kind": "new",
+      "added": 48,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/test-executions.js",
+      "kind": "new",
+      "added": 67,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/defects.js",
+      "kind": "new",
+      "added": 92,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/product-acceptances.js",
+      "kind": "new",
+      "added": 14,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/routes/testing.js",
+      "kind": "new",
+      "added": 106,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/routes/product-acceptance.js",
+      "kind": "new",
+      "added": 27,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/verification-client.js",
+      "kind": "new",
+      "added": 143,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/testing-view.js",
+      "kind": "new",
+      "added": 261,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/testing-actions.js",
+      "kind": "new",
+      "added": 1021,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/acceptance-view.js",
+      "kind": "new",
+      "added": 66,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/acceptance-actions.js",
+      "kind": "new",
+      "added": 99,
+      "deleted": 0
+    },
+    {
+      "path": "server/test-data/r3-verification-fixture.mjs",
+      "kind": "new",
+      "added": 187,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-r3-verification-model.mjs",
+      "kind": "new",
+      "added": 267,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-r3-verification.mjs",
+      "kind": "new",
+      "added": 1067,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-r3-architecture.mjs",
+      "kind": "new",
+      "added": 167,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "kind": "new",
+      "added": 524,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/index.js",
+      "kind": "modified",
+      "added": 2,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/contract.js",
+      "kind": "modified",
+      "added": 23,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/runtime.js",
+      "kind": "modified",
+      "added": 13,
+      "deleted": 8
+    },
+    {
+      "path": "server/src/persistence/commands.js",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/domain/membership-policy.js",
+      "kind": "modified",
+      "added": 2,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "kind": "modified",
+      "added": 20,
+      "deleted": 7
+    },
+    {
+      "path": "server/src/persistence/identifiers.js",
+      "kind": "modified",
+      "added": 9,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/requirement-service.js",
+      "kind": "modified",
+      "added": 54,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/artifact-service.js",
+      "kind": "modified",
+      "added": 5,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/domain/artifact-impact-service.js",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/domain/artifact-confirmation-service.js",
+      "kind": "modified",
+      "added": 2,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "kind": "modified",
+      "added": 21,
+      "deleted": 9
+    },
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "kind": "modified",
+      "added": 5,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "kind": "modified",
+      "added": 47,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-view.js",
+      "kind": "modified",
+      "added": 5,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-actions.js",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-view.js",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-actions.js",
+      "kind": "modified",
+      "added": 14,
+      "deleted": 2
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "kind": "modified",
+      "added": 8,
+      "deleted": 0
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "kind": "modified",
+      "added": 33,
+      "deleted": 17
+    },
+    {
+      "path": "server/test-data/m2c-governance-fixture.mjs",
+      "kind": "modified",
+      "added": 6,
+      "deleted": 2
+    },
+    {
+      "path": "server/test-data/r2-artifact-fixture.mjs",
+      "kind": "unchanged",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "kind": "modified",
+      "added": 2,
+      "deleted": 1
+    },
+    {
+      "path": "server/verify-m2c-governance.mjs",
+      "kind": "modified",
+      "added": 2,
+      "deleted": 2
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "server/verify-r2-artifact-model.mjs",
+      "kind": "modified",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "server/verify-r2-artifacts.mjs",
+      "kind": "modified",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": "server/verify-r2-architecture.mjs",
+      "kind": "modified",
+      "added": 9,
+      "deleted": 4
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "kind": "modified",
+      "added": 2,
+      "deleted": 2
+    }
+  ],
+  "counts": {
+    "new": 27,
+    "modified": 31,
+    "unchanged": 1,
+    "deleted": 0
+  },
+  "outOfScope": [],
+  "review": "source, authorization and26-gate hashes checked; human commit review pending"
+}
