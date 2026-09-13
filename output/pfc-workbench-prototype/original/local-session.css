@@ -1,0 +1,49 @@
+.local-session-shell {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 32px;
+}
+.local-session-form {
+  display: grid;
+  gap: 16px;
+  width: min(460px, 100%);
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-1);
+}
+.local-session-form h1,
+.local-session-form p {
+  margin: 0;
+}
+.local-session-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-1);
+  font: inherit;
+}
+.local-session-form input:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.local-session-form .muted {
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+.local-session-form [role='status'] {
+  min-height: 48px;
+}
+.local-session-form .primary {
+  background: var(--brand);
+  color: var(--surface);
+}
+[data-local-status],
+[data-local-logout] {
+  flex-shrink: 0;
+  white-space: nowrap;
+}

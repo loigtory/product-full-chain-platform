@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-13T14:58:05.912Z",
+  "status": "PASS",
+  "results": [
+    {
+      "name": "D1/D3 exact personal and disposable target tuples",
+      "status": "PASS"
+    },
+    {
+      "name": "D2 HTTP origin/host/body boundary and spoofed forwarding",
+      "status": "PASS"
+    },
+    {
+      "name": "D2 cookie parsing rejects duplicate, malformed and foreign IDs",
+      "status": "PASS"
+    },
+    {
+      "name": "D2 opaque session lifetime/idle expiry, logout and close callbacks",
+      "status": "PASS"
+    },
+    {
+      "name": "D2 four-session ceiling, bounded login failures and one verifier at a time",
+      "status": "PASS"
+    },
+    {
+      "name": "D2 closing while a key is being verified cannot create a surviving session",
+      "status": "PASS"
+    }
+  ]
+}

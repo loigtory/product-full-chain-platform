@@ -1,0 +1,63 @@
+{
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "01-original-entry-and-mirrors",
+      "status": "PASS"
+    },
+    {
+      "name": "02-new-requirement-full-lifecycle",
+      "status": "PASS"
+    },
+    {
+      "name": "03-cancel-unknown-verification-retry",
+      "status": "PASS"
+    },
+    {
+      "name": "04-input-scope-and-controller-handoff",
+      "status": "PASS"
+    },
+    {
+      "name": "05-version-edit-diff-conflict-and-immutability",
+      "status": "PASS"
+    },
+    {
+      "name": "06-material-scope-upload-impact",
+      "status": "PASS"
+    },
+    {
+      "name": "07-session-team-policy-and-readonly",
+      "status": "PASS"
+    },
+    {
+      "name": "08-search-route-drafts-keyboard",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /R-1031/. Input:\n\n'R-1042 · 会员积分过期提醒\\n阶段 · 开发\\nOwner 陈立\\n返回工作台'\n\n    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-guide-browser.mjs:344:12\n    at async check (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-guide-browser.mjs:64:5)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-guide-browser.mjs:322:3"
+    },
+    {
+      "name": "09-error-empty-reset-and-storage-isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "10-team-capability-workspace-bridge-and-audit",
+      "status": "PASS"
+    },
+    {
+      "name": "11-verification-outcomes-and-mcp-evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "12-acceptance-rejection-rework-release-expiry-and-rollback",
+      "status": "PASS"
+    },
+    {
+      "name": "13-three-width-reference-and-navigation",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "outbound": [],
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-7Lfvlm",
+  "environment": "Windows / project Node / isolated Edge / blocked page HTTP(S)",
+  "data": "CODEx_TEST_GUIDE; deterministic local prototype factory; isolated context destroyed"
+}

@@ -9,7 +9,6 @@ import {
   bundle,
   toRequirement,
   completeArtifacts,
-  scope,
 } from './test-data/r2-artifact-fixture.mjs';
 const require = createRequire(import.meta.url);
 const report = { at: new Date().toISOString(), status: 'FAIL', results: [] };
@@ -820,8 +819,7 @@ try {
       report.status = 'FAIL';
       report.cleanupError = { code: e.code, message: e.message };
     }
-  const out =
-    'docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts';
+  const out = 'docs/quality-gate/reports/local-use-baseline-20260913/artifacts';
   mkdirSync(out, { recursive: true });
   writeFileSync(
     out + '/integration-' + Date.now() + '.json',

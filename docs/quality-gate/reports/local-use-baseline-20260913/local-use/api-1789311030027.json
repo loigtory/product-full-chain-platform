@@ -1,0 +1,42 @@
+{
+  "at": "2026-09-13T14:49:57.165Z",
+  "command": "node server/verify-local-use-api.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "PASS",
+  "results": [
+    {
+      "scenario": "D1 empty single owner, static exact allowlist, fixed same-origin bootstrap",
+      "status": "PASS",
+      "elapsedMs": 291
+    },
+    {
+      "scenario": "D2 wrong origin, oversized/invalid JSON, old bearer and dev-login rejected",
+      "status": "PASS",
+      "elapsedMs": 107
+    },
+    {
+      "scenario": "D2 cookie WS, logout revokes socket and live membership, fresh login",
+      "status": "PASS",
+      "elapsedMs": 126
+    },
+    {
+      "scenario": "D4 persisted requirement survives restart; old cookie cannot resume",
+      "status": "PASS",
+      "elapsedMs": 12644
+    }
+  ],
+  "cleanup": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_881074d7-1a53-45f0-b51d-68b13b26bec5",
+    "ownedOid": 1185155,
+    "createdIds": [
+      "R-1041"
+    ],
+    "schemaAbsent": true,
+    "filesAbsent": true,
+    "portFree": true,
+    "outsideFingerprintUnchanged": true
+  },
+  "runId": "CODEx_TEST_M2C_20260913_localuse_881074d7-1a53-45f0-b51d-68b13b26bec5",
+  "elapsedMs": 32862
+}

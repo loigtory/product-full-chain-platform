@@ -5,11 +5,17 @@ const { openDatabase } = require('./persistence/connection');
 const { fail } = require('./access');
 let database,
   config,
-  closing = false;
+  closing = false,
+  workspaceLock,
+  stopPromise;
 const isPg = () => process.env.PFC_DB === 'pg';
 const cleanups = new Set();
 async function start() {
   const mode = process.env.PFC_DB || 'memory';
+  const personal = require('./local/profile').current();
+  if (process.env.PFC_DB_SCHEMA === 'pfc_workbench' && !personal)
+    fail('LOCAL_PROFILE_REQUIRED', 503);
+  if (personal) require('./local/ops-config').runtimeTarget(personal);
   if (!['pg', 'memory'].includes(mode)) fail('MODE_REQUIRED', 500);
   if (mode === 'memory') return;
   if (
@@ -67,11 +73,21 @@ async function start() {
   const workbenchTarget =
     process.env.PFC_DB_SCHEMA === 'pfc_workbench' &&
     process.env.PFC_AUTHORIZED_SCHEMA === 'pfc_workbench';
-  const validFiles = workbenchTarget
-    ? filesRoot === resolve(root, '.local/pfc-workbench-files')
-    : !!fileRel && !fileRel.startsWith('..') && !isAbsolute(fileRel);
+  const validFiles = personal
+    ? filesRoot === personal.filesRoot
+    : workbenchTarget
+      ? filesRoot === resolve(root, '.local/pfc-workbench-files')
+      : !!fileRel && !fileRel.startsWith('..') && !isAbsolute(fileRel);
   if (!validFiles) fail('FILES_TARGET_NOT_AUTHORIZED', 500);
-  config = { users, quota, filesRoot };
+  if (
+    personal &&
+    (users.length !== 1 ||
+      users[0].name !== personal.ownerName ||
+      users[0].tenantId !== personal.tenantId ||
+      users[0].role !== 'owner')
+  )
+    fail('LOCAL_USERS_CONFIG_REQUIRED', 503);
+  config = { users, quota, filesRoot, personal };
   database = await openDatabase({
     mode: 'pg',
     connectionString: process.env.DATABASE_URL,
@@ -87,6 +103,28 @@ async function start() {
     fail('TENANT_NOT_READY', 500);
   }
   await require('./domain/membership-policy').assertOwners(database, users);
+  if (personal) {
+    const owned = (
+      await database.pool.query(
+        "SELECT oid,obj_description(oid,'pg_namespace') marker FROM pg_namespace WHERE nspname=$1 AND nspowner=(SELECT oid FROM pg_roles WHERE rolname=current_user)",
+        [database.schema],
+      )
+    ).rows[0];
+    if (
+      !owned ||
+      owned.oid !== personal.ownedOid ||
+      owned.marker !== personal.marker
+    )
+      fail('LOCAL_OWNERSHIP_MISMATCH', 503);
+    workspaceLock = await require('./local/workspace-lock').acquire(
+      personal,
+      () => {
+        closing = true;
+        process.emit('SIGTERM');
+      },
+    );
+    onClose(() => require('./local/session-store').current()?.close());
+  }
 }
 function db() {
   if (!database || closing) fail('STORAGE_UNAVAILABLE', 503);
@@ -101,6 +139,9 @@ async function health() {
     storage: 'pg',
     domainPersistence: true,
     schemaVersion: '006',
+    ...(config.personal
+      ? { profile: 'personal', identityMode: 'local-session', realTools: false }
+      : {}),
     supportedActions: [
       'releaseObservation',
       'testing',
@@ -129,10 +170,21 @@ async function health() {
   };
 }
 async function stop() {
+  if (stopPromise) return stopPromise;
   closing = true;
-  for (const fn of cleanups) await fn();
-  cleanups.clear();
-  await database?.close();
+  stopPromise = (async () => {
+    try {
+      for (const fn of cleanups) await fn();
+      cleanups.clear();
+      await database?.close();
+    } finally {
+      await workspaceLock?.release();
+    }
+  })();
+  return stopPromise;
+}
+function onClose(fn) {
+  cleanups.add(fn);
 }
 module.exports = {
   start,
@@ -141,5 +193,5 @@ module.exports = {
   db,
   isPg,
   config: () => config,
-  onClose: (fn) => cleanups.add(fn),
+  onClose,
 };

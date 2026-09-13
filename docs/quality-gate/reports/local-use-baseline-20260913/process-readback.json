@@ -1,0 +1,28 @@
+{
+  "at": "2026-09-13T15:29:23.2997433Z",
+  "status": "PASS",
+  "ownedCandidates": [],
+  "preserved": [
+    {
+      "pid": 13528,
+      "name": "postgres.exe",
+      "created": "2026-09-10T04:47:17.6152950Z"
+    },
+    {
+      "pid": 31152,
+      "name": "node.exe",
+      "created": "2026-09-10T04:49:12.1906790Z"
+    },
+    {
+      "pid": 37744,
+      "name": "node.exe",
+      "created": "2026-09-10T04:49:12.2079080Z"
+    }
+  ],
+  "cleanup": "All owned child API/PG/browser processes were awaited by the gates; no new retained service",
+  "preservedStopCommands": [
+    "Original PG13528/5432: preserved, no stop authorized",
+    "Original API31152/3001: Stop-Process -Id 31152 only if owner later requests",
+    "Original Vite37744/5173: Stop-Process -Id 37744 only if owner later requests"
+  ]
+}

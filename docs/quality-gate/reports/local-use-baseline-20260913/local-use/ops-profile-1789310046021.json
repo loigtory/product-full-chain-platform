@@ -1,0 +1,54 @@
+{
+  "at": "2026-09-13T14:31:04.770Z",
+  "command": "node server/verify-local-use-ops-profile.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "PASS",
+  "results": [],
+  "cleanup": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_5379cd05-ff31-4f51-92cc-c857da71f0da",
+    "ownedOid": 1180096,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1",
+      "SM-2",
+      "SM-3",
+      "R-1042",
+      "SM-5",
+      "SM-6",
+      "R-1043",
+      "SM-8",
+      "SM-9"
+    ],
+    "schemaAbsent": true,
+    "filesAbsent": true,
+    "portFree": true,
+    "outsideFingerprintUnchanged": true
+  },
+  "restore": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_a34db7bf-d855-4c5b-a18f-41ad5da73837",
+    "pgPid": 31088,
+    "port": 5548,
+    "coldDatabaseEqual": true,
+    "originalBytesEqual": true,
+    "requirements": 3,
+    "downloads": 6,
+    "oldSessionRejected": true,
+    "newSessionAccepted": true,
+    "changedAfterRecovery": [],
+    "timings": {
+      "sourceSnapshot": 313,
+      "packageCheck": 1942,
+      "initdb": 5099,
+      "clusterStart": 121275,
+      "databaseRestore": 1936,
+      "coldReadback": 1358,
+      "runtimeStart": 9620,
+      "apiReadback": 651,
+      "cleanup": 10716
+    },
+    "cleanup": "PASS"
+  },
+  "elapsedMs": 181251
+}

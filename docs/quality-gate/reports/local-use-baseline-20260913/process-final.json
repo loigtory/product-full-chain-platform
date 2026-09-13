@@ -1,0 +1,26 @@
+{
+  "at": "2026-09-13T16:49:29.4843113+00:00",
+  "status": "PASS",
+  "command": "readonly CIM audit after final35; UTC cutoff normalized via DateTimeOffset",
+  "ownedCandidates": [],
+  "newHeadlessBrowserRoots": [],
+  "preserved": [
+    {
+      "ProcessId": 13528,
+      "Name": "postgres.exe",
+      "CreationDate": "2026-09-10T12:47:17.615295+08:00"
+    },
+    {
+      "ProcessId": 31152,
+      "Name": "node.exe",
+      "CreationDate": "2026-09-10T12:49:12.190679+08:00"
+    },
+    {
+      "ProcessId": 37744,
+      "Name": "node.exe",
+      "CreationDate": "2026-09-10T12:49:12.207908+08:00"
+    }
+  ],
+  "newRetainedProcesses": [],
+  "scope": "No stop/kill; old PG5432/API3001/Vite5173 preserved"
+}

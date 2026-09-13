@@ -3,7 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fixture, runId, root, until, pause, stop } from './m2b2-browser-fixture.mjs';
 
-const evidence=resolve(root,'../../.local/m2b2-acceptance-browser-'+new Date().toISOString().replace(/[:.]/g,'-'));
+const evidence=resolve(root,'../../docs/quality-gate/reports/local-use-baseline-20260913/legacy');
 await mkdir(evidence,{recursive:true});
 const results=[]; let f;
 async function check(name, fn) {
@@ -143,7 +143,7 @@ try {
   await check('remote-model-controls-never-simulate-state',async()=>{
     const result=await page.evaluate(()=>{
       const P=window.PFC, r=P.r(), run=P.run(r), before=JSON.stringify(run);
-      try { P.runControl(r,'verify'); } catch(e) { return {blocked:true,unchanged:JSON.stringify(run)===before}; }
+      try { P.runControl(r,'verify'); } catch { return {blocked:true,unchanged:JSON.stringify(run)===before}; }
       return {blocked:false};
     });
     assert.deepEqual(result,{blocked:true,unchanged:true});

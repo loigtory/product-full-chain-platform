@@ -10,15 +10,35 @@ const db = require('./db');
 const { authMiddleware } = require('./auth');
 
 const app = express();
-app.use(cors());
+let stopping = false,
+  instance;
+app.use((req, res, next) =>
+  stopping
+    ? res.status(503).json({
+        error: {
+          code: 'LOCAL_STOPPING',
+          msg: '工作空间正在停止，请保留输入',
+        },
+      })
+    : next(),
+);
+app.use(require('./local/security').middleware);
+app.use((req, res, next) =>
+  require('./local/profile').current() ? next() : cors()(req, res, next),
+);
+app.use(require('./local/static').middleware);
 const runtime = require('./runtime');
 app.use((req, res, next) =>
   express.json({
-    limit: runtime.isPg()
-      ? /\/materials(?:\/[^/]+\/versions)?$/.test(req.path)
-        ? '16mb'
-        : '1mb'
-      : '50mb',
+    limit:
+      require('./local/profile').current() &&
+      req.path === '/api/auth/local-session'
+        ? '4kb'
+        : runtime.isPg()
+          ? /\/materials(?:\/[^/]+\/versions)?$/.test(req.path)
+            ? '16mb'
+            : '1mb'
+          : '50mb',
   })(req, res, next),
 );
 app.use('/api', (req, res, next) => {
@@ -50,13 +70,29 @@ app.use('/api', (req, res, next) => {
 /* 健康检查（无需鉴权） */
 app.get('/api/health', async (req, res, next) => {
   try {
-    res.json({ ...(await runtime.health()), at: new Date().toISOString() });
+    res.json({
+      ...(await runtime.health()),
+      ...(instance ? { instanceId: instance.id } : {}),
+      at: new Date().toISOString(),
+    });
   } catch (e) {
     next(e);
   }
 });
 
 /* 开放路由 */
+app.get('/api/local-status', authMiddleware, async (req, res, next) => {
+  try {
+    const p = require('./local/profile').current();
+    if (!p)
+      return res
+        .status(404)
+        .json({ error: { code: 'NOT_FOUND', msg: '接口不存在' } });
+    res.json(await require('./local/preflight').statusInfo(p));
+  } catch (e) {
+    next(e);
+  }
+});
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contract', authMiddleware, require('./routes/contract'));
 
@@ -92,7 +128,7 @@ app.use((req, res) =>
 );
 
 /* 统一错误处理（不泄漏堆栈） */
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   const unavailable = runtime.isPg() && !err.status;
   const status = err.status || (unavailable ? 503 : 500);
   const code =
@@ -123,6 +159,8 @@ app.use((err, req, res, next) => {
 
 const PORT = Number(process.env.PORT || 5188);
 async function main() {
+  const personal = require('./local/profile').current();
+  if (personal) await require('./local/lifecycle').beforeStart(personal);
   await db.connect();
   if (runtime.isPg()) {
     await require('./domain/execution-service').recover();
@@ -138,17 +176,29 @@ async function main() {
   );
   require('./ws').init(server);
   if (runtime.isPg()) require('./domain/events').start();
-  let stopping = false;
   const shutdown = async () => {
     if (stopping) return;
     stopping = true;
     require('./ws').close();
-    server.closeAllConnections();
-    await new Promise((r) => server.close(r));
-    await runtime.stop();
+    const closed = new Promise((r) => server.close(r));
+    const timer = setTimeout(() => server.closeAllConnections(), 4500);
+    try {
+      await closed;
+      await runtime.stop();
+      await instance?.close();
+    } finally {
+      clearTimeout(timer);
+    }
   };
   process.once('SIGTERM', () => void shutdown());
   process.once('SIGINT', () => void shutdown());
+  await new Promise((ok, no) => {
+    if (server.listening) return ok();
+    server.once('listening', ok);
+    server.once('error', no);
+  });
+  if (personal)
+    instance = await require('./local/lifecycle').attach(personal, shutdown);
 }
 main().catch((e) => {
   console.error(

@@ -26,6 +26,13 @@ async function broadcast(type, payload, tenantId) {
       continue;
     }
     try {
+      if (
+        c.localSessionId &&
+        !require('./local/session-store').current().get(c.localSessionId)
+      ) {
+        c.close(4001, 'SESSION_EXPIRED');
+        continue;
+      }
       if (runtime.isPg()) {
         if (c.claims.exp * 1000 <= Date.now()) {
           c.close(4001, 'TOKEN_EXPIRED');
@@ -114,6 +121,23 @@ function init(server) {
   wssBridge = new WebSocketServer({ noServer: true, maxPayload: 65536 });
   wssWeb = new WebSocketServer({ noServer: true, maxPayload: 65536 });
   server.on('upgrade', (req, socket, head) => {
+    const personal = require('./local/profile').current();
+    if (personal) {
+      try {
+        require('./local/security').checkRequest(req, personal, true);
+        const sessions = require('./local/session-store');
+        req.localSessionId = sessions.cookieId(req.headers.cookie);
+        const session =
+          !req.headers.authorization &&
+          sessions.current().get(req.localSessionId);
+        if (!session) throw Error('UNAUTHORIZED');
+        req.localClaims = { ...session.claims };
+      } catch {
+        socket.write('HTTP/1.1 403 Forbidden\r\nConnection: close\r\n\r\n');
+        socket.destroy();
+        return;
+      }
+    }
     const path = req.url.split('?')[0],
       target =
         path === '/ws/bridge' ? wssBridge : path === '/ws/web' ? wssWeb : null;
@@ -197,13 +221,20 @@ function init(server) {
     });
   });
   wssWeb.on('connection', async (ws, req) => {
-    const user = auth(req.url);
+    const user = req.localClaims || auth(req.url);
     if (!user || user.role === 'bridge') {
       ws.close(4001, 'UNAUTHORIZED');
       return;
     }
     ws.on('error', () => webClients.delete(ws));
     ws.on('close', () => webClients.delete(ws));
+    if (req.localSessionId) {
+      ws.localSessionId = req.localSessionId;
+      const detach = require('./local/session-store')
+        .current()
+        .attach(req.localSessionId, () => ws.close(4001, 'SESSION_EXPIRED'));
+      ws.on('close', detach);
+    }
     try {
       ws.identity = runtime.isPg()
         ? await require('./domain/membership-policy').identity(
@@ -237,6 +268,11 @@ function init(server) {
       else sendInitial();
       let pending = false;
       ws.on('message', async () => {
+        if (
+          ws.localSessionId &&
+          !require('./local/session-store').current().get(ws.localSessionId)
+        )
+          return ws.close(4001, 'SESSION_EXPIRED');
         if (pending) return ws.close(4008, 'EVENT_BACKPRESSURE');
         pending = true;
         try {
@@ -257,6 +293,8 @@ function init(server) {
     }
   });
   heartbeat = setInterval(() => {
+    if (require('./local/profile').current())
+      require('./local/session-store').current().sweep();
     for (const b of bridges.values())
       if (b.status === 'ONLINE' && Date.now() - b.lastHeartbeat > 90000) {
         void offline(b);

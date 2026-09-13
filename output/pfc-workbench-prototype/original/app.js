@@ -58,6 +58,7 @@
       u.govTab = 'catalog';
   }
   P.render = ({ quiet = false } = {}) => {
+    if (P.localSession?.locked) return P.localSession.render();
     const app = document.querySelector('#app'),
       old = app.querySelector('.work-layout')?.dataset.context,
       context = P.s.ui.req + ':' + P.s.ui.stage;
@@ -102,6 +103,7 @@
           return '本地存储';
         }
       })()}</span><span class="avatar" title="${P.s.role === 'viewer' ? '只读体验' : '负责人体验'}">${P.s.role === 'viewer' ? '读' : '陈'}</span></div>`;
+    P.localSession?.header();
     if (P.flowUI?.active()) { P.flowUI.render(); return; }
     const notice = P.conflict
       ? P.notice(
@@ -670,7 +672,7 @@
       window.PFCAPI &&
       window.PFCAPI.api
     ) {
-      window.PFCAPI.api.init().then(() => {
+      (P.localSession ? P.localSession.boot() : window.PFCAPI.api.init()).then(() => {
         /* hydrate 完成后再连 WS 订阅（Bridge 实时对话流） */
         if (window.PFCWS) window.PFCWS.connect();
       }).catch((e) => {
@@ -680,6 +682,6 @@
   } catch {
     /* ignore */
   }
-  const tick = setInterval(() => { if (!P.flowUI?.active()) P.tick(); }, 1200);
+  const tick = setInterval(() => { if (!P.flowUI?.active() && !P.localSession?.locked) P.tick(); }, 1200);
   window.addEventListener('pagehide', () => { clearInterval(tick);window.PFCWS?.disconnect(); });
 })();

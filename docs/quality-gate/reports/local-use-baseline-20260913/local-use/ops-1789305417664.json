@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-13T13:16:57.662Z",
+  "status": "FAIL",
+  "results": [],
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "message": "Local operations missing (initial TDD failure)"
+  }
+}

@@ -994,8 +994,7 @@ const report = {
   cleanup,
   data: 'deterministic local fixtures only',
 };
-const out =
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/governance';
+const out = 'docs/quality-gate/reports/local-use-baseline-20260913/governance';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/' + report.phase + '-' + Date.now() + '.json',

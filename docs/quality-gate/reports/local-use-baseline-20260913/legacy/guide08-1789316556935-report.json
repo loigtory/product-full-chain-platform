@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "08-search-route-drafts-keyboard",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "outbound": [],
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-R7LpHQ",
+  "environment": "Windows / project Node / isolated Edge / blocked page HTTP(S)",
+  "data": "CODEx_TEST_GUIDE; deterministic local prototype factory; isolated context destroyed"
+}

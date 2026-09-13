@@ -9,7 +9,7 @@ import {
   runId,
 } from '../../server/test-data/r2-artifact-fixture.mjs';
 const out = resolve(
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts',
+  'docs/quality-gate/reports/local-use-baseline-20260913/artifacts',
 );
 mkdirSync(out, { recursive: true });
 const report = {

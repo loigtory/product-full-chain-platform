@@ -1,0 +1,48 @@
+{
+  "at": "2026-09-13T19:10:47.188Z",
+  "status": "SCOPED_ACCEPTED",
+  "acceptedCommit": "e3f5d455d274cb95af4493138031e86da0236953",
+  "acceptor": "陈立",
+  "method": "Explicit user message in this conversation",
+  "userMessage": "已验收，继续",
+  "scope": "40 A/D1-D8; confirmed42-to43 static supplement;41 delivered local baseline and isolated evidence",
+  "classification": "docs-only/light acceptance closeout",
+  "sourceHashesVerified": 68,
+  "protectedHashesVerified": 3009,
+  "gateEvidence": {
+    "file": "gates-1789317348153.json",
+    "sha256": "49004e30b6dc5abcf394a162f4bc5a2430f15fe22af8c0e35b153da2cf967a79",
+    "status": "PASS",
+    "commands": 35,
+    "allExitZero": true,
+    "rerun": false,
+    "reason": "No behavior changes; accepted source hashes match"
+  },
+  "immutableEvidence": {
+    "authorization-20260913.json": "422ce2cb09d909f9d53643393dccef46a5516909d257b52480e2576951d649af",
+    "protected-baseline.json": "d5861130e7bd5e3545d6e4bd158b49615f5677dae2e5604deec30faa7f834370",
+    "static-gate-supplement-authorization.json": "ce7fe0d9fd7fd9625cd81e6f54015b946444a9c44ef90e3a31aaa3e3e954c6db",
+    "readiness-final.json": "7602c8fc93007d4f39477f77d7897947af63f132ed1bede8760e490618a472a4",
+    "diff-review-final.json": "af565e99ad15dcf4bd86e45505bb427eee3245c3bc241cf2a1bf94230f6a44de",
+    "cleanup-final.json": "f87127b7b92c4781da74bcdb7b8802477f6c51578c4b389ce4fc294736e1ea26",
+    "process-final.json": "5a350b08e9529e325c5cdea277ccdffd1db281870ca5e43ae632506b16558360",
+    "handoff-final.json": "a2c34b26f0ef592f890e68d00e2c258187e9a0281a4b05ca6abc2edeaa64e36a"
+  },
+  "gitCloseout": {
+    "basis": "User acceptance plus23 section3 closing checklist5",
+    "sourceBranch": "feat/local-use-baseline",
+    "refreshedMain": "102cbbe6b253a2e24b43d24e39af0ecc1b01fc18",
+    "action": "feature acceptance commit/push, non-fast-forward main merge/push with remote readback",
+    "stateAtRecord": "PENDING_EXECUTION"
+  },
+  "businessEnablement": "NOT_AUTHORIZED",
+  "trial": "NOT_EXECUTED",
+  "release": "NOT_EXECUTED",
+  "observation": "NOT_EXECUTED",
+  "residualRisks": "Retain41 and quality-report limits; no broad waiver or invented role-specific test evidence",
+  "pod": "POD-PFC-001",
+  "milestone": "M2",
+  "formalLedgerChanged": false,
+  "next": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+  "nextWork": "Prepare42 concrete activation package before requesting business side-effect approval"
+}

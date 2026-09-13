@@ -154,7 +154,7 @@ try {
           /\.query\(/,
         );
       const html = read('output/pfc-workbench-prototype/index.html');
-      assert.equal([...html.matchAll(/<script src=/g)].length, 42);
+      assert.equal([...html.matchAll(/<script src=/g)].length, 43);
       for (const file of [
         'verification-client',
         'testing-view',
@@ -183,12 +183,11 @@ try {
   process.exitCode = 1;
   console.error(e.message);
 }
-mkdirSync(
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/testing',
-  { recursive: true },
-);
+mkdirSync('docs/quality-gate/reports/local-use-baseline-20260913/testing', {
+  recursive: true,
+});
 writeFileSync(
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/architecture.json',
+  'docs/quality-gate/reports/local-use-baseline-20260913/testing/architecture.json',
   JSON.stringify(report, null, 2) + '\n',
 );
 console.log(

@@ -8,7 +8,7 @@ import {
   runId,
 } from '../../server/test-data/r3-verification-fixture.mjs';
 const out = resolve(
-  'docs/quality-gate/reports/m2c-4-release-observation-20260913/testing',
+  'docs/quality-gate/reports/local-use-baseline-20260913/testing',
 );
 mkdirSync(out, { recursive: true });
 const report = {
@@ -77,6 +77,30 @@ try {
     () => window.PFCAPI?.api.ready || window.PFC?.remoteError,
   );
   assert.equal(await page.evaluate(() => window.PFC.remoteError), null);
+  await page.evaluate(() => {
+    const trace = (window.r3BrowserTrace = []);
+    const record = (event) => {
+      trace.push({ at: performance.now(), ...event });
+      if (trace.length > 200) trace.shift();
+    };
+    document.addEventListener(
+      'click',
+      (event) =>
+        record({
+          event: 'click',
+          action: event.target.closest('[data-action]')?.dataset.action || null,
+          tag: event.target.tagName,
+          releaseReady: !!window.PFC.releaseClient.states[window.PFC.s.ui.req],
+        }),
+      true,
+    );
+    new window.MutationObserver(() =>
+      record({
+        event: 'modal',
+        visible: !!document.querySelector('[role="dialog"]'),
+      }),
+    ).observe(document.querySelector('#modal-root'), { childList: true });
+  });
   const go = async (id, stage) => {
     await page.evaluate(
       ({ id, stage }) =>
@@ -87,6 +111,11 @@ try {
       (id) => !!window.PFC.verificationClient.states[id],
       id,
     );
+    if (['release', 'observe'].includes(stage))
+      await page.waitForFunction(
+        (id) => !!window.PFC.releaseClient.states[id],
+        id,
+      );
   };
   const idle = () =>
     page.waitForFunction(() => !window.PFC.pendingActions?.size);
@@ -446,6 +475,9 @@ try {
     await click('r3-suite-edit');
     await fill('title', 'CODEx_TEST_owner_only');
     await click('close-modal');
+    // Drain the preceding scenario's automatic WS readback before introducing
+    // this test's deliberately delayed response and temporary signed-out state.
+    await page.waitForLoadState('networkidle');
     await page.evaluate(
       async ({ id, name }) => {
         const P = window.PFC,
@@ -501,6 +533,15 @@ try {
   report.status = 'PASS';
 } catch (e) {
   report.error = { code: e.code, message: e.message };
+  if (page)
+    report.diagnostics = await page
+      .evaluate(() => ({
+        trace: window.r3BrowserTrace,
+        pending: [...(window.PFC.pendingActions || [])],
+        releaseReady: !!window.PFC.releaseClient.states[window.PFC.s.ui.req],
+        dialog: !!document.querySelector('[role="dialog"]'),
+      }))
+      .catch(() => null);
   console.error(report.error);
   process.exitCode = 1;
   if (page)
