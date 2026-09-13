@@ -30,6 +30,8 @@
     });
     if (result.req) V.map(result.req);
     else await V.read(q.id);
+    if (P.artifactClient?.enabled())
+      await P.artifactClient.readback(q.id).catch(() => {});
     P.save();
     P.render({ quiet: true });
     return result;
@@ -382,6 +384,13 @@
   D.decorate = () => {
     if (!V.pg()) return;
     P.governanceDomain?.decorate();
+    P.artifactView?.decorate();
+    for (const summary of document.querySelectorAll('.cap-aggregate'))
+      if (!P.r()?.caps?.length) {
+        summary.textContent =
+          'CAP / Unit 拆解尚未接入；关联成果与验收项请在画布查看。';
+        summary.className = 'cap-aggregate warn';
+      }
     for (const label of document.querySelectorAll('#app .rail-title'))
       if (label.textContent === '质量门（客观检查）')
         label.textContent = '质量门（模拟记录，未执行真实检查）';
@@ -423,6 +432,7 @@
   D.install = () => {
     P.governanceDomain?.install(remote);
     P.domainConversation.install(remote);
+    P.artifactActions?.install(remote);
     const A = P.actions;
     const edit = A['edit-artifact'];
     A['edit-artifact'] = (d) => {

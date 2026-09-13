@@ -199,7 +199,7 @@ module.exports.materialContent = async (id, mid, version) => {
     access.fail('INVALID_VERSION', 400);
   const row = (
     await db.pool.query(
-      'SELECT v.*,f.hash FROM "' +
+      'SELECT v.*,f.hash,m.allowed FROM "' +
         db.schema +
         '".reqs r JOIN "' +
         db.schema +
@@ -212,6 +212,7 @@ module.exports.materialContent = async (id, mid, version) => {
     )
   ).rows[0];
   if (!row) access.fail('NOT_FOUND', 404);
+  if (!row.allowed) access.fail('MATERIAL_RESTRICTED', 403);
   return {
     name: row.name,
     mimeType: row.mime_type,

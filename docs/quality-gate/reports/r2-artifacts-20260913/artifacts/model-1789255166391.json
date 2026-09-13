@@ -1,0 +1,26 @@
+{
+  "at": "2026-09-12T23:19:26.390Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "A11 prototype schema rejects executable/unknown properties and invalid targets",
+      "status": "FAIL",
+      "error": "Cannot find module './src/domain/prototype-spec'\nRequire stack:\n- D:\\项目管理\\product-full-chain-platform\\server\\verify-r2-artifact-model.mjs"
+    },
+    {
+      "name": "A14 bounded prototype permits data text without executing it",
+      "status": "FAIL",
+      "error": "Cannot find module './src/domain/prototype-spec'\nRequire stack:\n- D:\\项目管理\\product-full-chain-platform\\server\\verify-r2-artifact-model.mjs"
+    },
+    {
+      "name": "A01/A02 candidate completeness, rule references and independent content comparison",
+      "status": "FAIL",
+      "error": "Cannot find module './src/domain/artifact-policy'\nRequire stack:\n- D:\\项目管理\\product-full-chain-platform\\server\\verify-r2-artifact-model.mjs"
+    },
+    {
+      "name": "A13 schema004 rechecks current membership before command receipt replay",
+      "status": "FAIL",
+      "error": "Missing expected rejection."
+    }
+  ]
+}

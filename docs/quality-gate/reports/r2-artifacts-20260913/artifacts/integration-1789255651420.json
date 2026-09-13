@@ -1,0 +1,188 @@
+{
+  "at": "2026-09-12T23:27:30.104Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "A04 explicit004 migration and immutable history constraints",
+      "status": "PASS"
+    }
+  ],
+  "error": {
+    "code": "EPERM",
+    "message": "spawn EPERM"
+  },
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 333,
+        "hash": "320a1cabd38b3d1d6611d7e0e4e9a01bfa1b39366b2646ace63f7dfe2fea51f0"
+      },
+      {
+        "path": "users.json",
+        "size": 831,
+        "hash": "ec17114140a929a2183dadb829b1759c479aedfb2707deb04a0fb137394b20af"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_artifacts",
+    "remaining": 0,
+    "totalRows": 14,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-12T23:27:30.340Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-12T23:27:30.340Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-12T23:27:30.632Z"
+        },
+        {
+          "version": "004",
+          "checksum": "8ef3a20ff56dc9807145ba9aee9b9beebe014e3af53da5a9d3a1446bf6e883a7",
+          "applied_at": "2026-09-12T23:27:30.870Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-12T23:27:30.628Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_other",
+          "plan": "internal",
+          "created_at": "2026-09-12T23:27:30.628Z"
+        }
+      ],
+      "audit_logs": [],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        }
+      ],
+      "reqs": [],
+      "req_versions": [],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "materials": [],
+      "message_references": [],
+      "material_versions": [],
+      "messages": [],
+      "runs": [],
+      "run_plans": [],
+      "run_lines": [],
+      "replays": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [],
+      "domain_events": [],
+      "members": [
+        {
+          "id": "3cbb1357-6ae9-4a37-94a1-25a45c60c985",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:27:30.853Z",
+          "disabled_at": null
+        },
+        {
+          "id": "6ad9edb0-7352-4131-84fa-2abe9c821e1f",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:27:30.853Z",
+          "disabled_at": null
+        },
+        {
+          "id": "da04d3c5-b617-4cfc-bef9-caaad7bfc80e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:27:30.853Z",
+          "disabled_at": null
+        },
+        {
+          "id": "eb8b9967-a915-43dd-abd8-0f3898f7c14f",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:27:30.853Z",
+          "disabled_at": null
+        },
+        {
+          "id": "7ee3d4bf-0755-4db3-a5a3-e999c439dcbb",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:27:30.853Z",
+          "disabled_at": null
+        },
+        {
+          "id": "93454bca-4fa6-4d70-af80-f240559c687c",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:27:30.853Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [],
+      "artifact_versions": [],
+      "artifact_groups": [],
+      "artifact_group_sources": [],
+      "artifact_proposals": [],
+      "artifact_confirmations": [],
+      "artifact_impacts": []
+    },
+    "poolsClosed": true
+  }
+}

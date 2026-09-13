@@ -1,0 +1,43 @@
+{
+  "at": "2026-09-13T01:10:33.891Z",
+  "status": "ABORTED_TEST_CLEANUP_PASS",
+  "testStatus": "FAIL",
+  "reason": "late-response test awaited request without timeout",
+  "schema": "codex_test_m2c_20260913_artifacts",
+  "totalRows": 124,
+  "remaining": 0,
+  "filesRemaining": 0,
+  "files": [
+    {
+      "path": "blobs\\10000000-0000-4000-8000-000000000001\\ffe0a6348b2fc73acf34524e948395a44b7f350416cc4949d94ba48854f524ca",
+      "size": 85,
+      "hash": "ffe0a6348b2fc73acf34524e948395a44b7f350416cc4949d94ba48854f524ca"
+    },
+    {
+      "path": "manifest.json",
+      "size": 338,
+      "hash": "ba81c9d695c156830b96be55985f882b499442329085ebabee60f3fbb4d2c38a"
+    },
+    {
+      "path": "users.json",
+      "size": 831,
+      "hash": "ec17114140a929a2183dadb829b1759c479aedfb2707deb04a0fb137394b20af"
+    }
+  ],
+  "externalMetadataDuringCleanupUnchanged": true,
+  "wholeAttemptExternalMetadata": "not recovered after forced stop",
+  "stoppedPids": [
+    40172,
+    44164,
+    5576,
+    24864,
+    18392,
+    34448,
+    8664,
+    42320,
+    32020,
+    36072,
+    44584,
+    43072
+  ]
+}

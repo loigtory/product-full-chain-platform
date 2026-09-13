@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+  "status": "FAIL",
+  "exitCode": 1,
+  "durationMs": 16386,
+  "stdout": "PASS PG empty browser does not upload factory seed\nPASS UI creates persisted requirement and unanswered questions\nPASS UI answers create matching immutable versions\n{\"status\":\"FAIL\",\"tests\":4,\"cleanup\":{\"remaining\":0,\"filesRemaining\":0,\"processesRemaining\":0}}\n",
+  "stderr": "page.waitForFunction: Timeout 10000ms exceeded.\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-browser.mjs:177:14\n"
+}

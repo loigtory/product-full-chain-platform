@@ -1,0 +1,27 @@
+{
+  "at": "2026-09-13T00:52:23.350Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "A11 prototype schema rejects executable/unknown properties and invalid targets",
+      "status": "PASS"
+    },
+    {
+      "name": "A14 bounded prototype permits data text without executing it",
+      "status": "PASS"
+    },
+    {
+      "name": "A01/A02 candidate completeness, rule references and independent content comparison",
+      "status": "PASS"
+    },
+    {
+      "name": "A12 superseded independent read preserves command receipt and draft",
+      "status": "PASS"
+    },
+    {
+      "name": "A13 schema004 rechecks current membership before command receipt replay",
+      "status": "FAIL",
+      "error": "Missing expected rejection."
+    }
+  ]
+}

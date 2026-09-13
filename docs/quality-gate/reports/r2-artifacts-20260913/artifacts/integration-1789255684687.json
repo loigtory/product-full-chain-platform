@@ -1,0 +1,473 @@
+{
+  "at": "2026-09-12T23:28:02.807Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "A04 explicit004 migration and immutable history constraints",
+      "status": "PASS"
+    }
+  ],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "{\"path\":\"/reqs/R-1041/artifact-workspace\",\"status\":404,\"body\":{\"error\":{\"code\":\"NOT_FOUND\",\"msg\":\"接口不存在：GET /api/reqs/R-1041/artifact-workspace\"}}}\n\n404 !== 200\n"
+  },
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 338,
+        "hash": "31011494f96fb285eaffb2650a47899967594053d5c31c33f77b7a07b88c244d"
+      },
+      {
+        "path": "users.json",
+        "size": 831,
+        "hash": "ec17114140a929a2183dadb829b1759c479aedfb2707deb04a0fb137394b20af"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_artifacts",
+    "remaining": 0,
+    "totalRows": 30,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-12T23:28:03.036Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-12T23:28:03.036Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-12T23:28:03.330Z"
+        },
+        {
+          "version": "004",
+          "checksum": "8ef3a20ff56dc9807145ba9aee9b9beebe014e3af53da5a9d3a1446bf6e883a7",
+          "applied_at": "2026-09-12T23:28:03.591Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-12T23:28:03.326Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_other",
+          "plan": "internal",
+          "created_at": "2026-09-12T23:28:03.326Z"
+        }
+      ],
+      "req_versions": [
+        {
+          "id": "478dcfc6-5902-482f-b6b8-76b29a645149",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "bcb35bb5-acbf-494b-9aa8-891e1e9087b3",
+          "public_id": "SV-1",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "id": "R-1041-idea-v1",
+            "title": "需求草案",
+            "fields": [
+              {
+                "name": "需求名称",
+                "value": "CODEx_TEST_M2C_20260913_artifacts_partial"
+              },
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_原型先行"
+              },
+              {
+                "name": "范围",
+                "value": ""
+              }
+            ],
+            "review": "待评审",
+            "version": 1,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-12T23:28:04.350Z",
+          "base_version_id": null,
+          "review_state": "待评审"
+        }
+      ],
+      "audit_logs": [
+        {
+          "id": "e78feb89-c327-407c-850f-e57f0866fda3",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "bcb35bb5-acbf-494b-9aa8-891e1e9087b3",
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-12T23:28:04.350Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        }
+      ],
+      "req_version_reviews": [],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "reqs",
+          "value": "1041"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "req_versions",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "questions",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "materials",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "material_versions",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "domain_events",
+          "value": "1"
+        }
+      ],
+      "questions": [
+        {
+          "id": "d7d80f8b-94e6-4abb-a12c-74b497e41694",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "bcb35bb5-acbf-494b-9aa8-891e1e9087b3",
+          "public_id": "SQ-1",
+          "q": "本次覆盖的用户与范围是什么？",
+          "answer": "",
+          "answered_by": null,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:04.350Z"
+        },
+        {
+          "id": "6f8751b1-3d66-4d59-a817-bc7fecde4062",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "bcb35bb5-acbf-494b-9aa8-891e1e9087b3",
+          "public_id": "SQ-2",
+          "q": "异常、退出与验收边界是什么？",
+          "answer": "",
+          "answered_by": null,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:04.350Z"
+        }
+      ],
+      "file_objects": [],
+      "reqs": [
+        {
+          "id": "bcb35bb5-acbf-494b-9aa8-891e1e9087b3",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1041",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_partial",
+          "goal": "CODEx_TEST_原型先行",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "stage": "idea",
+          "created_at": "2026-09-12T23:28:04.350Z",
+          "updated_at": "2026-09-12T23:28:04.350Z",
+          "revision": 1,
+          "material_revision": 0,
+          "closed_at": null,
+          "project_id": null,
+          "current_artifact_group_id": null,
+          "artifact_business_epoch": 0,
+          "artifact_design_epoch": 0
+        }
+      ],
+      "materials": [
+        {
+          "id": "087c9db7-b1f4-4349-8d27-8f7852419c50",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "bcb35bb5-acbf-494b-9aa8-891e1e9087b3",
+          "public_id": "SM-1",
+          "name": "原始想法",
+          "classification": "内部",
+          "allowed": true,
+          "usage": "material",
+          "status": "已纳入",
+          "version": 1,
+          "created_at": "2026-09-12T23:28:04.350Z"
+        }
+      ],
+      "material_versions": [
+        {
+          "id": "7f4e1541-6d96-4642-bac6-28e7ee82b46d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "material_id": "087c9db7-b1f4-4349-8d27-8f7852419c50",
+          "public_id": "MV-1",
+          "version": 1,
+          "content": "CODEx_TEST_原型先行",
+          "file_id": null,
+          "mime_type": "text/plain",
+          "name": "原始想法",
+          "created_at": "2026-09-12T23:28:04.350Z"
+        }
+      ],
+      "message_references": [],
+      "messages": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "run_plans": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "requirement.create",
+          "command_id": "CODEx_TEST_M2C_20260913_artifacts_81325f7a-f2c9-498c-8f0e-4ee47868d7e8",
+          "fingerprint": "a841578eebc43dc2114c3283556d2675c19a5e3f9b95c6ff0b4cdc058a84f442",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_原型先行",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_partial",
+              "audit": [
+                {
+                  "id": "A-1",
+                  "time": "2026-09-12T23:28:04.350Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "idea",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 1,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_partial"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_原型先行"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-12T23:28:04.350Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-12T23:28:04.350Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_原型先行",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-12T23:28:04.350Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "knowledgeRefs": []
+          },
+          "created_at": "2026-09-12T23:28:04.350Z"
+        }
+      ],
+      "domain_events": [
+        {
+          "id": "6d8dfa96-4349-40a5-85b1-193ee150d50c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-1",
+          "seq": "1",
+          "aggregate_id": "R-1041",
+          "revision": 1,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "requirement.created"
+          },
+          "created_at": "2026-09-12T23:28:04.350Z"
+        }
+      ],
+      "members": [
+        {
+          "id": "558a7c1e-1eed-4ff8-b8d9-a9dbbd09a823",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:03.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "f3cebeb5-0f06-4f2a-8018-a87916bfe98e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:03.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "7639cd2a-4abb-48ab-969c-c6a45a48396d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:03.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "78ed72c9-bfb1-43aa-a061-59dd22c07a09",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:03.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "f931948b-0c24-4a4c-98b5-b5358c042a8d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:03.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "5ca64f00-0564-4a46-8f83-02d5c41c30d1",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-12T23:28:03.573Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [],
+      "artifact_versions": [],
+      "artifact_groups": [],
+      "artifact_group_sources": [],
+      "artifact_proposals": [],
+      "artifact_confirmations": [],
+      "artifact_impacts": []
+    },
+    "poolsClosed": true
+  }
+}

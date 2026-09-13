@@ -1,0 +1,4503 @@
+{
+  "at": "2026-09-13T00:19:51.665Z",
+  "status": "PASS",
+  "results": [
+    {
+      "name": "A01/A10 template preview before adoption and required validation",
+      "status": "PASS"
+    },
+    {
+      "name": "A10 desktop three widths preserve columns and render preview",
+      "status": "PASS"
+    },
+    {
+      "name": "A06 UI business and design confirmation advance atomically",
+      "status": "PASS"
+    },
+    {
+      "name": "A12 503 and committed write followed by failed read preserve receipt",
+      "status": "PASS"
+    },
+    {
+      "name": "A11 sandbox destroys iframe and forged messages do not mutate parent",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 338,
+        "hash": "baf673519cb0a229c4cd6959f9ab7041f9aa1f78b70391ccb39577f4349ef784"
+      },
+      {
+        "path": "users.json",
+        "size": 831,
+        "hash": "ec17114140a929a2183dadb829b1759c479aedfb2707deb04a0fb137394b20af"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_artifacts",
+    "remaining": 0,
+    "totalRows": 79,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-13T00:19:51.886Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-13T00:19:51.886Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-13T00:19:52.130Z"
+        },
+        {
+          "version": "004",
+          "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+          "applied_at": "2026-09-13T00:19:52.385Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-13T00:19:52.127Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_other",
+          "plan": "internal",
+          "created_at": "2026-09-13T00:19:52.127Z"
+        }
+      ],
+      "req_versions": [
+        {
+          "id": "fd30fe81-8e8e-4696-ae51-9fcc203838be",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-1",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "id": "R-1041-idea-v1",
+            "title": "需求草案",
+            "fields": [
+              {
+                "name": "需求名称",
+                "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+              },
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_连续协作"
+              },
+              {
+                "name": "范围",
+                "value": ""
+              }
+            ],
+            "review": "待评审",
+            "version": 1,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-13T00:19:53.181Z",
+          "base_version_id": null,
+          "review_state": "待评审"
+        },
+        {
+          "id": "a152c833-c4f7-46a4-9e91-144dca3d62d0",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-2",
+          "stage": "idea",
+          "version": 2,
+          "content": {
+            "id": "R-1041-idea-v2",
+            "title": "需求草案",
+            "fields": [
+              {
+                "name": "需求名称",
+                "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+              },
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_连续协作"
+              },
+              {
+                "name": "范围",
+                "value": ""
+              },
+              {
+                "name": "本次覆盖的用户与范围是什么？",
+                "value": "CODEx_TEST_回答"
+              }
+            ],
+            "review": "待评审",
+            "version": 2,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-13T00:19:53.247Z",
+          "base_version_id": "fd30fe81-8e8e-4696-ae51-9fcc203838be",
+          "review_state": "待评审"
+        },
+        {
+          "id": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-3",
+          "stage": "idea",
+          "version": 3,
+          "content": {
+            "id": "R-1041-idea-v3",
+            "title": "需求草案",
+            "fields": [
+              {
+                "name": "需求名称",
+                "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+              },
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_连续协作"
+              },
+              {
+                "name": "范围",
+                "value": ""
+              },
+              {
+                "name": "本次覆盖的用户与范围是什么？",
+                "value": "CODEx_TEST_回答"
+              },
+              {
+                "name": "异常、退出与验收边界是什么？",
+                "value": "CODEx_TEST_回答"
+              }
+            ],
+            "review": "待评审",
+            "version": 3,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "confirmed_at": "2026-09-13T00:19:53.309Z",
+          "stale": false,
+          "created_at": "2026-09-13T00:19:53.278Z",
+          "base_version_id": "a152c833-c4f7-46a4-9e91-144dca3d62d0",
+          "review_state": "通过"
+        },
+        {
+          "id": "dafdf49a-ce8d-479e-b75f-fafc59af09af",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-4",
+          "stage": "req",
+          "version": 1,
+          "content": {
+            "id": "R-1041-req-v1",
+            "title": "需求说明",
+            "fields": [
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_连续协作"
+              },
+              {
+                "name": "范围",
+                "value": "待补充"
+              },
+              {
+                "name": "验收标准",
+                "value": "待补充，尚未确认"
+              }
+            ],
+            "review": "待评审",
+            "version": 1,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": true,
+          "created_at": "2026-09-13T00:19:53.341Z",
+          "base_version_id": null,
+          "review_state": "待评审"
+        },
+        {
+          "id": "e106297d-6a2c-4dbe-8548-7e86708a9428",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-5",
+          "stage": "req",
+          "version": 2,
+          "content": {
+            "id": "R-1041-req-v2",
+            "title": "CODEx_TEST_表单 · PRD草稿",
+            "fields": [
+              {
+                "name": "业务规则",
+                "value": "请核对并完善本模板示例规则"
+              }
+            ],
+            "review": "待评审",
+            "version": 2,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "confirmed_at": "2026-09-13T00:19:57.545Z",
+          "stale": false,
+          "created_at": "2026-09-13T00:19:56.825Z",
+          "base_version_id": "dafdf49a-ce8d-479e-b75f-fafc59af09af",
+          "review_state": "通过"
+        },
+        {
+          "id": "4e9d18d1-2c48-419b-a95c-96bba9ea98f3",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-6",
+          "stage": "design",
+          "version": 1,
+          "content": {
+            "id": "R-1041-design-v1",
+            "title": "设计方案",
+            "fields": [
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_连续协作"
+              },
+              {
+                "name": "范围",
+                "value": "待补充"
+              },
+              {
+                "name": "设计说明",
+                "value": "待补充，尚未确认"
+              }
+            ],
+            "review": "待评审",
+            "version": 1,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "confirmed_at": "2026-09-13T00:19:57.830Z",
+          "stale": false,
+          "created_at": "2026-09-13T00:19:57.545Z",
+          "base_version_id": null,
+          "review_state": "通过"
+        },
+        {
+          "id": "9b80451f-aa26-4ce5-a005-1ee9835d7d4a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SV-7",
+          "stage": "dev",
+          "version": 1,
+          "content": {
+            "id": "R-1041-dev-v1",
+            "title": "开发方案",
+            "fields": [
+              {
+                "name": "目标",
+                "value": "CODEx_TEST_连续协作"
+              },
+              {
+                "name": "范围",
+                "value": "待补充"
+              },
+              {
+                "name": "实施说明",
+                "value": "待补充，尚未确认"
+              }
+            ],
+            "review": "待评审",
+            "version": 1,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-13T00:19:57.830Z",
+          "base_version_id": null,
+          "review_state": "待评审"
+        }
+      ],
+      "audit_logs": [
+        {
+          "id": "2b722c60-6fb4-418a-ad8a-8f439359e374",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:53.181Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "d0daa5ea-e563-4fbc-8a29-35df6c24e6b2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-2",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "question.answered",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:53.247Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "bedd0c59-beb4-4278-a4ec-42edb4b31244",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-3",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "question.answered",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:53.278Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "f0a14a03-c207-42fc-80e5-02ac8e3d2375",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-4",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "version.confirmed",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:53.309Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "09ab133c-a361-444d-8d2a-252a03975815",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-5",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "requirement.advanced",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:53.341Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "ba3bd237-02e8-4c79-b9dc-21dbe221e2ad",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-6",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "artifact.proposal.created",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:56.240Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "2f4f1633-b73f-4af6-b60d-dd704037356b",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-7",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "artifact.proposal.adopted",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:56.825Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "e037bf91-00f5-40b8-801b-a0d5f248bd44",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-8",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "artifact.confirmed.business",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:57.545Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "5f5995f0-46fb-4ed5-82b3-770d8bc24905",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-9",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "artifact.confirmed.design",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:57.830Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        },
+        {
+          "id": "c6176a3c-47ac-4501-8a8d-a665120751ae",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "A-10",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "action": "artifact.proposal.created",
+          "detail": "",
+          "created_at": "2026-09-13T00:19:58.126Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        }
+      ],
+      "req_version_reviews": [],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "reqs",
+          "value": "1041"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "questions",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "materials",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "material_versions",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "artifact_versions",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "artifact_groups",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "artifact_group_sources",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "artifact_impacts",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "artifact_confirmations",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "req_versions",
+          "value": "7"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "artifact_proposals",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "10"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "domain_events",
+          "value": "10"
+        }
+      ],
+      "questions": [
+        {
+          "id": "f113d655-70cd-42ea-af9f-87b28444b6d9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SQ-1",
+          "q": "本次覆盖的用户与范围是什么？",
+          "answer": "CODEx_TEST_回答",
+          "answered_by": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "revision": 1,
+          "created_at": "2026-09-13T00:19:53.181Z"
+        },
+        {
+          "id": "1c39c198-5f0f-48d6-a4b4-3bd8124e9b30",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SQ-2",
+          "q": "异常、退出与验收边界是什么？",
+          "answer": "CODEx_TEST_回答",
+          "answered_by": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "revision": 1,
+          "created_at": "2026-09-13T00:19:53.181Z"
+        }
+      ],
+      "file_objects": [],
+      "reqs": [
+        {
+          "id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1041",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+          "goal": "CODEx_TEST_连续协作",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "stage": "dev",
+          "created_at": "2026-09-13T00:19:53.181Z",
+          "updated_at": "2026-09-13T00:19:58.126Z",
+          "revision": 10,
+          "material_revision": 0,
+          "closed_at": null,
+          "project_id": null,
+          "current_artifact_group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "artifact_business_epoch": 1,
+          "artifact_design_epoch": 1
+        }
+      ],
+      "materials": [
+        {
+          "id": "c77c2984-81f2-4345-b058-79b80db9542f",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "SM-1",
+          "name": "原始想法",
+          "classification": "内部",
+          "allowed": true,
+          "usage": "material",
+          "status": "已纳入",
+          "version": 1,
+          "created_at": "2026-09-13T00:19:53.181Z"
+        }
+      ],
+      "material_versions": [
+        {
+          "id": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "material_id": "c77c2984-81f2-4345-b058-79b80db9542f",
+          "public_id": "MV-1",
+          "version": 1,
+          "content": "CODEx_TEST_连续协作",
+          "file_id": null,
+          "mime_type": "text/plain",
+          "name": "原始想法",
+          "created_at": "2026-09-13T00:19:53.181Z"
+        }
+      ],
+      "message_references": [],
+      "messages": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "run_plans": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "requirement.create",
+          "command_id": "CODEx_TEST_M2C_20260913_artifacts_acc4fd57-3fce-4d2f-9f53-3c3091d62156",
+          "fingerprint": "d1e2f765fbecaa9ed4782eca4281a48b18ef9697fd464cdaa4364b3a92d41b93",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "idea",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 1,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "knowledgeRefs": []
+          },
+          "created_at": "2026-09-13T00:19:53.181Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "question.answered:R-1041",
+          "command_id": "CODEx_TEST_M2C_20260913_artifacts_c2324b8a-d6f2-4a4e-bdf8-6a7cc05d9f11",
+          "fingerprint": "193e6b14c32ddb01702493febde63dbdfcf591eca35264703196e96e0a0fb37f",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "idea",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 2,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "version": {
+              "id": "SV-2",
+              "reqId": "R-1041",
+              "stage": "idea",
+              "stale": false,
+              "review": "待评审",
+              "content": {
+                "id": "R-1041-idea-v2",
+                "title": "需求草案",
+                "fields": [
+                  {
+                    "name": "需求名称",
+                    "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                  },
+                  {
+                    "name": "目标",
+                    "value": "CODEx_TEST_连续协作"
+                  },
+                  {
+                    "name": "范围",
+                    "value": ""
+                  },
+                  {
+                    "name": "本次覆盖的用户与范围是什么？",
+                    "value": "CODEx_TEST_回答"
+                  }
+                ],
+                "review": "待评审",
+                "version": 2,
+                "comments": [],
+                "confirmed": false
+              },
+              "version": 2,
+              "createdAt": "2026-09-13T00:19:53.247Z",
+              "confirmedAt": null,
+              "confirmedBy": null
+            },
+            "question": {
+              "q": "本次覆盖的用户与范围是什么？",
+              "id": "SQ-1",
+              "reqId": "R-1041",
+              "answer": "CODEx_TEST_回答",
+              "revision": 1,
+              "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+            }
+          },
+          "created_at": "2026-09-13T00:19:53.247Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "question.answered:R-1041",
+          "command_id": "CODEx_TEST_M2C_20260913_artifacts_dae63528-b619-437f-b99b-a9572b017179",
+          "fingerprint": "b9d7b19c733925d0cb9fb048cc3ddbf5b909d8354014dffa2affa8d00ae29c8d",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "idea",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 3,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "version": {
+              "id": "SV-3",
+              "reqId": "R-1041",
+              "stage": "idea",
+              "stale": false,
+              "review": "待评审",
+              "content": {
+                "id": "R-1041-idea-v3",
+                "title": "需求草案",
+                "fields": [
+                  {
+                    "name": "需求名称",
+                    "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                  },
+                  {
+                    "name": "目标",
+                    "value": "CODEx_TEST_连续协作"
+                  },
+                  {
+                    "name": "范围",
+                    "value": ""
+                  },
+                  {
+                    "name": "本次覆盖的用户与范围是什么？",
+                    "value": "CODEx_TEST_回答"
+                  },
+                  {
+                    "name": "异常、退出与验收边界是什么？",
+                    "value": "CODEx_TEST_回答"
+                  }
+                ],
+                "review": "待评审",
+                "version": 3,
+                "comments": [],
+                "confirmed": false
+              },
+              "version": 3,
+              "createdAt": "2026-09-13T00:19:53.278Z",
+              "confirmedAt": null,
+              "confirmedBy": null
+            },
+            "question": {
+              "q": "异常、退出与验收边界是什么？",
+              "id": "SQ-2",
+              "reqId": "R-1041",
+              "answer": "CODEx_TEST_回答",
+              "revision": 1,
+              "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+            }
+          },
+          "created_at": "2026-09-13T00:19:53.278Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "version.confirmed:R-1041",
+          "command_id": "CODEx_TEST_M2C_20260913_artifacts_31a67c9c-d300-4045-a39e-97a2fccdf143",
+          "fingerprint": "0a1e0553a972c09501c9e7bb89a2588df9c05938a45e5b02bac0d04dcd3a0e34",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "idea",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 4,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "version": {
+              "id": "SV-3",
+              "reqId": "R-1041",
+              "stage": "idea",
+              "stale": false,
+              "review": "通过",
+              "content": {
+                "id": "R-1041-idea-v3",
+                "title": "需求草案",
+                "fields": [
+                  {
+                    "name": "需求名称",
+                    "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                  },
+                  {
+                    "name": "目标",
+                    "value": "CODEx_TEST_连续协作"
+                  },
+                  {
+                    "name": "范围",
+                    "value": ""
+                  },
+                  {
+                    "name": "本次覆盖的用户与范围是什么？",
+                    "value": "CODEx_TEST_回答"
+                  },
+                  {
+                    "name": "异常、退出与验收边界是什么？",
+                    "value": "CODEx_TEST_回答"
+                  }
+                ],
+                "review": "通过",
+                "version": 3,
+                "comments": [],
+                "confirmed": true
+              },
+              "version": 3,
+              "createdAt": "2026-09-13T00:19:53.278Z",
+              "confirmedAt": "2026-09-13T00:19:53.309Z",
+              "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+            }
+          },
+          "created_at": "2026-09-13T00:19:53.309Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "requirement.advanced:R-1041",
+          "command_id": "CODEx_TEST_M2C_20260913_artifacts_35d24243-85d5-4bf7-b791-73fce2aa8a37",
+          "fingerprint": "49673312264b8e7d4423d1f1ac80fe2cd8a40e83d20d5eaaf2fbb9e1a10f7bd3",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-5",
+                  "time": "2026-09-13T00:19:53.341Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.advanced",
+                  "detail": ""
+                },
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "req",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 5,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-4",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v1",
+                    "title": "需求说明",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "验收标准",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.341Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "blockers": []
+          },
+          "created_at": "2026-09-13T00:19:53.341Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "artifact.proposal.created:R-1041",
+          "command_id": "3fd62449-b676-43eb-891d-96caa22b8412",
+          "fingerprint": "57eb0085743271dd9b9730352715807bd35a74f487f2e9481ad80b2270be4629",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-6",
+                  "time": "2026-09-13T00:19:56.240Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.created",
+                  "detail": ""
+                },
+                {
+                  "id": "A-5",
+                  "time": "2026-09-13T00:19:53.341Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.advanced",
+                  "detail": ""
+                },
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "req",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 6,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-4",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v1",
+                    "title": "需求说明",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "验收标准",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.341Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "proposal": {
+              "id": "AP-1",
+              "stale": false,
+              "state": "READY",
+              "inputs": {
+                "idea": {
+                  "id": "SV-3",
+                  "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+                  "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+                  "version": 3
+                },
+                "materials": [
+                  {
+                    "id": "SM-1",
+                    "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+                    "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+                    "name": "原始想法",
+                    "size": 0,
+                    "usage": "material",
+                    "fileId": null,
+                    "status": "已纳入",
+                    "allowed": true,
+                    "version": 1,
+                    "mimeType": "text/plain"
+                  }
+                ],
+                "projectId": null,
+                "explicitRefs": []
+              },
+              "reason": "",
+              "source": {
+                "kind": "template",
+                "memberId": "MEM-1",
+                "templateId": "form-table",
+                "templateVersion": 1,
+                "paramsFingerprint": "ecd3d329013b1ac4540ba6d79310df15b568c960337fbf837671288103ee69a7"
+              },
+              "content": {
+                "prd": {
+                  "title": "CODEx_TEST_表单 · PRD草稿",
+                  "fields": [
+                    {
+                      "name": "业务规则",
+                      "value": "请核对并完善本模板示例规则"
+                    }
+                  ]
+                },
+                "rules": [
+                  {
+                    "ruleId": "RULE1",
+                    "fieldIndex": 0
+                  }
+                ],
+                "prototype": {
+                  "spec": {
+                    "pages": [
+                      {
+                        "id": "main",
+                        "nodes": [
+                          {
+                            "id": "intro",
+                            "text": "填写信息并查看结果",
+                            "type": "text",
+                            "ruleId": "RULE1"
+                          },
+                          {
+                            "id": "name",
+                            "type": "field",
+                            "label": "名称",
+                            "ruleId": "RULE1",
+                            "required": true
+                          },
+                          {
+                            "id": "save",
+                            "text": "检查填写内容",
+                            "type": "button",
+                            "action": {
+                              "type": "validate",
+                              "target": "main"
+                            }
+                          },
+                          {
+                            "id": "list",
+                            "rows": [
+                              [
+                                "示例记录",
+                                "待确认"
+                              ]
+                            ],
+                            "type": "table",
+                            "columns": [
+                              "名称",
+                              "状态"
+                            ]
+                          }
+                        ],
+                        "title": "CODEx_TEST_表单"
+                      }
+                    ],
+                    "title": "CODEx_TEST_表单",
+                    "schemaVersion": 1
+                  },
+                  "representation": "spec"
+                },
+                "acceptance": {
+                  "items": [
+                    {
+                      "acId": "AC1",
+                      "steps": [
+                        "按画布提示操作"
+                      ],
+                      "ruleId": "RULE1",
+                      "expected": "显示对应状态反馈，规则待人工核对",
+                      "scenario": "体验交互",
+                      "precondition": "已打开候选"
+                    }
+                  ]
+                }
+              },
+              "missing": [],
+              "createdAt": "2026-09-13T00:19:56.240Z",
+              "baseGroupId": null,
+              "resultGroupId": null,
+              "inputFingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b"
+            }
+          },
+          "created_at": "2026-09-13T00:19:56.240Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "artifact.proposal.adopted:R-1041",
+          "command_id": "4cc6913e-f280-4be5-945c-20d650207cbd",
+          "fingerprint": "cc0f82948ee618e2ea9464cc011e97c1d0e41cdd44bbd0e9b90ef23464da5f31",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-7",
+                  "time": "2026-09-13T00:19:56.825Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.adopted",
+                  "detail": ""
+                },
+                {
+                  "id": "A-6",
+                  "time": "2026-09-13T00:19:56.240Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.created",
+                  "detail": ""
+                },
+                {
+                  "id": "A-5",
+                  "time": "2026-09-13T00:19:53.341Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.advanced",
+                  "detail": ""
+                },
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "req",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 7,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-4",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": true,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v1",
+                    "title": "需求说明",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "验收标准",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.341Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-5",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": true,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v2",
+                    "title": "CODEx_TEST_表单 · PRD草稿",
+                    "fields": [
+                      {
+                        "name": "业务规则",
+                        "value": "请核对并完善本模板示例规则"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:56.825Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "group": {
+              "id": "AG-1",
+              "prd": {
+                "id": "SV-5",
+                "content": {
+                  "title": "CODEx_TEST_表单 · PRD草稿",
+                  "fields": [
+                    {
+                      "name": "业务规则",
+                      "value": "请核对并完善本模板示例规则"
+                    }
+                  ]
+                },
+                "version": 2
+              },
+              "rules": [
+                {
+                  "ruleId": "RULE1",
+                  "fieldIndex": 0
+                }
+              ],
+              "inputs": {
+                "idea": {
+                  "id": "SV-3",
+                  "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+                  "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+                  "version": 3
+                },
+                "materials": [
+                  {
+                    "id": "SM-1",
+                    "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+                    "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+                    "name": "原始想法",
+                    "size": 0,
+                    "usage": "material",
+                    "fileId": null,
+                    "status": "已纳入",
+                    "allowed": true,
+                    "version": 1,
+                    "mimeType": "text/plain"
+                  }
+                ],
+                "projectId": null,
+                "explicitRefs": []
+              },
+              "version": 1,
+              "createdAt": "2026-09-13T00:19:56.825Z",
+              "prototype": {
+                "id": "AV-1",
+                "kind": "prototype",
+                "source": {
+                  "kind": "template",
+                  "memberId": "MEM-1",
+                  "templateId": "form-table",
+                  "templateVersion": 1,
+                  "paramsFingerprint": "ecd3d329013b1ac4540ba6d79310df15b568c960337fbf837671288103ee69a7"
+                },
+                "content": {
+                  "spec": {
+                    "pages": [
+                      {
+                        "id": "main",
+                        "nodes": [
+                          {
+                            "id": "intro",
+                            "text": "填写信息并查看结果",
+                            "type": "text",
+                            "ruleId": "RULE1"
+                          },
+                          {
+                            "id": "name",
+                            "type": "field",
+                            "label": "名称",
+                            "ruleId": "RULE1",
+                            "required": true
+                          },
+                          {
+                            "id": "save",
+                            "text": "检查填写内容",
+                            "type": "button",
+                            "action": {
+                              "type": "validate",
+                              "target": "main"
+                            }
+                          },
+                          {
+                            "id": "list",
+                            "rows": [
+                              [
+                                "示例记录",
+                                "待确认"
+                              ]
+                            ],
+                            "type": "table",
+                            "columns": [
+                              "名称",
+                              "状态"
+                            ]
+                          }
+                        ],
+                        "title": "CODEx_TEST_表单"
+                      }
+                    ],
+                    "title": "CODEx_TEST_表单",
+                    "schemaVersion": 1
+                  },
+                  "representation": "spec"
+                },
+                "version": 1,
+                "createdAt": "2026-09-13T00:19:56.825Z",
+                "fingerprint": "0c4a3e26d26f525d4bf12cbe0ac4d27f2958e91b3e7d6fd51be4ce2b069096e4"
+              },
+              "acceptance": {
+                "id": "AV-2",
+                "kind": "acceptance",
+                "source": {
+                  "kind": "template",
+                  "memberId": "MEM-1",
+                  "templateId": "form-table",
+                  "templateVersion": 1,
+                  "paramsFingerprint": "ecd3d329013b1ac4540ba6d79310df15b568c960337fbf837671288103ee69a7"
+                },
+                "content": {
+                  "items": [
+                    {
+                      "acId": "AC1",
+                      "steps": [
+                        "按画布提示操作"
+                      ],
+                      "ruleId": "RULE1",
+                      "expected": "显示对应状态反馈，规则待人工核对",
+                      "scenario": "体验交互",
+                      "precondition": "已打开候选"
+                    }
+                  ]
+                },
+                "version": 1,
+                "createdAt": "2026-09-13T00:19:56.825Z",
+                "fingerprint": "764adfffc1bf096294c5d1cf0b32259ecb17f59e126ca6d1bab127f4f6a3dca0"
+              },
+              "fingerprint": "cb05fbc3d635c7529df083b5c09036b180f665a52401d99885144caa4bfc4fb4",
+              "inputFingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b"
+            }
+          },
+          "created_at": "2026-09-13T00:19:56.825Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "artifact.confirmed.business:R-1041",
+          "command_id": "8ddc83b0-3414-479d-85b2-35cbef5e20d6",
+          "fingerprint": "79f6b6b1468e0cba6fe2989d1d1628a68e2cc3156d7baa1ff2271abfdc599b6f",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-8",
+                  "time": "2026-09-13T00:19:57.545Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.confirmed.business",
+                  "detail": ""
+                },
+                {
+                  "id": "A-7",
+                  "time": "2026-09-13T00:19:56.825Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.adopted",
+                  "detail": ""
+                },
+                {
+                  "id": "A-6",
+                  "time": "2026-09-13T00:19:56.240Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.created",
+                  "detail": ""
+                },
+                {
+                  "id": "A-5",
+                  "time": "2026-09-13T00:19:53.341Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.advanced",
+                  "detail": ""
+                },
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "design",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 8,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-4",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": true,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v1",
+                    "title": "需求说明",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "验收标准",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.341Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-5",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-req-v2",
+                    "title": "CODEx_TEST_表单 · PRD草稿",
+                    "fields": [
+                      {
+                        "name": "业务规则",
+                        "value": "请核对并完善本模板示例规则"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:56.825Z",
+                  "confirmedAt": "2026-09-13T00:19:57.545Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-6",
+                  "reqId": "R-1041",
+                  "stage": "design",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-design-v1",
+                    "title": "设计方案",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "设计说明",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:57.545Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "nextStage": "design",
+            "confirmation": {
+              "id": "ACF-1",
+              "kind": "BUSINESS",
+              "role": "owner",
+              "scope": null,
+              "comment": "CODEx_TEST_业务确认",
+              "groupId": "AG-1",
+              "memberId": "MEM-1",
+              "createdAt": "2026-09-13T00:19:57.545Z",
+              "previewReview": "",
+              "scopeFingerprint": null
+            }
+          },
+          "created_at": "2026-09-13T00:19:57.545Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "artifact.confirmed.design:R-1041",
+          "command_id": "3582914e-1485-4cd6-b166-cc38eabc2f86",
+          "fingerprint": "1296e56c2441eeb0c8a2101fe1c4342815f3ce7a579c4640c1ed458736ffc144",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-9",
+                  "time": "2026-09-13T00:19:57.830Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.confirmed.design",
+                  "detail": ""
+                },
+                {
+                  "id": "A-8",
+                  "time": "2026-09-13T00:19:57.545Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.confirmed.business",
+                  "detail": ""
+                },
+                {
+                  "id": "A-7",
+                  "time": "2026-09-13T00:19:56.825Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.adopted",
+                  "detail": ""
+                },
+                {
+                  "id": "A-6",
+                  "time": "2026-09-13T00:19:56.240Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.created",
+                  "detail": ""
+                },
+                {
+                  "id": "A-5",
+                  "time": "2026-09-13T00:19:53.341Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.advanced",
+                  "detail": ""
+                },
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "dev",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 9,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-4",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": true,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v1",
+                    "title": "需求说明",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "验收标准",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.341Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-5",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-req-v2",
+                    "title": "CODEx_TEST_表单 · PRD草稿",
+                    "fields": [
+                      {
+                        "name": "业务规则",
+                        "value": "请核对并完善本模板示例规则"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:56.825Z",
+                  "confirmedAt": "2026-09-13T00:19:57.545Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-6",
+                  "reqId": "R-1041",
+                  "stage": "design",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-design-v1",
+                    "title": "设计方案",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "设计说明",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:57.545Z",
+                  "confirmedAt": "2026-09-13T00:19:57.830Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-7",
+                  "reqId": "R-1041",
+                  "stage": "dev",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-dev-v1",
+                    "title": "开发方案",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "实施说明",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:57.830Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "nextStage": "dev",
+            "confirmation": {
+              "id": "ACF-2",
+              "kind": "DESIGN",
+              "role": "owner",
+              "scope": {
+                "exit": "CODEx_TEST_exit",
+                "goal": "CODEx_TEST_goal",
+                "files": "CODEx_TEST_files",
+                "rollback": "CODEx_TEST_rollback",
+                "validation": "CODEx_TEST_validation",
+                "capabilityIds": []
+              },
+              "comment": "CODEx_TEST_comment",
+              "groupId": "AG-1",
+              "memberId": "MEM-1",
+              "createdAt": "2026-09-13T00:19:57.830Z",
+              "previewReview": "",
+              "scopeFingerprint": "29354e2001463a84266e53efaf9afa70f6b813bcf0893a910c0724171065363a"
+            }
+          },
+          "created_at": "2026-09-13T00:19:57.830Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "operation": "artifact.proposal.created:R-1041",
+          "command_id": "7b14a32a-6581-4f48-a746-c8c426fd88d9",
+          "fingerprint": "b48d1884b50252a539564229e473a95de2d37cc81a20df94a458cc1b4adbafb8",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "CODEx_TEST_连续协作",
+              "name": "CODEx_TEST_M2C_20260913_artifacts_browser",
+              "audit": [
+                {
+                  "id": "A-10",
+                  "time": "2026-09-13T00:19:58.126Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.created",
+                  "detail": ""
+                },
+                {
+                  "id": "A-9",
+                  "time": "2026-09-13T00:19:57.830Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.confirmed.design",
+                  "detail": ""
+                },
+                {
+                  "id": "A-8",
+                  "time": "2026-09-13T00:19:57.545Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.confirmed.business",
+                  "detail": ""
+                },
+                {
+                  "id": "A-7",
+                  "time": "2026-09-13T00:19:56.825Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.adopted",
+                  "detail": ""
+                },
+                {
+                  "id": "A-6",
+                  "time": "2026-09-13T00:19:56.240Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "artifact.proposal.created",
+                  "detail": ""
+                },
+                {
+                  "id": "A-5",
+                  "time": "2026-09-13T00:19:53.341Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.advanced",
+                  "detail": ""
+                },
+                {
+                  "id": "A-4",
+                  "time": "2026-09-13T00:19:53.309Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "version.confirmed",
+                  "detail": ""
+                },
+                {
+                  "id": "A-3",
+                  "time": "2026-09-13T00:19:53.278Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-2",
+                  "time": "2026-09-13T00:19:53.247Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "question.answered",
+                  "detail": ""
+                },
+                {
+                  "id": "A-1",
+                  "time": "2026-09-13T00:19:53.181Z",
+                  "actor": "CODEx_TEST_M2C_20260913_artifacts_owner",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_artifacts_owner",
+              "scope": "",
+              "stage": "dev",
+              "units": [],
+              "closed": false,
+              "project": null,
+              "revision": 10,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-2",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v2",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:53.247Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-3",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-idea-v3",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_artifacts_browser"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      },
+                      {
+                        "name": "本次覆盖的用户与范围是什么？",
+                        "value": "CODEx_TEST_回答"
+                      },
+                      {
+                        "name": "异常、退出与验收边界是什么？",
+                        "value": "CODEx_TEST_回答"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 3,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 3,
+                  "createdAt": "2026-09-13T00:19:53.278Z",
+                  "confirmedAt": "2026-09-13T00:19:53.309Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-4",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": true,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-req-v1",
+                    "title": "需求说明",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "验收标准",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:53.341Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                },
+                {
+                  "id": "SV-5",
+                  "reqId": "R-1041",
+                  "stage": "req",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-req-v2",
+                    "title": "CODEx_TEST_表单 · PRD草稿",
+                    "fields": [
+                      {
+                        "name": "业务规则",
+                        "value": "请核对并完善本模板示例规则"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 2,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 2,
+                  "createdAt": "2026-09-13T00:19:56.825Z",
+                  "confirmedAt": "2026-09-13T00:19:57.545Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-6",
+                  "reqId": "R-1041",
+                  "stage": "design",
+                  "stale": false,
+                  "review": "通过",
+                  "content": {
+                    "id": "R-1041-design-v1",
+                    "title": "设计方案",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "设计说明",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "通过",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": true
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:57.545Z",
+                  "confirmedAt": "2026-09-13T00:19:57.830Z",
+                  "confirmedBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "id": "SV-7",
+                  "reqId": "R-1041",
+                  "stage": "dev",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-dev-v1",
+                    "title": "开发方案",
+                    "fields": [
+                      {
+                        "name": "目标",
+                        "value": "CODEx_TEST_连续协作"
+                      },
+                      {
+                        "name": "范围",
+                        "value": "待补充"
+                      },
+                      {
+                        "name": "实施说明",
+                        "value": "待补充，尚未确认"
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T00:19:57.830Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T00:19:53.181Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "CODEx_TEST_连续协作",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T00:19:53.181Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": null,
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "CODEx_TEST_回答",
+                  "revision": 1,
+                  "answeredBy": "CODEx_TEST_M2C_20260913_artifacts_owner"
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "proposal": {
+              "id": "AP-2",
+              "stale": false,
+              "state": "READY",
+              "inputs": {
+                "idea": {
+                  "id": "SV-3",
+                  "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+                  "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+                  "version": 3
+                },
+                "materials": [
+                  {
+                    "id": "SM-1",
+                    "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+                    "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+                    "name": "原始想法",
+                    "size": 0,
+                    "usage": "material",
+                    "fileId": null,
+                    "status": "已纳入",
+                    "allowed": true,
+                    "version": 1,
+                    "mimeType": "text/plain"
+                  }
+                ],
+                "projectId": null,
+                "explicitRefs": []
+              },
+              "reason": "",
+              "source": {
+                "kind": "manual",
+                "memberId": "MEM-1"
+              },
+              "content": {
+                "prd": {
+                  "title": "CODEx_TEST_表单 · PRD草稿",
+                  "fields": [
+                    {
+                      "name": "业务规则",
+                      "value": "请核对并完善本模板示例规则"
+                    }
+                  ]
+                },
+                "rules": [
+                  {
+                    "ruleId": "RULE1",
+                    "fieldIndex": 0
+                  }
+                ],
+                "prototype": {
+                  "spec": {
+                    "pages": [
+                      {
+                        "id": "main",
+                        "nodes": [
+                          {
+                            "id": "intro",
+                            "text": "填写信息并查看结果",
+                            "type": "text",
+                            "ruleId": "RULE1"
+                          },
+                          {
+                            "id": "name",
+                            "type": "field",
+                            "label": "名称",
+                            "ruleId": "RULE1",
+                            "required": true
+                          },
+                          {
+                            "id": "save",
+                            "text": "检查填写内容",
+                            "type": "button",
+                            "action": {
+                              "type": "validate",
+                              "target": "main"
+                            }
+                          },
+                          {
+                            "id": "list",
+                            "rows": [
+                              [
+                                "示例记录",
+                                "待确认"
+                              ]
+                            ],
+                            "type": "table",
+                            "columns": [
+                              "名称",
+                              "状态"
+                            ]
+                          }
+                        ],
+                        "title": "CODEx_TEST_表单"
+                      }
+                    ],
+                    "title": "CODEx_TEST_表单",
+                    "schemaVersion": 1
+                  },
+                  "representation": "spec"
+                },
+                "acceptance": {
+                  "items": [
+                    {
+                      "acId": "AC1",
+                      "steps": [
+                        "按画布提示操作"
+                      ],
+                      "ruleId": "RULE1",
+                      "expected": "CODEx_TEST_恢复后保留",
+                      "scenario": "体验交互",
+                      "precondition": "已打开候选"
+                    }
+                  ]
+                }
+              },
+              "missing": [],
+              "createdAt": "2026-09-13T00:19:58.126Z",
+              "baseGroupId": "AG-1",
+              "resultGroupId": null,
+              "inputFingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b"
+            }
+          },
+          "created_at": "2026-09-13T00:19:58.126Z"
+        }
+      ],
+      "domain_events": [
+        {
+          "id": "9f6e7a48-880e-4226-9fb4-93b9fc335db2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-1",
+          "seq": "1",
+          "aggregate_id": "R-1041",
+          "revision": 1,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "requirement.created"
+          },
+          "created_at": "2026-09-13T00:19:53.181Z"
+        },
+        {
+          "id": "36900248-f3c6-4952-bbe6-030abd62445e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-2",
+          "seq": "2",
+          "aggregate_id": "R-1041",
+          "revision": 2,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "question.answered"
+          },
+          "created_at": "2026-09-13T00:19:53.247Z"
+        },
+        {
+          "id": "9d364b68-c3a3-4f32-b6ba-9fc8f5c797ef",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-3",
+          "seq": "3",
+          "aggregate_id": "R-1041",
+          "revision": 3,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "question.answered"
+          },
+          "created_at": "2026-09-13T00:19:53.278Z"
+        },
+        {
+          "id": "704574d3-61d8-47a4-bdf7-af0c74088b8a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-4",
+          "seq": "4",
+          "aggregate_id": "R-1041",
+          "revision": 4,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "version.confirmed"
+          },
+          "created_at": "2026-09-13T00:19:53.309Z"
+        },
+        {
+          "id": "ab284fa6-6009-4e6a-b934-422661f4e0ed",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-5",
+          "seq": "5",
+          "aggregate_id": "R-1041",
+          "revision": 5,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "requirement.advanced"
+          },
+          "created_at": "2026-09-13T00:19:53.341Z"
+        },
+        {
+          "id": "5cd1d773-3b25-4349-be4a-efd3ae21819b",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-6",
+          "seq": "6",
+          "aggregate_id": "R-1041",
+          "revision": 6,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "artifact.proposal.created"
+          },
+          "created_at": "2026-09-13T00:19:56.240Z"
+        },
+        {
+          "id": "5bcf783e-54cc-4564-9bfe-e04cce2a69f4",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-7",
+          "seq": "7",
+          "aggregate_id": "R-1041",
+          "revision": 7,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "artifact.proposal.adopted"
+          },
+          "created_at": "2026-09-13T00:19:56.825Z"
+        },
+        {
+          "id": "420650e8-63b3-486e-9ac1-b4ca4e801748",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-8",
+          "seq": "8",
+          "aggregate_id": "R-1041",
+          "revision": 8,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "artifact.confirmed.business"
+          },
+          "created_at": "2026-09-13T00:19:57.545Z"
+        },
+        {
+          "id": "49c2ea2b-1754-45ab-9825-844edb02e9ca",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-9",
+          "seq": "9",
+          "aggregate_id": "R-1041",
+          "revision": 9,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "artifact.confirmed.design"
+          },
+          "created_at": "2026-09-13T00:19:57.830Z"
+        },
+        {
+          "id": "961a8428-a75b-4d38-b109-2f63a563bdf5",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-10",
+          "seq": "10",
+          "aggregate_id": "R-1041",
+          "revision": 10,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "artifact.proposal.created"
+          },
+          "created_at": "2026-09-13T00:19:58.126Z"
+        }
+      ],
+      "members": [
+        {
+          "id": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T00:19:52.370Z",
+          "disabled_at": null
+        },
+        {
+          "id": "e418aea8-7af7-4001-93c3-7b5d912d7d7f",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T00:19:52.370Z",
+          "disabled_at": null
+        },
+        {
+          "id": "c154e110-8295-47a4-a53b-e51f21d4a26d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T00:19:52.370Z",
+          "disabled_at": null
+        },
+        {
+          "id": "31f47f1d-ad45-46bd-b609-85d7dce102db",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T00:19:52.370Z",
+          "disabled_at": null
+        },
+        {
+          "id": "079ab6fa-9be8-4933-b393-489a9f82f135",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T00:19:52.370Z",
+          "disabled_at": null
+        },
+        {
+          "id": "d57e18c8-92d1-4605-8b29-63f3f47f444c",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_artifacts_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T00:19:52.370Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [],
+      "artifact_versions": [
+        {
+          "id": "78e3022a-415c-4b71-aa34-5dc195263eec",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "AV-1",
+          "kind": "prototype",
+          "version": 1,
+          "parent_id": null,
+          "content": {
+            "spec": {
+              "pages": [
+                {
+                  "id": "main",
+                  "nodes": [
+                    {
+                      "id": "intro",
+                      "text": "填写信息并查看结果",
+                      "type": "text",
+                      "ruleId": "RULE1"
+                    },
+                    {
+                      "id": "name",
+                      "type": "field",
+                      "label": "名称",
+                      "ruleId": "RULE1",
+                      "required": true
+                    },
+                    {
+                      "id": "save",
+                      "text": "检查填写内容",
+                      "type": "button",
+                      "action": {
+                        "type": "validate",
+                        "target": "main"
+                      }
+                    },
+                    {
+                      "id": "list",
+                      "rows": [
+                        [
+                          "示例记录",
+                          "待确认"
+                        ]
+                      ],
+                      "type": "table",
+                      "columns": [
+                        "名称",
+                        "状态"
+                      ]
+                    }
+                  ],
+                  "title": "CODEx_TEST_表单"
+                }
+              ],
+              "title": "CODEx_TEST_表单",
+              "schemaVersion": 1
+            },
+            "representation": "spec"
+          },
+          "fingerprint": "0c4a3e26d26f525d4bf12cbe0ac4d27f2958e91b3e7d6fd51be4ce2b069096e4",
+          "source": {
+            "kind": "template",
+            "memberId": "MEM-1",
+            "templateId": "form-table",
+            "templateVersion": 1,
+            "paramsFingerprint": "ecd3d329013b1ac4540ba6d79310df15b568c960337fbf837671288103ee69a7"
+          },
+          "created_by": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "created_at": "2026-09-13T00:19:56.825Z"
+        },
+        {
+          "id": "94b5b473-ba48-486d-b7a3-ee216c0d4067",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "AV-2",
+          "kind": "acceptance",
+          "version": 1,
+          "parent_id": null,
+          "content": {
+            "items": [
+              {
+                "acId": "AC1",
+                "steps": [
+                  "按画布提示操作"
+                ],
+                "ruleId": "RULE1",
+                "expected": "显示对应状态反馈，规则待人工核对",
+                "scenario": "体验交互",
+                "precondition": "已打开候选"
+              }
+            ]
+          },
+          "fingerprint": "764adfffc1bf096294c5d1cf0b32259ecb17f59e126ca6d1bab127f4f6a3dca0",
+          "source": {
+            "kind": "template",
+            "memberId": "MEM-1",
+            "templateId": "form-table",
+            "templateVersion": 1,
+            "paramsFingerprint": "ecd3d329013b1ac4540ba6d79310df15b568c960337fbf837671288103ee69a7"
+          },
+          "created_by": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "created_at": "2026-09-13T00:19:56.825Z"
+        }
+      ],
+      "artifact_groups": [
+        {
+          "id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "AG-1",
+          "version": 1,
+          "parent_id": null,
+          "prototype_id": "78e3022a-415c-4b71-aa34-5dc195263eec",
+          "prd_id": "e106297d-6a2c-4dbe-8548-7e86708a9428",
+          "acceptance_id": "94b5b473-ba48-486d-b7a3-ee216c0d4067",
+          "input_fingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b",
+          "inputs": {
+            "idea": {
+              "id": "SV-3",
+              "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+              "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+              "version": 3
+            },
+            "materials": [
+              {
+                "id": "SM-1",
+                "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+                "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+                "name": "原始想法",
+                "size": 0,
+                "usage": "material",
+                "fileId": null,
+                "status": "已纳入",
+                "allowed": true,
+                "version": 1,
+                "mimeType": "text/plain"
+              }
+            ],
+            "projectId": null,
+            "explicitRefs": []
+          },
+          "rules": [
+            {
+              "ruleId": "RULE1",
+              "fieldIndex": 0
+            }
+          ],
+          "fingerprint": "cb05fbc3d635c7529df083b5c09036b180f665a52401d99885144caa4bfc4fb4",
+          "created_by": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "created_at": "2026-09-13T00:19:56.825Z"
+        }
+      ],
+      "artifact_group_sources": [
+        {
+          "id": "66d88490-25f9-4bb8-b004-a6f687504fd0",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "public_id": "AS-1",
+          "material_version_id": null,
+          "req_version_id": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+          "source_data": {
+            "id": "SV-3",
+            "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+            "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+            "version": 3
+          }
+        },
+        {
+          "id": "9e159033-0188-49ab-a84a-999f54021eda",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "public_id": "AS-2",
+          "material_version_id": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+          "req_version_id": null,
+          "source_data": {
+            "id": "SM-1",
+            "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+            "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+            "name": "原始想法",
+            "size": 0,
+            "usage": "material",
+            "fileId": null,
+            "status": "已纳入",
+            "allowed": true,
+            "version": 1,
+            "mimeType": "text/plain"
+          }
+        }
+      ],
+      "artifact_proposals": [
+        {
+          "id": "298f39f7-fcd7-4dc9-aff9-bbba997b24d4",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "AP-1",
+          "base_group_id": null,
+          "input_fingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b",
+          "inputs": {
+            "idea": {
+              "id": "SV-3",
+              "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+              "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+              "version": 3
+            },
+            "materials": [
+              {
+                "id": "SM-1",
+                "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+                "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+                "name": "原始想法",
+                "size": 0,
+                "usage": "material",
+                "fileId": null,
+                "status": "已纳入",
+                "allowed": true,
+                "version": 1,
+                "mimeType": "text/plain"
+              }
+            ],
+            "projectId": null,
+            "explicitRefs": []
+          },
+          "payload": {
+            "prd": {
+              "title": "CODEx_TEST_表单 · PRD草稿",
+              "fields": [
+                {
+                  "name": "业务规则",
+                  "value": "请核对并完善本模板示例规则"
+                }
+              ]
+            },
+            "rules": [
+              {
+                "ruleId": "RULE1",
+                "fieldIndex": 0
+              }
+            ],
+            "prototype": {
+              "spec": {
+                "pages": [
+                  {
+                    "id": "main",
+                    "nodes": [
+                      {
+                        "id": "intro",
+                        "text": "填写信息并查看结果",
+                        "type": "text",
+                        "ruleId": "RULE1"
+                      },
+                      {
+                        "id": "name",
+                        "type": "field",
+                        "label": "名称",
+                        "ruleId": "RULE1",
+                        "required": true
+                      },
+                      {
+                        "id": "save",
+                        "text": "检查填写内容",
+                        "type": "button",
+                        "action": {
+                          "type": "validate",
+                          "target": "main"
+                        }
+                      },
+                      {
+                        "id": "list",
+                        "rows": [
+                          [
+                            "示例记录",
+                            "待确认"
+                          ]
+                        ],
+                        "type": "table",
+                        "columns": [
+                          "名称",
+                          "状态"
+                        ]
+                      }
+                    ],
+                    "title": "CODEx_TEST_表单"
+                  }
+                ],
+                "title": "CODEx_TEST_表单",
+                "schemaVersion": 1
+              },
+              "representation": "spec"
+            },
+            "acceptance": {
+              "items": [
+                {
+                  "acId": "AC1",
+                  "steps": [
+                    "按画布提示操作"
+                  ],
+                  "ruleId": "RULE1",
+                  "expected": "显示对应状态反馈，规则待人工核对",
+                  "scenario": "体验交互",
+                  "precondition": "已打开候选"
+                }
+              ]
+            }
+          },
+          "source": {
+            "kind": "template",
+            "memberId": "MEM-1",
+            "templateId": "form-table",
+            "templateVersion": 1,
+            "paramsFingerprint": "ecd3d329013b1ac4540ba6d79310df15b568c960337fbf837671288103ee69a7"
+          },
+          "state": "APPLIED",
+          "supersedes_id": null,
+          "result_group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "handled_by": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "reason": null,
+          "handled_at": "2026-09-13T00:19:56.825Z",
+          "created_by": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "created_at": "2026-09-13T00:19:56.240Z"
+        },
+        {
+          "id": "1cc9f6a7-fbcc-471a-aad0-ed7c5977eeb2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "AP-2",
+          "base_group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "input_fingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b",
+          "inputs": {
+            "idea": {
+              "id": "SV-3",
+              "dbId": "c11ba454-e0fb-40d2-a15f-31d199ec2663",
+              "hash": "d7c4fb364b4133b529db20d40267609a7eecaf91474177ee9567d99e9c7f5540",
+              "version": 3
+            },
+            "materials": [
+              {
+                "id": "SM-1",
+                "dbId": "1afc5f28-f746-4d2c-bb15-bd2ca7f6f337",
+                "hash": "f1b963f850e39235779bc1aad0ce89c4596384de22c520ee4e758c7a51483745",
+                "name": "原始想法",
+                "size": 0,
+                "usage": "material",
+                "fileId": null,
+                "status": "已纳入",
+                "allowed": true,
+                "version": 1,
+                "mimeType": "text/plain"
+              }
+            ],
+            "projectId": null,
+            "explicitRefs": []
+          },
+          "payload": {
+            "prd": {
+              "title": "CODEx_TEST_表单 · PRD草稿",
+              "fields": [
+                {
+                  "name": "业务规则",
+                  "value": "请核对并完善本模板示例规则"
+                }
+              ]
+            },
+            "rules": [
+              {
+                "ruleId": "RULE1",
+                "fieldIndex": 0
+              }
+            ],
+            "prototype": {
+              "spec": {
+                "pages": [
+                  {
+                    "id": "main",
+                    "nodes": [
+                      {
+                        "id": "intro",
+                        "text": "填写信息并查看结果",
+                        "type": "text",
+                        "ruleId": "RULE1"
+                      },
+                      {
+                        "id": "name",
+                        "type": "field",
+                        "label": "名称",
+                        "ruleId": "RULE1",
+                        "required": true
+                      },
+                      {
+                        "id": "save",
+                        "text": "检查填写内容",
+                        "type": "button",
+                        "action": {
+                          "type": "validate",
+                          "target": "main"
+                        }
+                      },
+                      {
+                        "id": "list",
+                        "rows": [
+                          [
+                            "示例记录",
+                            "待确认"
+                          ]
+                        ],
+                        "type": "table",
+                        "columns": [
+                          "名称",
+                          "状态"
+                        ]
+                      }
+                    ],
+                    "title": "CODEx_TEST_表单"
+                  }
+                ],
+                "title": "CODEx_TEST_表单",
+                "schemaVersion": 1
+              },
+              "representation": "spec"
+            },
+            "acceptance": {
+              "items": [
+                {
+                  "acId": "AC1",
+                  "steps": [
+                    "按画布提示操作"
+                  ],
+                  "ruleId": "RULE1",
+                  "expected": "CODEx_TEST_恢复后保留",
+                  "scenario": "体验交互",
+                  "precondition": "已打开候选"
+                }
+              ]
+            }
+          },
+          "source": {
+            "kind": "manual",
+            "memberId": "MEM-1"
+          },
+          "state": "READY",
+          "supersedes_id": null,
+          "result_group_id": null,
+          "handled_by": null,
+          "reason": null,
+          "handled_at": null,
+          "created_by": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "created_at": "2026-09-13T00:19:58.126Z"
+        }
+      ],
+      "artifact_confirmations": [
+        {
+          "id": "ae213190-ec4a-4403-9e07-84e1644ed34a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "public_id": "ACF-1",
+          "kind": "BUSINESS",
+          "design_version_id": null,
+          "business_epoch": 1,
+          "design_epoch": 1,
+          "input_fingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b",
+          "scope": null,
+          "scope_fingerprint": null,
+          "comment": "CODEx_TEST_业务确认",
+          "preview_review": "",
+          "member_id": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "role": "owner",
+          "created_at": "2026-09-13T00:19:57.545Z"
+        },
+        {
+          "id": "8f4e48bc-253d-4fe4-be3d-b30ba353bc48",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "public_id": "ACF-2",
+          "kind": "DESIGN",
+          "design_version_id": "4e9d18d1-2c48-419b-a95c-96bba9ea98f3",
+          "business_epoch": 1,
+          "design_epoch": 1,
+          "input_fingerprint": "008574abefdc2ebd879524d9caa695ea287abeefc211a040e0f464160b57ac7b",
+          "scope": {
+            "exit": "CODEx_TEST_exit",
+            "goal": "CODEx_TEST_goal",
+            "files": "CODEx_TEST_files",
+            "rollback": "CODEx_TEST_rollback",
+            "validation": "CODEx_TEST_validation",
+            "capabilityIds": []
+          },
+          "scope_fingerprint": "29354e2001463a84266e53efaf9afa70f6b813bcf0893a910c0724171065363a",
+          "comment": "CODEx_TEST_comment",
+          "preview_review": "",
+          "member_id": "904e83ca-9c18-40c4-80cd-3726955a7d16",
+          "role": "owner",
+          "created_at": "2026-09-13T00:19:57.830Z"
+        }
+      ],
+      "artifact_impacts": [
+        {
+          "id": "a7f23dde-b67a-40d2-a94d-34f1f1cefd16",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "2306cc1b-a334-457a-9ec9-b1ddbef81faa",
+          "public_id": "AI-1",
+          "reason": "采纳关联成果 AG-1",
+          "return_stage": "req",
+          "before_group_id": null,
+          "after_group_id": "84f0891f-c67c-4243-bf9d-a289c0bbfa1a",
+          "business_epoch": 1,
+          "design_epoch": 1,
+          "detail": {
+            "runs": [],
+            "preserved": [
+              "历史版本",
+              "确认记录",
+              "运行与证据"
+            ],
+            "confirmations": []
+          },
+          "created_at": "2026-09-13T00:19:56.825Z"
+        }
+      ]
+    },
+    "poolsClosed": true
+  }
+}

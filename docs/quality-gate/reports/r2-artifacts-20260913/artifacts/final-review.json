@@ -1,0 +1,41 @@
+{
+  "at": "2026-09-13T01:52:36.420Z",
+  "branch": "feat/r2-artifacts",
+  "openingCommit": "2ea9ecd",
+  "baseline": "04fd81a28e16abe2d92ff87799a78750fbd497b4",
+  "status": "BLOCKED_PENDING_SCOPE_ADDITION",
+  "implementation": "IN_PROGRESS",
+  "integration": "ISOLATED_PG_VERIFIED_EXCEPT_COMMAND_AUTHORIZATION",
+  "acceptance": "PENDING",
+  "gates": {
+    "passed": 20,
+    "total": 22,
+    "report": "gates-1789263796445.json",
+    "sourceUnchanged": true
+  },
+  "blockedFile": "server/src/persistence/commands.js",
+  "blockedFileSha256": "adb9755942125b84fb5b3bd35ec4b245e4a12cbf679ad3960abd487630190789",
+  "proposedPatch": {
+    "old": "if (db.targetVersion === '003')",
+    "new": "if (['003', '004'].includes(db.targetVersion))",
+    "applied": false
+  },
+  "requestedWhitelistChange": {
+    "from": 51,
+    "to": 52,
+    "userResponse": "PENDING"
+  },
+  "dataCleanup": "PASS",
+  "processCleanup": "PASS",
+  "historicalReports": 477,
+  "protectedSourceFingerprints": 164,
+  "observations": {
+    "recorded": 36,
+    "minMs": 9,
+    "maxMs": 104,
+    "maxResponseBytes": 8496,
+    "interpretation": "local synthetic operation samples; not a throughput or production capacity claim"
+  },
+  "featurePushed": false,
+  "mainMerged": false
+}

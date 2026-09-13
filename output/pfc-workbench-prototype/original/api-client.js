@@ -13,6 +13,22 @@
   const P = (window.PFCAPI = window.PFCAPI || {});
   const mem = new Map(); // 同步镜像：apiStore.getItem 读此
   const queue = []; // 变更队列（batch 语义预留）
+  const artifactErrors = {
+    INVALID_ARTIFACT: '候选格式不正确，请核对产物字段与内容。',
+    INVALID_RULE_REFERENCE:
+      '原型、PRD与验收项的规则编号未对应，请检查规则关联。',
+    INCOMPLETE_ARTIFACT_GROUP:
+      '候选尚未补齐，先完善原型、PRD、验收项和规则关联。',
+    STALE_ARTIFACT_PROPOSAL:
+      '成果或输入已有新版本，草稿已保留，请比较最新基线后重试。',
+    INVALID_PROPOSAL_STATE: '该候选已处理，请查看历史或创建后续候选。',
+    ARTIFACT_LIMIT_EXCEEDED:
+      '候选数量或内容超过上限，请先处理已有候选或缩小内容。',
+    UNSUPPORTED_PROTOTYPE_SPEC:
+      '原型描述不符合受控组件格式，请检查组件、动作和大小。',
+    STALE_REFERENCE: '引用的材料权限或版本已变化，请重新核对引用。',
+    INVALID_SCOPE: '请补齐实施目标、范围、验证、退出条件和回滚方式。',
+  };
   const TOKEN_KEY = 'pfc.prototype.token';
   const tokenKey = () => (P.api?.pg ? TOKEN_KEY + ':' + base() : TOKEN_KEY);
   let flushTimer = null;
@@ -53,7 +69,11 @@
         const data = await res.json().catch(() => ({}));
         throw Object.assign(
           Error(
-            data.error?.msg || 'API ' + res.status + ' ' + method + ' ' + path,
+            (data.error?.msg === data.error?.code
+              ? artifactErrors[data.error?.code]
+              : null) ||
+              data.error?.msg ||
+              'API ' + res.status + ' ' + method + ' ' + path,
           ),
           { code: data.error?.code, status: res.status },
         );
@@ -224,6 +244,30 @@
         ['me', 'GET /api/auth/me'],
       ],
       reqs: [
+        ['artifactWorkspace', 'GET /api/reqs/:id/artifact-workspace'],
+        ['artifactGroups', 'GET /api/reqs/:id/artifact-groups'],
+        ['artifactGroup', 'GET /api/reqs/:id/artifact-groups/:gid'],
+        ['linkedArtifact', 'GET /api/reqs/:id/linked-artifacts/:vid'],
+        ['artifactProposals', 'GET /api/reqs/:id/artifact-proposals'],
+        ['artifactProposal', 'GET /api/reqs/:id/artifact-proposals/:pid'],
+        ['createArtifactProposal', 'POST /api/reqs/:id/artifact-proposals'],
+        [
+          'adoptArtifactProposal',
+          'POST /api/reqs/:id/artifact-proposals/:pid/adopt',
+        ],
+        [
+          'rejectArtifactProposal',
+          'POST /api/reqs/:id/artifact-proposals/:pid/reject',
+        ],
+        [
+          'confirmBusiness',
+          'POST /api/reqs/:id/artifact-groups/:gid/confirm-business',
+        ],
+        [
+          'confirmDesign',
+          'POST /api/reqs/:id/artifact-groups/:gid/confirm-design',
+        ],
+        ['stageInputs', 'GET /api/reqs/:id/stage-inputs'],
         ['list', 'GET /api/reqs'],
         ['create', 'POST /api/reqs'],
         ['get', 'GET /api/reqs/:id'],

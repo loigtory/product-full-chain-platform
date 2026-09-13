@@ -52,9 +52,11 @@ async function start() {
   const fileRel = relative(
     resolve(
       root,
-      process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_governance'
-        ? '.local/m2c-3-governance-20260913/files'
-        : '.local/m2c-2-domain-20260912/files',
+      process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_artifacts'
+        ? '.local/r2-artifacts-20260913/files'
+        : process.env.PFC_DB_SCHEMA === 'codex_test_m2c_20260913_governance'
+          ? '.local/m2c-3-governance-20260913/files'
+          : '.local/m2c-2-domain-20260912/files',
     ),
     filesRoot,
   );
@@ -71,7 +73,7 @@ async function start() {
     connectionString: process.env.DATABASE_URL,
     schema: process.env.PFC_DB_SCHEMA,
     authorizedSchema: process.env.PFC_AUTHORIZED_SCHEMA,
-    targetVersion: '003',
+    targetVersion: '004',
   });
   const tenants = (
     await database.pool.query(`SELECT id FROM "${database.schema}".tenants`)
@@ -94,8 +96,9 @@ async function health() {
     readiness: true,
     storage: 'pg',
     domainPersistence: true,
-    schemaVersion: '003',
+    schemaVersion: '004',
     supportedActions: [
+      'linkedArtifacts',
       'requirements',
       'versions',
       'questions',

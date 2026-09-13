@@ -4,8 +4,7 @@ const require = createRequire(import.meta.url);
 
 const evidenceDirectory = process.env.PFC_M2C_EVIDENCE_DIR;
 if (
-  evidenceDirectory !==
-  'docs/quality-gate/reports/m2c-3-governance-20260913/domain'
+  evidenceDirectory !== 'docs/quality-gate/reports/r2-artifacts-20260913/domain'
 )
   throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
 await integration();
@@ -207,6 +206,14 @@ async function integration() {
       assert.equal((await api('/reqs/' + req.id)).req.versions.length, 4);
     });
     const advance = async () => {
+      if (['req', 'design'].includes(req.stage)) {
+        req = await (
+          await import('./test-data/r2-artifact-fixture.mjs')
+        ).completeArtifacts(api, req, command, {
+          stopAtDesign: req.stage === 'req',
+        });
+        return;
+      }
       const v = req.versions.filter((v) => v.stage === req.stage).at(-1);
       req = (
         await api(
@@ -941,8 +948,8 @@ async function integration() {
       ).req;
     });
     const renewDesign = async () => {
-      // 003 freezes the latest confirmed idea, requirement and design inputs.
-      for (const stage of ['idea', 'req', 'design']) {
+      // 004 refreshes the idea then adopts/reconfirms linked inputs atomically.
+      for (const stage of ['idea']) {
         const old = req.versions.filter((v) => v.stage === stage).at(-1);
         req = (
           await api(
@@ -968,6 +975,9 @@ async function integration() {
           )
         ).req;
       }
+      req = await (
+        await import('./test-data/r2-artifact-fixture.mjs')
+      ).completeArtifacts(api, req, command);
     };
     await renewDesign();
     await test('material version invalidates plan and old reference but retains original', async () => {

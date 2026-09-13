@@ -1,0 +1,9 @@
+{
+  "gate": "server/verify-m2c-architecture.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe server/verify-m2c-architecture.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 145,
+  "stdout": "{\n  \"status\": \"PASS\",\n  \"results\": [\n    {\n      \"name\": \"routes and WebSocket never own domain store or SQL\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"service is a bounded mode facade and responsibilities have separate modules\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"PG has no automatic migration seed or snapshot persistence path\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"frontend domain mapping never fabricates requirement facts\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"canonical migration identity and targets retain version 001 contract\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"approved frontend and server contract additions match\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"future workbench target is exact and performs no initialization\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"governance policy owns permissions and execution snapshots; UI dispatch is isolated\",\n      \"status\": \"PASS\"\n    }\n  ]\n}\n",
+  "stderr": ""
+}

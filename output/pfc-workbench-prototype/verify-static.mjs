@@ -56,6 +56,10 @@ const eslint = new ESLint({
   overrideConfig: [js.configs.recommended, { languageOptions: { globals } }],
 });
 const modules = [
+  'artifact-client',
+  'artifact-view',
+  'artifact-actions',
+  'prototype-preview',
   'workbench-shell',
   'flow-demo-data',
   'flow-model',

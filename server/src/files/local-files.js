@@ -22,6 +22,7 @@ const extensions = new Set([
   '.csv',
   '.xlsx',
   '.json',
+  '.html',
 ]);
 let active = 0;
 function pathFor(tenantId, hash) {

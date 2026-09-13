@@ -15,6 +15,13 @@ function bounded(snapshot) {
   return snapshot;
 }
 async function capture(client, db, ctx, req) {
+  const linked = await require('./artifact-impact-service').requireReady(
+    client,
+    db,
+    ctx,
+    req,
+    'dev',
+  );
   const versions = await requirements.versions(client, db, ctx, req.id),
     artifacts = [];
   for (const stage of ['idea', 'req', 'design']) {
@@ -66,7 +73,31 @@ async function capture(client, db, ctx, req) {
   );
   if (knowledgeRefs.length > 3) access.fail('CONTEXT_LIMIT_EXCEEDED', 409);
   const snapshot = {
-    snapshotVersion: 1,
+    snapshotVersion: 2,
+    linkedArtifacts: {
+      groupId: linked.group.public_id,
+      groupFingerprint: linked.group.fingerprint,
+      inputFingerprint: linked.inputs.fingerprint,
+      prototype: {
+        id: linked.group.prototype.public_id,
+        version: linked.group.prototype.version,
+        fingerprint: linked.group.prototype.fingerprint,
+      },
+      prd: {
+        id: linked.group.prd.public_id,
+        version: linked.group.prd.version,
+      },
+      acceptance: {
+        id: linked.group.acceptance.public_id,
+        version: linked.group.acceptance.version,
+        fingerprint: linked.group.acceptance.fingerprint,
+      },
+      businessConfirmationId: linked.business.public_id,
+      designConfirmationId: linked.design.public_id,
+      scope: linked.design.scope,
+      scopeFingerprint: linked.design.scope_fingerprint,
+      sources: linked.inputs.snapshot,
+    },
     requirement: {
       id: req.public_id,
       stage: req.stage,
@@ -128,11 +159,26 @@ async function valid(client, db, ctx, req, run) {
   const p = await runs.plan(client, db, ctx, run.id);
   if (!p || p.baseline !== (await runs.baseline(client, db, ctx, req)))
     access.fail('STALE_PLAN', 409, '计划基线已变化，请重新发起计划');
-  if (p.snapshot_version !== 1 || !p.context_snapshot || !p.context_fingerprint)
+  if (p.snapshot_version !== 2 || !p.context_snapshot || !p.context_fingerprint)
     access.fail('STALE_PLAN', 409, '历史计划无上下文快照，请新建并批准计划');
   const { fingerprint: stored, ...body } = p.context_snapshot;
   if (stored !== p.context_fingerprint || fingerprint(body) !== stored)
     access.fail('STALE_PLAN', 409, '计划上下文校验失败');
+  const linked = await require('./artifact-impact-service').requireReady(
+    client,
+    db,
+    ctx,
+    req,
+    'dev',
+  );
+  if (
+    p.context_snapshot.linkedArtifacts?.groupId !== linked.group.public_id ||
+    p.context_snapshot.linkedArtifacts?.businessConfirmationId !==
+      linked.business.public_id ||
+    p.context_snapshot.linkedArtifacts?.designConfirmationId !==
+      linked.design.public_id
+  )
+    access.fail('STALE_PLAN');
   for (const cap of p.context_snapshot.capabilities.effectiveCaps) {
     const current = await require('./capability-service').available(
       client,

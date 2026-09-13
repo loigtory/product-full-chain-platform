@@ -19,6 +19,9 @@ async function baseline(client, db, ctx, req) {
   return fingerprint({
     stage: req.stage,
     materialRevision: req.material_revision,
+    artifactGroupId: req.current_artifact_group_id || null,
+    artifactBusinessEpoch: req.artifact_business_epoch || 0,
+    artifactDesignEpoch: req.artifact_design_epoch || 0,
     versions,
   });
 }

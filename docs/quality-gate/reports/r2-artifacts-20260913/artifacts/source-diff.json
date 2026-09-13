@@ -1,0 +1,324 @@
+{
+  "at": "2026-09-13T02:15:15.723Z",
+  "baseline": "04fd81a28e16abe2d92ff87799a78750fbd497b4",
+  "gate": "gates-1789265262932.json",
+  "allowed": 52,
+  "changed": 44,
+  "added": 18,
+  "modified": 26,
+  "unchanged": 8,
+  "results": [
+    {
+      "path": "server/sql/m2c/004-linked-artifacts.sql",
+      "change": "ADD",
+      "added": 121,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/artifact-policy.js",
+      "change": "ADD",
+      "added": 141,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/artifact-service.js",
+      "change": "ADD",
+      "added": 558,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/artifact-confirmation-service.js",
+      "change": "ADD",
+      "added": 175,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/artifact-impact-service.js",
+      "change": "ADD",
+      "added": 138,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/artifact-dto.js",
+      "change": "ADD",
+      "added": 67,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/prototype-spec.js",
+      "change": "ADD",
+      "added": 192,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/artifacts.js",
+      "change": "ADD",
+      "added": 286,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/routes/artifacts.js",
+      "change": "ADD",
+      "added": 72,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/index.js",
+      "change": "MODIFY",
+      "added": 1,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/contract.js",
+      "change": "MODIFY",
+      "added": 21,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/runtime.js",
+      "change": "MODIFY",
+      "added": 8,
+      "deleted": 5
+    },
+    {
+      "path": "server/src/domain/requirement-service.js",
+      "change": "MODIFY",
+      "added": 76,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "change": "MODIFY",
+      "added": 16,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/domain/material-service.js",
+      "change": "MODIFY",
+      "added": 2,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/domain/execution-plan-policy.js",
+      "change": "MODIFY",
+      "added": 48,
+      "deleted": 2
+    },
+    {
+      "path": "server/src/domain/execution-service.js",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/domain/dto.js",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/requirements.js",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/messages.js",
+      "change": "MODIFY",
+      "added": 45,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/persistence/runs.js",
+      "change": "MODIFY",
+      "added": 3,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/identifiers.js",
+      "change": "MODIFY",
+      "added": 6,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "change": "MODIFY",
+      "added": 61,
+      "deleted": 4
+    },
+    {
+      "path": "server/src/persistence/commands.js",
+      "change": "MODIFY",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "server/src/files/local-files.js",
+      "change": "MODIFY",
+      "added": 1,
+      "deleted": 0
+    },
+    {
+      "path": "server/src/routes/reqs.js",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-client.js",
+      "change": "ADD",
+      "added": 225,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-view.js",
+      "change": "ADD",
+      "added": 198,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-actions.js",
+      "change": "ADD",
+      "added": 736,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/prototype-preview.js",
+      "change": "ADD",
+      "added": 252,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "change": "MODIFY",
+      "added": 4,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "change": "MODIFY",
+      "added": 45,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-view.js",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-actions.js",
+      "change": "MODIFY",
+      "added": 10,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-domain.js",
+      "change": "MODIFY",
+      "added": 13,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "change": "MODIFY",
+      "added": 4,
+      "deleted": 0
+    },
+    {
+      "path": "server/test-data/r2-artifact-fixture.mjs",
+      "change": "ADD",
+      "added": 169,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-r2-artifact-model.mjs",
+      "change": "ADD",
+      "added": 294,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-r2-artifacts.mjs",
+      "change": "ADD",
+      "added": 843,
+      "deleted": 0
+    },
+    {
+      "path": "server/verify-r2-architecture.mjs",
+      "change": "ADD",
+      "added": 171,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "change": "ADD",
+      "added": 555,
+      "deleted": 0
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "change": "MODIFY",
+      "added": 31,
+      "deleted": 12
+    },
+    {
+      "path": "server/test-data/m2c-governance-fixture.mjs",
+      "change": "MODIFY",
+      "added": 9,
+      "deleted": 4
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "change": "MODIFY",
+      "added": 14,
+      "deleted": 4
+    },
+    {
+      "path": "server/verify-m2c-governance.mjs",
+      "change": "MODIFY",
+      "added": 8,
+      "deleted": 4
+    },
+    {
+      "path": "server/verify-m2c-architecture.mjs",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "change": "MODIFY",
+      "added": 70,
+      "deleted": 4
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "change": "MODIFY",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "change": "MODIFY",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "change": "UNCHANGED",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "change": "MODIFY",
+      "added": 8,
+      "deleted": 3
+    }
+  ]
+}

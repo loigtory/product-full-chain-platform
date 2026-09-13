@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-13T02:03:56.775Z",
+  "owner": "陈立",
+  "response": "同意",
+  "question": "是否同意仅补入 server/src/persistence/commands.js（51→52），修复后继续验收？",
+  "previous": "authorization.json",
+  "previousFiles": 51,
+  "currentFiles": 52,
+  "addedFile": "server/src/persistence/commands.js",
+  "change": {
+    "before": "if (db.targetVersion === '003')",
+    "after": "if (['003', '004'].includes(db.targetVersion))"
+  },
+  "gateCount": 22,
+  "featureCloseoutCommitPush": "previous scoped authorization retained",
+  "mainMerge": false,
+  "realExternalWrites": false
+}

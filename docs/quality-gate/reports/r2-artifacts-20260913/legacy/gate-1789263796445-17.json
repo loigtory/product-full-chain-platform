@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-flow-browser.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 45432,
+  "stdout": "PASS ordinary-three-width-shell-reference\nPASS original-entry-and-early-interactive-candidate\nPASS three-width-prototype-prd-keyboard-and-expanded-canvas\nPASS related-change-quota-failure-retry-and-history\nPASS refresh-draft-context-and-stage-view-preservation\nPASS cross-window-stale-write-and-request-isolation\nPASS pending-decision-independent-work-and-readonly\nPASS development-dual-terminals-pause-unknown-and-test-recovery\nPASS human-acceptance-publication-observation-and-return\nPASS partial-generation-and-xss-as-text\nPASS pg-dto-view-and-mode-isolation\n{\"status\":\"PASS\",\"checks\":11,\"results\":[{\"name\":\"ordinary-three-width-shell-reference\",\"status\":\"PASS\"},{\"name\":\"original-entry-and-early-interactive-candidate\",\"status\":\"PASS\"},{\"name\":\"three-width-prototype-prd-keyboard-and-expanded-canvas\",\"status\":\"PASS\"},{\"name\":\"related-change-quota-failure-retry-and-history\",\"status\":\"PASS\"},{\"name\":\"refresh-draft-context-and-stage-view-preservation\",\"status\":\"PASS\"},{\"name\":\"cross-window-stale-write-and-request-isolation\",\"status\":\"PASS\"},{\"name\":\"pending-decision-independent-work-and-readonly\",\"status\":\"PASS\"},{\"name\":\"development-dual-terminals-pause-unknown-and-test-recovery\",\"status\":\"PASS\"},{\"name\":\"human-acceptance-publication-observation-and-return\",\"status\":\"PASS\"},{\"name\":\"partial-generation-and-xss-as-text\",\"status\":\"PASS\"},{\"name\":\"pg-dto-view-and-mode-isolation\",\"status\":\"PASS\"}]}\n{\"cleanup\":{\"pid\":28332,\"port\":54836,\"browserClosed\":true,\"serverClosed\":true,\"isolatedContextsClosed\":true,\"data\":\"synthetic browser contexts discarded\"}}\n",
+  "stderr": ""
+}

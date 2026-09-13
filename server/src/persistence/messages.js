@@ -69,6 +69,49 @@ async function references(client, db, ctx, reqId, refs) {
         mimeType: row.mime_type,
         materialVersionId: row.version_id,
       });
+    } else if (ref.kind === 'linked-artifact') {
+      const row = (
+        await client.query(
+          'SELECT * FROM "' +
+            db.schema +
+            '".artifact_versions WHERE tenant_id=$1 AND req_id=$2 AND public_id=$3',
+          [ctx.tenantId, reqId, ref.id],
+        )
+      ).rows[0];
+      const req = (
+        await client.query(
+          'SELECT * FROM "' + db.schema + '".reqs WHERE tenant_id=$1 AND id=$2',
+          [ctx.tenantId, reqId],
+        )
+      ).rows[0];
+      const group = await require('./artifacts').group(client, db, ctx, req);
+      if (
+        !row ||
+        row.version !== Number(ref.version) ||
+        ![group?.prototype_id, group?.acceptance_id].includes(row.id)
+      )
+        fail('STALE_REFERENCE');
+      const inputs = await require('./artifacts').inputs(
+        client,
+        db,
+        ctx,
+        req,
+        group.inputs.explicitRefs,
+      );
+      if (
+        inputs.blockers.length ||
+        inputs.fingerprint !== group.input_fingerprint
+      )
+        fail('STALE_REFERENCE');
+      await require('./artifacts').verifyFiles(ctx, inputs.snapshot);
+      result.push({
+        kind: ref.kind,
+        id: row.public_id,
+        version: row.version,
+        stage: row.kind,
+        label: row.kind === 'prototype' ? '原型' : '验收项',
+        artifactVersionId: row.id,
+      });
     } else if (ref.kind === 'artifact') {
       const row = (
         await client.query(
@@ -108,7 +151,7 @@ async function attach(client, db, ctx, message, refs) {
       'message_references',
     );
     await client.query(
-      `INSERT INTO "${db.schema}".message_references(id,tenant_id,message_id,public_id,material_version_id,req_version_id) VALUES($1,$2,$3,$4,$5,$6)`,
+      `INSERT INTO "${db.schema}".message_references(id,tenant_id,message_id,public_id,material_version_id,req_version_id,artifact_version_id) VALUES($1,$2,$3,$4,$5,$6,$7)`,
       [
         id.id,
         ctx.tenantId,
@@ -116,6 +159,7 @@ async function attach(client, db, ctx, message, refs) {
         id.publicId,
         ref.materialVersionId || null,
         ref.reqVersionId || null,
+        ref.artifactVersionId || null,
       ],
     );
   }

@@ -1,0 +1,9 @@
+{
+  "gate": "server/verify-r2-artifact-model.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe server/verify-r2-artifact-model.mjs",
+  "status": "FAIL",
+  "exitCode": 1,
+  "durationMs": 125,
+  "stdout": "{\n  \"at\": \"2026-09-13T01:47:06.019Z\",\n  \"status\": \"FAIL\",\n  \"results\": [\n    {\n      \"name\": \"A11 prototype schema rejects executable/unknown properties and invalid targets\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A14 bounded prototype permits data text without executing it\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A01/A02 candidate completeness, rule references and independent content comparison\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A12 superseded independent read preserves command receipt and draft\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A14 page, node, table row and payload boundaries fail without truncation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A13 schema004 rechecks current membership before command receipt replay\",\n      \"status\": \"FAIL\",\n      \"error\": \"Missing expected rejection.\"\n    }\n  ]\n}\n",
+  "stderr": ""
+}

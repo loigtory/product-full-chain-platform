@@ -1,0 +1,1360 @@
+{
+  "status": "FAIL",
+  "phase": "integration",
+  "results": [
+    {
+      "name": "G01 explicit 003 extends immutable 001 and 002",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 fresh role replaces stale token role; inactive and absent deny",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 inaccessible storage never falls back to configured role",
+      "status": "PASS"
+    },
+    {
+      "name": "G04 body-shaped bridge context cannot bypass human authorization",
+      "status": "PASS"
+    },
+    {
+      "name": "G10 CSV formula injection and count/byte limits fail without partial downloads",
+      "status": "PASS"
+    },
+    {
+      "name": "G01 G02 PG readiness, members and role authority",
+      "status": "PASS"
+    },
+    {
+      "name": "G02 register configured identity, role revision, current JWT, soft disable and replay",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 revoked member socket closes before subsequent sensitive delivery",
+      "status": "PASS"
+    },
+    {
+      "name": "G02 concurrent owner demotion never removes last owner",
+      "status": "FAIL",
+      "code": "ERR_ASSERTION",
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    200,\n+   200\n-   409\n  ]\n"
+    },
+    {
+      "name": "G05 G06 capabilities require review and enablement, binding revision and tenant isolation",
+      "status": "FAIL",
+      "code": "ERR_ASSERTION",
+      "error": "{\"path\":\"/caps\",\"status\":403,\"body\":{\"error\":{\"code\":\"FORBIDDEN\",\"msg\":\"FORBIDDEN\"}}}\n\n403 !== 201\n"
+    },
+    {
+      "name": "G08 G09 project metadata, tenant boundary and immutable knowledge references",
+      "status": "FAIL",
+      "error": "SERVER_START_FAILED:[error] FORBIDDEN\n[error] NOT_FOUND\n[pfc-server] 启动失败：MEMBER_INITIALIZATION_REQUIRED\n"
+    },
+    {
+      "name": "G10 G11 bounded audit export and budget has no invented usage",
+      "status": "FAIL",
+      "error": "fetch failed"
+    },
+    {
+      "name": "G07 G14 G15 immutable plan, configuration changes, approver revocation and project guard",
+      "status": "FAIL",
+      "error": "fetch failed"
+    },
+    {
+      "name": "G03 G04 controlled internal results survive revocation and UNKNOWN retains project guard",
+      "status": "FAIL",
+      "error": "fetch failed"
+    },
+    {
+      "name": "G14 legacy waiting plans and oversized snapshots reject atomically",
+      "status": "FAIL",
+      "error": "fetch failed"
+    }
+  ],
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 350,
+        "hash": "f918f39f3e0ce1db388cee02e9e9adac4e5bd91d01d488ebe736f6a2dbe3b48a"
+      },
+      {
+        "path": "users.json",
+        "size": 838,
+        "hash": "ee4c17b2ef924663a1e7f4ae9da52cafafce1feddeaea369f391e29b6efab4a8"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_governance",
+    "remaining": 0,
+    "totalRows": 80,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "MEM-6"
+    ],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-13T01:22:31.520Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-13T01:22:31.520Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-13T01:22:31.761Z"
+        },
+        {
+          "version": "004",
+          "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+          "applied_at": "2026-09-13T01:22:32.027Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_governance_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-13T01:22:31.756Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "plan": "internal",
+          "created_at": "2026-09-13T01:22:31.756Z"
+        }
+      ],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "6"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "projects",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "knowledge",
+          "value": "4"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "reqs",
+          "value": "1041"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "req_versions",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "questions",
+          "value": "2"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "materials",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "material_versions",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "14"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "domain_events",
+          "value": "14"
+        }
+      ],
+      "audit_logs": [
+        {
+          "id": "e7f1313f-6b41-41c0-8c6a-092642ec68ee",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.created",
+          "detail": "role=executor;active=true",
+          "created_at": "2026-09-13T01:22:33.853Z",
+          "entity_type": "member",
+          "entity_id": "MEM-6"
+        },
+        {
+          "id": "286dfc9a-c39b-4988-acf4-fbbad9bc60b3",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-2",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-13T01:22:33.941Z",
+          "entity_type": "member",
+          "entity_id": "MEM-2"
+        },
+        {
+          "id": "01b59370-5146-4280-94b2-8a4ca1a3a4dd",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-3",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.disabled",
+          "detail": "role=viewer;active=false",
+          "created_at": "2026-09-13T01:22:34.004Z",
+          "entity_type": "member",
+          "entity_id": "MEM-5"
+        },
+        {
+          "id": "e28e1dbc-4105-41e0-b91e-0241bb522d2d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-4",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=executor;active=true",
+          "created_at": "2026-09-13T01:22:34.606Z",
+          "entity_type": "member",
+          "entity_id": "MEM-2"
+        },
+        {
+          "id": "83d1d76b-fea6-4a41-af70-e3b22e7f9959",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-5",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-13T01:22:34.660Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "a89ea046-b48e-47f9-a451-f0de568136f7",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-6",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=owner;active=true",
+          "created_at": "2026-09-13T01:22:34.723Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "956a5aac-ce22-4da5-8774-3d8c0e8e90f8",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-7",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-13T01:22:34.744Z",
+          "entity_type": "member",
+          "entity_id": "MEM-4"
+        },
+        {
+          "id": "222a1f12-e347-4569-84c8-f3628fc7fc89",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-8",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "member.role",
+          "detail": "role=viewer;active=true",
+          "created_at": "2026-09-13T01:22:34.744Z",
+          "entity_type": "member",
+          "entity_id": "MEM-1"
+        },
+        {
+          "id": "c6075763-995e-4f49-9f99-75a336d27d9d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-9",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "action": "project.registered",
+          "detail": "metadata only",
+          "created_at": "2026-09-13T01:22:34.773Z",
+          "entity_type": "project",
+          "entity_id": "PRJ-1"
+        },
+        {
+          "id": "53228754-b797-40aa-bb84-037e53bc070f",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-10",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "action": "knowledge.created",
+          "detail": "version=1",
+          "created_at": "2026-09-13T01:22:34.790Z",
+          "entity_type": "knowledge",
+          "entity_id": "KN-1"
+        },
+        {
+          "id": "c14895ff-8f54-414b-867f-ed3d7c73bac8",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-11",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "action": "knowledge.created",
+          "detail": "version=1",
+          "created_at": "2026-09-13T01:22:34.817Z",
+          "entity_type": "knowledge",
+          "entity_id": "KN-2"
+        },
+        {
+          "id": "dbb25ee4-ff26-42de-9a05-ffe13ba8de96",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-12",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "action": "knowledge.created",
+          "detail": "version=1",
+          "created_at": "2026-09-13T01:22:34.833Z",
+          "entity_type": "knowledge",
+          "entity_id": "KN-3"
+        },
+        {
+          "id": "984aa15a-c51a-45b9-8e8c-afddd94efdd9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-13",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "action": "knowledge.created",
+          "detail": "version=1",
+          "created_at": "2026-09-13T01:22:34.843Z",
+          "entity_type": "knowledge",
+          "entity_id": "KN-4"
+        },
+        {
+          "id": "3b267ea8-b467-4831-83d6-d684e6f8f8cd",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "public_id": "A-14",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "action": "requirement.created",
+          "detail": "",
+          "created_at": "2026-09-13T01:22:34.865Z",
+          "entity_type": "requirement",
+          "entity_id": null
+        }
+      ],
+      "reqs": [
+        {
+          "id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "R-1041",
+          "name": "CODEx_TEST_M2C_20260913_governance_续期",
+          "goal": "合成知识匹配",
+          "scope": "",
+          "owner": "CODEx_TEST_M2C_20260913_governance_executor",
+          "stage": "idea",
+          "created_at": "2026-09-13T01:22:34.865Z",
+          "updated_at": "2026-09-13T01:22:34.865Z",
+          "revision": 1,
+          "material_revision": 0,
+          "closed_at": null,
+          "project_id": "8f508775-5d26-44c2-bb5d-4506bf84752d",
+          "current_artifact_group_id": null,
+          "artifact_business_epoch": 0,
+          "artifact_design_epoch": 0
+        }
+      ],
+      "req_versions": [
+        {
+          "id": "999a1ea2-5df5-4bec-a444-129107fbe110",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "public_id": "SV-1",
+          "stage": "idea",
+          "version": 1,
+          "content": {
+            "id": "R-1041-idea-v1",
+            "title": "需求草案",
+            "fields": [
+              {
+                "name": "需求名称",
+                "value": "CODEx_TEST_M2C_20260913_governance_续期"
+              },
+              {
+                "name": "目标",
+                "value": "合成知识匹配"
+              },
+              {
+                "name": "范围",
+                "value": ""
+              }
+            ],
+            "review": "待评审",
+            "version": 1,
+            "comments": [],
+            "confirmed": false
+          },
+          "confirmed_by": null,
+          "confirmed_at": null,
+          "stale": false,
+          "created_at": "2026-09-13T01:22:34.865Z",
+          "base_version_id": null,
+          "review_state": "待评审"
+        }
+      ],
+      "req_version_reviews": [],
+      "questions": [
+        {
+          "id": "46713553-1016-45aa-81b6-4f63633e650a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "public_id": "SQ-1",
+          "q": "本次覆盖的用户与范围是什么？",
+          "answer": "",
+          "answered_by": null,
+          "revision": 0,
+          "created_at": "2026-09-13T01:22:34.865Z"
+        },
+        {
+          "id": "cf4a49fe-e0ed-4943-a175-e4e0c6819245",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "public_id": "SQ-2",
+          "q": "异常、退出与验收边界是什么？",
+          "answer": "",
+          "answered_by": null,
+          "revision": 0,
+          "created_at": "2026-09-13T01:22:34.865Z"
+        }
+      ],
+      "file_objects": [],
+      "materials": [
+        {
+          "id": "1294099f-a075-4cc5-b720-405903f24ab2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "public_id": "SM-1",
+          "name": "原始想法",
+          "classification": "内部",
+          "allowed": true,
+          "usage": "material",
+          "status": "已纳入",
+          "version": 1,
+          "created_at": "2026-09-13T01:22:34.865Z"
+        }
+      ],
+      "material_versions": [
+        {
+          "id": "f05978fc-23ed-4f99-9261-979bf7133297",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "material_id": "1294099f-a075-4cc5-b720-405903f24ab2",
+          "public_id": "MV-1",
+          "version": 1,
+          "content": "合成知识匹配",
+          "file_id": null,
+          "mime_type": "text/plain",
+          "name": "原始想法",
+          "created_at": "2026-09-13T01:22:34.865Z"
+        }
+      ],
+      "messages": [],
+      "message_references": [],
+      "runs": [],
+      "run_plans": [],
+      "run_lines": [],
+      "replays": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_fa8b44f7-7450-4a9d-afd4-85defc69c236",
+          "fingerprint": "9477b5bfab783452e6a7664be829a1e8c41a29158abd241af2031738f6d24d50",
+          "result": {
+            "member": {
+              "id": "MEM-6",
+              "name": "CODEx_TEST_M2C_20260913_governance_pending",
+              "role": "executor",
+              "active": true,
+              "revision": 0,
+              "createdAt": "2026-09-13T01:22:33.853Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:33.853Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-2",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_6d840df5-ed0b-4619-b65a-bc44fd53113b",
+          "fingerprint": "640b78c6f308be3f167db833bbd859f4e9bdf28f029b66387fdb31f17e4c7a8f",
+          "result": {
+            "member": {
+              "id": "MEM-2",
+              "name": "CODEx_TEST_M2C_20260913_governance_executor",
+              "role": "viewer",
+              "active": true,
+              "revision": 1,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:33.941Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.disabled:MEM-5",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_850f4ba6-cfe8-452a-bad5-31f492e67124",
+          "fingerprint": "1ff28b351e767fde339eba93fc765420638a84d8e49291eda0554536f26ab4b1",
+          "result": {
+            "member": {
+              "id": "MEM-5",
+              "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+              "role": "viewer",
+              "active": false,
+              "revision": 1,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": "2026-09-13T01:22:34.004Z"
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.004Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-2",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_535f5cf8-fbed-4ac4-bc1f-92ca5f1f78dc",
+          "fingerprint": "c0cf38690e087a2ac3af0256b03a268ee09a989792417e76a7e73aa06c736d2b",
+          "result": {
+            "member": {
+              "id": "MEM-2",
+              "name": "CODEx_TEST_M2C_20260913_governance_executor",
+              "role": "executor",
+              "active": true,
+              "revision": 2,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.606Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_64b39137-d53f-485a-b663-b958e23fbfe1",
+          "fingerprint": "cd6a75f1ec6481e0e602734b2aa35d780d07b5290d9b12ac04bdb4d4ce4f6926",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "viewer",
+              "active": true,
+              "revision": 1,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.660Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_e485228a-729d-48a9-b410-8aa12e5d7e15",
+          "fingerprint": "3a3164f9e453bc4ef552e1c9b6f3c95a305882bcc1507e84ee28498c5bd4fa41",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "owner",
+              "active": true,
+              "revision": 2,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.723Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "operation": "member.role:MEM-4",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_7d8bedb3-872e-46bc-9e94-0f122b7b4c19",
+          "fingerprint": "c39c541c2bb946394e714effaed9982e3560c175cdb423db54486836773dce8d",
+          "result": {
+            "member": {
+              "id": "MEM-4",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+              "role": "viewer",
+              "active": true,
+              "revision": 3,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.744Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "member.role:MEM-1",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_78d9e450-9b88-4433-a9e8-f384daa03b2a",
+          "fingerprint": "efbe514a340583b66699661fa145b962cd749304d945d3437fa9dfed98e74b1e",
+          "result": {
+            "member": {
+              "id": "MEM-1",
+              "name": "CODEx_TEST_M2C_20260913_governance_owner",
+              "role": "viewer",
+              "active": true,
+              "revision": 1,
+              "createdAt": "2026-09-13T01:22:31.989Z",
+              "disabledAt": null
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.744Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "operation": "project.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_db754ad7-5a23-4c12-b3de-7179cc854023",
+          "fingerprint": "14e4dfad4b25a7ac5fadf0e80b5fff33f211d5314cb9f516531f71a550f941f5",
+          "result": {
+            "project": {
+              "id": "PRJ-1",
+              "name": "CODEx_TEST_M2C_20260913_governance_project",
+              "path": "synthetic://workspace",
+              "repo": "",
+              "tech": [
+                "Node"
+              ],
+              "branch": "main",
+              "source": "existing",
+              "status": "已登记，未扫描",
+              "scanned": false,
+              "loadedAt": "2026-09-13T01:22:34.773Z",
+              "revision": 0
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.773Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "operation": "knowledge.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_b1d9ba0f-272f-41cd-9b6f-9ca8c60410b8",
+          "fingerprint": "ff3404116697823d3878115fba7bdda63ac777d7518e427f0fd29fe78d908da5",
+          "result": {
+            "knowledge": {
+              "at": "2026-09-13T01:22:34.790Z",
+              "id": "KN-1",
+              "tags": [
+                "续期"
+              ],
+              "type": "接口契约",
+              "title": "CODEx_TEST_M2C_20260913_governance_guidance_0",
+              "source": "手工登记",
+              "content": "<script>synthetic only</script>",
+              "version": 1
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.790Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "operation": "knowledge.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_561dda99-9b84-4177-9b6a-61dc14d04d1f",
+          "fingerprint": "aa04034a1652aee6fc39fc82c980cbf0244f7eb80e26c3592529400dcffae065",
+          "result": {
+            "knowledge": {
+              "at": "2026-09-13T01:22:34.817Z",
+              "id": "KN-2",
+              "tags": [
+                "续期"
+              ],
+              "type": "接口契约",
+              "title": "CODEx_TEST_M2C_20260913_governance_guidance_1",
+              "source": "手工登记",
+              "content": "<script>synthetic only</script>",
+              "version": 1
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.817Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "operation": "knowledge.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_850a6f0a-88f5-49b4-a6b8-de70f691afd2",
+          "fingerprint": "55abad78c7daf7933d2f27e0316d83c12863bcdee8bb5df5516662b6c1745557",
+          "result": {
+            "knowledge": {
+              "at": "2026-09-13T01:22:34.833Z",
+              "id": "KN-3",
+              "tags": [
+                "续期"
+              ],
+              "type": "接口契约",
+              "title": "CODEx_TEST_M2C_20260913_governance_guidance_2",
+              "source": "手工登记",
+              "content": "<script>synthetic only</script>",
+              "version": 1
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.833Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "operation": "knowledge.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_3b946db3-2e11-4d71-a8d1-8fa7853ebc04",
+          "fingerprint": "7a3ffd8436c4d8e994496b488ad3360e60458b03032caff87ee3fa2839da2e6f",
+          "result": {
+            "knowledge": {
+              "at": "2026-09-13T01:22:34.843Z",
+              "id": "KN-4",
+              "tags": [
+                "续期"
+              ],
+              "type": "接口契约",
+              "title": "CODEx_TEST_M2C_20260913_governance_guidance_3",
+              "source": "手工登记",
+              "content": "<script>synthetic only</script>",
+              "version": 1
+            }
+          },
+          "created_at": "2026-09-13T01:22:34.843Z"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+          "operation": "requirement.create",
+          "command_id": "CODEx_TEST_M2C_20260913_governance_91dce28a-5be9-4837-9777-923ffa82a5bd",
+          "fingerprint": "a622ca673830a802650ced86f2c0440ba1703d05dba4aebf659b3f54da7ab68d",
+          "result": {
+            "req": {
+              "id": "R-1041",
+              "caps": [],
+              "goal": "合成知识匹配",
+              "name": "CODEx_TEST_M2C_20260913_governance_续期",
+              "audit": [
+                {
+                  "id": "A-14",
+                  "time": "2026-09-13T01:22:34.865Z",
+                  "actor": "CODEx_TEST_M2C_20260913_governance_executor",
+                  "action": "requirement.created",
+                  "detail": ""
+                }
+              ],
+              "owner": "CODEx_TEST_M2C_20260913_governance_executor",
+              "scope": "",
+              "stage": "idea",
+              "units": [],
+              "closed": false,
+              "project": {
+                "id": "PRJ-1",
+                "name": "CODEx_TEST_M2C_20260913_governance_project",
+                "path": "synthetic://workspace",
+                "repo": "",
+                "tech": [
+                  "Node"
+                ],
+                "branch": "main",
+                "source": "existing",
+                "status": "已登记，未扫描",
+                "scanned": false,
+                "loadedAt": "2026-09-13T01:22:34.773Z",
+                "revision": 0
+              },
+              "revision": 1,
+              "versions": [
+                {
+                  "id": "SV-1",
+                  "reqId": "R-1041",
+                  "stage": "idea",
+                  "stale": false,
+                  "review": "待评审",
+                  "content": {
+                    "id": "R-1041-idea-v1",
+                    "title": "需求草案",
+                    "fields": [
+                      {
+                        "name": "需求名称",
+                        "value": "CODEx_TEST_M2C_20260913_governance_续期"
+                      },
+                      {
+                        "name": "目标",
+                        "value": "合成知识匹配"
+                      },
+                      {
+                        "name": "范围",
+                        "value": ""
+                      }
+                    ],
+                    "review": "待评审",
+                    "version": 1,
+                    "comments": [],
+                    "confirmed": false
+                  },
+                  "version": 1,
+                  "createdAt": "2026-09-13T01:22:34.865Z",
+                  "confirmedAt": null,
+                  "confirmedBy": null
+                }
+              ],
+              "createdAt": "2026-09-13T01:22:34.865Z",
+              "materials": [
+                {
+                  "id": "SM-1",
+                  "cls": "内部",
+                  "hash": null,
+                  "name": "原始想法",
+                  "size": 0,
+                  "type": "文本",
+                  "reqId": "R-1041",
+                  "usage": "material",
+                  "status": "已纳入",
+                  "allowed": true,
+                  "content": "合成知识匹配",
+                  "version": 1,
+                  "mimeType": "text/plain",
+                  "createdAt": "2026-09-13T01:22:34.865Z",
+                  "fileReady": false,
+                  "parseStatus": "文本预览",
+                  "classification": "内部"
+                }
+              ],
+              "overrides": [],
+              "projectId": "PRJ-1",
+              "questions": [
+                {
+                  "q": "本次覆盖的用户与范围是什么？",
+                  "id": "SQ-1",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                },
+                {
+                  "q": "异常、退出与验收边界是什么？",
+                  "id": "SQ-2",
+                  "reqId": "R-1041",
+                  "answer": "",
+                  "revision": 0,
+                  "answeredBy": null
+                }
+              ],
+              "effectiveCaps": [],
+              "knowledgeRefs": [
+                {
+                  "id": "KN-1",
+                  "type": "接口契约",
+                  "title": "CODEx_TEST_M2C_20260913_governance_guidance_0",
+                  "reason": "关键词：续期",
+                  "source": "需求创建时关键词匹配",
+                  "summary": "<script>synthetic only</script>",
+                  "version": 1,
+                  "fingerprint": "f9307a1237bb6383978b5b57688b658f670f44d7cd76ec05e953f21164fe6e07"
+                },
+                {
+                  "id": "KN-2",
+                  "type": "接口契约",
+                  "title": "CODEx_TEST_M2C_20260913_governance_guidance_1",
+                  "reason": "关键词：续期",
+                  "source": "需求创建时关键词匹配",
+                  "summary": "<script>synthetic only</script>",
+                  "version": 1,
+                  "fingerprint": "ffc0bfba51a5ce6107a2d8bc6ee34ecf07afab9d17130c458ec165183eb872ad"
+                },
+                {
+                  "id": "KN-3",
+                  "type": "接口契约",
+                  "title": "CODEx_TEST_M2C_20260913_governance_guidance_2",
+                  "reason": "关键词：续期",
+                  "source": "需求创建时关键词匹配",
+                  "summary": "<script>synthetic only</script>",
+                  "version": 1,
+                  "fingerprint": "d18d8682891c9c89dbc4f10ccf8bf785bf24aea7dd37852021aee2be2756eda6"
+                }
+              ],
+              "bindingRevision": 0,
+              "materialRevision": 0
+            },
+            "knowledgeRefs": [
+              {
+                "id": "KN-1",
+                "type": "接口契约",
+                "title": "CODEx_TEST_M2C_20260913_governance_guidance_0",
+                "reason": "关键词：续期",
+                "source": "需求创建时关键词匹配",
+                "summary": "<script>synthetic only</script>",
+                "version": 1,
+                "fingerprint": "f9307a1237bb6383978b5b57688b658f670f44d7cd76ec05e953f21164fe6e07"
+              },
+              {
+                "id": "KN-2",
+                "type": "接口契约",
+                "title": "CODEx_TEST_M2C_20260913_governance_guidance_1",
+                "reason": "关键词：续期",
+                "source": "需求创建时关键词匹配",
+                "summary": "<script>synthetic only</script>",
+                "version": 1,
+                "fingerprint": "ffc0bfba51a5ce6107a2d8bc6ee34ecf07afab9d17130c458ec165183eb872ad"
+              },
+              {
+                "id": "KN-3",
+                "type": "接口契约",
+                "title": "CODEx_TEST_M2C_20260913_governance_guidance_2",
+                "reason": "关键词：续期",
+                "source": "需求创建时关键词匹配",
+                "summary": "<script>synthetic only</script>",
+                "version": 1,
+                "fingerprint": "d18d8682891c9c89dbc4f10ccf8bf785bf24aea7dd37852021aee2be2756eda6"
+              }
+            ]
+          },
+          "created_at": "2026-09-13T01:22:34.865Z"
+        }
+      ],
+      "binding_sets": [],
+      "domain_events": [
+        {
+          "id": "9976e29c-6249-418a-b23e-fb2f9df90257",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-1",
+          "seq": "1",
+          "aggregate_id": "MEM-6",
+          "revision": 0,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-6",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:33.853Z"
+        },
+        {
+          "id": "587eaad5-280c-4b37-9c76-c5ac3c96cebb",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-2",
+          "seq": "2",
+          "aggregate_id": "MEM-2",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-2",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:33.941Z"
+        },
+        {
+          "id": "bb18449e-b128-4c25-9011-307fa3f157b8",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-3",
+          "seq": "3",
+          "aggregate_id": "MEM-5",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-5",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:34.004Z"
+        },
+        {
+          "id": "0cc013cf-dc60-4376-b512-c28b06cab23a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-4",
+          "seq": "4",
+          "aggregate_id": "MEM-2",
+          "revision": 2,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-2",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:34.606Z"
+        },
+        {
+          "id": "26b11754-bac6-4326-b042-b05516e87a9c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-5",
+          "seq": "5",
+          "aggregate_id": "MEM-4",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:34.660Z"
+        },
+        {
+          "id": "692ff605-5717-461b-a599-77089bc17ad9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-6",
+          "seq": "6",
+          "aggregate_id": "MEM-4",
+          "revision": 2,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:34.723Z"
+        },
+        {
+          "id": "8fda4d9c-702c-4ea8-990f-0bbf3f8b888d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-7",
+          "seq": "7",
+          "aggregate_id": "MEM-4",
+          "revision": 3,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-4",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:34.744Z"
+        },
+        {
+          "id": "4493e8be-c692-40d7-ba5d-c8d0c6ef609a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-8",
+          "seq": "8",
+          "aggregate_id": "MEM-1",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "MEM-1",
+            "entityType": "member"
+          },
+          "created_at": "2026-09-13T01:22:34.744Z"
+        },
+        {
+          "id": "7c1174e0-4c9d-412d-8b29-f1c60bb28176",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-9",
+          "seq": "9",
+          "aggregate_id": "PRJ-1",
+          "revision": 0,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "PRJ-1",
+            "entityType": "project"
+          },
+          "created_at": "2026-09-13T01:22:34.773Z"
+        },
+        {
+          "id": "b00c7f5a-1d92-40cd-8a74-457a991debf1",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-10",
+          "seq": "10",
+          "aggregate_id": "KN-1",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "KN-1",
+            "entityType": "knowledge"
+          },
+          "created_at": "2026-09-13T01:22:34.790Z"
+        },
+        {
+          "id": "1c663397-f6fe-4d35-a4b5-f48b027c6b64",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-11",
+          "seq": "11",
+          "aggregate_id": "KN-2",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "KN-2",
+            "entityType": "knowledge"
+          },
+          "created_at": "2026-09-13T01:22:34.817Z"
+        },
+        {
+          "id": "7c6a34c1-cc65-4236-93d5-c0ae0245690e",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-12",
+          "seq": "12",
+          "aggregate_id": "KN-3",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "KN-3",
+            "entityType": "knowledge"
+          },
+          "created_at": "2026-09-13T01:22:34.833Z"
+        },
+        {
+          "id": "f2461391-6377-40d4-b14f-a5a46627b73c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-13",
+          "seq": "13",
+          "aggregate_id": "KN-4",
+          "revision": 1,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "KN-4",
+            "entityType": "knowledge"
+          },
+          "created_at": "2026-09-13T01:22:34.843Z"
+        },
+        {
+          "id": "c54970a1-34c7-4dfa-b0f9-4aad32028f28",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-14",
+          "seq": "14",
+          "aggregate_id": "R-1041",
+          "revision": 1,
+          "type": "req.updated",
+          "payload": {
+            "reqId": "R-1041",
+            "action": "requirement.created"
+          },
+          "created_at": "2026-09-13T01:22:34.865Z"
+        }
+      ],
+      "members": [
+        {
+          "id": "b7bd6f43-328d-4de9-9a72-2a0b874ebe96",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_governance_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T01:22:31.989Z",
+          "disabled_at": null
+        },
+        {
+          "id": "0353a99e-3a09-4409-b578-dd95a3a77a0f",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T01:22:31.989Z",
+          "disabled_at": null
+        },
+        {
+          "id": "bc66b2ed-c23d-4ee7-9e32-4c2434bd778c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-6",
+          "name": "CODEx_TEST_M2C_20260913_governance_pending",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T01:22:33.853Z",
+          "disabled_at": null
+        },
+        {
+          "id": "b94905ac-6a8b-40b7-a07a-8321a393a767",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+          "role": "viewer",
+          "active": false,
+          "revision": 1,
+          "created_at": "2026-09-13T01:22:31.989Z",
+          "disabled_at": "2026-09-13T01:22:34.004Z"
+        },
+        {
+          "id": "b0f6b7d5-87de-4fce-a6a4-e6639a139710",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_governance_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 2,
+          "created_at": "2026-09-13T01:22:31.989Z",
+          "disabled_at": null
+        },
+        {
+          "id": "de294000-c440-4604-9e11-a5df8169ea1c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "role": "viewer",
+          "active": true,
+          "revision": 3,
+          "created_at": "2026-09-13T01:22:31.989Z",
+          "disabled_at": null
+        },
+        {
+          "id": "6ddb40f5-569d-40b8-9b40-b884d0123de7",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner",
+          "role": "viewer",
+          "active": true,
+          "revision": 1,
+          "created_at": "2026-09-13T01:22:31.989Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [
+        {
+          "id": "8f508775-5d26-44c2-bb5d-4506bf84752d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "PRJ-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_project",
+          "path": "synthetic://workspace",
+          "repo": "",
+          "branch": "main",
+          "tech": [
+            "Node"
+          ],
+          "source": "existing",
+          "revision": 0,
+          "loaded_by": "b0f6b7d5-87de-4fce-a6a4-e6639a139710",
+          "loaded_at": "2026-09-13T01:22:34.773Z"
+        }
+      ],
+      "knowledge": [
+        {
+          "id": "37e843af-69e4-4526-8bd2-f9d98144e00a",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "KN-1",
+          "title": "CODEx_TEST_M2C_20260913_governance_guidance_0",
+          "type": "接口契约",
+          "content": "<script>synthetic only</script>",
+          "tags": [
+            "续期"
+          ],
+          "version": 1,
+          "created_by": "b0f6b7d5-87de-4fce-a6a4-e6639a139710",
+          "created_at": "2026-09-13T01:22:34.790Z"
+        },
+        {
+          "id": "8d1e9bec-3f58-4e14-9f0c-d3fee6b02360",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "KN-2",
+          "title": "CODEx_TEST_M2C_20260913_governance_guidance_1",
+          "type": "接口契约",
+          "content": "<script>synthetic only</script>",
+          "tags": [
+            "续期"
+          ],
+          "version": 1,
+          "created_by": "b0f6b7d5-87de-4fce-a6a4-e6639a139710",
+          "created_at": "2026-09-13T01:22:34.817Z"
+        },
+        {
+          "id": "30504073-3b46-4b0d-ae82-fb4b784172a0",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "KN-3",
+          "title": "CODEx_TEST_M2C_20260913_governance_guidance_2",
+          "type": "接口契约",
+          "content": "<script>synthetic only</script>",
+          "tags": [
+            "续期"
+          ],
+          "version": 1,
+          "created_by": "b0f6b7d5-87de-4fce-a6a4-e6639a139710",
+          "created_at": "2026-09-13T01:22:34.833Z"
+        },
+        {
+          "id": "bf5b11d5-fb7d-4d44-9849-fbdb8cdcc8e2",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "KN-4",
+          "title": "CODEx_TEST_M2C_20260913_governance_guidance_3",
+          "type": "接口契约",
+          "content": "<script>synthetic only</script>",
+          "tags": [
+            "续期"
+          ],
+          "version": 1,
+          "created_by": "b0f6b7d5-87de-4fce-a6a4-e6639a139710",
+          "created_at": "2026-09-13T01:22:34.843Z"
+        }
+      ],
+      "knowledge_links": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "knowledge_id": "37e843af-69e4-4526-8bd2-f9d98144e00a",
+          "version": 1,
+          "snapshot": {
+            "id": "KN-1",
+            "type": "接口契约",
+            "title": "CODEx_TEST_M2C_20260913_governance_guidance_0",
+            "reason": "关键词：续期",
+            "source": "需求创建时关键词匹配",
+            "summary": "<script>synthetic only</script>",
+            "version": 1,
+            "fingerprint": "f9307a1237bb6383978b5b57688b658f670f44d7cd76ec05e953f21164fe6e07"
+          }
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "knowledge_id": "8d1e9bec-3f58-4e14-9f0c-d3fee6b02360",
+          "version": 1,
+          "snapshot": {
+            "id": "KN-2",
+            "type": "接口契约",
+            "title": "CODEx_TEST_M2C_20260913_governance_guidance_1",
+            "reason": "关键词：续期",
+            "source": "需求创建时关键词匹配",
+            "summary": "<script>synthetic only</script>",
+            "version": 1,
+            "fingerprint": "ffc0bfba51a5ce6107a2d8bc6ee34ecf07afab9d17130c458ec165183eb872ad"
+          }
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": "676e10fe-ccfe-4405-95f9-a97483dd56bc",
+          "knowledge_id": "30504073-3b46-4b0d-ae82-fb4b784172a0",
+          "version": 1,
+          "snapshot": {
+            "id": "KN-3",
+            "type": "接口契约",
+            "title": "CODEx_TEST_M2C_20260913_governance_guidance_2",
+            "reason": "关键词：续期",
+            "source": "需求创建时关键词匹配",
+            "summary": "<script>synthetic only</script>",
+            "version": 1,
+            "fingerprint": "d18d8682891c9c89dbc4f10ccf8bf785bf24aea7dd37852021aee2be2756eda6"
+          }
+        }
+      ],
+      "budget_accounts": [],
+      "artifact_versions": [],
+      "artifact_groups": [],
+      "artifact_group_sources": [],
+      "artifact_proposals": [],
+      "artifact_confirmations": [],
+      "artifact_impacts": []
+    },
+    "poolsClosed": true
+  },
+  "data": "deterministic local fixtures only"
+}

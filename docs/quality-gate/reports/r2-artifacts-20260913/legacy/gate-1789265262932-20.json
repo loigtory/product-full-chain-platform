@@ -1,0 +1,12 @@
+{
+  "gate": "server/verify-r2-artifacts.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe server/verify-r2-artifacts.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 6847,
+  "evidence": "legacy/gate-1789265262932-20.json",
+  "at": "2026-09-13T02:11:05.826Z",
+  "stdout": "PASS A04 explicit004 migration and immutable history constraints\nPASS A01 partial candidate can be saved before questions but cannot be adopted\nPASS A11 JSON original is parsed from persisted bytes and source hash is retained\nPASS A06 legacy PRD writes cannot bypass linked adoption\nPASS A02/A06 independent versions, atomic confirmations and immutable history\nPASS A03 concurrent adoption and changed-payload replay never duplicate versions\nPASS A04 injected failures at version, group and event writes roll back everything\nPASS A07 design-only updates preserve business, question changes invalidate both\nPASS A05/A11 import preserves original bytes, rejects forged source and revoked reads\nPASS A08/A09 v2 survives restart; pending plans stale, active runs block adoption only\nPASS A13 API roles and revoked identity cannot read or write/replay\nPASS A09 confirmation author revocation blocks approval without rewriting snapshot\nPASS A14 20 pending candidates accepted; 21st rejected without truncation\n{\"status\":\"PASS\",\"tests\":13,\"cleanup\":{\"schema\":\"codex_test_m2c_20260913_artifacts\",\"remaining\":0,\"files\":0,\"processes\":0}}\n",
+  "stderr": "",
+  "error": null
+}

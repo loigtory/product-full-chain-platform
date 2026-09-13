@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-prototype.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-prototype.mjs",
+  "status": "FAIL",
+  "exitCode": 1,
+  "durationMs": 1026,
+  "stdout": "{\"script\":\"verify-static.mjs\",\"status\":\"FAIL\"}\n{\"status\":\"FAIL\",\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-prototype-gate-BAMsIV\",\"sourceUnchanged\":true}\n",
+  "stderr": ""
+}

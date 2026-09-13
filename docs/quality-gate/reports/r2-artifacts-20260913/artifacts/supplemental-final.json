@@ -1,0 +1,27 @@
+{
+  "at": "2026-09-13T02:13:40.288Z",
+  "status": "PASS",
+  "sourceChecks": "supplemental-commands.json",
+  "sourceChecksPassed": 52,
+  "initialInvocationFailure": "Guessed .mjs governance path was absent; corrected to unchanged package.json command. Failure record retained.",
+  "results": [
+    {
+      "name": "check:config",
+      "packageCommand": "npm run check:config",
+      "resolved": "node scripts/check-config.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n",
+      "stderr": ""
+    },
+    {
+      "name": "check:delivery-governance",
+      "packageCommand": "npm run check:delivery-governance",
+      "resolved": "node --import tsx scripts/check-delivery-governance.ts",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n",
+      "stderr": ""
+    }
+  ]
+}

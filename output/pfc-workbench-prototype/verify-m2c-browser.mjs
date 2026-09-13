@@ -16,7 +16,7 @@ const require = createRequire(import.meta.url),
   root = fileURLToPath(new URL('.', import.meta.url));
 if (
   process.env.PFC_M2C_EVIDENCE_DIR !==
-  'docs/quality-gate/reports/m2c-3-governance-20260913/domain'
+  'docs/quality-gate/reports/r2-artifacts-20260913/domain'
 )
   throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
 const evidence = resolve(process.env.PFC_M2C_EVIDENCE_DIR);
@@ -70,8 +70,21 @@ try {
     if (r.url().startsWith('http://127.0.0.1:5196'))
       requests.push({ method: r.method(), path: new URL(r.url()).pathname });
   });
-  const click = async (action, qualifier = '') =>
-    page.locator(`button[data-action="${action}"]${qualifier}`).first().click();
+  const click = async (action, qualifier = '') => {
+    await page.waitForFunction(() => !window.PFC.pendingActions?.size);
+    const target = page
+      .locator(`button[data-action="${action}"]${qualifier}`)
+      .first();
+    await target.click({ trial: true });
+    await page.evaluate(
+      () =>
+        new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve)),
+        ),
+    );
+    await target.click();
+    await page.waitForFunction(() => !window.PFC.pendingActions?.size);
+  };
   const ready = async () => {
     await page.waitForFunction(
       () => window.PFCAPI?.api.ready || window.PFC?.remoteError,
@@ -153,7 +166,14 @@ try {
       2,
     );
   });
-  for (const stage of ['idea', 'req', 'design']) {
+  for (const stage of ['idea']) {
+    await page.evaluate(() =>
+      document.addEventListener(
+        'pointerdown',
+        () => window.PFC.render({ quiet: true }),
+        { once: true },
+      ),
+    );
     await click('confirm-artifact', `[data-stage="${stage}"]`);
     await page.waitForFunction(
       (stage) => window.PFC.latest(window.PFC.r(), stage).confirmed,
@@ -163,6 +183,46 @@ try {
     await page.waitForFunction(
       (stage) => window.PFC.r().stage !== stage,
       stage,
+    );
+  }
+  await click('r2-template');
+  assert.equal(
+    await page.evaluate(
+      () =>
+        window.PFC.artifactClient.states[window.PFC.r().id].inputFingerprint,
+    ),
+    await page.evaluate(async () => {
+      const P = window.PFC;
+      return (
+        await window.PFCAPI.api.req(
+          'GET',
+          '/api/reqs/' + P.r().id + '/artifact-workspace',
+        )
+      ).inputFingerprint;
+    }),
+    'Template dialog must use the current input baseline',
+  );
+  await click('r2-save-template');
+  assert.equal(
+    await page.evaluate(
+      () => document.getElementById('form-error')?.textContent || '',
+    ),
+    '',
+    'Template creation must succeed with the current baseline',
+  );
+  await page.waitForFunction(() => !document.querySelector('[role="dialog"]'));
+  await click('r2-proposal');
+  await click('r2-adopt');
+  await page.waitForFunction(() => !document.querySelector('[role="dialog"]'));
+  for (const kind of ['business', 'design']) {
+    await click('r2-confirm-' + kind);
+    await page.locator('[name="comment"]').fill('CODEx_TEST_确认');
+    if (kind === 'design')
+      for (const name of ['goal', 'files', 'validation', 'exit', 'rollback'])
+        await page.locator('[name="' + name + '"]').fill('CODEx_TEST_' + name);
+    await click('r2-save-confirm');
+    await page.waitForFunction(
+      () => !document.querySelector('[role="dialog"]'),
     );
   }
   await check('UI confirmation and advancement reach dev', async () => {
@@ -261,6 +321,12 @@ try {
         });
       }
       await page.locator('#chat-input').focus();
+      await page.evaluate(() => window.PFC.render({ quiet: true }));
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'chat-input',
+        'Background repaint must preserve chat keyboard focus',
+      );
       await page.keyboard.type('未提交合成草稿');
       assert.equal(
         await page.locator('#chat-input').inputValue(),

@@ -304,7 +304,53 @@ async function mutate(id, input, operation, work) {
   return command(db, ctx, operation + ':' + id, input, async (client) => {
     const row = await repo.lock(client, db, ctx, id);
     access.revision(row, input.expectedRevision);
+    const artifacts = require('../persistence/artifacts');
+    const originalGroup = row.current_artifact_group_id
+      ? await artifacts.group(client, db, ctx, row)
+      : null;
+    const before = originalGroup
+      ? await artifacts.inputs(
+          client,
+          db,
+          ctx,
+          row,
+          originalGroup.inputs.explicitRefs,
+        )
+      : null;
     const result = await work(client, db, ctx, row);
+    if (originalGroup) {
+      const fresh = (
+        await client.query(
+          'SELECT * FROM "' + db.schema + '".reqs WHERE tenant_id=$1 AND id=$2',
+          [ctx.tenantId, row.id],
+        )
+      ).rows[0];
+      const after = await artifacts.inputs(
+        client,
+        db,
+        ctx,
+        fresh,
+        originalGroup.inputs.explicitRefs,
+      );
+      if (before.fingerprint !== after.fingerprint)
+        await require('./artifact-impact-service').invalidate(
+          client,
+          db,
+          ctx,
+          row,
+          operation,
+          'business',
+        );
+      else if (operation === 'version.saved' && input.stage === 'design')
+        await require('./artifact-impact-service').invalidate(
+          client,
+          db,
+          ctx,
+          row,
+          operation,
+          'design',
+        );
+    }
     const current = await repo.touch(client, db, ctx, row, operation);
     return { ...result, req: await detail(client, db, ctx, current) };
   });
@@ -403,6 +449,12 @@ module.exports.getVersions = async (id, stage) => {
 };
 module.exports.saveVersion = (id, input) =>
   mutate(id, input, 'version.saved', async (client, db, ctx, row) => {
+    if (input.stage === 'req')
+      access.fail(
+        'LINKED_WRITE_REQUIRED',
+        409,
+        '请在关联成果中比较并采纳PRD变更',
+      );
     if (
       !['idea', 'req', 'design', 'dev'].includes(input.stage) ||
       sm.STAGES.indexOf(input.stage) > sm.STAGES.indexOf(row.stage)
@@ -438,6 +490,12 @@ module.exports.confirmVersion = (id, vid, input = {}) =>
     const versions = await repo.versions(client, db, ctx, row.id),
       v = versions.find((v) => v.public_id === vid);
     if (!v) access.fail('NOT_FOUND', 404);
+    if (['req', 'design'].includes(v.stage))
+      access.fail(
+        'ARTIFACT_CONFIRMATION_REQUIRED',
+        409,
+        '请确认当前关联业务方案或实施设计',
+      );
     if (latest(versions, v.stage)?.id !== v.id || v.stale)
       access.fail('STALE_VERSION');
     const blockers = await blockersPg(client, db, ctx, row);
@@ -457,6 +515,14 @@ module.exports.advanceStage = (id, to, input = {}) =>
   mutate(id, input, 'requirement.advanced', async (client, db, ctx, row) => {
     if (!['req', 'design', 'dev'].includes(to))
       access.fail('CAPABILITY_UNAVAILABLE', 409, '该阶段 PG 写入尚未接入');
+    if (['design', 'dev'].includes(to))
+      await require('./artifact-impact-service').requireReady(
+        client,
+        db,
+        ctx,
+        row,
+        to,
+      );
     const v = latest(await repo.versions(client, db, ctx, row.id), row.stage),
       blockers = await blockersPg(client, db, ctx, row);
     if (
@@ -524,8 +590,17 @@ module.exports.reviewVersion = (id, vid, input) =>
         '".req_versions SET review_state=$1,confirmed_at=CASE WHEN $1=$4 THEN NULL ELSE confirmed_at END,confirmed_by=CASE WHEN $1=$4 THEN NULL ELSE confirmed_by END WHERE tenant_id=$2 AND id=$3',
       [input.result, ctx.tenantId, v.id, '需修改'],
     );
-    if (input.result === '需修改')
+    if (input.result === '需修改') {
       await repo.staleAfter(client, db, ctx, row.id, v.stage);
+      await require('./artifact-impact-service').invalidate(
+        client,
+        db,
+        ctx,
+        row,
+        '版本评审需修改',
+        v.stage === 'design' ? 'design' : 'business',
+      );
+    }
     return {};
   });
 module.exports.answerQuestion = (id, qid, input) =>

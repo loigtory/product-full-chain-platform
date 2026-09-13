@@ -1,0 +1,443 @@
+{
+  "at": "2026-09-13T02:12:12.421Z",
+  "environment": {
+    "runtime": "v24.20.0",
+    "data": "none; static/config checks only"
+  },
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "syntax server/src/domain/artifact-policy.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/artifact-policy.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/artifact-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/artifact-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/artifact-confirmation-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/artifact-confirmation-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/artifact-impact-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/artifact-impact-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/artifact-dto.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/artifact-dto.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/prototype-spec.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/prototype-spec.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/artifacts.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/artifacts.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/routes/artifacts.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/routes/artifacts.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/index.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/index.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/contract.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/contract.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/runtime.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/runtime.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/requirement-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/requirement-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/conversation-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/conversation-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/material-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/material-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/execution-plan-policy.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/execution-plan-policy.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/execution-service.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/execution-service.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/domain/dto.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/domain/dto.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/requirements.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/requirements.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/messages.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/messages.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/runs.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/runs.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/identifiers.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/identifiers.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/migrations.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/migrations.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/files/local-files.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/files/local-files.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/routes/reqs.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/routes/reqs.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/artifact-client.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/artifact-client.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/artifact-view.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/artifact-view.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/artifact-actions.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/artifact-actions.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/prototype-preview.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/prototype-preview.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/api-client.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/api-client.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/domain-view.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/domain-view.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/domain-actions.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/domain-actions.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/domain-conversation.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/domain-conversation.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/original/governance-domain.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/original/governance-domain.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/verify-static.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/test-data/r2-artifact-fixture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/test-data/r2-artifact-fixture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/verify-r2-artifact-model.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/verify-r2-artifact-model.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/verify-r2-artifacts.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/verify-r2-artifacts.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/verify-r2-architecture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/verify-r2-architecture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/test-data/m2c-domain-fixture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/test-data/m2c-domain-fixture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/test-data/m2c-governance-fixture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/test-data/m2c-governance-fixture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/verify-m2c-domain.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/verify-m2c-domain.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/verify-m2c-governance.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/verify-m2c-governance.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/verify-m2c-architecture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/verify-m2c-architecture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "syntax server/src/persistence/commands.js",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe --check server/src/persistence/commands.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "format 51 approved source/test paths",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe node_modules/prettier/bin/prettier.cjs --ignore-path .gitignore --check server/src/domain/artifact-policy.js server/src/domain/artifact-service.js server/src/domain/artifact-confirmation-service.js server/src/domain/artifact-impact-service.js server/src/domain/artifact-dto.js server/src/domain/prototype-spec.js server/src/persistence/artifacts.js server/src/routes/artifacts.js server/src/index.js server/src/contract.js server/src/runtime.js server/src/domain/requirement-service.js server/src/domain/conversation-service.js server/src/domain/material-service.js server/src/domain/execution-plan-policy.js server/src/domain/execution-service.js server/src/domain/dto.js server/src/persistence/requirements.js server/src/persistence/messages.js server/src/persistence/runs.js server/src/persistence/identifiers.js server/src/persistence/migrations.js server/src/files/local-files.js server/src/routes/reqs.js output/pfc-workbench-prototype/original/artifact-client.js output/pfc-workbench-prototype/original/artifact-view.js output/pfc-workbench-prototype/original/artifact-actions.js output/pfc-workbench-prototype/original/prototype-preview.js output/pfc-workbench-prototype/index.html output/pfc-workbench-prototype/original/api-client.js output/pfc-workbench-prototype/original/domain-view.js output/pfc-workbench-prototype/original/domain-actions.js output/pfc-workbench-prototype/original/domain-conversation.js output/pfc-workbench-prototype/original/governance-domain.js output/pfc-workbench-prototype/verify-static.mjs server/test-data/r2-artifact-fixture.mjs server/verify-r2-artifact-model.mjs server/verify-r2-artifacts.mjs server/verify-r2-architecture.mjs output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs server/test-data/m2c-domain-fixture.mjs server/test-data/m2c-governance-fixture.mjs server/verify-m2c-domain.mjs server/verify-m2c-governance.mjs server/verify-m2c-architecture.mjs output/pfc-workbench-prototype/verify-m2c-browser.mjs output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs output/pfc-workbench-prototype/flow-browser-fixture.mjs output/pfc-workbench-prototype/verify-flow-browser.mjs output/pfc-workbench-prototype/verify-flow-architecture.mjs server/src/persistence/commands.js",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "Checking formatting...\nAll matched files use Prettier code style!\n",
+      "stderr": ""
+    },
+    {
+      "name": "prototype static",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "{\"status\":\"PASS\",\"syntaxScripts\":32,\"lintModules\":29,\"externalEntryAssets\":0}\n",
+      "stderr": ""
+    },
+    {
+      "name": "check:config",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe scripts/check-config.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "stdout": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n",
+      "stderr": ""
+    },
+    {
+      "name": "check:delivery-governance",
+      "command": ".tools/node-v24.20.0-win-x64/node.exe scripts/check-delivery-governance.mjs",
+      "status": "FAIL",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/cjs/loader:1568\r\n  throw err;\r\n  ^\r\n\r\nError: Cannot find module 'D:\\项目管理\\product-full-chain-platform\\scripts\\check-delivery-governance.mjs'\r\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\r\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\r\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\r\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\r\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  code: 'MODULE_NOT_FOUND',\r\n  requireStack: []\r\n}\r\n\r\nNode.js v24.20.0\r\n"
+    }
+  ],
+  "endedAt": "2026-09-13T02:12:19.875Z"
+}

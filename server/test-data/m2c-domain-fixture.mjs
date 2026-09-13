@@ -44,6 +44,7 @@ export function config() {
 const tables = [
   ...require('../src/persistence/migrations').domainTables,
   ...(require('../src/persistence/migrations').governanceTables || []),
+  ...(require('../src/persistence/migrations').artifactTables || []),
   'schema_migrations',
   'tenants',
   'reqs',
@@ -62,13 +63,17 @@ const fingerprint = async (pool, targetSchema) => {
   );
   return createHash('sha256').update(JSON.stringify(rows)).digest('hex');
 };
-export async function fixture({ governance = false } = {}) {
-  const schema = governance
-    ? 'codex_test_m2c_20260913_governance'
-    : 'codex_test_m2c_20260912_domain';
-  const runId = governance
-    ? 'CODEx_TEST_M2C_20260913_governance'
-    : 'CODEx_TEST_M2C_20260912_domain';
+export async function fixture({ governance = false, artifacts = false } = {}) {
+  const schema = artifacts
+    ? 'codex_test_m2c_20260913_artifacts'
+    : governance
+      ? 'codex_test_m2c_20260913_governance'
+      : 'codex_test_m2c_20260912_domain';
+  const runId = artifacts
+    ? 'CODEx_TEST_M2C_20260913_artifacts'
+    : governance
+      ? 'CODEx_TEST_M2C_20260913_governance'
+      : 'CODEx_TEST_M2C_20260912_domain';
   const {
     openDatabase,
     validateTarget,
@@ -87,9 +92,11 @@ export async function fixture({ governance = false } = {}) {
   const createdIds = [];
   const base = fileURLToPath(
     new URL(
-      governance
-        ? '../../.local/m2c-3-governance-20260913/files/'
-        : '../../.local/m2c-2-domain-20260912/files/',
+      artifacts
+        ? '../../.local/r2-artifacts-20260913/files/'
+        : governance
+          ? '../../.local/m2c-3-governance-20260913/files/'
+          : '../../.local/m2c-2-domain-20260912/files/',
       import.meta.url,
     ),
   );
@@ -241,7 +248,7 @@ export async function fixture({ governance = false } = {}) {
             (await admin.query(`SELECT count(*) n FROM "${schema}"."${table}"`))
               .rows[0].n,
           );
-        if (totalRows > 2000) throw Error('TEST_ROW_LIMIT');
+        if (totalRows > 3000) throw Error('TEST_ROW_LIMIT');
         for (const table of actual) {
           const rows = (
             await admin.query(`SELECT * FROM "${schema}"."${table}"`)
@@ -344,10 +351,22 @@ export async function fixture({ governance = false } = {}) {
         db = await openDatabase({ ...options, targetVersion: '003' });
         const { initializeMembers } =
           await import('../scripts/initialize-m2c-members.mjs');
-        return initializeMembers(
+        const initialized = await initializeMembers(
           db,
           users.filter((u) => !u.name.endsWith('_pending')),
         );
+        const repeated = await initializeMembers(
+          db,
+          users.filter((u) => !u.name.endsWith('_pending')),
+        );
+        if (repeated.some((row) => row.created))
+          throw Error('MEMBER_INITIALIZATION_NOT_IDEMPOTENT');
+        await require('../src/persistence/migrations').migrate(db, {
+          targetVersion: '004',
+        });
+        await db.close();
+        db = await openDatabase({ ...options, targetVersion: '004' });
+        return initialized;
       },
       admin,
       options,

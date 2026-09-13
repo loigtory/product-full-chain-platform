@@ -1,0 +1,11 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+  "command": "node output/pfc-workbench-prototype/verify-flow-browser.mjs",
+  "status": "FAIL",
+  "exitCode": 1,
+  "signal": null,
+  "pid": 43356,
+  "durationMs": 15304,
+  "stdout": "PASS ordinary-three-width-shell-reference\nPASS original-entry-and-early-interactive-candidate\nPASS three-width-prototype-prd-keyboard-and-expanded-canvas\nPASS related-change-quota-failure-retry-and-history\nPASS refresh-draft-context-and-stage-view-preservation\nPASS cross-window-stale-write-and-request-isolation\nPASS pending-decision-independent-work-and-readonly\nPASS development-dual-terminals-pause-unknown-and-test-recovery\nPASS human-acceptance-publication-observation-and-return\nPASS partial-generation-and-xss-as-text\n{\"cleanup\":{\"pid\":43356,\"port\":53508,\"browserClosed\":true,\"serverClosed\":true,\"isolatedContextsClosed\":true,\"data\":\"synthetic browser contexts discarded\"}}\n",
+  "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: The input did not match the regular expression /只验证 DTO 渲染/. Input:\r\n\r\n'正在读取关联成果…\\n\\n重新读取'\r\n\r\n    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-flow-browser.mjs:395:14\r\n    at async check (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-flow-browser.mjs:38:5)\r\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-flow-browser.mjs:347:5 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: '正在读取关联成果…\\n\\n重新读取',\r\n  expected: /只验证 DTO 渲染/,\r\n  operator: 'match',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.20.0\r\n"
+}

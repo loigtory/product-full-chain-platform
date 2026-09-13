@@ -1,0 +1,9 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-prototype.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-prototype.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 83119,
+  "stdout": "{\"script\":\"verify-static.mjs\",\"status\":\"PASS\"}\n{\"script\":\"verify-integrity.mjs\",\"status\":\"PASS\",\"checks\":8}\n{\"script\":\"verify-guide-model.mjs\",\"status\":\"PASS\",\"checks\":11}\n{\"script\":\"verify-production.cjs\",\"status\":\"PASS\",\"checks\":46,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-remediation-ychGLD\"}\n{\"script\":\"verify-guide-browser.mjs\",\"status\":\"PASS\",\"checks\":13,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-guide-7ATEGU\"}\n{\"script\":\"verify-scope7.mjs\",\"status\":\"PASS\",\"checks\":12,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-scope7-BOLNER\"}\n{\"status\":\"PASS\",\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-prototype-gate-4FjlDj\",\"sourceUnchanged\":true}\n",
+  "stderr": ""
+}

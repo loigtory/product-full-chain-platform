@@ -1,0 +1,2872 @@
+{
+  "at": "2026-09-13T02:09:44.089Z",
+  "baseline": "04fd81a28e16abe2d92ff87799a78750fbd497b4",
+  "status": "PASS",
+  "method": "Git blob SHA1; text CRLF normalized; binary exact",
+  "files": 477,
+  "results": [
+    {
+      "path": "docs/quality-gate/reports/2026-09-06-m1-r1-local-verification.md",
+      "expected": "667d9eb72f043aaa01d46bd521c93ac098a8f187",
+      "actual": "667d9eb72f043aaa01d46bd521c93ac098a8f187",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-06-m2-r1-local-verification.md",
+      "expected": "4a97e1b93edd28e183c748b01fa9bf9303a4632e",
+      "actual": "4a97e1b93edd28e183c748b01fa9bf9303a4632e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-06-m2-r1-spikes.md",
+      "expected": "fdc32806a64ac44b3aa1993a20001f11b35673a9",
+      "actual": "fdc32806a64ac44b3aa1993a20001f11b35673a9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-ai-ux-r1-c-live.json",
+      "expected": "102acbdd9e1f56ae3d47dc90a1b6a4d0d878be2a",
+      "actual": "102acbdd9e1f56ae3d47dc90a1b6a4d0d878be2a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-ai-ux-r1-d-browser.json",
+      "expected": "9231732a2693e032f160ad3d416c277ea883b0f1",
+      "actual": "9231732a2693e032f160ad3d416c277ea883b0f1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-ai-ux-r1-standard-migration.md",
+      "expected": "4ae5cd8c5fcc53e26aa9415d2c894d8d0d6a9512",
+      "actual": "4ae5cd8c5fcc53e26aa9415d2c894d8d0d6a9512",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-ai-ux-r1.md",
+      "expected": "ce2c2b3af743f919f2de9dfd7d68edbc0677e339",
+      "actual": "ce2c2b3af743f919f2de9dfd7d68edbc0677e339",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-m2-r2-closeout.md",
+      "expected": "f3691f0b84d6867743623e783baba7b8319d529e",
+      "actual": "f3691f0b84d6867743623e783baba7b8319d529e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-m2-r2-design-blocker.md",
+      "expected": "56a736435d66407cb6373976f67357d0ef95e496",
+      "actual": "56a736435d66407cb6373976f67357d0ef95e496",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/2026-09-07-m2-r2-platform-start-approval-verification.md",
+      "expected": "8c5e35e27b73b9752ce890821f61bae5b139f5a4",
+      "actual": "8c5e35e27b73b9752ce890821f61bae5b139f5a4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T0-bootstrap-20260904.md",
+      "expected": "de47b1d255335f793f76902efa540c8373fa8ef4",
+      "actual": "de47b1d255335f793f76902efa540c8373fa8ef4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T1-domain-migration-20260904.md",
+      "expected": "06213618f0ca308ba74cbe04c104b5edee11bd71",
+      "actual": "06213618f0ca308ba74cbe04c104b5edee11bd71",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T2-access-dependencies-20260905.md",
+      "expected": "4b8a0e143b9f9a301d95369a816361970af2e589",
+      "actual": "4b8a0e143b9f9a301d95369a816361970af2e589",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T3-requirements-workbench-20260905.md",
+      "expected": "49e151b18de0154037cec661b6cccddc8965edd6",
+      "actual": "49e151b18de0154037cec661b6cccddc8965edd6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T4-question-decisions-20260905.md",
+      "expected": "6a590b56bf670a447196c1df6c6d3381f8756315",
+      "actual": "6a590b56bf670a447196c1df6c6d3381f8756315",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T5-gate-runs-20260905.md",
+      "expected": "4ec4154bd87131d85feff28622db6fc387b12748",
+      "actual": "4ec4154bd87131d85feff28622db6fc387b12748",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T6-material-impact-timeline-20260905.md",
+      "expected": "507e60dc575c3370cfa139bd67b8f2e2bc1199bd",
+      "actual": "507e60dc575c3370cfa139bd67b8f2e2bc1199bd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-T7-engineering-hardening-20260905.md",
+      "expected": "3d9597c92a907ac65fd91389ac3c54e35b8b5d89",
+      "actual": "3d9597c92a907ac65fd91389ac3c54e35b8b5d89",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R1-R4-20260905.md",
+      "expected": "caf2465a79202f7b0ae2cf36e19e247fb59e938f",
+      "actual": "caf2465a79202f7b0ae2cf36e19e247fb59e938f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R10-WORKBENCH-PREVIEW-20260905.md",
+      "expected": "39693a92e4e87bf0effab1a0abd6f670b8ece077",
+      "actual": "39693a92e4e87bf0effab1a0abd6f670b8ece077",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R11-TYPOGRAPHY-DENSITY-REDESIGN-20260905.md",
+      "expected": "42a1f5f98e89b812ce6ff733af5fd3bcbb05cfca",
+      "actual": "42a1f5f98e89b812ce6ff733af5fd3bcbb05cfca",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R12-OPERATIONS-CENTERS-MIGRATION-20260905.md",
+      "expected": "c891aba80f59c7f13f05e5559f97f6fe80d73740",
+      "actual": "c891aba80f59c7f13f05e5559f97f6fe80d73740",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R5-POSTGRES-EXPERIENCE-20260905.md",
+      "expected": "bed0f815a3753b53bc3922718b2cd5a62a57b012",
+      "actual": "bed0f815a3753b53bc3922718b2cd5a62a57b012",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R6-CENTERS-20260905.md",
+      "expected": "ba7ec605068ef45ed5067ab106c47d9fe6e7e594",
+      "actual": "ba7ec605068ef45ed5067ab106c47d9fe6e7e594",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R7-DESIGN-SYSTEM-20260905.md",
+      "expected": "b087defda0b1e4d76975d4817d03deb260a2f37e",
+      "actual": "b087defda0b1e4d76975d4817d03deb260a2f37e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R8-NAVIGATION-SHELL-20260905.md",
+      "expected": "d876e47c8df9c59697ff80c19364bcef6721ca3d",
+      "actual": "d876e47c8df9c59697ff80c19364bcef6721ca3d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-UI-R9-WORKBENCH-VISUAL-SAMPLE-20260905.md",
+      "expected": "d1aa6874ee501e1a84693e02dbdd0d5af743b61e",
+      "actual": "d1aa6874ee501e1a84693e02dbdd0d5af743b61e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/CAP-PFC-01-local-pfc-migration-20260905.md",
+      "expected": "5c664f93fa203291d4cf6e043acf592bc7e9b98d",
+      "actual": "5c664f93fa203291d4cf6e043acf592bc7e9b98d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/ORIGINAL-PROTOTYPE-GUIDE-20260911.md",
+      "expected": "111193627be8f19e8cef87ec232dbae43e022e3c",
+      "actual": "111193627be8f19e8cef87ec232dbae43e022e3c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/ORIGINAL-PROTOTYPE-REVIEW-20260911.md",
+      "expected": "ad7a98aba0714e3c7a7be62e2c7142696b648b26",
+      "actual": "ad7a98aba0714e3c7a7be62e2c7142696b648b26",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-GOV-R1-DELIVERY-CONTROL-20260905.md",
+      "expected": "fb503e56dc89bdfef46a7c8a76d0b73820c59704",
+      "actual": "fb503e56dc89bdfef46a7c8a76d0b73820c59704",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-CLOSEOUT-20260908.md",
+      "expected": "aadd31a784db8bd51afc84dae9d6a19f80ded34b",
+      "actual": "aadd31a784db8bd51afc84dae9d6a19f80ded34b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-E4-STANDARD-LOCAL-EXECUTION-20260908.md",
+      "expected": "7325ecc2d37169a6ae95fcaf6fc75d8895385808",
+      "actual": "7325ecc2d37169a6ae95fcaf6fc75d8895385808",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-E41-REPLACEMENT-PAIRING-CORRECTION-20260908.md",
+      "expected": "c8c0b3a8f5a26523e0b9443eeb598808e8b4b2db",
+      "actual": "c8c0b3a8f5a26523e0b9443eeb598808e8b4b2db",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-E41-WORKSPACE-IDENTITY-REMEDIATION-20260908.md",
+      "expected": "aadeb17042db16f3cef9ec8676838e36e003e52a",
+      "actual": "aadeb17042db16f3cef9ec8676838e36e003e52a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-E42-BOUNDED-RUNTIME-RECOVERY-20260908.md",
+      "expected": "a3bf89be84800c875ac1d3dd46868ddce5757e1e",
+      "actual": "a3bf89be84800c875ac1d3dd46868ddce5757e1e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-STAGE-E-20260908.md",
+      "expected": "cd49026a2ee8aac8d0312485c4dac5663dd21c93",
+      "actual": "cd49026a2ee8aac8d0312485c4dac5663dd21c93",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-STAGE-E-isolated-bridge-codex-20260907.json",
+      "expected": "e852c212e7203c37f5870bc20e42ea0c3bab18fd",
+      "actual": "e852c212e7203c37f5870bc20e42ea0c3bab18fd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-STAGE-E-isolated-bridge-codex-20260908.json",
+      "expected": "683763701f04f58064fdde99ace5998874366911",
+      "actual": "683763701f04f58064fdde99ace5998874366911",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/POD-PFC-001-M2-AI-UX-R1-STANDARD-PREREQUISITE-REMEDIATION-20260908.md",
+      "expected": "e4a58871834272084d6e9133ac1ad4689be54ad8",
+      "actual": "e4a58871834272084d6e9133ac1ad4689be54ad8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/PROTOTYPE-PRODUCTION-READINESS-EVIDENCE-20260911.json",
+      "expected": "ee347d32e13f81709ebd1fa6532b8430138a83ef",
+      "actual": "ee347d32e13f81709ebd1fa6532b8430138a83ef",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/PROTOTYPE-PRODUCTION-READINESS-REVIEW-20260911.md",
+      "expected": "ff846d305ee3373a555027603bdc0b3f03b31bad",
+      "actual": "ff846d305ee3373a555027603bdc0b3f03b31bad",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/PROTOTYPE-RECHECK-20260912.md",
+      "expected": "b9552c70ca4170ea0e3add410d119ec917a1845c",
+      "actual": "b9552c70ca4170ea0e3add410d119ec917a1845c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/PROTOTYPE-RECHECK-EVIDENCE-20260912.json",
+      "expected": "e56d7f7bf7f6049184283ccb26afbdb90e70e81f",
+      "actual": "e56d7f7bf7f6049184283ccb26afbdb90e70e81f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/PROTOTYPE-REMEDIATION-20260912.md",
+      "expected": "a488a774d8caa075c7fee3dadbe3c51bcee676e5",
+      "actual": "a488a774d8caa075c7fee3dadbe3c51bcee676e5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/PROTOTYPE-REMEDIATION-EVIDENCE-20260912.json",
+      "expected": "3a7cd519ee8a4bff01040398c47641b409160836",
+      "actual": "3a7cd519ee8a4bff01040398c47641b409160836",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/.gitkeep",
+      "expected": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "actual": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/pc-1280x720-detail.png",
+      "expected": "7f864bc8b2a0b6a64aafc823fca02905930d0d84",
+      "actual": "7f864bc8b2a0b6a64aafc823fca02905930d0d84",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/pc-1280x720-worklist.png",
+      "expected": "7ae7fa9066cd81e2b5bd024337038171c3022a7f",
+      "actual": "7ae7fa9066cd81e2b5bd024337038171c3022a7f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/pc-1440x900-detail.png",
+      "expected": "ccca968a5d1a4cf10029bd2e90501f1739f0c2e3",
+      "actual": "ccca968a5d1a4cf10029bd2e90501f1739f0c2e3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/pc-1440x900-worklist.png",
+      "expected": "f8169c83299f68cbd66a7ac73f356e80e11f2c0c",
+      "actual": "f8169c83299f68cbd66a7ac73f356e80e11f2c0c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/pc-1920x1080-detail.png",
+      "expected": "fdfb59bf54009085468b7960b594ea89f2ba2dd5",
+      "actual": "fdfb59bf54009085468b7960b594ea89f2ba2dd5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T3/pc-1920x1080-worklist.png",
+      "expected": "bbb33af3d28e6625b7546d30ff6a4cfb07207bf7",
+      "actual": "bbb33af3d28e6625b7546d30ff6a4cfb07207bf7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T6/.gitkeep",
+      "expected": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "actual": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T6/pc-1280x720-impact.png",
+      "expected": "d940e01c98af944a898e3488ee25d225d2e12bde",
+      "actual": "d940e01c98af944a898e3488ee25d225d2e12bde",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T6/pc-1440x900-impact.png",
+      "expected": "7d4de80d69855e7b8ec99360ad8b80a125bb5d35",
+      "actual": "7d4de80d69855e7b8ec99360ad8b80a125bb5d35",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-T6/pc-1920x1080-impact.png",
+      "expected": "c86193ab93ca53df9b70917446f0eb31b41b045d",
+      "actual": "c86193ab93ca53df9b70917446f0eb31b41b045d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R8/.gitkeep",
+      "expected": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "actual": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R8/gate-center-1440.png",
+      "expected": "0149a603c4bb9cf369b773a7b84ae45b4f67a608",
+      "actual": "0149a603c4bb9cf369b773a7b84ae45b4f67a608",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R8/material-library-1440.png",
+      "expected": "0a64ff8d2a8f39bc80e74318956c0f754bc5c044",
+      "actual": "0a64ff8d2a8f39bc80e74318956c0f754bc5c044",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R8/ui-kit-1440.png",
+      "expected": "fc52e375ef1357b82b6be620f276da68efbf45d7",
+      "actual": "fc52e375ef1357b82b6be620f276da68efbf45d7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R8/workbench-1440.png",
+      "expected": "63a6e2b77b41d8a701e427a76ce3bdc6084d8bfb",
+      "actual": "63a6e2b77b41d8a701e427a76ce3bdc6084d8bfb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R9/pfc-ui-r9-final-1280.png",
+      "expected": "cb801f9cd5ac3943805987fdd5ee2b3fc0311dca",
+      "actual": "cb801f9cd5ac3943805987fdd5ee2b3fc0311dca",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R9/pfc-ui-r9-final-1440.png",
+      "expected": "271f4aeb7df6cb55f15002a22114a650a54f584d",
+      "actual": "271f4aeb7df6cb55f15002a22114a650a54f584d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/assets/CAP-PFC-01-UI-R9/pfc-ui-r9-final-2048.png",
+      "expected": "0534f7e97edeec8893178be4ff3d8a9774bb89b5",
+      "actual": "0534f7e97edeec8893178be4ff3d8a9774bb89b5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912.md",
+      "expected": "b8b98e73e7f9f16264496c90ec3bd332120e7014",
+      "actual": "b8b98e73e7f9f16264496c90ec3bd332120e7014",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/acceptance-closeout-20260913.json",
+      "expected": "c2b9c8bcb0ed0a1beb4cee23c76eb2cbe4785823",
+      "actual": "c2b9c8bcb0ed0a1beb4cee23c76eb2cbe4785823",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/acceptance.png",
+      "expected": "c0b82db919e5dd99f38c998ac5d3ebaf90d0c108",
+      "actual": "c0b82db919e5dd99f38c998ac5d3ebaf90d0c108",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/additional-checks-first-attempt.json",
+      "expected": "51ccf211dd1fb54bdc4c7a7e47a004fbf078b886",
+      "actual": "51ccf211dd1fb54bdc4c7a7e47a004fbf078b886",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/additional-checks.json",
+      "expected": "aa908fd834f97e563edec6b7605ecb57c7a19773",
+      "actual": "aa908fd834f97e563edec6b7605ecb57c7a19773",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/architecture-report.json",
+      "expected": "592b7a9f6796d1dcac7f8447d1cf6dcc83db479e",
+      "actual": "592b7a9f6796d1dcac7f8447d1cf6dcc83db479e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/browser-report.json",
+      "expected": "8ce377191cd6d02e7f10c3b0b168d3bb2a0e931f",
+      "actual": "8ce377191cd6d02e7f10c3b0b168d3bb2a0e931f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/document-check.json",
+      "expected": "4fe6c48007ec87444a59dab7c4ff159490a49ce2",
+      "actual": "4fe6c48007ec87444a59dab7c4ff159490a49ce2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/expanded.png",
+      "expected": "2488f2a1fc6e57a571cfd33be768969f621553a7",
+      "actual": "2488f2a1fc6e57a571cfd33be768969f621553a7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/failure.png",
+      "expected": "f26884ac8502e7adb3f4cd3093d9d844ff724810",
+      "actual": "f26884ac8502e7adb3f4cd3093d9d844ff724810",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/file-entry-check.json",
+      "expected": "de36770a8aabb54b4a3c41875538935a6bcef001",
+      "actual": "de36770a8aabb54b4a3c41875538935a6bcef001",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/gate-commands.json",
+      "expected": "b0f8c24e036d212b7a1fb487367755c4d40c8644",
+      "actual": "b0f8c24e036d212b7a1fb487367755c4d40c8644",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/observation.png",
+      "expected": "19dce487f5d6bc63f670c68725507f37d0dad6ec",
+      "actual": "19dce487f5d6bc63f670c68725507f37d0dad6ec",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/original-prototype-subgates.json",
+      "expected": "950e6825f6c1fa13c1bfbcebd0ac9f76bc464eda",
+      "actual": "950e6825f6c1fa13c1bfbcebd0ac9f76bc464eda",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/pg-dto-view.png",
+      "expected": "3e0b932624fcf91405a882796a37f6b46d1fb1b9",
+      "actual": "3e0b932624fcf91405a882796a37f6b46d1fb1b9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/prd.png",
+      "expected": "38cb42da05b4394cca62417b342ec0449d420f21",
+      "actual": "38cb42da05b4394cca62417b342ec0449d420f21",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/process-cleanup.json",
+      "expected": "a5467b23c7f29ad7671dd717fdf771880427f4db",
+      "actual": "a5467b23c7f29ad7671dd717fdf771880427f4db",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/prototype-1280.png",
+      "expected": "85ad11f805ae796b933fc9cbe82159434827f7b6",
+      "actual": "85ad11f805ae796b933fc9cbe82159434827f7b6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/prototype-1440.png",
+      "expected": "5e5195d71b6d368292b5d9ad0e4dab3b9111905a",
+      "actual": "5e5195d71b6d368292b5d9ad0e4dab3b9111905a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/prototype-1920.png",
+      "expected": "72a6547af3edcfaff89c43c4d2e6abf891b3c8ed",
+      "actual": "72a6547af3edcfaff89c43c4d2e6abf891b3c8ed",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/reference-1280.png",
+      "expected": "386edbd1dfe9c5e547cc22ab1a68e2a6277e7ef9",
+      "actual": "386edbd1dfe9c5e547cc22ab1a68e2a6277e7ef9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/reference-1440.png",
+      "expected": "12566f8441ef964cf00a96184fc319dc8038b775",
+      "actual": "12566f8441ef964cf00a96184fc319dc8038b775",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/reference-1920.png",
+      "expected": "1a440ca8656ffcaa61df3fa82c5f75622b5fe5b9",
+      "actual": "1a440ca8656ffcaa61df3fa82c5f75622b5fe5b9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/reference-shell.json",
+      "expected": "519ed3cd57692c4c2f881fcc90449d0261753b3c",
+      "actual": "519ed3cd57692c4c2f881fcc90449d0261753b3c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/related-diff.png",
+      "expected": "0df5d8c99e3f8995be971765200fca9a8d1db63f",
+      "actual": "0df5d8c99e3f8995be971765200fca9a8d1db63f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/smoke-report.json",
+      "expected": "e8e251da4c674244f2e84fe0853af2ba8ddf4213",
+      "actual": "e8e251da4c674244f2e84fe0853af2ba8ddf4213",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/source-manifest.json",
+      "expected": "3c16d3efc8024d08b44f85b1d1297fafc99db1a6",
+      "actual": "3c16d3efc8024d08b44f85b1d1297fafc99db1a6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/flow-prototype-20260912/unknown.png",
+      "expected": "3f12e73be4537858c796fba6598cb02034a11eef",
+      "actual": "3f12e73be4537858c796fba6598cb02034a11eef",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912.md",
+      "expected": "7946bc16fe826f004d0314ec7a47e11cefcac6a7",
+      "actual": "7946bc16fe826f004d0314ec7a47e11cefcac6a7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/browser-report.json",
+      "expected": "85485b929fb817ca23899fbd7ece9cb06b9e918e",
+      "actual": "85485b929fb817ca23899fbd7ece9cb06b9e918e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/file-changes.tsv",
+      "expected": "0042f4d3e003878978ee953d2d05473682616bd6",
+      "actual": "0042f4d3e003878978ee953d2d05473682616bd6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/final-gate-results.json",
+      "expected": "38d68e7856b39c9753238028540991540ab6cad3",
+      "actual": "38d68e7856b39c9753238028540991540ab6cad3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/first-gate-results.json",
+      "expected": "fbcf33cc615d7828ea38dd0af1205600fff8be0e",
+      "actual": "fbcf33cc615d7828ea38dd0af1205600fff8be0e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/before-browser-retry-results.json",
+      "expected": "94924827abcb33a521fbe65c841bacefa9bdd38f",
+      "actual": "94924827abcb33a521fbe65c841bacefa9bdd38f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/browser-report.json",
+      "expected": "ba96b99b23ce63230132030884eef0bfa2529064",
+      "actual": "ba96b99b23ce63230132030884eef0bfa2529064",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/diagnose-m1-e2e.log.txt",
+      "expected": "3c94fd5c20e9cc334062cd3505b526c8c6acf1c8",
+      "actual": "3c94fd5c20e9cc334062cd3505b526c8c6acf1c8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/first-results.json",
+      "expected": "afbb162f5edea93b5db4c43d794f2fa462a9374a",
+      "actual": "afbb162f5edea93b5db4c43d794f2fa462a9374a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/first-verify-m1-e2e.mjs.log.txt",
+      "expected": "dd58c3cebe1d5f32aa26bc483daa521f6e813f56",
+      "actual": "dd58c3cebe1d5f32aa26bc483daa521f6e813f56",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/merged-source-manifest.json",
+      "expected": "535e5cc35cd3af46bd7aa78717ad6581dab70a51",
+      "actual": "535e5cc35cd3af46bd7aa78717ad6581dab70a51",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/process-cleanup.json",
+      "expected": "702d17514cb7838894ee0e08a29242bf1a40c2e6",
+      "actual": "702d17514cb7838894ee0e08a29242bf1a40c2e6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/prototype-report.json",
+      "expected": "949ce068c21e7403ec30a48777879e570683d192",
+      "actual": "949ce068c21e7403ec30a48777879e570683d192",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/results.json",
+      "expected": "ad9d275b95f59cdcb6584d580c455b69f49e0022",
+      "actual": "ad9d275b95f59cdcb6584d580c455b69f49e0022",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/sandbox-first-results.json",
+      "expected": "c64006dee6aad9d1fc5b6a992a5f5011ed80141a",
+      "actual": "c64006dee6aad9d1fc5b6a992a5f5011ed80141a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/sandbox-first-verify-prototype.mjs.log.txt",
+      "expected": "eaa6af975ae6df7267d0b08905170959960ab3e2",
+      "actual": "eaa6af975ae6df7267d0b08905170959960ab3e2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m1-e2e.mjs.log.txt",
+      "expected": "46480e3cc9577f69d582049b9e62a74903d42785",
+      "actual": "46480e3cc9577f69d582049b9e62a74903d42785",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m1-layer.mjs.log.txt",
+      "expected": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "actual": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m2b.mjs.log.txt",
+      "expected": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "actual": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m2b2-browser-retry.mjs.log.txt",
+      "expected": "67002beb9c8fc88b7f397a1c354510455ffa1fd1",
+      "actual": "67002beb9c8fc88b7f397a1c354510455ffa1fd1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m2b2-browser.mjs.log.txt",
+      "expected": "f7de35e6d21f3549022bf82d934d85727769fabf",
+      "actual": "f7de35e6d21f3549022bf82d934d85727769fabf",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m2b2-domain.mjs.log.txt",
+      "expected": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "actual": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-m2b2-model.mjs.log.txt",
+      "expected": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "actual": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-prototype.mjs.log.txt",
+      "expected": "b7c88761a4d838688cda88029e6c037eb0ab4e13",
+      "actual": "b7c88761a4d838688cda88029e6c037eb0ab4e13",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-server-m2.mjs.log.txt",
+      "expected": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "actual": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/merge-verification/verify-server.mjs.log.txt",
+      "expected": "2fcbf61105a8886c61e8ebb277c2a1e669d5f691",
+      "actual": "2fcbf61105a8886c61e8ebb277c2a1e669d5f691",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/process-cleanup.json",
+      "expected": "884152ee381e1731d83a48f544fa8d98c5beb6bd",
+      "actual": "884152ee381e1731d83a48f544fa8d98c5beb6bd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/prototype-report.json",
+      "expected": "c2ca911f91a3770e9c3a745e1e3dc70262518624",
+      "actual": "c2ca911f91a3770e9c3a745e1e3dc70262518624",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/red-2026-09-12T06-42-25-255Z.json",
+      "expected": "60520096e4048fb4f9a765df70e5816720abdc9d",
+      "actual": "60520096e4048fb4f9a765df70e5816720abdc9d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/red-2026-09-12T06-44-04-723Z.json",
+      "expected": "2daad6619a4b8d444fc61e65d318bf949853dd39",
+      "actual": "2daad6619a4b8d444fc61e65d318bf949853dd39",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/red-2026-09-12T06-48-27-416Z.json",
+      "expected": "afe5187968b0223967469bf43f58de419deb4e68",
+      "actual": "afe5187968b0223967469bf43f58de419deb4e68",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/red-2026-09-12T06-54-21-593Z.json",
+      "expected": "6301557a0e56890e002947f52a291adf6e7a802b",
+      "actual": "6301557a0e56890e002947f52a291adf6e7a802b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/red-2026-09-12T06-58-48-777Z.json",
+      "expected": "65b627e5b6bbaec6a1339ed2d76b5b8fbaf55794",
+      "actual": "65b627e5b6bbaec6a1339ed2d76b5b8fbaf55794",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/red-evidence-index.json",
+      "expected": "e32db7753ac9313121003a7aa8fe180aa7ec403b",
+      "actual": "e32db7753ac9313121003a7aa8fe180aa7ec403b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/screenshots.json",
+      "expected": "a1260ef91551a2ea7b0f4418f2041e6ca2503a5f",
+      "actual": "a1260ef91551a2ea7b0f4418f2041e6ca2503a5f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/tested-source-manifest.json",
+      "expected": "c154b1f58798e89cdd4d26ff2b44ca798fa09ece",
+      "actual": "c154b1f58798e89cdd4d26ff2b44ca798fa09ece",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m1-e2e.mjs.log.txt",
+      "expected": "46480e3cc9577f69d582049b9e62a74903d42785",
+      "actual": "46480e3cc9577f69d582049b9e62a74903d42785",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m1-layer.mjs.log.txt",
+      "expected": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "actual": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m2b.mjs.log.txt",
+      "expected": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "actual": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m2b2-browser-retry.mjs.log.txt",
+      "expected": "3c1943f73ce6d74734392a00e0124ea246fd353e",
+      "actual": "3c1943f73ce6d74734392a00e0124ea246fd353e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m2b2-browser.mjs.log.txt",
+      "expected": "7ca6c9716e1968bbd4849f0f1e23f22de93ed7de",
+      "actual": "7ca6c9716e1968bbd4849f0f1e23f22de93ed7de",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m2b2-domain.mjs.log.txt",
+      "expected": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "actual": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-m2b2-model.mjs.log.txt",
+      "expected": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "actual": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-prototype.mjs.log.txt",
+      "expected": "91dbdd9803e4400c1ae3cd6e79f616f6e287f115",
+      "actual": "91dbdd9803e4400c1ae3cd6e79f616f6e287f115",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-server-m2.mjs.log.txt",
+      "expected": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "actual": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2b2-acceptance-20260912/verify-server.mjs.log.txt",
+      "expected": "de0bd4aa5c199568e8f7834ae1a2ec2a26c1dfa7",
+      "actual": "de0bd4aa5c199568e8f7834ae1a2ec2a26c1dfa7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912.md",
+      "expected": "ac1da93794e12db6f955ef83ffbc4703dba11f94",
+      "actual": "ac1da93794e12db6f955ef83ffbc4703dba11f94",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/browser-report.json",
+      "expected": "a91d0f493d1fdd97bbca50ff3b74c5ce1408622d",
+      "actual": "a91d0f493d1fdd97bbca50ff3b74c5ce1408622d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/file-changes.tsv",
+      "expected": "e78d9e103ca2674bf190c79b16b2c4e697f2697b",
+      "actual": "e78d9e103ca2674bf190c79b16b2c4e697f2697b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-independent-cleanup.json",
+      "expected": "23c4a8f599ed592ea88baff6c5aa525ffc9c0bde",
+      "actual": "23c4a8f599ed592ea88baff6c5aa525ffc9c0bde",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-results.json",
+      "expected": "7480c00b117590365ff32b439922f0845822c2cd",
+      "actual": "7480c00b117590365ff32b439922f0845822c2cd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-stress-delay.log.txt",
+      "expected": "6c624c477378165f4c0a0a7c8d99e812921151a8",
+      "actual": "6c624c477378165f4c0a0a7c8d99e812921151a8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-stress-repaint.log.txt",
+      "expected": "145c749d782a1133c3564658a55e4841b027214e",
+      "actual": "145c749d782a1133c3564658a55e4841b027214e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m1-e2e.mjs.log.txt",
+      "expected": "6b5583c6a2b8dfae337427aca7894487143d8a8a",
+      "actual": "6b5583c6a2b8dfae337427aca7894487143d8a8a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m1-layer.mjs.log.txt",
+      "expected": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "actual": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m2b.mjs.log.txt",
+      "expected": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "actual": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m2b2-browser.mjs.log.txt",
+      "expected": "3aaa791e2fe43b7a80f627e863c46f9f1a029b15",
+      "actual": "3aaa791e2fe43b7a80f627e863c46f9f1a029b15",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m2b2-domain.mjs.log.txt",
+      "expected": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "actual": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m2b2-model.mjs.log.txt",
+      "expected": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "actual": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-m2c-pg.mjs.log.txt",
+      "expected": "9cd059c626f54cb19b760c2302e3bd7d602481ab",
+      "actual": "9cd059c626f54cb19b760c2302e3bd7d602481ab",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-prototype.mjs.log.txt",
+      "expected": "f04eca8db9a0de8744808a085fdd7acb2fb43990",
+      "actual": "f04eca8db9a0de8744808a085fdd7acb2fb43990",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-server-m2.mjs.log.txt",
+      "expected": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "actual": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/final-verify-server.mjs.log.txt",
+      "expected": "b914b94a9357ba3dc0bf61c8ff47f6f85e6eca30",
+      "actual": "b914b94a9357ba3dc0bf61c8ff47f6f85e6eca30",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/green-m1-delay.log.txt",
+      "expected": "09aa189b9a5d525568e90c22987d0b22fc34fb59",
+      "actual": "09aa189b9a5d525568e90c22987d0b22fc34fb59",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/green-m2b2-repaint.log.txt",
+      "expected": "b3d768545cf50049f37265cc28969fe3cb1a097b",
+      "actual": "b3d768545cf50049f37265cc28969fe3cb1a097b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/merge-preflight.json",
+      "expected": "db1726f05a0b5552258b4d558c405d59d05e8678",
+      "actual": "db1726f05a0b5552258b4d558c405d59d05e8678",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/pg-first.log.txt",
+      "expected": "1f78b939de67c510c308ba798b53f1674b55a3eb",
+      "actual": "1f78b939de67c510c308ba798b53f1674b55a3eb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/pg-report.json",
+      "expected": "e40228d1993e1117870bae1948f12f184d456ddc",
+      "actual": "e40228d1993e1117870bae1948f12f184d456ddc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/preserved-business-source.json",
+      "expected": "1503f14d9118531f83dddccf0d047162df2ad791",
+      "actual": "1503f14d9118531f83dddccf0d047162df2ad791",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/prototype-report.json",
+      "expected": "7909e2fedbf96a902c20cdc7b6d8023b9552e846",
+      "actual": "7909e2fedbf96a902c20cdc7b6d8023b9552e846",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/red-m1-delay.log.txt",
+      "expected": "dd58c3cebe1d5f32aa26bc483daa521f6e813f56",
+      "actual": "dd58c3cebe1d5f32aa26bc483daa521f6e813f56",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/red-m2b2-repaint.log.txt",
+      "expected": "59370de9cecc91303a1b7978b3ad547a72422e36",
+      "actual": "59370de9cecc91303a1b7978b3ad547a72422e36",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/red-pg.log.txt",
+      "expected": "3cc393fd395c413f541a984c0d65052d170eaf33",
+      "actual": "3cc393fd395c413f541a984c0d65052d170eaf33",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/red-readiness.log.txt",
+      "expected": "054f7d5e69f64280ed2475dd6ce9a67e9f1ba62b",
+      "actual": "054f7d5e69f64280ed2475dd6ce9a67e9f1ba62b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/screenshots.json",
+      "expected": "fcb936a8622c6a3c40a95e5b6cefc9ece472c188",
+      "actual": "fcb936a8622c6a3c40a95e5b6cefc9ece472c188",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/source-manifest.json",
+      "expected": "f5b38da4878a259e29e0c68de10584750abd35ec",
+      "actual": "f5b38da4878a259e29e0c68de10584750abd35ec",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-1-storage-20260912/static-checks.txt",
+      "expected": "3ee1a132a11fb2e67dc24e9a7a67f1c7818c3189",
+      "actual": "3ee1a132a11fb2e67dc24e9a7a67f1c7818c3189",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912.md",
+      "expected": "d2692fc08485d49cc68e5a02228b400ed1f0ab6a",
+      "actual": "d2692fc08485d49cc68e5a02228b400ed1f0ab6a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/aborted-browser-cleanup.json",
+      "expected": "aab0735985404666a0596ebc9455bcc1174b50d5",
+      "actual": "aab0735985404666a0596ebc9455bcc1174b50d5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/activation-preflight.json",
+      "expected": "7ab64738d73eaac4012f1a3704d6a5d9717aafce",
+      "actual": "7ab64738d73eaac4012f1a3704d6a5d9717aafce",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/browser.json",
+      "expected": "8cb62f0db498673235dec1203d73df942ce102a5",
+      "actual": "8cb62f0db498673235dec1203d73df942ce102a5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/cleanup-independent.json",
+      "expected": "dd6f33633cda372299e01b2569b6969270a74196",
+      "actual": "dd6f33633cda372299e01b2569b6969270a74196",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/document-check.json",
+      "expected": "0a350491049da618fcfc2ca795af7ba9a6f299a0",
+      "actual": "0a350491049da618fcfc2ca795af7ba9a6f299a0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/domain.json",
+      "expected": "f75dac0b614c470a34c24e9ea2f4e070be3ee289",
+      "actual": "f75dac0b614c470a34c24e9ea2f4e070be3ee289",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/file-diff.json",
+      "expected": "6265da223aa80bfca6ed66633d26c0496f178cbc",
+      "actual": "6265da223aa80bfca6ed66633d26c0496f178cbc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/file-diff.md",
+      "expected": "ace6e29b89b139851f99f54bfd5f9893535c0e39",
+      "actual": "ace6e29b89b139851f99f54bfd5f9893535c0e39",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/gates.json",
+      "expected": "fc034719649187730dd9f90f4e203dd0fb4fe434",
+      "actual": "fc034719649187730dd9f90f4e203dd0fb4fe434",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-empty.png",
+      "expected": "8609890b188bd61a106fe08f1655f2376b48dbb6",
+      "actual": "8609890b188bd61a106fe08f1655f2376b48dbb6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-file-restored.png",
+      "expected": "109ca9b15b4adb3dd5d9444b32d3387978532da6",
+      "actual": "109ca9b15b4adb3dd5d9444b32d3387978532da6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-image-preview.png",
+      "expected": "85ccb387c67fccd1de3b29af65b73bc6613837f9",
+      "actual": "85ccb387c67fccd1de3b29af65b73bc6613837f9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-read-error.png",
+      "expected": "2f1ce1c045f2bd7586bc9301b3ccdb15a53e9ada",
+      "actual": "2f1ce1c045f2bd7586bc9301b3ccdb15a53e9ada",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-workbench-1280.png",
+      "expected": "459358c06c2f76d39a71b23fdd9ea7704f55b9be",
+      "actual": "459358c06c2f76d39a71b23fdd9ea7704f55b9be",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-workbench-1440.png",
+      "expected": "3c92726ed7acd1a2d8facd9bdf4cd6247c49fc5a",
+      "actual": "3c92726ed7acd1a2d8facd9bdf4cd6247c49fc5a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/pg-workbench-1920.png",
+      "expected": "1754f94b9d98c998226955acda2f234971e7836e",
+      "actual": "1754f94b9d98c998226955acda2f234971e7836e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/process-readback.json",
+      "expected": "8b3531e1171b2f0fef0b567fff164dc04da86b64",
+      "actual": "8b3531e1171b2f0fef0b567fff164dc04da86b64",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/prototype-subgates.json",
+      "expected": "3cab2e8f9454f9108d93b2cdfdafcf6b8e81d5ee",
+      "actual": "3cab2e8f9454f9108d93b2cdfdafcf6b8e81d5ee",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/scope-check.json",
+      "expected": "2512e4f261f62afc4aff55b5c002c3c9c3747729",
+      "actual": "2512e4f261f62afc4aff55b5c002c3c9c3747729",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/source-manifest.json",
+      "expected": "8d89daee81af3fa245f75038360569edb39e0da4",
+      "actual": "8d89daee81af3fa245f75038360569edb39e0da4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-guide-browser.mjs.log.txt",
+      "expected": "8c133c83ff987086fc00656929fa587b2b933f38",
+      "actual": "8c133c83ff987086fc00656929fa587b2b933f38",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-guide-model.mjs.log.txt",
+      "expected": "9bf1835472e57698f6304de3700e298f78449add",
+      "actual": "9bf1835472e57698f6304de3700e298f78449add",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-integrity.mjs.log.txt",
+      "expected": "00c5b711ea3f189aff385cc905ff3b510c378721",
+      "actual": "00c5b711ea3f189aff385cc905ff3b510c378721",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m1-e2e.mjs.txt",
+      "expected": "c40277a2e95394d5d73e2718a65c686c7263c80c",
+      "actual": "c40277a2e95394d5d73e2718a65c686c7263c80c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m1-layer.mjs.txt",
+      "expected": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "actual": "8d93e9dc8aee33f14bcc62a0de2eb92381a5d007",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b.mjs.txt",
+      "expected": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "actual": "529ecde3b38bb6241ab02cb5475b6d0a90c1e645",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b2-browser.mjs.txt",
+      "expected": "cf45ec3274319b0b38ed950693c3f4f90e431b0a",
+      "actual": "cf45ec3274319b0b38ed950693c3f4f90e431b0a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b2-domain.mjs.txt",
+      "expected": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "actual": "a7809a0c98ffb4ec3ebf46a66cba3e0c1de01808",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2b2-model.mjs.txt",
+      "expected": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "actual": "b3099ca2dff70a686adb404cce8a78f0e0c9a851",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-architecture.mjs.txt",
+      "expected": "4fa127a29dec53cadc7fbda2cbf7d859e68ebc06",
+      "actual": "4fa127a29dec53cadc7fbda2cbf7d859e68ebc06",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-browser.mjs.txt",
+      "expected": "df8f85d7c02c796912b9531905bc0bcd2d977ad5",
+      "actual": "df8f85d7c02c796912b9531905bc0bcd2d977ad5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-domain.mjs.txt",
+      "expected": "e4170ccc7dcc411acd7f67798619e3b34ba7e31d",
+      "actual": "e4170ccc7dcc411acd7f67798619e3b34ba7e31d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-m2c-pg.mjs.txt",
+      "expected": "0597d6b4fd56435c37c59a4b558867d56c8698ac",
+      "actual": "0597d6b4fd56435c37c59a4b558867d56c8698ac",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-production.cjs.log.txt",
+      "expected": "25282843bf73d6fdf72099c28459289b00f8eb4e",
+      "actual": "25282843bf73d6fdf72099c28459289b00f8eb4e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-prototype.mjs.txt",
+      "expected": "ef536e1d5aa2da5f64679c27c938ce3edc3f5ecc",
+      "actual": "ef536e1d5aa2da5f64679c27c938ce3edc3f5ecc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-scope7.mjs.log.txt",
+      "expected": "0d8d7a502098357189d5681749cfe9f30a465433",
+      "actual": "0d8d7a502098357189d5681749cfe9f30a465433",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-server-m2.mjs.txt",
+      "expected": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "actual": "796349aa9e7160e6e67f4b2dc426c0dd21231f52",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-server.mjs.txt",
+      "expected": "86a2581b7c2078b8d144a33fa3e6d60af316d8c4",
+      "actual": "86a2581b7c2078b8d144a33fa3e6d60af316d8c4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-2-domain-20260912/verify-static.mjs.log.txt",
+      "expected": "4f2b23b8391e3289d600d5bb266fa61256480904",
+      "actual": "4f2b23b8391e3289d600d5bb266fa61256480904",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913.md",
+      "expected": "619791ceae1af59457218dba449a7ff20b6b70bc",
+      "actual": "619791ceae1af59457218dba449a7ff20b6b70bc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/acceptance-ce2c44c-20260913.json",
+      "expected": "335fcb12e51343770830ca013f23dede2525cfa0",
+      "actual": "335fcb12e51343770830ca013f23dede2525cfa0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/cleanup-readback.json",
+      "expected": "d6f0c58cac054f3fed556d1fae441be992aeb0a8",
+      "actual": "d6f0c58cac054f3fed556d1fae441be992aeb0a8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-01.json",
+      "expected": "0a112ff19ce26a5feb45fcc4dc1ab71e37108741",
+      "actual": "0a112ff19ce26a5feb45fcc4dc1ab71e37108741",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-02.json",
+      "expected": "365d7eeac4a3fead354538a1da533d093e24cee4",
+      "actual": "365d7eeac4a3fead354538a1da533d093e24cee4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-03.json",
+      "expected": "ca36cda0bfb2c4e55b59ac67e6187ae8b349c86c",
+      "actual": "ca36cda0bfb2c4e55b59ac67e6187ae8b349c86c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-04.json",
+      "expected": "46d1ec11de0d07b239858f477a9aac0850528e39",
+      "actual": "46d1ec11de0d07b239858f477a9aac0850528e39",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-05.json",
+      "expected": "26d459711acbeebacf4a3095096159ff2556a6fd",
+      "actual": "26d459711acbeebacf4a3095096159ff2556a6fd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-06.json",
+      "expected": "4d95b8d3e158245d564ad0cfa922c893ee8cdf18",
+      "actual": "4d95b8d3e158245d564ad0cfa922c893ee8cdf18",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-07.json",
+      "expected": "78b26e7435ecf7d4a2f0de39a86dccdbfd0af096",
+      "actual": "78b26e7435ecf7d4a2f0de39a86dccdbfd0af096",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-08.json",
+      "expected": "48a281186d3de8f6c2293f06635021295a0dc383",
+      "actual": "48a281186d3de8f6c2293f06635021295a0dc383",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-09.json",
+      "expected": "1601924a40504bf29217c28631528b8d1100639e",
+      "actual": "1601924a40504bf29217c28631528b8d1100639e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-10.json",
+      "expected": "25bad30d49b7882757fffa885fa2dcf92dadfb64",
+      "actual": "25bad30d49b7882757fffa885fa2dcf92dadfb64",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-11.json",
+      "expected": "46e7110ed27b1ed8b157571dafc0c7884b762a92",
+      "actual": "46e7110ed27b1ed8b157571dafc0c7884b762a92",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-12.json",
+      "expected": "d27ef63f1a8f75a0fb744ab4174edeafcce4280d",
+      "actual": "d27ef63f1a8f75a0fb744ab4174edeafcce4280d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-13.json",
+      "expected": "d9e85be126083437d14725043b5a71ca852498ec",
+      "actual": "d9e85be126083437d14725043b5a71ca852498ec",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-14.json",
+      "expected": "20c96b2ede5d12164c6770d5107481fc211c63ea",
+      "actual": "20c96b2ede5d12164c6770d5107481fc211c63ea",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-15.json",
+      "expected": "678cf11b1c787aa9044399c2365fcc1615d19315",
+      "actual": "678cf11b1c787aa9044399c2365fcc1615d19315",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-16.json",
+      "expected": "6d7f5e755743008eb449af3547c6314eba4ae57d",
+      "actual": "6d7f5e755743008eb449af3547c6314eba4ae57d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-17.json",
+      "expected": "91a2b21bb49a702f40e478285bbc924d759869ae",
+      "actual": "91a2b21bb49a702f40e478285bbc924d759869ae",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789237829225-18.json",
+      "expected": "35b59ad1642a6a44ac7307588e3c0cdf4335d074",
+      "actual": "35b59ad1642a6a44ac7307588e3c0cdf4335d074",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-01.json",
+      "expected": "910494254e8781c8f7100a7f0ce6efb9fe2c02ce",
+      "actual": "910494254e8781c8f7100a7f0ce6efb9fe2c02ce",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-02.json",
+      "expected": "ace6af6f3b9cec0f4d85f428deed0500517fae0c",
+      "actual": "ace6af6f3b9cec0f4d85f428deed0500517fae0c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-03.json",
+      "expected": "1f47b33a5569459c5dd553fe3daf75da0102052b",
+      "actual": "1f47b33a5569459c5dd553fe3daf75da0102052b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-04.json",
+      "expected": "c5c6f357891b6b7992f974396a01d3c1cb729d1c",
+      "actual": "c5c6f357891b6b7992f974396a01d3c1cb729d1c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-05.json",
+      "expected": "cbedf07ac5e9e575391c938a46c06c5cd51630dc",
+      "actual": "cbedf07ac5e9e575391c938a46c06c5cd51630dc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-06.json",
+      "expected": "0a7a9ff85bf496f67e8ec259accb2a13820e50a3",
+      "actual": "0a7a9ff85bf496f67e8ec259accb2a13820e50a3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-07.json",
+      "expected": "7b4de0ea14c83d28031c3ae08333630d9a4ccb9e",
+      "actual": "7b4de0ea14c83d28031c3ae08333630d9a4ccb9e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-08.json",
+      "expected": "c98acfc2f86ad47fe868b061e07e988c5ef82480",
+      "actual": "c98acfc2f86ad47fe868b061e07e988c5ef82480",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-09.json",
+      "expected": "001c6ba9323115bb382e1a5ce2ca277125d79070",
+      "actual": "001c6ba9323115bb382e1a5ce2ca277125d79070",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-10.json",
+      "expected": "7245330b5478a8503d00e7f2d8e2cb5643bbd642",
+      "actual": "7245330b5478a8503d00e7f2d8e2cb5643bbd642",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-11.json",
+      "expected": "177cdc35abbcc93e250aabb3c26be6ead85b62f3",
+      "actual": "177cdc35abbcc93e250aabb3c26be6ead85b62f3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-12.json",
+      "expected": "534f32539e55f69ade904b3eea5a9dd2eba67707",
+      "actual": "534f32539e55f69ade904b3eea5a9dd2eba67707",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-13.json",
+      "expected": "0a1edf231bec53143ca308ccc616ba8be88ea736",
+      "actual": "0a1edf231bec53143ca308ccc616ba8be88ea736",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-14.json",
+      "expected": "4b0fc1a114bf0b172b645ea27148bf85513620d3",
+      "actual": "4b0fc1a114bf0b172b645ea27148bf85513620d3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-15.json",
+      "expected": "abffcd8ad6e0edd216b17bcae271b4f1eb843f49",
+      "actual": "abffcd8ad6e0edd216b17bcae271b4f1eb843f49",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-16.json",
+      "expected": "ffe00b30fddefd08b4e6c878275a23b336b8a1f0",
+      "actual": "ffe00b30fddefd08b4e6c878275a23b336b8a1f0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-17.json",
+      "expected": "5ff4a0ad1a2dddf636616b253c35aa673ae35e03",
+      "actual": "5ff4a0ad1a2dddf636616b253c35aa673ae35e03",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789238419489-18.json",
+      "expected": "70c5f91857a8276c404ce7cace15fa4c18fccc08",
+      "actual": "70c5f91857a8276c404ce7cace15fa4c18fccc08",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-01.json",
+      "expected": "4a1478d98b910d5a3ba3c6aa2077b5dc6c70877f",
+      "actual": "4a1478d98b910d5a3ba3c6aa2077b5dc6c70877f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-02.json",
+      "expected": "0d9cdbad3d68767b8f316d2594bb830953ef7bda",
+      "actual": "0d9cdbad3d68767b8f316d2594bb830953ef7bda",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-03.json",
+      "expected": "24ac00ebaa9a81c4a866bb8f8c64c278478e27c3",
+      "actual": "24ac00ebaa9a81c4a866bb8f8c64c278478e27c3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-04.json",
+      "expected": "8e40cd28a8b7fedab79cf1b25fba096735f4a881",
+      "actual": "8e40cd28a8b7fedab79cf1b25fba096735f4a881",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-05.json",
+      "expected": "771f98b9985f3966e241f1bb6ef50f791bb1430d",
+      "actual": "771f98b9985f3966e241f1bb6ef50f791bb1430d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-06.json",
+      "expected": "82254a59bc50083f72b21cf42640a99c3161e832",
+      "actual": "82254a59bc50083f72b21cf42640a99c3161e832",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-07.json",
+      "expected": "065c499a079732162587fed042fb912a5bf24427",
+      "actual": "065c499a079732162587fed042fb912a5bf24427",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-08.json",
+      "expected": "fc1af71fd2da08b1c6bbd6316e98d9fd968faa69",
+      "actual": "fc1af71fd2da08b1c6bbd6316e98d9fd968faa69",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-09.json",
+      "expected": "4b090cbe7224e7a0360bbfd166bce24bbaeeab05",
+      "actual": "4b090cbe7224e7a0360bbfd166bce24bbaeeab05",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-10.json",
+      "expected": "8f20a63c6eb05210c5581771ae8f63ba711b5081",
+      "actual": "8f20a63c6eb05210c5581771ae8f63ba711b5081",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-11.json",
+      "expected": "aa14d9a4800035066a7ac00071b07019a2ad98a0",
+      "actual": "aa14d9a4800035066a7ac00071b07019a2ad98a0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-12.json",
+      "expected": "b32e200a8ebdb2f3f4c7513ee54399db2db78d1d",
+      "actual": "b32e200a8ebdb2f3f4c7513ee54399db2db78d1d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-13.json",
+      "expected": "087b4ecd0c194586131d4875148ab4e434711f4e",
+      "actual": "087b4ecd0c194586131d4875148ab4e434711f4e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-14.json",
+      "expected": "54aba3b4472920b73b615518801945dd5ba9e7b9",
+      "actual": "54aba3b4472920b73b615518801945dd5ba9e7b9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-15.json",
+      "expected": "6a8393a1b907ded5f679569a5e87a0c174d0a615",
+      "actual": "6a8393a1b907ded5f679569a5e87a0c174d0a615",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-16.json",
+      "expected": "af9fe057caeb2955589f16c2555dca73dbc763fc",
+      "actual": "af9fe057caeb2955589f16c2555dca73dbc763fc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-17.json",
+      "expected": "5274ec122ac137cb539ad6def92e5d0319a76a59",
+      "actual": "5274ec122ac137cb539ad6def92e5d0319a76a59",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/command-1789252092676-18.json",
+      "expected": "9f1e9710ffddec51b50898255ffe93473fb41a1d",
+      "actual": "9f1e9710ffddec51b50898255ffe93473fb41a1d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/commands-1789237829225.json",
+      "expected": "1f82b7b77d8dde0f68da705a31ab6aed616463ba",
+      "actual": "1f82b7b77d8dde0f68da705a31ab6aed616463ba",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/commands-1789238419489.json",
+      "expected": "ff810009296aead20fef9b8c9c2fad03c7c2aa67",
+      "actual": "ff810009296aead20fef9b8c9c2fad03c7c2aa67",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/commands-1789252092676.json",
+      "expected": "60b19aaf8eca3beff6e02a253fa13e0c4ce7e3f3",
+      "actual": "60b19aaf8eca3beff6e02a253fa13e0c4ce7e3f3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/browser.json",
+      "expected": "d8ad4d025b7da73daa5e63981cbb92a9c496afc1",
+      "actual": "d8ad4d025b7da73daa5e63981cbb92a9c496afc1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/domain.json",
+      "expected": "b4442f1849418c0e13fa8d2acbc9cd57313b5d25",
+      "actual": "b4442f1849418c0e13fa8d2acbc9cd57313b5d25",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-empty.png",
+      "expected": "4857115d53d7e04150782fbeb83e8c45a1866b98",
+      "actual": "4857115d53d7e04150782fbeb83e8c45a1866b98",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-file-restored.png",
+      "expected": "9c2017fcf49e7e4b5c4735dc1f3a8fb473864960",
+      "actual": "9c2017fcf49e7e4b5c4735dc1f3a8fb473864960",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-image-preview.png",
+      "expected": "05843e27cd749095d745da27a076799cb678d890",
+      "actual": "05843e27cd749095d745da27a076799cb678d890",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-read-error.png",
+      "expected": "b54821f3540370ce1fc566feba438466b5baa56d",
+      "actual": "b54821f3540370ce1fc566feba438466b5baa56d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-workbench-1280.png",
+      "expected": "b931b5aa1cec85c3c3905b5341bc7ac54b53fb81",
+      "actual": "b931b5aa1cec85c3c3905b5341bc7ac54b53fb81",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-workbench-1440.png",
+      "expected": "f011e741ab8abfafea6d7b5c08b77af2188e1c5b",
+      "actual": "f011e741ab8abfafea6d7b5c08b77af2188e1c5b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/domain/pg-workbench-1920.png",
+      "expected": "ab1400ad2106532fee989b021de886c459bd3a34",
+      "actual": "ab1400ad2106532fee989b021de886c459bd3a34",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/acceptance.png",
+      "expected": "62acbef5b43c09a76945beab141f2046bac94674",
+      "actual": "62acbef5b43c09a76945beab141f2046bac94674",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/architecture-report.json",
+      "expected": "ab9ac3213b576ba43a3886b98fd6ad1158673f46",
+      "actual": "ab9ac3213b576ba43a3886b98fd6ad1158673f46",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/browser-report.json",
+      "expected": "1e234f9654c5131555253c34d7f5433fa811b38d",
+      "actual": "1e234f9654c5131555253c34d7f5433fa811b38d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/expanded.png",
+      "expected": "2488f2a1fc6e57a571cfd33be768969f621553a7",
+      "actual": "2488f2a1fc6e57a571cfd33be768969f621553a7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/observation.png",
+      "expected": "1066743299d119e84d547c9634bd925930345a9a",
+      "actual": "1066743299d119e84d547c9634bd925930345a9a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/pg-dto-view.png",
+      "expected": "6fcc7eb65cb3640a082b929060f230b5ac9f4498",
+      "actual": "6fcc7eb65cb3640a082b929060f230b5ac9f4498",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/prd.png",
+      "expected": "1a180d0a2bf50a6d04296d566f4d8827dc90eb24",
+      "actual": "1a180d0a2bf50a6d04296d566f4d8827dc90eb24",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/prototype-1280.png",
+      "expected": "85ad11f805ae796b933fc9cbe82159434827f7b6",
+      "actual": "85ad11f805ae796b933fc9cbe82159434827f7b6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/prototype-1440.png",
+      "expected": "5e5195d71b6d368292b5d9ad0e4dab3b9111905a",
+      "actual": "5e5195d71b6d368292b5d9ad0e4dab3b9111905a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/prototype-1920.png",
+      "expected": "72a6547af3edcfaff89c43c4d2e6abf891b3c8ed",
+      "actual": "72a6547af3edcfaff89c43c4d2e6abf891b3c8ed",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/related-diff.png",
+      "expected": "9fc2b0ae0c39bb8e453e053b304688cc20704b70",
+      "actual": "9fc2b0ae0c39bb8e453e053b304688cc20704b70",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/flow/unknown.png",
+      "expected": "e930924ba02edaf1d112c0c2144d9a188577a115",
+      "actual": "e930924ba02edaf1d112c0c2144d9a188577a115",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789236361878.json",
+      "expected": "77f2db4213ecc2dac3bea2be391e60fbb0c5a982",
+      "actual": "77f2db4213ecc2dac3bea2be391e60fbb0c5a982",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789236556521.json",
+      "expected": "0df57dfd4eea8277bfa8b2b278a684d13be37e10",
+      "actual": "0df57dfd4eea8277bfa8b2b278a684d13be37e10",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789236617659.json",
+      "expected": "f725f813c91bd7cf498a9d84312e287a9ef6b3da",
+      "actual": "f725f813c91bd7cf498a9d84312e287a9ef6b3da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789238022028.json",
+      "expected": "0bdee37c30c422cdc8124f4a29a18c1ed5ff532e",
+      "actual": "0bdee37c30c422cdc8124f4a29a18c1ed5ff532e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789238201410.json",
+      "expected": "607208668583c90e1fdf21c56b8e4d405f6c80a5",
+      "actual": "607208668583c90e1fdf21c56b8e4d405f6c80a5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789238254794.json",
+      "expected": "e2809fca96fcd0285a48bf4093a6741d3017c333",
+      "actual": "e2809fca96fcd0285a48bf4093a6741d3017c333",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789238348431.json",
+      "expected": "7ce70253d64572eb3c2478608ec34fa4e2232254",
+      "actual": "7ce70253d64572eb3c2478608ec34fa4e2232254",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789238589680.json",
+      "expected": "47e66efa9335e5bb3eb6f449a15fc748fd83824c",
+      "actual": "47e66efa9335e5bb3eb6f449a15fc748fd83824c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789251961053.json",
+      "expected": "944fad254e205de3352184e7fbd1a274361ce0d3",
+      "actual": "944fad254e205de3352184e7fbd1a274361ce0d3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789252027949.json",
+      "expected": "090aa305be0c7ae8c5a5e9a790f65a9d2e6c030b",
+      "actual": "090aa305be0c7ae8c5a5e9a790f65a9d2e6c030b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/browser-1789252265729.json",
+      "expected": "ef246f5344b7d19e8718af2bf633aa1d934ff297",
+      "actual": "ef246f5344b7d19e8718af2bf633aa1d934ff297",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-browser-failure-1789236360854.png",
+      "expected": "7371475ad83510137550ad50ca0bd5245bfb88c2",
+      "actual": "7371475ad83510137550ad50ca0bd5245bfb88c2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-browser-failure-1789236555594.png",
+      "expected": "877c740bc95a7fffef32abfbf15817f9b0c0e88a",
+      "actual": "877c740bc95a7fffef32abfbf15817f9b0c0e88a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-browser-failure-1789238200372.png",
+      "expected": "e21d395d7f6bea645c5d3760942023e13c284174",
+      "actual": "e21d395d7f6bea645c5d3760942023e13c284174",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-browser-failure-1789238253761.png",
+      "expected": "b9c7de52c72ddae45c4262c589188616b62b2142",
+      "actual": "b9c7de52c72ddae45c4262c589188616b62b2142",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-browser-failure-1789251959843.png",
+      "expected": "6fc50a9d2bb61df0280f61509ecfe8b291458d7b",
+      "actual": "6fc50a9d2bb61df0280f61509ecfe8b291458d7b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-catalog-1280.png",
+      "expected": "86c6a1201fac9e6cb8fe09af6843c7fc7702a699",
+      "actual": "86c6a1201fac9e6cb8fe09af6843c7fc7702a699",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-catalog-1440.png",
+      "expected": "37976b9e2ec5d4fa82503c113202da84de02e318",
+      "actual": "37976b9e2ec5d4fa82503c113202da84de02e318",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-catalog-1920.png",
+      "expected": "3aaaa548cfa8af16bffe4bb0c0d7df0360f6184c",
+      "actual": "3aaaa548cfa8af16bffe4bb0c0d7df0360f6184c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-plan-review.png",
+      "expected": "039bc49d7c91affd8bda8b6ef0c5438f0c190176",
+      "actual": "039bc49d7c91affd8bda8b6ef0c5438f0c190176",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-work-1280.png",
+      "expected": "66fe627ebe65bf219a24e6209b8f517ea58af2c3",
+      "actual": "66fe627ebe65bf219a24e6209b8f517ea58af2c3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-work-1440.png",
+      "expected": "25efcdcb91da2ac9e450aafe7edbab74f13774b8",
+      "actual": "25efcdcb91da2ac9e450aafe7edbab74f13774b8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/governance-work-1920.png",
+      "expected": "d5d9203536748100a1689d447e61f4dfd19699da",
+      "actual": "d5d9203536748100a1689d447e61f4dfd19699da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789234375008.json",
+      "expected": "7954c2bdd8be633dd7e37d4eb9aa90498471d632",
+      "actual": "7954c2bdd8be633dd7e37d4eb9aa90498471d632",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789234423738.json",
+      "expected": "65637d7455dd23d4cd86b537beb76d8300947e8c",
+      "actual": "65637d7455dd23d4cd86b537beb76d8300947e8c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789234505152.json",
+      "expected": "4547e03f299ed0391c0f58798a9ce0313bfb74bc",
+      "actual": "4547e03f299ed0391c0f58798a9ce0313bfb74bc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789234589737.json",
+      "expected": "5fd9329051944981237e6f068ccc468981d78136",
+      "actual": "5fd9329051944981237e6f068ccc468981d78136",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789234736738.json",
+      "expected": "3e2c1aabdc304d91cae44f2ab5c5a19f334dbd3e",
+      "actual": "3e2c1aabdc304d91cae44f2ab5c5a19f334dbd3e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789235204589.json",
+      "expected": "3e49653f5b68cf52b9dc9ad1cd6ca4465ca73299",
+      "actual": "3e49653f5b68cf52b9dc9ad1cd6ca4465ca73299",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789235287292.json",
+      "expected": "c59db5e8793b9b675b9c30a09e5d32dd3af98448",
+      "actual": "c59db5e8793b9b675b9c30a09e5d32dd3af98448",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789235503968.json",
+      "expected": "4e9aa86ca45685f7db69b932b2546c8b3c62225f",
+      "actual": "4e9aa86ca45685f7db69b932b2546c8b3c62225f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789235591777.json",
+      "expected": "2485e6a783381b077cb34c93af3009297011fce0",
+      "actual": "2485e6a783381b077cb34c93af3009297011fce0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789235683207.json",
+      "expected": "64685907a6ffec38d421b40c3a2bda6b99a4b84a",
+      "actual": "64685907a6ffec38d421b40c3a2bda6b99a4b84a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789235714094.json",
+      "expected": "f03adedf3af54b2be90ea87d8d209c3d5dc90f4b",
+      "actual": "f03adedf3af54b2be90ea87d8d209c3d5dc90f4b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789236958239.json",
+      "expected": "6435adfa9d623f733cb5ba0e1f66aeadf9e1417f",
+      "actual": "6435adfa9d623f733cb5ba0e1f66aeadf9e1417f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789237095606.json",
+      "expected": "8fb92f8577e6f0e721d6ef59ef530794197e800f",
+      "actual": "8fb92f8577e6f0e721d6ef59ef530794197e800f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789238004957.json",
+      "expected": "ff4c115133faa678217902382bf4023ba43a5a9a",
+      "actual": "ff4c115133faa678217902382bf4023ba43a5a9a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789238572104.json",
+      "expected": "ac0fe0471953c6632d4fa337a127705fc7dbcb04",
+      "actual": "ac0fe0471953c6632d4fa337a127705fc7dbcb04",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/integration-1789252247935.json",
+      "expected": "e9432d81ce5e45adccf280800b08372ce3f44fbb",
+      "actual": "e9432d81ce5e45adccf280800b08372ce3f44fbb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/unit-pass.json",
+      "expected": "a5e04975422bb25fd573e2e24d516788d1642fc3",
+      "actual": "a5e04975422bb25fd573e2e24d516788d1642fc3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/governance/unit-red.json",
+      "expected": "d4b86df3e19d63154635e513aabe5aff367a56e8",
+      "actual": "d4b86df3e19d63154635e513aabe5aff367a56e8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/handoff-checks.json",
+      "expected": "f85dd6a2623786dbfae897b5eeab065147554559",
+      "actual": "f85dd6a2623786dbfae897b5eeab065147554559",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy-evidence-manifest.json",
+      "expected": "b633001f17bc601d6c261e2db82099b559b9e320",
+      "actual": "b633001f17bc601d6c261e2db82099b559b9e320",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--artifact-1280.png",
+      "expected": "1d5239509e471ff0db61a494fbf48a32fdb54b59",
+      "actual": "1d5239509e471ff0db61a494fbf48a32fdb54b59",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--artifact-1440.png",
+      "expected": "3a94c143c98792d46fc329ff9f08d0d8accf138c",
+      "actual": "3a94c143c98792d46fc329ff9f08d0d8accf138c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--artifact-1920.png",
+      "expected": "4b40af4b24ae4cc67d74d37062824304f8b710cc",
+      "actual": "4b40af4b24ae4cc67d74d37062824304f8b710cc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--delivery-1280.png",
+      "expected": "06ea9e00df56fdffb1c9adbb4ec205d484aa193a",
+      "actual": "06ea9e00df56fdffb1c9adbb4ec205d484aa193a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--delivery-1440.png",
+      "expected": "99449a2237e9e233ed649a266b5d7f0eac5d0f66",
+      "actual": "99449a2237e9e233ed649a266b5d7f0eac5d0f66",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--delivery-1920.png",
+      "expected": "5f097c7db1241e0949bc4b63bcede833042078d2",
+      "actual": "5f097c7db1241e0949bc4b63bcede833042078d2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--development-1440.png",
+      "expected": "09215ce71f6c4a18b657e67b824fde4b383544da",
+      "actual": "09215ce71f6c4a18b657e67b824fde4b383544da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--gov-1280.png",
+      "expected": "967cede7fbafb38803ae6385b981b31fda6dbdb1",
+      "actual": "967cede7fbafb38803ae6385b981b31fda6dbdb1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--gov-1440.png",
+      "expected": "436e388b36d8629316873be9a05d6f9dcaad29a9",
+      "actual": "436e388b36d8629316873be9a05d6f9dcaad29a9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--gov-1920.png",
+      "expected": "b9459a9f94c39effbb864b70d5ab6f6a7b6e5252",
+      "actual": "b9459a9f94c39effbb864b70d5ab6f6a7b6e5252",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--home-1280.png",
+      "expected": "7ff4e4e5268b2efee6de2dc473d7e582b05b66fd",
+      "actual": "7ff4e4e5268b2efee6de2dc473d7e582b05b66fd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--home-1440.png",
+      "expected": "100fdd9f0f72c9162afa1bbe6d89ef97628c1fe5",
+      "actual": "100fdd9f0f72c9162afa1bbe6d89ef97628c1fe5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--home-1920.png",
+      "expected": "eee7cb76aa35dac83408f85069829c94d9fb4f5a",
+      "actual": "eee7cb76aa35dac83408f85069829c94d9fb4f5a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--lifecycle-complete.png",
+      "expected": "9fdf89f198e515e9f0f9ce3fd227add13e7beb9d",
+      "actual": "9fdf89f198e515e9f0f9ce3fd227add13e7beb9d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--product-1280.png",
+      "expected": "ec3e8add29ed3b25e0b21113483338e60ccb382e",
+      "actual": "ec3e8add29ed3b25e0b21113483338e60ccb382e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--product-1440.png",
+      "expected": "b138bfcb1407349d76c19d61bf8d70ab40e1971c",
+      "actual": "b138bfcb1407349d76c19d61bf8d70ab40e1971c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--product-1920.png",
+      "expected": "a7ccbbe231e2e16b1643ae5b3ef5bbd5fc488aed",
+      "actual": "a7ccbbe231e2e16b1643ae5b3ef5bbd5fc488aed",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--release-expired.png",
+      "expected": "7918512b294a880aa968f1571befbe81cbd6e1de",
+      "actual": "7918512b294a880aa968f1571befbe81cbd6e1de",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--release-failed.png",
+      "expected": "747b653e052dbde0a7e3af6dae8ee0e7925766e1",
+      "actual": "747b653e052dbde0a7e3af6dae8ee0e7925766e1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--report.json",
+      "expected": "6c77b97a8b4573d75a30e698bcb1a8c92164e013",
+      "actual": "6c77b97a8b4573d75a30e698bcb1a8c92164e013",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--verified-success.png",
+      "expected": "3a0942556fe3aeee12ef88fa0d2947c2a248bd6a",
+      "actual": "3a0942556fe3aeee12ef88fa0d2947c2a248bd6a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--version-conflict.png",
+      "expected": "56726749e40e6b9a2c4668350dc731fc7fee989f",
+      "actual": "56726749e40e6b9a2c4668350dc731fc7fee989f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--work-1280.png",
+      "expected": "bc3a434a0de2e3ecac041e3f83667ae46a6a6dbf",
+      "actual": "bc3a434a0de2e3ecac041e3f83667ae46a6a6dbf",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--work-1440.png",
+      "expected": "09215ce71f6c4a18b657e67b824fde4b383544da",
+      "actual": "09215ce71f6c4a18b657e67b824fde4b383544da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-guide-qNZcD1--work-1920.png",
+      "expected": "054b560a8d66abc2db846d136067b48f79c945a4",
+      "actual": "054b560a8d66abc2db846d136067b48f79c945a4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--report.json",
+      "expected": "8792290ff7f881e15ff1b2fe571d4d4feb3d7fb0",
+      "actual": "8792290ff7f881e15ff1b2fe571d4d4feb3d7fb0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-guide-browser.mjs.log.json",
+      "expected": "f416cbc8b520d7e239fd7518bb96f0c4569f29d5",
+      "actual": "f416cbc8b520d7e239fd7518bb96f0c4569f29d5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-guide-model.mjs.log.json",
+      "expected": "8e393749cce5e4b0f8fb3b9d5dfd873eab7ac53d",
+      "actual": "8e393749cce5e4b0f8fb3b9d5dfd873eab7ac53d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-integrity.mjs.log.json",
+      "expected": "a94b2abffdfe3a6589e6447809291de68b206f36",
+      "actual": "a94b2abffdfe3a6589e6447809291de68b206f36",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-production.cjs.log.json",
+      "expected": "692e61e226ef4d99af078da8c7758b02333d9898",
+      "actual": "692e61e226ef4d99af078da8c7758b02333d9898",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-scope7.mjs.log.json",
+      "expected": "d0abc8376cf3ddca6fb7d62ec4571da63aad7925",
+      "actual": "d0abc8376cf3ddca6fb7d62ec4571da63aad7925",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-prototype-gate-heiKKM--verify-static.mjs.log.json",
+      "expected": "8197717c908157161cd5532c7f0c3e5d2189bb83",
+      "actual": "8197717c908157161cd5532c7f0c3e5d2189bb83",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238432474-R-1042-req-v1.md",
+      "expected": "888ec26e61c9dfa5c43a0b7114d81656fb4b392f",
+      "actual": "888ec26e61c9dfa5c43a0b7114d81656fb4b392f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238449972-CODEx_TEST_LONG.txt.json",
+      "expected": "f0c8c716e3a2429a5f18e67a84059a578ab7d45c",
+      "actual": "f0c8c716e3a2429a5f18e67a84059a578ab7d45c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238452386-R-1042-REL-1202-delivery-package.md.json",
+      "expected": "ab850cfa475dc0bfadf03b38adf6a1fb40f18800",
+      "actual": "ab850cfa475dc0bfadf03b38adf6a1fb40f18800",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238460640-CODEx_TEST_RECOVER.txt.json",
+      "expected": "e2de043bf8ef2e4165ebe42776f181ce247e0553",
+      "actual": "e2de043bf8ef2e4165ebe42776f181ce247e0553",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238465190-CODEx_TEST_IDENTITY.txt.json",
+      "expected": "06e1070a6f825daabc253ec506e39a353c2df549",
+      "actual": "06e1070a6f825daabc253ec506e39a353c2df549",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238466125-CODEx_TEST_FROZEN-REL-1201-delivery-package.md.json",
+      "expected": "40c229b3097b0e25de25040de8bd0c4ba66d3a47",
+      "actual": "40c229b3097b0e25de25040de8bd0c4ba66d3a47",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--1789238466641-CODEx_TEST_FROZEN-REL-1201-delivery-package.md.json",
+      "expected": "6cf3995db3529381b57f7033e33b5201c38901aa",
+      "actual": "6cf3995db3529381b57f7033e33b5201c38901aa",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A01-PASS.png",
+      "expected": "3564b787bbb0ecd368aab153ca48f1dd55bc432e",
+      "actual": "3564b787bbb0ecd368aab153ca48f1dd55bc432e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A02-PASS.png",
+      "expected": "b5a7972db97fac5b00e62e68c3f5425942fda3d7",
+      "actual": "b5a7972db97fac5b00e62e68c3f5425942fda3d7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A03-PASS.png",
+      "expected": "50426e38a5de68b294658d3ef4ba91e17d45aac7",
+      "actual": "50426e38a5de68b294658d3ef4ba91e17d45aac7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A04-PASS.png",
+      "expected": "3840a397a7759fed9cbea2ca048753b5340fecdd",
+      "actual": "3840a397a7759fed9cbea2ca048753b5340fecdd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A05-PASS.png",
+      "expected": "c2ff0031f206118166d5b97f41670a6dd8671897",
+      "actual": "c2ff0031f206118166d5b97f41670a6dd8671897",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A06-PASS.png",
+      "expected": "9abd56941132e16507598339d8a3b37789c8fa59",
+      "actual": "9abd56941132e16507598339d8a3b37789c8fa59",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A07-PASS.png",
+      "expected": "3b867af4dfff2d8c3a8de85a14c353897e881390",
+      "actual": "3b867af4dfff2d8c3a8de85a14c353897e881390",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A08-PASS.png",
+      "expected": "c7b6d6333ba45576458c73c78cc24e35c891f95f",
+      "actual": "c7b6d6333ba45576458c73c78cc24e35c891f95f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--A09-PASS.png",
+      "expected": "3a9eccf576b0dacba47a2d4818312ed841626739",
+      "actual": "3a9eccf576b0dacba47a2d4818312ed841626739",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B01-PASS.png",
+      "expected": "f59b9f404f6aea67772a8a41d64c1416cf26080c",
+      "actual": "f59b9f404f6aea67772a8a41d64c1416cf26080c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B02-PASS.png",
+      "expected": "42dbfc169538ba650829714451f7b921ee1cbd5f",
+      "actual": "42dbfc169538ba650829714451f7b921ee1cbd5f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B03-PASS.png",
+      "expected": "71af6fa7feead6b2688ae32ba6224a1be8d10f64",
+      "actual": "71af6fa7feead6b2688ae32ba6224a1be8d10f64",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B04-PASS.png",
+      "expected": "fc0cdff6af12189698f7b2b16f1edb3cecf5eabd",
+      "actual": "fc0cdff6af12189698f7b2b16f1edb3cecf5eabd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B05-PASS.png",
+      "expected": "0f5bd008d43a759c7c13dd812e32a94df924e690",
+      "actual": "0f5bd008d43a759c7c13dd812e32a94df924e690",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B06-PASS.png",
+      "expected": "d6ffb50d0f155b83f213e193ade4e3bd4d3af68c",
+      "actual": "d6ffb50d0f155b83f213e193ade4e3bd4d3af68c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B07-PASS.png",
+      "expected": "dc0df8393fe97336f145a39600b4110418e13cbd",
+      "actual": "dc0df8393fe97336f145a39600b4110418e13cbd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B08-PASS.png",
+      "expected": "50426e38a5de68b294658d3ef4ba91e17d45aac7",
+      "actual": "50426e38a5de68b294658d3ef4ba91e17d45aac7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B09-PASS.png",
+      "expected": "f53249bee05281c4ee25ac73e23d556f6f413cf9",
+      "actual": "f53249bee05281c4ee25ac73e23d556f6f413cf9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B10-PASS.png",
+      "expected": "041cdb779bf9d500cbd493d031147d95c7e96107",
+      "actual": "041cdb779bf9d500cbd493d031147d95c7e96107",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--B11-PASS.png",
+      "expected": "426d39bbea692949809e87e9cb64fc45ca5288a2",
+      "actual": "426d39bbea692949809e87e9cb64fc45ca5288a2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C01-PASS.png",
+      "expected": "6f0fe19ebaef717a696575a988bd107932538357",
+      "actual": "6f0fe19ebaef717a696575a988bd107932538357",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C02-PASS.png",
+      "expected": "5a82a3485cd86c381524f566d4778f78339f004d",
+      "actual": "5a82a3485cd86c381524f566d4778f78339f004d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C03-PASS.png",
+      "expected": "907c60676516069b096f3bca4b94d00e33c7c92c",
+      "actual": "907c60676516069b096f3bca4b94d00e33c7c92c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C04-PASS.png",
+      "expected": "4762cc83ba5ad0483d484b687d5ab12f71971d88",
+      "actual": "4762cc83ba5ad0483d484b687d5ab12f71971d88",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C05-PASS.png",
+      "expected": "a0622fc708fd7c73cfc2fecb31e5c44e9bd8a223",
+      "actual": "a0622fc708fd7c73cfc2fecb31e5c44e9bd8a223",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C06-PASS.png",
+      "expected": "04ca7ef9d41b2c3c003c06d6aeb5578f35b7e064",
+      "actual": "04ca7ef9d41b2c3c003c06d6aeb5578f35b7e064",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C07-PASS.png",
+      "expected": "7daf7eadc91ebcb1caaf5825304eeb7677da42f6",
+      "actual": "7daf7eadc91ebcb1caaf5825304eeb7677da42f6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C08-PASS.png",
+      "expected": "6099b6bd53f21a7c9f8aa48153e220d7f90ee0f9",
+      "actual": "6099b6bd53f21a7c9f8aa48153e220d7f90ee0f9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C09-PASS.png",
+      "expected": "ec09cd0d0d7ecca388e03f3a672da614ccce5330",
+      "actual": "ec09cd0d0d7ecca388e03f3a672da614ccce5330",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C10-PASS.png",
+      "expected": "985865295987f39c678ae835b0eff27493b13c9a",
+      "actual": "985865295987f39c678ae835b0eff27493b13c9a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--C11-PASS.png",
+      "expected": "32ddb7bd4a4b3a70950e8e673be551462de8666f",
+      "actual": "32ddb7bd4a4b3a70950e8e673be551462de8666f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D01-PASS.png",
+      "expected": "af97a88e9d8533f5cf667f356c9245c0608aa99b",
+      "actual": "af97a88e9d8533f5cf667f356c9245c0608aa99b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D02-PASS.png",
+      "expected": "9537d73308ea85fea4d0be662a338d71391b0112",
+      "actual": "9537d73308ea85fea4d0be662a338d71391b0112",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D03-PASS.png",
+      "expected": "3823dcc37ac5341900fda973a02c9873eae975f4",
+      "actual": "3823dcc37ac5341900fda973a02c9873eae975f4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D04-PASS.png",
+      "expected": "c874417fb31edef6c54d01c1e2a467cba6636d53",
+      "actual": "c874417fb31edef6c54d01c1e2a467cba6636d53",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--D05-PASS.png",
+      "expected": "efd542b2d89e615624bffc20e02de0b33aaa9593",
+      "actual": "efd542b2d89e615624bffc20e02de0b33aaa9593",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G01-PASS.png",
+      "expected": "30dd1653d75efa7a6454b38a58c72f7d2c3d176e",
+      "actual": "30dd1653d75efa7a6454b38a58c72f7d2c3d176e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G02-PASS.png",
+      "expected": "edec92e913c72f5458880b3e98483d11ea20aa5f",
+      "actual": "edec92e913c72f5458880b3e98483d11ea20aa5f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G03-PASS.png",
+      "expected": "25920585032c8494903aa49886b24324f4ce212d",
+      "actual": "25920585032c8494903aa49886b24324f4ce212d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G04-PASS.png",
+      "expected": "468651d62ca37eaa8344b67d395209ac219e0ec0",
+      "actual": "468651d62ca37eaa8344b67d395209ac219e0ec0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G05-PASS.png",
+      "expected": "f6818b2bc78e04115922f86649f5f1ae4b7ca01e",
+      "actual": "f6818b2bc78e04115922f86649f5f1ae4b7ca01e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--G06-PASS.png",
+      "expected": "306c8b2ec9f264ec78b788151fe74d82e2ad9b1a",
+      "actual": "306c8b2ec9f264ec78b788151fe74d82e2ad9b1a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--V01-PASS.png",
+      "expected": "b9459a9f94c39effbb864b70d5ab6f6a7b6e5252",
+      "actual": "b9459a9f94c39effbb864b70d5ab6f6a7b6e5252",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--V02-PASS.png",
+      "expected": "3e31a4d12f97fa26a91e44d0b29ae2dd1e27d412",
+      "actual": "3e31a4d12f97fa26a91e44d0b29ae2dd1e27d412",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--W01-PASS.png",
+      "expected": "c210ccf30fd7277dfbd500e3f0353ef22c77b1cd",
+      "actual": "c210ccf30fd7277dfbd500e3f0353ef22c77b1cd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--W02-PASS.png",
+      "expected": "cca3ccf9aee7345ee2a34ce34903f5e7f53cea8b",
+      "actual": "cca3ccf9aee7345ee2a34ce34903f5e7f53cea8b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--audit-results.json",
+      "expected": "a41406a62793dcb797e41db4de5d81b28d01f514",
+      "actual": "a41406a62793dcb797e41db4de5d81b28d01f514",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-delivery-1280.png",
+      "expected": "06ea9e00df56fdffb1c9adbb4ec205d484aa193a",
+      "actual": "06ea9e00df56fdffb1c9adbb4ec205d484aa193a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-delivery-1440.png",
+      "expected": "99449a2237e9e233ed649a266b5d7f0eac5d0f66",
+      "actual": "99449a2237e9e233ed649a266b5d7f0eac5d0f66",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-delivery-1920.png",
+      "expected": "5f097c7db1241e0949bc4b63bcede833042078d2",
+      "actual": "5f097c7db1241e0949bc4b63bcede833042078d2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-gov-1280.png",
+      "expected": "967cede7fbafb38803ae6385b981b31fda6dbdb1",
+      "actual": "967cede7fbafb38803ae6385b981b31fda6dbdb1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-gov-1440.png",
+      "expected": "436e388b36d8629316873be9a05d6f9dcaad29a9",
+      "actual": "436e388b36d8629316873be9a05d6f9dcaad29a9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-gov-1920.png",
+      "expected": "b9459a9f94c39effbb864b70d5ab6f6a7b6e5252",
+      "actual": "b9459a9f94c39effbb864b70d5ab6f6a7b6e5252",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-home-1280.png",
+      "expected": "7ff4e4e5268b2efee6de2dc473d7e582b05b66fd",
+      "actual": "7ff4e4e5268b2efee6de2dc473d7e582b05b66fd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-home-1440.png",
+      "expected": "100fdd9f0f72c9162afa1bbe6d89ef97628c1fe5",
+      "actual": "100fdd9f0f72c9162afa1bbe6d89ef97628c1fe5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-home-1920.png",
+      "expected": "51dbb89fea494f3412352371d5d71ec7854b2519",
+      "actual": "51dbb89fea494f3412352371d5d71ec7854b2519",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-product-1280.png",
+      "expected": "ec3e8add29ed3b25e0b21113483338e60ccb382e",
+      "actual": "ec3e8add29ed3b25e0b21113483338e60ccb382e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-product-1440.png",
+      "expected": "b138bfcb1407349d76c19d61bf8d70ab40e1971c",
+      "actual": "b138bfcb1407349d76c19d61bf8d70ab40e1971c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-product-1920.png",
+      "expected": "a7ccbbe231e2e16b1643ae5b3ef5bbd5fc488aed",
+      "actual": "a7ccbbe231e2e16b1643ae5b3ef5bbd5fc488aed",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-work-1280.png",
+      "expected": "d597a0aa20804b930c0f1481296077ed5d8bf523",
+      "actual": "d597a0aa20804b930c0f1481296077ed5d8bf523",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-work-1440.png",
+      "expected": "09215ce71f6c4a18b657e67b824fde4b383544da",
+      "actual": "09215ce71f6c4a18b657e67b824fde4b383544da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-remediation-QvqSOP--view-work-1920.png",
+      "expected": "0b2af7703a77ef1ceac51d2ab9ce3e7b69f2c6d3",
+      "actual": "0b2af7703a77ef1ceac51d2ab9ce3e7b69f2c6d3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-audit-export.png",
+      "expected": "f2336c8b2bd4c29d7c35bc7930a57c77ae8dd89a",
+      "actual": "f2336c8b2bd4c29d7c35bc7930a57c77ae8dd89a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-cicd.png",
+      "expected": "ecfd4fd9cf52c32b88cc89ef3037d70736c4e882",
+      "actual": "ecfd4fd9cf52c32b88cc89ef3037d70736c4e882",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-gates.png",
+      "expected": "bf8231f8e901ae2a63ec844fb500dcd21d353b18",
+      "actual": "bf8231f8e901ae2a63ec844fb500dcd21d353b18",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-knowledge.png",
+      "expected": "634bc04e1c9fb65e2dd811956d142c3c0f41227c",
+      "actual": "634bc04e1c9fb65e2dd811956d142c3c0f41227c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-metrics.png",
+      "expected": "03b9d9f6d0911b3303259434ad05686eeb46a248",
+      "actual": "03b9d9f6d0911b3303259434ad05686eeb46a248",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-notices.png",
+      "expected": "b2ec0e35d6b616a4c10d63ba580ef551e7e9091c",
+      "actual": "b2ec0e35d6b616a4c10d63ba580ef551e7e9091c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-playbook.png",
+      "expected": "cbcaeaf5d4ba611fb755738017fe9d77ed5ff674",
+      "actual": "cbcaeaf5d4ba611fb755738017fe9d77ed5ff674",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-plugins.png",
+      "expected": "3a87b33611787880acad80c6f8de37dc1038ea2e",
+      "actual": "3a87b33611787880acad80c6f8de37dc1038ea2e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--absorb-replay.png",
+      "expected": "e56e7bfe94fb1d7c6b85d09ed00044af1d34fb9a",
+      "actual": "e56e7bfe94fb1d7c6b85d09ed00044af1d34fb9a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--binary-scope-ref.png",
+      "expected": "8928fce83b1249eb1772a1b30a0cb0558d5b7415",
+      "actual": "8928fce83b1249eb1772a1b30a0cb0558d5b7415",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--budget-exhausted.png",
+      "expected": "87de0311ea83556111b8ee552da4598852c2486a",
+      "actual": "87de0311ea83556111b8ee552da4598852c2486a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--cap-orchestration.png",
+      "expected": "e69870973eb6b6e6e7607369f8de9a0038e315eb",
+      "actual": "e69870973eb6b6e6e7607369f8de9a0038e315eb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--lease-lost.png",
+      "expected": "4bf2e3e016e276c49f56f7e5bcef961422e14420",
+      "actual": "4bf2e3e016e276c49f56f7e5bcef961422e14420",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--project-loading.png",
+      "expected": "0fe969b02cf8514ebe6875e05cc18e5822f5f860",
+      "actual": "0fe969b02cf8514ebe6875e05cc18e5822f5f860",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--report.json",
+      "expected": "bacdeef3385797f5d11770e47671d24f3f5ffe61",
+      "actual": "bacdeef3385797f5d11770e47671d24f3f5ffe61",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--role-revoked.png",
+      "expected": "1204e601e4ec52943604e269108bf6d386899159",
+      "actual": "1204e601e4ec52943604e269108bf6d386899159",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-scope7-Wlw8eR--stage-all-view.png",
+      "expected": "5c540c20ded40bc6afc8481690a2c898c619de31",
+      "actual": "5c540c20ded40bc6afc8481690a2c898c619de31",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/pfc-server-LsPSIm--server.log.json",
+      "expected": "a03d9e002bd991adee46171fbff85a003508d21d",
+      "actual": "a03d9e002bd991adee46171fbff85a003508d21d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/review-pfc-prototype-gate-kwKNpg-verify-guide-browser.mjs.log.json",
+      "expected": "075ee163ae0301bacc1eb21f33b1815f913d70d3",
+      "actual": "075ee163ae0301bacc1eb21f33b1815f913d70d3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/review-pfc-prototype-gate-kwKNpg-verify-guide-model.mjs.log.json",
+      "expected": "a65b67942cd22171f099d5117fd24ba4f80c9650",
+      "actual": "a65b67942cd22171f099d5117fd24ba4f80c9650",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/review-pfc-prototype-gate-kwKNpg-verify-integrity.mjs.log.json",
+      "expected": "276ca4588aff4516e78a8cddf70037efd6c2e403",
+      "actual": "276ca4588aff4516e78a8cddf70037efd6c2e403",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/review-pfc-prototype-gate-kwKNpg-verify-production.cjs.log.json",
+      "expected": "47dfeb6176e58ae89363088d6b375dc1f512ec8c",
+      "actual": "47dfeb6176e58ae89363088d6b375dc1f512ec8c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/review-pfc-prototype-gate-kwKNpg-verify-scope7.mjs.log.json",
+      "expected": "7ab13c5517f2d77e2b0308f91a20a77222f142c2",
+      "actual": "7ab13c5517f2d77e2b0308f91a20a77222f142c2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/legacy/review-pfc-prototype-gate-kwKNpg-verify-static.mjs.log.json",
+      "expected": "5814657a1983811dbaf9c513c75ce40386c49930",
+      "actual": "5814657a1983811dbaf9c513c75ce40386c49930",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/process-readback.json",
+      "expected": "186121900d514ad0edbfe2f9860e29bd45d533ad",
+      "actual": "186121900d514ad0edbfe2f9860e29bd45d533ad",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/review-bootstrap.json",
+      "expected": "2449024a1cbdb1fd4822bac42dac54fe09558160",
+      "actual": "2449024a1cbdb1fd4822bac42dac54fe09558160",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/review-cleanup.json",
+      "expected": "faaf447e985cb7c2ae4094ef94ba980db971a2eb",
+      "actual": "faaf447e985cb7c2ae4094ef94ba980db971a2eb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/review-draft-red.json",
+      "expected": "7d14670610ef7d70fca12a4d1429ce20615c6139",
+      "actual": "7d14670610ef7d70fca12a4d1429ce20615c6139",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/review-handoff.json",
+      "expected": "a70c62011770b7ce225468d992215a0ad40d12fe",
+      "actual": "a70c62011770b7ce225468d992215a0ad40d12fe",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/review-processes.json",
+      "expected": "0f9476cce189e75bacd36e105e95abef7bcea4b4",
+      "actual": "0f9476cce189e75bacd36e105e95abef7bcea4b4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/review-supplementary.json",
+      "expected": "d6606c83a28f307b85ef263c1065125b7783e72e",
+      "actual": "d6606c83a28f307b85ef263c1065125b7783e72e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/source-diff.json",
+      "expected": "5265042bfe132a3c14934809f52e0a1406da3ffa",
+      "actual": "5265042bfe132a3c14934809f52e0a1406da3ffa",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/m2c-3-governance-20260913/supplementary-checks.json",
+      "expected": "3605162abb19fde06792a8d65653f60dea57dfc8",
+      "actual": "3605162abb19fde06792a8d65653f60dea57dfc8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-m2b2-checkpoint-20260912.md",
+      "expected": "999c19e87034c78c015e2ec2877c5830b04f4129",
+      "actual": "999c19e87034c78c015e2ec2877c5830b04f4129",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-mainline-cleanup-20260912.md",
+      "expected": "73df24a2c71a515d3d5d3bd94f9cdeb517a1c90e",
+      "actual": "73df24a2c71a515d3d5d3bd94f9cdeb517a1c90e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/C02-PASS.png",
+      "expected": "f0a7267d849fa703b1c61bf6201725b334f563be",
+      "actual": "f0a7267d849fa703b1c61bf6201725b334f563be",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/C08-PASS.png",
+      "expected": "fcb25d3021821754fac2379c60aa4d7985a435fc",
+      "actual": "fcb25d3021821754fac2379c60aa4d7985a435fc",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/V02-PASS.png",
+      "expected": "ce83f36c8f72d7576e0b0c4b61903627a83fc85b",
+      "actual": "ce83f36c8f72d7576e0b0c4b61903627a83fc85b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/first-combined-gate-timeout.json",
+      "expected": "86947d21ffdc90e39e99a8a44fa3dcdab9c07cc5",
+      "actual": "86947d21ffdc90e39e99a8a44fa3dcdab9c07cc5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/work-1280.png",
+      "expected": "f6a887737ab96da7d36f7feb9aaef4316e330200",
+      "actual": "f6a887737ab96da7d36f7feb9aaef4316e330200",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/work-1440.png",
+      "expected": "189fb3ef1957c3e3e3b54be5c0aef55af618eaee",
+      "actual": "189fb3ef1957c3e3e3b54be5c0aef55af618eaee",
+      "unchanged": true
+    },
+    {
+      "path": "docs/quality-gate/reports/prototype-remediation-20260912/work-1920.png",
+      "expected": "a74684dffa072d09f6d761b50caeee8cda1ad32e",
+      "actual": "a74684dffa072d09f6d761b50caeee8cda1ad32e",
+      "unchanged": true
+    }
+  ],
+  "gitBaselineRecheckedAt": "2026-09-13T02:11:21.134Z"
+}

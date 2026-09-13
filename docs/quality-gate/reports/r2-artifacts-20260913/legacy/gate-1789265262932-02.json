@@ -1,0 +1,12 @@
+{
+  "gate": "output/pfc-workbench-prototype/verify-m1-layer.mjs",
+  "command": ".tools/node-v24.20.0-win-x64/node.exe output/pfc-workbench-prototype/verify-m1-layer.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "durationMs": 4619,
+  "evidence": "legacy/gate-1789265262932-02.json",
+  "at": "2026-09-13T02:09:08.917Z",
+  "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"default-mode-is-local-and-writes-baseline-key\",\"status\":\"PASS\"},{\"name\":\"mock-mode-isolated-from-baseline-key-and-persists\",\"status\":\"PASS\"},{\"name\":\"mock-mode-reload-restores-saved-mode-and-data\",\"status\":\"PASS\"},{\"name\":\"api-bridge-sync-surface-and-contract-mapping\",\"status\":\"PASS\"},{\"name\":\"index-html-loads-data-layer-before-model\",\"status\":\"PASS\"},{\"name\":\"browser-badge-and-mode-cycle\",\"status\":\"PASS\",\"note\":\"徽标/切换/无错\"}],\"browser\":{\"status\":\"PASS\",\"reason\":\"徽标/切换/无错\"}}\n",
+  "stderr": "",
+  "error": null
+}

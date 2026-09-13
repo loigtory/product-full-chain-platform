@@ -502,8 +502,12 @@
       'plan:' + id,
       '作业输入与批准',
       G.snapshot(result.plan) +
+        (result.plan?.snapshotVersion === 1
+          ? '<p class="muted">历史计划仅供查看或取消。请基于当前关联成果和确认记录重新创建计划。</p>'
+          : '') +
         P.field('reject-reason', '拒绝原因', '', 'textarea'),
-      result.run.status === 'WAITING_APPROVAL'
+      result.run.status === 'WAITING_APPROVAL' &&
+        result.plan?.snapshotVersion === 2
         ? P.btn('reject-plan', '拒绝计划') +
             P.btn(
               'start-run',
@@ -571,6 +575,14 @@
     P.toast(reject ? '计划已拒绝' : '模拟作业已启动');
   };
   G.install = (remote) => {
+    const snapshot = G.snapshot;
+    G.snapshot = (plan) =>
+      snapshot(plan) +
+      (plan?.contextSnapshot?.linkedArtifacts
+        ? '<h3>已冻结的关联成果与确认</h3><pre>' +
+          P.esc(JSON.stringify(plan.contextSnapshot.linkedArtifacts, null, 2)) +
+          '</pre>'
+        : '');
     const modal = P.modal;
     P.modal = (...args) => {
       G.formKey = null;

@@ -1,0 +1,11 @@
+{
+  "gate": "server/verify-r2-artifacts.mjs",
+  "command": "node server/verify-r2-artifacts.mjs",
+  "status": "PASS",
+  "exitCode": 0,
+  "signal": null,
+  "pid": 45928,
+  "durationMs": 6653,
+  "stdout": "PASS A04 explicit004 migration and immutable history constraints\nPASS A01 partial candidate can be saved before questions but cannot be adopted\nPASS A06 legacy PRD writes cannot bypass linked adoption\nPASS A02/A06 independent versions, atomic confirmations and immutable history\nPASS A03 concurrent adoption and changed-payload replay never duplicate versions\nPASS A04 injected failures at version, group and event writes roll back everything\nPASS A07 design-only updates preserve business, question changes invalidate both\nPASS A05/A11 import preserves original bytes, rejects forged source and revoked reads\nPASS A08/A09 v2 survives restart; pending plans stale, active runs block adoption only\nPASS A13 API roles and revoked identity cannot read or write/replay\nPASS A09 confirmation author revocation blocks approval without rewriting snapshot\nPASS A14 20 pending candidates accepted; 21st rejected without truncation\n{\"status\":\"PASS\",\"tests\":12,\"cleanup\":{\"schema\":\"codex_test_m2c_20260913_artifacts\",\"remaining\":0,\"files\":0,\"processes\":0}}\n",
+  "stderr": ""
+}
