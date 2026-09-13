@@ -1,6 +1,17 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const entities = Object.freeze({
+  release_plans: { prefix: 'RPL', initial: 0 },
+  release_reviews: { prefix: 'RRV', initial: 0 },
+  release_attempts: { prefix: 'RAT', initial: 0 },
+  release_result_events: { prefix: 'RRE', initial: 0 },
+  release_observations: { prefix: 'OBS', initial: 0 },
+  release_metric_events: { prefix: 'OME', initial: 0 },
+  release_followups: { prefix: 'FUP', initial: 0 },
+  release_followup_events: { prefix: 'FUE', initial: 0 },
+  final_acceptances: { prefix: 'FAC', initial: 0 },
+  release_returns: { prefix: 'RTR', initial: 0 },
+  release_refs: { prefix: 'RRF', initial: 0 },
   test_suites: { prefix: 'TS', initial: 0 },
   test_cases: { prefix: 'TC', initial: 0 },
   delivery_baselines: { prefix: 'DLV', initial: 0 },

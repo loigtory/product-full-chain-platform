@@ -46,6 +46,7 @@
       disabled: !w?.actions.canWrite || q.stage !== 'dev',
     }) +
     b('r3-refresh', '刷新状态') +
+    (P.releaseClient?.enabled() ? b('m4-open', '提前准备发布') : '') +
     '</div>';
   V.body = (q) => {
     const w = A.states[q.id];

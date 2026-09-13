@@ -14,8 +14,9 @@ export async function fixture({
   start = true,
   artifacts = false,
   testing = false,
+  release = false,
 } = {}) {
-  const f = await base({ governance: true, artifacts, testing });
+  const f = await base({ governance: true, artifacts, testing, release });
   const { schema, runId } = f;
   const tokens = {};
   let server;

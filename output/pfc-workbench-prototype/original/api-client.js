@@ -75,7 +75,7 @@
       method,
       headers: authHeaders(),
       signal: AbortSignal.timeout(
-        /\/(verification-workspace|test-suites|delivery-baselines|test-batches|defects|product-acceptances|release-inputs)(?:\/|\?|$)/.test(
+        /\/(verification-workspace|test-suites|delivery-baselines|test-batches|defects|product-acceptances|release-inputs|release-workspace|release-plans|releases|observations)(?:\/|\?|$)/.test(
           path,
         )
           ? 12000
@@ -267,6 +267,51 @@
         ['me', 'GET /api/auth/me'],
       ],
       reqs: [
+        ['releaseWorkspace', 'GET /api/reqs/:id/release-workspace'],
+        ['releasePlans', 'GET /api/reqs/:id/release-plans'],
+        ['releasePlan', 'GET /api/reqs/:id/release-plans/:rid'],
+        ['createReleasePlan', 'POST /api/reqs/:id/release-plans'],
+        ['releases', 'GET /api/reqs/:id/releases'],
+        ['releaseDetail', 'GET /api/reqs/:id/releases/:rid'],
+        ['releaseReviews', 'GET /api/reqs/:id/releases/:rid/reviews'],
+        ['reportedResults', 'GET /api/reqs/:id/releases/:rid/reported-results'],
+        [
+          'appendReportedResult',
+          'POST /api/reqs/:id/releases/:rid/reported-results',
+        ],
+        [
+          'appendReportedRollback',
+          'POST /api/reqs/:id/releases/:rid/reported-rollbacks',
+        ],
+        ['returnToRepair', 'POST /api/reqs/:id/releases/:rid/return-to-repair'],
+        ['observations', 'GET /api/reqs/:id/observations'],
+        ['observation', 'GET /api/reqs/:id/observations/:oid'],
+        ['observationEntries', 'GET /api/reqs/:id/observations/:oid/entries'],
+        [
+          'appendObservationEntry',
+          'POST /api/reqs/:id/observations/:oid/entries',
+        ],
+        ['releaseFollowups', 'GET /api/reqs/:id/observations/:oid/followups'],
+        [
+          'createReleaseFollowup',
+          'POST /api/reqs/:id/observations/:oid/followups',
+        ],
+        [
+          'releaseFollowupEvents',
+          'GET /api/reqs/:id/observations/:oid/followups/:fid/events',
+        ],
+        [
+          'appendReleaseFollowupEvent',
+          'POST /api/reqs/:id/observations/:oid/followups/:fid/events',
+        ],
+        [
+          'finalAcceptances',
+          'GET /api/reqs/:id/observations/:oid/final-acceptances',
+        ],
+        [
+          'createFinalAcceptance',
+          'POST /api/reqs/:id/observations/:oid/final-acceptances',
+        ],
         ['verificationWorkspace', 'GET /api/reqs/:id/verification-workspace'],
         ['testSuites', 'GET /api/reqs/:id/test-suites'],
         ['testSuite', 'GET /api/reqs/:id/test-suites/:sid'],

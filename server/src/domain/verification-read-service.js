@@ -27,6 +27,7 @@ async function mutate(id, input, operation, work) {
     async (c) => {
       const req = await reqs.lock(c, db, ctx, id);
       access.revision(req, input.expectedRevision);
+      await require('./release-guard').guard(c, db, ctx, req, operation, input);
       const result = await work(c, db, ctx, req);
       const updated = await reqs.touch(c, db, ctx, req, operation);
       return {
@@ -227,7 +228,10 @@ async function workspace(c, d, x, q) {
     ready: s.ready,
     history,
     actions: {
-      canWrite: ['owner', 'executor'].includes(x.role),
+      canWrite:
+        ['owner', 'executor'].includes(x.role) &&
+        q.stage !== 'observe' &&
+        !q.closed_at,
       canPrepare: !!s.upstream.group && q.stage !== 'observe',
       canHandoff: q.stage === 'dev',
       canAccept: x.role === 'owner' && q.stage === 'accept',
@@ -326,7 +330,7 @@ async function stageInputs(id, stage) {
 }
 async function guardVersion(c, d, x, q, v) {
   if (
-    ['test', 'accept', 'release'].includes(v.stage) ||
+    ['test', 'accept', 'release', 'observe'].includes(v.stage) ||
     (v.stage === 'dev' && (await repo.referencedDev(c, d, x, q, v.id)))
   )
     access.fail(

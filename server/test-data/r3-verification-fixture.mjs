@@ -10,14 +10,18 @@ export async function fixture(options = {}) {
   if (
     process.env.PFC_R3_EVIDENCE_DIR &&
     process.env.PFC_R3_EVIDENCE_DIR !==
-      'docs/quality-gate/reports/r3-test-acceptance-20260913'
+      'docs/quality-gate/reports/m2c-4-release-observation-20260913'
   )
     throw Error('R3_EVIDENCE_TARGET_NOT_AUTHORIZED');
   const f = await base({ ...options, artifacts: true, testing: true });
-  if (f.schema !== schema || f.runId !== runId) {
+  if (
+    !options.release &&
+    (f.schema !== schema || f.runId !== 'CODEx_TEST_M2C_20260913_verification')
+  ) {
     await f.cleanup();
     throw Error('TEST_TARGET_MISMATCH');
   }
+  const runId = f.runId;
   const refresh = async (id) => (await f.api('/reqs/' + id)).req;
   const write = async (id, path, body, status = 200, who = 'owner') =>
     f.api(

@@ -90,42 +90,42 @@
       "rows": 6500,
       "fileRoot": ".local/m2c-4-release-observation-20260913/files",
       "fileBytes": 104857600,
-      "prefix": "CODEx_TEST_m2c_20260913_release"
+      "prefix": "CODEx_TEST_M2C_20260913_release"
     },
     {
       "schema": "codex_test_m2c_20260913_verification",
       "rows": 5000,
       "fileRoot": ".local/r3-test-acceptance-20260913/files",
       "fileBytes": 104857600,
-      "prefix": "CODEx_TEST_m2c_20260913_verification"
+      "prefix": "CODEx_TEST_M2C_20260913_verification"
     },
     {
       "schema": "codex_test_m2c_20260913_artifacts",
       "rows": 3000,
       "fileRoot": ".local/r2-artifacts-20260913/files",
       "fileBytes": 104857600,
-      "prefix": "CODEx_TEST_m2c_20260913_artifacts"
+      "prefix": "CODEx_TEST_M2C_20260913_artifacts"
     },
     {
       "schema": "codex_test_m2c_20260913_governance",
       "rows": 3000,
       "fileRoot": ".local/m2c-3-governance-20260913/files",
       "fileBytes": 104857600,
-      "prefix": "CODEx_TEST_m2c_20260913_governance"
+      "prefix": "CODEx_TEST_M2C_20260913_governance"
     },
     {
       "schema": "codex_test_m2c_20260912_domain",
       "rows": 3000,
       "fileRoot": ".local/m2c-2-domain-20260912/files",
       "fileBytes": 104857600,
-      "prefix": "CODEx_TEST_m2c_20260912_domain"
+      "prefix": "CODEx_TEST_M2C_20260912_domain"
     },
     {
       "schema": "codex_test_m2c_20260912_storage",
       "rows": 200,
       "fileRoot": null,
       "fileBytes": 0,
-      "prefix": "CODEx_TEST_m2c_20260912_storage"
+      "prefix": "CODEx_TEST_M2C_20260912_storage"
     }
   ],
   "database": {

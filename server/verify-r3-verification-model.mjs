@@ -4,7 +4,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const require = createRequire(import.meta.url);
 const policy = require('./src/domain/verification-policy');
 const root = new URL(
-  '../docs/quality-gate/reports/r3-test-acceptance-20260913/testing/',
+  '../docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/',
   import.meta.url,
 );
 const group = {

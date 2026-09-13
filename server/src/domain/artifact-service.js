@@ -33,6 +33,14 @@ async function mutate(id, input, operation, work) {
     async (client) => {
       const req = await reqs.lock(client, db, ctx, id);
       access.revision(req, input.expectedRevision);
+      await require('./release-guard').guard(
+        client,
+        db,
+        ctx,
+        req,
+        'artifact.' + operation,
+        input,
+      );
       const result = await work(client, db, ctx, req);
       const updated = await reqs.touch(
         client,
@@ -94,7 +102,10 @@ async function workspace(client, db, ctx, req) {
     impacts: history,
     proposals,
     actions: {
-      canEdit: ['owner', 'executor'].includes(ctx.role),
+      canEdit:
+        ['owner', 'executor'].includes(ctx.role) &&
+        req.stage !== 'observe' &&
+        !req.closed_at,
       canConfirmBusiness:
         req.stage === 'req' &&
         !!s.group &&

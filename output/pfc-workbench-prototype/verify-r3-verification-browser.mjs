@@ -8,7 +8,7 @@ import {
   runId,
 } from '../../server/test-data/r3-verification-fixture.mjs';
 const out = resolve(
-  'docs/quality-gate/reports/r3-test-acceptance-20260913/testing',
+  'docs/quality-gate/reports/m2c-4-release-observation-20260913/testing',
 );
 mkdirSync(out, { recursive: true });
 const report = {

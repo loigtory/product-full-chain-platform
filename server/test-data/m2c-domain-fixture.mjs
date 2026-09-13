@@ -46,6 +46,7 @@ const tables = [
   ...(require('../src/persistence/migrations').governanceTables || []),
   ...(require('../src/persistence/migrations').artifactTables || []),
   ...require('../src/persistence/verification-readiness').tables,
+  ...require('../src/persistence/release-readiness').tables,
   'schema_migrations',
   'tenants',
   'reqs',
@@ -68,21 +69,26 @@ export async function fixture({
   governance = false,
   artifacts = false,
   testing = false,
+  release = false,
 } = {}) {
-  const schema = testing
-    ? 'codex_test_m2c_20260913_verification'
-    : artifacts
-      ? 'codex_test_m2c_20260913_artifacts'
-      : governance
-        ? 'codex_test_m2c_20260913_governance'
-        : 'codex_test_m2c_20260912_domain';
-  const runId = testing
-    ? 'CODEx_TEST_M2C_20260913_verification'
-    : artifacts
-      ? 'CODEx_TEST_M2C_20260913_artifacts'
-      : governance
-        ? 'CODEx_TEST_M2C_20260913_governance'
-        : 'CODEx_TEST_M2C_20260912_domain';
+  const schema = release
+    ? 'codex_test_m2c_20260913_release'
+    : testing
+      ? 'codex_test_m2c_20260913_verification'
+      : artifacts
+        ? 'codex_test_m2c_20260913_artifacts'
+        : governance
+          ? 'codex_test_m2c_20260913_governance'
+          : 'codex_test_m2c_20260912_domain';
+  const runId = release
+    ? 'CODEx_TEST_M2C_20260913_release'
+    : testing
+      ? 'CODEx_TEST_M2C_20260913_verification'
+      : artifacts
+        ? 'CODEx_TEST_M2C_20260913_artifacts'
+        : governance
+          ? 'CODEx_TEST_M2C_20260913_governance'
+          : 'CODEx_TEST_M2C_20260912_domain';
   const {
     openDatabase,
     validateTarget,
@@ -101,13 +107,15 @@ export async function fixture({
   const createdIds = [];
   const base = fileURLToPath(
     new URL(
-      testing
-        ? '../../.local/r3-test-acceptance-20260913/files/'
-        : artifacts
-          ? '../../.local/r2-artifacts-20260913/files/'
-          : governance
-            ? '../../.local/m2c-3-governance-20260913/files/'
-            : '../../.local/m2c-2-domain-20260912/files/',
+      release
+        ? '../../.local/m2c-4-release-observation-20260913/files/'
+        : testing
+          ? '../../.local/r3-test-acceptance-20260913/files/'
+          : artifacts
+            ? '../../.local/r2-artifacts-20260913/files/'
+            : governance
+              ? '../../.local/m2c-3-governance-20260913/files/'
+              : '../../.local/m2c-2-domain-20260912/files/',
       import.meta.url,
     ),
   );
@@ -259,7 +267,8 @@ export async function fixture({
             (await admin.query(`SELECT count(*) n FROM "${schema}"."${table}"`))
               .rows[0].n,
           );
-        if (totalRows > (testing ? 5000 : 3000)) throw Error('TEST_ROW_LIMIT');
+        if (totalRows > (release ? 6500 : testing ? 5000 : 3000))
+          throw Error('TEST_ROW_LIMIT');
         for (const table of actual) {
           const rows = (
             await admin.query(`SELECT * FROM "${schema}"."${table}"`)
@@ -382,6 +391,11 @@ export async function fixture({
         });
         await db.close();
         db = await openDatabase({ ...options, targetVersion: '005' });
+        await require('../src/persistence/migrations').migrate(db, {
+          targetVersion: '006',
+        });
+        await db.close();
+        db = await openDatabase({ ...options, targetVersion: '006' });
         return initialized;
       },
       admin,

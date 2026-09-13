@@ -6,7 +6,7 @@ import { chromium } from 'playwright';
 export const root = dirname(fileURLToPath(import.meta.url));
 if (
   process.env.PFC_FLOW_EVIDENCE_DIR !==
-  'docs/quality-gate/reports/r3-test-acceptance-20260913/flow'
+  'docs/quality-gate/reports/m2c-4-release-observation-20260913/flow'
 )
   throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
 export const evidence = resolve(process.env.PFC_FLOW_EVIDENCE_DIR);

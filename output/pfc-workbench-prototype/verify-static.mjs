@@ -10,7 +10,7 @@ const root = dirname(fileURLToPath(import.meta.url));
 const html = readFileSync(join(root, 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
 assert.equal(new Set(scripts).size, scripts.length);
-assert.equal(scripts.length, 37);
+assert.equal(scripts.length, 42);
 for (const file of scripts) {
   assert.match(file, /^original\/[\w-]+\.js$/);
   new vm.Script(readFileSync(join(root, file), 'utf8'), { filename: file });
@@ -52,6 +52,7 @@ const globals = Object.fromEntries(
     'AbortSignal',
     'TextEncoder',
     'queueMicrotask',
+    'Event',
   ].map((name) => [name, 'readonly']),
 );
 const eslint = new ESLint({
@@ -59,6 +60,11 @@ const eslint = new ESLint({
   overrideConfig: [js.configs.recommended, { languageOptions: { globals } }],
 });
 const modules = [
+  'release-client',
+  'release-view',
+  'release-actions',
+  'observation-view',
+  'observation-actions',
   'verification-client',
   'testing-view',
   'testing-actions',

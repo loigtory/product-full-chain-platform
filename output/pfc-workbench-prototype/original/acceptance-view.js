@@ -38,7 +38,9 @@
         { disabled: !w.actions.canAccept },
         'primary',
       ) +
-      b('r3-release-inputs', '核对发布准备输入') +
+      (P.releaseClient?.enabled()
+        ? b('m4-open', '完善发布准备')
+        : b('r3-release-inputs', '核对发布准备输入')) +
       b('r3-tests', '返回测试与缺陷') +
       b('r3-artifacts', '查看关联成果') +
       '</div>';
@@ -57,7 +59,7 @@
       kind: 'product-acceptances',
       offset: 0,
     });
-    if (q.stage === 'release')
+    if (q.stage === 'release' && !P.releaseClient?.enabled())
       html += P.notice(
         '当前仅准备发布输入。发布评审、执行和观察待后续版本接入。',
       );

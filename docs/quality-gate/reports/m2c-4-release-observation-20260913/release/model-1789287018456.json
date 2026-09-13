@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-13T08:10:18.454Z",
+  "status": "FAIL",
+  "results": [],
+  "data": "CODEx_TEST_ deterministic process-local only; no database/external effects",
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "message": "Cannot find module './src/domain/release-policy'\nRequire stack:\n- D:\\项目管理\\product-full-chain-platform\\server\\verify-m2c-release-model.mjs"
+  }
+}

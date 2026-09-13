@@ -1,0 +1,79 @@
+{
+  "at": "2026-09-13T10:01:46.047Z",
+  "status": "FAIL",
+  "browser": "Browser plugin not available; existing Playwright Edge",
+  "results": [
+    {
+      "name": "T01/T17 early draft input survives reload and requirement switching",
+      "status": "PASS"
+    },
+    {
+      "name": "T02/T03 structured preparation form, evidence, review and durable readback",
+      "status": "PASS"
+    },
+    {
+      "name": "T07/T08 UNKNOWN result UI requires original-record reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "T13 published workspace opens read-only upstream tests and artifacts then returns",
+      "status": "PASS"
+    },
+    {
+      "name": "T10/T12 observation metric, explicit final acceptance and three PC widths",
+      "status": "PASS"
+    },
+    {
+      "name": "T18 knowledge is prefilled and saved separately, acceptance remains closed",
+      "status": "PASS"
+    },
+    {
+      "name": "T14/T17 closed observe chat keeps new attachment and frozen report references after reload",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "error": {
+    "message": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button[data-action=\"m4-retry\"]').first()\u001b[22m\n",
+    "stack": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button[data-action=\"m4-retry\"]').first()\u001b[22m\n\n    at click (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-release-browser.mjs:98:71)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:366:5\n    at async test (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-release-browser.mjs:28:5)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:327:3"
+  },
+  "browserClosed": true,
+  "cleanup": {
+    "files": [
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879",
+        "size": 83,
+        "hash": "32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879"
+      },
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\3e205b38827d64a8a342dde42eaf159116500c7b11732ffcd54e95803fe0c29b",
+        "size": 29,
+        "hash": "3e205b38827d64a8a342dde42eaf159116500c7b11732ffcd54e95803fe0c29b"
+      },
+      {
+        "path": "manifest.json",
+        "size": 346,
+        "hash": "7ae01024503ffe01eb410ea33cc65cf83e37a2cff71ec88193cae70c5c8617c6"
+      },
+      {
+        "path": "users.json",
+        "size": 817,
+        "hash": "936c987dffe6dca8def5ca6e1a37ec33acaf28a5b2f05ee1f7024502720ead6a"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_release",
+    "remaining": 0,
+    "totalRows": 304,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1",
+      "R-1042",
+      "PRJ-2"
+    ],
+    "poolsClosed": true
+  }
+}

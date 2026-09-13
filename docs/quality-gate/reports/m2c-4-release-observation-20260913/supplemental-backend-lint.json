@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-13T09:58:03.752Z",
+  "status": "PASS",
+  "policy": "eslint:recommended; rest omission is deliberate redaction; Express next arity retained; existing source debt compared with approved base, no new errors allowed",
+  "files": 27,
+  "newErrors": [],
+  "existingErrors": [
+    {
+      "file": "server/src/domain/requirement-service.js",
+      "rule": "no-unused-vars",
+      "message": "'pushNotice' is assigned a value but never used.",
+      "line": 2
+    },
+    {
+      "file": "server/src/domain/requirement-service.js",
+      "rule": "no-unused-vars",
+      "message": "'wsBridge' is assigned a value but never used.",
+      "line": 4
+    },
+    {
+      "file": "server/src/domain/conversation-service.js",
+      "rule": "no-unused-vars",
+      "message": "'pushNotice' is assigned a value but never used.",
+      "line": 2
+    },
+    {
+      "file": "server/src/domain/conversation-service.js",
+      "rule": "no-unused-vars",
+      "message": "'nextId' is assigned a value but never used.",
+      "line": 2
+    },
+    {
+      "file": "server/src/domain/conversation-service.js",
+      "rule": "no-unused-vars",
+      "message": "'wsBridge' is assigned a value but never used.",
+      "line": 4
+    },
+    {
+      "file": "server/src/domain/conversation-service.js",
+      "rule": "no-unused-vars",
+      "message": "'command' is assigned a value but never used.",
+      "line": 54
+    }
+  ]
+}

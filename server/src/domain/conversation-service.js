@@ -102,9 +102,16 @@ module.exports.sendMessage = async (id, input) => {
     async (client, db, ctx, row) => {
       const stage = input.stage || row.stage;
       if (
-        !['idea', 'req', 'design', 'dev', 'test', 'accept', 'release'].includes(
-          stage,
-        ) ||
+        ![
+          'idea',
+          'req',
+          'design',
+          'dev',
+          'test',
+          'accept',
+          'release',
+          'observe',
+        ].includes(stage) ||
         sm.STAGES.indexOf(stage) > sm.STAGES.indexOf(row.stage)
       )
         access.fail('INVALID_STAGE', 400);
@@ -177,7 +184,8 @@ module.exports.sendMessage = async (id, input) => {
         }
       }
       const diff =
-        !['test', 'accept', 'release'].includes(stage) && changes.length
+        !['test', 'accept', 'release', 'observe'].includes(stage) &&
+        changes.length
           ? {
               stage,
               base: base.content.id,
@@ -302,7 +310,7 @@ module.exports.messageDiff = (id, mid, input) =>
         )
           access.fail('STALE_VERSION');
         await repo.references(client, db, ctx, row.id, m.metadata.refs || []);
-        if (['test', 'accept', 'release'].includes(diff.stage))
+        if (['test', 'accept', 'release', 'observe'].includes(diff.stage))
           access.fail('VERIFICATION_WRITE_REQUIRED');
         const selected = input.selected || diff.fields.map((_, i) => i);
         if (
@@ -330,7 +338,7 @@ module.exports.messageDiff = (id, mid, input) =>
           v.id,
         );
         await reqRepo.staleAfter(client, db, ctx, row.id, diff.stage);
-        if (db.targetVersion === '005' && diff.stage === 'dev')
+        if (['005', '006'].includes(db.targetVersion) && diff.stage === 'dev')
           await require('../persistence/verification-baselines').invalidate(
             client,
             db,

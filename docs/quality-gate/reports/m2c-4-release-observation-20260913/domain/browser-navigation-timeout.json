@@ -1,0 +1,193 @@
+{
+  "runId": "CODEx_TEST_M2C_20260912_domain",
+  "results": [
+    {
+      "status": "FAIL",
+      "message": "page.goto: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/index.html\", waiting until \"load\"\u001b[22m\n"
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 330,
+        "hash": "a643ad136d2786a8028d65e1e591a7e7ba74e5fc7f43d8853fa976dfc7ccaaff"
+      },
+      {
+        "path": "users.json",
+        "size": 461,
+        "hash": "c0408c7410b9e95e9bfad3c7d49b0df417899a02cca7c957f267947ecc4b3ec2"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260912_domain",
+    "remaining": 0,
+    "totalRows": 14,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-13T09:16:49.084Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-13T09:16:49.084Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-13T09:16:49.335Z"
+        },
+        {
+          "version": "004",
+          "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+          "applied_at": "2026-09-13T09:16:49.608Z"
+        },
+        {
+          "version": "005",
+          "checksum": "5a7120022fa3183351327245e77683d2601976e2a69bddfad4823758849cd354",
+          "applied_at": "2026-09-13T09:16:49.850Z"
+        },
+        {
+          "version": "006",
+          "checksum": "74e432eeee7fcc50808e6dc0dcc21757878584d76ae4a51bf2e805de8b446091",
+          "applied_at": "2026-09-13T09:16:50.157Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260912_domain_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-13T09:16:49.331Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260912_domain_other",
+          "plan": "internal",
+          "created_at": "2026-09-13T09:16:49.331Z"
+        }
+      ],
+      "req_versions": [],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "3"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        }
+      ],
+      "audit_logs": [],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "reqs": [],
+      "materials": [],
+      "material_versions": [],
+      "message_references": [],
+      "messages": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "run_plans": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [],
+      "domain_events": [],
+      "members": [
+        {
+          "id": "1586fea6-1aca-439d-a33e-be1720347a3d",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260912_domain_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:16:49.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "e99cd8f9-7762-4e76-b564-7f9a2d437298",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260912_domain_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:16:49.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "22d64587-0bba-492e-8694-dcde59565beb",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260912_domain_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:16:49.573Z",
+          "disabled_at": null
+        },
+        {
+          "id": "c90ae3ba-5dbc-496c-b973-ae1ef24e2e19",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260912_domain_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:16:49.573Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [],
+      "artifact_versions": [],
+      "artifact_groups": [],
+      "artifact_group_sources": [],
+      "artifact_proposals": [],
+      "test_cases": [],
+      "artifact_confirmations": [],
+      "artifact_impacts": [],
+      "test_suites": [],
+      "delivery_baselines": [],
+      "test_batches": [],
+      "test_results": [],
+      "defects": [],
+      "defect_events": [],
+      "product_acceptances": [],
+      "release_reviews": [],
+      "verification_refs": [],
+      "release_plans": [],
+      "release_attempts": [],
+      "release_result_events": [],
+      "release_observations": [],
+      "release_metric_events": [],
+      "release_followups": [],
+      "release_followup_events": [],
+      "final_acceptances": [],
+      "release_returns": [],
+      "release_refs": []
+    },
+    "poolsClosed": true
+  }
+}
