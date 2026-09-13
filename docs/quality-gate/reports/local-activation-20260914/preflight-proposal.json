@@ -1,0 +1,98 @@
+{
+  "at": "2026-09-13T19:23:12.228Z",
+  "status": "READ_ONLY_PREFLIGHT_COMPLETE",
+  "command": "node server/scripts/local-workbench.mjs preflight plus BEGIN READ ONLY catalog queries",
+  "environment": "local 127.0.0.1 only",
+  "configSource": "ignored .env.local; values not recorded",
+  "preflight": {
+    "status": "INITIALIZATION_REQUIRED",
+    "schemaExists": false,
+    "fileRootExists": false,
+    "apiPortFree": true
+  },
+  "metadata": {
+    "identity": {
+      "db": "pfc_local",
+      "role": "pfc_app_local",
+      "read_only": "on",
+      "listen": "127.0.0.1",
+      "version": "18.6",
+      "port": 5432,
+      "can_create_schema": true
+    },
+    "schemas": [
+      {
+        "name": "pfc",
+        "owned": true,
+        "marker": null
+      },
+      {
+        "name": "pfc_experience",
+        "owned": true,
+        "marker": null
+      }
+    ],
+    "nonTargetStructure": {
+      "scope": "pfc/pfc_experience relation and column catalog only",
+      "entries": 843,
+      "sha256": "a3f3d43d3676291237a8abc6c264ede3b131e2ed84da1fcccf027e6218231377"
+    }
+  },
+  "paths": [
+    {
+      "path": ".local/pfc-workbench",
+      "exists": false
+    },
+    {
+      "path": ".local/pfc-workbench-files",
+      "exists": false
+    },
+    {
+      "path": ".local/pfc-workbench-backups",
+      "exists": false
+    }
+  ],
+  "configKeys": {
+    "DATABASE_URL": "PRESENT_VALUE_NOT_RECORDED",
+    "PFC_LOCAL_PROFILE_FILE": "ABSENT",
+    "PFC_LOCAL_USERS_FILE": "ABSENT",
+    "PFC_DB": "ABSENT",
+    "PFC_DB_SCHEMA": "ABSENT",
+    "PFC_AUTHORIZED_SCHEMA": "ABSENT",
+    "PFC_FILES_ROOT": "ABSENT",
+    "JWT_SECRET": "ABSENT",
+    "PORT": "ABSENT"
+  },
+  "diskFreeGiB": 504,
+  "migrations": [
+    {
+      "path": "server/sql/m2c/001-persistence-baseline.sql",
+      "sha256": "abd3e282af72c1c1e94b7ea014b4b8957b9e6acec3caf058d1ddb6868aba1557"
+    },
+    {
+      "path": "server/sql/m2c/002-domain-workspace.sql",
+      "sha256": "1b1a92e5105c41f68a452c5ad3ebfbd21337ad09f499eadc2e752b37a23ac15a"
+    },
+    {
+      "path": "server/sql/m2c/003-governance-projects.sql",
+      "sha256": "2bb6a71b04006d0d35cf5f5cab911bfc4b9c52ba0665d40c6f0ae65c7a8dff13"
+    },
+    {
+      "path": "server/sql/m2c/004-linked-artifacts.sql",
+      "sha256": "bdbae5f6fbe2ecbc2a324ee677db213b5dfcc4d3159aab3b435944b3fbade674"
+    },
+    {
+      "path": "server/sql/m2c/005-testing-acceptance.sql",
+      "sha256": "be3209408718b7d78f54bb54935ab9edab8452ba620f6c5188622b2e5c9dcf88"
+    },
+    {
+      "path": "server/sql/m2c/006-release-observation.sql",
+      "sha256": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076"
+    }
+  ],
+  "existingBusinessBackup": "NONE_TARGET_DIRECTORY_ABSENT",
+  "createdIds": [],
+  "databaseWrites": false,
+  "personalFileWrites": false,
+  "helperProcessesRetained": []
+}

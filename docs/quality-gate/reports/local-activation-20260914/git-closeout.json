@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-13T19:30:05.485Z",
+  "status": "PASS",
+  "acceptedCommit": "e3f5d455d274cb95af4493138031e86da0236953",
+  "acceptanceCommit": "ec234759500469dd3c980b1a70584e448b9b1a4a",
+  "mergeCommit": "a20e16e53fa0d5661bd81f830749864a31dba3fd",
+  "remoteReadback": {
+    "command": "git -c http.sslBackend=schannel -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=30 ls-remote --heads origin main feat/local-use-baseline",
+    "exitCode": 0,
+    "stdout": "ec234759500469dd3c980b1a70584e448b9b1a4a\trefs/heads/feat/local-use-baseline\na20e16e53fa0d5661bd81f830749864a31dba3fd\trefs/heads/main\n"
+  },
+  "mergeTreeEqualsAcceptedFeature": true,
+  "sourceHashes": 68,
+  "protectedHashes": 3009,
+  "newlineRestoration": {
+    "files": 61,
+    "checks": 3086,
+    "contentChanges": 0,
+    "method": "Restore only LF/CRLF layouts whose SHA256 exactly equals frozen evidence; normalized Git content unchanged",
+    "mixedFiles": [
+      {
+        "path": "output/pfc-workbench-prototype/original/app.js",
+        "defaultEol": "CRLF",
+        "lfLines": [
+          60,
+          61,
+          106,
+          107,
+          675,
+          685
+        ]
+      },
+      {
+        "path": "output/pfc-workbench-prototype/original/ws-client.js",
+        "defaultEol": "CRLF",
+        "lfLines": [
+          47,
+          48,
+          123,
+          126,
+          148,
+          149,
+          150,
+          151,
+          152
+        ]
+      },
+      {
+        "path": "output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+        "defaultEol": "CRLF",
+        "lfLines": [
+          6,
+          146
+        ]
+      }
+    ],
+    "initialUniformEolCheck": "Failed on three mixed files; no content written by failed attempts",
+    "intermediateMixedEolCheck": "Failed on app.js; no content written by failed attempt",
+    "finalRawHashCheck": "PASS",
+    "indexRefresh": "Initial stat-only refresh reported needs-update; exact hash-verified paths refreshed via git add and cached diff asserted empty"
+  },
+  "businessEnablement": "NOT_EXECUTED"
+}

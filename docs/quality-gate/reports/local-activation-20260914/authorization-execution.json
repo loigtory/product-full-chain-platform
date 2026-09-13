@@ -1,0 +1,205 @@
+{
+  "at": "2026-09-13T21:36:50.926Z",
+  "status": "CONFIRMED",
+  "runId": "LOCAL_ACTIVATION_20260914_bbf437cf-46d6-4f73-87cf-0ae67b22ebef",
+  "userMessage": "初始化空业务库、完成首次备份及隔离恢复检查、启动5188供你使用",
+  "proposalCommit": "04b0af4d4abd72a0523c257b9365269f3f4690ec",
+  "proposalSha256LF": "0205756ca2d2aa220a79908398a5d0c2c1e485bf243966baf2ac062d2f450a62",
+  "acceptedImplementation": "e3f5d455d274cb95af4493138031e86da0236953",
+  "main": "a20e16e53fa0d5661bd81f830749864a31dba3fd",
+  "branch": "feat/local-activation",
+  "allowed": [
+    "E1 preflight",
+    "E2 one empty initialization",
+    "E3 one first backup plus isolated restore and ownership cleanup",
+    "E4 startup/readiness/retain5188 for owner",
+    "E6 necessary seven-document evidence and scoped feature commit/push"
+  ],
+  "excluded": [
+    "E5 one-workday observation",
+    "second backup",
+    "main merge",
+    "source/SQL/dependency/ledger/history edits",
+    "real AI/Shell/Bridge/CI/deployment",
+    "business overwrite restore/reset/DROP"
+  ],
+  "target": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "pfc_local",
+    "role": "pfc_app_local",
+    "schema": "pfc_workbench",
+    "apiPort": 5188,
+    "owner": "陈立",
+    "workspace": "陈立的工作空间",
+    "roots": [
+      ".local/pfc-workbench",
+      ".local/pfc-workbench-files",
+      ".local/pfc-workbench-backups"
+    ]
+  },
+  "initialization": {
+    "emptyTargetRequired": true,
+    "tables": 58,
+    "migrationRows": 6,
+    "tenants": 1,
+    "owners": 1,
+    "otherBusinessRows": 0,
+    "maximumOwnedResumeAttempts": 1,
+    "existingMigrations": [
+      {
+        "version": "001",
+        "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+        "tables": [
+          "tenants",
+          "id_counters",
+          "reqs",
+          "req_versions",
+          "audit_logs"
+        ]
+      },
+      {
+        "version": "002",
+        "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+        "tables": [
+          "req_version_reviews",
+          "questions",
+          "file_objects",
+          "materials",
+          "material_versions",
+          "messages",
+          "message_references",
+          "runs",
+          "run_plans",
+          "run_lines",
+          "replays",
+          "quality_gates",
+          "leases",
+          "notices",
+          "notice_reads",
+          "command_receipts",
+          "domain_events"
+        ]
+      },
+      {
+        "version": "003",
+        "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+        "tables": [
+          "members",
+          "caps",
+          "binding_sets",
+          "cap_bindings",
+          "req_cap_overrides",
+          "projects",
+          "knowledge",
+          "knowledge_links",
+          "budget_accounts"
+        ]
+      },
+      {
+        "version": "004",
+        "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+        "tables": [
+          "artifact_versions",
+          "artifact_groups",
+          "artifact_group_sources",
+          "artifact_proposals",
+          "artifact_confirmations",
+          "artifact_impacts"
+        ]
+      },
+      {
+        "version": "005",
+        "checksum": "5a7120022fa3183351327245e77683d2601976e2a69bddfad4823758849cd354",
+        "tables": [
+          "test_suites",
+          "test_cases",
+          "delivery_baselines",
+          "test_batches",
+          "test_results",
+          "defects",
+          "defect_events",
+          "product_acceptances",
+          "verification_refs"
+        ]
+      },
+      {
+        "version": "006",
+        "checksum": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076",
+        "tables": [
+          "release_plans",
+          "release_reviews",
+          "release_attempts",
+          "release_result_events",
+          "release_observations",
+          "release_metric_events",
+          "release_followups",
+          "release_followup_events",
+          "final_acceptances",
+          "release_returns",
+          "release_refs"
+        ]
+      }
+    ]
+  },
+  "restore": {
+    "count": 1,
+    "source": "First empty-workspace registered backup only; no user materials",
+    "port": 5548,
+    "apiPort": 5198,
+    "physicalParent": ".local/local-use-baseline-20260913/restore",
+    "runIdRule": "CODEx_TEST_M2C_20260913_localuse_<tool-generated-UUID>",
+    "schema": "pfc_workbench",
+    "maxBytes": 1073741824,
+    "maxDurationMs": 120000,
+    "cleanup": "Only owned temporary cluster/API/runId root after identity/path checks and independent readback",
+    "sourceWrites": false,
+    "cutback": false
+  },
+  "limits": {
+    "maxCompletedBackupsThisRun": 1,
+    "systemCompletedBackupLimit": 7,
+    "backupRootMaxBytes": 1073741824,
+    "fileQuotaBytes": 104857600,
+    "singleFileMaxBytes": 10485760,
+    "uploadConcurrency": 2,
+    "minFreeDiskBytes": 3221225472,
+    "startReadyDeadlineMs": 20000,
+    "sessions": 4,
+    "sessionIdleMinutes": 30,
+    "sessionAbsoluteHours": 8
+  },
+  "documents": [
+    "AGENTS.md",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+    "docs/planning/prototype-v3/42-本机启用方案与范围确认-20260914.md",
+    "docs/planning/prototype-v3/43-本机启用与观察记录-20260914.md",
+    "docs/planning/prototype-v3/README.md",
+    "output/pfc-workbench-prototype/README.md"
+  ],
+  "evidenceRoot": "docs/quality-gate/reports/local-activation-20260914/",
+  "stopConditions": "42 E1-E4: source/target/ACL/ownership mismatch, failed required check or user stop => preserve evidence and stop subsequent writes",
+  "rollback": "Stop owned5188 service; retain schema/files/config/backups; no business DROP/reset/overwrite recovery",
+  "retainedProcesses": "owned5188 CLI controller and API after readiness; exact PIDs at handoff; no schedules",
+  "testData": "No business fixture/CRUD seed. Empty runtime initialization and its isolated restore copy only.",
+  "sensitiveData": "No key/cookie/password/connectionURL in console, report, screenshot or Git",
+  "bootstrap": [
+    {
+      "step": "pinned Node/npm, root/server offline dependencies, Quick dry-run",
+      "chunk_id": "9a636c",
+      "wall_time_seconds": 2.7118133,
+      "exit_code": 0,
+      "original_token_count": 705,
+      "output": "v24.20.0\r\n11.19.0\nproduct-full-chain-platform@0.0.0 D:\\项目管理\\product-full-chain-platform\n├── @eslint/js@10.0.1\n├── @pfc/bridge@0.0.0 -> .\\apps\\bridge\n├─┬ @pfc/codex-adapter@0.0.0 -> .\\packages\\codex-adapter\n│ └── @pfc/contracts@0.0.0 deduped -> .\\packages\\contracts\n├── @pfc/contracts@0.0.0 -> .\\packages\\contracts\n├─┬ @pfc/domain@0.0.0 -> .\\packages\\domain\n│ └── @pfc/contracts@0.0.0 deduped -> .\\packages\\contracts\n├─┬ @pfc/persistence@0.0.0 -> .\\packages\\persistence\n│ ├── @pfc/contracts@0.0.0 deduped -> .\\packages\\contracts\n│ ├── @pfc/domain@0.0.0 deduped -> .\\packages\\domain\n│ ├── @pfc/protocol@0.0.0 deduped -> .\\packages\\protocol\n│ ├── kysely@0.29.5\n│ └── pg@8.23.0\n├── @pfc/protocol@0.0.0 -> .\\packages\\protocol\n├─┬ @pfc/server@0.0.0 -> .\\apps\\server\n│ ├── @fastify/helmet@13.1.1\n│ ├── @pfc/contracts@0.0.0 deduped -> .\\packages\\contracts\n│ ├── @pfc/domain@0.0.0 deduped -> .\\packages\\domain\n│ ├── @pfc/persistence@0.0.0 deduped -> .\\packages\\persistence\n│ ├── @pfc/protocol@0.0.0 deduped -> .\\packages\\protocol\n│ └── fastify@5.12.1\n├─┬ @pfc/test-data@0.0.0 -> .\\packages\\test-data\n│ ├── @pfc/contracts@0.0.0 deduped -> .\\packages\\contracts\n│ ├── @pfc/domain@0.0.0 deduped -> .\\packages\\domain\n│ └── @pfc/persistence@0.0.0 deduped -> .\\packages\\persistence\n├─┬ @pfc/ui@0.0.0 -> .\\packages\\ui\n│ └── react@19.2.8\n├─┬ @pfc/web@0.0.0 -> .\\apps\\web\n│ ├── @pfc/contracts@0.0.0 deduped -> .\\packages\\contracts\n│ ├── @pfc/ui@0.0.0 deduped -> .\\packages\\ui\n│ ├── @vitejs/plugin-react@6.1.1\n│ ├── lucide-react@1.41.0\n│ ├── react-dom@19.2.8\n│ └── react@19.2.8 deduped\n├── @testing-library/react@16.3.3\n├── @types/node@24.13.3\n├── @types/pg@8.23.1\n├── @types/react-dom@19.2.7\n├── @types/react@19.2.18\n├── @vitest/coverage-v8@5.0.0\n├── diff@9.0.0\n├── eslint-plugin-react-hooks@7.1.1\n├── eslint-plugin-react-refresh@0.5.6\n├── eslint@10.9.1\n├── jsdom@30.0.1\n├── playwright@1.62.1\n├── prettier@3.9.6\n├── tsx@4.23.13\n├── typescript-eslint@8.69.0\n├── typescript@6.0.3\n├── vite@8.2.2\n└── vitest@5.0.0\n\npfc-server@0.1.0 D:\\项目管理\\product-full-chain-platform\\server\n├── cors@2.8.6\n├── express@4.22.2\n├── jsonwebtoken@9.0.3\n├── pg@8.23.0\n└── ws@8.21.3\n\n\n> product-full-chain-platform@0.0.0 test:gate:quick\n> node scripts/run-gate.mjs quick --dry-run\n\nGATE_PLAN gate=quick commands=check:config,check:codex-protocol,check:delivery-governance,check:ui-design,check:lint,check:format,check:types,test:unit\nGATE_STATUS READY_TO_RUN\n"
+    },
+    {
+      "step": "preflight and initialization/lock source review",
+      "chunk_id": "8d021b",
+      "wall_time_seconds": 0.6534732,
+      "exit_code": 0,
+      "original_token_count": 1866,
+      "output": "{\"status\":\"INITIALIZATION_REQUIRED\",\"schemaExists\":false,\"fileRootExists\":false,\"apiPortFree\":true}\n'use strict';\r\nconst fs = require('node:fs');\r\nconst { resolve } = require('node:path');\r\nconst { randomBytes, randomUUID } = require('node:crypto');\r\nconst { read, layout, fault, prefix } = require('./profile');\r\nconst { preflight, metadata } = require('./preflight');\r\nconst { connection } = require('./ops-config');\r\nconst { privateDirectory, atomicJson, assertPrivate } = require('./ops-files');\r\nconst { acquire } = require('./workspace-lock');\r\nconst { openDatabase } = require('../persistence/connection');\r\nconst { withTransaction } = require('../persistence/transaction');\r\nconst { migrate } = require('../persistence/migrations');\r\nconst { createVerifier } = require('./session-store');\r\nasync function initialize(target = layout(), { failAfter } = {}) {\r\n  if (target.scope === 'restore' || (failAfter && target.scope === 'personal'))\r\n    throw fault('LOCAL_OPERATION_FORBIDDEN');\r\n  let lock, db;\r\n  try {\r\n    lock = await acquire(target);\r\n    let p;\r\n    if (fs.existsSync(target.profileFile)) {\r\n      p = read(target.profileFile, false);\r\n      assertPrivate(p.root);\r\n      if (p.state === 'READY') {\r\n        const result = await preflight(p);\r\n        if (result.status !== 'READY')\r\n          throw fault(result.code || 'LOCAL_PROFILE_INVALID');\r\n        return { status: 'ALREADY_INITIALIZED', schemaVersion: '006' };\r\n      }\r\n    } else {\r\n      const before = await preflight(target);\r\n      if (before.status !== 'INITIALIZATION_REQUIRED')\r\n        throw fault(before.code || 'LOCAL_TARGET_EXISTS');\r\n      privateDirectory(target.root);\r\n      const key = randomBytes(32).toString('base64url');\r\n      const attemptId = randomUUID();\r\n      p = {\r\n        format: 1,\r\n        scope: target.scope,\r\n        runId: target.runId,\r\n        attemptId,\r\n        state: 'PREPARED',\r\n        tenantId: randomUUID(),\r\n        memberId: randomUUID(),\r\n        ownerName: target.scope === 'personal' ? '陈立' : prefix + '_owner',\r\n        verifier: await createVerifier(key),\r\n        jwtSecret: randomBytes(32).toString('base64url'),\r\n        marker:\r\n          target.scope === 'personal'\r\n            ? 'PFC_WORKBENCH_M2C_002'\r\n            : prefix + ':' + attemptId,\r\n      };\r\n      fs.writeFileSync(resolve(target.root, 'access-key.txt'), key, {\r\n        flag: 'wx',\r\n      });\r\n      assertPrivate(resolve(target.root, 'access-key.txt'));\r\n      atomicJson(target.profileFile, p);\r\n      p = read(target.profileFile, false);\r\n    }\r\n    const save = (state, extra = {}) => {\r\n      p = { ...p, ...extra, state };\r\n      // Only configuration facts are stored; canonical paths are recomputed by profile.read.\r\n      const stored = Object.fromEntries(\r\n        [\r\n          'format',\r\n          'scope',\r\n          'runId',\r\n          'attemptId',\r\n          'state',\r\n          'tenantId',\r\n          'memberId',\r\n          'ownerName',\r\n          'verifier',\r\n          'jwtSecret',\r\n          'marker',\r\n          'ownedOid',\r\n        ]\r\n          .filter((k) => p[k] !== undefined)\r\n          .map((k) => [k, p[k]]),\r\n      );\r\n      atomicJson(p.profileFile, stored);\r\n    };\r\n    let row = await metadata(p);\r\n    db = await openDatabase({ ...connection(p).options, requireReady: false });\r\n    if (!row) {\r\n      if (p.ownedOid || p.state !== 'PREPARED')\r\n        throw fault('LOCAL_OWNERSHIP_MISMATCH');\r\n      await withTransaction(db, async (c) => {\r\n        await c.query('CREATE SCHEMA \"' + p.schema + '\"');\r\n        await c.query(\r\n          'COMMENT ON SCHEMA \"' + p.schema + '\" IS \\'' + p.marker + \"'\",\r\n        );\r\n      });\r\n      row = await metadata(p);\r\n    }\r\n    if (\r\n      !row?.owned ||\r\n      row.marker !== p.marker ||\r\n      (p.ownedOid && p.ownedOid !== row.oid)\r\n    )\r\n      throw fault('LOCAL_OWNERSHIP_MISMATCH');\r\n    save('SCHEMA_CREATED', { ownedOid: row.oid });\r\n    if (failAfter === 'schema')\r\n      throw fault('SYNTHETIC_INITIALIZATION_INTERRUPTED');\r\n    await migrate(db, { targetVersion: '006' });\r\n    save('MIGRATED');\r\n    if (failAfter === 'migration')\r\n      throw fault('SYNTHETIC_INITIALIZATION_INTERRUPTED');\r\n    await withTransaction(db, async (c) => {\r\n      const tenants = (\r\n        await c.query('SELECT id,name FROM \"' + p.schema + '\".tenants')\r\n      ).rows;\r\n      const tenantName =\r\n        p.scope === 'personal' ? '陈立的工作空间' : prefix + '_workspace';\r\n      if (tenants.some((r) => r.id !== p.tenantId || r.name !== tenantName))\r\n        throw fault('LOCAL_INITIAL_DATA_MISMATCH');\r\n      if (!tenants.length)\r\n        await c.query(\r\n          'INSERT INTO \"' + p.schema + '\".tenants(id,name) VALUES($1,$2)',\r\n          [p.tenantId, tenantName],\r\n        );\r\n      const members = (\r\n        await c.query('SELECT * FROM \"' + p.schema + '\".members')\r\n      ).rows;\r\n      if (\r\n        members.some(\r\n          (r) =>\r\n            r.id !== p.memberId ||\r\n            r.tenant_id !== p.tenantId ||\r\n            r.name !== p.ownerName ||\r\n            r.role !== 'owner' ||\r\n            !r.active,\r\n        )\r\n      )\r\n        throw fault('LOCAL_INITIAL_DATA_MISMATCH');\r\n      if (!members.length)\r\n        await c.query(\r\n          'INSERT INTO \"' +\r\n            p.schema +\r\n            '\".members(id,tenant_id,public_id,name,role) VALUES($1,$2,$3,$4,$5)',\r\n          [p.memberId, p.tenantId, 'M-1', p.ownerName, 'owner'],\r\n        );\r\n    });\r\n    save('OWNER_CREATED');\r\n    if (failAfter === 'owner')\r\n      throw fault('SYNTHETIC_INITIALIZATION_INTERRUPTED');\r\n    privateDirectory(p.filesRoot);\r\n    atomicJson(p.usersFile, [\r\n      { name: p.ownerName, tenantId: p.tenantId, role: 'owner' },\r\n    ]);\r\n    save('READY');\r\n    const final = await preflight(read(p.profileFile));\r\n    if (final.status !== 'READY')\r\n      throw fault(final.code || 'INITIALIZATION_INCOMPLETE');\r\n    return {\r\n      status: 'INITIALIZED',\r\n      schemaVersion: '006',\r\n      tenants: 1,\r\n      owners: 1,\r\n      requirements: 0,\r\n      attemptId: p.attemptId,\r\n    };\r\n  } finally {\r\n    await db?.close();\r\n    await lock?.release();\r\n  }\r\n}\r\nmodule.exports = { initialize };\r\n'use strict';\r\nconst { Pool } = require('pg');\r\nconst { connection } = require('./ops-config');\r\nconst { fault } = require('./profile');\r\nasync function acquire(p, lost = () => {}) {\r\n  const { pg } = connection(p);\r\n  const pool = new Pool({\r\n    ...pg,\r\n    max: 1,\r\n    connectionTimeoutMillis: 3000,\r\n    statement_timeout: 3000,\r\n    application_name: 'pfc-local-workspace-lock',\r\n  });\r\n  let client,\r\n    released = false;\r\n  pool.on('error', () => {\r\n    if (!released) lost();\r\n  });\r\n  try {\r\n    client = await pool.connect();\r\n    const row = (\r\n      await client.query('SELECT pg_try_advisory_lock(hashtext($1)) locked', [\r\n        'pfc-local:' + p.schema,\r\n      ])\r\n    ).rows[0];\r\n    if (!row.locked) throw fault('LOCAL_WORKSPACE_BUSY', 409);\r\n    client.on('error', () => {\r\n      if (!released) lost();\r\n    });\r\n    return {\r\n      async release() {\r\n        if (released) return;\r\n        released = true;\r\n        try {\r\n          await client.query('SELECT pg_advisory_unlock(hashtext($1))', [\r\n            'pfc-local:' + p.schema,\r\n          ]);\r\n        } finally {\r\n          client.release();\r\n          await pool.end();\r\n        }\r\n      },\r\n    };\r\n  } catch (e) {\r\n    client?.release();\r\n    await pool.end();\r\n    throw e;\r\n  }\r\n}\r\nmodule.exports = { acquire };\r\n"
+    }
+  ]
+}

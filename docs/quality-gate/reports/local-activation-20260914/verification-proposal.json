@@ -1,0 +1,88 @@
+{
+  "at": "2026-09-13T19:32:46.448Z",
+  "status": "PASS",
+  "classification": "docs-only/light",
+  "sourceCheckout": "feat/local-activation-plan",
+  "openingCommit": "97c1026",
+  "sourceBaseline": "a20e16e53fa0d5661bd81f830749864a31dba3fd",
+  "acceptedImplementation": "e3f5d455d274cb95af4493138031e86da0236953",
+  "runtime": {
+    "node": "24.20.0",
+    "npm": "11.19.0",
+    "rootDependencies": "npm ls --depth=0 --offline: exit0",
+    "serverDependencies": "npm --prefix server ls --depth=0 --offline: exit0",
+    "install": "Not needed; existing locked dependencies verified; no install or upgrade",
+    "gateDryRun": "npm run test:gate:quick -- --dry-run: exit0 READY_TO_RUN; not a test PASS"
+  },
+  "checks": [
+    {
+      "command": "node (stdin; exact source preserved in verification-proposal.json)",
+      "chunk_id": "44d5e5",
+      "wall_time_seconds": 1.4961712999999999,
+      "exit_code": 0,
+      "original_token_count": 70,
+      "output": "{\"at\":\"2026-09-13T19:31:49.327Z\",\"status\":\"PASS\",\"documents\":6,\"links\":112,\"sourceHashes\":68,\"protectedCount\":3009,\"immutableEvidenceHashes\":9,\"historicalGates\":35,\"historicalGatesRerun\":false,\"indexScripts\":43,\"executionAuthorization\":\"PENDING_USER_CONFIRMATION\",\"errors\":[]}\n"
+    },
+    {
+      "command": "node scripts/check-config.mjs",
+      "chunk_id": "eba88c",
+      "wall_time_seconds": 0.5820713,
+      "exit_code": 0,
+      "original_token_count": 13,
+      "output": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n"
+    },
+    {
+      "command": "node --import tsx scripts/check-delivery-governance.ts",
+      "chunk_id": "25fbdf",
+      "wall_time_seconds": 0.6812791,
+      "exit_code": 0,
+      "original_token_count": 30,
+      "output": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n"
+    }
+  ],
+  "validatorSource": "const fs=require('fs'),path=require('path'),crypto=require('crypto');\n(async()=>{\nconst prettier=require('prettier'),b='docs/planning/prototype-v3/',root='docs/quality-gate/reports/local-use-baseline-20260913/';\nconst docs=['AGENTS.md',b+'19-开发路线图-20260912.md',b+'20-Codex交接提示词-20260912.md',b+'42-本机启用方案与范围确认-20260914.md',b+'README.md','output/pfc-workbench-prototype/README.md'];\nconst sha=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex'),errors=[];let links=0;\nfor(const f of docs){const s=fs.readFileSync(f,'utf8');if(!await prettier.check(s,{...await prettier.resolveConfig(f),filepath:f}))errors.push('format '+f);\nfor(const m of s.matchAll(/\\]\\(([^)]+)\\)/g)){let ref=m[1];if(/^(https?:|#|\\{)/.test(ref))continue;ref=decodeURIComponent(ref.split('#')[0]);if(!fs.existsSync(path.resolve(path.dirname(f),ref)))errors.push('link '+f+' '+ref);links++;}}\nconst g=JSON.parse(fs.readFileSync(root+'gates-1789317348153.json')),p=JSON.parse(fs.readFileSync(root+'protected-baseline.json')),a=JSON.parse(fs.readFileSync(root+'acceptance-20260914.json'));let protectedCount=0;\nfor(const[f,h]of Object.entries(g.sourceHashes))if(sha(f)!==h)errors.push('source '+f);\nfor(const[f,h]of Object.entries(p.hashes))if(!(f in g.sourceHashes)){protectedCount++;if(sha(f)!==h)errors.push('protected '+f);}\nfor(const[f,h]of Object.entries(a.immutableEvidence))if(sha(root+f)!==h)errors.push('evidence '+f);\nif(sha(root+a.gateEvidence.file)!==a.gateEvidence.sha256||g.status!=='PASS'||g.gates.length!==35||!g.gates.every(x=>x.exitCode===0&&x.status==='PASS'))errors.push('gate provenance');\nconst pkg=JSON.parse(fs.readFileSync('docs/quality-gate/reports/local-activation-20260914/operation-package.json'));\nif(pkg.status!=='PENDING_USER_CONFIRMATION'||pkg.primaryTarget.schema!=='pfc_workbench'||pkg.executionDocuments.length!==7)errors.push('package scope');\nconst registry=require('./server/src/persistence/migrations').registry('006');\nif(pkg.initialization.existingMigrations.some((m,i)=>m.checksum!==registry[i].checksum))errors.push('migration checksum');\nconst scriptCount=[...fs.readFileSync('output/pfc-workbench-prototype/index.html','utf8').matchAll(/<script\\b[^>]*\\bsrc=/g)].length;\nif(scriptCount!==43)errors.push('script count');\nconst result={at:new Date().toISOString(),status:errors.length?'FAIL':'PASS',documents:docs.length,links,sourceHashes:68,protectedCount,immutableEvidenceHashes:9,historicalGates:35,historicalGatesRerun:false,indexScripts:scriptCount,executionAuthorization:pkg.status,errors};\nconsole.log(JSON.stringify(result));if(errors.length)process.exitCode=1;\n})().catch(e=>{console.error(e.message);process.exitCode=1});",
+  "review": {
+    "skill": "zh-document-review / requirements",
+    "status": "READY_FOR_USER_REVIEW",
+    "seriousUnresolved": [],
+    "importantUnresolved": [],
+    "corrections": [
+      "Corrected actual status endpoint to /api/local-status",
+      "Do not infer target ACL from parent ACL",
+      "Actual owner workday required for observation",
+      "First empty restore copy is initialization data, not pure synthetic fixture"
+    ],
+    "pending": "42 E1-E6 business activation package confirmation",
+    "acceptance": "Does not substitute for user authorization, actual activation checks or owner observation"
+  },
+  "businessWrites": 0,
+  "newPersistentHelpers": 0,
+  "privacy": "Only source/control and redacted target metadata; no credentials, cookies, business payloads or backups",
+  "historicalGatesRerun": false,
+  "finalDocumentValidation": {
+    "chunk_id": "7594e4",
+    "wall_time_seconds": 1.3261705,
+    "exit_code": 0,
+    "original_token_count": 70,
+    "output": "{\"at\":\"2026-09-13T19:33:38.746Z\",\"status\":\"PASS\",\"documents\":6,\"links\":113,\"sourceHashes\":68,\"protectedCount\":3009,\"immutableEvidenceHashes\":9,\"historicalGates\":35,\"historicalGatesRerun\":false,\"indexScripts\":43,\"executionAuthorization\":\"PENDING_USER_CONFIRMATION\",\"errors\":[]}\n",
+    "command": "node - (stdin; validatorSource above)"
+  },
+  "finalScopeChecks": [
+    {
+      "command": "git rev-parse origin/main HEAD; git -c core.safecrlf=false diff --check; git diff --numstat origin/main (individual read/check commands)",
+      "chunk_id": "cae31d",
+      "wall_time_seconds": 0.6690263,
+      "exit_code": 0,
+      "original_token_count": 99,
+      "output": "a20e16e53fa0d5661bd81f830749864a31dba3fd\n97c1026a65018b757b0d888bd1c1dba162cba134\n2\t0\tAGENTS.md\n3\t3\tdocs/planning/prototype-v3/19-开发路线图-20260912.md\n15\t15\tdocs/planning/prototype-v3/20-Codex交接提示词-20260912.md\n145\t0\tdocs/planning/prototype-v3/42-本机启用方案与范围确认-20260914.md\n5\t4\tdocs/planning/prototype-v3/README.md\n5\t4\toutput/pfc-workbench-prototype/README.md\n"
+    },
+    {
+      "command": "fixed Node stdin JSON/secret-pattern/path-absence review",
+      "chunk_id": "0a3aaf",
+      "wall_time_seconds": 0.4660949,
+      "exit_code": 0,
+      "original_token_count": 62,
+      "output": "{\"status\":\"PASS\",\"scopeFiles\":11,\"jsonFiles\":5,\"secretPatternHits\":[],\"personalTargets\":[{\"path\":\".local/pfc-workbench\",\"exists\":false},{\"path\":\".local/pfc-workbench-files\",\"exists\":false},{\"path\":\".local/pfc-workbench-backups\",\"exists\":false}]}\n"
+    }
+  ]
+}
