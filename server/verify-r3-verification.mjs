@@ -31,7 +31,7 @@ try {
   f = await fixture({ start: false });
   await test('T16 explicit005 and unchanged001-004 prefix', async () => {
     const migrations = require('./src/persistence/migrations');
-    assert.equal(f.db.targetVersion, '005');
+    assert.equal(f.db.targetVersion, '006');
     assert.deepEqual(
       migrations.registry('005').slice(0, 4),
       migrations.registry('004'),
@@ -42,7 +42,7 @@ try {
         `SELECT version FROM "${schema}".schema_migrations ORDER BY version`,
       )
     ).rows.map((x) => x.version);
-    assert.deepEqual(versions, ['001', '002', '003', '004', '005']);
+    assert.deepEqual(versions, ['001', '002', '003', '004', '005', '006']);
     await f.admin.query(
       `ALTER TABLE "${schema}".test_results DISABLE TRIGGER test_results_immutable`,
     );
@@ -1056,7 +1056,7 @@ try {
       process.exitCode = 1;
     }
   const root = new URL(
-    '../docs/quality-gate/reports/r3-test-acceptance-20260913/testing/',
+    '../docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/',
     import.meta.url,
   );
   mkdirSync(root, { recursive: true });

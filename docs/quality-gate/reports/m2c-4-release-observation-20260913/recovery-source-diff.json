@@ -1,0 +1,513 @@
+{
+  "at": "2026-09-13T11:18:21.216Z",
+  "base": "31f50e7",
+  "branch": "feat/m2c-release-observation",
+  "sourceCount": 63,
+  "changedCount": 10,
+  "changes": [
+    {
+      "path": "server/sql/m2c/006-release-observation.sql",
+      "status": "UNCHANGED",
+      "lines": 113,
+      "checkpointLines": 113,
+      "mainLines": 0,
+      "sha256": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076"
+    },
+    {
+      "path": "server/src/domain/release-policy.js",
+      "status": "MODIFIED",
+      "lines": 403,
+      "checkpointLines": 377,
+      "mainLines": 0,
+      "sha256": "204231095acd6d3ad670ae75796c54dc3cb711e0590f4deb152f5f49dc6e5dba"
+    },
+    {
+      "path": "server/src/domain/release-read-service.js",
+      "status": "MODIFIED",
+      "lines": 220,
+      "checkpointLines": 211,
+      "mainLines": 0,
+      "sha256": "f0a90cf2ef6fa3e5b6bbf6b862756a39a36055d57dd1c00e53ede165b3ed8c31"
+    },
+    {
+      "path": "server/src/domain/release-dto.js",
+      "status": "UNCHANGED",
+      "lines": 125,
+      "checkpointLines": 125,
+      "mainLines": 0,
+      "sha256": "4ee19129bba78b7ce6d557647794940872e145dabca4f25c9401c4630a55ee09"
+    },
+    {
+      "path": "server/src/domain/release-plan-service.js",
+      "status": "MODIFIED",
+      "lines": 210,
+      "checkpointLines": 192,
+      "mainLines": 0,
+      "sha256": "ee3e99fec88182925311e6a78f29dc1dc26962ec2dcb2308bf467efa7f75e096"
+    },
+    {
+      "path": "server/src/domain/release-record-service.js",
+      "status": "MODIFIED",
+      "lines": 202,
+      "checkpointLines": 185,
+      "mainLines": 0,
+      "sha256": "20dc0c55823a5a46f2a44f1c48982876e8b25b9549e6dd918a898b64845fc935"
+    },
+    {
+      "path": "server/src/domain/observation-service.js",
+      "status": "UNCHANGED",
+      "lines": 281,
+      "checkpointLines": 281,
+      "mainLines": 0,
+      "sha256": "830957120e53e82b0eb4f2413aa99ab39d8c9aa5ea33f88000fae6bd4c4b62ea"
+    },
+    {
+      "path": "server/src/domain/final-acceptance-service.js",
+      "status": "UNCHANGED",
+      "lines": 135,
+      "checkpointLines": 135,
+      "mainLines": 0,
+      "sha256": "0de35382e1438ee8fdf52f5a0a4a1d2fa4b514a1c7c2bc3182361c81609b5a49"
+    },
+    {
+      "path": "server/src/domain/release-guard.js",
+      "status": "UNCHANGED",
+      "lines": 41,
+      "checkpointLines": 41,
+      "mainLines": 0,
+      "sha256": "f367d3b2c2fa1d790b2a3aabbbb9fb89b16670032856f86687340b7326f2ee30"
+    },
+    {
+      "path": "server/src/persistence/release-plans.js",
+      "status": "UNCHANGED",
+      "lines": 182,
+      "checkpointLines": 182,
+      "mainLines": 0,
+      "sha256": "0e2185bbce1c07cb69433f9f823d235868c1c7c2c4ecc60f535ff8f44cad4698"
+    },
+    {
+      "path": "server/src/persistence/release-records.js",
+      "status": "UNCHANGED",
+      "lines": 31,
+      "checkpointLines": 31,
+      "mainLines": 0,
+      "sha256": "1f885ec5fa136cc2e5fd5bb31fe118cabc39c0797a456992b19ae1e074cde0c6"
+    },
+    {
+      "path": "server/src/persistence/release-observations.js",
+      "status": "UNCHANGED",
+      "lines": 55,
+      "checkpointLines": 55,
+      "mainLines": 0,
+      "sha256": "014f89d329e700ae22cd8c2ca366f628bc1e3c7b9b2177e1380b05ae08952bd8"
+    },
+    {
+      "path": "server/src/persistence/release-closure.js",
+      "status": "UNCHANGED",
+      "lines": 45,
+      "checkpointLines": 45,
+      "mainLines": 0,
+      "sha256": "cf1c56600087bf7d3c830e058210e4935fd8ddb7e6334d54334531565bb31370"
+    },
+    {
+      "path": "server/src/persistence/release-evidence.js",
+      "status": "UNCHANGED",
+      "lines": 94,
+      "checkpointLines": 94,
+      "mainLines": 0,
+      "sha256": "19cfe23cc6573cdc61dbd48395872888fefc259cf47ae21d8d3e4a8981f495ed"
+    },
+    {
+      "path": "server/src/persistence/release-readiness.js",
+      "status": "UNCHANGED",
+      "lines": 173,
+      "checkpointLines": 173,
+      "mainLines": 0,
+      "sha256": "b701e0abd5cc31b26571af09e2be7fe804c2b2349b06853c47584eaee0ee37b5"
+    },
+    {
+      "path": "server/src/routes/releases.js",
+      "status": "UNCHANGED",
+      "lines": 88,
+      "checkpointLines": 88,
+      "mainLines": 0,
+      "sha256": "a79eb9a686e0382151e3f57d3ef35c0bfd05baa4894d53b0e16f8ba012d6f83e"
+    },
+    {
+      "path": "server/src/routes/observations.js",
+      "status": "UNCHANGED",
+      "lines": 67,
+      "checkpointLines": 67,
+      "mainLines": 0,
+      "sha256": "3f91fd002517daa934a304ce47274a7a5bb6a5a04107c8597e3d507ebb4fbcb1"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/release-client.js",
+      "status": "UNCHANGED",
+      "lines": 191,
+      "checkpointLines": 191,
+      "mainLines": 0,
+      "sha256": "48d373690600fdba4fe86db968b55e7f377e268154caf4e9306bcb1efda28134"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/release-view.js",
+      "status": "UNCHANGED",
+      "lines": 195,
+      "checkpointLines": 195,
+      "mainLines": 0,
+      "sha256": "5bcbfbd4bbfc7886925648c4d669df34995aaf029a9f662aa9bb71ebfff941ba"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/release-actions.js",
+      "status": "MODIFIED",
+      "lines": 824,
+      "checkpointLines": 805,
+      "mainLines": 0,
+      "sha256": "bfd5f462a7a8c8a88f38530d0fa35c47ae0fa99d670bdbcb640018691e7673a1"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/observation-view.js",
+      "status": "UNCHANGED",
+      "lines": 123,
+      "checkpointLines": 123,
+      "mainLines": 0,
+      "sha256": "34f2dc1886281afb51b7ff61eaf131b9476a3642b1c19c8915d2cabcd8dcf358"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/observation-actions.js",
+      "status": "UNCHANGED",
+      "lines": 445,
+      "checkpointLines": 445,
+      "mainLines": 0,
+      "sha256": "74cbe31fd972f1a2bbdfb25c2b761f4d27b76342a17dcf597b8eadac8e277892"
+    },
+    {
+      "path": "server/test-data/m2c-release-fixture.mjs",
+      "status": "MODIFIED",
+      "lines": 214,
+      "checkpointLines": 123,
+      "mainLines": 0,
+      "sha256": "e71ef6a4f09c119a8aa77cdf9dc5789e070c7c9c83b684196d33570561acc911"
+    },
+    {
+      "path": "server/verify-m2c-release-model.mjs",
+      "status": "MODIFIED",
+      "lines": 310,
+      "checkpointLines": 245,
+      "mainLines": 0,
+      "sha256": "add5389c75b47eeefca31cf5e65ac0de4ef6efea48c22249454b7902c88c7ffa"
+    },
+    {
+      "path": "server/verify-m2c-release.mjs",
+      "status": "MODIFIED",
+      "lines": 1040,
+      "checkpointLines": 879,
+      "mainLines": 0,
+      "sha256": "28065e6241465498542149682dc43f8be6c29c47e8a3f2c2ef6e0bc1f60f7d8c"
+    },
+    {
+      "path": "server/verify-m2c-release-architecture.mjs",
+      "status": "UNCHANGED",
+      "lines": 159,
+      "checkpointLines": 159,
+      "mainLines": 0,
+      "sha256": "055b492a68723dc1b37f3d212bd6e89b60bf4e6b34a42a83db2bdcfb715ffc2a"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "status": "MODIFIED",
+      "lines": 782,
+      "checkpointLines": 651,
+      "mainLines": 0,
+      "sha256": "bc26e8963a80e47b2c828296b827c1153e43a30a258ca47df46962dcf27833a7"
+    },
+    {
+      "path": "server/src/index.js",
+      "status": "UNCHANGED",
+      "lines": 159,
+      "checkpointLines": 159,
+      "mainLines": 157,
+      "sha256": "c4fb993edbbadebdb77cc9c36cac78dc9c2ec4b1949629f5b069581d23e6a0ad"
+    },
+    {
+      "path": "server/src/contract.js",
+      "status": "UNCHANGED",
+      "lines": 164,
+      "checkpointLines": 164,
+      "mainLines": 125,
+      "sha256": "3c0046782d25b315c16484d8f9e6850ab22c5a1ce01b67f893d9da7bf76b9c53"
+    },
+    {
+      "path": "server/src/runtime.js",
+      "status": "UNCHANGED",
+      "lines": 145,
+      "checkpointLines": 145,
+      "mainLines": 142,
+      "sha256": "635abfb087238cb6c176cb52e9de66311e326ad39bdb83d7796bdbc6eabeaaba"
+    },
+    {
+      "path": "server/src/domain/membership-policy.js",
+      "status": "UNCHANGED",
+      "lines": 95,
+      "checkpointLines": 95,
+      "mainLines": 93,
+      "sha256": "7be2e6430ad292c48830935b1c2c1dda84436bc42c7a6477146640340e449f63"
+    },
+    {
+      "path": "server/src/persistence/commands.js",
+      "status": "UNCHANGED",
+      "lines": 81,
+      "checkpointLines": 81,
+      "mainLines": 81,
+      "sha256": "d7705ff28cb5e4dc4f0b10017f53dcb63d8e97079ca41f8c6d0f7300cc9dc0bc"
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "status": "UNCHANGED",
+      "lines": 408,
+      "checkpointLines": 408,
+      "mainLines": 392,
+      "sha256": "ab64ad2a3b8089531cdc263b360c0b64f54419020d60c1b28fd87b24b20ad4f6"
+    },
+    {
+      "path": "server/src/persistence/identifiers.js",
+      "status": "UNCHANGED",
+      "lines": 79,
+      "checkpointLines": 79,
+      "mainLines": 68,
+      "sha256": "7ccc76aedc54f9a9d577e5e0808f28395b1f52a7b9c7d65354778b679451a377"
+    },
+    {
+      "path": "server/src/domain/requirement-service.js",
+      "status": "UNCHANGED",
+      "lines": 712,
+      "checkpointLines": 712,
+      "mainLines": 703,
+      "sha256": "0e1b44cb19588cd8b7751083ae09daba2dec0e4278e7fcddce35cdd46f9b9461"
+    },
+    {
+      "path": "server/src/domain/artifact-service.js",
+      "status": "UNCHANGED",
+      "lines": 573,
+      "checkpointLines": 573,
+      "mainLines": 562,
+      "sha256": "514279cd9e908567a1c729151d7a6313a46a5abb697475434370a18238d9854f"
+    },
+    {
+      "path": "server/src/domain/verification-read-service.js",
+      "status": "MODIFIED",
+      "lines": 394,
+      "checkpointLines": 358,
+      "mainLines": 354,
+      "sha256": "08d2913447642f5612de613066156187be60547138035d4e233c803fd5f17ffa"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "status": "UNCHANGED",
+      "lines": 391,
+      "checkpointLines": 391,
+      "mainLines": 383,
+      "sha256": "6fbfbd9f787207a1ee76d2ebca01ef368db12954d60f19e1a9088116eb1d8d96"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "status": "UNCHANGED",
+      "lines": 60,
+      "checkpointLines": 60,
+      "mainLines": 55,
+      "sha256": "a799e5afd619e3391bc02afaf942696f00df377f50ff25a952fd18e40269b772"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "status": "UNCHANGED",
+      "lines": 432,
+      "checkpointLines": 432,
+      "mainLines": 387,
+      "sha256": "8c1d185342c71b84208e6bde7722b6f3bcb29d3e0f5fcaa91825e7eafa27624b"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-view.js",
+      "status": "UNCHANGED",
+      "lines": 267,
+      "checkpointLines": 267,
+      "mainLines": 262,
+      "sha256": "8a65d9bee797290594f1433742e34602cc03914c4dd41659aea643835fc282a7"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-actions.js",
+      "status": "UNCHANGED",
+      "lines": 464,
+      "checkpointLines": 464,
+      "mainLines": 463,
+      "sha256": "9b2c0ccf1f603b5698a180b9eb3450accfda632d3b87cd896c13aa604f4edd8a"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/testing-view.js",
+      "status": "UNCHANGED",
+      "lines": 262,
+      "checkpointLines": 262,
+      "mainLines": 261,
+      "sha256": "bcfac729cf9c41876a29b769a4d1c70fc009cc321cee6935380b7094fc39eed3"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/acceptance-view.js",
+      "status": "UNCHANGED",
+      "lines": 68,
+      "checkpointLines": 68,
+      "mainLines": 66,
+      "sha256": "324bd0fd718f7ff90a4c89a0e09464840b6fe9d16be8bd9b2ab102df56f5448a"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "status": "UNCHANGED",
+      "lines": 125,
+      "checkpointLines": 125,
+      "mainLines": 119,
+      "sha256": "571fe5f879596c32984a53f810016b2e242b9cddd60664d0ad78f55eb077a70e"
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "status": "UNCHANGED",
+      "lines": 417,
+      "checkpointLines": 417,
+      "mainLines": 403,
+      "sha256": "6fd4eab2ee5f24f8d7ac0de2f0d75810f490e810eb403ec1f60785be58ae9a94"
+    },
+    {
+      "path": "server/test-data/m2c-governance-fixture.mjs",
+      "status": "UNCHANGED",
+      "lines": 175,
+      "checkpointLines": 175,
+      "mainLines": 174,
+      "sha256": "ebf3d8e35c40ea851cfd8f862eda07c7586d2f1ee7976573046790e7b5344c0d"
+    },
+    {
+      "path": "server/test-data/r2-artifact-fixture.mjs",
+      "status": "UNCHANGED",
+      "lines": 169,
+      "checkpointLines": 169,
+      "mainLines": 169,
+      "sha256": "6335bbcffc45dfdc1e35badd26cc2d0801dcef2555da53280dad661dd7293474"
+    },
+    {
+      "path": "server/test-data/r3-verification-fixture.mjs",
+      "status": "UNCHANGED",
+      "lines": 191,
+      "checkpointLines": 191,
+      "mainLines": 187,
+      "sha256": "8341d1c5429068d7d898987e5119b3feae6d14c5fea34783f5f9815a204f7f8d"
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "status": "UNCHANGED",
+      "lines": 1402,
+      "checkpointLines": 1402,
+      "mainLines": 1402,
+      "sha256": "f1849a8e8f0c8785b70f2804b812cd1ead181885053b19552379eaa523b927fb"
+    },
+    {
+      "path": "server/verify-m2c-governance.mjs",
+      "status": "UNCHANGED",
+      "lines": 1024,
+      "checkpointLines": 1024,
+      "mainLines": 1023,
+      "sha256": "af9000323979c3b98890a160e89ec77a16efc087e47d129d4bdea4f276af786f"
+    },
+    {
+      "path": "server/verify-r2-artifact-model.mjs",
+      "status": "UNCHANGED",
+      "lines": 295,
+      "checkpointLines": 295,
+      "mainLines": 294,
+      "sha256": "83ee58d11d91a040f98143125b3c06ef4de5e26727dc1c5e4b6e136339352f35"
+    },
+    {
+      "path": "server/verify-r2-artifacts.mjs",
+      "status": "UNCHANGED",
+      "lines": 844,
+      "checkpointLines": 844,
+      "mainLines": 843,
+      "sha256": "307c53c5694ecc8bd1f87cd5c94488312715c17629b5926e204a1a9248a12775"
+    },
+    {
+      "path": "server/verify-r2-architecture.mjs",
+      "status": "UNCHANGED",
+      "lines": 177,
+      "checkpointLines": 177,
+      "mainLines": 176,
+      "sha256": "7733692091d05fcae966b07618137ebfff6b2c5700864aa7ed46f53b9e74e34e"
+    },
+    {
+      "path": "server/verify-r3-verification-model.mjs",
+      "status": "UNCHANGED",
+      "lines": 267,
+      "checkpointLines": 267,
+      "mainLines": 267,
+      "sha256": "b574890652d863dd1c2d0620504a43edb842da46cd7aa7e8f858c6618855ffbc"
+    },
+    {
+      "path": "server/verify-r3-verification.mjs",
+      "status": "UNCHANGED",
+      "lines": 1067,
+      "checkpointLines": 1067,
+      "mainLines": 1067,
+      "sha256": "eac4c82d55199142c9b51181adee12898a2cd5932478738131bd5ef3043248fe"
+    },
+    {
+      "path": "server/verify-r3-architecture.mjs",
+      "status": "UNCHANGED",
+      "lines": 201,
+      "checkpointLines": 201,
+      "mainLines": 167,
+      "sha256": "9148357f875e855c64e410a96ef4ea1f7c2faebf16ee892b9b891cd3f1c6127f"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "UNCHANGED",
+      "lines": 567,
+      "checkpointLines": 567,
+      "mainLines": 567,
+      "sha256": "f51f214286242378bc54e93fab6291eef802dfc51ae4857dcd7e4125cf8af819"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "UNCHANGED",
+      "lines": 551,
+      "checkpointLines": 551,
+      "mainLines": 551,
+      "sha256": "32f7a00e64c7110f8b5f97d7e9af996a5efd04a4611292549483768e06cdefb1"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "status": "UNCHANGED",
+      "lines": 190,
+      "checkpointLines": 190,
+      "mainLines": 190,
+      "sha256": "e1ada8a4730ee5fc5f624d62913f4a4671e0a9e88208fd79adb5b465fa472fa7"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "UNCHANGED",
+      "lines": 320,
+      "checkpointLines": 320,
+      "mainLines": 320,
+      "sha256": "e6cd0b988d93cb39dcf921c347468f57ddb922bdcf4d1c1472e5b8e16561b5b9"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "status": "UNCHANGED",
+      "lines": 555,
+      "checkpointLines": 555,
+      "mainLines": 555,
+      "sha256": "32ddb174046d522fea74715c27737c9c792c0f8c3c6215f4e302e1c801bcb8b3"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "status": "UNCHANGED",
+      "lines": 524,
+      "checkpointLines": 524,
+      "mainLines": 524,
+      "sha256": "b004d74e1268778e994fbb59192c7deec26a91388f8c3048c88d69a2ac651749"
+    }
+  ]
+}

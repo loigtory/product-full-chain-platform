@@ -1,0 +1,639 @@
+{
+  "at": "2026-09-13T11:02:17.323Z",
+  "status": "FAIL",
+  "base": "31f50e7fea8444db048f3752a43e6e47687fe063",
+  "designDecision": "User agreed historical acceptance reconciliation after31f50e7",
+  "runtime": "v24.20.0",
+  "environment": "loopback isolated synthetic schemas only; no external writes",
+  "sourceHashes": {
+    "server/sql/m2c/006-release-observation.sql": "bdbd3546f35c0ecd44db57e6425af5ce0f17abf85d4ac3d626e646b6186c8076",
+    "server/src/domain/release-policy.js": "204231095acd6d3ad670ae75796c54dc3cb711e0590f4deb152f5f49dc6e5dba",
+    "server/src/domain/release-read-service.js": "f0a90cf2ef6fa3e5b6bbf6b862756a39a36055d57dd1c00e53ede165b3ed8c31",
+    "server/src/domain/release-dto.js": "4ee19129bba78b7ce6d557647794940872e145dabca4f25c9401c4630a55ee09",
+    "server/src/domain/release-plan-service.js": "ee3e99fec88182925311e6a78f29dc1dc26962ec2dcb2308bf467efa7f75e096",
+    "server/src/domain/release-record-service.js": "20dc0c55823a5a46f2a44f1c48982876e8b25b9549e6dd918a898b64845fc935",
+    "server/src/domain/observation-service.js": "830957120e53e82b0eb4f2413aa99ab39d8c9aa5ea33f88000fae6bd4c4b62ea",
+    "server/src/domain/final-acceptance-service.js": "0de35382e1438ee8fdf52f5a0a4a1d2fa4b514a1c7c2bc3182361c81609b5a49",
+    "server/src/domain/release-guard.js": "f367d3b2c2fa1d790b2a3aabbbb9fb89b16670032856f86687340b7326f2ee30",
+    "server/src/persistence/release-plans.js": "0e2185bbce1c07cb69433f9f823d235868c1c7c2c4ecc60f535ff8f44cad4698",
+    "server/src/persistence/release-records.js": "1f885ec5fa136cc2e5fd5bb31fe118cabc39c0797a456992b19ae1e074cde0c6",
+    "server/src/persistence/release-observations.js": "014f89d329e700ae22cd8c2ca366f628bc1e3c7b9b2177e1380b05ae08952bd8",
+    "server/src/persistence/release-closure.js": "cf1c56600087bf7d3c830e058210e4935fd8ddb7e6334d54334531565bb31370",
+    "server/src/persistence/release-evidence.js": "19cfe23cc6573cdc61dbd48395872888fefc259cf47ae21d8d3e4a8981f495ed",
+    "server/src/persistence/release-readiness.js": "b701e0abd5cc31b26571af09e2be7fe804c2b2349b06853c47584eaee0ee37b5",
+    "server/src/routes/releases.js": "a79eb9a686e0382151e3f57d3ef35c0bfd05baa4894d53b0e16f8ba012d6f83e",
+    "server/src/routes/observations.js": "3f91fd002517daa934a304ce47274a7a5bb6a5a04107c8597e3d507ebb4fbcb1",
+    "output/pfc-workbench-prototype/original/release-client.js": "48d373690600fdba4fe86db968b55e7f377e268154caf4e9306bcb1efda28134",
+    "output/pfc-workbench-prototype/original/release-view.js": "5bcbfbd4bbfc7886925648c4d669df34995aaf029a9f662aa9bb71ebfff941ba",
+    "output/pfc-workbench-prototype/original/release-actions.js": "052e5d4409b28ffc288c164df45dae657771bd17cb1c243e74252a060dd79316",
+    "output/pfc-workbench-prototype/original/observation-view.js": "34f2dc1886281afb51b7ff61eaf131b9476a3642b1c19c8915d2cabcd8dcf358",
+    "output/pfc-workbench-prototype/original/observation-actions.js": "74cbe31fd972f1a2bbdfb25c2b761f4d27b76342a17dcf597b8eadac8e277892",
+    "server/test-data/m2c-release-fixture.mjs": "e71ef6a4f09c119a8aa77cdf9dc5789e070c7c9c83b684196d33570561acc911",
+    "server/verify-m2c-release-model.mjs": "add5389c75b47eeefca31cf5e65ac0de4ef6efea48c22249454b7902c88c7ffa",
+    "server/verify-m2c-release.mjs": "28065e6241465498542149682dc43f8be6c29c47e8a3f2c2ef6e0bc1f60f7d8c",
+    "server/verify-m2c-release-architecture.mjs": "055b492a68723dc1b37f3d212bd6e89b60bf4e6b34a42a83db2bdcfb715ffc2a",
+    "output/pfc-workbench-prototype/verify-m2c-release-browser.mjs": "65e8654c043b3731332f9b4bf96b9e3ccd7dea12bbf56a05e91ab7e5ab4be973",
+    "server/src/index.js": "c4fb993edbbadebdb77cc9c36cac78dc9c2ec4b1949629f5b069581d23e6a0ad",
+    "server/src/contract.js": "3c0046782d25b315c16484d8f9e6850ab22c5a1ce01b67f893d9da7bf76b9c53",
+    "server/src/runtime.js": "635abfb087238cb6c176cb52e9de66311e326ad39bdb83d7796bdbc6eabeaaba",
+    "server/src/domain/membership-policy.js": "7be2e6430ad292c48830935b1c2c1dda84436bc42c7a6477146640340e449f63",
+    "server/src/persistence/commands.js": "d7705ff28cb5e4dc4f0b10017f53dcb63d8e97079ca41f8c6d0f7300cc9dc0bc",
+    "server/src/persistence/migrations.js": "ab64ad2a3b8089531cdc263b360c0b64f54419020d60c1b28fd87b24b20ad4f6",
+    "server/src/persistence/identifiers.js": "7ccc76aedc54f9a9d577e5e0808f28395b1f52a7b9c7d65354778b679451a377",
+    "server/src/domain/requirement-service.js": "0e1b44cb19588cd8b7751083ae09daba2dec0e4278e7fcddce35cdd46f9b9461",
+    "server/src/domain/artifact-service.js": "514279cd9e908567a1c729151d7a6313a46a5abb697475434370a18238d9854f",
+    "server/src/domain/verification-read-service.js": "08d2913447642f5612de613066156187be60547138035d4e233c803fd5f17ffa",
+    "server/src/domain/conversation-service.js": "6fbfbd9f787207a1ee76d2ebca01ef368db12954d60f19e1a9088116eb1d8d96",
+    "output/pfc-workbench-prototype/index.html": "a799e5afd619e3391bc02afaf942696f00df377f50ff25a952fd18e40269b772",
+    "output/pfc-workbench-prototype/original/api-client.js": "8c1d185342c71b84208e6bde7722b6f3bcb29d3e0f5fcaa91825e7eafa27624b",
+    "output/pfc-workbench-prototype/original/domain-view.js": "8a65d9bee797290594f1433742e34602cc03914c4dd41659aea643835fc282a7",
+    "output/pfc-workbench-prototype/original/domain-actions.js": "9b2c0ccf1f603b5698a180b9eb3450accfda632d3b87cd896c13aa604f4edd8a",
+    "output/pfc-workbench-prototype/original/testing-view.js": "bcfac729cf9c41876a29b769a4d1c70fc009cc321cee6935380b7094fc39eed3",
+    "output/pfc-workbench-prototype/original/acceptance-view.js": "324bd0fd718f7ff90a4c89a0e09464840b6fe9d16be8bd9b2ab102df56f5448a",
+    "output/pfc-workbench-prototype/verify-static.mjs": "571fe5f879596c32984a53f810016b2e242b9cddd60664d0ad78f55eb077a70e",
+    "server/test-data/m2c-domain-fixture.mjs": "6fd4eab2ee5f24f8d7ac0de2f0d75810f490e810eb403ec1f60785be58ae9a94",
+    "server/test-data/m2c-governance-fixture.mjs": "ebf3d8e35c40ea851cfd8f862eda07c7586d2f1ee7976573046790e7b5344c0d",
+    "server/test-data/r2-artifact-fixture.mjs": "6335bbcffc45dfdc1e35badd26cc2d0801dcef2555da53280dad661dd7293474",
+    "server/test-data/r3-verification-fixture.mjs": "8341d1c5429068d7d898987e5119b3feae6d14c5fea34783f5f9815a204f7f8d",
+    "server/verify-m2c-domain.mjs": "f1849a8e8f0c8785b70f2804b812cd1ead181885053b19552379eaa523b927fb",
+    "server/verify-m2c-governance.mjs": "af9000323979c3b98890a160e89ec77a16efc087e47d129d4bdea4f276af786f",
+    "server/verify-r2-artifact-model.mjs": "83ee58d11d91a040f98143125b3c06ef4de5e26727dc1c5e4b6e136339352f35",
+    "server/verify-r2-artifacts.mjs": "307c53c5694ecc8bd1f87cd5c94488312715c17629b5926e204a1a9248a12775",
+    "server/verify-r2-architecture.mjs": "7733692091d05fcae966b07618137ebfff6b2c5700864aa7ed46f53b9e74e34e",
+    "server/verify-r3-verification-model.mjs": "b574890652d863dd1c2d0620504a43edb842da46cd7aa7e8f858c6618855ffbc",
+    "server/verify-r3-verification.mjs": "eac4c82d55199142c9b51181adee12898a2cd5932478738131bd5ef3043248fe",
+    "server/verify-r3-architecture.mjs": "9148357f875e855c64e410a96ef4ea1f7c2faebf16ee892b9b891cd3f1c6127f",
+    "output/pfc-workbench-prototype/verify-m2c-browser.mjs": "f51f214286242378bc54e93fab6291eef802dfc51ae4857dcd7e4125cf8af819",
+    "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs": "32f7a00e64c7110f8b5f97d7e9af996a5efd04a4611292549483768e06cdefb1",
+    "output/pfc-workbench-prototype/flow-browser-fixture.mjs": "e1ada8a4730ee5fc5f624d62913f4a4671e0a9e88208fd79adb5b465fa472fa7",
+    "output/pfc-workbench-prototype/verify-flow-architecture.mjs": "e6cd0b988d93cb39dcf921c347468f57ddb922bdcf4d1c1472e5b8e16561b5b9",
+    "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs": "32ddb174046d522fea74715c27737c9c792c0f8c3c6215f4e302e1c801bcb8b3",
+    "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs": "b004d74e1268778e994fbb59192c7deec26a91388f8c3048c88d69a2ac651749"
+  },
+  "results": [
+    {
+      "number": 1,
+      "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+      "status": "PASS",
+      "elapsedMs": 89558,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"script\":\"verify-static.mjs\",\"status\":\"PASS\"}\n{\"script\":\"verify-integrity.mjs\",\"status\":\"PASS\",\"checks\":8}\n{\"script\":\"verify-guide-model.mjs\",\"status\":\"PASS\",\"checks\":11}\n{\"script\":\"verify-production.cjs\",\"status\":\"PASS\",\"checks\":46,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-remediation-GlMO3p\"}\n{\"script\":\"verify-guide-browser.mjs\",\"status\":\"PASS\",\"checks\":13,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-guide-xQIfIB\"}\n{\"script\":\"verify-scope7.mjs\",\"status\":\"PASS\",\"checks\":12,\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-scope7-Zd7o2b\"}\n{\"status\":\"PASS\",\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-prototype-gate-QXOhS2\",\"sourceUnchanged\":true}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 2,
+      "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "status": "PASS",
+      "elapsedMs": 5390,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"default-mode-is-local-and-writes-baseline-key\",\"status\":\"PASS\"},{\"name\":\"mock-mode-isolated-from-baseline-key-and-persists\",\"status\":\"PASS\"},{\"name\":\"mock-mode-reload-restores-saved-mode-and-data\",\"status\":\"PASS\"},{\"name\":\"api-bridge-sync-surface-and-contract-mapping\",\"status\":\"PASS\"},{\"name\":\"index-html-loads-data-layer-before-model\",\"status\":\"PASS\"},{\"name\":\"browser-badge-and-mode-cycle\",\"status\":\"PASS\",\"note\":\"徽标/切换/无错\"}],\"browser\":{\"status\":\"PASS\",\"reason\":\"徽标/切换/无错\"}}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/recovery-decision-20260913.json"
+      ]
+    },
+    {
+      "number": 3,
+      "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "status": "PASS",
+      "elapsedMs": 4936,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"check\":\"e2e-badge-api\",\"status\":\"PASS\",\"note\":\"徽标=API 模式\"}\n{\"check\":\"e2e-devlogin-token\",\"status\":\"PASS\",\"note\":\"dev-login 已签发 JWT\"}\n{\"check\":\"e2e-state-loaded\",\"status\":\"PASS\",\"note\":\"状态树已加载（工厂种子或服务端）\"}\n{\"check\":\"e2e-seed-on-server\",\"status\":\"PASS\",\"note\":\"工厂种子已 PUT 到服务端\"}\n{\"check\":\"e2e-flush-synced\",\"status\":\"PASS\",\"note\":\"页面修改已 flush 到服务端 seq=9999\"}\n{\"check\":\"e2e-flush-field\",\"status\":\"PASS\",\"note\":\"字段级修改已同步\"}\n{\"check\":\"e2e-reload-restore\",\"status\":\"PASS\",\"note\":\"重载后从服务端恢复 seq=9999\"}\n{\"check\":\"e2e-no-console-error\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":8,\"results\":[{\"name\":\"e2e-badge-api\",\"status\":\"PASS\",\"note\":\"徽标=API 模式\"},{\"name\":\"e2e-devlogin-token\",\"status\":\"PASS\",\"note\":\"dev-login 已签发 JWT\"},{\"name\":\"e2e-state-loaded\",\"status\":\"PASS\",\"note\":\"状态树已加载（工厂种子或服务端）\"},{\"name\":\"e2e-seed-on-server\",\"status\":\"PASS\",\"note\":\"工厂种子已 PUT 到服务端\"},{\"name\":\"e2e-flush-synced\",\"status\":\"PASS\",\"note\":\"页面修改已 flush 到服务端 seq=9999\"},{\"name\":\"e2e-flush-field\",\"status\":\"PASS\",\"note\":\"字段级修改已同步\"},{\"name\":\"e2e-reload-restore\",\"status\":\"PASS\",\"note\":\"重载后从服务端恢复 seq=9999\"},{\"name\":\"e2e-no-console-error\",\"status\":\"PASS\",\"note\":\"\"}],\"cleanup\":{\"pid\":19928,\"exited\":true,\"port\":5191,\"portFree\":true,\"browserClosed\":true,\"data\":\"synthetic memory discarded\"},\"loginDelayMs\":0}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 4,
+      "command": "node server/verify-server.mjs",
+      "status": "PASS",
+      "elapsedMs": 729,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"check\":\"health-200\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-requires-auth-401\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"dev-login-200-token\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"me-role-permissions\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-first-null\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-put-ok\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"state-readback\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"batch-apply-ok\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"batch-state-updated\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-list-filtered\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-get\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-messages\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-404\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"reqs-write-created\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"notices-unread\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"notices-mark-read\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"contract-domains\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"contract-plan-approve\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":18,\"results\":[{\"name\":\"health-200\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-requires-auth-401\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"dev-login-200-token\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"me-role-permissions\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-first-null\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-put-ok\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"state-readback\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"batch-apply-ok\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"batch-state-updated\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-list-filtered\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-get\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-messages\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-404\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"reqs-write-created\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"notices-unread\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"notices-mark-read\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"contract-domains\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"contract-plan-approve\",\"status\":\"PASS\",\"note\":\"\"}],\"evidence\":\"C:\\\\Users\\\\hz19114673\\\\AppData\\\\Local\\\\Temp\\\\pfc-server-I6zD6E\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 5,
+      "command": "node server/verify-server-m2.mjs",
+      "status": "PASS",
+      "elapsedMs": 875,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"check\":\"m2-login\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-seed-import\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-create-req\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-create-knowledge-refs\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-gate-blocked\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-gate-passed\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-material\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-answer\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-message\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-run-created\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-approval-hard-gate\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-reject-reason-required\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-reject-audit\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-run-succeeded\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-replay-steps\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-gates-recorded\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-lease-conflict\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-lease-handoff\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2-notices-events\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":19,\"results\":[{\"name\":\"m2-login\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-seed-import\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-create-req\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-create-knowledge-refs\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-gate-blocked\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-gate-passed\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-material\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-answer\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-message\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-run-created\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-approval-hard-gate\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-reject-reason-required\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-reject-audit\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-run-succeeded\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-replay-steps\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-gates-recorded\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-lease-conflict\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-lease-handoff\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2-notices-events\",\"status\":\"PASS\",\"note\":\"\"}]}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 6,
+      "command": "node server/verify-m2b.mjs",
+      "status": "PASS",
+      "elapsedMs": 6855,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"check\":\"m2b-pair-token\",\"status\":\"PASS\",\"note\":\"\"}\n{\"check\":\"m2b-bridge-online-pushed\",\"status\":\"PASS\",\"note\":\"Web 端收到 Bridge 上线推送\"}\n{\"check\":\"m2b-realtime-lines\",\"status\":\"PASS\",\"note\":\"Web 端实时收到 job.line 5 条\"}\n{\"check\":\"m2b-line-content\",\"status\":\"PASS\",\"note\":\"推送内容为终端对话流\"}\n{\"check\":\"m2b-run-succeeded-pushed\",\"status\":\"PASS\",\"note\":\"job.done → run.status SUCCEEDED 推送\"}\n{\"check\":\"m2b-replay-recorded\",\"status\":\"PASS\",\"note\":\"Bridge 快照已落库\"}\n{\"check\":\"m2b-no-console-break\",\"status\":\"PASS\",\"note\":\"\"}\n{\"status\":\"PASS\",\"checks\":7,\"results\":[{\"name\":\"m2b-pair-token\",\"status\":\"PASS\",\"note\":\"\"},{\"name\":\"m2b-bridge-online-pushed\",\"status\":\"PASS\",\"note\":\"Web 端收到 Bridge 上线推送\"},{\"name\":\"m2b-realtime-lines\",\"status\":\"PASS\",\"note\":\"Web 端实时收到 job.line 5 条\"},{\"name\":\"m2b-line-content\",\"status\":\"PASS\",\"note\":\"推送内容为终端对话流\"},{\"name\":\"m2b-run-succeeded-pushed\",\"status\":\"PASS\",\"note\":\"job.done → run.status SUCCEEDED 推送\"},{\"name\":\"m2b-replay-recorded\",\"status\":\"PASS\",\"note\":\"Bridge 快照已落库\"},{\"name\":\"m2b-no-console-break\",\"status\":\"PASS\",\"note\":\"\"}]}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 7,
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "status": "PASS",
+      "elapsedMs": 123,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"checks\":6,\"results\":[{\"name\":\"remote tick does not simulate progress\",\"status\":\"PASS\"},{\"name\":\"WS finds nested run without cross-requirement writes\",\"status\":\"PASS\"},{\"name\":\"duplicate event is ignored\",\"status\":\"PASS\"},{\"name\":\"remote status carries exit code\",\"status\":\"PASS\"},{\"name\":\"older WS status cannot undo cancellation\",\"status\":\"PASS\"},{\"name\":\"remote control cannot enter local verification\",\"status\":\"PASS\"}]}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 8,
+      "command": "node server/verify-m2b2-domain.mjs",
+      "status": "PASS",
+      "elapsedMs": 251,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"checks\":8,\"results\":[{\"name\":\"new requirement cannot overwrite seeded ID\",\"status\":\"PASS\"},{\"name\":\"run ID reserves nested seed IDs\",\"status\":\"PASS\"},{\"name\":\"retry command returns same pending run\",\"status\":\"PASS\"},{\"name\":\"canonical run readback includes plan and terminal\",\"status\":\"PASS\"},{\"name\":\"whitespace rejection refused without mutation\",\"status\":\"PASS\"},{\"name\":\"rejected plan cannot be approved or executed\",\"status\":\"PASS\"},{\"name\":\"offline simulation readback and repeated start are stable\",\"status\":\"PASS\"},{\"name\":\"cancel advances revision and repeated cancel preserves the terminal result\",\"status\":\"PASS\"}],\"data\":\"CODEx_TEST_M2B2_20260912\",\"cleanup\":\"process-local memory discarded on exit\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 9,
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "status": "PASS",
+      "elapsedMs": 13707,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"name\":\"page-identity\",\"status\":\"PASS\"}\n{\"name\":\"ui-create-confirm-advance-api\",\"status\":\"PASS\"}\n{\"name\":\"sim-lines-visible-before-completion\",\"status\":\"PASS\"}\n{\"name\":\"execution-source-and-unknown-git-lease\",\"status\":\"PASS\"}\n{\"name\":\"succeeded-lines-replay-readback\",\"status\":\"PASS\"}\n{\"name\":\"remote-success-has-no-simulated-preview-action\",\"status\":\"PASS\"}\n{\"name\":\"refresh-restores-domain-run\",\"status\":\"PASS\"}\n{\"name\":\"three-desktop-widths\",\"status\":\"PASS\"}\n{\"name\":\"reject-reason-required-and-audited\",\"status\":\"PASS\"}\n{\"name\":\"offline-simulation-is-labelled-and-read-back\",\"status\":\"PASS\"}\n{\"name\":\"duplicate-approval-does-not-create-another-run\",\"status\":\"PASS\"}\n{\"name\":\"long-output-follows-tail-and-preserves-reading\",\"status\":\"PASS\"}\n{\"name\":\"web-reconnect-recovers-missed-lines\",\"status\":\"PASS\"}\n{\"name\":\"cancel-waits-for-bridge-ack-and-ignores-late-done\",\"status\":\"PASS\"}\n{\"name\":\"remote-model-controls-never-simulate-state\",\"status\":\"PASS\"}\n{\"name\":\"bridge-disconnect-stays-unknown-after-verification\",\"status\":\"PASS\"}\n{\"name\":\"readonly-ui-blocks-run-command\",\"status\":\"PASS\"}\n{\"name\":\"demo-scenario-cannot-mutate-remote-job\",\"status\":\"PASS\"}\n{\"name\":\"console-health\",\"status\":\"PASS\"}\n{\"status\":\"PASS\",\"runId\":\"CODEx_TEST_M2B2_20260912\",\"results\":[{\"name\":\"page-identity\",\"status\":\"PASS\"},{\"name\":\"ui-create-confirm-advance-api\",\"status\":\"PASS\"},{\"name\":\"sim-lines-visible-before-completion\",\"status\":\"PASS\"},{\"name\":\"execution-source-and-unknown-git-lease\",\"status\":\"PASS\"},{\"name\":\"succeeded-lines-replay-readback\",\"status\":\"PASS\"},{\"name\":\"remote-success-has-no-simulated-preview-action\",\"status\":\"PASS\"},{\"name\":\"refresh-restores-domain-run\",\"status\":\"PASS\"},{\"name\":\"three-desktop-widths\",\"status\":\"PASS\"},{\"name\":\"reject-reason-required-and-audited\",\"status\":\"PASS\"},{\"name\":\"offline-simulation-is-labelled-and-read-back\",\"status\":\"PASS\"},{\"name\":\"duplicate-approval-does-not-create-another-run\",\"status\":\"PASS\"},{\"name\":\"long-output-follows-tail-and-preserves-reading\",\"status\":\"PASS\"},{\"name\":\"web-reconnect-recovers-missed-lines\",\"status\":\"PASS\"},{\"name\":\"cancel-waits-for-bridge-ack-and-ignores-late-done\",\"status\":\"PASS\"},{\"name\":\"remote-model-controls-never-simulate-state\",\"status\":\"PASS\"},{\"name\":\"bridge-disconnect-stays-unknown-after-verification\",\"status\":\"PASS\"},{\"name\":\"readonly-ui-blocks-run-command\",\"status\":\"PASS\"},{\"name\":\"demo-scenario-cannot-mutate-remote-job\",\"status\":\"PASS\"},{\"name\":\"console-health\",\"status\":\"PASS\"}],\"cleanup\":{\"children\":[{\"pid\":42944,\"exited\":true},{\"pid\":40220,\"exited\":true}],\"port\":5194,\"portFree\":true,\"contextsClosed\":true,\"data\":\"memory discarded\",\"createdIds\":[\"R-1201\",\"R-1202\",\"R-1203\",\"R-1204\"]},\"evidence\":\"D:\\\\项目管理\\\\product-full-chain-platform\\\\.local\\\\m2b2-acceptance-browser-2026-09-13T10-46-23-549Z\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 10,
+      "command": "node server/verify-m2c-pg.mjs",
+      "status": "PASS",
+      "elapsedMs": 2196,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"name\":\"target-rejected-before-side-effects\",\"status\":\"PASS\"}\n{\"name\":\"connect-does-not-migrate-and-readiness-fails\",\"status\":\"PASS\"}\n{\"name\":\"versioned-migration-repeat-and-checksum\",\"status\":\"PASS\"}\n{\"name\":\"readiness-detects-missing-table-despite-migration-ledger\",\"status\":\"PASS\"}\n{\"name\":\"requirement-version-audit-independent-sql-readback\",\"status\":\"PASS\"}\n{\"name\":\"rollback-removes-requirement-version-audit-and-counter-change\",\"status\":\"PASS\"}\n{\"name\":\"concurrent-identifiers-and-version-conflict-are-atomic\",\"status\":\"PASS\"}\n{\"name\":\"tenant-identity-mapping-and-foreign-keys\",\"status\":\"PASS\"}\n{\"name\":\"independent-process-restart-preserves-identifiers-and-records\",\"status\":\"PASS\"}\n{\"name\":\"connection-and-sql-timeouts-fail-without-memory-fallback\",\"status\":\"PASS\"}\n{\"name\":\"cli-refuses-unapproved-target-and-repeats-migration\",\"status\":\"PASS\"}\n{\"name\":\"storage-does-not-depend-on-memory-domain-or-change-app-entry\",\"status\":\"PASS\"}\n{\"status\":\"PASS\",\"runId\":\"CODEx_TEST_M2C_20260912_storage\",\"results\":[{\"name\":\"target-rejected-before-side-effects\",\"status\":\"PASS\"},{\"name\":\"connect-does-not-migrate-and-readiness-fails\",\"status\":\"PASS\"},{\"name\":\"versioned-migration-repeat-and-checksum\",\"status\":\"PASS\"},{\"name\":\"readiness-detects-missing-table-despite-migration-ledger\",\"status\":\"PASS\"},{\"name\":\"requirement-version-audit-independent-sql-readback\",\"status\":\"PASS\"},{\"name\":\"rollback-removes-requirement-version-audit-and-counter-change\",\"status\":\"PASS\"},{\"name\":\"concurrent-identifiers-and-version-conflict-are-atomic\",\"status\":\"PASS\"},{\"name\":\"tenant-identity-mapping-and-foreign-keys\",\"status\":\"PASS\"},{\"name\":\"independent-process-restart-preserves-identifiers-and-records\",\"status\":\"PASS\"},{\"name\":\"connection-and-sql-timeouts-fail-without-memory-fallback\",\"status\":\"PASS\"},{\"name\":\"cli-refuses-unapproved-target-and-repeats-migration\",\"status\":\"PASS\"},{\"name\":\"storage-does-not-depend-on-memory-domain-or-change-app-entry\",\"status\":\"PASS\"},{\"name\":\"cleanup-independent-readback\",\"status\":\"PASS\"}],\"observations\":[{\"scenario\":\"restart\",\"writerPid\":35492,\"readerPid\":42036,\"publicId\":\"R-1045\",\"uuid\":\"808b6b4a-f00a-4cee-ae31-581288da7f9d\"}],\"cleanup\":{\"schema\":\"codex_test_m2c_20260912_storage\",\"remaining\":0,\"totalRows\":29,\"externalSchemaMetadataUnchanged\":true,\"createdIds\":[\"10000000-0000-4000-8000-000000000001\",\"10000000-0000-4000-8000-000000000002\",\"f72a8799-4410-452e-99c9-38073068d3d9\",\"0d6c9876-b6c2-4fd5-80bc-2ed40b18703e\",\"4ecde1fb-a11e-47fb-b05c-0ea8f2f61ffe\",\"74947970-791d-4823-8a2e-246bd7e035e5\",\"1e06130e-4a95-4af3-9128-421a8968dd9f\",\"808b6b4a-f00a-4cee-ae31-581288da7f9d\"],\"readback\":{\"schema_migrations\":[{\"version\":\"001\",\"checksum\":\"49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021\",\"applied_at\":\"2026-09-13T10:46:37.341Z\"}],\"tenants\":[{\"id\":\"10000000-0000-4000-8000-000000000001\",\"name\":\"CODEx_TEST_M2C_20260912_storage_A\",\"plan\":\"internal\",\"created_at\":\"2026-09-13T10:46:37.593Z\"},{\"id\":\"10000000-0000-4000-8000-000000000002\",\"name\":\"CODEx_TEST_M2C_20260912_storage_B\",\"plan\":\"internal\",\"created_at\":\"2026-09-13T10:46:37.593Z\"}],\"id_counters\":[{\"tenant_id\":\"10000000-0000-4000-8000-000000000002\",\"entity\":\"reqs\",\"value\":\"1041\"},{\"tenant_id\":\"10000000-0000-4000-8000-000000000002\",\"entity\":\"req_versions\",\"value\":\"1\"},{\"tenant_id\":\"10000000-0000-4000-8000-000000000002\",\"entity\":\"audit_logs\",\"value\":\"1\"},{\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"entity\":\"reqs\",\"value\":\"1045\"},{\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"entity\":\"req_versions\",\"value\":\"6\"},{\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"entity\":\"audit_logs\",\"value\":\"6\"}],\"reqs\":[{\"id\":\"f72a8799-4410-452e-99c9-38073068d3d9\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"public_id\":\"R-1041\",\"name\":\"CODEx_TEST_M2C_20260912_storage_valid\",\"goal\":\"合成提醒\",\"scope\":\"仅隔离验证\",\"owner\":\"CODEx_TEST_M2C_20260912_storage\",\"stage\":\"idea\",\"created_at\":\"2026-09-13T10:46:37.689Z\",\"updated_at\":\"2026-09-13T10:46:37.689Z\"},{\"id\":\"0d6c9876-b6c2-4fd5-80bc-2ed40b18703e\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"public_id\":\"R-1042\",\"name\":\"CODEx_TEST_M2C_20260912_storage_retry\",\"goal\":\"\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260912_storage\",\"stage\":\"idea\",\"created_at\":\"2026-09-13T10:46:37.716Z\",\"updated_at\":\"2026-09-13T10:46:37.716Z\"},{\"id\":\"4ecde1fb-a11e-47fb-b05c-0ea8f2f61ffe\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"public_id\":\"R-1043\",\"name\":\"CODEx_TEST_M2C_20260912_storage_parallel_1\",\"goal\":\"\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260912_storage\",\"stage\":\"idea\",\"created_at\":\"2026-09-13T10:46:37.721Z\",\"updated_at\":\"2026-09-13T10:46:37.721Z\"},{\"id\":\"74947970-791d-4823-8a2e-246bd7e035e5\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"public_id\":\"R-1044\",\"name\":\"CODEx_TEST_M2C_20260912_storage_parallel_2\",\"goal\":\"\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260912_storage\",\"stage\":\"idea\",\"created_at\":\"2026-09-13T10:46:37.801Z\",\"updated_at\":\"2026-09-13T10:46:37.801Z\"},{\"id\":\"1e06130e-4a95-4af3-9128-421a8968dd9f\",\"tenant_id\":\"10000000-0000-4000-8000-000000000002\",\"public_id\":\"R-1041\",\"name\":\"CODEx_TEST_M2C_20260912_storage_other_tenant\",\"goal\":\"\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260912_storage\",\"stage\":\"idea\",\"created_at\":\"2026-09-13T10:46:37.819Z\",\"updated_at\":\"2026-09-13T10:46:37.819Z\"},{\"id\":\"808b6b4a-f00a-4cee-ae31-581288da7f9d\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"public_id\":\"R-1045\",\"name\":\"CODEx_TEST_M2C_20260912_storage_restart\",\"goal\":\"\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260912_storage\",\"stage\":\"idea\",\"created_at\":\"2026-09-13T10:46:38.062Z\",\"updated_at\":\"2026-09-13T10:46:38.062Z\"}],\"req_versions\":[{\"id\":\"fb0f4b4e-7049-4519-923a-60ed8ce01388\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"f72a8799-4410-452e-99c9-38073068d3d9\",\"public_id\":\"SV-1\",\"stage\":\"idea\",\"version\":1,\"content\":{\"title\":\"提醒草案\"},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:37.689Z\"},{\"id\":\"411004fe-ca3a-4ea5-869d-85ca87841f0c\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"0d6c9876-b6c2-4fd5-80bc-2ed40b18703e\",\"public_id\":\"SV-2\",\"stage\":\"idea\",\"version\":1,\"content\":{\"valid\":true},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:37.716Z\"},{\"id\":\"2f82e86f-821d-4c59-9754-3571d95f288a\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"4ecde1fb-a11e-47fb-b05c-0ea8f2f61ffe\",\"public_id\":\"SV-3\",\"stage\":\"idea\",\"version\":1,\"content\":{\"title\":\"CODEx_TEST_M2C_20260912_storage_parallel_1\"},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:37.721Z\"},{\"id\":\"dc933155-8c03-4675-a1e0-aeaad6097a50\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"74947970-791d-4823-8a2e-246bd7e035e5\",\"public_id\":\"SV-4\",\"stage\":\"idea\",\"version\":1,\"content\":{\"title\":\"CODEx_TEST_M2C_20260912_storage_parallel_2\"},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:37.801Z\"},{\"id\":\"fcc660cb-741c-49d5-bac6-9ca6c8e4ea76\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"f72a8799-4410-452e-99c9-38073068d3d9\",\"public_id\":\"SV-5\",\"stage\":\"idea\",\"version\":2,\"content\":{},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:37.812Z\"},{\"id\":\"501ec9a8-8a69-49a6-bdde-5c2c05d7c586\",\"tenant_id\":\"10000000-0000-4000-8000-000000000002\",\"req_id\":\"1e06130e-4a95-4af3-9128-421a8968dd9f\",\"public_id\":\"SV-1\",\"stage\":\"idea\",\"version\":1,\"content\":{\"title\":\"CODEx_TEST_M2C_20260912_storage_other_tenant\"},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:37.819Z\"},{\"id\":\"187a610b-6550-45b2-96ba-9e73d86de148\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"808b6b4a-f00a-4cee-ae31-581288da7f9d\",\"public_id\":\"SV-6\",\"stage\":\"idea\",\"version\":1,\"content\":{\"title\":\"合成提醒\"},\"confirmed_by\":null,\"confirmed_at\":null,\"stale\":false,\"created_at\":\"2026-09-13T10:46:38.062Z\"}],\"audit_logs\":[{\"id\":\"b4da0a85-d6cc-4171-88f3-8c440d3afe74\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"f72a8799-4410-452e-99c9-38073068d3d9\",\"public_id\":\"A-1\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"requirement.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:37.689Z\"},{\"id\":\"76a5f8b3-1ef1-4026-bf7b-71ae0b5da723\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"0d6c9876-b6c2-4fd5-80bc-2ed40b18703e\",\"public_id\":\"A-2\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"requirement.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:37.716Z\"},{\"id\":\"988a7b6b-5ac9-46c4-b8b5-52815f1545a1\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"4ecde1fb-a11e-47fb-b05c-0ea8f2f61ffe\",\"public_id\":\"A-3\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"requirement.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:37.721Z\"},{\"id\":\"d30442ef-beab-457b-8474-06fd73fcb03c\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"74947970-791d-4823-8a2e-246bd7e035e5\",\"public_id\":\"A-4\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"requirement.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:37.801Z\"},{\"id\":\"4168830f-d861-45d8-bc6a-e43783dab579\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"f72a8799-4410-452e-99c9-38073068d3d9\",\"public_id\":\"A-5\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"version.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:37.812Z\"},{\"id\":\"37f3137f-599b-4e72-95c8-31bceb08aaaf\",\"tenant_id\":\"10000000-0000-4000-8000-000000000002\",\"req_id\":\"1e06130e-4a95-4af3-9128-421a8968dd9f\",\"public_id\":\"A-1\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"requirement.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:37.819Z\"},{\"id\":\"c1eb5d46-a500-40b1-a5a3-368982bf4d60\",\"tenant_id\":\"10000000-0000-4000-8000-000000000001\",\"req_id\":\"808b6b4a-f00a-4cee-ae31-581288da7f9d\",\"public_id\":\"A-6\",\"actor\":\"CODEx_TEST_M2C_20260912_storage\",\"action\":\"requirement.created\",\"detail\":\"\",\"created_at\":\"2026-09-13T10:46:38.062Z\"}]},\"poolsClosed\":true},\"evidence\":\"D:\\\\项目管理\\\\product-full-chain-platform\\\\.local\\\\m2c-1-storage-20260912\\\\pg-2026-09-13T10-46-37-014Z\",\"scope\":\"isolated PostgreSQL components only; business API still memory; no external effects\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 11,
+      "command": "node server/verify-m2c-architecture.mjs",
+      "status": "PASS",
+      "elapsedMs": 177,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"results\": [\n    {\n      \"name\": \"routes and WebSocket never own domain store or SQL\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"service is a bounded mode facade and responsibilities have separate modules\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"PG has no automatic migration seed or snapshot persistence path\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"frontend domain mapping never fabricates requirement facts\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"canonical migration identity and targets retain version 001 contract\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"approved frontend and server contract additions match\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"future workbench target is exact and performs no initialization\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"governance policy owns permissions and execution snapshots; UI dispatch is isolated\",\n      \"status\": \"PASS\"\n    }\n  ]\n}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 12,
+      "command": "node server/verify-m2c-domain.mjs",
+      "status": "PASS",
+      "elapsedMs": 18295,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS 001 to 002 and repeated migration\nPASS PG empty startup and snapshot write barriers\nPASS HTTP create atomically persists version questions material audit event\nPASS cross-process restart retains exact HTTP domain facts\nPASS command receipt survives restart and rejects altered body\nPASS identity is server configured and tenant scoped\nPASS unanswered question blocks confirmation\nPASS answer and new idea version persist together\nPASS stale two-client edit conflicts without half writes\nPASS ordered stage transition creates only current draft\nPASS file original stored and independently hashed\nPASS same hash deduplicates and download requires ownership\nPASS DB failure after file write removes only unreferenced owned bytes\nPASS exact 10 MiB files and 50 MiB logical message limit use original binary bytes\nPASS persistent simulated conversation with versioned attachment\nPASS stop and resend preserve message relationships\nPASS restart interrupts unfinished reply and keeps attachment bytes\nPASS plan approval gates start and persists dispatch identity\nPASS bridge durable line and cancel late done cannot become success\nPASS personal notice read does not change another account\nPASS all domain output survives server restart\nPASS two simultaneous command retries produce one requirement\nPASS all write families enforce viewer role and actor cannot be forged\nPASS file and reference boundaries reject before successful persistence\nPASS unavailable file directory rolls back metadata and receipt\nPASS row lock timeout reports 503 and original command safely retries\nPASS material version invalidates plan and old reference but retains original\nPASS review needs changes withdraws approval and invalidates downstream\nPASS controlled simulated Bridge completion replay and quality record persist\nPASS HTTP and WebSocket channel roles reject bridge and viewer escalation\nPASS dispatch retry does not resend and lease acquisition has one winner\nPASS bridge identity sequence idempotency and bounded history\nPASS restart turns unresolved run UNKNOWN and lease lost without dispatch\nPASS migration readiness detects checksum column and constraint corruption\nPASS rolled back event and version never appear as committed\nPASS quota and fail-closed startup configuration\n{\"cleanup\":{\"remaining\":0,\"rows\":1124,\"filesRemaining\":0,\"processesRemaining\":0}}\n{\"status\":\"PASS\",\"tests\":36}\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/domain.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-12-domain.json"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-12-domain.json"
+      ]
+    },
+    {
+      "number": 13,
+      "command": "node output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "PASS",
+      "elapsedMs": 24267,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS PG empty browser does not upload factory seed\nPASS UI creates persisted requirement and unanswered questions\nPASS UI answers create matching immutable versions\nPASS UI confirmation and advancement reach dev\nPASS unconfirmed draft survives browser reload\nPASS chat attachment and simulated reply persist\nPASS Diff acceptance appends a version\nPASS persisted simulated run visible in both terminals\nPASS three desktop widths keyboard and screenshot evidence\nPASS server and browser restart restore data and original download\nPASS image original preview renders and releases the temporary URL\nPASS message keeps historical attachment version after replacement\nPASS message paging bounds browser restore and exposes older history\nPASS PG read failure is visible and preserves the pending draft\nPASS unsupported PG writes cannot change local facts\n{\"status\":\"PASS\",\"tests\":15,\"cleanup\":{\"remaining\":0,\"filesRemaining\":0,\"processesRemaining\":0}}\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/browser.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-browser.json"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/pg-file-restored.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-file-restored.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/pg-image-preview.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-image-preview.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/pg-read-error.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-read-error.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/pg-workbench-1280.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-workbench-1280.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/pg-workbench-1440.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-workbench-1440.png"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-browser.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-file-restored.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-image-preview.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-read-error.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-workbench-1280.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/domain/recovery-2026-09-13T10-44-34-281Z-13-pg-workbench-1440.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/recovery-static-config.json"
+      ]
+    },
+    {
+      "number": 14,
+      "command": "node server/verify-m2c-governance.mjs",
+      "status": "PASS",
+      "elapsedMs": 12392,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"phase\": \"integration\",\n  \"results\": [\n    {\n      \"name\": \"G01 explicit 003 extends immutable 001 and 002\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G03 fresh role replaces stale token role; inactive and absent deny\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G03 inaccessible storage never falls back to configured role\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G04 body-shaped bridge context cannot bypass human authorization\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G10 CSV formula injection and count/byte limits fail without partial downloads\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G01 G02 PG readiness, members and role authority\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G02 register configured identity, role revision, current JWT, soft disable and replay\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G03 revoked member socket closes before subsequent sensitive delivery\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G02 concurrent owner demotion never removes last owner\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G05 G06 capabilities require review and enablement, binding revision and tenant isolation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G08 G09 project metadata, tenant boundary and immutable knowledge references\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G10 G11 bounded audit export and budget has no invented usage\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G07 G14 G15 immutable plan, configuration changes, approver revocation and project guard\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G03 G04 controlled internal results survive revocation and UNKNOWN retains project guard\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G14 legacy waiting plans and oversized snapshots reject atomically\",\n      \"status\": \"PASS\"\n    }\n  ],\n  \"cleanup\": {\n    \"schema\": \"codex_test_m2c_20260913_governance\",\n    \"remaining\": 0,\n    \"totalRows\": 914,\n    \"filesRemaining\": 0,\n    \"processesRemaining\": 0,\n    \"externalSchemaMetadataUnchanged\": true\n  },\n  \"data\": \"deterministic local fixtures only\"\n}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/integration-1789296454146.json"
+      ]
+    },
+    {
+      "number": 15,
+      "command": "node output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "PASS",
+      "elapsedMs": 20451,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS G12 empty governance and current identity use real PG facts\nPASS G05 G06 UI registers reviews enables and binds a capability\nPASS G08 G09 UI project and knowledge persist, scripts render as text\nPASS G16 503 and 409 preserve modal draft and retry uses current server result\nPASS G16 committed write followed by failed read does not create a duplicate on retry\nPASS G10 G11 real CSV download and unconfigured budget\nPASS G14 G16 current workbench shows saved context before approval\nPASS G12 G16 three desktop widths, original columns and keyboard interaction\nPASS G03 G16 current role refresh revokes visible controls without losing draft\nPASS G13 browser and database evidence have no seed or real execution\n{\n  \"status\": \"PASS\",\n  \"results\": [\n    {\n      \"name\": \"G12 empty governance and current identity use real PG facts\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G05 G06 UI registers reviews enables and binds a capability\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G08 G09 UI project and knowledge persist, scripts render as text\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G16 503 and 409 preserve modal draft and retry uses current server result\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G16 committed write followed by failed read does not create a duplicate on retry\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G10 G11 real CSV download and unconfigured budget\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G14 G16 current workbench shows saved context before approval\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G12 G16 three desktop widths, original columns and keyboard interaction\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G03 G16 current role refresh revokes visible controls without losing draft\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G13 browser and database evidence have no seed or real execution\",\n      \"status\": \"PASS\"\n    }\n  ],\n  \"cleanup\": {\n    \"remaining\": 0,\n    \"filesRemaining\": 0,\n    \"processesRemaining\": 0\n  }\n}\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/governance-plan-review.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-plan-review.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/governance-work-1280.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-work-1280.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/governance-work-1440.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-work-1440.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/governance-work-1920.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-work-1920.png"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/browser-1789296474610.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-plan-review.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-work-1280.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-work-1440.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/governance/recovery-2026-09-13T10-44-34-281Z-15-governance-work-1920.png"
+      ]
+    },
+    {
+      "number": 16,
+      "command": "node output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "status": "PASS",
+      "elapsedMs": 131,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"checks\":11,\"results\":[{\"name\":\"candidate-before-prd-confirmation-and-complete-chain\",\"status\":\"PASS\"},{\"name\":\"atomic-related-versions-history-and-reject\",\"status\":\"PASS\"},{\"name\":\"stale-command-and-stale-suggestion\",\"status\":\"PASS\"},{\"name\":\"permissions-before-replay-and-idempotency\",\"status\":\"PASS\"},{\"name\":\"partial-generation-and-independent-preparation\",\"status\":\"PASS\"},{\"name\":\"unknown-is-verified-before-resume-and-changes-block-active-run\",\"status\":\"PASS\"},{\"name\":\"failed-tests-and-release-recovery-preserve-evidence\",\"status\":\"PASS\"},{\"name\":\"acceptance-return-identifies-failed-item\",\"status\":\"PASS\"},{\"name\":\"invalid-stored-content-fails-before-render\",\"status\":\"PASS\"},{\"name\":\"request-isolation-and-limits\",\"status\":\"PASS\"},{\"name\":\"store-lock-concurrent-write-no-lock-quota-and-cleanup\",\"status\":\"PASS\"}],\"data\":\"synthetic process-local maps; no browser/PG/network\",\"cleanup\":\"maps discarded\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 17,
+      "command": "node output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "status": "PASS",
+      "elapsedMs": 14266,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS ordinary-three-width-shell-reference\nPASS original-entry-and-early-interactive-candidate\nPASS three-width-prototype-prd-keyboard-and-expanded-canvas\nPASS related-change-quota-failure-retry-and-history\nPASS refresh-draft-context-and-stage-view-preservation\nPASS cross-window-stale-write-and-request-isolation\nPASS pending-decision-independent-work-and-readonly\nPASS development-dual-terminals-pause-unknown-and-test-recovery\nPASS human-acceptance-publication-observation-and-return\nPASS partial-generation-and-xss-as-text\nPASS pg-dto-view-and-mode-isolation\n{\"status\":\"PASS\",\"checks\":11,\"results\":[{\"name\":\"ordinary-three-width-shell-reference\",\"status\":\"PASS\"},{\"name\":\"original-entry-and-early-interactive-candidate\",\"status\":\"PASS\"},{\"name\":\"three-width-prototype-prd-keyboard-and-expanded-canvas\",\"status\":\"PASS\"},{\"name\":\"related-change-quota-failure-retry-and-history\",\"status\":\"PASS\"},{\"name\":\"refresh-draft-context-and-stage-view-preservation\",\"status\":\"PASS\"},{\"name\":\"cross-window-stale-write-and-request-isolation\",\"status\":\"PASS\"},{\"name\":\"pending-decision-independent-work-and-readonly\",\"status\":\"PASS\"},{\"name\":\"development-dual-terminals-pause-unknown-and-test-recovery\",\"status\":\"PASS\"},{\"name\":\"human-acceptance-publication-observation-and-return\",\"status\":\"PASS\"},{\"name\":\"partial-generation-and-xss-as-text\",\"status\":\"PASS\"},{\"name\":\"pg-dto-view-and-mode-isolation\",\"status\":\"PASS\"}]}\n{\"cleanup\":{\"pid\":31120,\"port\":52663,\"browserClosed\":true,\"serverClosed\":true,\"isolatedContextsClosed\":true,\"data\":\"synthetic browser contexts discarded\"}}\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/acceptance.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-acceptance.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/browser-report.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-browser-report.json"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/observation.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-observation.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/prd.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-prd.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/related-diff.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-related-diff.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/unknown.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-unknown.png"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-acceptance.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-browser-report.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-observation.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-prd.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-related-diff.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/flow/recovery-2026-09-13T10-44-34-281Z-17-unknown.png"
+      ]
+    },
+    {
+      "number": 18,
+      "command": "node output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "PASS",
+      "elapsedMs": 3752,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"checks\":5,\"results\":[{\"name\":\"exact-approved-scope-and-protected-domain-fingerprints\",\"status\":\"PASS\"},{\"name\":\"current-governance-scope-and-preserved-reference\",\"status\":\"PASS\"},{\"name\":\"shared-frame-preserves-original-eight-stage-three-panel-html\",\"status\":\"PASS\"},{\"name\":\"shell-has-no-business-state-and-flow-has-no-runtime-adapter\",\"status\":\"PASS\"},{\"name\":\"downstream-change-has-review-action-without-losing-running-control\",\"status\":\"PASS\"}],\"baseline\":\"a9eec73ed65610f09a80f11331edbda1b4252a67\",\"fingerprints\":{\"output/pfc-workbench-prototype/original/domain-client.js\":\"0fed1036c2b0db6a8caab8c789e4e221faff0401eeabd87bf5b32da96afbe61f\",\"output/pfc-workbench-prototype/original/domain-view.js\":\"afd90ba01153385917f3f87cd130c6c8b479d1c2435c748056106a53d88528ca\",\"output/pfc-workbench-prototype/original/domain-actions.js\":\"bfb2e1177d0e0efb1b1ed37b97ce3dbf8aca0a080a1f0aa6db77758aad785a9a\",\"output/pfc-workbench-prototype/original/api-client.js\":\"480bb583cd0a3c0a15f6272daf04a78c88f6ec37b5d1e5c1eadd089349a50a73\",\"output/pfc-workbench-prototype/original/data-layer.js\":\"d05715a3b5674cdff9dba054c6fae2aad3a8a2681b55632393eeffa55712a69a\",\"output/pfc-workbench-prototype/original/model.js\":\"e2e623ae351059a226a6ff6eb3d4398fe53b427bc397670c76065f32354d07d3\",\"output/pfc-workbench-prototype/original/base.css\":\"d491ef83ce6a8630f7735d5f46cbb2969710d0629097f9e5315be12023608511\",\"output/pfc-workbench-prototype/original/guide.css\":\"85c61363c00580cf85c581e62314ee264c8ede542d5a1753bbd14047dea67292\",\"output/pfc-workbench-prototype/original/flow-demo-data.js\":\"90aece80620739c256b6b4a00db46652d1c92002bf43cd06f98fc78a62d97f9b\",\"output/pfc-workbench-prototype/original/flow-model.js\":\"16a190e4c375cb2aba030fbca95348e432fd392e20e7261ba578ad3f017c0016\",\"output/pfc-workbench-prototype/original/flow-view.js\":\"29183e018523f5badf8e22430645b57ac2282a6a3f2d308e88d58822d2515f56\",\"output/pfc-workbench-prototype/original/flow-actions.js\":\"a5121d4f05d5c75cbe7c1ae2d7a255fed48812e8ec0b5c8d9db3202e46a53c45\",\"output/pfc-workbench-prototype/original/flow.css\":\"d74ecd1c0d3924d5f053ef5e179537885a69752194a3083c23b4c31f0eaf987d\",\"output/pfc-workbench-prototype/original/workbench-shell.js\":\"b32b7db5393c06d6e82f50824a48b9073a660ba6bc3da43e16ad52d6a79244e8\"},\"hashNormalization\":\"UTF-8 text CRLF to LF; unchanged tracked scope independently checked with git diff\",\"data\":\"synthetic VM objects only\",\"cleanup\":\"process-local objects discarded\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 19,
+      "command": "node server/verify-r2-artifact-model.mjs",
+      "status": "PASS",
+      "elapsedMs": 160,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\n  \"at\": \"2026-09-13T10:48:12.951Z\",\n  \"status\": \"PASS\",\n  \"results\": [\n    {\n      \"name\": \"A11 prototype schema rejects executable/unknown properties and invalid targets\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A14 bounded prototype permits data text without executing it\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A01/A02 candidate completeness, rule references and independent content comparison\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A12 superseded independent read preserves command receipt and draft\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A14 page, node, table row and payload boundaries fail without truncation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"A13 schema004 rechecks current membership before command receipt replay\",\n      \"status\": \"PASS\"\n    }\n  ]\n}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/model-1789296492954.json"
+      ]
+    },
+    {
+      "number": 20,
+      "command": "node server/verify-r2-artifacts.mjs",
+      "status": "PASS",
+      "elapsedMs": 9917,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS A04 explicit004 migration and immutable history constraints\nPASS A01 partial candidate can be saved before questions but cannot be adopted\nPASS A11 JSON original is parsed from persisted bytes and source hash is retained\nPASS A06 legacy PRD writes cannot bypass linked adoption\nPASS A02/A06 independent versions, atomic confirmations and immutable history\nPASS A03 concurrent adoption and changed-payload replay never duplicate versions\nPASS A04 injected failures at version, group and event writes roll back everything\nPASS A07 design-only updates preserve business, question changes invalidate both\nPASS A05/A11 import preserves original bytes, rejects forged source and revoked reads\nPASS A08/A09 v2 survives restart; pending plans stale, active runs block adoption only\nPASS A13 API roles and revoked identity cannot read or write/replay\nPASS A09 confirmation author revocation blocks approval without rewriting snapshot\nPASS A14 20 pending candidates accepted; 21st rejected without truncation\n{\"status\":\"PASS\",\"tests\":13,\"cleanup\":{\"schema\":\"codex_test_m2c_20260913_artifacts\",\"remaining\":0,\"files\":0,\"processes\":0}}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/integration-1789296502846.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/recovery-source-diff.json"
+      ]
+    },
+    {
+      "number": 21,
+      "command": "node server/verify-r2-architecture.mjs",
+      "status": "PASS",
+      "elapsedMs": 18220,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"results\":[{\"name\":\"Accepted R2 exact whitelist; current R3 scope checked by verify-r3-architecture\",\"status\":\"PASS\"},{\"name\":\"source responsibilities and preview execution boundary\",\"status\":\"PASS\"},{\"name\":\"004 extends canonical migrations; contract and all script entries agree\",\"status\":\"PASS\"}],\"protected\":164}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/architecture-1789296521095.json"
+      ]
+    },
+    {
+      "number": 22,
+      "command": "node output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "status": "PASS",
+      "elapsedMs": 18145,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS A01/A10 template preview before adoption and required validation\nPASS A10 desktop three widths preserve columns and render preview\nPASS A12 background readback during a pointer gesture preserves intended comparison\nPASS A06 UI business and design confirmation advance atomically\nPASS A12 503 and committed write followed by failed read preserve receipt\nPASS A11 sandbox destroys iframe and forged messages do not mutate parent\nPASS A11 HTML original import is escaped, bytes downloadable, never executed\nPASS A10 JSON candidate supports page navigation, dialog, state and rule location\nPASS A12 revision conflict keeps editable draft across close, reload and explicit rebase\nPASS A12 late comparison response cannot open an artifact from another requirement\n{\"status\":\"PASS\",\"tests\":10}\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/workbench-1440.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/recovery-2026-09-13T10-44-34-281Z-22-workbench-1440.png"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/browser-1789296539227.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts/recovery-2026-09-13T10-44-34-281Z-22-workbench-1440.png"
+      ]
+    },
+    {
+      "number": 23,
+      "command": "node server/verify-r3-verification-model.mjs",
+      "status": "PASS",
+      "elapsedMs": 135,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\n  \"results\": [\n    {\n      \"name\": \"提前准备为待补边界草稿，不伪造READY或测试结果\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"READY要求完整字段与当前全部AC覆盖\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"重复ID、201用例和超长输入失败，200用例允许\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"人工PASS需要实际结果与附件，模拟或伪造执行来源拒绝\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"未执行/阻塞必须原因，不能改变为PASS\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"批次出口不允许空、失败、未测或未关闭缺陷\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"产品验收三项检查及风险必填，无条件通过\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"步骤、批量、证据及历史边界\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"未执行、阻塞、已重开缺陷及未确认检查均不能放行\",\n      \"status\": \"PASS\"\n    }\n  ]\n}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": []
+    },
+    {
+      "number": 24,
+      "command": "node server/verify-r3-verification.mjs",
+      "status": "PASS",
+      "elapsedMs": 21176,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS T16 explicit005 and unchanged001-004 prefix\nPASS T01-T03 adopted suite and atomic delivery into test\nPASS T04-T08 manual results and complete test report\nPASS T09 product acceptance and read-only release inputs\nPASS T01 early draft before business/design confirmation survives restart\nPASS T02 T10 draft preservation and explicit adoption invalidate release only when adopted\nPASS T05 T06 atomic mixed batch, command replay and concurrent result sequence\nPASS T07 T08 defect fixed new delivery and failed then passed regression\nPASS T09 Owner rejection and demotion blocks successful receipt replay\nPASS T12 immutable projections and new-stage chat with report and attachment refs\nPASS T11 attachment permissions and corruption block use without changing input on unused uploads\nPASS T14 result/proof/audit/event/receipt transaction rolls back on injected failure\nPASS T15 pagination and open batch limits\nPASS T11 actual evidence hash/missing-file checks and revoked result actor\nPASS T10 older open batch results invalidate completed test before acceptance\nPASS T14 delivery/defect/acceptance and audit/event/receipt faults roll back atomically\nPASS T03 active/unknown runs, old dev and stale input cannot hand off\nPASS T10 upstream design/business changes backflow from each newly supported stage\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/integration.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-24-integration.json"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-24-integration.json"
+      ]
+    },
+    {
+      "number": 25,
+      "command": "node server/verify-r3-architecture.mjs",
+      "status": "PASS",
+      "elapsedMs": 7278,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"status\":\"PASS\",\"checks\":[{\"name\":\"accepted R3 scope at b07dadf; current diff enforced by release architecture\",\"status\":\"PASS\"},{\"name\":\"accepted R3 protected Git blobs preserved; current raw hashes covered by M2c-4\",\"status\":\"PASS\"},{\"name\":\"005 extends all four immutable migration prefixes and protects ownership\",\"status\":\"PASS\"},{\"name\":\"transport delegates, pure policy and browser execution boundaries\",\"status\":\"PASS\"}],\"protectedCount\":2589}\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/architecture.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-25-architecture.json"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/recovery-source-static.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-25-architecture.json"
+      ]
+    },
+    {
+      "number": 26,
+      "command": "node output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "status": "PASS",
+      "elapsedMs": 24461,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS T01 T13 early suite editor, draft refresh and request isolation\nPASS T01 T02 suite per-case edit/import/export, explicit comparison and adoption\nPASS T03 T17 handoff form error focus and keyboard at three PC widths\nPASS T04 T08 manual result fields and unmet checks stay blocked\nPASS T09 T13 Owner acceptance, 503 retains original input and command\nPASS T12 T17 release chat attachment/report refs, keyboard and visual continuity\nPASS T13 committed POST with failed GET retains command and retries exactly once\nPASS T07 failed result carries case, actual value and evidence into defect draft\nPASS T13 user switch rejects late old response and isolates drafts; Viewer controls disabled\n",
+      "stderr": "",
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/acceptance-1280.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-acceptance-1280.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/acceptance-1440.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-acceptance-1440.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/acceptance-1920.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-acceptance-1920.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/browser.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-browser.json"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/handoff-1920.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-handoff-1920.png"
+        }
+      ],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-acceptance-1280.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-acceptance-1440.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-acceptance-1920.png",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-browser.json",
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/recovery-2026-09-13T10-44-34-281Z-26-handoff-1920.png"
+      ]
+    },
+    {
+      "number": 27,
+      "command": "node server/verify-m2c-release-model.mjs",
+      "status": "PASS",
+      "elapsedMs": 170,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"at\":\"2026-09-13T10:49:52.484Z\",\"status\":\"PASS\",\"results\":[{\"name\":\"T08 unknown result does not invent a smoke outcome\",\"status\":\"PASS\"},{\"name\":\"T01 T03 incomplete drafts retain input but cannot be submitted\",\"status\":\"PASS\"},{\"name\":\"T03 T19 stable ids, limits and bounded payloads\",\"status\":\"PASS\"},{\"name\":\"T07 reject fake sources and evidence duplication\",\"status\":\"PASS\"},{\"name\":\"T06 T07 manual outcome matches target, version, evidence and time\",\"status\":\"PASS\"},{\"name\":\"T08 unknown has nullable end and must carry reconciliation context\",\"status\":\"PASS\"},{\"name\":\"T07 T09 authorization and declared rollback scope are enforced\",\"status\":\"PASS\"},{\"name\":\"T10 observation clock and evidence, independent of client shortcut\",\"status\":\"PASS\"},{\"name\":\"T11 T12 blocking and nonblocking followups keep named accountability\",\"status\":\"PASS\"},{\"name\":\"T11 explicit prior event and sequence prevent stale judgments\",\"status\":\"PASS\"},{\"name\":\"D2/D3 frozen confirmation selection ignores historical access only, never versions or epochs\",\"status\":\"PASS\"}],\"data\":\"CODEx_TEST_ deterministic process-local only; no database/external effects\"}\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/model-1789296592490.json"
+      ]
+    },
+    {
+      "number": 28,
+      "command": "node server/verify-m2c-release.mjs",
+      "status": "PASS",
+      "elapsedMs": 29669,
+      "exitCode": 0,
+      "error": null,
+      "stdout": "PASS T13 explicit006 and unchanged001-005 / readiness fail closed\nPASS T01-T03 early incomplete draft, current accepted input and Owner preparation review\nPASS T04/T07 write permission, scope and unavailable execution\nPASS T08 unknown reconciles same attempt; no duplicate retry; result evidence atomic\nPASS T10 metric required after expired window; T14 business writes locked; chat remains available\nPASS T11-T12 final acceptance is separate immutable close; local restart readback\nPASS T05/T06 draft does not replace approval; semantic baseline invalidates before publish\nPASS T07 late report checks actual time; boolean forged source rejected\nPASS T09 rollback UNKNOWN blocks repair; same-attempt terminal record stops observation\nPASS T10/T11 window/metric/issue/followup completeness and accountable close\nPASS T14/T15 historical attachment version remains readable; revocation blocks new acceptance\nPASS T16 double submission returns one receipt; role checked before cached result\nPASS T01 preparation persists before product acceptance and notifies only after submit\nPASS T12 nonblocking followup closes with accountable risk; later events preserve final snapshot\nPASS T04 current Owner re-reviews inactive approver on same UNKNOWN attempt when product inputs remain valid\nPASS D2/D3 confirmed historical acceptance recovery after demotion\nPASS D2/D3 confirmed historical acceptance recovery after disable\nPASS D2/D3 historical reconciliation preserves evidence and business fingerprint blockers\nPASS T13 explicit repair requires new delivery/test/acceptance and keeps prior observation\nPASS T19 bounded plans / pagination / oversized requests; fault rows only in owned schema\n",
+      "stderr": "",
+      "emitted": [],
+      "added": [
+        "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/api-2026-09-13T10-49-52-652Z.json"
+      ]
+    },
+    {
+      "command": "node server/verify-m2c-release-architecture.mjs",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"at\":\"2026-09-13T11:02:18.568Z\",\"status\":\"PASS\",\"checks\":[{\"name\":\"confirmed63 source / seven documents / 30 gates / exact feature and diff\",\"status\":\"PASS\"},{\"name\":\"all protected original bytes and historical evidence unchanged\",\"status\":\"PASS\"},{\"name\":\"explicit006 extends five immutable migration prefixes / all release tables and guards\",\"status\":\"PASS\"},{\"name\":\"three business mutation boundaries and membership before cached receipts\",\"status\":\"PASS\"},{\"name\":\"routes delegate; pure policy; 42 ordered scripts and no direct browser tool execution\",\"status\":\"PASS\"}],\"protectedCount\":2806}\n",
+      "stderr": "warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/19-开发路线图-20260912.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/20-Codex交接提示词-20260912.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'output/pfc-workbench-prototype/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/src/domain/verification-read-service.js', LF will be replaced by CRLF the next time Git touches it\n",
+      "error": null,
+      "elapsedMs": 1143,
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/architecture.json",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/recovery-ui-2026-09-13T11-02-17-323Z-1-architecture.json"
+        }
+      ],
+      "number": 29
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "exitCode": 1,
+      "status": "FAIL",
+      "stdout": "PASS T01/T17 early draft input survives reload and requirement switching\nPASS T02/T03 structured preparation form, evidence, review and durable readback\nPASS T07/T08 UNKNOWN result UI requires original-record reconciliation\nPASS T13 published workspace opens read-only upstream tests and artifacts then returns\nPASS T10/T12 observation metric, explicit final acceptance and three PC widths\nPASS T18 knowledge is prefilled and saved separately, acceptance remains closed\nPASS T14/T17 closed observe chat keeps new attachment and frozen report references after reload\nPASS T16 503 keeps input and command; same-command retry creates one draft\n",
+      "stderr": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button[data-action=\"m4-use-current\"]').first()\u001b[22m\n\n    at click (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-release-browser.mjs:98:71)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:402:5\n    at async test (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-release-browser.mjs:28:5)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:380:3 {\n  log: [\n    `  - waiting for locator('button[data-action=\"m4-use-current\"]').first()`\n  ],\n  name: 'TimeoutError'\n}\n",
+      "error": {
+        "code": 1,
+        "signal": null
+      },
+      "elapsedMs": 30243,
+      "emitted": [
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/browser-failure.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/recovery-ui-2026-09-13T11-02-17-323Z-2-browser-failure.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/observe-1280.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/recovery-ui-2026-09-13T11-02-17-323Z-2-observe-1280.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/observe-1440.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/recovery-ui-2026-09-13T11-02-17-323Z-2-observe-1440.png"
+        },
+        {
+          "originalPath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/observe-1920.png",
+          "evidencePath": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/recovery-ui-2026-09-13T11-02-17-323Z-2-observe-1920.png"
+        }
+      ],
+      "number": 30
+    }
+  ],
+  "sourceDrift": [],
+  "completedAt": "2026-09-13T10:50:46.933Z",
+  "priorRun": "docs/quality-gate/reports/m2c-4-release-observation-20260913/gates-recovery-2026-09-13T10-44-34-281Z.json",
+  "adaptations": [
+    {
+      "file": "output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "reason": "The final visual read showed a preceding identity-session 401 toast. Isolate the recovery scenario in a fresh browser context; assert console/HTTP health, title and keyboard approval. Product source unchanged. Rerun static, architecture29 and browser30."
+    }
+  ],
+  "supplemental": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "exitCode": 0,
+      "status": "PASS",
+      "stdout": "{\"status\":\"PASS\",\"syntaxScripts\":42,\"lintModules\":39,\"externalEntryAssets\":0}\n",
+      "stderr": "",
+      "error": null,
+      "elapsedMs": 1119,
+      "emitted": []
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "data": "process-local CODEx_TEST_ deterministic, no external calls",
+  "results": [
+    {
+      "name": "提前准备为待补边界草稿，不伪造READY或测试结果",
+      "status": "PASS"
+    },
+    {
+      "name": "READY要求完整字段与当前全部AC覆盖",
+      "status": "PASS"
+    },
+    {
+      "name": "重复ID、201用例和超长输入失败，200用例允许",
+      "status": "PASS"
+    },
+    {
+      "name": "人工PASS需要实际结果与附件，模拟或伪造执行来源拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "未执行/阻塞必须原因，不能改变为PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "批次出口不允许空、失败、未测或未关闭缺陷",
+      "status": "PASS"
+    },
+    {
+      "name": "产品验收三项检查及风险必填，无条件通过",
+      "status": "PASS"
+    },
+    {
+      "name": "步骤、批量、证据及历史边界",
+      "status": "PASS"
+    },
+    {
+      "name": "未执行、阻塞、已重开缺陷及未确认检查均不能放行",
+      "status": "PASS"
+    }
+  ]
+}

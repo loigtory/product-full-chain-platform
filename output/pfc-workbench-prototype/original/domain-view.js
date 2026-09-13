@@ -254,7 +254,12 @@
     if (
       V.pg() &&
       P.s.ui.route === 'work' &&
-      P.index(P.s.ui.stage) > (P.verificationClient?.enabled() ? 6 : 3)
+      P.index(P.s.ui.stage) >
+        (P.releaseClient?.enabled()
+          ? 7
+          : P.verificationClient?.enabled()
+            ? 6
+            : 3)
     )
       return `<main class="page"><div class="empty-state">${P.esc(api().capabilities.unsupportedReason)}${P.btn('open-work', '返回当前需求', { stage: P.r()?.stage || 'idea' })}</div></main>`;
     return '';

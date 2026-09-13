@@ -244,7 +244,7 @@ async function detail(client, db, ctx, row) {
   ).rows;
   return {
     ...dto.req(row),
-    ...(db.targetVersion === '005'
+    ...(['005', '006'].includes(db.targetVersion)
       ? {
           verification: await require('./verification-read-service').workspace(
             client,
@@ -314,6 +314,14 @@ async function mutate(id, input, operation, work) {
   return command(db, ctx, operation + ':' + id, input, async (client) => {
     const row = await repo.lock(client, db, ctx, id);
     access.revision(row, input.expectedRevision);
+    const releaseProtection = await require('./release-guard').guard(
+      client,
+      db,
+      ctx,
+      row,
+      operation,
+      input,
+    );
     const artifacts = require('../persistence/artifacts');
     const originalGroup = row.current_artifact_group_id
       ? await artifacts.group(client, db, ctx, row)
@@ -328,7 +336,8 @@ async function mutate(id, input, operation, work) {
         )
       : null;
     const result = await work(client, db, ctx, row);
-    if (originalGroup) {
+    if (releaseProtection?.after) await releaseProtection.after();
+    if (originalGroup && !releaseProtection) {
       const fresh = (
         await client.query(
           'SELECT * FROM "' + db.schema + '".reqs WHERE tenant_id=$1 AND id=$2',
@@ -362,7 +371,7 @@ async function mutate(id, input, operation, work) {
         );
     }
     if (
-      db.targetVersion === '005' &&
+      ['005', '006'].includes(db.targetVersion) &&
       operation === 'version.saved' &&
       input.stage === 'dev'
     )
@@ -517,7 +526,7 @@ module.exports.confirmVersion = (id, vid, input = {}) =>
     const versions = await repo.versions(client, db, ctx, row.id),
       v = versions.find((v) => v.public_id === vid);
     if (!v) access.fail('NOT_FOUND', 404);
-    if (db.targetVersion === '005')
+    if (['005', '006'].includes(db.targetVersion))
       await require('./verification-read-service').guardVersion(
         client,
         db,
@@ -608,7 +617,7 @@ module.exports.reviewVersion = (id, vid, input) =>
       v = versions.find((v) => v.public_id === vid);
     if (!v || latest(versions, v.stage)?.id !== v.id || v.stale)
       access.fail('STALE_VERSION');
-    if (db.targetVersion === '005')
+    if (['005', '006'].includes(db.targetVersion))
       await require('./verification-read-service').guardVersion(
         client,
         db,

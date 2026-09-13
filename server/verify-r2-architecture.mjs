@@ -159,7 +159,8 @@ try {
   report.error = e.message;
   console.error(e.stack);
 }
-const out = 'docs/quality-gate/reports/r3-test-acceptance-20260913/artifacts';
+const out =
+  'docs/quality-gate/reports/m2c-4-release-observation-20260913/artifacts';
 mkdirSync(out, { recursive: true });
 writeFileSync(
   out + '/architecture-' + Date.now() + '.json',

@@ -1,0 +1,400 @@
+{
+  "at": "2026-09-13T09:56:38.929Z",
+  "status": "PASS",
+  "syntax": 37,
+  "format": 62,
+  "lint": 27,
+  "errors": [],
+  "rawLintReport": [
+    {
+      "file": "server/src/domain/observation-service.js",
+      "messages": [
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'internalId' is defined but never used.",
+          "line": 249,
+          "column": 17,
+          "messageId": "unusedVar",
+          "endLine": 249,
+          "endColumn": 27,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "internalId"
+              },
+              "fix": {
+                "range": [
+                  8125,
+                  8136
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'internalId'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'eventId' is defined but never used.",
+          "line": 249,
+          "column": 29,
+          "messageId": "unusedVar",
+          "endLine": 249,
+          "endColumn": 36,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "eventId"
+              },
+              "fix": {
+                "range": [
+                  8135,
+                  8144
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'eventId'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "server/src/domain/final-acceptance-service.js",
+      "messages": [
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'internalId' is defined but never used.",
+          "line": 40,
+          "column": 37,
+          "messageId": "unusedVar",
+          "endLine": 40,
+          "endColumn": 47,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "internalId"
+              },
+              "fix": {
+                "range": [
+                  1440,
+                  1451
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'internalId'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'eventId' is defined but never used.",
+          "line": 40,
+          "column": 49,
+          "messageId": "unusedVar",
+          "endLine": 40,
+          "endColumn": 56,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "eventId"
+              },
+              "fix": {
+                "range": [
+                  1450,
+                  1459
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'eventId'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "server/src/index.js",
+      "messages": [
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'next' is defined but never used.",
+          "line": 95,
+          "column": 25,
+          "messageId": "unusedVar",
+          "endLine": 95,
+          "endColumn": 29,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "next"
+              },
+              "fix": {
+                "range": [
+                  3236,
+                  3242
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'next'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "server/src/domain/requirement-service.js",
+      "messages": [
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'pushNotice' is assigned a value but never used.",
+          "line": 2,
+          "column": 38,
+          "messageId": "unusedVar",
+          "endLine": 2,
+          "endColumn": 48,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "pushNotice"
+              },
+              "fix": {
+                "range": [
+                  49,
+                  61
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'pushNotice'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'wsBridge' is assigned a value but never used.",
+          "line": 4,
+          "column": 7,
+          "messageId": "unusedVar",
+          "endLine": 4,
+          "endColumn": 15,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "wsBridge"
+              },
+              "fix": {
+                "range": [
+                  133,
+                  167
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'wsBridge'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "server/src/domain/conversation-service.js",
+      "messages": [
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'pushNotice' is assigned a value but never used.",
+          "line": 2,
+          "column": 38,
+          "messageId": "unusedVar",
+          "endLine": 2,
+          "endColumn": 48,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "pushNotice"
+              },
+              "fix": {
+                "range": [
+                  49,
+                  61
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'pushNotice'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'nextId' is assigned a value but never used.",
+          "line": 2,
+          "column": 50,
+          "messageId": "unusedVar",
+          "endLine": 2,
+          "endColumn": 56,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "nextId"
+              },
+              "fix": {
+                "range": [
+                  61,
+                  69
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'nextId'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'wsBridge' is assigned a value but never used.",
+          "line": 4,
+          "column": 7,
+          "messageId": "unusedVar",
+          "endLine": 4,
+          "endColumn": 15,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "wsBridge"
+              },
+              "fix": {
+                "range": [
+                  133,
+                  167
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'wsBridge'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'command' is assigned a value but never used.",
+          "line": 54,
+          "column": 5,
+          "messageId": "unusedVar",
+          "endLine": 54,
+          "endColumn": 12,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "command"
+              },
+              "fix": {
+                "range": [
+                  1813,
+                  1865
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'command'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'materialVersionId' is defined but never used.",
+          "line": 145,
+          "column": 12,
+          "messageId": "unusedVar",
+          "endLine": 145,
+          "endColumn": 29,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "materialVersionId"
+              },
+              "fix": {
+                "range": [
+                  5105,
+                  5123
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'materialVersionId'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'reqVersionId' is defined but never used.",
+          "line": 145,
+          "column": 31,
+          "messageId": "unusedVar",
+          "endLine": 145,
+          "endColumn": 43,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "reqVersionId"
+              },
+              "fix": {
+                "range": [
+                  5122,
+                  5136
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'reqVersionId'."
+            }
+          ]
+        },
+        {
+          "ruleId": "no-unused-vars",
+          "severity": 2,
+          "message": "'artifactVersionId' is defined but never used.",
+          "line": 145,
+          "column": 45,
+          "messageId": "unusedVar",
+          "endLine": 145,
+          "endColumn": 62,
+          "suggestions": [
+            {
+              "messageId": "removeVar",
+              "data": {
+                "varName": "artifactVersionId"
+              },
+              "fix": {
+                "range": [
+                  5136,
+                  5155
+                ],
+                "text": ""
+              },
+              "desc": "Remove unused variable 'artifactVersionId'."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lintConclusion": "See supplemental-backend-lint.json: explicit normal Node/Express rules and comparison against baseline; 0 introduced findings and 6 preexisting unused bindings. The earlier raw generic lint diagnostics are retained here."
+}

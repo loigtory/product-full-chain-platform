@@ -16,7 +16,7 @@ const require = createRequire(import.meta.url),
   root = fileURLToPath(new URL('.', import.meta.url));
 if (
   process.env.PFC_M2C_EVIDENCE_DIR !==
-  'docs/quality-gate/reports/r3-test-acceptance-20260913/domain'
+  'docs/quality-gate/reports/m2c-4-release-observation-20260913/domain'
 )
   throw Error('EXPLICIT_EVIDENCE_TARGET_REQUIRED');
 const evidence = resolve(process.env.PFC_M2C_EVIDENCE_DIR);

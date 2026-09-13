@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-13T08:30:22.889Z",
+  "status": "FAIL",
+  "environment": "127.0.0.1/pfc_local isolated schema only",
+  "schema": "codex_test_m2c_20260913_release",
+  "data": "CODEx_TEST_M2C_20260913_release",
+  "results": [],
+  "error": {
+    "message": "syntax error at or near \"FOREIGN\"",
+    "stack": "error: syntax error at or near \"FOREIGN\"\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg\\lib\\client.js:694:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async D:\\项目管理\\product-full-chain-platform\\server\\src\\persistence\\migrations.js:369:7\n    at async withTransaction (D:\\项目管理\\product-full-chain-platform\\server\\src\\persistence\\transaction.js:13:20)\n    at async Object.prepareRuntime (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/m2c-domain-fixture.mjs:387:9)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/m2c-governance-fixture.mjs:34:5)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/r3-verification-fixture.mjs:16:13)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/m2c-release-fixture.mjs:20:13)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/verify-m2c-release.mjs:9:4"
+  }
+}

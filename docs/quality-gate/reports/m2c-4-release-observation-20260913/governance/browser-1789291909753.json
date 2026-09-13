@@ -1,0 +1,579 @@
+{
+  "status": "FAIL",
+  "browser": "installed Microsoft Edge / Playwright; Browser plugin unavailable",
+  "results": [
+    {
+      "name": "G12 empty governance and current identity use real PG facts",
+      "status": "PASS"
+    },
+    {
+      "name": "browser flow",
+      "status": "FAIL",
+      "error": "page.waitForFunction: Timeout 10000ms exceeded.",
+      "stack": "page.waitForFunction: Timeout 10000ms exceeded.\n    at closed (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-governance-browser.mjs:67:10)\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-governance-browser.mjs:105:11\n    at async test (D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-governance-browser.mjs:22:3)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs:94:3",
+      "diagnostic": {
+        "toasts": "",
+        "caps": [
+          {
+            "id": "CP-1",
+            "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+            "type": "Skill",
+            "protocol": "原生 Skill",
+            "endpoint": "synthetic://tool",
+            "src": "合成测试",
+            "ver": "1",
+            "desc": "仅登记的测试能力",
+            "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46",
+            "pending": true,
+            "enabled": false,
+            "revision": 0,
+            "reviewedAt": null,
+            "perm": "仅登记，未调用"
+          }
+        ],
+        "pending": []
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/health"
+        },
+        {
+          "method": "POST",
+          "path": "/api/auth/dev-login"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/reqs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/notices"
+        },
+        {
+          "method": "GET",
+          "path": "/api/runs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/reqs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/notices"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/runs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "POST",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/auth/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/caps"
+        },
+        {
+          "method": "GET",
+          "path": "/api/members"
+        },
+        {
+          "method": "GET",
+          "path": "/api/projects"
+        },
+        {
+          "method": "GET",
+          "path": "/api/knowledge"
+        },
+        {
+          "method": "GET",
+          "path": "/api/audit"
+        },
+        {
+          "method": "GET",
+          "path": "/api/bindings"
+        },
+        {
+          "method": "GET",
+          "path": "/api/budgets/me"
+        },
+        {
+          "method": "GET",
+          "path": "/api/reqs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/notices"
+        },
+        {
+          "method": "GET",
+          "path": "/api/runs"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "files": [
+      {
+        "path": "manifest.json",
+        "size": 346,
+        "hash": "649c330dae4a197749a5f01352b60ca5a0645e54d9160efcd6433f072d05751f"
+      },
+      {
+        "path": "users.json",
+        "size": 838,
+        "hash": "ee4c17b2ef924663a1e7f4ae9da52cafafce1feddeaea369f391e29b6efab4a8"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_governance",
+    "remaining": 0,
+    "totalRows": 23,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [],
+    "readback": {
+      "schema_migrations": [
+        {
+          "version": "001",
+          "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
+          "applied_at": "2026-09-13T09:30:52.869Z"
+        },
+        {
+          "version": "002",
+          "checksum": "5f62754d6de7bedf2da02e71072c5e18b86777f8efdda56287e1785616f7907b",
+          "applied_at": "2026-09-13T09:30:52.869Z"
+        },
+        {
+          "version": "003",
+          "checksum": "26bcd369ef4353cf4d23fea1bc2b1f2e31263362831925bc30b53bfaaae8c7b3",
+          "applied_at": "2026-09-13T09:30:53.138Z"
+        },
+        {
+          "version": "004",
+          "checksum": "96ad19c797a783cfb7846eace7386fe3c2a640a2ba020e1594979e8b6892a026",
+          "applied_at": "2026-09-13T09:30:53.413Z"
+        },
+        {
+          "version": "005",
+          "checksum": "5a7120022fa3183351327245e77683d2601976e2a69bddfad4823758849cd354",
+          "applied_at": "2026-09-13T09:30:53.648Z"
+        },
+        {
+          "version": "006",
+          "checksum": "74e432eeee7fcc50808e6dc0dcc21757878584d76ae4a51bf2e805de8b446091",
+          "applied_at": "2026-09-13T09:30:53.962Z"
+        }
+      ],
+      "tenants": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "name": "CODEx_TEST_M2C_20260913_governance_tenant",
+          "plan": "internal",
+          "created_at": "2026-09-13T09:30:53.134Z"
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "plan": "internal",
+          "created_at": "2026-09-13T09:30:53.134Z"
+        }
+      ],
+      "req_versions": [],
+      "id_counters": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "members",
+          "value": "5"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "entity": "members",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "caps",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "audit_logs",
+          "value": "1"
+        },
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "entity": "domain_events",
+          "value": "1"
+        }
+      ],
+      "audit_logs": [
+        {
+          "id": "b946804f-b07d-42a8-baad-a44b138e8f4c",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "req_id": null,
+          "public_id": "A-1",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "action": "cap.created",
+          "detail": "revision=0",
+          "created_at": "2026-09-13T09:30:58.547Z",
+          "entity_type": "cap",
+          "entity_id": "CP-1"
+        }
+      ],
+      "req_version_reviews": [],
+      "questions": [],
+      "file_objects": [],
+      "reqs": [],
+      "materials": [],
+      "material_versions": [],
+      "message_references": [],
+      "messages": [],
+      "runs": [],
+      "run_lines": [],
+      "replays": [],
+      "run_plans": [],
+      "quality_gates": [],
+      "leases": [],
+      "notices": [],
+      "notice_reads": [],
+      "command_receipts": [
+        {
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "actor": "CODEx_TEST_M2C_20260913_governance_owner",
+          "operation": "cap.create",
+          "command_id": "a62a4917-63f3-42c9-9c26-26c245ccebd0",
+          "fingerprint": "e359e06d6e88ee17af278176dde0fc1d66c277f3b69cc8577fadcbcb78cb5758",
+          "result": {
+            "cap": {
+              "id": "CP-1",
+              "src": "合成测试",
+              "ver": "1",
+              "desc": "仅登记的测试能力",
+              "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+              "perm": "仅登记，未调用",
+              "type": "Skill",
+              "enabled": false,
+              "pending": true,
+              "endpoint": "synthetic://tool",
+              "protocol": "原生 Skill",
+              "revision": 0,
+              "reviewedAt": null,
+              "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46"
+            }
+          },
+          "created_at": "2026-09-13T09:30:58.547Z"
+        }
+      ],
+      "domain_events": [
+        {
+          "id": "2fc4f647-1449-4c45-8900-9e79d2006f51",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "EV-1",
+          "seq": "1",
+          "aggregate_id": "CP-1",
+          "revision": 0,
+          "type": "governance.changed",
+          "payload": {
+            "entityId": "CP-1",
+            "entityType": "cap"
+          },
+          "created_at": "2026-09-13T09:30:58.547Z"
+        }
+      ],
+      "members": [
+        {
+          "id": "971e5ae4-b3b3-4540-8a51-826605f57458",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:53.379Z",
+          "disabled_at": null
+        },
+        {
+          "id": "0211e539-891b-4ac0-b7b7-d113b764eaf9",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-2",
+          "name": "CODEx_TEST_M2C_20260913_governance_executor",
+          "role": "executor",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:53.379Z",
+          "disabled_at": null
+        },
+        {
+          "id": "44f9f072-efbe-435a-b232-e2c9726f56b3",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-3",
+          "name": "CODEx_TEST_M2C_20260913_governance_viewer",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:53.379Z",
+          "disabled_at": null
+        },
+        {
+          "id": "b5658023-465e-4593-8d0e-a39e19a02386",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-4",
+          "name": "CODEx_TEST_M2C_20260913_governance_owner2",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:53.379Z",
+          "disabled_at": null
+        },
+        {
+          "id": "31e64555-402e-405d-b905-77f33b86cfeb",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "MEM-5",
+          "name": "CODEx_TEST_M2C_20260913_governance_inactive",
+          "role": "viewer",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:53.379Z",
+          "disabled_at": null
+        },
+        {
+          "id": "4e11a1b9-bd7f-44ba-841c-1081e747a210",
+          "tenant_id": "10000000-0000-4000-8000-000000000002",
+          "public_id": "MEM-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_other",
+          "role": "owner",
+          "active": true,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:53.379Z",
+          "disabled_at": null
+        }
+      ],
+      "caps": [
+        {
+          "id": "a079cad2-2ba0-41b9-b512-a9feb3ae5ce0",
+          "tenant_id": "10000000-0000-4000-8000-000000000001",
+          "public_id": "CP-1",
+          "name": "CODEx_TEST_M2C_20260913_governance_browser_cap",
+          "type": "Skill",
+          "protocol": "原生 Skill",
+          "endpoint": "synthetic://tool",
+          "src": "合成测试",
+          "ver": "1",
+          "description": "仅登记的测试能力",
+          "fingerprint": "7e2294c048f56385cfb710a191279d60dde8bd8bffd92ccf18c2dc594bdfac46",
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "enabled": false,
+          "revision": 0,
+          "created_at": "2026-09-13T09:30:58.547Z"
+        }
+      ],
+      "binding_sets": [],
+      "cap_bindings": [],
+      "req_cap_overrides": [],
+      "projects": [],
+      "knowledge": [],
+      "knowledge_links": [],
+      "budget_accounts": [],
+      "artifact_versions": [],
+      "artifact_groups": [],
+      "artifact_group_sources": [],
+      "artifact_proposals": [],
+      "test_cases": [],
+      "artifact_confirmations": [],
+      "artifact_impacts": [],
+      "test_suites": [],
+      "delivery_baselines": [],
+      "test_batches": [],
+      "test_results": [],
+      "defects": [],
+      "defect_events": [],
+      "product_acceptances": [],
+      "release_reviews": [],
+      "verification_refs": [],
+      "release_plans": [],
+      "release_attempts": [],
+      "release_result_events": [],
+      "release_observations": [],
+      "release_metric_events": [],
+      "release_followups": [],
+      "release_followup_events": [],
+      "final_acceptances": [],
+      "release_returns": [],
+      "release_refs": []
+    },
+    "poolsClosed": true
+  },
+  "sourceFingerprint": "32f7a00e64c7110f8b5f97d7e9af996a5efd04a4611292549483768e06cdefb1"
+}

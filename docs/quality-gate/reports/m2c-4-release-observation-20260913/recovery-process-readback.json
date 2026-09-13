@@ -1,0 +1,39 @@
+{
+  "at": "2026-09-13T11:16:49.2545097Z",
+  "status": "PASS",
+  "ownedCandidates": [],
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5432,
+      "OwningProcess": 13528
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5173,
+      "OwningProcess": 37744
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3001,
+      "OwningProcess": 31152
+    }
+  ],
+  "preexisting": [
+    {
+      "Id": 31152,
+      "ProcessName": "node"
+    },
+    {
+      "Id": 37744,
+      "ProcessName": "node"
+    },
+    {
+      "Id": 13528,
+      "ProcessName": "postgres"
+    }
+  ],
+  "subagents": 0,
+  "auditProcessId": 33748,
+  "note": "Final readback after isolated recovery browser; inspect actual node/browser helpers only."
+}

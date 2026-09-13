@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-13T08:31:59.152Z",
+  "status": "PASS",
+  "environment": "127.0.0.1/pfc_local isolated schema only",
+  "schema": "codex_test_m2c_20260913_release",
+  "data": "CODEx_TEST_M2C_20260913_release",
+  "results": [
+    {
+      "name": "T13 explicit006 and unchanged001-005 / readiness fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "T01-T03 early incomplete draft, current accepted input and Owner preparation review",
+      "status": "PASS"
+    },
+    {
+      "name": "T04/T07 write permission, scope and unavailable execution",
+      "status": "PASS"
+    },
+    {
+      "name": "T08 unknown reconciles same attempt; no duplicate retry; result evidence atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "T10 metric required after expired window; T14 business writes locked; chat remains available",
+      "status": "PASS"
+    },
+    {
+      "name": "T11-T12 final acceptance is separate immutable close; local restart readback",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "files": [
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879",
+        "size": 83,
+        "hash": "32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879"
+      },
+      {
+        "path": "manifest.json",
+        "size": 345,
+        "hash": "85895e11927f02a6d5509fb8c3fcc6de85033e29205de3d971327fb2da79547d"
+      },
+      {
+        "path": "users.json",
+        "size": 817,
+        "hash": "936c987dffe6dca8def5ca6e1a37ec33acaf28a5b2f05ee1f7024502720ead6a"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_release",
+    "remaining": 0,
+    "totalRows": 184,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1"
+    ],
+    "poolsClosed": true
+  }
+}

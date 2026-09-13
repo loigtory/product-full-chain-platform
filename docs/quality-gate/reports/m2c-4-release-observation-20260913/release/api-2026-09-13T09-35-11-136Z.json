@@ -1,0 +1,87 @@
+{
+  "at": "2026-09-13T09:35:11.136Z",
+  "status": "FAIL",
+  "environment": "127.0.0.1/pfc_local isolated schema only",
+  "schema": "codex_test_m2c_20260913_release",
+  "data": "CODEx_TEST_M2C_20260913_release",
+  "results": [
+    {
+      "name": "T13 explicit006 and unchanged001-005 / readiness fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "T01-T03 early incomplete draft, current accepted input and Owner preparation review",
+      "status": "PASS"
+    },
+    {
+      "name": "T04/T07 write permission, scope and unavailable execution",
+      "status": "PASS"
+    },
+    {
+      "name": "T08 unknown reconciles same attempt; no duplicate retry; result evidence atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "T10 metric required after expired window; T14 business writes locked; chat remains available",
+      "status": "PASS"
+    },
+    {
+      "name": "T11-T12 final acceptance is separate immutable close; local restart readback",
+      "status": "PASS"
+    },
+    {
+      "name": "T05/T06 draft does not replace approval; semantic baseline invalidates before publish",
+      "status": "PASS"
+    },
+    {
+      "name": "T07 late report checks actual time; boolean forged source rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "T09 rollback UNKNOWN blocks repair; same-attempt terminal record stops observation",
+      "status": "PASS"
+    }
+  ],
+  "error": {
+    "message": "{\"path\":\"/reqs/R-1045/observations/OBS-4/entries\",\"status\":201,\"body\":{\"entry\":{\"id\":\"OME-4\",\"status\":\"RESOLVED\",\"createdAt\":\"2026-09-13T09:35:23.234Z\",\"source\":\"USER_REPORTED\",\"executionAvailable\":false,\"kind\":\"ISSUE\",\"actual\":\"CODEx_TEST_100%\",\"impact\":\"\",\"issueId\":\"ISSUE_1\",\"evidence\":[{\"id\":\"SM-10\",\"hash\":\"32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879\",\"size\":83,\"version\":1,\"available\":true}],\"sampledTo\":\"2026-09-13T08:35:22.759Z\",\"responsible\":\"CODEx_TEST_M2C_20260913_release_owner\",\"sampledFrom\":\"2026-09-13T07:35:22.759Z\",\"sourceDescription\":\"CODEx_TEST_本窗口\",\"createdBy\":{\"id\":\"MEM-1\",\"name\":\"CODEx_TEST_M2C_20260913_release_owner\",\"active\":true,\"role\":\"owner\"},\"previousRecordId\":null},\"req\":{\"id\":\"R-1045\",\"name\":\"CODEx_TEST_M2C_20260913_release_followup\",\"goal\":\"合成开发验证\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260913_release_owner\",\"stage\":\"observe\",\"revision\":28,\"materialRevision\":0,\"closed\":false,\"projectId\":null,\"createdAt\":\"2026-09-13T09:35:21.531Z\"},\"reqId\":\"R-1045\",\"revision\":28,\"source\":\"USER_REPORTED\",\"executionAvailable\":false}}\n\n201 !== 409\n",
+    "stack": "AssertionError [ERR_ASSERTION]: {\"path\":\"/reqs/R-1045/observations/OBS-4/entries\",\"status\":201,\"body\":{\"entry\":{\"id\":\"OME-4\",\"status\":\"RESOLVED\",\"createdAt\":\"2026-09-13T09:35:23.234Z\",\"source\":\"USER_REPORTED\",\"executionAvailable\":false,\"kind\":\"ISSUE\",\"actual\":\"CODEx_TEST_100%\",\"impact\":\"\",\"issueId\":\"ISSUE_1\",\"evidence\":[{\"id\":\"SM-10\",\"hash\":\"32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879\",\"size\":83,\"version\":1,\"available\":true}],\"sampledTo\":\"2026-09-13T08:35:22.759Z\",\"responsible\":\"CODEx_TEST_M2C_20260913_release_owner\",\"sampledFrom\":\"2026-09-13T07:35:22.759Z\",\"sourceDescription\":\"CODEx_TEST_本窗口\",\"createdBy\":{\"id\":\"MEM-1\",\"name\":\"CODEx_TEST_M2C_20260913_release_owner\",\"active\":true,\"role\":\"owner\"},\"previousRecordId\":null},\"req\":{\"id\":\"R-1045\",\"name\":\"CODEx_TEST_M2C_20260913_release_followup\",\"goal\":\"合成开发验证\",\"scope\":\"\",\"owner\":\"CODEx_TEST_M2C_20260913_release_owner\",\"stage\":\"observe\",\"revision\":28,\"materialRevision\":0,\"closed\":false,\"projectId\":null,\"createdAt\":\"2026-09-13T09:35:21.531Z\"},\"reqId\":\"R-1045\",\"revision\":28,\"source\":\"USER_REPORTED\",\"executionAvailable\":false}}\n\n201 !== 409\n\n    at Object.api (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/m2c-governance-fixture.mjs:64:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/verify-m2c-release.mjs:423:5\n    at async test (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/verify-m2c-release.mjs:23:3)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/verify-m2c-release.mjs:351:3"
+  },
+  "cleanup": {
+    "files": [
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879",
+        "size": 83,
+        "hash": "32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879"
+      },
+      {
+        "path": "manifest.json",
+        "size": 345,
+        "hash": "bcc3af83008f22ca49353cb0227dadf68379cbd4419370e6014b66f823c0ee4e"
+      },
+      {
+        "path": "users.json",
+        "size": 817,
+        "hash": "936c987dffe6dca8def5ca6e1a37ec33acaf28a5b2f05ee1f7024502720ead6a"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_release",
+    "remaining": 0,
+    "totalRows": 709,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1",
+      "R-1042",
+      "PRJ-2",
+      "R-1043",
+      "PRJ-3",
+      "R-1044",
+      "PRJ-4",
+      "R-1045",
+      "PRJ-5"
+    ],
+    "poolsClosed": true
+  }
+}

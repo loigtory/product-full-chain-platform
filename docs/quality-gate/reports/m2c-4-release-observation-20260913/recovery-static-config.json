@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-13T10:47:02.021Z",
+  "results": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-static.mjs",
+      "exitCode": 0,
+      "stdout": "{\"status\":\"PASS\",\"syntaxScripts\":42,\"lintModules\":39,\"externalEntryAssets\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/check-config.mjs",
+      "exitCode": 0,
+      "stdout": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n",
+      "stderr": ""
+    },
+    {
+      "command": "node --import tsx scripts/check-delivery-governance.ts",
+      "exitCode": 0,
+      "stdout": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n",
+      "stderr": ""
+    }
+  ],
+  "status": "PASS"
+}

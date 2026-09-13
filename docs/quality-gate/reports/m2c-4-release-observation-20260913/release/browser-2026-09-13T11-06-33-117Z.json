@@ -1,0 +1,113 @@
+{
+  "at": "2026-09-13T11:06:33.117Z",
+  "status": "FAIL",
+  "browser": "Browser plugin not available; existing Playwright Edge",
+  "results": [
+    {
+      "name": "T01/T17 early draft input survives reload and requirement switching",
+      "status": "PASS"
+    },
+    {
+      "name": "T02/T03 structured preparation form, evidence, review and durable readback",
+      "status": "PASS"
+    },
+    {
+      "name": "T07/T08 UNKNOWN result UI requires original-record reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "T13 published workspace opens read-only upstream tests and artifacts then returns",
+      "status": "PASS"
+    },
+    {
+      "name": "T10/T12 observation metric, explicit final acceptance and three PC widths",
+      "status": "PASS"
+    },
+    {
+      "name": "T18 knowledge is prefilled and saved separately, acceptance remains closed",
+      "status": "PASS"
+    },
+    {
+      "name": "T14/T17 closed observe chat keeps new attachment and frozen report references after reload",
+      "status": "PASS"
+    },
+    {
+      "name": "T16 503 keeps input and command; same-command retry creates one draft",
+      "status": "PASS"
+    },
+    {
+      "name": "T16 conflict preserves draft until explicit current-baseline comparison",
+      "status": "PASS"
+    },
+    {
+      "name": "T17 late read after requirement switch cannot reopen or paint foreign workspace",
+      "status": "PASS"
+    },
+    {
+      "name": "T16 committed write followed by failed readback retries original command without a second plan",
+      "status": "PASS"
+    },
+    {
+      "name": "T09 browser records rollback UNKNOWN then reconciles original result and explicitly returns to repair",
+      "status": "PASS"
+    },
+    {
+      "name": "T04/T17 user and server identity isolate drafts and late reads; Viewer sees read-only controls",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "recoveryUi": {
+    "console": [],
+    "httpErrors": [],
+    "keyboardReview": false,
+    "title": "PFC · 我的工作台"
+  },
+  "error": {
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'PFC · 我的工作台'\n- 'PFC 产品全链路平台 · 原版工作台'\n       ^\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'PFC · 我的工作台'\n- 'PFC 产品全链路平台 · 原版工作台'\n       ^\n\n    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:685:14\n    at async test (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:28:5)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-release-browser.mjs:629:3"
+  },
+  "browserClosed": true,
+  "cleanup": {
+    "files": [
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879",
+        "size": 83,
+        "hash": "32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879"
+      },
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\3e205b38827d64a8a342dde42eaf159116500c7b11732ffcd54e95803fe0c29b",
+        "size": 29,
+        "hash": "3e205b38827d64a8a342dde42eaf159116500c7b11732ffcd54e95803fe0c29b"
+      },
+      {
+        "path": "manifest.json",
+        "size": 346,
+        "hash": "0105f47ac340ad4445483def1de3692ffe788db3f8eef72f68b974affbf4ea3e"
+      },
+      {
+        "path": "users.json",
+        "size": 817,
+        "hash": "936c987dffe6dca8def5ca6e1a37ec33acaf28a5b2f05ee1f7024502720ead6a"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_release",
+    "remaining": 0,
+    "totalRows": 572,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1",
+      "R-1042",
+      "PRJ-2",
+      "R-1043",
+      "PRJ-3",
+      "R-1044",
+      "PRJ-4"
+    ],
+    "poolsClosed": true
+  }
+}

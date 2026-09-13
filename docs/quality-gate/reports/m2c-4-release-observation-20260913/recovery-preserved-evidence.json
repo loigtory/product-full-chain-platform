@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-13T10:43:41.756Z",
+  "preserved": [
+    {
+      "original": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/browser-failure.png",
+      "current": "docs\\quality-gate\\reports\\m2c-4-release-observation-20260913\\release\\recovery-before-full-browser-failure.png"
+    },
+    {
+      "original": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/observe-1280.png",
+      "current": "docs\\quality-gate\\reports\\m2c-4-release-observation-20260913\\release\\recovery-before-full-observe-1280.png"
+    },
+    {
+      "original": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/observe-1440.png",
+      "current": "docs\\quality-gate\\reports\\m2c-4-release-observation-20260913\\release\\recovery-before-full-observe-1440.png"
+    },
+    {
+      "original": "docs/quality-gate/reports/m2c-4-release-observation-20260913/release/observe-1920.png",
+      "current": "docs\\quality-gate\\reports\\m2c-4-release-observation-20260913\\release\\recovery-before-full-observe-1920.png"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "at": "2026-09-13T10:06:17.206Z",
+  "environment": "127.0.0.1:5432 pfc_local / read-only independent connection",
+  "schemas": [
+    {
+      "schema": "codex_test_m2c_20260913_release",
+      "present": false
+    },
+    {
+      "schema": "codex_test_m2c_20260913_verification",
+      "present": false
+    },
+    {
+      "schema": "codex_test_m2c_20260913_artifacts",
+      "present": false
+    },
+    {
+      "schema": "codex_test_m2c_20260913_governance",
+      "present": false
+    },
+    {
+      "schema": "codex_test_m2c_20260912_domain",
+      "present": false
+    },
+    {
+      "schema": "codex_test_m2c_20260912_storage",
+      "present": false
+    }
+  ],
+  "files": [
+    {
+      "root": ".local/m2c-4-release-observation-20260913/files",
+      "remainingFiles": 0
+    },
+    {
+      "root": ".local/r3-test-acceptance-20260913/files",
+      "remainingFiles": 0
+    },
+    {
+      "root": ".local/r2-artifacts-20260913/files",
+      "remainingFiles": 0
+    },
+    {
+      "root": ".local/m2c-3-governance-20260913/files",
+      "remainingFiles": 0
+    },
+    {
+      "root": ".local/m2c-2-domain-20260912/files",
+      "remainingFiles": 0
+    }
+  ],
+  "status": "PASS"
+}

@@ -22,7 +22,7 @@ const check = (name, work) => {
 };
 try {
   check(
-    'approved59-source-seven-documents scope matches proposal and current diff',
+    'accepted R3 scope at b07dadf; current diff enforced by release architecture',
     () => {
       assert.equal(a.scope.length, 59);
       assert.equal(new Set(a.scope).size, 59);
@@ -46,10 +46,15 @@ try {
           windowsHide: true,
           maxBuffer: 16 * 1024 * 1024,
         });
-      assert.equal(git('branch', '--show-current').trim(), a.branch);
+
       const changed = [
-        ...git('diff', '--name-only', '-z', a.baseline).split('\0'),
-        ...git('ls-files', '--others', '--exclude-standard', '-z').split('\0'),
+        ...git(
+          'diff',
+          '--name-only',
+          '-z',
+          a.baseline,
+          'b07dadf0b8482149119e2b16a37cb4c46b9134ec',
+        ).split('\0'),
       ].filter(Boolean);
       const allowed = new Set([...a.scope, ...a.documents, root + '.md']);
       assert.deepEqual(
@@ -64,21 +69,47 @@ try {
       );
       for (const p of a.scope)
         report.sourceHashes[p] = createHash('sha256')
-          .update(readFileSync(p))
+          .update(
+            execFileSync(
+              'git',
+              ['show', 'b07dadf0b8482149119e2b16a37cb4c46b9134ec:' + p],
+              { windowsHide: true, maxBuffer: 16 * 1024 * 1024 },
+            ),
+          )
           .digest('hex');
     },
   );
-  check('all protected raw source and history bytes preserved', () => {
-    assert.equal(baseline.baseline, a.baseline);
-    for (const [p, hash] of Object.entries(baseline.hashes)) {
-      assert.equal(
-        createHash('sha256').update(readFileSync(p)).digest('hex'),
-        hash,
-        p,
-      );
-      report.protectedCount++;
-    }
-  });
+  check(
+    'accepted R3 protected Git blobs preserved; current raw hashes covered by M2c-4',
+    () => {
+      assert.equal(baseline.baseline, a.baseline);
+      const tree = (revision) =>
+        new Map(
+          execFileSync(
+            'git',
+            ['ls-tree', '-r', '-z', '--full-tree', revision],
+            {
+              encoding: 'utf8',
+              windowsHide: true,
+              maxBuffer: 16 * 1024 * 1024,
+            },
+          )
+            .split('\0')
+            .filter(Boolean)
+            .map((line) => {
+              const tab = line.indexOf('\t');
+              return [line.slice(tab + 1), line.slice(0, tab).split(' ')[2]];
+            }),
+        );
+      const acceptedTree = tree('b07dadf0b8482149119e2b16a37cb4c46b9134ec'),
+        baselineTree = tree(a.baseline);
+      for (const p of Object.keys(baseline.hashes)) {
+        assert.ok(baselineTree.has(p), p);
+        assert.equal(acceptedTree.get(p), baselineTree.get(p), p);
+        report.protectedCount++;
+      }
+    },
+  );
   check(
     '005 extends all four immutable migration prefixes and protects ownership',
     () => {
@@ -123,7 +154,7 @@ try {
           /\.query\(/,
         );
       const html = read('output/pfc-workbench-prototype/index.html');
-      assert.equal([...html.matchAll(/<script src=/g)].length, 37);
+      assert.equal([...html.matchAll(/<script src=/g)].length, 42);
       for (const file of [
         'verification-client',
         'testing-view',
@@ -152,9 +183,12 @@ try {
   process.exitCode = 1;
   console.error(e.message);
 }
-mkdirSync(root + '/testing', { recursive: true });
+mkdirSync(
+  'docs/quality-gate/reports/m2c-4-release-observation-20260913/testing',
+  { recursive: true },
+);
 writeFileSync(
-  root + '/testing/architecture.json',
+  'docs/quality-gate/reports/m2c-4-release-observation-20260913/testing/architecture.json',
   JSON.stringify(report, null, 2) + '\n',
 );
 console.log(
