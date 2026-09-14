@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-14T09:00:45.068Z",
+  "status": "FAIL",
+  "scope": "Actual Windows file/network sandbox precheck; model tools and complete executor pending",
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_INVALID_ARG_TYPE"
+  }
+}

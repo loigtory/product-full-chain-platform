@@ -70,7 +70,7 @@ const timer=setTimeout(()=>finish(true),2500);s.once('connect',()=>finish(false)
     '-c',
     'permissions.pfc_ai_probe.network.enabled=false',
     '-c',
-    'windows.sandbox="unelevated"',
+    'windows.sandbox="elevated"',
     '-C',
     workspace,
     '--',

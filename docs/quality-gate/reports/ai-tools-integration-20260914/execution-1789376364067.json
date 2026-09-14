@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-14T08:59:20.814Z",
+  "status": "FAIL",
+  "scope": "Actual Windows file/network sandbox precheck; model tools and complete executor pending",
+  "modelTurns": 0,
+  "command": "pinned codex sandbox -P pfc_ai_probe [instance-only minimal read/workspace write/network=false] -- pinned node synthetic probe",
+  "pid": 33640,
+  "process": {
+    "closed": true,
+    "exitCode": 1,
+    "signal": null
+  },
+  "connections": 0,
+  "stderr": "windows sandbox failed: orchestrator_helper_launch_canceled: ShellExecuteExW failed to launch setup helper: 1223\n",
+  "error": {
+    "code": "SANDBOX_START_FAILED"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}
