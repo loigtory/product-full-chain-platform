@@ -1,0 +1,25 @@
+{
+  "at": "2026-09-14T17:13:31.512Z",
+  "status": "FAIL",
+  "scope": "restricted-read module unit test: deny-read ACE apply/remove lifecycle (icacls verified, no model calls)",
+  "checks": [
+    {
+      "name": "apply adds deny-read ACE",
+      "pass": true
+    },
+    {
+      "name": "real user still reads canary (deny only sandbox group)",
+      "pass": true
+    },
+    {
+      "name": "remove clears deny-read ACE (idempotent)",
+      "pass": true
+    },
+    {
+      "name": "applyAll rolls back on failure",
+      "pass": false,
+      "error": "Command failed: icacls C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-rr-xoNfMl\\does-not-exist /deny CodexSandboxUsers:(OI)(CI)(R)\nC:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-rr-xoNfMl\\does-not-exist: ϵͳ�Ҳ���ָ�����ļ���\r\n"
+    }
+  ],
+  "error": "Command failed: icacls C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-rr-xoNfMl\\does-not-exist /deny CodexSandboxUsers:(OI)(CI)(R)\nC:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-rr-xoNfMl\\does-not-exist: ϵͳ�Ҳ���ָ�����ļ���\r\n"
+}

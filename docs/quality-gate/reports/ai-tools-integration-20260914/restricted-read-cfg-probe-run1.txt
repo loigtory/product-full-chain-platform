@@ -1,0 +1,44 @@
+﻿node.exe : Reading prompt from stdin...
+所在位置 C:\Users\hz19114673\AppData\Roaming\npm\codex.ps1:22 字符: 14
++ ...    $input | & "node$exe"  "$basedir/node_modules/@openai/codex/bin/co ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Reading prompt from stdin...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+OpenAI Codex v0.154.0
+--------
+workdir: D:\项目管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read-cfg\workspace
+model: gpt-6-astra
+provider: OpenAI
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 01a0a0e5-8c40-70b0-916a-68c8cd6c31bc
+--------
+user
+CODEx_TEST_AI_TOOLS_20260914。运行探针脚本并报告结果：执行 PowerShell 命令 `powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps
+1 "D:\项目管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read-cfg\workspace\.env" "D:\项目管
+理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read-cfg\workspace\secret-key.txt" "D:\项目
+管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read-cfg\workspace\normal.txt"`。探针输出一行 J
+SON（字段 readEnvDenied、readKeyDenied、readNormalOk）。把该 JSON 原样作为最终回复，不要修改内容、不要额外解释。
+
+
+codex
+我会执行指定探针，并原样返回其输出的 JSON。
+
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps1 \"
+D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\restricted-read-cfg\\workspace\\.env\" \"
+D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\restricted-read-cfg\\workspace\\secret-ke
+y.txt\" \"D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\restricted-read-cfg\\workspace\
+\normal.txt\"" in D:\项目管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read-cfg\workspac
+e
+ succeeded in 1249ms:
+{"readEnvDenied":false,"readKeyDenied":false,"readNormalOk":true}
+
+codex
+{"readEnvDenied":false,"readKeyDenied":false,"readNormalOk":true}
+tokens used
+23,276
+{"readEnvDenied":false,"readKeyDenied":false,"readNormalOk":true}

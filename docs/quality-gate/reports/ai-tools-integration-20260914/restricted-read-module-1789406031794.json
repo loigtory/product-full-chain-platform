@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-14T17:13:50.783Z",
+  "status": "PASS",
+  "scope": "restricted-read module unit test: deny-read ACE apply/remove lifecycle (icacls verified, no model calls)",
+  "checks": [
+    {
+      "name": "apply adds deny-read ACE",
+      "pass": true
+    },
+    {
+      "name": "real user still reads canary (deny only sandbox group)",
+      "pass": true
+    },
+    {
+      "name": "remove clears deny-read ACE (idempotent)",
+      "pass": true
+    },
+    {
+      "name": "applyAll rolls back on failure",
+      "pass": true
+    },
+    {
+      "name": "applyAll partial rollback leaves no ACE",
+      "pass": true
+    },
+    {
+      "name": "removeAll idempotent on empty list",
+      "pass": true
+    }
+  ]
+}
