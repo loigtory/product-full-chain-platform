@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-14T13:39:40.347Z",
+  "status": "FAIL",
+  "tests": [
+    {
+      "name": "5188 health storage=pg",
+      "status": "PASS",
+      "storage": "pg"
+    },
+    {
+      "name": "POST /api/reqs 创建需求",
+      "status": 403
+    },
+    {
+      "name": "前端加载无 remoteError",
+      "status": "FAIL"
+    },
+    {
+      "name": "work 视图无 JS 错误（空版本兜底）",
+      "status": "PASS",
+      "pageErrors": []
+    },
+    {
+      "name": "artifactCard 兜底文案渲染",
+      "status": "FAIL",
+      "card": ""
+    }
+  ],
+  "errors": [],
+  "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button[data-action=\"toggle-real-mode\"]').first() to be visible\u001b[22m\n"
+}

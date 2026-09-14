@@ -1,0 +1,49 @@
+{
+  "at": "2026-09-14T14:34:31.626Z",
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "5188 health storage=pg",
+      "status": "PASS",
+      "storage": "pg"
+    },
+    {
+      "name": "同源打开进入解锁页",
+      "status": "PASS"
+    },
+    {
+      "name": "输入密钥解锁成功",
+      "status": "PASS"
+    },
+    {
+      "name": "POST /api/reqs 创建需求",
+      "status": "PASS",
+      "id": "R-1048"
+    },
+    {
+      "name": "work 视图无 JS 错误（空版本兜底）",
+      "status": "PASS",
+      "pageErrors": []
+    },
+    {
+      "name": "artifactCard 渲染（需求草案/兜底标题均可）",
+      "status": "PASS",
+      "card": " 需要澄清 |  需求草案"
+    },
+    {
+      "name": "real toggle 默认模拟",
+      "status": "PASS",
+      "label": "模拟"
+    },
+    {
+      "name": "无 Codex 连接时开启被阻止保持模拟",
+      "status": "PASS"
+    },
+    {
+      "name": "toast 提示可见",
+      "status": "PASS",
+      "toast": "本机 Codex 未配置（缺少连接参数），真实回复会明确失败；已保持模拟模式"
+    }
+  ],
+  "errors": []
+}

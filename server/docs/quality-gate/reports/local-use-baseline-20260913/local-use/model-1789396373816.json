@@ -1,0 +1,14 @@
+{
+  "at": "2026-09-14T14:32:53.808Z",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "D1/D3 exact personal and disposable target tuples",
+      "status": "PASS"
+    }
+  ],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Missing expected exception."
+  }
+}
