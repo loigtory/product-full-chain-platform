@@ -1,0 +1,27 @@
+{
+  "at": "2026-09-13T21:41:16.6924203Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "private": true,
+      "path": ".local\\pfc-workbench-backups"
+    },
+    {
+      "private": true,
+      "path": ".local\\pfc-workbench-backups\\0aa1731a-d522-4b91-8151-9821df8b92df"
+    },
+    {
+      "private": true,
+      "path": ".local\\pfc-workbench-backups\\0aa1731a-d522-4b91-8151-9821df8b92df\\files"
+    },
+    {
+      "private": true,
+      "path": ".local\\pfc-workbench-backups\\0aa1731a-d522-4b91-8151-9821df8b92df\\database.dump"
+    },
+    {
+      "private": true,
+      "path": ".local\\pfc-workbench-backups\\0aa1731a-d522-4b91-8151-9821df8b92df\\manifest.json"
+    }
+  ],
+  "secretContentsRead": false
+}

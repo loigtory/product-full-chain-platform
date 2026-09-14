@@ -1,0 +1,108 @@
+{
+  "at": "2026-09-13T21:46:10.563Z",
+  "command": "Fixed Node loopback API readiness; temporary in-memory local-session only",
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/local-session",
+      "status": 200,
+      "cookieFlags": "HttpOnly/SameSite=Strict; cookie value omitted"
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/reqs",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/local-status",
+      "status": 200
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/auth/local-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 401
+    }
+  ],
+  "businessWrites": false,
+  "secretsRecorded": false,
+  "health": {
+    "ok": true,
+    "readiness": true,
+    "storage": "pg",
+    "domainPersistence": true,
+    "schemaVersion": "006",
+    "profile": "personal",
+    "identityMode": "local-session",
+    "realTools": false,
+    "supportedActions": [
+      "releaseObservation",
+      "testing",
+      "productAcceptance",
+      "releaseInputs",
+      "linkedArtifacts",
+      "requirements",
+      "versions",
+      "questions",
+      "materials",
+      "messages",
+      "simulatedRuns",
+      "leases",
+      "notices",
+      "members",
+      "caps",
+      "bindings",
+      "projects",
+      "knowledge",
+      "audit",
+      "budgets",
+      "planContext"
+    ],
+    "unsupportedReason": "测试、发布、回退与观察为具名人工登记；平台未执行或核验真实工具及外部效果",
+    "instanceId": "939cb87c-8a12-4f05-a8a3-bc2ffc3eeb79",
+    "at": "2026-09-13T21:46:10.652Z"
+  },
+  "owner": {
+    "name": "陈立",
+    "role": "owner"
+  },
+  "localStatus": {
+    "storage": "pg",
+    "schemaVersion": "006",
+    "sourceCommit": "d9dfa7a5d2a62b6ded4a4c3d71599a0379ab63aa",
+    "sourceDirty": false,
+    "files": {
+      "readable": true,
+      "count": 0,
+      "bytes": 0,
+      "quota": 104857600
+    },
+    "lastBackup": {
+      "id": "0aa1731a-d522-4b91-8151-9821df8b92df",
+      "createdAt": "2026-09-13T21:40:25.859Z"
+    },
+    "realTools": false
+  },
+  "status": "PASS",
+  "cleanupSession": "REVOKED"
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-13T21:41:09.025Z",
+  "command": "node server/scripts/local-workbench.mjs backup",
+  "authorization": "authorization-execution.json",
+  "chunk_id": "b922bf",
+  "wall_time_seconds": 7.8562103,
+  "exit_code": 0,
+  "original_token_count": 34,
+  "output": "{\"status\":\"COMPLETE\",\"id\":\"0aa1731a-d522-4b91-8151-9821df8b92df\",\"createdAt\":\"2026-09-13T21:40:25.859Z\",\"tables\":58,\"rows\":8,\"files\":0}\n"
+}

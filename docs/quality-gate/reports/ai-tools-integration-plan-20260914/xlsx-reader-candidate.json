@@ -1,0 +1,45 @@
+{
+  "name": "read-excel-file",
+  "version": "9.3.10",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "saxen": "^11.1.0",
+    "fflate": "^0.8.3",
+    "worker-f": "^0.1.12",
+    "unzipper-esm": "^0.13.3"
+  },
+  "scripts": {
+    "test": "mocha --bail \"source/**/*.test.js\" \"test/*.test.js\" \"test/!(exports|benchmark|benchmark-unzipFromStream)/**/*.test.js\"",
+    "build": "npm-run-all clean-for-build build-commonjs build-es6-modules browser-build",
+    "test:exports": "mocha --bail \"test/exports/**/*.test.js\"",
+    "browser-build": "rollup --config rollup.config.mjs",
+    "build-commonjs": "npm-run-all build-commonjs-modules build-commonjs-package.json",
+    "prepublishOnly": "npm-run-all build test test:exports browser-build",
+    "test:benchmark": "mocha --bail \"test/benchmark/**/*.test.js\"",
+    "clean-for-build": "rimraf ./commonjs ./modules",
+    "build-es6-modules": "cross-env BABEL_ENV=es6 babel ./source --out-dir ./modules --source-maps",
+    "build-commonjs-modules": "cross-env BABEL_ENV=commonjs babel ./source --out-dir ./commonjs --source-maps",
+    "build-commonjs-package.json": "node build-scripts/create-commonjs-package-json.js",
+    "test:benchmark:unzipFromStream": "mocha --bail \"test/benchmark-unzipFromStream/**/*.test.js\""
+  },
+  "dist": {
+    "shasum": "b5f975e43c056165f5ab770ed894ff6f06546bf7",
+    "tarball": "https://registry.npmjs.org/read-excel-file/-/read-excel-file-9.3.10.tgz",
+    "fileCount": 307,
+    "integrity": "sha512-zFcBdzunLCGBmLRT4Q3mLPJnhKPAXXfGAZ83feODlEqX2aRUbgF1h/n2oY0UF7I8tVwnJNRas6fTRD5veDUs+g==",
+    "signatures": [
+      {
+        "sig": "MEQCIGUikEQu/cmM/mwBxE5wTEpcxcQb1lHsub9chpteGV3gAiA6aY1VnVS3s5W9dRY1Gkf2vywwEgUlazSwthrhNRsi0A==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEUCIEOdeFbKDtCQv4qzayXKbf5XHz1zckMzBQ7C7NJ8VoxkAiEAjc1w2egS4IZZ9TD6o3qVvndEavYZA2GIxiAH6d/vGgY=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "unpackedSize": 2474410
+  }
+}

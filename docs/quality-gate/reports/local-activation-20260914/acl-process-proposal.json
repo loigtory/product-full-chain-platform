@@ -1,0 +1,111 @@
+{
+  "status": "READ_ONLY_COMPLETE",
+  "preservedProcesses": [
+    {
+      "pid": 13528,
+      "started": "2026-09-10T04:47:17.6152950Z",
+      "name": "postgres.exe"
+    },
+    {
+      "pid": 31152,
+      "started": "2026-09-10T04:49:12.1906790Z",
+      "name": "node.exe"
+    },
+    {
+      "pid": 37744,
+      "started": "2026-09-10T04:49:12.2079080Z",
+      "name": "node.exe"
+    }
+  ],
+  "parentIsReparse": false,
+  "personalPaths": [
+    {
+      "exists": false,
+      "path": ".local/pfc-workbench"
+    },
+    {
+      "exists": false,
+      "path": ".local/pfc-workbench-files"
+    },
+    {
+      "exists": false,
+      "path": ".local/pfc-workbench-backups"
+    }
+  ],
+  "aclToolsAvailable": true,
+  "at": "2026-09-13T19:23:48.9499161Z",
+  "existingJunctionTargetsRepository": true,
+  "targetAcl": "NOT_CREATED_NOT_VERIFIED",
+  "parentAcl": [
+    {
+      "inherited": true,
+      "identityClass": "other",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "other",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "Administrators",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "Administrators",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "SYSTEM",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "SYSTEM",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "other",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "other",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "other",
+      "type": "Allow"
+    },
+    {
+      "inherited": true,
+      "identityClass": "other",
+      "type": "Allow"
+    }
+  ],
+  "currentUserSidResolved": true,
+  "listeners": [
+    {
+      "pid": 13528,
+      "loopback": true,
+      "port": 5432
+    },
+    {
+      "pid": 37744,
+      "loopback": true,
+      "port": 5173
+    },
+    {
+      "pid": 31152,
+      "loopback": true,
+      "port": 3001
+    }
+  ],
+  "ownedPersistentProcessesStarted": 0,
+  "targetWrites": 0
+}

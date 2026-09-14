@@ -1,0 +1,104 @@
+{
+  "at": "2026-09-13T21:56:04.3543699Z",
+  "status": "PASS",
+  "preservedAndRetained": [
+    {
+      "pid": 13528,
+      "parent": 38540,
+      "name": "postgres.exe",
+      "startedAt": "2026-09-10T04:47:17.6152950Z"
+    },
+    {
+      "pid": 31152,
+      "parent": 38472,
+      "name": "node.exe",
+      "startedAt": "2026-09-10T04:49:12.1906790Z"
+    },
+    {
+      "pid": 37744,
+      "parent": 38472,
+      "name": "node.exe",
+      "startedAt": "2026-09-10T04:49:12.2079080Z"
+    },
+    {
+      "pid": 14924,
+      "parent": 36104,
+      "name": "node.exe",
+      "startedAt": "2026-09-13T21:44:06.5248720Z"
+    },
+    {
+      "pid": 19412,
+      "parent": 14924,
+      "name": "node.exe",
+      "startedAt": "2026-09-13T21:44:08.8247100Z"
+    }
+  ],
+  "listeners": [
+    {
+      "address": "127.0.0.1",
+      "port": 5432,
+      "pid": 13528
+    },
+    {
+      "address": "127.0.0.1",
+      "port": 5188,
+      "pid": 19412
+    },
+    {
+      "address": "127.0.0.1",
+      "port": 5173,
+      "pid": 37744
+    },
+    {
+      "address": "127.0.0.1",
+      "port": 3001,
+      "pid": 31152
+    }
+  ],
+  "restoreAndBrowserHelpers": 0,
+  "restoreRootAbsent": true,
+  "browserProfileAbsent": true,
+  "newRuntimeAcl": [
+    {
+      "private": true,
+      "path": ".local/pfc-workbench"
+    },
+    {
+      "private": true,
+      "path": ".local/pfc-workbench/instance.json"
+    },
+    {
+      "private": true,
+      "path": ".local/pfc-workbench/operations.log"
+    },
+    {
+      "private": true,
+      "path": ".local/pfc-workbench/launcher.stdout.log"
+    },
+    {
+      "private": true,
+      "path": ".local/pfc-workbench/launcher.stderr.log"
+    },
+    {
+      "private": true,
+      "path": ".local/pfc-workbench/readiness-workbench-1440.png"
+    },
+    {
+      "private": true,
+      "path": ".local/pfc-workbench/readiness-status-1440.png"
+    }
+  ],
+  "ownerRetained": {
+    "purpose": "user-authorized personal workbench",
+    "stopCommand": "node server/scripts/local-workbench.mjs stop",
+    "controllerPid": 14924,
+    "apiPid": 19412,
+    "port": 5188
+  },
+  "preexistingProcessesPreserved": [
+    13528,
+    31152,
+    37744
+  ],
+  "noNewWatcherOrSchedule": true
+}

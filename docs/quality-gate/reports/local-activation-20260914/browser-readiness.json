@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-13T21:47:34.813Z",
+  "status": "FAIL",
+  "browser": "Browser plugin/browser skill absent; existing Playwright Edge under frontend-testing-debugging",
+  "viewport": {
+    "width": 1440,
+    "height": 960
+  },
+  "flow": "5188 entry -> keyboard unlock -> empty workbench -> local status -> logout -> locked",
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+  ],
+  "failedRequests": [
+    {
+      "path": "/api/auth/me",
+      "status": 401
+    }
+  ],
+  "externalRequests": [],
+  "businessMutationAttempts": [],
+  "screenshots": [],
+  "profilePath": ".local\\pfc-workbench\\readiness-browser-E4",
+  "businessWrites": false,
+  "errorCode": "TimeoutError",
+  "errorMessage": "page.goto: Timeout 12000ms exceeded. Call log:",
+  "sessionCleanup": "REVOKED",
+  "browserClosed": true,
+  "profileCleanup": "PENDING_INDEPENDENT_PROCESS_AND_PATH_CHECK"
+}

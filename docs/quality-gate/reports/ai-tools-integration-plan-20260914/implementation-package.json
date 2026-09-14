@@ -1,0 +1,1202 @@
+{
+  "at": "2026-09-13T22:43:49.502Z",
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "design": "44-真实AI与本地工具闭环方案及范围确认-20260914.md",
+  "providerChoice": "A_RECOMMENDED_UNCONFIRMED",
+  "implementationNotStarted": true,
+  "sourceCommit": "30dffd0c0dc2baca2ea13e94e93740e3e406529d",
+  "pod": {
+    "id": "POD-PFC-001",
+    "milestone": "M2",
+    "caps": 5,
+    "units": 26,
+    "next": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+    "formalLedgerChanged": false
+  },
+  "entries": [
+    {
+      "path": "server/src/index.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "cb56951f8dcf622301df5f98d09abbb9bea2d58482786682c947e4796f7f54aa"
+    },
+    {
+      "path": "server/src/runtime.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "45f1d84691d201da0b3e9e9f9fcb536c5df9e98d7fa33464a7a3b6e2d767c9c6"
+    },
+    {
+      "path": "server/src/ws.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "ed9dc60ea27a08bf7dfeade138a73db2a7b5ba11bbb28bdac5faba17684a5c19"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "377d09617b580b1fb9c28cf04236eccdb7c90488ca85cd1a5d6a41c1402ebc7f"
+    },
+    {
+      "path": "server/src/local/static.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "83051d4d0f7413cb9c3fb60c81d343fb3437e306f5fca26847ebdc5e89a232f6"
+    },
+    {
+      "path": "server/src/local/ops-config.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "5254495a872afa4e81dbd232cd3c7a3f2b748d55b3483683d0ab76fb9b4abbc0"
+    },
+    {
+      "path": "server/src/local/preflight.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "4d231fee0f8ca4575296bdd7b5af02c825ef3bebf46081059f86c9034663ae00"
+    },
+    {
+      "path": "server/src/local/initialize.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "7552d3b73008d320bbedf1f2fd174412d4a32882996feb8ca12d478a860b2579"
+    },
+    {
+      "path": "server/src/local/lifecycle.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "65b3385777e97f819d845e23a9ecec1b8c7b5b102991cc9d72709a142f208627"
+    },
+    {
+      "path": "server/src/local/backup.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "64979563d12c7e445902c48888538ac7e4561a36146abac807f60ae05d3d1c4a"
+    },
+    {
+      "path": "server/src/local/restore-check.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "688f8718333325d726ffdaebec2f380db9551220777e1799046c0ae15d23d917"
+    },
+    {
+      "path": "server/src/local/ops-files.js",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "be523bd522def828dab729380d572a5dcd8b9a2e1160d4814ebea3dbc160ff77"
+    },
+    {
+      "path": "server/scripts/local-workbench.mjs",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "0d03a5d4ad4ec330dbd281577d02ce9580483eb732152a823856f63bc09a5ea3"
+    },
+    {
+      "path": "server/scripts/migrate-m2c.mjs",
+      "kind": "existing",
+      "purpose": "assembly",
+      "sha256": "527248569ae15a3c2154caaeb8420df29b0772d18e5611242d1107838b1c7f5f"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "6fbfbd9f787207a1ee76d2ebca01ef368db12954d60f19e1a9088116eb1d8d96"
+    },
+    {
+      "path": "server/src/domain/execution-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "f250d8069fc1ff8d9e93382d68332767e0077d64d301eb058d593caf9e47e0a6"
+    },
+    {
+      "path": "server/src/domain/execution-plan-policy.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "aa1e35a3809e50762d82ace37361ddec6fffd2fdb630a7013d25daf1d0eb4f98"
+    },
+    {
+      "path": "server/src/domain/project-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "4f151adbdd0c26a5fc651a4b3034983b88e847ab67c68934f4c28e0c1acaf884"
+    },
+    {
+      "path": "server/src/domain/capability-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "861ad43d17d616b0b40664a85c99bbbd640aeefae56f933f704c005918ae2074"
+    },
+    {
+      "path": "server/src/domain/material-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "3cd70b45b271e96ec04536beaf59eb7999cfef67355570b3c4b78779bdd61ded"
+    },
+    {
+      "path": "server/src/domain/artifact-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "514279cd9e908567a1c729151d7a6313a46a5abb697475434370a18238d9854f"
+    },
+    {
+      "path": "server/src/domain/artifact-policy.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "61361d5730b37e2549e14981586d701f235c35a08ffdfc5dcea6ba5dfa72ab45"
+    },
+    {
+      "path": "server/src/domain/test-execution-service.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "1324a08ebd383d9511c7575c7f4f2d77bfa3ba30a883277fbd8c7a32bdda14b4"
+    },
+    {
+      "path": "server/src/domain/verification-policy.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "22ad9eb00e5cd33bab880360f6b748f89fa347b4682dc5345bb812ff2ff9a7fe"
+    },
+    {
+      "path": "server/src/domain/verification-dto.js",
+      "kind": "existing",
+      "purpose": "domain",
+      "sha256": "9260142f6ccb1745bade644e70fd94244ee6510f21ccbe17c5e3faf0640b6da8"
+    },
+    {
+      "path": "server/src/persistence/connection.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "29d62fd89f6dc5a2c1f1168c3d3148357ecc03c3878a60468cbc33a25724d411"
+    },
+    {
+      "path": "server/src/persistence/migrations.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "ab64ad2a3b8089531cdc263b360c0b64f54419020d60c1b28fd87b24b20ad4f6"
+    },
+    {
+      "path": "server/src/persistence/messages.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "2404ab29cf0bc8edf5c0f0db037bcb458e0c7c5b0440c7f29a74ebd45a4823b3"
+    },
+    {
+      "path": "server/src/persistence/materials.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "c50b96ba148d23331598e2adcb45fed88bd414e91d53c7224d8859ba3ab47074"
+    },
+    {
+      "path": "server/src/persistence/projects.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "1a1bc96cff8c3642e2e7c3940adfd76e77a6c785af3ebfb371ffe8a63d30f338"
+    },
+    {
+      "path": "server/src/persistence/runs.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "c6d3e8c5063f04a01c79f931d99b458313242162219a908d4cb87511c4b64d58"
+    },
+    {
+      "path": "server/src/persistence/run-output.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "b9807900cb78948454c2dd18bd4ab2430f3901d3e42760b1f702d8c7306a8a7a"
+    },
+    {
+      "path": "server/src/persistence/test-executions.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "8fa0ded6319c0e033fa925940543cb84798ee8820f6db740aa4f53e4a9db9883"
+    },
+    {
+      "path": "server/src/persistence/verification-readiness.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "6abb007b32cc39a564798bc5a642b6167e85ebc1ee11f8abf10a48d6b1e8d755"
+    },
+    {
+      "path": "server/src/persistence/artifacts.js",
+      "kind": "existing",
+      "purpose": "persistence",
+      "sha256": "9577ec32a3180223bffa7440eb8d677cbb0dc588b475c149396e3d00597a23fa"
+    },
+    {
+      "path": "server/src/routes/reqs.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "921347dcf9b2fd2213eb5eabfd9b60e4a6a5f7f40438b487a50a620c2891553b"
+    },
+    {
+      "path": "server/src/routes/projects.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "4e358a06c84fdfd24f23692bce66c595f82ae087d26e327f2a716083c4b9efd3"
+    },
+    {
+      "path": "server/src/routes/caps.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "d207c83d6a3ebf366f11de23d507d1afeb324837a6fb0ef92884cdf83f1a6eed"
+    },
+    {
+      "path": "server/src/routes/runs.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "14bd0ddb9b3835b115f16b3303c165c0059f162e5798be36c53e04485f98942c"
+    },
+    {
+      "path": "server/src/routes/bridges.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "478b03e0c06d32a8042cfd71812176f34a82117376663e4a62dbefb53cd900da"
+    },
+    {
+      "path": "server/src/routes/testing.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "df72222e2773c1bbf27b7c0110891b288100279b56e45f594b9f24dbc064ed38"
+    },
+    {
+      "path": "server/src/routes/artifacts.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "d2e68bb6d92a0534a9395830e5a5268ca92d0946c187d598bd77157442408144"
+    },
+    {
+      "path": "server/src/routes/contract.js",
+      "kind": "existing",
+      "purpose": "routes",
+      "sha256": "c64f1c30e1e7177e47a7d6c924c5f58701cc3de4227b6107e42cc5ca26b8777b"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/index.html",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "6ff9c95b9f27bb1648d8224939aa533386652de4bd264b062bcffbd95ec5e67f"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "4e697b8d526ad57221361de3a61e22d1a5f7bbe280513cde97af4ff535d72d7e"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench-shell.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "e10ce42c2769917b5b3f206a0fdd9252364c8ad8246db8404f0bc04f4aad3541"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/api-client.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "7c8d9628cbe2f77efb35800abea0468df27a697e71dca1443b12a7e593bbd2de"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/ws-client.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "cbce018485b2df0778705e12f424605792801a3f5586b85067282a6d082b326f"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-client.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "db53d67e1160542ead75add01510902741f3f3fce93828b6e3c9b59579158f1a"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "b11a9642bf42fbcd5671b42e0abe02dffffa296a587498181f12556b9f707a3f"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/conversation.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "01190b21a64b788afe5bacb85de6053f760058eeea0486d253ff52a25866fbf7"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/attachments.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "f18c49a3bfbc3e8e6b5bb7b45a1bf71a51f21e7fdf4b6729ea9ea9d86f22e5c3"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-client.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "afc2452f22696e0dbfc16b3fd017c5cbb5288c80e1eac696ce1cee6deb8bff7f"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-actions.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "08acb789a7ae4f399d80969a91999bb50a3e411a9776a251aae9b06108c1daec"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/artifact-view.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "b0d90721cd1546e131a8b69854d8b7102ec79c3e2f73699e3d94a62b2e6e7beb"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/run-actions.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "356f7d1542460b6f8af6b56723fefcefbd175c1607086dcc33dfdf664a085033"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/testing-actions.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "aaca71a8f3540f93f73a2c2520a6509b4eeccd4d4517a71241874897976736a2"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/testing-view.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "bcfac729cf9c41876a29b769a4d1c70fc009cc321cee6935380b7094fc39eed3"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-domain.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "3cf5d9879cf0861f19ccce346a2b0e30feba53ff41d9f2cb7e8482cfaa90ff3a"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/governance-domain-view.js",
+      "kind": "existing",
+      "purpose": "ui",
+      "sha256": "25d8982a40a4a790794c5445a2933bc2a658ee3ea2e3aa35c1b159850b82dc73"
+    },
+    {
+      "path": "server/package.json",
+      "kind": "existing",
+      "purpose": "dependencies",
+      "sha256": "b7162eb95fcb89da97d58073a3581333ee6ae32cc90daaecd25490f459f93c8a"
+    },
+    {
+      "path": "server/package-lock.json",
+      "kind": "existing",
+      "purpose": "dependencies",
+      "sha256": "3575f6ee48dbf8fa5aa702a2de9a302ce59123d6ebb5075d6a78eae411aba272"
+    },
+    {
+      "path": "server/scripts/run-local-use-gates.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "07653f3ec17dfa162355abd0e65b2bb7a64367dccde10259b72eebd13d7fd5ea"
+    },
+    {
+      "path": "server/test-data/local-use-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "2ef18e25bf37482cadf108453307fb67559683a6ce3d2ea507fdb46de3a2d34e"
+    },
+    {
+      "path": "server/verify-local-use-model.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "b51dc7e56cd97b02c8cbe680e441f2e694f883ebcb974fccb4f9b5c0e7ab1102"
+    },
+    {
+      "path": "server/verify-local-use-api.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "eb6d864e9fd7f5e2d23162a97420daf2d1281c6dc64155bdabc9f18c3b71e8d1"
+    },
+    {
+      "path": "server/verify-local-use-ops.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "48322041951884843ac7257deaef7affe64f10473d0f9f1c71e2c7a85699bd4f"
+    },
+    {
+      "path": "server/verify-local-use-architecture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "523034619a9983b7ef940a56d44f2b7680a141b93eb25a7153b41f2051f60208"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "688a4c40678bb49a58b53a081e62de52cf0fe745d15b605279f184d2f6875bf2"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-prototype.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "5de7689175aba58b67ac40f276c650c707e0c7796a51603692859d9db838f92d"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "d16ed39f64cf307d491e5974f56687e590d0a2721b1c3f40ff1b2a6512a78fad"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "c5632042fa12cae65eda0995746061c6833a1856893cfde7ad57a4ff0fc1a61a"
+    },
+    {
+      "path": "server/verify-server.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "8e13a1239cba9d14d813995d38ee8f221b7568141721fa145bdf0ee7492b0ee5"
+    },
+    {
+      "path": "server/verify-server-m2.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "a2633f680d4392ea9a8a155bd3725fb0667931a2c5a466e1269acc7ccd6b4914"
+    },
+    {
+      "path": "server/verify-m2b.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "79ab44525961d5eec1aa9862aeaf5166ac79d912f00423c55a38b195571992fa"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "5f4a651ba4bda20a533419bbe09736a762eb15903bf59451acb2b80541d7e44e"
+    },
+    {
+      "path": "server/verify-m2b2-domain.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "63afbe34bc118e6ac25eb0e37b8e73caf8b6cd1de87c064f13b7666269b6e29b"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "2868962727e618bb71de2213b1b3e4ae2d54e215353979b53532712d9a81c670"
+    },
+    {
+      "path": "server/verify-m2c-pg.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "14ed5d5180ed99ec2a0af54d93330c7131941a16ff80e3e628aaac804651f423"
+    },
+    {
+      "path": "server/verify-m2c-architecture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "4c4e3dab3fc5560a949bbf1c28fb05bb3bf874e2ae9061f5690400f5fe1b1818"
+    },
+    {
+      "path": "server/verify-m2c-domain.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "8919aa885cd8268704eddb7377ea9716f17c7480dbaf022cc4b861aee42bd386"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "4753391785d6275db1e07bdfc38cca61d1bccdb08062ce2a7cb457b0c45d8716"
+    },
+    {
+      "path": "server/verify-m2c-governance.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "b91aa7ff52d034b4b328e85ec07c8298bea65f0702daa8fc26b0a687a57e9a76"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "48aa3c7cf60c70a2b0b945a25eb9e79277d763fb6b62530744bb82551a259079"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "048f1e4e22b6ab07a53f63680e134b275a071646d3eca8b8eb8a921056483482"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "3d437f0fa3d680c5e2b22b33af723fdd8d20efcb17cc677858890a13ae8a1125"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "51990e177f43726d26466588ae76e87bc61551a25f41cdd5e69b652378f1cec5"
+    },
+    {
+      "path": "server/verify-r2-artifact-model.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "34f6411949a577138d108d4524331fe62ca009272be91565441ecf2f72dc6419"
+    },
+    {
+      "path": "server/verify-r2-artifacts.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "97f9d436a3a2c9cf07fa429e5fb5add731b712eb4d198a6b738885a76f2dedde"
+    },
+    {
+      "path": "server/verify-r2-architecture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "67f8a727cb1315970fe1d380d4cd2d097eaa4aa569dc264c2ba6f0c81fe5b645"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "3388fedd1e5fee620f5c4e9c37dfd17c5dcef856b62035e2a9c281647742d570"
+    },
+    {
+      "path": "server/verify-r3-verification-model.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "0afe9fe126579f184270b5a553839e1f3fafc096705646b4e23d4edd78a649ec"
+    },
+    {
+      "path": "server/verify-r3-verification.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "59c84b9ef8a23455588ad6035fea058ff7d77aaf48afcd871d1e79958eaf5c15"
+    },
+    {
+      "path": "server/verify-r3-architecture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "9b57d7d8bf3cfce939ae944ad4be48e64f06ef52d09366c0666b84d2cdefdeac"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "4828d4a28ac1d33bd464d83991f1c077439420905e8c8840101d54aee89e5922"
+    },
+    {
+      "path": "server/verify-m2c-release-model.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "561befa6e8d6c4091fc914e36e6505ec161ffe976eebe99b76dc414a95ee7966"
+    },
+    {
+      "path": "server/verify-m2c-release.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "f8730b398db919386c91cc4e56c2fdd6bf5e4a5df0b35649a1e9dd15f30edf21"
+    },
+    {
+      "path": "server/verify-m2c-release-architecture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "bd6e198725215223be6d416531a6c1b41b514d1a9f6049fd2eb414e379598255"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "e16420c872532c321d850cde712e565e2da7cc6efeb2af9fefa14e76b6656281"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/m2b2-browser-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "198e818499999558f4cd56b5b95c272032dc57bcc0df4add0090a8c738f14067"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/flow-browser-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "94b978b429cbe9a8773426b5ed760b15957c16252b43d12b5a97b7704d85b1cc"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-static.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "2f7687c77064a95288f246a010d4905c0c5b3a4405a7436eb212d3e7622bcd48"
+    },
+    {
+      "path": "server/test-data/m2c-pg-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "2e474a74693809ab087c2ac71f9a3a2ecd9cfbee2342a0a075aa56b463a2087c"
+    },
+    {
+      "path": "server/test-data/m2c-domain-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "6fd4eab2ee5f24f8d7ac0de2f0d75810f490e810eb403ec1f60785be58ae9a94"
+    },
+    {
+      "path": "server/test-data/m2c-governance-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "ebf3d8e35c40ea851cfd8f862eda07c7586d2f1ee7976573046790e7b5344c0d"
+    },
+    {
+      "path": "server/test-data/r2-artifact-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "6335bbcffc45dfdc1e35badd26cc2d0801dcef2555da53280dad661dd7293474"
+    },
+    {
+      "path": "server/test-data/r3-verification-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "8341d1c5429068d7d898987e5119b3feae6d14c5fea34783f5f9815a204f7f8d"
+    },
+    {
+      "path": "server/test-data/m2c-release-fixture.mjs",
+      "kind": "existing",
+      "purpose": "regression",
+      "sha256": "e71ef6a4f09c119a8aa77cdf9dc5789e070c7c9c83b684196d33570561acc911"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/worker.mjs",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/supervisor.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/event-policy.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/scope-policy.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/approval-service.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/context-service.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/material-extractor.mjs",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/project-scanner.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/run-dispatcher.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/result-verifier.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/test-runner.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/capability-discovery.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/agent/editor-handoff.js",
+      "kind": "new",
+      "purpose": "agent"
+    },
+    {
+      "path": "server/src/persistence/agent-sessions.js",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/src/persistence/material-extractions.js",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/src/persistence/tool-executions.js",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/sql/m2c/007-ai-tools.sql",
+      "kind": "new",
+      "purpose": "persistence"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "kind": "new",
+      "purpose": "routes"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/agent-client.js",
+      "kind": "new",
+      "purpose": "ui"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/agent-view.js",
+      "kind": "new",
+      "purpose": "ui"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/agent-actions.js",
+      "kind": "new",
+      "purpose": "ui"
+    },
+    {
+      "path": "server/verify-ai-tools-protocol.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/verify-ai-tools-model.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/verify-ai-tools-materials.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/verify-ai-tools-api.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/verify-ai-tools-execution.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/verify-ai-tools-real.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/verify-ai-tools-architecture.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-browser.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/test-data/ai-tools-fixture.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-gates.mjs",
+      "kind": "new",
+      "purpose": "tests"
+    }
+  ],
+  "counts": {
+    "existing": 108,
+    "new": 37,
+    "total": 145
+  },
+  "implementationDocuments": [
+    "AGENTS.md",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+    "docs/planning/prototype-v3/README.md",
+    "output/pfc-workbench-prototype/README.md",
+    "docs/planning/prototype-v3/44-真实AI与本地工具闭环方案及范围确认-20260914.md",
+    "docs/planning/prototype-v3/45-真实AI与本地工具实施与验收-20260914.md"
+  ],
+  "evidenceRoot": "docs/quality-gate/reports/ai-tools-integration-20260914/",
+  "gates": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-server.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-server-m2.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2b.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2b2-domain.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-pg.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-architecture.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-domain.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-governance.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-r2-artifact-model.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-r2-artifacts.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-r2-architecture.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-r3-verification-model.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-r3-verification.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-r3-architecture.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-release-model.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-release.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-m2c-release-architecture.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-local-use-model.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-local-use-api.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-local-use-ops.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-local-use-architecture.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+      "kind": "existing",
+      "status": "NOT_RUN_THIS_ROUND"
+    },
+    {
+      "command": "node server/verify-ai-tools-protocol.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node server/verify-ai-tools-model.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node server/verify-ai-tools-materials.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node server/verify-ai-tools-api.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node server/verify-ai-tools-execution.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node server/verify-ai-tools-real.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-ai-tools-browser.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "command": "node server/verify-ai-tools-architecture.mjs",
+      "kind": "new",
+      "status": "NOT_IMPLEMENTED"
+    }
+  ],
+  "data": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "pfc_local",
+    "role": "pfc_app_local",
+    "legacy": [
+      {
+        "schema": "codex_test_m2c_20260912_storage",
+        "maxRows": 200,
+        "filesRoot": null
+      },
+      {
+        "schema": "codex_test_m2c_20260912_domain",
+        "maxRows": 3000,
+        "filesRoot": ".local/m2c-2-domain-20260912/files"
+      },
+      {
+        "schema": "codex_test_m2c_20260913_governance",
+        "maxRows": 3000,
+        "filesRoot": ".local/m2c-3-governance-20260913/files"
+      },
+      {
+        "schema": "codex_test_m2c_20260913_artifacts",
+        "maxRows": 3000,
+        "filesRoot": ".local/r2-artifacts-20260913/files"
+      },
+      {
+        "schema": "codex_test_m2c_20260913_verification",
+        "maxRows": 5000,
+        "filesRoot": ".local/r3-test-acceptance-20260913/files"
+      },
+      {
+        "schema": "codex_test_m2c_20260913_release",
+        "maxRows": 6500,
+        "filesRoot": ".local/m2c-4-release-observation-20260913/files"
+      },
+      {
+        "schema": "codex_test_m2c_20260913_localuse",
+        "maxRows": 6500,
+        "filesRoot": ".local/local-use-baseline-20260913/source"
+      }
+    ],
+    "newSchemas": [
+      {
+        "schema": "codex_test_ai_tools_20260914_api",
+        "maxRows": 10000
+      },
+      {
+        "schema": "codex_test_ai_tools_20260914_real",
+        "maxRows": 10000
+      },
+      {
+        "schema": "codex_test_ai_tools_20260914_browser",
+        "maxRows": 10000
+      }
+    ],
+    "root": ".local/ai-tools-integration-20260914/<runId>",
+    "prefix": "CODEx_TEST_",
+    "restorePort": 5548,
+    "apiPorts": [
+      5201,
+      5202
+    ],
+    "maxNewBytes": 2147483648,
+    "maxTurns": 20,
+    "maxTurnSeconds": 300,
+    "maxCumulativeModelSeconds": 3600,
+    "maxCommandSeconds": 120,
+    "maxChangedFiles": 50,
+    "maxChangedBytes": 5242880,
+    "editor": {
+      "target": "owned synthetic workspace only",
+      "userDataRoot": ".local/ai-tools-integration-20260914/<runId>/editor/user-data",
+      "extensionsRoot": ".local/ai-tools-integration-20260914/<runId>/editor/extensions",
+      "extensionsEnabled": false,
+      "cleanup": "close only owned isolated editor process tree"
+    }
+  },
+  "dependencyCandidates": [
+    {
+      "name": "pdfjs-dist",
+      "version": "6.3.289",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "mammoth",
+      "version": "1.12.3",
+      "license": "BSD-2-Clause"
+    },
+    {
+      "name": "read-excel-file",
+      "version": "9.3.10",
+      "license": "MIT"
+    }
+  ],
+  "dependencyStatus": "METADATA_ONLY; locked transitive audit required before installation; no install scripts authorized",
+  "excluded": [
+    "personal pfc_workbench/pfc writes",
+    "restart 5188",
+    "root dependencies/lock",
+    "apps/packages/archive changes",
+    "old SQL/generated code changes",
+    "formal ledger advancement",
+    "main merge",
+    "other project writes",
+    "real CI/deployment",
+    "credential export",
+    "subagents"
+  ],
+  "deferred": [
+    "Zed/IDE bidirectional same-thread control",
+    "arbitrary MCP and plugin installation",
+    "arbitrary HTML execution",
+    "OCR and embedded objects",
+    "team identity",
+    "remote CI and deployment",
+    "actual outcome observation"
+  ],
+  "providerIsolation": "verified instance-only disable unapproved MCP/apps/hooks/network tools/subagents; fail closed if unsupported; no global config edits"
+}

@@ -1,0 +1,169 @@
+{
+  "at": "2026-09-13T22:00:07.210Z",
+  "status": "LOCAL_ENABLED",
+  "readiness": "READINESS_VERIFIED",
+  "authorization": "authorization-execution.json",
+  "execution": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E6 scoped evidence/Git closeout"
+  ],
+  "observation": "NOT_STARTED / OUT_OF_THIS_RUN",
+  "secondBackup": "OUT_OF_THIS_RUN",
+  "ownerUse": "AWAITING_OWNER_USE",
+  "sourceAcceptance": {
+    "commit": "e3f5d455d274cb95af4493138031e86da0236953",
+    "status": "SCOPED_ACCEPTED",
+    "acceptor": "陈立"
+  },
+  "runtimeCommit": "d9dfa7a5d2a62b6ded4a4c3d71599a0379ab63aa",
+  "runtimeSourceDirtyAtStart": false,
+  "apiUrl": "http://127.0.0.1:5188/",
+  "tables": 58,
+  "totalRows": 8,
+  "requirements": 0,
+  "originalFiles": 0,
+  "completedBackups": 1,
+  "backupId": "0aa1731a-d522-4b91-8151-9821df8b92df",
+  "restore": "PASS; exact temporary targets removed and read back",
+  "retained": {
+    "purpose": "user-authorized personal workbench",
+    "stopCommand": "node server/scripts/local-workbench.mjs stop",
+    "controllerPid": 14924,
+    "apiPid": 19412,
+    "port": 5188
+  },
+  "preexistingProcessesPreserved": [
+    13528,
+    31152,
+    37744
+  ],
+  "temporaryResources": "CLEAN",
+  "sessions": "REVOKED",
+  "visualReview": "PASS: both 1440x960 screenshots reviewed",
+  "scopeLimits": [
+    "empty baseline only",
+    "no actual owner use acceptance or workday observation",
+    "real AI/tools unavailable",
+    "same-disk backup",
+    "no business source/SQL/dependency/ledger/historical evidence changes",
+    "no main merge or external environment write"
+  ],
+  "pod": {
+    "id": "POD-PFC-001",
+    "milestone": "M2",
+    "caps": 5,
+    "units": 26,
+    "directScope": [
+      "UNIT-PFC-01-01",
+      "UNIT-PFC-01-02",
+      "UNIT-PFC-01-03",
+      "UNIT-PFC-01-05",
+      "UNIT-PFC-02-01",
+      "UNIT-PFC-02-02",
+      "UNIT-PFC-02-03",
+      "UNIT-PFC-02-04",
+      "UNIT-PFC-04-01",
+      "UNIT-PFC-04-02"
+    ],
+    "existingRecordRecoveryOnly": [
+      "UNIT-PFC-03-02",
+      "UNIT-PFC-03-05",
+      "UNIT-PFC-05-01",
+      "UNIT-PFC-05-02",
+      "UNIT-PFC-05-03",
+      "UNIT-PFC-05-04",
+      "UNIT-PFC-05-05"
+    ],
+    "formalLedgerChanged": false,
+    "next": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+  },
+  "evidence": [
+    {
+      "file": "authorization-execution.json",
+      "sha256": "6709a50a5d51c8937280b0a7e225725c4ad1496977e435a0c8d62638989a4806"
+    },
+    {
+      "file": "preflight-execution.json",
+      "sha256": "047d605d57ae1ea1593352e9202397cca4cc07cc7abe0208a99a840917db0651"
+    },
+    {
+      "file": "acl-process-before.json",
+      "sha256": "1ec998cadcb6c47faa2fda497291f2a09e109fe616c01c181d642230c0b873da"
+    },
+    {
+      "file": "initialize-result.json",
+      "sha256": "90a7b33df19620a38f42b2e9e06cfca7f47a23e5b7cd2ec2952a1ee11c573b72"
+    },
+    {
+      "file": "initialize-readback.json",
+      "sha256": "d2a1a28d8197232808238cb5efc0f3a98c9336e8f8becbef67f604fcadeff21e"
+    },
+    {
+      "file": "initialize-acl-readback.json",
+      "sha256": "246421907fe30dfcf4a00467a25ca1f5d15bf7ad9e8ebb822b194d326124325d"
+    },
+    {
+      "file": "backup-result.json",
+      "sha256": "301b58d2a9bd7b5b6467d8f660745e1afe033d93336284fb011822565a9cfd6d"
+    },
+    {
+      "file": "backup-readback.json",
+      "sha256": "4f08ab7d23b6c9b401ebfca3b0d659fc51bed94adcc50e6ab3341f8fddeacc9c"
+    },
+    {
+      "file": "backup-acl-readback.json",
+      "sha256": "effc139788c2db703931eb9d8358627c050a129939dfbdbd3c6a46b4b7da6510"
+    },
+    {
+      "file": "restore-result.json",
+      "sha256": "ecab2afaf6fa491f5031432bd9fa0e89505e2b8f039cfe6728a9cca8bfd03654"
+    },
+    {
+      "file": "restore-independent-readback.json",
+      "sha256": "95278c5651fea8032050fbb2fcd21125f9a2a3271a1800d6fd8403fcdbf5e8cc"
+    },
+    {
+      "file": "start-request.json",
+      "sha256": "628cb4d6352c335f22e32b10b1a22b6e2771ec0e4b68ebee5d90a4d20814d8f2"
+    },
+    {
+      "file": "start-status.json",
+      "sha256": "b080b4ab97adc4b59dc049d5ff4a781bcbabde963cf68df4a0e1b7c0f5ea4d7e"
+    },
+    {
+      "file": "api-readiness.json",
+      "sha256": "4b221b0065dcc16aa6b85b0dece7233febfbb7d269128d1a1e1d315c1cf29b95"
+    },
+    {
+      "file": "browser-readiness.json",
+      "sha256": "6fcbaa01b481e8db20738d67d1ec0602d8acf6a0194a1f4ce105ff62af436bfb"
+    },
+    {
+      "file": "browser-first-cleanup.json",
+      "sha256": "7e6cba06f78df5b95f2942e66568cb3663f083855cf0362fb8fbb8271cf83d6f"
+    },
+    {
+      "file": "browser-readiness-final.json",
+      "sha256": "dc636d21788fa8aca6d1634e0608e4f6cce69eb5a16af1430f6a69bc21960dc5"
+    },
+    {
+      "file": "browser-final-cleanup.json",
+      "sha256": "e7b7237735c48f3503ed1ac25e86ba7f4ec030f198b122f46c664ba3e8e63890"
+    },
+    {
+      "file": "runtime-independent-final.json",
+      "sha256": "14689f9e2cc53022f6cb67d502bd8621154c2305123fa2503d240c9190349e4a"
+    },
+    {
+      "file": "process-acl-final.json",
+      "sha256": "cefb91b2ebd57f2deca6390a826c9f7d5d976ba7cb00a7ef6c0e52fa18279dd9"
+    }
+  ],
+  "retestNotes": [
+    "backup readback ACL helper blocked in sandbox; no extra backup; independently checked and passed with approved helper access",
+    "first browser networkidle timeout; no business mutation; session/profile cleaned; final DOM and explicit state readiness passed"
+  ]
+}

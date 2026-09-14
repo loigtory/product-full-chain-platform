@@ -1,0 +1,33 @@
+{
+  "at": "2026-09-13T21:43:19.150Z",
+  "command": "node server/scripts/local-workbench.mjs restore-check --backup-id 0aa1731a-d522-4b91-8151-9821df8b92df",
+  "authorization": "authorization-execution.json",
+  "exitCode": 0,
+  "stdout": "{\"status\":\"PASS\",\"runId\":\"CODEx_TEST_M2C_20260913_localuse_70141dcf-d13e-42be-8603-77b53f6b56d0\",\"pgPid\":27944,\"port\":5548,\"coldDatabaseEqual\":true,\"originalBytesEqual\":true,\"requirements\":0,\"downloads\":0,\"oldSessionRejected\":true,\"newSessionAccepted\":true,\"changedAfterRecovery\":[],\"timings\":{\"sourceSnapshot\":288,\"packageCheck\":1946,\"initdb\":4649,\"clusterStart\":1833,\"databaseRestore\":1633,\"coldReadback\":1134,\"runtimeStart\":7859,\"apiReadback\":53,\"cleanup\":8605},\"cleanup\":\"PASS\"}\n",
+  "result": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_70141dcf-d13e-42be-8603-77b53f6b56d0",
+    "pgPid": 27944,
+    "port": 5548,
+    "coldDatabaseEqual": true,
+    "originalBytesEqual": true,
+    "requirements": 0,
+    "downloads": 0,
+    "oldSessionRejected": true,
+    "newSessionAccepted": true,
+    "changedAfterRecovery": [],
+    "timings": {
+      "sourceSnapshot": 288,
+      "packageCheck": 1946,
+      "initdb": 4649,
+      "clusterStart": 1833,
+      "databaseRestore": 1633,
+      "coldReadback": 1134,
+      "runtimeStart": 7859,
+      "apiReadback": 53,
+      "cleanup": 8605
+    },
+    "cleanup": "PASS"
+  },
+  "measuredStepTotalMs": 28000
+}

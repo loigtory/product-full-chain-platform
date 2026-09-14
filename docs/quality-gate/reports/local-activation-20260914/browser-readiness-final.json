@@ -1,0 +1,51 @@
+{
+  "at": "2026-09-13T21:49:50.736Z",
+  "status": "PASS",
+  "browser": "Browser plugin/browser skill absent; existing Playwright Edge under frontend-testing-debugging",
+  "viewport": {
+    "width": 1440,
+    "height": 960
+  },
+  "flow": "5188 entry -> keyboard unlock -> empty workbench -> local status -> logout -> locked",
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+  ],
+  "failedRequests": [
+    {
+      "path": "/api/auth/me",
+      "status": 401
+    }
+  ],
+  "externalRequests": [],
+  "businessMutationAttempts": [],
+  "screenshots": [
+    {
+      "path": ".local/pfc-workbench/readiness-workbench-1440.png",
+      "sha256": "f870e0fc99ad91e8308efb8ab4b8df8f0e4326dde6d82877e1a6a32899540f68"
+    },
+    {
+      "path": ".local/pfc-workbench/readiness-status-1440.png",
+      "sha256": "625ae0020fdd8010593c63c177c3b2256eb7629246d601ec45c80522aa5595bd"
+    }
+  ],
+  "profilePath": ".local\\pfc-workbench\\readiness-browser-E4",
+  "businessWrites": false,
+  "priorAttempt": "browser-readiness.json: initial networkidle navigation timed out; no business writes; profile/session cleaned",
+  "navigationStrategy": "DOM content loaded within30s, then explicit login/ready/local-status/logout state assertions, matching existing project verifier",
+  "title": "PFC 产品全链路平台 · 原版工作台",
+  "url": "http://127.0.0.1:5188/",
+  "emptyState": {
+    "mode": "api",
+    "requirements": 0,
+    "owner": "陈立",
+    "horizontalOverflow": false,
+    "meaningfulContent": true,
+    "simulationLabel": true
+  },
+  "logoutLocked": true,
+  "expectedInitialUnauthorized": 1,
+  "sessionCleanup": "REVOKED",
+  "browserClosed": true,
+  "profileCleanup": "PENDING_INDEPENDENT_PROCESS_AND_PATH_CHECK"
+}

@@ -1,0 +1,96 @@
+{
+  "aclToolsAvailable": true,
+  "at": "2026-09-13T21:35:37.9252793Z",
+  "existingJunctionTargetsRepository": true,
+  "parentAcl": [
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "other"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "other"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "Administrators"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "Administrators"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "SYSTEM"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "SYSTEM"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "other"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "other"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "other"
+    },
+    {
+      "inherited": true,
+      "type": "Allow",
+      "identityClass": "other"
+    }
+  ],
+  "listeners": [
+    {
+      "loopback": true,
+      "pid": 13528,
+      "port": 5432
+    },
+    {
+      "loopback": true,
+      "pid": 37744,
+      "port": 5173
+    },
+    {
+      "loopback": true,
+      "pid": 31152,
+      "port": 3001
+    }
+  ],
+  "currentUserSidResolved": true,
+  "preservedProcesses": [
+    {
+      "started": "2026-09-10T04:47:17.6152950Z",
+      "pid": 13528,
+      "name": "postgres.exe"
+    },
+    {
+      "started": "2026-09-10T04:49:12.1906790Z",
+      "pid": 31152,
+      "name": "node.exe"
+    },
+    {
+      "started": "2026-09-10T04:49:12.2079080Z",
+      "pid": 37744,
+      "name": "node.exe"
+    }
+  ],
+  "targetAcl": "NOT_CREATED",
+  "status": "PASS",
+  "targetWrites": 0,
+  "ownedPersistentProcessesStarted": 0
+}

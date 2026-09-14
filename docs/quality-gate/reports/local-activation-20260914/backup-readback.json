@@ -1,0 +1,27 @@
+{
+  "at": "2026-09-13T21:41:54.275Z",
+  "status": "PASS",
+  "command": "Independent manifest/file SHA256 and current PG snapshot equality; registered package verify",
+  "backupId": "0aa1731a-d522-4b91-8151-9821df8b92df",
+  "manifestSha256": "89917e33245d4b639820d3191384c4059a08d8164b64aebeb97396c72ec62e74",
+  "tables": 58,
+  "totalRows": 8,
+  "businessRows": 0,
+  "requirements": 0,
+  "originalFiles": 0,
+  "packageFiles": [
+    {
+      "path": "database.dump",
+      "size": 289138,
+      "sha256": "35e9bb971fb2c12fb4e3055809517471503bc322cee43ddd353b6a2b1ec52a74"
+    }
+  ],
+  "snapshotSha256": "cf32ccd2e9eff47576c548d1da08f68de73bf61f7077d9898a5a83b8a1d2133b",
+  "sourceStillMatchesBackup": true,
+  "backupFolder": ".local/pfc-workbench-backups/0aa1731a-d522-4b91-8151-9821df8b92df",
+  "previousAttempt": {
+    "status": "BLOCKED",
+    "code": "LOCAL_ACL_CHECK_FAILED",
+    "reason": "Sandbox could not spawn readonly ACL helper; independent Get-Acl PASS and same readback rerun with approved helper access"
+  }
+}

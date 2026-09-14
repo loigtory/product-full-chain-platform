@@ -1,0 +1,59 @@
+{
+  "secretContentsRead": false,
+  "command": "Independent Get-Acl exact five new paths",
+  "status": "PASS",
+  "checks": [
+    {
+      "private": true,
+      "principals": [
+        "SYSTEM",
+        "Administrators",
+        "current-user"
+      ],
+      "path": ".local/pfc-workbench",
+      "reparse": false
+    },
+    {
+      "private": true,
+      "principals": [
+        "Administrators",
+        "SYSTEM",
+        "current-user"
+      ],
+      "path": ".local/pfc-workbench/profile.json",
+      "reparse": false
+    },
+    {
+      "private": true,
+      "principals": [
+        "Administrators",
+        "SYSTEM",
+        "current-user"
+      ],
+      "path": ".local/pfc-workbench/users.json",
+      "reparse": false
+    },
+    {
+      "private": true,
+      "principals": [
+        "Administrators",
+        "SYSTEM",
+        "current-user"
+      ],
+      "path": ".local/pfc-workbench/access-key.txt",
+      "reparse": false
+    },
+    {
+      "private": true,
+      "principals": [
+        "SYSTEM",
+        "Administrators",
+        "current-user"
+      ],
+      "path": ".local/pfc-workbench-files",
+      "reparse": false
+    }
+  ],
+  "at": "2026-09-13T21:40:02.0803869Z",
+  "parentAclChanged": false
+}

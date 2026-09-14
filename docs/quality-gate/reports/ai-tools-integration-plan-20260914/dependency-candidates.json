@@ -1,0 +1,110 @@
+{
+  "at": "2026-09-13T22:30:40.1305735Z",
+  "status": "METADATA_ONLY_CANDIDATES_NOT_INSTALLED",
+  "source": "Public npm registry latest metadata",
+  "packages": [
+    {
+      "name": "pdfjs-dist",
+      "version": "6.3.289",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22.13.0 || >=24"
+      },
+      "dependencies": null,
+      "optionalDependencies": {
+        "@napi-rs/canvas": "^1.0.0"
+      },
+      "scripts": {},
+      "repository": "git+https://github.com/mozilla/pdf.js.git",
+      "integrity": "sha512-ZHjSVpDa3D6izMq8/04lvkhkATUmL9px6ChPaXc1k6nU2Mrhlg1/7F0bdUqCwUjw3NsPTfPZsMDUU6ZIcRaeQw==",
+      "tarball": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.3.289.tgz"
+    },
+    {
+      "name": "mammoth",
+      "version": "1.12.3",
+      "license": "BSD-2-Clause",
+      "engines": {
+        "node": ">=12.0.0"
+      },
+      "dependencies": {
+        "lop": "^0.4.2",
+        "jszip": "^3.7.1",
+        "argparse": "~1.0.3",
+        "bluebird": "~3.4.0",
+        "base64-js": "^1.5.1",
+        "underscore": "^1.13.1",
+        "xmlbuilder": "^10.0.0",
+        "@xmldom/xmldom": "^0.8.6",
+        "path-is-absolute": "^1.0.0",
+        "dingbat-to-unicode": "^1.0.1"
+      },
+      "optionalDependencies": null,
+      "scripts": {
+        "test": "mocha 'test/**/*.tests.js'",
+        "prepare": "make mammoth.browser.min.js",
+        "pretest": "eslint lib test",
+        "check-typescript": "tsc --noEmit lib/index.d.ts"
+      },
+      "repository": "git+https://github.com/mwilliamson/mammoth.js.git",
+      "integrity": "sha512-kkv2MrSFk3f/w3uLsz4FG/91LdWp2j+qmp7AjG2v7w2xgX5YDxiaFlaWourXrXtyUR6335+9guyIlPBnhHLvKw==",
+      "tarball": "https://registry.npmjs.org/mammoth/-/mammoth-1.12.3.tgz"
+    },
+    {
+      "name": "exceljs",
+      "version": "4.4.0",
+      "license": "MIT",
+      "engines": {
+        "node": ">=8.3.0"
+      },
+      "dependencies": {
+        "tmp": "^0.2.0",
+        "uuid": "^8.3.0",
+        "dayjs": "^1.8.34",
+        "jszip": "^3.10.1",
+        "saxes": "^5.0.1",
+        "archiver": "^5.0.0",
+        "fast-csv": "^4.3.1",
+        "unzipper": "^0.10.11",
+        "readable-stream": "^3.6.0"
+      },
+      "optionalDependencies": null,
+      "scripts": {
+        "lint": "eslint --format node_modules/eslint-friendly-formatter .",
+        "test": "npm run test:full",
+        "build": "grunt build",
+        "clean": "rm -rf build/ && rm -rf dist",
+        "lint:fix": "prettier-eslint --write $(pwd)'/**/*.js'",
+        "test:all": "npm run test:native && npm run test:es5",
+        "test:es5": "export EXCEL_BUILD=es5 && npm run test:full",
+        "benchmark": "node --expose-gc benchmark",
+        "test:dist": "mocha --require spec/config/setup spec/dist --recursive",
+        "test:full": "npm run build && npm run test:unit && npm run test:integration && npm run test:end-to-end && npm run test:jasmine",
+        "test:unit": "mocha --require spec/config/setup --require spec/config/setup-unit spec/unit --recursive",
+        "preversion": "npm run clean && npm run build && npm run test:version",
+        "clean-build": "npm run clean && npm run build",
+        "lint:staged": "lint-staged",
+        "postversion": "git push --no-verify && git push --tags --no-verify",
+        "test:manual": "node spec/manual/app.js",
+        "test:native": "npm run test:full",
+        "test:browser": "if [ ! -f .disable-test-browser ]; then npm run build && npm run test:jasmine; fi",
+        "test:jasmine": "grunt jasmine",
+        "test:version": "npm run build && npm run test:unit && npm run test:integration && npm run test:end-to-end && npm run test:browser && npm run test:dist",
+        "install-build": "npm install && grunt build",
+        "test:unit:es5": "export EXCEL_BUILD=es5 && npm run test:unit",
+        "benchmark:debug": "node --expose-gc --inspect-brk --trace-deopt benchmark",
+        "test:end-to-end": "mocha --require spec/config/setup spec/end-to-end --recursive",
+        "test:typescript": "mocha -r ts-node/register spec/typescript/**/*.spec.ts",
+        "test:integration": "mocha --require spec/config/setup spec/integration --recursive",
+        "test:end-to-end:es5": "export EXCEL_BUILD=es5 && npm run test:end-to-end",
+        "test:integration:es5": "export EXCEL_BUILD=es5 && npm run test:integration"
+      },
+      "repository": "git+https://github.com/exceljs/exceljs.git",
+      "integrity": "sha512-XctvKaEMaj1Ii9oDOqbW/6e1gXknSY4g/aLCDicOXqBE4M0nRWkUu0PTp++UPNzoFY12BNHMfs/VadKIS6llvg==",
+      "tarball": "https://registry.npmjs.org/exceljs/-/exceljs-4.4.0.tgz"
+    }
+  ],
+  "lockfileChanged": false,
+  "installExecuted": false,
+  "transitiveAudit": "NOT_EXECUTED: no resolved proposed lockfile yet",
+  "decision": "Candidate optional parsers for PDF/DOCX/XLSX; implementation authorization and exact lockfile audit required before activation"
+}

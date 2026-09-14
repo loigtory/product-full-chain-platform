@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-13T21:43:30.711Z",
+  "status": "PASS",
+  "command": "Independent source snapshot/file comparison + port probes + exact restore PID readback",
+  "sourceSnapshotUnchanged": true,
+  "originalFiles": 0,
+  "restoreRoot": ".local/local-use-baseline-20260913/restore/CODEx_TEST_M2C_20260913_localuse_70141dcf-d13e-42be-8603-77b53f6b56d0",
+  "restoreRootAbsent": true,
+  "restorePgPid": 27944,
+  "restorePgPidAbsent": true,
+  "freePorts": [
+    5548,
+    5198,
+    5188
+  ],
+  "backupRetained": "0aa1731a-d522-4b91-8151-9821df8b92df",
+  "personalDataRetained": true,
+  "sourceWrites": false
+}

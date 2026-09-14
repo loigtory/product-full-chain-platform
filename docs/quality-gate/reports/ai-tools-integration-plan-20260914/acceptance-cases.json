@@ -1,0 +1,224 @@
+{
+  "status": "DESIGN_ONLY_NOT_EXECUTION_EVIDENCE",
+  "source": "44 D1-D8",
+  "cases": [
+    {
+      "id": "A01",
+      "requirement": "D1",
+      "scenario": "CLI/账号与真实能力状态",
+      "preconditions": "已安装CLI及合成授权包",
+      "steps": [
+        "执行兼容预检",
+        "分别模拟缺账号、版本不符",
+        "实际只读握手"
+      ],
+      "expected": "状态与实际一致；不回退模拟；生成调用数为0",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "protocol",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A02",
+      "requirement": "D2",
+      "scenario": "多格式材料与引用",
+      "preconditions": "工厂txt/md/json/csv/html/pdf/docx/xlsx/png/jpeg及两个版本",
+      "steps": [
+        "上传、解析、选片段发送",
+        "换版本再问相同事实"
+      ],
+      "expected": "原件hash与页/单元格/片段可追溯；新旧版本不串用",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "materials",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A03",
+      "requirement": "D2/D5",
+      "scenario": "损坏/超限/提示注入及撤权",
+      "preconditions": "同工厂负例、受限/跨租户材料、带命令文字",
+      "steps": [
+        "解析损坏和超限包",
+        "撤回材料",
+        "提交其中的越权指令"
+      ],
+      "expected": "有明确错误或部分范围；权限不扩张；无敏感外发与越权副作用",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "materials",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A04",
+      "requirement": "D3",
+      "scenario": "原型/PRD/AC真实联产",
+      "preconditions": "积分提醒合成需求及两套规则",
+      "steps": [
+        "实际AI生成候选",
+        "先交互原型",
+        "修改规则",
+        "预览差异并采纳"
+      ],
+      "expected": "非固定模板；规则和AC关联；同需求连续版本，实际PG/API/UI读回",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "real",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A05",
+      "requirement": "D3/D7",
+      "scenario": "对话取消、刷新、断连、未知",
+      "preconditions": "合成会话和可控故障点",
+      "steps": [
+        "重复commandId",
+        "中途取消/断连/重启",
+        "恢复读回"
+      ],
+      "expected": "不重复调用；未知须核实；迟到消息不覆盖已确认版本",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "api",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A06",
+      "requirement": "D4",
+      "scenario": "项目扫描与Skill装配",
+      "preconditions": "工厂Git项目和合成Skill；无外部repo",
+      "steps": [
+        "登记后扫描",
+        "绑定Skill",
+        "改变版本或目录"
+      ],
+      "expected": "scanned状态来自真实扫描；scopeHash失效；能力发现不授予额外权限",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "execution",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A07",
+      "requirement": "D5",
+      "scenario": "真实代码变更与执行",
+      "preconditions": "工厂隔离工作区、具体允许文件/命令已批准",
+      "steps": [
+        "AI改代码",
+        "执行固定测试",
+        "查询真实diff/输出/退出码"
+      ],
+      "expected": "只改界内文件；运行身份和基线一致；不是模拟日志",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "real",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A08",
+      "requirement": "D5",
+      "scenario": "拒绝/过期/路径穿越/网络/解释器越权",
+      "preconditions": "合成请求、拒绝审批与链接/命令负例",
+      "steps": [
+        "审批拒绝或过期",
+        "重放",
+        "请求越界/新增网络"
+      ],
+      "expected": "无执行；无界外文件变化；不凭Shell前缀放行；保留拒绝证据",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "execution",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A09",
+      "requirement": "D6",
+      "scenario": "失败→修复→回归与可信测试结果",
+      "preconditions": "工厂Node项目含确定性失败用例、AC映射",
+      "steps": [
+        "真实runner失败",
+        "同需求修复重跑",
+        "伪造passed/零用例/浏览器LOCAL_RUNNER"
+      ],
+      "expected": "仅真实完整报告和正确退出码可通过；伪造拒绝；两次基线与缺陷关联",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "real",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A10",
+      "requirement": "D7",
+      "scenario": "007升级/备份/隔离恢复",
+      "preconditions": "本轮自有006/007测试schema与原件",
+      "steps": [
+        "显式迁移",
+        "备份恢复",
+        "检查进行中run",
+        "核原件与证据hash"
+      ],
+      "expected": "不改旧checksum；006/007版本明确；恢复不重发命令；业务schema不变",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "api",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A11",
+      "requirement": "D8",
+      "scenario": "完整PC链路与权限交互",
+      "preconditions": "真实后端+已授权合成账号/数据",
+      "steps": [
+        "1280/1440/1920完成材料到结果",
+        "键盘审批/停止",
+        "刷新读回",
+        "打开受控VSCode目标"
+      ],
+      "expected": "各阶段同一上下文；按钮状态准确；角色禁止项不可执行；不宣称Zed接管",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "browser",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    },
+    {
+      "id": "A12",
+      "requirement": "D1–D8",
+      "scenario": "清理、历史保护、限额与失败中断",
+      "preconditions": "runId所有权清单、创建ID和起始指纹",
+      "steps": [
+        "达到调用/容量/时间上限",
+        "收尾",
+        "核端口/进程/schema/文件/旧证据"
+      ],
+      "expected": "到限停止；所属临时资源清理读回；保留5188等原服务和历史证据",
+      "dataPolicy": "deterministic CODEx_TEST_<runId>; only44section6 exact schemas/roots; synthetic model input; no real personal data",
+      "automation": "PLANNED_NOT_IMPLEMENTED",
+      "gate": "architecture",
+      "owner": "陈立",
+      "acceptor": "陈立",
+      "actualStatus": "NOT_RUN"
+    }
+  ]
+}

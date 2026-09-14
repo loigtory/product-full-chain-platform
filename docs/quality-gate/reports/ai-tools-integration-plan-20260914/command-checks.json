@@ -1,0 +1,64 @@
+{
+  "at": "2026-09-13T22:50:00.451Z",
+  "commands": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "aa88aa",
+        "wall_time_seconds": 2.1035831,
+        "exit_code": 0,
+        "original_token_count": 130,
+        "output": "\n> product-full-chain-platform@0.0.0 check:config\n> node scripts/check-config.mjs\n\nBOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n\n> product-full-chain-platform@0.0.0 check:delivery-governance\n> node --import tsx scripts/check-delivery-governance.ts\n\nDELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n\n> product-full-chain-platform@0.0.0 check:codex-protocol\n> node scripts/check-codex-protocol.mjs\n\nCODEX_PROTOCOL_OK version=0.153.4 files=827\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "189499",
+        "wall_time_seconds": 1.2154116,
+        "exit_code": 0,
+        "original_token_count": 919,
+        "output": "Checking formatting...\nAll matched files use Prettier code style!\nwarning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/19-开发路线图-20260912.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/20-Codex交接提示词-20260912.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/43-本机启用与观察记录-20260914.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/44-真实AI与本地工具闭环方案及范围确认-20260914.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'output/pfc-workbench-prototype/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/19-开发路线图-20260912.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/20-Codex交接提示词-20260912.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/43-本机启用与观察记录-20260914.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/44-真实AI与本地工具闭环方案及范围确认-20260914.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/planning/prototype-v3/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'output/pfc-workbench-prototype/README.md', LF will be replaced by CRLF the next time Git touches it\n AGENTS.md                                          |   2 +-\n ...50\\267\\257\\347\\272\\277\\345\\233\\276-20260912.md\" |  33 ++--\n ...46\\217\\220\\347\\244\\272\\350\\257\\215-20260912.md\" |  28 +--\n ...45\\257\\237\\350\\256\\260\\345\\275\\225-20260914.md\" |   4 +\n ...45\\233\\264\\347\\241\\256\\350\\256\\244-20260914.md\" | 204 ++++++++++++++++++++-\n docs/planning/prototype-v3/README.md               |   8 +-\n output/pfc-workbench-prototype/README.md           |   8 +-\n 7 files changed, 242 insertions(+), 45 deletions(-)\n M AGENTS.md\n M \"docs/planning/prototype-v3/19-\\345\\274\\200\\345\\217\\221\\350\\267\\257\\347\\272\\277\\345\\233\\276-20260912.md\"\n M \"docs/planning/prototype-v3/20-Codex\\344\\272\\244\\346\\216\\245\\346\\217\\220\\347\\244\\272\\350\\257\\215-20260912.md\"\n M \"docs/planning/prototype-v3/43-\\346\\234\\254\\346\\234\\272\\345\\220\\257\\347\\224\\250\\344\\270\\216\\350\\247\\202\\345\\257\\237\\350\\256\\260\\345\\275\\225-20260914.md\"\n M \"docs/planning/prototype-v3/44-\\347\\234\\237\\345\\256\\236AI\\344\\270\\216\\346\\234\\254\\345\\234\\260\\345\\267\\245\\345\\205\\267\\351\\227\\255\\347\\216\\257\\346\\226\\271\\346\\241\\210\\345\\217\\212\\350\\214\\203\\345\\233\\264\\347\\241\\256\\350\\256\\244-20260914.md\"\n M docs/planning/prototype-v3/README.md\n M output/pfc-workbench-prototype/README.md\n?? docs/quality-gate/reports/ai-tools-integration-plan-20260914/acceptance-cases.json\n?? docs/quality-gate/reports/ai-tools-integration-plan-20260914/dependency-candidates.json\n?? docs/quality-gate/reports/ai-tools-integration-plan-20260914/implementation-package.json\n?? docs/quality-gate/reports/ai-tools-integration-plan-20260914/xlsx-reader-candidate.json\n"
+      }
+    }
+  ],
+  "limits": {
+    "codexProtocolCheck": "Verifies old0.153.4 source bundle only; installed0.154.0 real integration not run",
+    "formattingSpawnFirst": "Node child process EPERM before Prettier; direct pinned-node invocation passed",
+    "portFirst": "Get-NetTCPConnection access denied; scoped escalated read-only query passed"
+  },
+  "runtimeReadback": {
+    "health": {
+      "ok": true,
+      "readiness": true,
+      "storage": "pg",
+      "schemaVersion": "006",
+      "profile": "personal",
+      "identityMode": "local-session",
+      "realTools": false,
+      "instanceId": "939cb87c-8a12-4f05-a8a3-bc2ffc3eeb79"
+    },
+    "listeners": [
+      {
+        "port": 5432,
+        "pid": 13528
+      },
+      {
+        "port": 5188,
+        "pid": 19412
+      },
+      {
+        "port": 5173,
+        "pid": 37744
+      },
+      {
+        "port": 3001,
+        "pid": 31152
+      }
+    ],
+    "controller": 14924,
+    "allLoopback": true,
+    "newRetainedHelpers": 0,
+    "actions": "read-only; no process started or stopped; no personal database writes"
+  }
+}
