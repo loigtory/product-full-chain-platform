@@ -1,0 +1,16 @@
+{
+  "at": "2026-09-14T09:56:38.114Z",
+  "status": "FAIL",
+  "scope": "C3 real tool execution via codex CLI host (elevated Windows sandbox): probe in workspace, deny-read/deny-write/network off asserted from actual command output",
+  "modelTurns": 1,
+  "exec": {
+    "code": 0,
+    "signal": null,
+    "stdoutBytes": 96,
+    "stderrBytes": 2203
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  }
+}

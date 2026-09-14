@@ -1,0 +1,41 @@
+{
+  "at": "2026-09-14T09:14:51.190Z",
+  "status": "EXEC_SESSION_READY",
+  "scope": "C3 real tool execution: elevated Windows sandbox via app-server exec mode; model-driven probe in workspace, deny-read/deny-write/network off asserted from actual tool result",
+  "modelTurns": 1,
+  "thread": {
+    "instructionSourceCount": 1,
+    "disabledSkillCount": 53,
+    "modelMatches": true,
+    "sandboxType": "workspaceWrite",
+    "networkAccess": false,
+    "instructionSources": [
+      {
+        "kind": "GLOBAL_INSTRUCTIONS",
+        "file": "AGENTS.md",
+        "bytes": 28443,
+        "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+      }
+    ]
+  },
+  "turn": {
+    "status": "SUCCEEDED",
+    "threadId": "01a09f32-a825-7532-82d7-2fba6db9f819",
+    "turnId": "01a09f32-a8ef-7251-94d2-6fe0923b34fc",
+    "usage": {
+      "inputTokens": 15612,
+      "outputTokens": 89,
+      "cachedInputTokens": 3968,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 15701
+    },
+    "textPreview": "- functions.wait\n- functions.request_user_input\n- functions.request_user_input_async\n- functions.exec\n- clock.sleep\n- collaboration.followup_task\n- collaboration.interrupt_agent\n- collaboration.list_agents\n- collaboration.send_message\n- collaboration.spawn_agent\n- collaboration.wait_agent\n- clock__curr_time（通过 functions.exec）\n- skills__list（通过 functions.exec）\n- skills__read（通过 functions.exec）"
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "probe JSON not found in model reply"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}

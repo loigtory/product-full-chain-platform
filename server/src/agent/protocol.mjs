@@ -18,29 +18,45 @@ const requiredDisabled = [
 const error = (code) => Object.assign(new Error(code), { code });
 
 // Instance-only overrides. Effective config must still be checked after layering.
-export function instanceArguments(disabledMcpNames = []) {
+// mode 'text' = 纯文本对话（全禁工具，C2）；'exec' = 真实工具执行（elevated Windows 沙箱，C3）。
+export function instanceArguments(disabledMcpNames = [], mode = 'text') {
   if (
     !Array.isArray(disabledMcpNames) ||
     disabledMcpNames.length > 100 ||
     disabledMcpNames.some((name) => !/^[A-Za-z0-9_-]{1,100}$/.test(name))
   )
     throw error('MCP_NAME_INVALID');
+  if (!['text', 'exec'].includes(mode)) throw error('INSTANCE_MODE_INVALID');
   const values = [
     ...requiredDisabled.map((name) => `features.${name}=false`),
     'features.multi_agent_v2=false',
     'features.enable_mcp_apps=false',
-    'features.code_mode=false',
-    'features.code_mode_host=false',
     'features.in_app_browser=false',
     'features.shell_snapshot=false',
     'features.unbounded_connection_retries=false',
     'mcp_servers={}',
     ...disabledMcpNames.map((name) => `mcp_servers.${name}.enabled=false`),
     'web_search="disabled"',
-    'sandbox_mode="read-only"',
+    mode === 'exec'
+      ? 'sandbox_mode="workspace-write"'
+      : 'sandbox_mode="read-only"',
     'approval_policy="on-request"',
     'analytics.enabled=false',
   ];
+  if (mode === 'exec') {
+    // 执行链路：unified exec 由 code-mode host 承载，exec_command 需要 code_mode
+    // 会话；elevated Windows 沙箱负责受限读强制；实例级 workspace-write 与
+    // turn 级 policy 双重限定。
+    values.push('features.code_mode=true');
+    values.push('features.code_mode_host=true');
+    values.push('windows.sandbox="elevated"');
+    values.push('features.shell_tool=true');
+    values.push('features.unified_exec=true');
+    values.push('features.apply_patch_freeform=true');
+  } else {
+    values.push('features.code_mode=false');
+    values.push('features.code_mode_host=false');
+  }
   return ['app-server', '--stdio', ...values.flatMap((value) => ['-c', value])];
 }
 
@@ -81,10 +97,14 @@ export function readConfiguredMcpNames(binary, cwd) {
   return disabledMcpNamesFromJson(listing.stdout);
 }
 
-export function summarizePreflight(input) {
+export function summarizePreflight(input, mode = 'preflight') {
   const config = input.config?.config ?? {};
   const features = config.features ?? {};
   const provider = config.model_provider ?? 'openai';
+  const sandboxModeOk =
+    mode === 'exec'
+      ? config.sandbox_mode === 'workspace-write'
+      : config.sandbox_mode === 'read-only';
   // Bind a later provider decision to this exact connection without persisting URLs or keys.
   const connectionFingerprint = createHash('sha256')
     .update(
@@ -106,7 +126,7 @@ export function summarizePreflight(input) {
       (server) => server?.enabled === false,
     ) &&
     config.web_search === 'disabled' &&
-    config.sandbox_mode === 'read-only';
+    sandboxModeOk;
   const result = {
     status: 'READ_ONLY_PRECHECK_READY',
     expectedVersion: VERSION,
@@ -137,6 +157,8 @@ export function summarizePreflight(input) {
         (server) => server?.enabled !== false,
       ).length,
       readOnly: config.sandbox_mode === 'read-only',
+      workspaceWrite:
+        mode === 'exec' && config.sandbox_mode === 'workspace-write',
       webSearchDisabled: config.web_search === 'disabled',
     },
   };
@@ -194,7 +216,7 @@ class PreflightRpc {
     this.stderrBytes = 0;
     this.mode = options.mode ?? 'preflight';
     this.onNotification = options.onNotification ?? (() => {});
-    const args = instanceArguments(disabledMcpNames);
+    const args = instanceArguments(disabledMcpNames, this.mode);
     if (this.mode === 'text') {
       for (const value of [
         'features.shell_tool=false',
@@ -304,15 +326,9 @@ class PreflightRpc {
 
   request(method, params) {
     if (
-      ![
-        'initialize',
-        'config/read',
-        'account/read',
-        'model/list',
-        'account/rateLimits/read',
-      ].includes(method) &&
+      !['initialize', 'config/read', 'account/read', 'model/list', 'account/rateLimits/read'].includes(method) &&
       !(
-        this.mode === 'text' &&
+        ['text', 'exec'].includes(this.mode) &&
         [
           'skills/list',
           'thread/start',
@@ -372,8 +388,8 @@ export async function openProtocol({
     !path.isAbsolute(cwd) ||
     path.basename(binary).toLowerCase() !== 'codex.exe' ||
     !/^[a-f0-9]{64}$/.test(expectedSha256 ?? '') ||
-    !['preflight', 'text'].includes(mode) ||
-    (mode === 'text' &&
+    !['preflight', 'text', 'exec'].includes(mode) ||
+    (mode !== 'preflight' &&
       !/^[a-f0-9]{64}$/.test(expectedConnectionFingerprint ?? ''))
   )
     throw error('PREFLIGHT_CONFIG_REQUIRED');
@@ -426,13 +442,16 @@ export async function openProtocol({
       cwd: actualCwd,
     });
     const account = await rpc.request('account/read', { refreshToken: false });
-    result = summarizePreflight({
-      version,
-      initialize,
-      config,
-      account,
-      expectedConnectionFingerprint,
-    });
+    result = summarizePreflight(
+      {
+        version,
+        initialize,
+        config,
+        account,
+        expectedConnectionFingerprint,
+      },
+      mode,
+    );
     if (result.status === 'READ_ONLY_PRECHECK_READY') {
       const models = await rpc.request('model/list', { limit: 100 });
       const selected = result.model

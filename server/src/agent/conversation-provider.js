@@ -1,7 +1,9 @@
 'use strict';
 const {
   textThreadParams,
+  execThreadParams,
   assertTextThread,
+  assertExecThread,
   checkedTextInput,
   assertInstructionSources,
 } = require('./config');
@@ -24,6 +26,8 @@ class TextConversation {
   }
   static async open(options) {
     const self = new TextConversation();
+    self.execMode = options.mode === 'exec';
+    self.onTurnEvent = options.onTurnEvent ?? null;
     self.approvedInstructionSources = (
       options.approvedInstructionSources ?? []
     ).map((s) => Object.freeze({ ...s }));
@@ -34,7 +38,7 @@ class TextConversation {
     const { openProtocol } = await import('./protocol.mjs');
     self.connection = await openProtocol({
       ...options,
-      mode: 'text',
+      mode: self.execMode ? 'exec' : 'text',
       onNotification: (event) => self.receive(event),
     });
     self.connection.rpc.child.once('exit', () =>
@@ -45,11 +49,17 @@ class TextConversation {
         cwds: [self.connection.cwd],
         forceReload: true,
       });
-      const params = textThreadParams(
-        self.connection.summary,
-        self.connection.cwd,
-        inventory,
-      );
+      const params = self.execMode
+        ? execThreadParams(
+            self.connection.summary,
+            self.connection.cwd,
+            inventory,
+          )
+        : textThreadParams(
+            self.connection.summary,
+            self.connection.cwd,
+            inventory,
+          );
       const thread = await self.connection.rpc.request('thread/start', params);
       self.readback = {
         instructionSourceCount: Array.isArray(thread.instructionSources)
@@ -89,12 +99,20 @@ class TextConversation {
             })
           : [],
       };
-      assertTextThread(
-        thread,
-        self.connection.summary,
-        self.connection.cwd,
-        self.approvedInstructionSources,
-      );
+      if (self.execMode)
+        assertExecThread(
+          thread,
+          self.connection.summary,
+          self.connection.cwd,
+          self.approvedInstructionSources,
+        );
+      else
+        assertTextThread(
+          thread,
+          self.connection.summary,
+          self.connection.cwd,
+          self.approvedInstructionSources,
+        );
       self.instructionSources = Object.freeze([...thread.instructionSources]);
       Object.freeze(self.approvedInstructionSources);
       self.threadId = thread.thread.id;
@@ -106,6 +124,11 @@ class TextConversation {
     }
   }
   receive(event) {
+    if (this.onTurnEvent) {
+      try {
+        this.onTurnEvent(event);
+      } catch {}
+    }
     const p = event.params;
     if (!this.active || p?.threadId !== this.threadId) return;
     const a = this.active;
@@ -121,9 +144,20 @@ class TextConversation {
     }
     const eventTurnId = p.turnId ?? p.turn?.id;
     if (eventTurnId && a.turnId !== eventTurnId) return;
+    const allowedItems = this.execMode
+      ? [
+          'userMessage',
+          'agentMessage',
+          'reasoning',
+          'toolCall',
+          'command',
+          'applyPatch',
+          'customToolCall',
+        ]
+      : ['userMessage', 'agentMessage', 'reasoning'];
     if (
       event.method === 'item/started' &&
-      !['userMessage', 'agentMessage', 'reasoning'].includes(p.item?.type)
+      !allowedItems.includes(p.item?.type)
     ) {
       a.reject(fail('UNEXPECTED_TOOL_EVENT'));
       this.connection.rpc.child.kill();
@@ -224,7 +258,9 @@ class TextConversation {
         environments: [],
         runtimeWorkspaceRoots: [this.connection.cwd],
         approvalPolicy: 'on-request',
-        sandboxPolicy: { type: 'readOnly', networkAccess: false },
+        sandboxPolicy: this.execMode
+          ? { type: 'workspaceWrite', networkAccess: false }
+          : { type: 'readOnly', networkAccess: false },
         effort: 'low',
         ...(outputSchema ? { outputSchema } : {}),
       });

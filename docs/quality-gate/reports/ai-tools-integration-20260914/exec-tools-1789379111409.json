@@ -1,0 +1,41 @@
+{
+  "at": "2026-09-14T09:44:47.075Z",
+  "status": "EXEC_SESSION_READY",
+  "scope": "C3 real tool execution: elevated Windows sandbox via app-server exec mode; model-driven probe in workspace, deny-read/deny-write/network off asserted from actual tool result",
+  "modelTurns": 1,
+  "thread": {
+    "instructionSourceCount": 1,
+    "disabledSkillCount": 53,
+    "modelMatches": true,
+    "sandboxType": "workspaceWrite",
+    "networkAccess": false,
+    "instructionSources": [
+      {
+        "kind": "GLOBAL_INSTRUCTIONS",
+        "file": "AGENTS.md",
+        "bytes": 28443,
+        "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+      }
+    ]
+  },
+  "turn": {
+    "status": "SUCCEEDED",
+    "threadId": "01a09f4e-0e62-79c1-bea2-e33d0fa8eadd",
+    "turnId": "01a09f4e-0ee6-7151-840e-95dd4bf43550",
+    "usage": {
+      "inputTokens": 15759,
+      "outputTokens": 26,
+      "cachedInputTokens": 3968,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 15785
+    },
+    "textPreview": "无法执行命令：functions.exec 返回 `code-mode host is disabled`，未生成探针 JSON。"
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "probe JSON not found in model reply"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}

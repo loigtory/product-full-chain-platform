@@ -1,0 +1,41 @@
+{
+  "at": "2026-09-14T09:13:09.305Z",
+  "status": "EXEC_SESSION_READY",
+  "scope": "C3 real tool execution: elevated Windows sandbox via app-server exec mode; model-driven probe in workspace, deny-read/deny-write/network off asserted from actual tool result",
+  "modelTurns": 1,
+  "thread": {
+    "instructionSourceCount": 1,
+    "disabledSkillCount": 53,
+    "modelMatches": true,
+    "sandboxType": "workspaceWrite",
+    "networkAccess": false,
+    "instructionSources": [
+      {
+        "kind": "GLOBAL_INSTRUCTIONS",
+        "file": "AGENTS.md",
+        "bytes": 28443,
+        "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+      }
+    ]
+  },
+  "turn": {
+    "status": "SUCCEEDED",
+    "threadId": "01a09f31-1a8f-7fa2-8f60-98ab2fb7f347",
+    "turnId": "01a09f31-1b5c-7b80-9e35-d304b286ed4a",
+    "usage": {
+      "inputTokens": 15723,
+      "outputTokens": 23,
+      "cachedInputTokens": 15488,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 15746
+    },
+    "textPreview": "无法执行探针：当前工具执行宿主已禁用，未取得 JSON 输出。"
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "probe JSON not found in model reply"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}

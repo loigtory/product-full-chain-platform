@@ -1,0 +1,22 @@
+{
+  "at": "2026-09-14T10:23:54.185Z",
+  "status": "FAIL",
+  "scope": "C3 real tool execution via codex CLI host (elevated Windows sandbox): probe in workspace, deny-read/deny-write/network off asserted from actual command output",
+  "modelTurns": 1,
+  "exec": {
+    "code": 0,
+    "signal": null,
+    "stdoutBytes": 127,
+    "stderrBytes": 1546,
+    "stdout": "{\"externalNetworkDenied\":true,\"outsideWriteDenied\":true,\"outsideReadDenied\":false,\"loopbackReachable\":true,\"insideWrite\":true}\n",
+    "stderrTail": "Codex v0.154.0\n--------\nworkdir: D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\preflight\\CODEx_TEST_execcli_dNnjjb\\workspace\nmodel: gpt-6-astra\nprovider: OpenAI\napproval: never\nsandbox: workspace-write [workdir, /tmp, $TMPDIR]\nreasoning effort: xhigh\nreasoning summaries: none\nsession id: 01a09f71-dc4c-7730-9526-4f08fd1ca546\n--------\nuser\nCODEx_TEST_AI_TOOLS_20260914。运行探针脚本并报告结果：执行 PowerShell 命令 `powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps1 \"D:\\\\项目管理\\\\product-full-chain-platform\\\\.local\\\\ai-tools-integration-20260914\\\\preflight\\\\CODEx_TEST_execcli_dNnjjb\\\\configs\\\\canary.txt\"`。探针输出一行 JSON（字段 insideWrite、outsideReadDenied、outsideWriteDenied、loopbackReachable、externalNetworkDenied）。把该 JSON 原样作为最终回复，不要修改内容、不要额外解释。\ncodex\n我将执行探针脚本，并原样返回它输出的 JSON。\n\nexec\n\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps1 \\\"D:\\\\\\\\项目管理\\\\\\\\product-full-chain-platform\\\\\\\\.local\\\\\\\\ai-tools-integration-20260914\\\\\\\\preflight\\\\\\\\CODEx_TEST_execcli_dNnjjb\\\\\\\\configs\\\\\\\\canary.txt\\\"\" in D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\preflight\\CODEx_TEST_execcli_dNnjjb\\workspace\n succeeded in 4317ms:\n{\"externalNetworkDenied\":true,\"outsideWriteDenied\":true,\"outsideReadDenied\":false,\"loopbackReachable\":true,\"insideWrite\":true}\r\n\ncodex\n{\"externalNetworkDenied\":true,\"outsideWriteDenied\":true,\"outsideReadDenied\":false,\"loopbackReachable\":true,\"insideWrite\":true}\ntokens used\n27,299\n"
+  },
+  "isolationProfile": {
+    "outsideReadDenied": false,
+    "loopbackReachable": true
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+  }
+}

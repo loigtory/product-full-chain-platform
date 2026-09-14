@@ -1,0 +1,41 @@
+{
+  "at": "2026-09-14T09:09:18.294Z",
+  "status": "EXEC_SESSION_READY",
+  "scope": "C3 real tool execution: elevated Windows sandbox via app-server exec mode; model-driven probe in workspace, deny-read/deny-write/network off asserted from actual tool result",
+  "modelTurns": 1,
+  "thread": {
+    "instructionSourceCount": 1,
+    "disabledSkillCount": 53,
+    "modelMatches": true,
+    "sandboxType": "readOnly",
+    "networkAccess": false,
+    "instructionSources": [
+      {
+        "kind": "GLOBAL_INSTRUCTIONS",
+        "file": "AGENTS.md",
+        "bytes": 28443,
+        "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+      }
+    ]
+  },
+  "turn": {
+    "status": "SUCCEEDED",
+    "threadId": "01a09f2d-9465-7c10-b711-b2b721aca43f",
+    "turnId": "01a09f2d-9533-7ff2-8f32-c69544c7bbe2",
+    "usage": {
+      "inputTokens": 15640,
+      "outputTokens": 52,
+      "cachedInputTokens": 3968,
+      "reasoningOutputTokens": 23,
+      "totalTokens": 15692
+    },
+    "textPreview": "当前会话没有命令执行工具，无法运行该 PowerShell 探针或获取其 JSON 输出。"
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "probe JSON not found in model reply"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}

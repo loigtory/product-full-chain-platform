@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-14T10:12:23.591Z",
+  "status": "FAIL",
+  "scope": "C3 real tool execution via codex CLI host (elevated Windows sandbox): probe in workspace, deny-read/deny-write/network off asserted from actual command output",
+  "modelTurns": 1,
+  "exec": {
+    "code": 0,
+    "signal": null,
+    "stdoutBytes": 128,
+    "stderrBytes": 2287,
+    "stdout": "{\"externalNetworkDenied\":true,\"outsideWriteDenied\":false,\"outsideReadDenied\":false,\"loopbackReachable\":true,\"insideWrite\":true}\n",
+    "stderrTail": "样作为最终回复，不要修改内容、不要额外解释。\ncodex\n将执行指定探针，并原样返回其 JSON 输出。\n\nexec\n\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps1 \\\"D:\\\\\\\\项目管理\\\\\\\\product-full-chain-platform\\\\\\\\.local\\\\\\\\ai-tools-integration-20260914\\\\\\\\preflight\\\\\\\\CODEx_TEST_execcli_5lywFm\\\\\\\\configs\\\\\\\\canary.txt\\\"\" in D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\preflight\\CODEx_TEST_execcli_5lywFm\\workspace\n succeeded in 4366ms:\nSet-Content : Access to the path 'D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\preflight\\CO\r\nDEx_TEST_execcli_5lywFm\\configs\\canary.txt.write' is denied.\r\nAt D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\preflight\\CODEx_TEST_execcli_5lywFm\\workspa\r\nce\\probe.ps1:5 char:7\r\n+ try { Set-Content -Path ($args[0] + '.write') -Value 'x' -Encoding As ...\r\n+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : PermissionDenied: (D:\\项目管理\\product...anary.txt.write:String) [Set-Content], Unauthorized \r\n   AccessException\r\n    + FullyQualifiedErrorId : GetContentWriterUnauthorizedAccessError,Microsoft.PowerShell.Commands.SetContentCommand\r\n \r\n{\"externalNetworkDenied\":true,\"outsideWriteDenied\":false,\"outsideReadDenied\":false,\"loopbackReachable\":true,\"insideWrite\":true}\r\n\ncodex\n{\"externalNetworkDenied\":true,\"outsideWriteDenied\":false,\"outsideReadDenied\":false,\"loopbackReachable\":true,\"insideWrite\":true}\ntokens used\n23,450\n"
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  }
+}

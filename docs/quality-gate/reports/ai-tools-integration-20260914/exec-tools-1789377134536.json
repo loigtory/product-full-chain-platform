@@ -1,0 +1,28 @@
+{
+  "at": "2026-09-14T09:12:13.023Z",
+  "status": "EXEC_SESSION_READY",
+  "scope": "C3 real tool execution: elevated Windows sandbox via app-server exec mode; model-driven probe in workspace, deny-read/deny-write/network off asserted from actual tool result",
+  "modelTurns": 0,
+  "thread": {
+    "instructionSourceCount": 1,
+    "disabledSkillCount": 53,
+    "modelMatches": true,
+    "sandboxType": "workspaceWrite",
+    "networkAccess": false,
+    "instructionSources": [
+      {
+        "kind": "GLOBAL_INSTRUCTIONS",
+        "file": "AGENTS.md",
+        "bytes": 28443,
+        "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+      }
+    ]
+  },
+  "error": {
+    "code": "EEXIST",
+    "message": "EEXIST: file already exists, open 'D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\preflight\\configs\\model-budget.json.lock'"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}
