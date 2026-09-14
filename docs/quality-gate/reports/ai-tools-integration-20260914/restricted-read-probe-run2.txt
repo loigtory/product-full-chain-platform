@@ -1,0 +1,42 @@
+﻿node.exe : Reading prompt from stdin...
+所在位置 C:\Users\hz19114673\AppData\Roaming\npm\codex.ps1:22 字符: 14
++ ...    $input | & "node$exe"  "$basedir/node_modules/@openai/codex/bin/co ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Reading prompt from stdin...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+OpenAI Codex v0.154.0
+--------
+workdir: D:\项目管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read\workspace
+model: gpt-6-astra
+provider: OpenAI
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 01a0a09a-976d-7781-b3b5-3216f70a8456
+--------
+user
+CODEx_TEST_AI_TOOLS_20260914。运行探针脚本并报告结果：执行 PowerShell 命令 `powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps
+1 "D:\项目管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read\configs\canary.txt"`。探针输出一行
+ JSON（字段 insideWrite、outsideReadDenied、outsideWriteDenied、loopbackReachable、externalNetworkDenied）。把该 JSON 原样作为最终回复，不要修
+改内容、不要额外解释。
+
+
+codex
+我会执行指定探针，并原样返回输出的 JSON。
+
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "powershell -NoProfile -ExecutionPolicy Bypass -File probe.ps1 \"
+D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\restricted-read\\configs\\canary.txt\"" i
+n D:\项目管理\product-full-chain-platform\.local\ai-tools-integration-20260914\restricted-read\workspace
+ succeeded in 1471ms:
+{"externalNetworkDenied":null,"outsideWriteDenied":true,"outsideReadDenied":false,"loopbackReachable":null,"insideWrite
+":true}
+
+codex
+{"externalNetworkDenied":null,"outsideWriteDenied":true,"outsideReadDenied":false,"loopbackReachable":null,"insideWrite
+":true}
+tokens used
+{"externalNetworkDenied":null,"outsideWriteDenied":true,"outsideReadDenied":false,"loopbackReachable":null,"insideWrite":true}
+34,773

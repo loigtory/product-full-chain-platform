@@ -1,0 +1,14 @@
+﻿{
+    "at":  "2026-09-14T15:50:18.746Z",
+    "scope":  "44号差异#2 受限读：elevated sandbox + CodexSandboxUsers deny-read ACE((OI)(CI)(R)) on workspace-outer canary dir",
+    "canaryDir":  "D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-integration-20260914\\restricted-read\\configs",
+    "mechanism":  "Windows ACL: icacls \u003couter-dir\u003e /deny CodexSandboxUsers:(OI)(CI)(R)；deny 优先于继承 grant，仅作用于沙箱组，真实用户不受影响",
+    "status":  "RESTRICTED_READ_PASS",
+    "probe":  {
+                  "loopbackReachable":  null,
+                  "insideWrite":  true,
+                  "outsideReadDenied":  true,
+                  "externalNetworkDenied":  null,
+                  "outsideWriteDenied":  true
+              }
+}
