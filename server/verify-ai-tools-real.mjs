@@ -66,12 +66,13 @@ try {
     assert.ok(
       Number.isSafeInteger(budget.turns) &&
         budget.turns >= 0 &&
-        budget.turns < 20,
+        // 预算上限（用户 9-15 确认扩大）：turns < 40（真实探针验证不可由静态/单测替代）
+        budget.turns < 40,
     );
     assert.ok(
       Number.isFinite(budget.reservedSeconds) &&
         budget.reservedSeconds >= 0 &&
-        budget.reservedSeconds + 300 <= 3600,
+        budget.reservedSeconds + 300 <= 7200,
     );
     const result = await session.runText({
       text: prompt,

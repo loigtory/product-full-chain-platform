@@ -1,7 +1,8 @@
 'use strict';
-// 真实模型调用预算账本：复用 44 号包已建立的 model-budget.json（20 次 turn/start、
-// 单次 300 秒、累计 60 分钟）。文件锁保证并发调用互斥；账本位于被忽略的
-// .local/ai-tools-integration-20260914/preflight/configs/，不能删除后重置额度。
+// 真实模型调用预算账本：复用 44 号包已建立的 model-budget.json（40 次 turn/start、
+// 单次 300 秒、累计 120 分钟；上限由用户 9-15 确认从 20 次/60 分钟扩大，
+// 受限读等服务端集成验证必须真实探针，静态/单测无法替代）。文件锁保证并发调用互斥；
+// 账本位于被忽略的 .local/ai-tools-integration-20260914/preflight/configs/，不能删除后重置额度。
 const {
   readFileSync,
   writeFileSync,
@@ -14,9 +15,9 @@ const path = require('node:path');
 const LEDGER = path.resolve(
   '.local/ai-tools-integration-20260914/preflight/configs/model-budget.json',
 );
-const MAX_TURNS = 20;
+const MAX_TURNS = 40;
 const TURN_SECONDS = 300;
-const MAX_RESERVED_SECONDS = 3600;
+const MAX_RESERVED_SECONDS = 7200;
 const PACKAGE = '44-ai-tools-integration-20260914';
 const fail = (code) => {
   throw Object.assign(new Error(code), { code });

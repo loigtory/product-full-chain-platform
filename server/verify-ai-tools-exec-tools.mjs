@@ -121,8 +121,9 @@ try {
     };
   }
   assert.equal(budget.package, '44-ai-tools-integration-20260914');
-  assert.ok(Number.isSafeInteger(budget.turns) && budget.turns >= 0 && budget.turns < 20);
-  assert.ok(Number.isFinite(budget.reservedSeconds) && budget.reservedSeconds >= 0 && budget.reservedSeconds + 300 <= 3600);
+  // 预算上限（用户 9-15 确认扩大）：turns < 40，reservedSeconds + 300 <= 7200（真实探针验证不可由静态/单测替代）
+  assert.ok(Number.isSafeInteger(budget.turns) && budget.turns >= 0 && budget.turns < 40);
+  assert.ok(Number.isFinite(budget.reservedSeconds) && budget.reservedSeconds >= 0 && budget.reservedSeconds + 300 <= 7200);
   const result = await session.runText({
     text: prompt,
     reserveTurn: () => {
