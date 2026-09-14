@@ -1,0 +1,71 @@
+{
+  "at": "2026-09-14T04:12:10.9545812Z",
+  "status": "PASS",
+  "ownedRemaining": 0,
+  "temporaryListeners": 0,
+  "processes": [
+    {
+      "pid": 13528,
+      "name": "postgres.exe",
+      "retained": true,
+      "created": "2026-09-10T04:47:17.6152950Z",
+      "commandHash": "821c5e625916e7ae6b1e3989945b0a979b47a44d4e2c3c7bba10b3462e93a51d"
+    },
+    {
+      "pid": 31152,
+      "name": "node.exe",
+      "retained": true,
+      "created": "2026-09-10T04:49:12.1906790Z",
+      "commandHash": "6e7d9c0b476f1690dc436afbc1b84b6e5df9c456dd7c7e0330dfe9c1ae75f642"
+    },
+    {
+      "pid": 37744,
+      "name": "node.exe",
+      "retained": true,
+      "created": "2026-09-10T04:49:12.2079080Z",
+      "commandHash": "93f7a76d34554000b57f53dea0fc23e437a895ab203d26f635872051f80fcb09"
+    },
+    {
+      "pid": 14924,
+      "name": "node.exe",
+      "retained": true,
+      "created": "2026-09-13T21:44:06.5248720Z",
+      "commandHash": "e1ca0272e98507922c12dce32b650b8312e2cd61e75c5983f2e7a06d878e6c18"
+    },
+    {
+      "pid": 19412,
+      "name": "node.exe",
+      "retained": true,
+      "created": "2026-09-13T21:44:08.8247100Z",
+      "commandHash": "31fb66c7877e65755aa1ca825390fc2e01dc2bcce985711e53697987722a325f"
+    }
+  ],
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5432,
+      "OwningProcess": 13528
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5188,
+      "OwningProcess": 19412
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5173,
+      "OwningProcess": 37744
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3001,
+      "OwningProcess": 31152
+    }
+  ],
+  "personalHealth": {
+    "instanceId": "939cb87c-8a12-4f05-a8a3-bc2ffc3eeb79",
+    "schemaVersion": "006",
+    "ok": true,
+    "realTools": false
+  }
+}

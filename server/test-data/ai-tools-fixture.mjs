@@ -1,6 +1,7 @@
 import { deflateRawSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { Buffer } from 'node:buffer';
+import { URL } from 'node:url';
 
 // All fixture bytes are constructed from public formats and synthetic content.
 const crc32 = (bytes) => {
@@ -178,4 +179,208 @@ export function textConversationFixture(Conversation, cwd) {
     },
   };
   return { session, calls, state };
+}
+
+export async function instructionSourceFixture() {
+  const { mkdtemp, mkdir, writeFile, rm } = await import('node:fs/promises');
+  const { resolve, join } = await import('node:path');
+  const root = resolve('.local/ai-tools-integration-20260914');
+  await mkdir(root, { recursive: true });
+  const dir = await mkdtemp(join(root, 'CODEx_TEST_context_'));
+  const file = join(dir, 'AGENTS.md');
+  const content = Buffer.from('CODEx_TEST_explicit_global_methodology\n');
+  await writeFile(file, content);
+  return {
+    file,
+    approval: {
+      path: file,
+      bytes: content.length,
+      sha256: createHash('sha256').update(content).digest('hex'),
+    },
+    change: () => writeFile(file, 'CODEx_TEST_changed_methodology\n'),
+    addOverride: () =>
+      writeFile(join(dir, 'AGENTS.override.md'), 'CODEx_TEST_override'),
+    cleanup: () => rm(dir, { recursive: true }),
+  };
+}
+
+export async function aiDatabaseFixture(scope = 'api') {
+  const { createRequire } = await import('node:module');
+  const { readFileSync } = await import('node:fs');
+  const { parseEnv } = await import('node:util');
+  const { randomUUID } = await import('node:crypto');
+  const require = createRequire(import.meta.url);
+  const { Pool } = require('pg');
+  const {
+    validateTarget,
+    openDatabase,
+  } = require('../src/persistence/connection');
+  if (!['api', 'real', 'browser'].includes(scope))
+    throw Error('TEST_SCOPE_INVALID');
+  const schema = 'codex_test_ai_tools_20260914_' + scope;
+  const runId =
+    'CODEx_TEST_M2C_AI_TOOLS_20260914_' + scope + '_' + randomUUID();
+  const options = {
+    mode: 'pg',
+    schema,
+    authorizedSchema: schema,
+    targetVersion: '007',
+    connectionString: parseEnv(
+      readFileSync(new URL('../../.env.local', import.meta.url), 'utf8'),
+    ).DATABASE_URL,
+  };
+  const { pg } = validateTarget(options);
+  if (pg.port !== 5432) throw Error('TEST_PORT_INVALID');
+  const admin = new Pool({
+    ...pg,
+    max: 1,
+    connectionTimeoutMillis: 3000,
+    statement_timeout: 3000,
+  });
+  let ownedOid, db, before;
+  const createdIds = [];
+  const marker = runId;
+  const fingerprint = async () =>
+    createHash('sha256')
+      .update(
+        JSON.stringify(
+          (
+            await admin.query(
+              "SELECT n.nspname,c.relname,c.relkind,a.attname,a.atttypid,a.attnotnull FROM pg_namespace n JOIN pg_class c ON c.relnamespace=n.oid LEFT JOIN pg_attribute a ON a.attrelid=c.oid AND a.attnum>0 AND NOT a.attisdropped WHERE n.nspname NOT LIKE 'pg_%' AND n.nspname<>'information_schema' AND n.nspname<>$1 ORDER BY 1,2,3,4",
+              [schema],
+            )
+          ).rows,
+        ),
+      )
+      .digest('hex');
+  const cleanup = async () => {
+    await db?.close();
+    try {
+      let totalRows = 0;
+      if (ownedOid) {
+        const owner = (
+          await admin.query(
+            "SELECT oid,obj_description(oid,'pg_namespace') marker FROM pg_namespace WHERE nspname=$1 AND nspowner=(SELECT oid FROM pg_roles WHERE rolname=current_user)",
+            [schema],
+          )
+        ).rows[0];
+        if (owner?.oid !== ownedOid || owner.marker !== marker)
+          throw Error('TEST_OWNERSHIP_CHANGED');
+        const m = require('../src/persistence/migrations');
+        const allowed = [
+          ...m.tables,
+          ...m.domainTables,
+          ...m.governanceTables,
+          ...m.artifactTables,
+          ...require('../src/persistence/verification-readiness').tables,
+          ...require('../src/persistence/release-readiness').tables,
+          ...require('../src/persistence/agent-jobs').tables,
+        ];
+        const actual = (
+          await admin.query(
+            'SELECT tablename FROM pg_tables WHERE schemaname=$1',
+            [schema],
+          )
+        ).rows.map((r) => r.tablename);
+        if (actual.some((t) => !allowed.includes(t)))
+          throw Error('TEST_TABLE_UNEXPECTED');
+        for (const table of actual)
+          totalRows += Number(
+            (await admin.query(`SELECT count(*) n FROM "${schema}"."${table}"`))
+              .rows[0].n,
+          );
+        if (totalRows > 10000) throw Error('TEST_ROW_LIMIT');
+        if (
+          actual.includes('tenants') &&
+          (
+            await admin.query(
+              `SELECT id FROM "${schema}".tenants WHERE left(name,$1)<>$2`,
+              [runId.length, runId],
+            )
+          ).rowCount
+        )
+          throw Error('NON_SYNTHETIC_TEST_DATA');
+        await admin.query(`DROP SCHEMA "${schema}" CASCADE`);
+      }
+      const remaining = (
+        await admin.query('SELECT oid FROM pg_namespace WHERE nspname=$1', [
+          schema,
+        ])
+      ).rowCount;
+      const unchanged = !before || before === (await fingerprint());
+      if (remaining || !unchanged) throw Error('TEST_CLEANUP_MISMATCH');
+      return {
+        schema,
+        runId,
+        createdIds,
+        totalRows,
+        remaining,
+        externalSchemaMetadataUnchanged: unchanged,
+        poolsClosed: true,
+      };
+    } finally {
+      await admin.end();
+    }
+  };
+  try {
+    const target = (
+      await admin.query(
+        "SELECT current_database() db,current_user role,current_setting('listen_addresses') listen,current_setting('server_version_num')::int version",
+      )
+    ).rows[0];
+    if (
+      target.db !== 'pfc_local' ||
+      target.role !== 'pfc_app_local' ||
+      target.listen !== '127.0.0.1' ||
+      target.version < 180000 ||
+      target.version >= 190000
+    )
+      throw Error('TEST_TARGET_MISMATCH');
+    if (
+      (
+        await admin.query('SELECT oid FROM pg_namespace WHERE nspname=$1', [
+          schema,
+        ])
+      ).rowCount
+    )
+      throw Error('TEST_SCHEMA_EXISTS');
+    before = await fingerprint();
+    await admin.query(`CREATE SCHEMA "${schema}"`);
+    ownedOid = (
+      await admin.query('SELECT oid FROM pg_namespace WHERE nspname=$1', [
+        schema,
+      ])
+    ).rows[0].oid;
+    await admin.query(`COMMENT ON SCHEMA "${schema}" IS '${marker}'`);
+    db = await openDatabase({ ...options, requireReady: false });
+    const seed = async () => {
+      const ctx = {
+        tenantId: randomUUID(),
+        memberId: randomUUID(),
+        actor: runId + '_owner',
+        role: 'owner',
+      };
+      await db.pool.query(
+        `INSERT INTO "${schema}".tenants(id,name) VALUES($1,$2)`,
+        [ctx.tenantId, runId],
+      );
+      await db.pool.query(
+        `INSERT INTO "${schema}".members(id,tenant_id,public_id,name,role,active) VALUES($1,$2,$3,$4,'owner',true)`,
+        [ctx.memberId, ctx.tenantId, 'MEM-' + randomUUID(), ctx.actor],
+      );
+      const result =
+        await require('../src/persistence/requirements').createRequirement(
+          db,
+          ctx,
+          { name: runId + '_积分提醒', goal: '提前7天提醒', scope: '合成数据' },
+        );
+      createdIds.push(ctx.tenantId, ctx.memberId, result.requirement.id);
+      return { ctx, req: result.requirement };
+    };
+    return { db, admin, options, runId, createdIds, cleanup, seed };
+  } catch (e) {
+    if (ownedOid) await cleanup();
+    else await admin.end();
+    throw e;
+  }
 }

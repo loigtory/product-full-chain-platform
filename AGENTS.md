@@ -1,5 +1,7 @@
 # Product Full Chain Platform - Agent Instructions
 
+- CURRENT C1 PARTIAL / BLOCKED_SCOPE_AMENDMENT 2026-09-14: exact global AGENTS context exception is USER_CONFIRMED. First real synthetic text PASS (1/20 turns,5 seconds);007 isolated migration/queue/material evidence passes6 groups. Actual007 compatibility tests FAIL2: unregistered member accepted,closed-phase guard skipped. Three exact missing whitelist files and6 version-only edits are PROPOSED_NOT_APPLIED in scope-amendment-007-guards.json; user async confirmation pending. Do not edit commands.js,requirement-service.js,release-guard.js before that response. Windows unelevated restricted-read probe FAILED; elevated AppServer path unverified, no setup/system changes.18 JS static checks/protocol9/model10/material13 pass; full43/HTTP/UI/tools/acceptance incomplete. Preserve006 personal5188,original scope/limits/protected history; no push/main merge.45 owns current continuation; all older context/provider pending paragraphs are historical.
+
 These rules apply to the implementation repository at `D:\项目管理\product-full-chain-platform`.
 
 ## Active Handoff Scope - 2026-09-14

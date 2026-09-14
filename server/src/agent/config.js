@@ -1,5 +1,12 @@
 'use strict';
 const path = require('node:path');
+const {
+  lstatSync,
+  realpathSync,
+  readFileSync,
+  existsSync,
+} = require('node:fs');
+const { createHash } = require('node:crypto');
 const fail = (code) => {
   throw Object.assign(new Error(code), { code });
 };
@@ -50,7 +57,53 @@ function textThreadParams(summary, cwd, inventory) {
     },
   };
 }
-function assertTextThread(thread, summary, cwd) {
+// This allowlist is injected by the host's confirmed runtime configuration, never a request DTO.
+function assertInstructionSources(sources, approved = []) {
+  try {
+    if (
+      !Array.isArray(sources) ||
+      !Array.isArray(approved) ||
+      sources.length !== approved.length ||
+      approved.length > 1
+    )
+      fail('THREAD_CONTEXT_UNVERIFIED');
+    for (let i = 0; i < approved.length; i++) {
+      const a = approved[i];
+      const source = sources[i];
+      if (
+        typeof source !== 'string' ||
+        typeof a?.path !== 'string' ||
+        !path.isAbsolute(a.path) ||
+        !path.isAbsolute(source) ||
+        path.resolve(source) !== path.resolve(a.path) ||
+        path.basename(a.path) !== 'AGENTS.md' ||
+        !/^[a-f0-9]{64}$/.test(a.sha256) ||
+        !Number.isSafeInteger(a.bytes) ||
+        a.bytes < 1 ||
+        a.bytes > 1024 * 1024
+      )
+        fail('THREAD_CONTEXT_UNVERIFIED');
+      const stat = lstatSync(source);
+      if (
+        !stat.isFile() ||
+        stat.isSymbolicLink() ||
+        stat.size !== a.bytes ||
+        path.resolve(realpathSync(source)) !== path.resolve(source) ||
+        existsSync(path.join(path.dirname(source), 'AGENTS.override.md'))
+      )
+        fail('THREAD_CONTEXT_UNVERIFIED');
+      const bytes = readFileSync(source);
+      if (
+        bytes.length !== a.bytes ||
+        createHash('sha256').update(bytes).digest('hex') !== a.sha256
+      )
+        fail('THREAD_CONTEXT_UNVERIFIED');
+    }
+  } catch {
+    fail('THREAD_CONTEXT_UNVERIFIED');
+  }
+}
+function assertTextThread(thread, summary, cwd, approved = []) {
   if (
     typeof thread?.thread?.id !== 'string' ||
     !thread.thread.id ||
@@ -58,15 +111,20 @@ function assertTextThread(thread, summary, cwd) {
     path.resolve(thread.cwd ?? '') !== path.resolve(cwd) ||
     thread.approvalPolicy !== 'on-request' ||
     !Array.isArray(thread.instructionSources) ||
-    thread.instructionSources.length ||
     thread.sandbox?.type !== 'readOnly' ||
     thread.sandbox.networkAccess !== false
   )
     fail('THREAD_CONTEXT_UNVERIFIED');
+  assertInstructionSources(thread.instructionSources, approved);
 }
 function checkedTextInput(text) {
   if (typeof text !== 'string' || !text.trim() || text.length > 200000)
     fail('TEXT_INPUT_INVALID');
   return [{ type: 'text', text, text_elements: [] }];
 }
-module.exports = { textThreadParams, assertTextThread, checkedTextInput };
+module.exports = {
+  textThreadParams,
+  assertTextThread,
+  checkedTextInput,
+  assertInstructionSources,
+};

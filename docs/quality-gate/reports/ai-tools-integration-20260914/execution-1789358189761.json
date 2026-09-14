@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-14T03:56:29.156Z",
+  "status": "FAIL",
+  "scope": "Actual Windows file/network sandbox precheck; model tools and complete executor pending",
+  "modelTurns": 0,
+  "command": "pinned codex sandbox -P pfc_ai_probe [instance-only minimal read/workspace write/network=false] -- pinned node synthetic probe",
+  "pid": 42544,
+  "process": {
+    "closed": true,
+    "exitCode": 1,
+    "signal": null
+  },
+  "connections": 0,
+  "stderr": "windows sandbox failed: Restricted read-only access requires the elevated Windows sandbox backend\n",
+  "error": {
+    "code": "SANDBOX_START_FAILED"
+  },
+  "cleanup": {
+    "ownedRootRemoved": true
+  }
+}

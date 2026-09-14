@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-14T03:33:15.7504186Z",
+  "status": "USER_CONFIRMED",
+  "userMessage": "确认",
+  "confirmationContext": "Direct response to the exact global AGENTS.md path,28443bytes,SHA256 exception for synthetic44 requests to the existing connection; earlier pending proposal superseded",
+  "source": {
+    "path": "C:/Users/hz19114673/.codex/AGENTS.md",
+    "bytes": 28443,
+    "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+  },
+  "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+  "limits": {
+    "modelTurns": 20,
+    "cumulativeSeconds": 3600,
+    "concurrency": 1,
+    "turnTimeoutSeconds": 300
+  },
+  "rules": [
+    "Host-owned exact path and hash before each turn; change or additional source stops",
+    "No global file changes or extra context approval",
+    "Original44 scope and no personal5188/007 activation unchanged"
+  ],
+  "evidenceType": "authorization, not test acceptance"
+}

@@ -1,0 +1,56 @@
+{
+  "at": "2026-09-14T03:46:53.631Z",
+  "status": "FAIL",
+  "scope": "007 persistence and queue; HTTP and browser integration pending",
+  "tests": [
+    {
+      "name": "007 is additive; all six old checksums remain identical",
+      "status": "PASS"
+    },
+    {
+      "name": "007 isolated migration and independent readiness",
+      "status": "PASS"
+    },
+    {
+      "name": "Domain and queued event rollback together; command idempotency and tenant isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "Concurrent workers claim once; dispatched jobs become UNKNOWN and cannot replay or accept stale results",
+      "status": "PASS"
+    },
+    {
+      "name": "Only undispatched work can requeue; terminal result and ordered evidence cannot be overwritten",
+      "status": "PASS"
+    }
+  ],
+  "compatibility": [
+    {
+      "name": "007 retains membership checks",
+      "status": "FAIL",
+      "actual": "Unregistered identity command accepted"
+    },
+    {
+      "name": "007 retains closure protection",
+      "status": "FAIL",
+      "actual": "Closed requirement version write guard skipped"
+    }
+  ],
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_api",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_api_c3d92694-0d87-41a4-8aae-f8ec3c643995",
+    "createdIds": [
+      "1032cc54-d18c-4b0c-a71c-65456dbcda83",
+      "ed3dd587-acde-44cf-ab78-d62220bfc80e",
+      "fa029643-6ce2-4b21-9ff2-dcea2d214888"
+    ],
+    "totalRows": 26,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "007 must preserve existing authorization and closed-phase protections\n\n2 !== 0\n"
+  }
+}

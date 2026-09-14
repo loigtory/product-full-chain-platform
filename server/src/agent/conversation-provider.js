@@ -3,6 +3,7 @@ const {
   textThreadParams,
   assertTextThread,
   checkedTextInput,
+  assertInstructionSources,
 } = require('./config');
 const { readFileSync, statSync } = require('node:fs');
 const { createHash } = require('node:crypto');
@@ -18,9 +19,18 @@ class TextConversation {
   constructor() {
     this.active = null;
     this.closed = false;
+    this.instructionSources = [];
+    this.approvedInstructionSources = [];
   }
   static async open(options) {
     const self = new TextConversation();
+    self.approvedInstructionSources = (
+      options.approvedInstructionSources ?? []
+    ).map((s) => Object.freeze({ ...s }));
+    assertInstructionSources(
+      self.approvedInstructionSources.map((s) => s.path),
+      self.approvedInstructionSources,
+    );
     const { openProtocol } = await import('./protocol.mjs');
     self.connection = await openProtocol({
       ...options,
@@ -79,7 +89,14 @@ class TextConversation {
             })
           : [],
       };
-      assertTextThread(thread, self.connection.summary, self.connection.cwd);
+      assertTextThread(
+        thread,
+        self.connection.summary,
+        self.connection.cwd,
+        self.approvedInstructionSources,
+      );
+      self.instructionSources = Object.freeze([...thread.instructionSources]);
+      Object.freeze(self.approvedInstructionSources);
       self.threadId = thread.thread.id;
       return self;
     } catch (reason) {
@@ -186,7 +203,15 @@ class TextConversation {
       buffered: [],
     };
     try {
+      assertInstructionSources(
+        this.instructionSources,
+        this.approvedInstructionSources,
+      );
       await reserveTurn();
+      assertInstructionSources(
+        this.instructionSources,
+        this.approvedInstructionSources,
+      );
       timer = setTimeout(() => {
         rejectTurn(fail('TURN_TIMED_OUT'));
         this.connection.rpc.child.kill();

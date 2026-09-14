@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T03:36:35.406Z",
+  "status": "FAIL",
+  "scope": "007 persistence and queue; HTTP and browser integration pending",
+  "tests": [],
+  "error": {
+    "code": "MIGRATION_VERSION_INVALID",
+    "message": "MIGRATION_VERSION_INVALID"
+  }
+}

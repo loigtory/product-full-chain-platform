@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-14T03:42:13.711Z",
+  "status": "PASS",
+  "scope": "007 persistence and queue; HTTP and browser integration pending",
+  "tests": [
+    {
+      "name": "007 is additive; all six old checksums remain identical",
+      "status": "PASS"
+    },
+    {
+      "name": "007 isolated migration and independent readiness",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_api",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_api_bfbf13a9-c3ce-461b-ba1f-02bd65583789",
+    "createdIds": [],
+    "totalRows": 7,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}

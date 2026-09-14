@@ -1,5 +1,6 @@
 'use strict';
 const { Pool } = require('pg');
+const { URL } = require('node:url');
 
 function storageError(code) {
   return Object.assign(new Error(code), { code });
@@ -7,6 +8,7 @@ function storageError(code) {
 function validateTarget({ connectionString, schema, authorizedSchema } = {}) {
   if (
     (!/^codex_test_m2c_[a-z0-9_]{1,40}$/.test(schema || '') &&
+      !/^codex_test_ai_tools_20260914_(api|real|browser)$/.test(schema || '') &&
       schema !== 'pfc_workbench') ||
     schema !== authorizedSchema
   ) {
@@ -39,6 +41,8 @@ function validateTarget({ connectionString, schema, authorizedSchema } = {}) {
     ssl: false,
   };
   if (pg.user !== 'pfc_app_local') throw storageError('PG_ROLE_NOT_AUTHORIZED');
+  if (/^codex_test_ai_tools_/.test(schema) && ![5432, 5548].includes(pg.port))
+    throw storageError('PG_TARGET_NOT_AUTHORIZED');
   return { schema, pg };
 }
 

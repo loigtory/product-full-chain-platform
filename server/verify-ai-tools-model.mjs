@@ -3,7 +3,10 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import process from 'node:process';
 import console from 'node:console';
 import { TextConversation } from './src/agent/conversation-provider.js';
-import { textConversationFixture } from './test-data/ai-tools-fixture.mjs';
+import {
+  textConversationFixture,
+  instructionSourceFixture,
+} from './test-data/ai-tools-fixture.mjs';
 const report = {
   at: new Date().toISOString(),
   status: 'FAIL',
@@ -18,6 +21,68 @@ try {
     report.tests.push({ name, status: 'PASS' });
   };
   const cwd = process.cwd();
+  await test('Only the exact approved instruction source and fingerprint are accepted', async () => {
+    const f = await instructionSourceFixture();
+    try {
+      const { assertInstructionSources } =
+        await import('./src/agent/config.js');
+      assert.equal(typeof assertInstructionSources, 'function');
+      assertInstructionSources([f.file], [f.approval]);
+      for (const [sources, approval] of [
+        [[f.file], []],
+        [[f.file, f.file + '.other'], [f.approval]],
+        [[], [f.approval]],
+        [[f.file], [{ ...f.approval, sha256: '0'.repeat(64) }]],
+      ])
+        assert.throws(() => assertInstructionSources(sources, approval), {
+          code: 'THREAD_CONTEXT_UNVERIFIED',
+        });
+      await f.addOverride();
+      assert.throws(() => assertInstructionSources([f.file], [f.approval]), {
+        code: 'THREAD_CONTEXT_UNVERIFIED',
+      });
+    } finally {
+      await f.cleanup();
+    }
+  });
+  await test('A changed context is blocked before budget reservation or turn dispatch', async () => {
+    const f = await instructionSourceFixture();
+    const { session, calls } = textConversationFixture(TextConversation, cwd);
+    let reservations = 0;
+    try {
+      session.instructionSources = [f.file];
+      session.approvedInstructionSources = [f.approval];
+      await f.change();
+      await assert.rejects(
+        session.runText({
+          text: 'CODEx_TEST_context',
+          reserveTurn: () => reservations++,
+        }),
+        { code: 'THREAD_CONTEXT_UNVERIFIED' },
+      );
+      assert.equal(reservations, 0);
+      assert.deepEqual(calls, []);
+    } finally {
+      await session.close();
+      await f.cleanup();
+    }
+  });
+  await test('Context is rechecked after an asynchronous reservation immediately before dispatch', async () => {
+    const f = await instructionSourceFixture();
+    const { session, calls } = textConversationFixture(TextConversation, cwd);
+    try {
+      session.instructionSources = [f.file];
+      session.approvedInstructionSources = [f.approval];
+      await assert.rejects(
+        session.runText({ text: 'CODEx_TEST_context', reserveTurn: f.change }),
+        { code: 'THREAD_CONTEXT_UNVERIFIED' },
+      );
+      assert.deepEqual(calls, []);
+    } finally {
+      await session.close();
+      await f.cleanup();
+    }
+  });
   await test('Context excludes inherited instructions, skills, environment access and tool capabilities', () => {
     const p = textThreadParams({ model: 'synthetic' }, cwd, {
       data: [{ skills: [{ path: cwd + '/synthetic/SKILL.md' }], errors: [] }],

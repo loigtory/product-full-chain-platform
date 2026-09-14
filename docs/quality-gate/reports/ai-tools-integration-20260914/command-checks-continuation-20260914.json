@@ -1,0 +1,52 @@
+{
+  "at": "2026-09-14T04:05:19.7473013Z",
+  "scope": "C1 partial continuation;43 gates incomplete",
+  "commands": [
+    {
+      "command": "pinned node node_modules/prettier/bin/prettier.cjs --check server/src/agent/config.js server/src/agent/protocol.mjs server/src/agent/context-service.js server/src/agent/material-extractor.mjs server/src/agent/conversation-provider.js server/src/persistence/agent-sessions.js server/src/persistence/agent-jobs.js server/src/persistence/agent-events.js server/src/persistence/material-extractions.js server/verify-ai-tools-protocol.mjs server/verify-ai-tools-model.mjs server/verify-ai-tools-materials.mjs server/verify-ai-tools-api.mjs server/verify-ai-tools-execution.mjs server/verify-ai-tools-real.mjs server/test-data/ai-tools-fixture.mjs server/src/persistence/connection.js server/src/persistence/migrations.js",
+      "exitCode": 0,
+      "output": "Checking formatting...\r\nAll matched files use Prettier code style!\r\n"
+    },
+    {
+      "command": "pinned node node_modules/eslint/bin/eslint.js server/src/agent/protocol.mjs server/src/agent/material-extractor.mjs server/verify-ai-tools-protocol.mjs server/verify-ai-tools-model.mjs server/verify-ai-tools-materials.mjs server/verify-ai-tools-api.mjs server/verify-ai-tools-execution.mjs server/verify-ai-tools-real.mjs server/test-data/ai-tools-fixture.mjs",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "pinned node node_modules/eslint/bin/eslint.js --global require --global module --global __dirname --rule @typescript-eslint/no-require-imports: off server/src/agent/config.js server/src/agent/context-service.js server/src/agent/conversation-provider.js server/src/persistence/agent-sessions.js server/src/persistence/agent-jobs.js server/src/persistence/agent-events.js server/src/persistence/material-extractions.js server/src/persistence/connection.js server/src/persistence/migrations.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "pinned node server/verify-ai-tools-protocol.mjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"PASS\",\"tests\":9,\"live\":\"NOT_RUN\",\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/protocol-unit-1789358716040.json\",\"modelTurns\":0}\r\n"
+    },
+    {
+      "command": "pinned node server/verify-ai-tools-model.mjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"PASS\",\"tests\":10,\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/model-1789358716159.json\"}\r\n"
+    },
+    {
+      "command": "pinned node server/verify-ai-tools-materials.mjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"PASS\",\"tests\":13,\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/materials-1789358717657.json\"}\r\n"
+    },
+    {
+      "command": "npm run check:config",
+      "exitCode": 0,
+      "output": "\r\n> product-full-chain-platform@0.0.0 check:config\r\n> node scripts/check-config.mjs\r\n\r\nBOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\r\n"
+    },
+    {
+      "command": "npm run check:delivery-governance",
+      "exitCode": 0,
+      "output": "\r\n> product-full-chain-platform@0.0.0 check:delivery-governance\r\n> node --import tsx scripts/check-delivery-governance.ts\r\n\r\nDELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\r\n"
+    },
+    {
+      "command": "npm run check:codex-protocol",
+      "exitCode": 0,
+      "output": "\r\n> product-full-chain-platform@0.0.0 check:codex-protocol\r\n> node scripts/check-codex-protocol.mjs\r\n\r\nCODEX_PROTOCOL_OK version=0.153.4 files=827\r\n"
+    }
+  ],
+  "jsCount": 18
+}
