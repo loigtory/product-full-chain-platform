@@ -1,0 +1,56 @@
+{
+  "at": "2026-09-14T12:21:44.219Z",
+  "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "PASS",
+  "results": [
+    {
+      "scenario": "L04 fixed same-origin personal mode, keyboard unlock and no legacy token/seed fallback",
+      "status": "PASS",
+      "elapsedMs": 1796
+    },
+    {
+      "scenario": "L04 create via UI, persist/readback and desktop reference states at three widths",
+      "status": "PASS",
+      "elapsedMs": 1530
+    },
+    {
+      "scenario": "L04 session loss preserves current unsent input, re-unlock reads back without replay",
+      "status": "PASS",
+      "elapsedMs": 488
+    },
+    {
+      "scenario": "L03 two tabs revoke together and an unsaved form is restored without a duplicate requirement",
+      "status": "PASS",
+      "elapsedMs": 3081
+    },
+    {
+      "scenario": "L04 explicit logout clears current business page and scoped drafts; saved facts remain",
+      "status": "PASS",
+      "elapsedMs": 483
+    }
+  ],
+  "cleanup": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_bc54c1ec-918b-4d20-a65b-1c0075dfb22d",
+    "ownedOid": 1487265,
+    "createdIds": [
+      "R-1041"
+    ],
+    "schemaAbsent": true,
+    "filesAbsent": true,
+    "portFree": true,
+    "outsideFingerprintUnchanged": true
+  },
+  "browser": "Browser plugin unavailable; existing Playwright Edge; PC only",
+  "errors": [],
+  "external": [],
+  "ws": [
+    "/ws/web",
+    "/ws/web",
+    "/ws/web",
+    "/ws/web",
+    "/ws/web"
+  ],
+  "elapsedMs": 38358
+}

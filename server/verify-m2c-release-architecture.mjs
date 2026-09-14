@@ -102,7 +102,10 @@ try {
         assert.ok(sql.includes('CREATE TRIGGER ' + t));
       assert.match(sql, /FOREIGN KEY\(tenant_id,req_id,plan_id,review_id\)/);
       assert.match(sql, /FOREIGN KEY\(tenant_id,req_id,attempt_id,result_id\)/);
-      assert.match(read('server/src/runtime.js'), /targetVersion: '006'/);
+      assert.match(
+    read('server/src/runtime.js'),
+    /PFC_DB_TARGET_VERSION \|\| '006'|targetVersion: '006'/,
+  );
     },
   );
   check(

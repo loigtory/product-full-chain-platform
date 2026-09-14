@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-14T11:55:02.356Z",
+  "status": "FAIL",
+  "scope": "Browser gate: real-mode toggle renders in PG mode, defaults to simulate, and is blocked without Codex connection",
+  "tests": [
+    {
+      "name": "007 browser smoke server boots",
+      "status": "PASS"
+    },
+    {
+      "name": "workbench loads in api mode without remote error",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "error": {
+    "code": "ASSERTION_FAILED",
+    "message": "page.waitForFunction: Timeout 15000ms exceeded."
+  }
+}

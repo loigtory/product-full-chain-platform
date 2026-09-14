@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T12:35:31.166Z",
+  "status": "FAIL",
+  "scope": "A0 real text probe only; full AI/tool acceptance pending",
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_ASSERTION"
+  },
+  "elapsedSeconds": 0
+}

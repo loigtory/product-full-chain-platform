@@ -1,0 +1,41 @@
+﻿{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "路由与 provider/预算模块不拥有 SQL、不直连领域 store",
+      "status": "PASS"
+    },
+    {
+      "name": "conversation-service real 分支在事务内入队且返回 jobId",
+      "status": "PASS"
+    },
+    {
+      "name": "worker 事务内 claimById→dispatch，OWNER 固定且终态事件成对",
+      "status": "PASS"
+    },
+    {
+      "name": "budget.js 账本不可重置、文件锁互斥、仅预留后结算",
+      "status": "PASS"
+    },
+    {
+      "name": "agent 代码不内嵌 token/apiKey，连接参数来自环境与授权文件",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime 默认 006 且无自动迁移种子",
+      "status": "PASS"
+    },
+    {
+      "name": "007 SQL 终态与消息状态契约完整",
+      "status": "PASS"
+    },
+    {
+      "name": "前端 real 模式契约一致",
+      "status": "PASS"
+    },
+    {
+      "name": "exec-cli 闸沙箱隔离参数固定",
+      "status": "PASS"
+    }
+  ]
+}

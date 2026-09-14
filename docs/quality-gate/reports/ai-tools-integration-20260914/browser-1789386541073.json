@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-14T11:48:56.029Z",
+  "status": "FAIL",
+  "scope": "Browser gate: real-mode toggle renders in PG mode, defaults to simulate, and is blocked without Codex connection",
+  "tests": [
+    {
+      "name": "007 browser smoke server boots",
+      "status": "PASS"
+    },
+    {
+      "name": "workbench loads in api mode without remote error",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "error": {
+    "code": "ASSERTION_FAILED",
+    "message": "page.evaluate: TypeError: Cannot read properties of undefined (reading 'map')\n    at P.artifactCard (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/workbench.js:93:102)\n    at P.renderWork (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/workbench.js:619:15)\n    at P.render (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/app.js:128:15)\n    at paint (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/artifact-client.js:132:22)\n    at P.render (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/artifact-client.js:205:14)\n    at P.go (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/app.js:26:7)\n    at P.go (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/original/release-client.js:188:14)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:24)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  }
+}

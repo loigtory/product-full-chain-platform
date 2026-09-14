@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-14T12:34:42.160Z",
+  "command": "node server/verify-local-use-architecture.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "FAIL",
+  "results": [],
+  "cleanup": "NOT_RUN",
+  "error": {
+    "code": "ERR_ASSERTION",
+    "location": "    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/verify-local-use-architecture.mjs:51:12\n    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/local-use-fixture.mjs:32:13\n    at file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/verify-local-use-architecture.mjs:46:9\n    at gate (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/local-use-fixture.mjs:30:11)"
+  },
+  "elapsedMs": 257
+}

@@ -184,7 +184,7 @@
     remote['toggle-real-mode'] = async () => {
       const next = !P.s.ui.realMode;
       if (next && V.pg()) {
-        let status = null;
+        let status;
         try {
           status = await window.PFCAPI.api.req('GET', '/api/agent/status');
         } catch {

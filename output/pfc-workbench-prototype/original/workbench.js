@@ -86,7 +86,16 @@
     observe: '完成观察窗口，记录实际指标、结论和后续事项。',
   };
   P.artifactCard = (r, stage) => {
-    const v = P.latest(r, stage);
+    const raw = P.latest(r, stage) || {};
+    const v = {
+      title: raw.title ?? '（尚未生成版本）',
+      id: raw.id ?? '—',
+      fields: raw.fields ?? [],
+      comments: raw.comments ?? [],
+      confirmed: !!raw.confirmed,
+      stale: !!raw.stale,
+      version: raw.version ?? '0',
+    };
     return card(
       i('file') + ' ' + e(v.title),
       `<p class="muted">${e(r.id)} · ${e(v.id)} · 材料基线 ${r.baseline}</p>` +

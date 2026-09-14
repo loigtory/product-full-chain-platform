@@ -1,0 +1,148 @@
+{
+  "at": "2026-09-14T13:01:32.131Z",
+  "status": "PASS",
+  "environment": "127.0.0.1/pfc_local isolated schema only",
+  "schema": "codex_test_m2c_20260913_release",
+  "data": "CODEx_TEST_M2C_20260913_release",
+  "results": [
+    {
+      "name": "T13 explicit006 and unchanged001-005 / readiness fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "T01-T03 early incomplete draft, current accepted input and Owner preparation review",
+      "status": "PASS"
+    },
+    {
+      "name": "T04/T07 write permission, scope and unavailable execution",
+      "status": "PASS"
+    },
+    {
+      "name": "T08 unknown reconciles same attempt; no duplicate retry; result evidence atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "T10 metric required after expired window; T14 business writes locked; chat remains available",
+      "status": "PASS"
+    },
+    {
+      "name": "T11-T12 final acceptance is separate immutable close; local restart readback",
+      "status": "PASS"
+    },
+    {
+      "name": "T05/T06 draft does not replace approval; semantic baseline invalidates before publish",
+      "status": "PASS"
+    },
+    {
+      "name": "T07 late report checks actual time; boolean forged source rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "T09 rollback UNKNOWN blocks repair; same-attempt terminal record stops observation",
+      "status": "PASS"
+    },
+    {
+      "name": "T10/T11 window/metric/issue/followup completeness and accountable close",
+      "status": "PASS"
+    },
+    {
+      "name": "T14/T15 historical attachment version remains readable; revocation blocks new acceptance",
+      "status": "PASS"
+    },
+    {
+      "name": "T16 double submission returns one receipt; role checked before cached result",
+      "status": "PASS"
+    },
+    {
+      "name": "T01 preparation persists before product acceptance and notifies only after submit",
+      "status": "PASS"
+    },
+    {
+      "name": "T12 nonblocking followup closes with accountable risk; later events preserve final snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "T04 current Owner re-reviews inactive approver on same UNKNOWN attempt when product inputs remain valid",
+      "status": "PASS"
+    },
+    {
+      "name": "D2/D3 confirmed historical acceptance recovery after demotion",
+      "status": "PASS"
+    },
+    {
+      "name": "D2/D3 confirmed historical acceptance recovery after disable",
+      "status": "PASS"
+    },
+    {
+      "name": "D2/D3 historical reconciliation preserves evidence and business fingerprint blockers",
+      "status": "PASS"
+    },
+    {
+      "name": "T13 explicit repair requires new delivery/test/acceptance and keeps prior observation",
+      "status": "PASS"
+    },
+    {
+      "name": "T19 bounded plans / pagination / oversized requests; fault rows only in owned schema",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "files": [
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879",
+        "size": 83,
+        "hash": "32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879"
+      },
+      {
+        "path": "manifest.json",
+        "size": 346,
+        "hash": "d1a7226a1086d907d6c8d80bcc349c9c5914166d0301a0be60d534e9bed59d59"
+      },
+      {
+        "path": "users.json",
+        "size": 817,
+        "hash": "936c987dffe6dca8def5ca6e1a37ec33acaf28a5b2f05ee1f7024502720ead6a"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_release",
+    "remaining": 0,
+    "totalRows": 2088,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1",
+      "R-1042",
+      "PRJ-2",
+      "R-1043",
+      "PRJ-3",
+      "R-1044",
+      "PRJ-4",
+      "R-1045",
+      "PRJ-5",
+      "R-1046",
+      "PRJ-6",
+      "R-1047",
+      "PRJ-7",
+      "R-1048",
+      "PRJ-8",
+      "R-1049",
+      "PRJ-9",
+      "R-1050",
+      "PRJ-10",
+      "R-1051",
+      "PRJ-11",
+      "R-1052",
+      "PRJ-12",
+      "R-1053",
+      "PRJ-13",
+      "R-1054",
+      "PRJ-14",
+      "R-1055",
+      "PRJ-15",
+      "CODEx_TEST_BOUND_PLAN_2..100"
+    ],
+    "poolsClosed": true
+  }
+}

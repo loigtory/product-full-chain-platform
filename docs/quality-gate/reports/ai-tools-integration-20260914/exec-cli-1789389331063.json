@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T12:35:31.060Z",
+  "status": "FAIL",
+  "scope": "C3 real tool execution via codex CLI host (elevated Windows sandbox): probe in workspace, deny-read/deny-write/network off asserted from actual command output",
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "PFC_CODEX_BINARY required"
+  }
+}
