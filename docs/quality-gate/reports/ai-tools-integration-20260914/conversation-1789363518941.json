@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-14T05:25:17.317Z",
+  "status": "PASS",
+  "scope": "conversation real-mode closed loop: job queue, worker success/failure, message writeback; stub provider only, no model turn",
+  "tests": [
+    {
+      "name": "worker success: stub text, delta writeback, SUCCEEDED and events",
+      "status": "PASS"
+    },
+    {
+      "name": "worker failure: no connection fails explicitly with message writeback",
+      "status": "PASS"
+    },
+    {
+      "name": "no model turn consumed by stub verification",
+      "status": "PASS"
+    }
+  ],
+  "budget": {
+    "turns": 1,
+    "reservedSeconds": 5,
+    "remaining": 19
+  }
+}

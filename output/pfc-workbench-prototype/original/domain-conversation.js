@@ -107,6 +107,7 @@
         })),
         replyTo: payload.replyTo,
         parentMessageId: payload.parentMessageId,
+        ...(P.s.ui.realMode ? { mode: 'real' } : {}),
       });
       if (clear) {
         P.s.ui.drafts[q.id] = '';
@@ -179,6 +180,33 @@
       P.assert(old && file, '请重新选择原文件');
       bag.atts = bag.atts.filter((a) => a.id !== d.id);
       return P.enqueueFile(file, old.requirementId);
+    };
+    remote['toggle-real-mode'] = async () => {
+      const next = !P.s.ui.realMode;
+      if (next && V.pg()) {
+        let status = null;
+        try {
+          status = await window.PFCAPI.api.req('GET', '/api/agent/status');
+        } catch {
+          status = null;
+        }
+        if (!status || status.capable !== true) {
+          P.toast(
+            '本机 Codex 未配置（缺少连接参数），真实回复会明确失败；已保持模拟模式',
+            'error',
+          );
+          return;
+        }
+      }
+      P.s.ui.realMode = next;
+      P.save();
+      P.render({ quiet: true });
+      P.toast(
+        next
+          ? '真实 AI 已开启：回复将调用本机 Codex 并消耗模型预算'
+          : '已切回模拟模式（回复不调用真实模型）',
+        next ? 'info' : 'info',
+      );
     };
     remote['stop-reply'] = async (d) => {
       const q = P.r(),

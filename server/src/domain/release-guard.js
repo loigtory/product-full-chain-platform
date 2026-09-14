@@ -2,7 +2,7 @@
 const access = require('../access');
 const repo = require('../persistence/release-plans');
 async function guard(c, d, x, q, operation, input) {
-  if (d.targetVersion !== '006' || (!q.closed_at && q.stage !== 'observe'))
+  if (!['006', '007'].includes(d.targetVersion) || (!q.closed_at && q.stage !== 'observe'))
     return;
   if (['message.sent', 'message.stopped'].includes(operation))
     return { protected: true };

@@ -1,0 +1,20 @@
+{
+  "at": "2026-09-14T05:29:15.237Z",
+  "status": "FAIL",
+  "scope": "HTTP end-to-end smoke: 007 service boot, agent status route, real-mode message job with worker failure writeback",
+  "tests": [
+    {
+      "name": "007 service boots with PFC_DB_TARGET_VERSION=007",
+      "status": "PASS"
+    },
+    {
+      "name": "GET /api/agent/status returns provider + budget snapshot",
+      "status": "PASS"
+    }
+  ],
+  "serverLogs": "[error] COMMAND_ID_REQUIRED\n",
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n\n400 !== 200\n"
+  }
+}

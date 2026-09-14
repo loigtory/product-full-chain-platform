@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T05:21:02.336Z",
+  "status": "FAIL",
+  "scope": "conversation real-mode closed loop: job queue, worker success/failure, message writeback; stub provider only, no model turn",
+  "tests": [],
+  "error": {
+    "code": "ASSERTION_FAILED",
+    "message": "\"[object Object]\" is not valid JSON"
+  }
+}

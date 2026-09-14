@@ -393,6 +393,10 @@
         ['messages', 'GET /api/reqs/:id/messages'],
         ['sendMessage', 'POST /api/reqs/:id/messages'],
       ],
+      agent: [
+        ['status', 'GET /api/agent/status'],
+        ['preflight', 'POST /api/agent/preflight'],
+      ],
       runs: [
         ['createRun', 'POST /api/runs'],
         ['lines', 'GET /api/runs/:id/lines'],

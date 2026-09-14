@@ -144,3 +144,8 @@ CREATE FUNCTION agent_extraction_owner() RETURNS trigger LANGUAGE plpgsql AS $$ 
  THEN RAISE EXCEPTION 'EXTRACTION_SOURCE_OWNER_MISMATCH' USING ERRCODE='23514'; END IF;
  RETURN NEW; END $$;
 CREATE TRIGGER material_extraction_owner BEFORE INSERT ON material_extractions FOR EACH ROW EXECUTE FUNCTION agent_extraction_owner();
+
+-- Real-mode AI replies persist a durable failed state (worker explicit failure),
+-- never silently falling back to simulated success.
+ALTER TABLE messages DROP CONSTRAINT messages_status_check;
+ALTER TABLE messages ADD CONSTRAINT messages_status_check CHECK(status IN ('ok','generating','stopped','interrupted','failed'));

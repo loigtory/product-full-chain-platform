@@ -109,6 +109,7 @@ app.use('/api/runs', authMiddleware, require('./routes/runs'));
 app.use('/api/leases', authMiddleware, require('./routes/leases'));
 app.use('/api/bridges', authMiddleware, require('./routes/bridges'));
 app.use('/api/notices', authMiddleware, require('./routes/notices'));
+app.use('/api/agent', authMiddleware, require('./routes/agent'));
 
 if (runtime.isPg()) app.use('/api/members', require('./routes/members'));
 if (runtime.isPg()) app.use('/api/caps', require('./routes/caps'));

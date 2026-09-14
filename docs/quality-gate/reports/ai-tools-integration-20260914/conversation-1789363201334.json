@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T05:19:59.734Z",
+  "status": "FAIL",
+  "scope": "conversation real-mode closed loop: job queue, worker success/failure, message writeback; stub provider only, no model turn",
+  "tests": [],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'FAILED'\n- 'SUCCEEDED'\n"
+  }
+}

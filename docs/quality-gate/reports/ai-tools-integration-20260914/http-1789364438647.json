@@ -1,0 +1,27 @@
+{
+  "at": "2026-09-14T05:40:35.950Z",
+  "status": "PASS",
+  "scope": "HTTP end-to-end smoke: 007 service boot, agent status route, real-mode message job with worker failure writeback",
+  "tests": [
+    {
+      "name": "007 service boots with PFC_DB_TARGET_VERSION=007",
+      "status": "PASS"
+    },
+    {
+      "name": "GET /api/agent/status returns provider + budget snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "POST messages mode=real enqueues job and returns jobId",
+      "status": "PASS"
+    },
+    {
+      "name": "worker failure reaches HTTP message as explicit failed state",
+      "status": "PASS"
+    },
+    {
+      "name": "no model budget consumed during HTTP smoke",
+      "status": "PASS"
+    }
+  ]
+}

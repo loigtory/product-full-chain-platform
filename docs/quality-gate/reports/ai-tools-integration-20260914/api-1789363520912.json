@@ -1,0 +1,54 @@
+{
+  "at": "2026-09-14T05:25:19.031Z",
+  "status": "PASS",
+  "scope": "007 persistence and queue; HTTP and browser integration pending",
+  "tests": [
+    {
+      "name": "007 is additive; all six old checksums remain identical",
+      "status": "PASS"
+    },
+    {
+      "name": "007 isolated migration and independent readiness",
+      "status": "PASS"
+    },
+    {
+      "name": "Domain and queued event rollback together; command idempotency and tenant isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "Concurrent workers claim once; dispatched jobs become UNKNOWN and cannot replay or accept stale results",
+      "status": "PASS"
+    },
+    {
+      "name": "Only undispatched work can requeue; terminal result and ordered evidence cannot be overwritten",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual material parsing persists source/version/location; missing consent and revoked/cross-tenant references block",
+      "status": "PASS"
+    }
+  ],
+  "compatibility": [
+    {
+      "name": "007 retains membership checks",
+      "status": "PASS"
+    },
+    {
+      "name": "007 retains closure protection",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_api",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_api_bffba546-f63c-4bf9-84a7-1255d8d4962b",
+    "createdIds": [
+      "39ff622a-fd5d-4040-bdad-be5ba023d162",
+      "e5c4da1c-732f-4db6-b8cc-44cc7826a265",
+      "9ad8741d-619d-4d27-a246-10dcaafc26f3"
+    ],
+    "totalRows": 33,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}

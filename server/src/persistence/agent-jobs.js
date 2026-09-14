@@ -102,6 +102,17 @@ async function claim(client, db, ownerId) {
   await require('./agent-events').append(client, db, row, 'started', {});
   return row;
 }
+async function claimById(client, db, id, ownerId) {
+  const row = (
+    await client.query(
+      `UPDATE "${db.schema}".agent_jobs SET state='RUNNING',owner_id=$1,lease_until=now()+interval '30 seconds',updated_at=now() WHERE id=$2 AND state='QUEUED' RETURNING *`,
+      [ownerId, id],
+    )
+  ).rows[0];
+  if (!row) fail('AGENT_JOB_NOT_QUEUED');
+  await require('./agent-events').append(client, db, row, 'started', {});
+  return row;
+}
 async function owned(client, db, id, ownerId) {
   const job = (
     await client.query(
@@ -207,6 +218,7 @@ module.exports = {
   assertReady,
   enqueue,
   claim,
+  claimById,
   owned,
   dispatch,
   heartbeat,

@@ -52,7 +52,7 @@ const runtime = require('../runtime'),
   reqRepo = require('../persistence/requirements');
 const { withTransaction } = require('../persistence/transaction'),
   { command } = require('../persistence/commands'),
-  { randomUUID } = require('node:crypto');
+  { randomUUID, createHash } = require('node:crypto');
 const pending = new Map();
 function schedule(db, ctx, reqPublicId, messageId) {
   if (pending.has(messageId)) return;
@@ -193,13 +193,14 @@ module.exports.sendMessage = async (id, input) => {
               fields: changes,
             }
           : null;
-      const full =
-        '【模拟回复】已保存本次对话' +
-        (refs.length ? '及 ' + refs.length + ' 项版本引用' : '') +
-        '。' +
-        (diff
-          ? '已生成字段差异，请确认后采纳。'
-          : '当前未接入真实模型；可继续整理材料、完善版本或发起模拟作业。');
+      const full = input.mode === 'real'
+        ? null
+        : '【模拟回复】已保存本次对话' +
+          (refs.length ? '及 ' + refs.length + ' 项版本引用' : '') +
+          '.' +
+          (diff
+            ? '已生成字段差异，请确认后采纳。'
+            : '当前未接入真实模型；可继续整理材料、完善版本或发起模拟作业。');
       const ai = await repo.create(client, db, ctx, row, {
         turnId: user.turn_id,
         role: 'ai',
@@ -213,18 +214,57 @@ module.exports.sendMessage = async (id, input) => {
           diff,
           diffApplied: false,
           attachments: [],
+          ...(input.mode === 'real' ? { real: true } : {}),
         },
       });
       await repo.attach(client, db, ctx, ai, refs);
+      let realJobId = null;
+      if (input.mode === 'real') {
+        const jobInput = {
+          commandId: 'MSG-' + user.id,
+          kind: 'TEXT',
+          inputHash: createHash('sha256')
+            .update(
+              JSON.stringify({
+                content: input.content || '',
+                refs: cleanRefs,
+                stage,
+              }),
+            )
+            .digest('hex'),
+          input: {
+            userMessageId: user.id,
+            aiMessageId: ai.id,
+            content: input.content || '',
+            refs: cleanRefs,
+            stage,
+          },
+        };
+        const job = await require('../persistence/agent-jobs').enqueue(
+          client,
+          db,
+          ctx,
+          row,
+          jobInput,
+        );
+        realJobId = job.id;
+      }
       return {
         message: await repo.project(client, db, ctx, user, id),
         reply: await repo.project(client, db, ctx, ai, id),
         turnId: user.turn_id,
         actions: [],
+        ...(realJobId ? { jobId: realJobId } : {}),
       };
     },
   );
-  schedule(db, ctx, id, result.reply.id);
+  if (result.jobId) {
+    void require('../agent/worker')
+      .runTextJob({ db, ctx, reqPublicId: id, jobId: result.jobId })
+      .catch(() => {});
+  } else {
+    schedule(db, ctx, id, result.reply.id);
+  }
   return result;
 };
 module.exports.getMessages = async (id, stage, offset = 0, limit = 20) => {

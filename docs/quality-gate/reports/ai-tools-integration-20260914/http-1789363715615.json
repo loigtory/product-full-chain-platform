@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T05:28:33.640Z",
+  "status": "FAIL",
+  "scope": "HTTP end-to-end smoke: 007 service boot, agent status route, real-mode message job with worker failure writeback",
+  "tests": [],
+  "error": {
+    "code": "ASSERTION_FAILED",
+    "message": "Cannot read properties of undefined (reading 'connectionString')"
+  }
+}

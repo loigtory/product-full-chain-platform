@@ -39,6 +39,7 @@
       pending: {},
       stageAll: false,
       expandAll: false,
+      realMode: false,
     },
     viewState: 'normal',
   });

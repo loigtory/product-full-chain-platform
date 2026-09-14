@@ -93,7 +93,7 @@ async function start() {
     connectionString: process.env.DATABASE_URL,
     schema: process.env.PFC_DB_SCHEMA,
     authorizedSchema: process.env.PFC_AUTHORIZED_SCHEMA,
-    targetVersion: '006',
+    targetVersion: process.env.PFC_DB_TARGET_VERSION || '006',
   });
   const tenants = (
     await database.pool.query(`SELECT id FROM "${database.schema}".tenants`)
@@ -138,7 +138,7 @@ async function health() {
     readiness: true,
     storage: 'pg',
     domainPersistence: true,
-    schemaVersion: '006',
+    schemaVersion: process.env.PFC_DB_TARGET_VERSION || '006',
     ...(config.personal
       ? { profile: 'personal', identityMode: 'local-session', realTools: false }
       : {}),

@@ -23,7 +23,7 @@ async function command(db, ctx, operation, input, work) {
     fail('COMMAND_ID_REQUIRED', 400);
   const hash = fingerprint(input);
   const result = await withTransaction(db, async (client) => {
-    if (['003', '004', '005', '006'].includes(db.targetVersion))
+    if (['003', '004', '005', '006', '007'].includes(db.targetVersion))
       await require('../domain/membership-policy').authorizeCommand(
         client,
         db,

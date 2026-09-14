@@ -244,7 +244,7 @@ async function detail(client, db, ctx, row) {
   ).rows;
   return {
     ...dto.req(row),
-    ...(['005', '006'].includes(db.targetVersion)
+    ...(['005', '006', '007'].includes(db.targetVersion)
       ? {
           verification: await require('./verification-read-service').workspace(
             client,
@@ -371,7 +371,7 @@ async function mutate(id, input, operation, work) {
         );
     }
     if (
-      ['005', '006'].includes(db.targetVersion) &&
+      ['005', '006', '007'].includes(db.targetVersion) &&
       operation === 'version.saved' &&
       input.stage === 'dev'
     )
@@ -526,7 +526,7 @@ module.exports.confirmVersion = (id, vid, input = {}) =>
     const versions = await repo.versions(client, db, ctx, row.id),
       v = versions.find((v) => v.public_id === vid);
     if (!v) access.fail('NOT_FOUND', 404);
-    if (['005', '006'].includes(db.targetVersion))
+    if (['005', '006', '007'].includes(db.targetVersion))
       await require('./verification-read-service').guardVersion(
         client,
         db,
@@ -617,7 +617,7 @@ module.exports.reviewVersion = (id, vid, input) =>
       v = versions.find((v) => v.public_id === vid);
     if (!v || latest(versions, v.stage)?.id !== v.id || v.stale)
       access.fail('STALE_VERSION');
-    if (['005', '006'].includes(db.targetVersion))
+    if (['005', '006', '007'].includes(db.targetVersion))
       await require('./verification-read-service').guardVersion(
         client,
         db,
