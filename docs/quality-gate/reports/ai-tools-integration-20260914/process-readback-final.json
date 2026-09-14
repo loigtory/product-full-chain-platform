@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-14T02:07:50.8760781Z",
+  "ownedProbePids": [
+    3284,
+    4632,
+    7916,
+    9612,
+    9844,
+    29692,
+    32068,
+    37768,
+    42392,
+    43504,
+    44452
+  ],
+  "remainingOwnedProcesses": null,
+  "existingListeners": null,
+  "controllerStillRunning": null,
+  "newRetainedHelpers": null,
+  "modelTurns": 0,
+  "databaseWrites": 0,
+  "status": "READBACK_FAILED_ACCESS_DENIED"
+}

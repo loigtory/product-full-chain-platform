@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-14T01:27:00.688Z",
+  "status": "FAIL",
+  "tests": [],
+  "live": "NOT_RUN",
+  "modelTurns": 0,
+  "error": {
+    "code": "ASSERTION_OR_PROTOCOL_FAILURE",
+    "message": "disabledMcpNamesFromJson is not a function"
+  }
+}

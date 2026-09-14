@@ -1,0 +1,44 @@
+{
+  "at": "2026-09-14T01:51:53.175Z",
+  "status": "FAIL",
+  "tests": [
+    {
+      "name": "Instance configuration disables inherited effects without global writes",
+      "status": "PASS"
+    },
+    {
+      "name": "Only protocol/auth/config readiness; never claims tool sandbox verification",
+      "status": "PASS"
+    },
+    {
+      "name": "Version mismatch fails closed even if old source gate passed",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing account cannot be replaced by synthetic success",
+      "status": "PASS"
+    },
+    {
+      "name": "Unapproved provider and custom base URL do not receive model requests",
+      "status": "PASS"
+    },
+    {
+      "name": "Inherited MCP, hooks or apps must be effectively disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing authorized connection is bound to exact provider/model/account fingerprint",
+      "status": "PASS"
+    },
+    {
+      "name": "Blocked summaries never leak private settings or account information",
+      "status": "PASS"
+    }
+  ],
+  "live": "NOT_RUN",
+  "modelTurns": 0,
+  "error": {
+    "code": "ASSERTION_OR_PROTOCOL_FAILURE",
+    "message": "imageToolDisabled is not a function"
+  }
+}

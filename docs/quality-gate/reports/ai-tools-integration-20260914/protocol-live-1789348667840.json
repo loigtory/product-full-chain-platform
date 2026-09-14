@@ -1,0 +1,60 @@
+{
+  "at": "2026-09-14T01:17:47.071Z",
+  "status": "FAIL",
+  "tests": [
+    {
+      "name": "Instance configuration disables inherited effects without global writes",
+      "status": "PASS"
+    },
+    {
+      "name": "Only protocol/auth/config readiness; never claims tool sandbox verification",
+      "status": "PASS"
+    },
+    {
+      "name": "Version mismatch fails closed even if old source gate passed",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing account cannot be replaced by synthetic success",
+      "status": "PASS"
+    },
+    {
+      "name": "Unapproved provider and custom base URL do not receive model requests",
+      "status": "PASS"
+    },
+    {
+      "name": "Inherited MCP, hooks or apps must be effectively disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "Blocked summaries never leak private settings or account information",
+      "status": "PASS"
+    }
+  ],
+  "live": {
+    "status": "PROVIDER_NOT_CONFIRMED",
+    "expectedVersion": "0.154.0",
+    "actualVersion": "0.154.0",
+    "initialized": true,
+    "accountMode": "apiKey",
+    "model": "gpt-6-astra",
+    "providerConfirmed": false,
+    "instanceIsolation": "NOT_VERIFIED",
+    "toolSandbox": "NOT_VERIFIED",
+    "realTools": false,
+    "modelTurns": 0,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "binarySha256": "be96b992178b1e467c225800da0d65f2c86d5eba1ef0b14632f65db381cbdfde",
+    "process": {
+      "pid": 32068,
+      "closed": true,
+      "exitCode": 0
+    },
+    "stderrBytes": 0
+  },
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "PROVIDER_NOT_CONFIRMED\n+ actual - expected\n\n+ 'PROVIDER_NOT_CONFIRMED'\n- 'READ_ONLY_PRECHECK_READY'\n"
+  }
+}

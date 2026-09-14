@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-14T01:05:18.330Z",
+  "status": "FAIL",
+  "tests": [],
+  "live": "NOT_RUN",
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_MODULE_NOT_FOUND",
+    "message": "Cannot find module 'D:\\项目管理\\product-full-chain-platform\\server\\src\\agent\\protocol.mjs' imported from D:\\项目管理\\product-full-chain-platform\\server\\verify-ai-tools-protocol.mjs"
+  }
+}

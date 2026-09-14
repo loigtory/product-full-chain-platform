@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T01:12:25.385Z",
+  "status": "FAIL",
+  "data": "process-local deterministic CODEx_TEST_; no DB/real calls",
+  "tests": [],
+  "error": {
+    "code": "ERR_MODULE_NOT_FOUND",
+    "message": "Cannot find module 'D:\\项目管理\\product-full-chain-platform\\server\\src\\agent\\material-extractor.mjs' imported from D:\\项目管理\\product-full-chain-platform\\server\\verify-ai-tools-materials."
+  }
+}

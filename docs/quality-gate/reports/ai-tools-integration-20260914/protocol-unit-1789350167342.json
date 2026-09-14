@@ -1,0 +1,36 @@
+{
+  "at": "2026-09-14T01:42:47.331Z",
+  "status": "FAIL",
+  "tests": [
+    {
+      "name": "Instance configuration disables inherited effects without global writes",
+      "status": "PASS"
+    },
+    {
+      "name": "Only protocol/auth/config readiness; never claims tool sandbox verification",
+      "status": "PASS"
+    },
+    {
+      "name": "Version mismatch fails closed even if old source gate passed",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing account cannot be replaced by synthetic success",
+      "status": "PASS"
+    },
+    {
+      "name": "Unapproved provider and custom base URL do not receive model requests",
+      "status": "PASS"
+    },
+    {
+      "name": "Inherited MCP, hooks or apps must be effectively disabled",
+      "status": "PASS"
+    }
+  ],
+  "live": "NOT_RUN",
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'PROVIDER_NOT_CONFIRMED'\n- 'READ_ONLY_PRECHECK_READY'\n"
+  }
+}

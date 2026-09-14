@@ -1,0 +1,61 @@
+{
+  "at": "2026-09-14T02:12:20.259Z",
+  "status": "CHECKPOINT_CHECKS_PASS",
+  "overall": "PARTIAL_BLOCKED_CONTEXT_CONFIRMATION",
+  "parent": "POD-PFC-001",
+  "milestone": "M2",
+  "next": "POD-PFC-001/M2/R3a/artifact-collaboration-tdd",
+  "branch": "feat/ai-tools-integration",
+  "counts": {
+    "protected": 3299,
+    "acceptedSource": 68,
+    "changedExisting": 2,
+    "newSources": 9,
+    "documents": 7,
+    "localLinks": 137,
+    "jsons": 50
+  },
+  "sourceHashes": {
+    "server/package.json": "b19119b04d17d3b69be704651720c63210b1aab81c7d18d67c1c5730b2340743",
+    "server/package-lock.json": "1a5a72b47f39e6f8633ecc9909701b912a71589610554ccb1f6b26c4de4f70fa",
+    "server/src/agent/config.js": "fd0d1f3cf5c26a61d1923dd74756cedbbc55e6c2e6f1a041e4e90fb48d2f74ed",
+    "server/src/agent/protocol.mjs": "f734cd8d72b5517ad8b1045d198f560379e6afedd53b2bfc31897abfc29d8e33",
+    "server/src/agent/material-extractor.mjs": "2aea06aec60cc842524888d2f4b39808c761c13f2628c9d343b532869709f233",
+    "server/src/agent/conversation-provider.js": "1dee8aaaa3fbe1ade70be314cf38d487a075d191cb31e3291005d88ee36bb5e0",
+    "server/verify-ai-tools-protocol.mjs": "948141f2c69ff723a271832f299e63182174a0ce0913f2f2c64b2a9a5197333a",
+    "server/verify-ai-tools-model.mjs": "5ba5b253ef3901783324594449c3b9540acbd0fc1081542b2499bf90f5e9c668",
+    "server/verify-ai-tools-materials.mjs": "8ea3de49cb93394caa21ca5c14517efbdccf5f117dc3806f96db8f07e1155e67",
+    "server/verify-ai-tools-real.mjs": "ca112b91370c14a4f9f66bdf7ee32c2addc3afd0d5fec1fb0b7e9f00d330d2e1",
+    "server/test-data/ai-tools-fixture.mjs": "29449527ce3c82218756a80589fd4f18eb68d3550c252c2950a7d499676deb0f"
+  },
+  "documentHashes": {
+    "AGENTS.md": "071dcde9302259baca12caf2be5bf0484a3f88cba4f06b89e779a14ff0881401",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md": "79a65cbc8a05fe21d18417d6e7f5a1d7b9e3b56e673331798ff7b260b5c4d195",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md": "6d64e1820b0fb89d6967999a2ee165d9d8382fa2d4ab05620767fac6f5304266",
+    "docs/planning/prototype-v3/44-真实AI与本地工具闭环方案及范围确认-20260914.md": "b70ccedf7498e94b5b154321081c7ad4a2ec02c33a8002d9a86cb0d681d27854",
+    "docs/planning/prototype-v3/45-真实AI与本地工具实施与验收-20260914.md": "d3212e44d9d97a2d2aaccf08d7cdf85712735136781de39fdf01714680724cf6",
+    "docs/planning/prototype-v3/README.md": "81f278bfedc8bb5837a3fe1c8e11f11178861c8b152850d9ea43e34c9351c2c6",
+    "output/pfc-workbench-prototype/README.md": "5eec4ebced6339a5be8ad4077d444d731787a122c57a10b67d6d4436da65fe02"
+  },
+  "gateResults": {
+    "protocolUnit": "PASS9",
+    "materials": "PASS13",
+    "textPolicy": "PASS7 subset",
+    "liveProtocol": "PASS non-generating",
+    "liveText": "BLOCKED extra global instructions;0turn",
+    "full43": "NOT_COMPLETED",
+    "dependencyAudit": "2 existing moderate; no high/critical/new parser findings"
+  },
+  "retention": {
+    "root": ".local/ai-tools-integration-20260914/preflight",
+    "files": 178,
+    "bytes": 20101852,
+    "until": "same44 resume and owned final cleanup"
+  },
+  "modelTurns": 0,
+  "dbWrites": 0,
+  "acceptance": "PENDING",
+  "personalRuntime": "PRESERVED006/5188",
+  "newRetainedProcesses": 0,
+  "failures": []
+}

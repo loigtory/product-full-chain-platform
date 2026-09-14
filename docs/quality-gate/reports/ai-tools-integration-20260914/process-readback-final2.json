@@ -1,0 +1,51 @@
+{
+  "at": "2026-09-14T02:08:44.9863674Z",
+  "status": "PASS",
+  "ownedProbePids": [
+    3284,
+    4632,
+    7916,
+    9612,
+    9844,
+    29692,
+    32068,
+    37768,
+    42392,
+    43504,
+    44452
+  ],
+  "remainingOwnedProcesses": [],
+  "existingListeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5432,
+      "OwningProcess": 13528
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5188,
+      "OwningProcess": 19412
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5173,
+      "OwningProcess": 37744
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3001,
+      "OwningProcess": 31152
+    }
+  ],
+  "controllerStillRunning": true,
+  "health": {
+    "ok": true,
+    "readiness": true,
+    "realTools": false,
+    "schemaVersion": "006",
+    "instanceId": "939cb87c-8a12-4f05-a8a3-bc2ffc3eeb79"
+  },
+  "newRetainedHelpers": 0,
+  "modelTurns": 0,
+  "databaseWrites": 0
+}

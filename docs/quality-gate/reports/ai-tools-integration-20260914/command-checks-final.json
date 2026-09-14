@@ -1,0 +1,76 @@
+{
+  "at": "2026-09-14T02:09:25.111Z",
+  "scope": "C1 checkpoint only; complete43 gate not run",
+  "commands": [
+    {
+      "command": "Pinned Node -> Prettier --ignore-path <owned empty ignore> --write/--check (7 documents + 9 JS)",
+      "result": "PASS"
+    },
+    {
+      "command": "Pinned Node -> ESLint (7 ESM); ESLint --global require --global module --rule '@typescript-eslint/no-require-imports: off' (2 CommonJS)",
+      "result": "PASS",
+      "note": "Language-specific CommonJS globals/import-style mapping only; no root config or ignore list changed"
+    },
+    {
+      "command": "Pinned Node server/verify-ai-tools-protocol.mjs",
+      "result": "PASS9"
+    },
+    {
+      "command": "Pinned Node server/verify-ai-tools-model.mjs",
+      "result": "PASS7 text-policy subset; full state/approval model not completed"
+    },
+    {
+      "command": "Pinned Node server/verify-ai-tools-materials.mjs",
+      "result": "PASS13"
+    },
+    {
+      "command": "npm run check:config; npm run check:delivery-governance; npm run check:codex-protocol",
+      "result": "PASS; old0.153.4 source827 not live compatibility"
+    },
+    {
+      "command": "npm run test:gate:quick -- --dry-run",
+      "result": "READY_TO_RUN,not gate PASS"
+    },
+    {
+      "command": "Pinned Node server/verify-ai-tools-protocol.mjs --live",
+      "result": "PASS9 + live non-generating ready"
+    },
+    {
+      "command": "Pinned Node server/verify-ai-tools-real.mjs (no --generate)",
+      "result": "EXIT1 THREAD_CONTEXT_UNVERIFIED; unapproved global instructions,0turn"
+    }
+  ],
+  "outputs": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "4d15e1",
+        "wall_time_seconds": 7.0340996,
+        "exit_code": 0,
+        "original_token_count": 353,
+        "output": "AGENTS.md 133ms (unchanged)\ndocs/planning/prototype-v3/19-开发路线图-20260912.md 48ms (unchanged)\ndocs/planning/prototype-v3/20-Codex交接提示词-20260912.md 25ms\ndocs/planning/prototype-v3/44-真实AI与本地工具闭环方案及范围确认-20260914.md 89ms (unchanged)\ndocs/planning/prototype-v3/45-真实AI与本地工具实施与验收-20260914.md 21ms\ndocs/planning/prototype-v3/README.md 51ms (unchanged)\noutput/pfc-workbench-prototype/README.md 41ms (unchanged)\nserver/src/agent/protocol.mjs 151ms (unchanged)\nserver/src/agent/material-extractor.mjs 52ms (unchanged)\nserver/test-data/ai-tools-fixture.mjs 29ms (unchanged)\nserver/verify-ai-tools-protocol.mjs 34ms (unchanged)\nserver/verify-ai-tools-materials.mjs 16ms (unchanged)\nserver/verify-ai-tools-model.mjs 24ms (unchanged)\nserver/verify-ai-tools-real.mjs 14ms (unchanged)\nserver/src/agent/config.js 6ms (unchanged)\nserver/src/agent/conversation-provider.js 16ms (unchanged)\nChecking formatting...\nAll matched files use Prettier code style!\n{\"status\":\"PASS\",\"tests\":9,\"live\":\"NOT_RUN\",\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/protocol-unit-1789351590114.json\",\"modelTurns\":0}\n{\"status\":\"PASS\",\"tests\":7,\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/model-1789351590205.json\"}\n{\"status\":\"PASS\",\"tests\":13,\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/materials-1789351591351.json\"}\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "b6f020",
+        "wall_time_seconds": 3.8654988,
+        "exit_code": 0,
+        "original_token_count": 199,
+        "output": "\n> product-full-chain-platform@0.0.0 check:config\n> node scripts/check-config.mjs\n\nBOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed\n\n> product-full-chain-platform@0.0.0 check:delivery-governance\n> node --import tsx scripts/check-delivery-governance.ts\n\nDELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd\n\n> product-full-chain-platform@0.0.0 check:codex-protocol\n> node scripts/check-codex-protocol.mjs\n\nCODEX_PROTOCOL_OK version=0.153.4 files=827\n\n> product-full-chain-platform@0.0.0 test:gate:quick\n> node scripts/run-gate.mjs quick --dry-run\n\nGATE_PLAN gate=quick commands=check:config,check:codex-protocol,check:delivery-governance,check:ui-design,check:lint,check:format,check:types,test:unit\nGATE_STATUS READY_TO_RUN\n"
+      }
+    }
+  ],
+  "liveOutput": {
+    "chunk_id": "8f792b",
+    "wall_time_seconds": 4.1162503,
+    "exit_code": 1,
+    "original_token_count": 87,
+    "output": "{\"status\":\"PASS\",\"tests\":9,\"live\":\"READ_ONLY_PRECHECK_READY\",\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/protocol-live-1789351631142.json\",\"modelTurns\":0}\n{\"status\":\"FAIL\",\"modelTurns\":0,\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/real-text-1789351633543.json\",\"error\":{\"code\":\"THREAD_CONTEXT_UNVERIFIED\"}}\n"
+  },
+  "data": "synthetic-only,no schema/model effects; unchanged global AGENTS metadata only",
+  "runtime": "Node24.20.0/npm11.19.0,loopback,ignored local config",
+  "full43": "NOT_COMPLETED",
+  "acceptance": "PENDING"
+}

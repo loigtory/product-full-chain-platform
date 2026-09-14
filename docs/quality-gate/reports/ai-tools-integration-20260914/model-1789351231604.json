@@ -1,0 +1,35 @@
+{
+  "at": "2026-09-14T02:00:31.599Z",
+  "status": "PASS",
+  "scope": "text session policy only; full state/approval gate pending",
+  "tests": [
+    {
+      "name": "Context excludes inherited instructions, skills, environment access and tool capabilities",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown skill inventory and unexpected thread settings fail before any turn",
+      "status": "PASS"
+    },
+    {
+      "name": "Only bounded explicit text is accepted; paths or tool inputs cannot be injected",
+      "status": "PASS"
+    },
+    {
+      "name": "Rejected reservation sends no turn and closes the owned session",
+      "status": "PASS"
+    },
+    {
+      "name": "Cross-thread text is ignored and provider failure cannot become success",
+      "status": "PASS"
+    },
+    {
+      "name": "Provider terminal text is required; valid events retain correlated identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Late events from another turn in the same thread cannot replace the new result",
+      "status": "PASS"
+    }
+  ]
+}

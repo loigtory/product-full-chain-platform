@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-14T01:59:34.687Z",
+  "status": "FAIL",
+  "scope": "text session policy only; full state/approval gate pending",
+  "tests": [
+    {
+      "name": "Context excludes inherited instructions, skills, environment access and tool capabilities",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown skill inventory and unexpected thread settings fail before any turn",
+      "status": "PASS"
+    },
+    {
+      "name": "Only bounded explicit text is accepted; paths or tool inputs cannot be injected",
+      "status": "PASS"
+    }
+  ],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-14T01:33:22.9474237Z",
+  "ownedProbePids": [
+    37768,
+    32068,
+    29692,
+    44452
+  ],
+  "remainingOwnedProcesses": [],
+  "existingListeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5432,
+      "OwningProcess": 13528
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5188,
+      "OwningProcess": 19412
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5173,
+      "OwningProcess": 37744
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3001,
+      "OwningProcess": 31152
+    }
+  ],
+  "controllerStillRunning": true,
+  "health": {
+    "ok": true,
+    "readiness": true,
+    "storage": "pg",
+    "schemaVersion": "006",
+    "realTools": false,
+    "instanceId": "939cb87c-8a12-4f05-a8a3-bc2ffc3eeb79"
+  },
+  "newRetainedHelpers": 0,
+  "personalRuntimeModified": false,
+  "modelTurns": 0,
+  "databaseWrites": 0
+}

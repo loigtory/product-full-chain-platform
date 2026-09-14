@@ -1,0 +1,78 @@
+{
+  "at": "2026-09-14T01:56:46.910Z",
+  "status": "FAIL",
+  "scope": "A0 real text probe only; full AI/tool acceptance pending",
+  "modelTurns": 0,
+  "error": {
+    "code": "THREAD_CONTEXT_UNVERIFIED"
+  },
+  "context": {
+    "instructionSourceCount": 1,
+    "disabledSkillCount": 53,
+    "modelMatches": true,
+    "sandboxType": "readOnly",
+    "networkAccess": false,
+    "instructionSources": [
+      {
+        "kind": "GLOBAL_INSTRUCTIONS",
+        "file": "AGENTS.md",
+        "bytes": 28443,
+        "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+      }
+    ]
+  },
+  "connection": {
+    "status": "READ_ONLY_PRECHECK_READY",
+    "expectedVersion": "0.154.0",
+    "actualVersion": "0.154.0",
+    "initialized": true,
+    "accountMode": "apiKey",
+    "model": "gpt-6-astra",
+    "providerConfirmed": true,
+    "instanceIsolation": "CONFIG_VERIFIED",
+    "toolSandbox": "NOT_VERIFIED",
+    "realTools": false,
+    "modelTurns": 0,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "isolationChecks": {
+      "disabledFeatures": {
+        "apps": true,
+        "plugins": true,
+        "hooks": true,
+        "multi_agent": true,
+        "browser_use": true,
+        "computer_use": true,
+        "skill_mcp_dependency_install": true
+      },
+      "enabledMcpServers": 0,
+      "readOnly": true,
+      "webSearchDisabled": true
+    },
+    "selectedModel": "gpt-6-astra",
+    "modelListed": true,
+    "textIsolation": {
+      "shellDisabled": true,
+      "execDisabled": true,
+      "imageToolDisabled": true,
+      "memoriesDisabled": true,
+      "memoryInputDisabled": true,
+      "memoryOutputDisabled": true,
+      "projectInstructionsDisabled": true
+    },
+    "binarySha256": "be96b992178b1e467c225800da0d65f2c86d5eba1ef0b14632f65db381cbdfde",
+    "process": {
+      "pid": 4632,
+      "closed": true,
+      "exitCode": 0
+    },
+    "processes": [
+      {
+        "pid": 4632,
+        "closed": true,
+        "exitCode": 0
+      }
+    ],
+    "stderrBytes": 0
+  },
+  "elapsedSeconds": 0
+}

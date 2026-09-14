@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-14T01:42:45.877Z",
+  "status": "EXISTING_AUTHORIZATION_RECONCILED",
+  "basis": "44 section6 existing local Codex login identity,20 turns,synthetic-only; user confirmed exact package with continue",
+  "interpretation": "Custom provider is the existing authorized connection, not a target change. Earlier optional provider question is withdrawn; no new user approval inferred.",
+  "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+  "accountMode": "apiKey",
+  "model": "gpt-6-astra",
+  "limits": {
+    "turns": 20,
+    "turnSeconds": 300,
+    "totalModelSeconds": 3600,
+    "toolsNetwork": false
+  },
+  "sentSoFar": 0,
+  "stops": [
+    "connection fingerprint changes",
+    "existing login unavailable",
+    "limits reached",
+    "required sandbox unavailable for tools"
+  ],
+  "next": "Bind preflight to exact fingerprint,verify models,then continue C1-C4 within existing package; auto-review external operations with exact payload"
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-14T01:47:09.671Z",
+  "status": "FAIL",
+  "scope": "text session policy only; full state/approval gate pending",
+  "tests": [],
+  "error": {
+    "code": "ERR_MODULE_NOT_FOUND",
+    "message": "Cannot find module 'D:\\项目管理\\product-full-chain-platform\\server\\src\\agent\\config.js' imported from D:\\项目管理\\product-full-chain-platform\\server\\verify-ai-tools-model.mjs"
+  }
+}

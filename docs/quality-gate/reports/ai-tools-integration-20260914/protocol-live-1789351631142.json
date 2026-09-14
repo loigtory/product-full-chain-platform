@@ -1,0 +1,87 @@
+{
+  "at": "2026-09-14T02:07:10.156Z",
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "Instance configuration disables inherited effects without global writes",
+      "status": "PASS"
+    },
+    {
+      "name": "Only protocol/auth/config readiness; never claims tool sandbox verification",
+      "status": "PASS"
+    },
+    {
+      "name": "Version mismatch fails closed even if old source gate passed",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing account cannot be replaced by synthetic success",
+      "status": "PASS"
+    },
+    {
+      "name": "Unapproved provider and custom base URL do not receive model requests",
+      "status": "PASS"
+    },
+    {
+      "name": "Inherited MCP, hooks or apps must be effectively disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing authorized connection is bound to exact provider/model/account fingerprint",
+      "status": "PASS"
+    },
+    {
+      "name": "Blocked summaries never leak private settings or account information",
+      "status": "PASS"
+    },
+    {
+      "name": "Config DTO omission uses verified effective origin and matching session layer",
+      "status": "PASS"
+    }
+  ],
+  "live": {
+    "status": "READ_ONLY_PRECHECK_READY",
+    "expectedVersion": "0.154.0",
+    "actualVersion": "0.154.0",
+    "initialized": true,
+    "accountMode": "apiKey",
+    "model": "gpt-6-astra",
+    "providerConfirmed": true,
+    "instanceIsolation": "CONFIG_VERIFIED",
+    "toolSandbox": "NOT_VERIFIED",
+    "realTools": false,
+    "modelTurns": 0,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "isolationChecks": {
+      "disabledFeatures": {
+        "apps": true,
+        "plugins": true,
+        "hooks": true,
+        "multi_agent": true,
+        "browser_use": true,
+        "computer_use": true,
+        "skill_mcp_dependency_install": true
+      },
+      "enabledMcpServers": 0,
+      "readOnly": true,
+      "webSearchDisabled": true
+    },
+    "selectedModel": "gpt-6-astra",
+    "modelListed": true,
+    "binarySha256": "be96b992178b1e467c225800da0d65f2c86d5eba1ef0b14632f65db381cbdfde",
+    "process": {
+      "pid": 7916,
+      "closed": true,
+      "exitCode": 0
+    },
+    "processes": [
+      {
+        "pid": 7916,
+        "closed": true,
+        "exitCode": 0
+      }
+    ],
+    "stderrBytes": 0
+  },
+  "modelTurns": 0
+}

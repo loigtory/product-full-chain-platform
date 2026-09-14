@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-14T01:23:53.628Z",
+  "status": "FAIL",
+  "tests": [],
+  "live": "NOT_RUN",
+  "modelTurns": 0,
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "The expression evaluated to a falsy value:\n\n  assert.ok(instanceArguments(['demo-mcp']).includes('mcp_servers.demo-mcp.enabled=false'))\n"
+  }
+}

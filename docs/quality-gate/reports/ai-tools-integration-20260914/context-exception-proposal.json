@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-14T01:57:50.997Z",
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "reason": "CLI0.154.0 still loads one global AGENTS.md when project_doc_max_bytes=0; real turn blocked before dispatch",
+  "source": {
+    "path": "C:/Users/hz19114673/.codex/AGENTS.md",
+    "bytes": 28443,
+    "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+  },
+  "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+  "recommended": "Allow only this unchanged global developer-methodology file to accompany synthetic requests to the existing connection during44; it grants no tools or actions",
+  "implementationIfConfirmed": [
+    "Exact source path and hash readback before every turn; source change blocks",
+    "No project AGENTS, personal memory, unbound Skills, original files or source code sent",
+    "Original20-turn/300s/60min limits unchanged; account/API cost unchanged",
+    "Regression verifies changed hash and additional source block; real synthetic text then full integration"
+  ],
+  "alternative": "Keep synthetic-only boundary and prepare an isolated runtime/account design; no credential copy or global-file edits",
+  "modelTurns": 0,
+  "full43": "NOT_COMPLETED"
+}
