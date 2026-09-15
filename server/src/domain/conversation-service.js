@@ -52,7 +52,63 @@ const runtime = require('../runtime'),
   reqRepo = require('../persistence/requirements');
 const { withTransaction } = require('../persistence/transaction'),
   { command } = require('../persistence/commands'),
-  { randomUUID, createHash } = require('node:crypto');
+  { randomUUID, createHash } = require('node:crypto'),
+  { statSync } = require('node:fs');
+
+// 真实作业输入解析：exec 工具形态（tool:'exec' + workspace + restrictedReadDirs）
+// → EXECUTE 作业（经 runExecJob 在 CLI host 执行）；其余 → TEXT 作业。
+// workspace 提供时须为已存在目录（不存在/非目录分别 400）。
+// 独立导出以便协议级单测（零模型），执行链由 verify-ai-tools-exec-worker 真实闸覆盖。
+function resolveRealJobInput(input, ids) {
+  const { userMessageId, aiMessageId, content, refs, stage } = ids;
+  const execTool =
+    input.tool === 'exec'
+      ? {
+          workspace: input.workspace,
+          restrictedReadDirs: input.restrictedReadDirs,
+        }
+      : null;
+  if (execTool?.workspace) {
+    let st;
+    try {
+      st = statSync(String(execTool.workspace));
+    } catch {
+      access.fail('WORKSPACE_NOT_FOUND', 400);
+    }
+    if (!st.isDirectory()) access.fail('WORKSPACE_NOT_DIRECTORY', 400);
+  }
+  return {
+    kind: execTool ? 'EXECUTE' : 'TEXT',
+    commandId: (execTool ? 'EXEC-' : 'MSG-') + userMessageId,
+    inputHash: createHash('sha256')
+      .update(
+        JSON.stringify({
+          content: content || '',
+          ...(execTool
+            ? {
+                workspace: execTool.workspace ?? null,
+                restrictedReadDirs: execTool.restrictedReadDirs ?? [],
+              }
+            : {}),
+        }),
+      )
+      .digest('hex'),
+    input: {
+      userMessageId,
+      aiMessageId,
+      content: content || '',
+      refs,
+      stage,
+      ...(execTool
+        ? {
+            workspace: execTool.workspace,
+            restrictedReadDirs: execTool.restrictedReadDirs || [],
+          }
+        : {}),
+    },
+  };
+}
+module.exports.resolveRealJobInput = resolveRealJobInput;
 const pending = new Map();
 function schedule(db, ctx, reqPublicId, messageId) {
   if (pending.has(messageId)) return;
@@ -219,27 +275,17 @@ module.exports.sendMessage = async (id, input) => {
       });
       await repo.attach(client, db, ctx, ai, refs);
       let realJobId = null;
+      let realJobKind = null;
       if (input.mode === 'real') {
-        const jobInput = {
-          commandId: 'MSG-' + user.id,
-          kind: 'TEXT',
-          inputHash: createHash('sha256')
-            .update(
-              JSON.stringify({
-                content: input.content || '',
-                refs: cleanRefs,
-                stage,
-              }),
-            )
-            .digest('hex'),
-          input: {
-            userMessageId: user.id,
-            aiMessageId: ai.id,
-            content: input.content || '',
-            refs: cleanRefs,
-            stage,
-          },
-        };
+        // exec 工具形态：前端在开发阶段以 tool:'exec' + workspace 触发 EXECUTE 作业，
+        // 经 runExecJob 在 CLI host（codex exec）执行并实时回写对话流。
+        const jobInput = resolveRealJobInput(input, {
+          userMessageId: user.id,
+          aiMessageId: ai.id,
+          content: input.content || '',
+          refs: cleanRefs,
+          stage,
+        });
         const job = await require('../persistence/agent-jobs').enqueue(
           client,
           db,
@@ -248,20 +294,24 @@ module.exports.sendMessage = async (id, input) => {
           jobInput,
         );
         realJobId = job.id;
+        realJobKind = job.kind;
       }
       return {
         message: await repo.project(client, db, ctx, user, id),
         reply: await repo.project(client, db, ctx, ai, id),
         turnId: user.turn_id,
         actions: [],
-        ...(realJobId ? { jobId: realJobId } : {}),
+        ...(realJobId ? { jobId: realJobId, jobKind: realJobKind } : {}),
       };
     },
   );
   if (result.jobId) {
-    void require('../agent/worker')
-      .runTextJob({ db, ctx, reqPublicId: id, jobId: result.jobId })
-      .catch(() => {});
+    const worker = require('../agent/worker');
+    const runner =
+      result.jobKind === 'EXECUTE' ? worker.runExecJob : worker.runTextJob;
+    void runner({ db, ctx, reqPublicId: id, jobId: result.jobId }).catch(
+      () => {},
+    );
   } else {
     schedule(db, ctx, id, result.reply.id);
   }

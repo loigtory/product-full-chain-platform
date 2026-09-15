@@ -1,0 +1,72 @@
+{
+  "at": "2026-09-15T03:43:39.793Z",
+  "status": "FAIL",
+  "existing": [],
+  "ai": [
+    {
+      "command": "node server/verify-ai-tools-protocol.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence protocol-unit/live-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-model.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence model-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-materials.mjs",
+      "status": "PASS",
+      "seconds": 2,
+      "evidence": "evidence materials-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-api.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence api-1789363520912"
+    },
+    {
+      "command": "node server/verify-ai-tools-exec-cli.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "C3 PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node server/verify-ai-tools-real.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "C1 PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-ai-tools-browser.mjs",
+      "status": "PASS",
+      "seconds": 9,
+      "evidence": "evidence browser-1789387177000"
+    },
+    {
+      "command": "node server/verify-ai-tools-architecture.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "evidence": "evidence architecture-C4.json",
+      "tail": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: The input did not match the regular expression /\\.runTextJob\\(\\{ db, ctx, reqPublicId: id, jobId: result\\.jobId \\}\\)/. Input:\r\n\r\n\"'use strict';\\n\" +\r\n  \"const { S, seedFromState, pushAudit, pu"
+    },
+    {
+      "command": "node server/verify-ai-tools-exec-worker.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "exec worker PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node server/verify-ai-tools-exec-conversation.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "exec 对话协议闸：resolveRealJobInput 单测 + exec-worker 证据（零模型）",
+      "mode": "evidence-reference"
+    }
+  ]
+}

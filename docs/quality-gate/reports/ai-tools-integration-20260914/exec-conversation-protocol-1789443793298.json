@@ -1,0 +1,56 @@
+{
+  "at": "2026-09-15T03:43:13.198Z",
+  "status": "PASS",
+  "scope": "exec conversation protocol: resolveRealJobInput (tool:exec → EXECUTE + workspace validation) + EVIDENCE_ONLY of exec-worker runExecJob chain",
+  "modelTurns": 0,
+  "checks": [
+    {
+      "name": "tool:exec → kind EXECUTE",
+      "pass": true
+    },
+    {
+      "name": "commandId EXEC- prefix",
+      "pass": true
+    },
+    {
+      "name": "workspace passed through",
+      "pass": true
+    },
+    {
+      "name": "restrictedReadDirs passed through",
+      "pass": true
+    },
+    {
+      "name": "exec prompt content retained",
+      "pass": true
+    },
+    {
+      "name": "exec inputHash deterministic",
+      "pass": true
+    },
+    {
+      "name": "no tool → kind TEXT",
+      "pass": true
+    },
+    {
+      "name": "commandId MSG- prefix",
+      "pass": true
+    },
+    {
+      "name": "TEXT job has no workspace field",
+      "pass": true
+    },
+    {
+      "name": "workspace missing → WORKSPACE_NOT_FOUND",
+      "pass": true
+    },
+    {
+      "name": "workspace file → WORKSPACE_NOT_DIRECTORY",
+      "pass": true
+    },
+    {
+      "name": "exec without workspace allowed",
+      "pass": true
+    }
+  ]
+}

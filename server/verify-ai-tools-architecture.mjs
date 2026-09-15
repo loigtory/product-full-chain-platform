@@ -34,8 +34,10 @@ check('conversation-service real 分支在事务内入队且返回 jobId', () =>
   assert.match(s, /agent-jobs.*\.enqueue/);
   assert.match(s, /realJobId = job\.id/);
   assert.match(s, /jobId: realJobId/);
-  // 事务后异步执行 worker，不阻塞请求
-  assert.match(s, /\.runTextJob\(\{ db, ctx, reqPublicId: id, jobId: result\.jobId \}\)/);
+  // 事务后异步执行 worker，不阻塞请求；exec 形态按 jobKind 分派 runExecJob，
+  // 文本形态保持 runTextJob（架构约束：两个 runner 都必须从 jobId 领取）
+  assert.match(s, /jobKind === 'EXECUTE' \? worker\.runExecJob : worker\.runTextJob/);
+  assert.match(s, /runner\(\{ db, ctx, reqPublicId: id, jobId: result\.jobId \}\)/);
 });
 
 // D7：worker 领取有租约和 owner identity；重启后可重新领取；终态事件正确。

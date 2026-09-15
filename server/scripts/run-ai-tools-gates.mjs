@@ -62,6 +62,7 @@ const ai = [
   ['output/pfc-workbench-prototype/verify-ai-tools-browser.mjs', {}, 'evidence browser-1789387177000'],
   ['server/verify-ai-tools-architecture.mjs', {}, 'evidence architecture-C4.json'],
   ['server/verify-ai-tools-exec-worker.mjs', { EVIDENCE_ONLY: 'exec-worker-1789438846903.json' }, 'exec worker PASS 证据（真实调用型，限额内不重跑）'],
+  ['server/verify-ai-tools-exec-conversation.mjs', { EVIDENCE_ONLY: 'exec-worker-1789438846903.json' }, 'exec 对话协议闸：resolveRealJobInput 单测 + exec-worker 证据（零模型）'],
 ];
 const skipExisting = process.argv.includes('--skip-existing');
 const skipAi = process.argv.includes('--skip-ai');
