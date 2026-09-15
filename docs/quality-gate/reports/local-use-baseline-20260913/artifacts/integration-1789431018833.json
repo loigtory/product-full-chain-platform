@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-15T00:10:18.793Z",
+  "status": "FAIL",
+  "results": [],
+  "error": {
+    "code": "ECONNREFUSED",
+    "message": "connect ECONNREFUSED 127.0.0.1:5432"
+  }
+}

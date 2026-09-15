@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "browser": "installed Microsoft Edge / Playwright; Browser plugin unavailable",
+  "results": [
+    {
+      "name": "browser flow",
+      "status": "FAIL",
+      "error": "connect ECONNREFUSED 127.0.0.1:5432",
+      "stack": "Error: connect ECONNREFUSED 127.0.0.1:5432\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/m2c-domain-fixture.mjs:326:7)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/m2c-governance-fixture.mjs:19:13)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs:27:7",
+      "diagnostic": null,
+      "requests": []
+    }
+  ],
+  "errors": [],
+  "sourceFingerprint": "48aa3c7cf60c70a2b0b945a25eb9e79277d763fb6b62530744bb82551a259079"
+}

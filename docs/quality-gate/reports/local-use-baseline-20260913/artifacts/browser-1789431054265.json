@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-15T00:10:54.233Z",
+  "status": "FAIL",
+  "results": [],
+  "errors": [],
+  "external": [],
+  "error": {
+    "code": "ECONNREFUSED",
+    "message": "connect ECONNREFUSED 127.0.0.1:5432"
+  }
+}

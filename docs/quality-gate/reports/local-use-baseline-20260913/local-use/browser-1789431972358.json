@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-15T00:26:12.025Z",
+  "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "FAIL",
+  "results": [],
+  "cleanup": "NOT_RUN",
+  "error": {
+    "code": "NODE24_REQUIRED",
+    "location": "    at fault (D:\\项目管理\\product-full-chain-platform\\server\\src\\local\\profile.js:8:24)\n    at Object.initialize (D:\\项目管理\\product-full-chain-platform\\server\\src\\local\\initialize.js:33:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.initialize (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/local-use-fixture.mjs:132:18)"
+  },
+  "elapsedMs": 333
+}

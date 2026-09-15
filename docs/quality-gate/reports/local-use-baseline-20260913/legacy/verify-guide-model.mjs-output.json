@@ -1,6 +1,6 @@
 {
   "stdout": "{\"status\":\"PASS\",\"checks\":11,\"results\":[\"stage-gates-and-version-immutability\",\"cancel-verify-retry-terminal-integrity\",\"authorization-capability-snapshot-and-unknown\",\"development-test-release-observation-chain\",\"expired-approval-and-baseline-invalidation\",\"session-capability-overrides-do-not-change-team-policy\",\"concurrent-window-conflict-prevents-writes-and-ticks\",\"verification-preserves-observed-result-and-evidence\",\"acceptance-rejection-requires-new-successful-run\",\"invalid-storage-shape-is-rejected\",\"late-old-baseline-result-does-not-overwrite-current-handoff\"]}\n",
   "stderr": "",
-  "started": 1789390582235,
+  "started": 1789432145939,
   "exitCode": 0
 }

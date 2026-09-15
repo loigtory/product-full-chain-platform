@@ -1,0 +1,49 @@
+{
+  "at": "2026-09-15T00:23:18.328Z",
+  "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "FAIL",
+  "results": [
+    {
+      "scenario": "L04 fixed same-origin personal mode, keyboard unlock and no legacy token/seed fallback",
+      "status": "PASS",
+      "elapsedMs": 2577
+    },
+    {
+      "scenario": "L04 create via UI, persist/readback and desktop reference states at three widths",
+      "status": "PASS",
+      "elapsedMs": 1415
+    },
+    {
+      "scenario": "L04 session loss preserves current unsent input, re-unlock reads back without replay",
+      "status": "PASS",
+      "elapsedMs": 453
+    },
+    {
+      "scenario": "L03 two tabs revoke together and an unsaved form is restored without a duplicate requirement",
+      "status": "PASS",
+      "elapsedMs": 2465
+    },
+    {
+      "scenario": "L04 explicit logout clears current business page and scoped drafts; saved facts remain",
+      "status": "PASS",
+      "elapsedMs": 514
+    }
+  ],
+  "cleanup": "NOT_RUN",
+  "browser": "Browser plugin unavailable; existing Playwright Edge; PC only",
+  "errors": [],
+  "external": [],
+  "ws": [
+    "/ws/web",
+    "/ws/web",
+    "/ws/web",
+    "/ws/web",
+    "/ws/web"
+  ],
+  "error": {
+    "code": "EPERM",
+    "location": "    at Object.rmSync (node:fs:1283:18)\n    at Object.cleanup (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/server/test-data/local-use-fixture.mjs:321:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/verify-local-use-browser.mjs:269:22"
+  },
+  "elapsedMs": 37299
+}

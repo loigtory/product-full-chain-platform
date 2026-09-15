@@ -1,0 +1,32 @@
+{
+  "status": "FAIL",
+  "phase": "integration",
+  "results": [
+    {
+      "name": "G01 explicit 003 extends immutable 001 and 002",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 fresh role replaces stale token role; inactive and absent deny",
+      "status": "PASS"
+    },
+    {
+      "name": "G03 inaccessible storage never falls back to configured role",
+      "status": "PASS"
+    },
+    {
+      "name": "G04 body-shaped bridge context cannot bypass human authorization",
+      "status": "PASS"
+    },
+    {
+      "name": "G10 CSV formula injection and count/byte limits fail without partial downloads",
+      "status": "PASS"
+    },
+    {
+      "name": "PG fixture / readiness",
+      "status": "FAIL",
+      "code": "ECONNREFUSED"
+    }
+  ],
+  "data": "deterministic local fixtures only"
+}

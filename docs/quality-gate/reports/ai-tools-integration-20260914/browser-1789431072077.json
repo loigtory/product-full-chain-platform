@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-15T00:11:11.747Z",
+  "status": "FAIL",
+  "scope": "Browser gate: real-mode toggle renders in PG mode, defaults to simulate, and is blocked without Codex connection",
+  "tests": [],
+  "errors": [],
+  "external": [],
+  "error": {
+    "code": "ECONNREFUSED",
+    "message": "connect ECONNREFUSED 127.0.0.1:5432"
+  }
+}

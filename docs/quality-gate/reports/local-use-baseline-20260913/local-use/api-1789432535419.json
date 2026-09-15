@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-15T00:35:03.958Z",
+  "command": "node server/verify-local-use-api.mjs",
+  "environment": "loopback synthetic only; source .env.local; authorization 40/41",
+  "status": "PASS",
+  "results": [
+    {
+      "scenario": "D1 empty single owner, static exact allowlist, fixed same-origin bootstrap",
+      "status": "PASS",
+      "elapsedMs": 278
+    },
+    {
+      "scenario": "D2 wrong origin, oversized/invalid JSON, old bearer and dev-login rejected",
+      "status": "PASS",
+      "elapsedMs": 100
+    },
+    {
+      "scenario": "D2 cookie WS, logout revokes socket and live membership, fresh login",
+      "status": "PASS",
+      "elapsedMs": 111
+    },
+    {
+      "scenario": "D4 persisted requirement survives restart; old cookie cannot resume",
+      "status": "PASS",
+      "elapsedMs": 11604
+    },
+    {
+      "scenario": "L11 exact 10 MiB originals and 100 MiB quota accept boundaries and reject overflow without residue",
+      "status": "PASS",
+      "elapsedMs": 1548
+    }
+  ],
+  "cleanup": {
+    "status": "PASS",
+    "runId": "CODEx_TEST_M2C_20260913_localuse_e58fae37-adc9-4fcc-aa3c-5da9b8142c12",
+    "ownedOid": 1661803,
+    "createdIds": [
+      "R-1041",
+      "SM-2",
+      "SM-3",
+      "SM-4",
+      "SM-5",
+      "SM-6",
+      "SM-7",
+      "SM-8",
+      "SM-9",
+      "SM-10",
+      "SM-11"
+    ],
+    "schemaAbsent": true,
+    "filesAbsent": true,
+    "portFree": true,
+    "outsideFingerprintUnchanged": true
+  },
+  "runId": "CODEx_TEST_M2C_20260913_localuse_e58fae37-adc9-4fcc-aa3c-5da9b8142c12",
+  "capacity": {
+    "originalLimitBytes": 10485760,
+    "quotaBytes": 104857600,
+    "overflowRejected": true,
+    "originalCount": 10
+  },
+  "elapsedMs": 31460
+}

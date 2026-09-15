@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-15T00:34:33.495Z",
+  "status": "FAIL",
+  "browser": "Browser plugin not available; existing Playwright Edge",
+  "results": [],
+  "errors": [],
+  "external": [],
+  "error": {
+    "message": "page.goto: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/index.html\", waiting until \"load\"\u001b[22m\n",
+    "stack": "page.goto: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/index.html\", waiting until \"load\"\u001b[22m\n\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2c-release-browser.mjs:74:14"
+  },
+  "browserClosed": true,
+  "cleanup": {
+    "files": [
+      {
+        "path": "blobs\\10000000-0000-4000-8000-000000000001\\32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879",
+        "size": 83,
+        "hash": "32f7c74f5b2691a32f647bc42eae34a24d157dc36bfc625db750674b25f09879"
+      },
+      {
+        "path": "manifest.json",
+        "size": 345,
+        "hash": "c8947089ca84b7949d6313c41793c279e7761dc20c60b54d8c3e0fc1972e36bb"
+      },
+      {
+        "path": "users.json",
+        "size": 817,
+        "hash": "936c987dffe6dca8def5ca6e1a37ec33acaf28a5b2f05ee1f7024502720ead6a"
+      }
+    ],
+    "filesRemaining": 0,
+    "processesRemaining": 0,
+    "schema": "codex_test_m2c_20260913_release",
+    "remaining": 0,
+    "totalRows": 235,
+    "externalSchemaMetadataUnchanged": true,
+    "createdIds": [
+      "R-1041",
+      "PRJ-1",
+      "R-1042",
+      "PRJ-2"
+    ],
+    "poolsClosed": true
+  }
+}
