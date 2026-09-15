@@ -619,6 +619,7 @@
           if (!c) return '<p class="muted">阶段能力未配置</p>';
           let html = '<p class="muted" style="font-size:11px;line-height:1.4" title="' + e(c.goal) + '">' + e(c.goal) + '</p>';
           if (Array.isArray(c.skills) && c.skills.length) html += c.skills.map((sk) => '<span class="skill-chip">' + e(sk) + '</span>').join('');
+          else if (Array.isArray(c.skills)) html += '<p class="muted" style="font-size:11px;margin-top:2px">本机无匹配能力</p>';
           if (Array.isArray(c.tools) && c.tools.length) html += '<p class="muted" style="font-size:11px;margin-top:4px">工具：' + e(c.tools.join('、')) + '</p>';
           return html;
         })()
