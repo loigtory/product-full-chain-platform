@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-15T10:23:59.318Z",
+  "status": "FAIL",
+  "scope": "常驻验收服务浏览器验收：真实 req 创建 + 面板 dev 阶段 exec 入口渲染 + 项目路径持久化（零模型）",
+  "tests": [
+    {
+      "name": "dev-login(owner) 200",
+      "status": "PASS"
+    },
+    {
+      "name": "agent/status: execCapable=true, schema 007",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    "req created\n\n400 !== 201\n"
+  ],
+  "external": []
+}

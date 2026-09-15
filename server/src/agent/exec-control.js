@@ -30,15 +30,22 @@ function matchGlob(pattern, rel) {
 
 // 计划校验：input.control 存在时冻结执行计划；非法/过期即拒绝（不消耗模型）。
 // 返回冻结计划副本；baseline 由调用方在 spawn 前扫描。
+// 允许清单语义：用户友好层用 'workspace/**' 表示"工作区内全部"，而 matchGlob 的 rel
+// 是相对 workspace 根的路径——归一化剥掉 'workspace/' 前缀段（'workspace/**'→'**'）。
+function normalizePattern(p) {
+  const seg = String(p).split('/').filter(Boolean);
+  if (seg[0] === 'workspace') return seg.slice(1).join('/') || '**';
+  return p;
+}
 function validatePlan(input) {
   const control = input.control;
   if (!control) return null;
   if (typeof control !== 'object' || control === null) fail('PLAN_INVALID');
   const mode = control.mode;
   if (mode !== 'strict' && mode !== 'readonly') fail('PLAN_INVALID_MODE');
-  const allowedFiles = Array.isArray(control.allowedFiles) ? control.allowedFiles.map(String) : [];
+  const allowedFiles = Array.isArray(control.allowedFiles) ? control.allowedFiles.map(String).map(normalizePattern) : [];
   if (mode === 'strict' && allowedFiles.length === 0) fail('PLAN_NO_ALLOWED_FILES');
-  const forbidden = Array.isArray(control.forbidden) ? control.forbidden.map(String) : [];
+  const forbidden = Array.isArray(control.forbidden) ? control.forbidden.map(String).map(normalizePattern) : [];
   const maxFiles = Number.isSafeInteger(control.maxFiles) ? control.maxFiles : 50;
   const maxBytes = Number.isSafeInteger(control.maxBytes) ? control.maxBytes : 2097152;
   if (control.validUntil) {

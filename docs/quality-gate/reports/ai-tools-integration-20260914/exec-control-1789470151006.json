@@ -1,0 +1,74 @@
+{
+  "at": "2026-09-15T10:57:59.536Z",
+  "status": "PASS",
+  "scope": "44-D5 control exec: plan freeze + allowlist + baseline + diff approval + revert",
+  "modelTurns": 2,
+  "scenarios": [
+    {
+      "name": "A-allowed-modify",
+      "jobState": "SUCCEEDED",
+      "jobCode": null,
+      "testPass": true,
+      "reverted": false,
+      "changed": true,
+      "diffDetail": null
+    },
+    {
+      "name": "B-readonly-reject",
+      "jobState": "FAILED",
+      "jobCode": "DIFF_OUT_OF_SCOPE",
+      "testPass": false,
+      "reverted": true,
+      "changed": false,
+      "diffDetail": {
+        "changes": [
+          {
+            "path": "sum.js",
+            "action": "modified"
+          }
+        ],
+        "reasons": [
+          "readonly 模式不允许任何工作区改动",
+          "改动文件超出允许清单: sum.js"
+        ],
+        "removed": []
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "A: job SUCCEEDED",
+      "pass": true
+    },
+    {
+      "name": "A: test passes",
+      "pass": true
+    },
+    {
+      "name": "A: file changed in-scope",
+      "pass": true
+    },
+    {
+      "name": "A: no out-of-scope",
+      "pass": true
+    },
+    {
+      "name": "B: job FAILED with DIFF_OUT_OF_SCOPE",
+      "pass": true
+    },
+    {
+      "name": "B: workspace reverted to baseline",
+      "pass": true
+    },
+    {
+      "name": "B: diff detail recorded",
+      "pass": true
+    },
+    {
+      "name": "platform repo has no new tracked changes",
+      "pass": true
+    }
+  ],
+  "repoClean": true,
+  "newTracked": []
+}
