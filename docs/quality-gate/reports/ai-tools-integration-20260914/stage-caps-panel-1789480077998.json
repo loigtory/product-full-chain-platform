@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-15T13:47:51.740Z",
+  "status": "PASS",
+  "scope": "阶段 AI 能力面板浏览器核验（零模型）：stageCaps 拉取 + idea 阶段\"本阶段启用能力\"渲染",
+  "tests": [
+    {
+      "name": "创建 req 201",
+      "status": 201
+    },
+    {
+      "name": "stageCaps 拉取（8 阶段索引）",
+      "status": "PASS",
+      "capKeys": 8
+    },
+    {
+      "name": "\"本阶段启用能力\"面板渲染",
+      "status": "PASS",
+      "section": {
+        "titles": [
+          "上下文 · 想法",
+          "关联项目",
+          "本阶段启用能力"
+        ],
+        "goal": "把模糊想法澄清为目标、边界、用户与验收标准的可作业输入",
+        "chips": 3,
+        "tools": true
+      }
+    },
+    {
+      "name": "goal 文本渲染",
+      "status": "PASS",
+      "goal": "把模糊想法澄清为目标、边界、用户与验收标准的可作业输入"
+    },
+    {
+      "name": "skills chips 渲染（期望能力）",
+      "status": "PASS",
+      "chips": 3
+    },
+    {
+      "name": "tools 行渲染",
+      "status": "PASS"
+    },
+    {
+      "name": "截图已保存",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "section": {
+        "titles": [
+          "上下文 · 想法",
+          "关联项目",
+          "本阶段启用能力"
+        ],
+        "goal": "把模糊想法澄清为目标、边界、用户与验收标准的可作业输入",
+        "chips": 3,
+        "tools": true
+      }
+    }
+  ]
+}
