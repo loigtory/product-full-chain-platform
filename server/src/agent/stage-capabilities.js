@@ -4,7 +4,7 @@
 //  1) worker.runTextJob 按 job.input.stage 取 guide 注入 TEXT prompt（模型按阶段工作法产出）；
 //  2) worker 按 stage.skills 从 codex skills/list inventory 中匹配 → text 线程 skills.config enabled:true
 //     （名称已与本机 codex inventory（~/.codex/skills 等）真实对齐，2026-09-15 实测 53 项全量核验；
-//      release 阶段本机无发布类 skill，如实留空，前端显示"本机无匹配能力"）；
+//      9-15 续补 release 阶段两个真实 skill：release-checklist/release-ops，现 8 阶段全部有真实装载）；
 //  3) GET /api/agent/stage-capabilities 暴露给前端"本阶段启用能力"面板真实展示。
 // tools/mcps 为声明性清单（前端展示），TEXT 会话无工具不实际挂载；EXEC 会话仍走受控 exec-control。
 const STAGES = [
@@ -85,7 +85,7 @@ const CAPABILITIES = [
     goal: '生成发布检查清单、回滚方案与灰度建议',
     guide:
       '你处于【发布】阶段。基于验收结论生成：发布检查清单、回滚方案、灰度/放量建议、发布后监控点。不虚构环境信息。',
-    skills: [],
+    skills: ['release-checklist', 'release-ops'],
     tools: ['发布清单', '回滚方案'],
     mcps: [],
   },
