@@ -1,0 +1,250 @@
+{
+  "at": "2026-09-15T00:08:15.464Z",
+  "status": "FAIL",
+  "existing": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+      "status": "PASS",
+      "seconds": 73
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "status": "PASS",
+      "seconds": 4
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "status": "PASS",
+      "seconds": 4
+    },
+    {
+      "command": "node server/verify-server.mjs",
+      "status": "PASS",
+      "seconds": 1
+    },
+    {
+      "command": "node server/verify-server-m2.mjs",
+      "status": "PASS",
+      "seconds": 1
+    },
+    {
+      "command": "node server/verify-m2b.mjs",
+      "status": "PASS",
+      "seconds": 7
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-m2b2-domain.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "status": "PASS",
+      "seconds": 12
+    },
+    {
+      "command": "node server/verify-m2c-pg.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"name\":\"target-rejected-before-side-effects\",\"status\":\"PASS\"}\n{\"status\":\"FAIL\",\"runId\":\"CODEx_TEST_M2C_20260912_storage\",\"results\":[{\"name\":\"target-rejected-before-side-effects\",\"status\":\"PASS\"},{\"name\":\"target-rejected-before-side-effects\",\"status\":\"FAIL\",\"code\":\"ECONNREFUSED\"}],\"observations\":[],"
+    },
+    {
+      "command": "node server/verify-m2c-architecture.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-m2c-domain.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"status\":\"FAIL\",\"tests\":1}\nError: connect ECONNREFUSED 127.0.0.1:5432\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"status\":\"FAIL\",\"tests\":1,\"cleanup\":null}\nError: connect ECONNREFUSED 127.0.0.1:5432\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async fixture (file:///D:/%E9%A1%B9%E7"
+    },
+    {
+      "command": "node server/verify-m2c-governance.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\n  \"status\": \"FAIL\",\n  \"phase\": \"integration\",\n  \"results\": [\n    {\n      \"name\": \"G01 explicit 003 extends immutable 001 and 002\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name\": \"G03 fresh role replaces stale token role; inactive and absent deny\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"name"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\n  \"status\": \"FAIL\",\n  \"results\": [\n    {\n      \"name\": \"browser flow\",\n      \"status\": \"FAIL\",\n      \"error\": \"connect ECONNREFUSED 127.0.0.1:5432\",\n      \"stack\": \"Error: connect ECONNREFUSED 127.0.0.1:5432\\n    at D:\\\\项目管理\\\\product-full-chain-platform\\\\server\\\\node_modules\\\\pg-pool\\\\index.js:45:"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "status": "PASS",
+      "seconds": 15
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "PASS",
+      "seconds": 4
+    },
+    {
+      "command": "node server/verify-r2-artifact-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-r2-artifacts.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"status\":\"FAIL\",\"tests\":0,\"error\":{\"code\":\"ECONNREFUSED\",\"message\":\"connect ECONNREFUSED 127.0.0.1:5432\"}}\nECONNREFUSED connect ECONNREFUSED 127.0.0.1:5432\n"
+    },
+    {
+      "command": "node server/verify-r2-architecture.mjs",
+      "status": "PASS",
+      "seconds": 35
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"status\":\"FAIL\",\"tests\":0,\"error\":{\"code\":\"ECONNREFUSED\",\"message\":\"connect ECONNREFUSED 127.0.0.1:5432\"}}\nError: connect ECONNREFUSED 127.0.0.1:5432\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process"
+    },
+    {
+      "command": "node server/verify-r3-verification-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-r3-verification.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\n  code: 'ECONNREFUSED',\n  message: 'connect ECONNREFUSED 127.0.0.1:5432'\n}\n"
+    },
+    {
+      "command": "node server/verify-r3-architecture.mjs",
+      "status": "PASS",
+      "seconds": 6
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\n  code: 'ECONNREFUSED',\n  message: 'connect ECONNREFUSED 127.0.0.1:5432'\n}\n"
+    },
+    {
+      "command": "node server/verify-m2c-release-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-m2c-release.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "Error: connect ECONNREFUSED 127.0.0.1:5432\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain"
+    },
+    {
+      "command": "node server/verify-m2c-release-architecture.mjs",
+      "status": "PASS",
+      "seconds": 7
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "Error: connect ECONNREFUSED 127.0.0.1:5432\n    at D:\\项目管理\\product-full-chain-platform\\server\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async fixture (file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain"
+    },
+    {
+      "command": "node server/verify-local-use-model.mjs",
+      "status": "PASS",
+      "seconds": 1
+    },
+    {
+      "command": "node server/verify-local-use-api.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"at\":\"2026-09-15T00:11:09.193Z\",\"command\":\"node server/verify-local-use-api.mjs\",\"environment\":\"loopback synthetic only; source .env.local; authorization 40/41\",\"status\":\"FAIL\",\"results\":[],\"cleanup\":\"NOT_RUN\",\"error\":{\"code\":\"ECONNREFUSED\",\"location\":\"    at D:\\\\项目管理\\\\product-full-chain-platform\\\\"
+    },
+    {
+      "command": "node server/verify-local-use-ops.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"at\":\"2026-09-15T00:11:09.318Z\",\"command\":\"node server/verify-local-use-ops.mjs\",\"environment\":\"loopback synthetic only; source .env.local; authorization 40/41\",\"status\":\"FAIL\",\"results\":[],\"cleanup\":\"NOT_RUN\",\"error\":{\"code\":\"ECONNREFUSED\",\"location\":\"    at D:\\\\项目管理\\\\product-full-chain-platform\\\\"
+    },
+    {
+      "command": "node server/verify-local-use-architecture.mjs",
+      "status": "KNOWN_BRANCH_DIFF",
+      "seconds": 0,
+      "note": "当前分支 feat/ai-tools-integration 非基线分支 feat/local-use-baseline，快照断言不适用",
+      "tail": "{\"at\":\"2026-09-15T00:11:09.577Z\",\"command\":\"node server/verify-local-use-architecture.mjs\",\"environment\":\"loopback synthetic only; source .env.local; authorization 40/41\",\"status\":\"FAIL\",\"results\":[],\"cleanup\":\"NOT_RUN\",\"error\":{\"code\":\"ERR_ASSERTION\",\"location\":\"    at file:///D:/%E9%A1%B9%E7%9B%AE"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+      "status": "FAIL",
+      "seconds": 0,
+      "tail": "{\"at\":\"2026-09-15T00:11:10.171Z\",\"command\":\"node output/pfc-workbench-prototype/verify-local-use-browser.mjs\",\"environment\":\"loopback synthetic only; source .env.local; authorization 40/41\",\"status\":\"FAIL\",\"results\":[],\"cleanup\":\"NOT_RUN\",\"error\":{\"code\":\"ECONNREFUSED\",\"location\":\"    at D:\\\\项目管理\\\\p"
+    }
+  ],
+  "ai": [
+    {
+      "command": "node server/verify-ai-tools-protocol.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence protocol-unit/live-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-model.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence model-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-materials.mjs",
+      "status": "PASS",
+      "seconds": 1,
+      "evidence": "evidence materials-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-api.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence api-1789363520912"
+    },
+    {
+      "command": "node server/verify-ai-tools-exec-cli.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "C3 PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node server/verify-ai-tools-real.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "C1 PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-ai-tools-browser.mjs",
+      "status": "FAIL",
+      "seconds": 1,
+      "evidence": "evidence browser-1789387177000",
+      "tail": "{\"status\":\"FAIL\",\"tests\":0,\"file\":\"docs/quality-gate/reports/ai-tools-integration-20260914/browser-1789431072077.json\",\"error\":{\"code\":\"ECONNREFUSED\",\"message\":\"connect ECONNREFUSED 127.0.0.1:5432\"},\"jsErrors\":0,\"external\":0,\"serverLogs\":\"\"}\n"
+    },
+    {
+      "command": "node server/verify-ai-tools-architecture.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence architecture-C4.json"
+    }
+  ]
+}

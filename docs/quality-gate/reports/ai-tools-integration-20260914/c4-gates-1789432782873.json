@@ -1,0 +1,238 @@
+{
+  "at": "2026-09-15T00:29:04.537Z",
+  "status": "FAIL",
+  "existing": [
+    {
+      "command": "node output/pfc-workbench-prototype/verify-prototype.mjs",
+      "status": "PASS",
+      "seconds": 83
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+      "status": "PASS",
+      "seconds": 4
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+      "status": "PASS",
+      "seconds": 4
+    },
+    {
+      "command": "node server/verify-server.mjs",
+      "status": "PASS",
+      "seconds": 1
+    },
+    {
+      "command": "node server/verify-server-m2.mjs",
+      "status": "PASS",
+      "seconds": 1
+    },
+    {
+      "command": "node server/verify-m2b.mjs",
+      "status": "PASS",
+      "seconds": 7
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-m2b2-domain.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs",
+      "status": "PASS",
+      "seconds": 13
+    },
+    {
+      "command": "node server/verify-m2c-pg.mjs",
+      "status": "PASS",
+      "seconds": 2
+    },
+    {
+      "command": "node server/verify-m2c-architecture.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-m2c-domain.mjs",
+      "status": "PASS",
+      "seconds": 16
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-browser.mjs",
+      "status": "PASS",
+      "seconds": 18
+    },
+    {
+      "command": "node server/verify-m2c-governance.mjs",
+      "status": "PASS",
+      "seconds": 11
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-governance-browser.mjs",
+      "status": "PASS",
+      "seconds": 19
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-browser.mjs",
+      "status": "PASS",
+      "seconds": 14
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-flow-architecture.mjs",
+      "status": "PASS",
+      "seconds": 4
+    },
+    {
+      "command": "node server/verify-r2-artifact-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-r2-artifacts.mjs",
+      "status": "PASS",
+      "seconds": 9
+    },
+    {
+      "command": "node server/verify-r2-architecture.mjs",
+      "status": "PASS",
+      "seconds": 33
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-r2-artifact-browser.mjs",
+      "status": "PASS",
+      "seconds": 16
+    },
+    {
+      "command": "node server/verify-r3-verification-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-r3-verification.mjs",
+      "status": "PASS",
+      "seconds": 17
+    },
+    {
+      "command": "node server/verify-r3-architecture.mjs",
+      "status": "PASS",
+      "seconds": 6
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-r3-verification-browser.mjs",
+      "status": "FAIL",
+      "seconds": 20,
+      "tail": "PASS T01 T13 early suite editor, draft refresh and request isolation\nPASS T01 T02 suite per-case edit/import/export, explicit comparison and adoption\nPASS T03 T17 handoff form error focus and keyboard at three PC widths\nPASS T04 T08 manual result fields and unmet checks stay blocked\nPASS T09 T13 Own"
+    },
+    {
+      "command": "node server/verify-m2c-release-model.mjs",
+      "status": "PASS",
+      "seconds": 0
+    },
+    {
+      "command": "node server/verify-m2c-release.mjs",
+      "status": "PASS",
+      "seconds": 24
+    },
+    {
+      "command": "node server/verify-m2c-release-architecture.mjs",
+      "status": "PASS",
+      "seconds": 7
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-m2c-release-browser.mjs",
+      "status": "FAIL",
+      "seconds": 30,
+      "tail": "page.goto: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"file:///D:/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/product-full-chain-platform/output/pfc-workbench-prototype/index.html\", waiting until \"load\"\u001b[22m\n\n    at D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype\\verify-m2"
+    },
+    {
+      "command": "node server/verify-local-use-model.mjs",
+      "status": "PASS",
+      "seconds": 1
+    },
+    {
+      "command": "node server/verify-local-use-api.mjs",
+      "status": "PASS",
+      "seconds": 32
+    },
+    {
+      "command": "node server/verify-local-use-ops.mjs",
+      "status": "FAIL",
+      "seconds": 188,
+      "tail": "{\"scenario\":\"L01 readonly preflight and unknown pre-existing root refused\",\"status\":\"PASS\"}\n{\"scenario\":\"L02 phased interruption resumes same attempt/OID without duplicate owner\",\"status\":\"PASS\"}\n{\"scenario\":\"L03 workspace lock excludes parallel start/initialize/backup\",\"status\":\"PASS\"}\n{\"scenario\":"
+    },
+    {
+      "command": "node server/verify-local-use-architecture.mjs",
+      "status": "KNOWN_BRANCH_DIFF",
+      "seconds": 1,
+      "note": "当前分支 feat/ai-tools-integration 非基线分支 feat/local-use-baseline，快照断言不适用",
+      "tail": "{\"at\":\"2026-09-15T00:38:43.842Z\",\"command\":\"node server/verify-local-use-architecture.mjs\",\"environment\":\"loopback synthetic only; source .env.local; authorization 40/41\",\"status\":\"FAIL\",\"results\":[],\"cleanup\":\"NOT_RUN\",\"error\":{\"code\":\"ERR_ASSERTION\",\"location\":\"    at file:///D:/%E9%A1%B9%E7%9B%AE"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-local-use-browser.mjs",
+      "status": "PASS",
+      "seconds": 48
+    }
+  ],
+  "ai": [
+    {
+      "command": "node server/verify-ai-tools-protocol.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence protocol-unit/live-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-model.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence model-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-materials.mjs",
+      "status": "PASS",
+      "seconds": 2,
+      "evidence": "evidence materials-*"
+    },
+    {
+      "command": "node server/verify-ai-tools-api.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence api-1789363520912"
+    },
+    {
+      "command": "node server/verify-ai-tools-exec-cli.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "C3 PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node server/verify-ai-tools-real.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "C1 PASS 证据（真实调用型，限额内不重跑）",
+      "mode": "evidence-reference"
+    },
+    {
+      "command": "node output/pfc-workbench-prototype/verify-ai-tools-browser.mjs",
+      "status": "PASS",
+      "seconds": 8,
+      "evidence": "evidence browser-1789387177000"
+    },
+    {
+      "command": "node server/verify-ai-tools-architecture.mjs",
+      "status": "PASS",
+      "seconds": 0,
+      "evidence": "evidence architecture-C4.json"
+    }
+  ]
+}
