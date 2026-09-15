@@ -131,7 +131,15 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
     });
     aiMessageId = job.input?.aiMessageId ?? null;
     if (!options) throw fail('CONNECTION_UNAVAILABLE');
-    const text = buildTextPrompt(job);
+    // 非终端 AI 能力按阶段注入：guide 引导模型按阶段工作法产出；
+    // enabledSkills 让 text 线程的 skills.config 按期望能力启用（匹配到才启用）。
+    const stage = job.input?.stage || 'idea';
+    const stageCap = require('./stage-capabilities').forStage(stage);
+    if (stageCap?.skills?.length) options.enabledSkills = stageCap.skills;
+    const baseText = buildTextPrompt(job);
+    const text = stageCap?.guide
+      ? '【本阶段：' + stageCap.name + '】' + stageCap.goal + '。\n' + stageCap.guide + '\n\n' + baseText
+      : baseText;
     session = await TextConversation.open(options);
     let accumulated = '';
     const result = await session.runText({

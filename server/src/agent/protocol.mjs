@@ -26,7 +26,8 @@ export function instanceArguments(disabledMcpNames = [], mode = 'text') {
     disabledMcpNames.some((name) => !/^[A-Za-z0-9_-]{1,100}$/.test(name))
   )
     throw error('MCP_NAME_INVALID');
-  if (!['text', 'exec'].includes(mode)) throw error('INSTANCE_MODE_INVALID');
+  // preflight 只读预检模式：instance 参数与 text 对齐（全禁工具、只读），供连接探测/取指纹。
+  if (!['preflight', 'text', 'exec'].includes(mode)) throw error('INSTANCE_MODE_INVALID');
   const values = [
     ...requiredDisabled.map((name) => `features.${name}=false`),
     'features.multi_agent_v2=false',

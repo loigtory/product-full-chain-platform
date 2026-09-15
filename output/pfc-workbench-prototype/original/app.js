@@ -720,6 +720,18 @@
           P.s.env.capable = false;
           P.s.env.execCapable = false;
         }
+        /* 各阶段 AI 能力配置（服务端 stage-capabilities），供"本阶段启用能力"面板展示 */
+        try {
+          const caps = await window.PFCAPI.api.req(
+            'GET',
+            '/api/agent/stage-capabilities',
+          );
+          P.s.stageCaps = {};
+          for (const c of caps?.stages || []) P.s.stageCaps[c.stage] = c;
+          P.save();
+        } catch {
+          P.s.stageCaps = {};
+        }
       }).catch((e) => {
         P.toast('API 连接失败：' + e.message, 'error');
       });

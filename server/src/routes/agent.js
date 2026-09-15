@@ -57,6 +57,13 @@ router.get('/status', (req, res) => {
   });
 });
 
+// 各阶段 AI 能力清单（只读声明）：前端"本阶段启用能力"面板据此展示真实配置；
+// worker 按阶段注入 guide 与期望 skill。不触发任何模型调用。
+router.get('/stage-capabilities', (req, res) => {
+  const caps = require('../agent/stage-capabilities');
+  res.json({ stages: caps.all() });
+});
+
 // 只读预检：验证 CLI 版本、账号模式、连接指纹与隔离配置；不发起模型生成。
 router.post('/preflight', async (req, res, next) => {
   try {

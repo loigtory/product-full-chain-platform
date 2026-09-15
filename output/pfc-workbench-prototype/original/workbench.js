@@ -614,13 +614,21 @@
           : '';
       })()}${b('space-tab', '关系追踪', { tab: 'trace' })}</div>` +
       `<div class="rail-section"><div class="rail-title">本阶段启用能力</div><div class="bind-cell">${
-        P.effective(r, stage)
-          .map(
-            (c) =>
-              `<span class="skill-chip on">${i('check')}${e(c.name)}</span>`,
-          )
-          .join('') || '<p class="muted">尚未装载能力</p>'
-      }</div><div class="btn-group">${b('session-caps', '临时装载 / 调整')}${b('navigate', '治理中心', { route: 'gov' })}</div></div></aside>`;
+        (function () {
+          const c = P.s.stageCaps?.[stage];
+          if (!c) return '<p class="muted">阶段能力未配置</p>';
+          let html = '<p class="muted" style="font-size:11px;line-height:1.4" title="' + e(c.goal) + '">' + e(c.goal) + '</p>';
+          if (Array.isArray(c.skills) && c.skills.length) html += c.skills.map((sk) => '<span class="skill-chip">' + e(sk) + '</span>').join('');
+          if (Array.isArray(c.tools) && c.tools.length) html += '<p class="muted" style="font-size:11px;margin-top:4px">工具：' + e(c.tools.join('、')) + '</p>';
+          return html;
+        })()
+      }{
+        (function () {
+          const eff = P.effective(r, stage);
+          if (!eff.length) return '';
+          return '<div class="rail-sub">已装载</div>' + eff.map((c) => '<span class="skill-chip on">' + i('check') + e(c.name) + '</span>').join('');
+        })()
+      }</div></div></aside>`;
     let content =
       stage === 'dev'
         ? P.runCard(r)

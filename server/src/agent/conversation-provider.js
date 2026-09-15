@@ -23,11 +23,15 @@ class TextConversation {
     this.closed = false;
     this.instructionSources = [];
     this.approvedInstructionSources = [];
+    this.enabledSkills = [];
   }
   static async open(options) {
     const self = new TextConversation();
     self.execMode = options.mode === 'exec';
     self.onTurnEvent = options.onTurnEvent ?? null;
+    self.enabledSkills = Array.isArray(options.enabledSkills)
+      ? options.enabledSkills.map((n) => String(n))
+      : [];
     self.approvedInstructionSources = (
       options.approvedInstructionSources ?? []
     ).map((s) => Object.freeze({ ...s }));
@@ -59,6 +63,7 @@ class TextConversation {
             self.connection.summary,
             self.connection.cwd,
             inventory,
+            self.enabledSkills,
           );
       const thread = await self.connection.rpc.request('thread/start', params);
       self.readback = {
