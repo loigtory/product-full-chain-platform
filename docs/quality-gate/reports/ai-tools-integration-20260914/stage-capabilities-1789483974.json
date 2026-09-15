@@ -1,0 +1,148 @@
+{
+  "at": "2026-09-15T14:52:22.086Z",
+  "status": "PASS",
+  "scope": "阶段 AI 能力：8 阶段配置 API + textThreadParams 装配单测 + 真实 TEXT 作业（1 次模型）",
+  "tests": [
+    {
+      "name": "GET /api/agent/stage-capabilities 200",
+      "status": "PASS"
+    },
+    {
+      "name": "8 阶段能力齐全",
+      "status": "PASS",
+      "stages": [
+        "idea",
+        "req",
+        "design",
+        "dev",
+        "test",
+        "accept",
+        "release",
+        "observe"
+      ]
+    },
+    {
+      "name": "阶段顺序与定义一致",
+      "status": "PASS"
+    },
+    {
+      "name": "每阶段字段完整（stage/name/goal/guide/skills/tools/mcps）",
+      "status": "PASS"
+    },
+    {
+      "name": "装配：期望 skill 命中则 enabled:true（grill-me/platform-test-case-writer）",
+      "status": "PASS",
+      "hitMap": {
+        "grill-me": true,
+        "other": false,
+        "platform-test-case-writer": true
+      }
+    },
+    {
+      "name": "装配：_enabledSkills 只含命中项",
+      "status": "PASS",
+      "enabled": [
+        "grill-me",
+        "platform-test-case-writer"
+      ]
+    },
+    {
+      "name": "装配：未命中保持全禁用（期望能力非硬依赖）",
+      "status": "PASS"
+    },
+    {
+      "name": "回归：无 enabledSkills 时默认全禁用",
+      "status": "PASS"
+    },
+    {
+      "name": "守卫：非法 inventory（相对路径）拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "真实 inventory 对齐：各阶段期望 skill 全部命中本机 codex inventory",
+      "status": "PASS",
+      "missing": [],
+      "hit": 13,
+      "total": 13
+    },
+    {
+      "name": "真实装载：grill-me 在真实 inventory 下装配 enabled:true",
+      "status": "PASS",
+      "enabled": [
+        "grill-me"
+      ]
+    },
+    {
+      "name": "创建 req（idea 阶段）",
+      "status": "PASS",
+      "pid": "R-1074"
+    },
+    {
+      "name": "发送 TEXT 真实作业（mode:real，idea 阶段）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "ai 消息终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "回写内容非空",
+      "status": "PASS",
+      "len": 934
+    },
+    {
+      "name": "按 idea 阶段工作法产出（含目标/边界/澄清问题结构）",
+      "status": "PASS",
+      "snippet": "**目标**\n\n为内部任务管理工具新增「依赖与安全扫描」能力，帮助版本升级负责人在升级前识别高风险依赖，减少带风险发布及人工排查成本。\n\n待确认主要用户：开发人员、版本负责人、安全人员。期望结果：扫描发现可追溯、风险可判断、处理有负责人，支持升级决策。\n\n**边界（建议，待确认）**\n\n- 本次覆盖：明确扫描对象与触发时机；识别依赖风险；展示风险等级、受影响版本与判断依据；跟踪处理状态。\n- 本次不覆盖：自动升级或修复依赖、全面代码安全"
+    },
+    {
+      "name": "消息 metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/live-server-browser-1789479958594.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789478955.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479370.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479532.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479634.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479752.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789482261.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789482311.json"
+      ]
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "realInventoryCount": 55,
+      "stageSkillHits": [
+        "idea:grill-me",
+        "req:rdc-prd-standardizer",
+        "req:rdc-feature-point-split",
+        "design:figma-generate-design",
+        "design:uml-and-software-architecture-visualization",
+        "dev:frontend-app-builder",
+        "test:platform-test-case-writer",
+        "test:platform-test-runner-reporter",
+        "accept:review-agent",
+        "release:release-checklist",
+        "release:release-ops",
+        "observe:rdc-data-analysis",
+        "observe:statistical-and-uncertainty-visualization"
+      ]
+    },
+    {
+      "ai": {
+        "id": "SMSG-42",
+        "status": "ok",
+        "snippet": "**目标**\n\n为内部任务管理工具新增「依赖与安全扫描」能力，帮助版本升级负责人在升级前识别高风险依赖，减少带风险发布及人工排查成本。\n\n待确认主要用户：开发人员、版本负责人、安全人员。期望结果：扫描发现可追溯、风险可判断、处理有负责人，支持升级决策。\n\n**边界（建议，待确认）**\n\n- 本次覆盖：明确扫描对象与触发时机；识别依赖风险；展示风险等级、受影响版本与判断依据；跟踪处理状态。\n- 本次不覆盖：自动升级或修复依赖、全面代码安全审计、运行时攻击检测。\n- 是否阻断升级、是否扫描间接依赖及多个仓库，需明确后纳入范围。\n\n**必须回答的澄清问题**\n\n| 类别 | 问题 |\n|---|--"
+      }
+    }
+  ]
+}

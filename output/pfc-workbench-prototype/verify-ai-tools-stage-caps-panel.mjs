@@ -96,6 +96,36 @@ try {
   }
   await page.screenshot({ path: resolve(evidenceDir, 'panel-stage-caps-1440.png'), fullPage: false });
   t('截图已保存', true);
+
+  // release 阶段核验（新增真实 skill：release-checklist/release-ops）
+  await page.evaluate(({ id }) => window.PFC.go({ route: 'work', req: id, stage: 'release' }), {
+    id: reqId,
+  });
+  await page.waitForFunction(() => document.querySelector('.rail-section .rail-title'), null, {
+    timeout: 15000,
+  });
+  const releaseSection = await page.evaluate(() => {
+    const capSection = [...document.querySelectorAll('.rail-section')].find((s) =>
+      (s.querySelector('.rail-title')?.textContent || '').includes('本阶段启用能力'),
+    );
+    if (!capSection) return null;
+    return {
+      chips: [...capSection.querySelectorAll('.skill-chip')].map((x) => x.textContent.trim()),
+      emptyHint: capSection.querySelector('.muted')?.textContent?.trim()?.slice(0, 30) || '',
+    };
+  });
+  t(
+    'release 阶段 chips 渲染真实 skill（release-checklist/release-ops）',
+    !!releaseSection &&
+      releaseSection.chips.length === 2 &&
+      releaseSection.chips.includes('release-checklist') &&
+      releaseSection.chips.includes('release-ops'),
+    { releaseSection },
+  );
+  await page.screenshot({
+    path: resolve(evidenceDir, 'panel-stage-caps-release-1440.png'),
+    fullPage: false,
+  });
   await browser.close();
   report.status = report.tests.some((x) => x.status === 'FAIL') ? 'FAIL' : 'PASS';
 } catch (e) {

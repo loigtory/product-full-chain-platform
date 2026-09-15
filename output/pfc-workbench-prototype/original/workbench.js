@@ -623,7 +623,7 @@
           if (Array.isArray(c.tools) && c.tools.length) html += '<p class="muted" style="font-size:11px;margin-top:4px">工具：' + e(c.tools.join('、')) + '</p>';
           return html;
         })()
-      }{
+      }${
         (function () {
           const eff = P.effective(r, stage);
           if (!eff.length) return '';
