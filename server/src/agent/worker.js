@@ -200,8 +200,8 @@ async function cancel(jobId) {
   return !!entry;
 }
 
-// EXEC 作业超时上限（毫秒）：CLI host 长任务保护，超时 kill 并按 TIMED_OUT 结算。
-const EXEC_TIMEOUT_MS = 900000;
+// EXEC 作业超时上限（毫秒）：44 号 D5 约定单次 300 秒，超时 kill 并按 TIMED_OUT 结算。
+const EXEC_TIMEOUT_MS = 300000;
 
 // 执行一个 EXEC 作业：CLI host（codex exec，Windows elevated + workspace-write）+
 // 受限读 hook + 流式输出写回 ai 消息。产品形态参数从 job.input 注入：

@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-15T08:13:40.013Z",
+  "status": "FAIL",
+  "scope": "44-C3 closed-loop: synthetic project actual diff → test fail → codex fix + test → test pass; platform repo untouched",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "initial test fails",
+      "pass": true
+    },
+    {
+      "name": "runExecJob SUCCEEDED",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'FAILED'\n- 'SUCCEEDED'\n"
+    }
+  ],
+  "testBefore": {
+    "code": 1,
+    "passed": true,
+    "out": "✖ sum(2,3) === 5 (1.8032ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 111.0503\n\n✖ failing tests:\n\ntest at sum.test.js:5:1\n✖ sum(2,3) === 5 (1.8032ms)\n  As"
+  },
+  "gitBefore": " M \"docs/planning/prototype-v3/45-\\347\\234\\237\\345\\256\\236AI\\344\\270\\216\\346\\234\\254\\345\\234\\260\\345\\267\\245\\345\\205\\267\\345\\256\\236\\346\\226\\275\\344\\270\\216\\351\\252\\214\\346\\224\\266-20260914.md\"\n M server/scripts/run-ai-tools-gates.mjs\n M server/src/agent/budget.js\n M server/src/agent/worker.js\n M se",
+  "runResult": {
+    "status": "FAILED",
+    "code": "CONNECTION_UNAVAILABLE"
+  },
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'FAILED'\n- 'SUCCEEDED'\n"
+  }
+}

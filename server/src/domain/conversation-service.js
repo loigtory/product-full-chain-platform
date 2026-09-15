@@ -338,8 +338,8 @@ module.exports.getMessages = async (id, stage, offset = 0, limit = 20) => {
     return repo.list(client, db, ctx, req, stage, offset, limit);
   });
 };
-module.exports.stopMessage = (id, mid, input) =>
-  require('./requirement-service').mutate(
+module.exports.stopMessage = async (id, mid, input) => {
+  const result = require('./requirement-service').mutate(
     id,
     input,
     'message.stopped',
@@ -359,9 +359,23 @@ module.exports.stopMessage = (id, mid, input) =>
           '".messages SET status=$1,revision=revision+1 WHERE tenant_id=$2 AND id=$3 AND status=$4',
         ['stopped', ctx.tenantId, m.id, 'generating'],
       );
-      return {};
+      const job = (
+        await client.query(
+          `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND (command_id=$3 OR command_id=$4) AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') ORDER BY created_at DESC LIMIT 1`,
+          [ctx.tenantId, row.id, 'EXEC-' + m.id, 'MSG-' + m.id],
+        )
+      ).rows[0];
+      return { jobId: job?.id ?? null };
     },
   );
+  // 事务提交后取消真实 worker 作业（fire-and-forget；作业不存在或已终态则无副作用）
+  if (result.jobId) {
+    void require('../agent/worker')
+      .cancel(result.jobId)
+      .catch(() => {});
+  }
+  return result;
+};
 module.exports.messageDiff = (id, mid, input) =>
   require('./requirement-service').mutate(
     id,

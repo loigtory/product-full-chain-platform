@@ -12,10 +12,18 @@ const {
   mkdirSync,
 } = require('node:fs');
 const path = require('node:path');
+// 账本固定指向项目根 .local（不依赖启动目录，避免 cwd 变化分裂出第二本账本；
+// server 目录启动的服务此前曾写入 server/.local 副本，见 45 号 8.11 节合并记录）。
 const LEDGER = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  '..',
   '.local/ai-tools-integration-20260914/preflight/configs/model-budget.json',
 );
-const MAX_TURNS = 40;
+// 上限 50 次/单次 300 秒/累计 120 分钟：用户 9-15 多次确认扩大模型预算上限，
+// 合并两本账本后已用 42 次，仍需覆盖后续真实闭环用例（8.11 节 C3）。
+const MAX_TURNS = 50;
 const TURN_SECONDS = 300;
 const MAX_RESERVED_SECONDS = 7200;
 const PACKAGE = '44-ai-tools-integration-20260914';

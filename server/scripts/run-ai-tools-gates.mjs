@@ -56,7 +56,7 @@ const ai = [
   ['server/verify-ai-tools-protocol.mjs', {}, 'evidence protocol-unit/live-*'],
   ['server/verify-ai-tools-model.mjs', {}, 'evidence model-*'],
   ['server/verify-ai-tools-materials.mjs', {}, 'evidence materials-*'],
-  ['server/verify-ai-tools-api.mjs', {}, 'evidence api-1789363520912'],
+  ['server/verify-ai-tools-api.mjs', { args: ['--pg'] }, 'evidence api-1789363520912'],
   ['server/verify-ai-tools-exec-cli.mjs', { EVIDENCE_ONLY: 'exec-cli-1789381503332.json' }, 'C3 PASS 证据（真实调用型，限额内不重跑）'],
   ['server/verify-ai-tools-real.mjs', { EVIDENCE_ONLY: 'real-text' }, 'C1 PASS 证据（真实调用型，限额内不重跑）'],
   ['output/pfc-workbench-prototype/verify-ai-tools-browser.mjs', {}, 'evidence browser-1789387177000'],
@@ -65,12 +65,13 @@ const ai = [
   ['server/verify-ai-tools-exec-worker.mjs', { EVIDENCE_ONLY: 'exec-worker-1789438846903.json' }, 'exec worker PASS 证据（真实调用型，限额内不重跑）'],
   ['server/verify-ai-tools-exec-conversation.mjs', { EVIDENCE_ONLY: 'exec-worker-1789438846903.json' }, 'exec 对话协议闸：resolveRealJobInput 单测 + exec-worker 证据（零模型）'],
   ['server/verify-ai-tools-exec-e2e.mjs', { EVIDENCE_ONLY: 'exec-e2e-1789456149199.json' }, 'exec http e2e PASS 证据（真实调用型，限额内不重跑）'],
+  ['server/verify-ai-tools-exec-closedloop.mjs', { EVIDENCE_ONLY: 'exec-closedloop-1789460321622.json' }, '44-C3 闭环 PASS 证据（合成项目实际 diff+测试，真实调用型）'],
 ];
 const skipExisting = process.argv.includes('--skip-existing');
 const skipAi = process.argv.includes('--skip-ai');
-const run = (file, env) => {
+const run = (file, env, args = []) => {
   const t0 = Date.now();
-  const r = spawnSync(nodeBin, [file], {
+  const r = spawnSync(nodeBin, [file, ...args], {
     cwd: root,
     env: { ...process.env, ...env },
     encoding: 'utf8',
@@ -87,7 +88,7 @@ const report = {
 let failures = 0;
 if (!skipExisting) {
   for (const [file, opts] of existing) {
-    const { ok, sec, tail } = run(file, opts);
+    const { ok, sec, tail } = run(file, opts, opts.args);
     report.existing.push({
       command: 'node ' + file,
       status: ok ? 'PASS' : opts.KNOWN_BRANCH_DIFF ? 'KNOWN_BRANCH_DIFF' : 'FAIL',
@@ -123,7 +124,7 @@ if (!skipAi) {
       console.log((hit ? 'PASS' : 'FAIL') + ' ' + file + ' (evidence) ' + evidence);
       continue;
     }
-    const { ok, sec, tail } = run(file, env);
+    const { ok, sec, tail } = run(file, env, env.args);
     report.ai.push({
       command: 'node ' + file,
       status: ok ? 'PASS' : 'FAIL',

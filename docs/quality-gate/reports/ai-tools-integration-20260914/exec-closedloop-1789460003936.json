@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-15T08:13:22.226Z",
+  "status": "FAIL",
+  "scope": "44-C3 closed-loop: synthetic project actual diff → test fail → codex fix + test → test pass; platform repo untouched",
+  "modelTurns": 1,
+  "checks": [],
+  "error": {
+    "code": "ENOENT",
+    "message": "ENOENT: no such file or directory, mkdtemp 'D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-closedloop-20260915\\proj_XXXXXX'"
+  }
+}
