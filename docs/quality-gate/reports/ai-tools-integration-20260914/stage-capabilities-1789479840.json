@@ -1,0 +1,114 @@
+{
+  "at": "2026-09-15T13:43:33.981Z",
+  "status": "PASS",
+  "scope": "阶段 AI 能力：8 阶段配置 API + textThreadParams 装配单测 + 真实 TEXT 作业（1 次模型）",
+  "tests": [
+    {
+      "name": "GET /api/agent/stage-capabilities 200",
+      "status": "PASS"
+    },
+    {
+      "name": "8 阶段能力齐全",
+      "status": "PASS",
+      "stages": [
+        "idea",
+        "req",
+        "design",
+        "dev",
+        "test",
+        "accept",
+        "release",
+        "observe"
+      ]
+    },
+    {
+      "name": "阶段顺序与定义一致",
+      "status": "PASS"
+    },
+    {
+      "name": "每阶段字段完整（stage/name/goal/guide/skills/tools/mcps）",
+      "status": "PASS"
+    },
+    {
+      "name": "装配：期望 skill 命中则 enabled:true（product-manager/qa）",
+      "status": "PASS",
+      "hitMap": {
+        "product-manager": true,
+        "other": false,
+        "qa": true
+      }
+    },
+    {
+      "name": "装配：_enabledSkills 只含命中项",
+      "status": "PASS",
+      "enabled": [
+        "product-manager",
+        "qa"
+      ]
+    },
+    {
+      "name": "装配：未命中保持全禁用（期望能力非硬依赖）",
+      "status": "PASS"
+    },
+    {
+      "name": "回归：无 enabledSkills 时默认全禁用",
+      "status": "PASS"
+    },
+    {
+      "name": "守卫：非法 inventory（相对路径）拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "创建 req（idea 阶段）",
+      "status": "PASS",
+      "pid": "R-1063"
+    },
+    {
+      "name": "发送 TEXT 真实作业（mode:real，idea 阶段）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "ai 消息终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "回写内容非空",
+      "status": "PASS",
+      "len": 948
+    },
+    {
+      "name": "按 idea 阶段工作法产出（含目标/边界/澄清问题结构）",
+      "status": "PASS",
+      "snippet": "**1. 目标（待确认）**\n\n- 为内部任务管理工具的版本升级负责人发现高风险依赖，减少带风险上线及人工排查遗漏。\n- 期望在升级前自动扫描，输出风险依赖、判定依据及可执行的处理建议，支持升级决策。\n- 待明确：“版本升级”指工具自身发布，还是工具内管理的其他项目升级。\n\n**2. 边界（建议，待确认）**\n\n本次覆盖：\n\n- 约定项目、语言及包管理器的依赖扫描。\n- 根据确认的风险规则识别问题，并将结果关联到对应项目、版本或任务。\n"
+    },
+    {
+      "name": "消息 metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789478955.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479370.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479532.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479634.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479752.json",
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-capabilities.mjs"
+      ]
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "ai": {
+        "id": "SMSG-26",
+        "status": "ok",
+        "snippet": "**1. 目标（待确认）**\n\n- 为内部任务管理工具的版本升级负责人发现高风险依赖，减少带风险上线及人工排查遗漏。\n- 期望在升级前自动扫描，输出风险依赖、判定依据及可执行的处理建议，支持升级决策。\n- 待明确：“版本升级”指工具自身发布，还是工具内管理的其他项目升级。\n\n**2. 边界（建议，待确认）**\n\n本次覆盖：\n\n- 约定项目、语言及包管理器的依赖扫描。\n- 根据确认的风险规则识别问题，并将结果关联到对应项目、版本或任务。\n- 明确扫描触发时机、处理责任人及升级前的处置要求。\n\n本次暂不覆盖：\n\n- 自动修改依赖或自动执行升级。\n- 源码漏洞审计、渗透测试及运行环境全面扫描。\n- "
+      }
+    }
+  ]
+}
