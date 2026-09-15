@@ -23,7 +23,7 @@ const LEDGER = path.resolve(
 );
 // 上限 80 次/单次 300 秒/累计 120 分钟：用户 9-15 多次确认扩大模型预算上限，
 // H 常驻验收收口后实读 58/60（剩 2），用户按需确认再扩至 80（9-15 末轮）。
-const MAX_TURNS = 80;
+const MAX_TURNS = 90;
 const TURN_SECONDS = 300;
 const MAX_RESERVED_SECONDS = 7200;
 const PACKAGE = '44-ai-tools-integration-20260914';

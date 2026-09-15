@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 const { S, seedFromState, pushAudit, pushNotice, nextId } = require('./store');
 const sm = require('./state-machine');
 const wsBridge = require('../ws');
@@ -160,6 +160,10 @@ module.exports.sendMessage = async (id, input) => {
     'message.sent',
     async (client, db, ctx, row) => {
       const stage = input.stage || row.stage;
+      // 阶段不晚于 req 当前阶段（默认）。PFC_ALLOW_STAGE_BYPASS=1 为验收验证专用开关：
+      // 允许在独立验证 req 上直发任意阶段 TEXT（验证各阶段 guide+skill 产出），
+      // 不改变 req 自身阶段状态机；生产/常规环境不设置该开关。
+      const allowStageBypass = process.env.PFC_ALLOW_STAGE_BYPASS === '1';
       if (
         ![
           'idea',
@@ -171,7 +175,7 @@ module.exports.sendMessage = async (id, input) => {
           'release',
           'observe',
         ].includes(stage) ||
-        sm.STAGES.indexOf(stage) > sm.STAGES.indexOf(row.stage)
+        (!allowStageBypass && sm.STAGES.indexOf(stage) > sm.STAGES.indexOf(row.stage))
       )
         access.fail('INVALID_STAGE', 400);
       const refs = await repo.references(client, db, ctx, row.id, [
