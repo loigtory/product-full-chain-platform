@@ -1,0 +1,59 @@
+{
+  "at": "2026-09-15T04:21:48.453Z",
+  "status": "PASS",
+  "data": "process-local deterministic CODEx_TEST_; no DB/real calls",
+  "tests": [
+    {
+      "name": "txt actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "md actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "json actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "csv actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "html actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "docx actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "xlsx actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "pdf actual content extraction with source hash",
+      "status": "PASS"
+    },
+    {
+      "name": "Malformed documents and unsupported formats fail explicitly",
+      "status": "PASS"
+    },
+    {
+      "name": "Oversized and compressed-bomb input rejected before parsing",
+      "status": "PASS"
+    },
+    {
+      "name": "ZIP path traversal and external relationships rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Truncation is visible and old/new source hashes remain distinct",
+      "status": "PASS"
+    },
+    {
+      "name": "Images remain pending vision, invalid UTF-8 is not silently decoded",
+      "status": "PASS"
+    }
+  ]
+}
