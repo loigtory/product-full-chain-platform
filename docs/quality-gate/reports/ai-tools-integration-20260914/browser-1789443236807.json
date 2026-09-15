@@ -1,0 +1,25 @@
+{
+  "at": "2026-09-15T03:33:50.322Z",
+  "status": "PASS",
+  "scope": "Browser gate: real-mode toggle renders in PG mode, defaults to simulate, and is blocked without Codex connection",
+  "tests": [
+    {
+      "name": "007 browser smoke server boots",
+      "status": "PASS"
+    },
+    {
+      "name": "workbench loads in api mode without remote error",
+      "status": "PASS"
+    },
+    {
+      "name": "real-mode toggle renders in PG mode and defaults to simulate",
+      "status": "PASS"
+    },
+    {
+      "name": "toggle open is blocked with toast when Codex connection absent",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": []
+}

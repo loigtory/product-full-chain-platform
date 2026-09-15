@@ -58,10 +58,10 @@
   "observations": [
     {
       "scenario": "restart",
-      "writerPid": 36276,
-      "readerPid": 24420,
+      "writerPid": 39580,
+      "readerPid": 10296,
       "publicId": "R-1045",
-      "uuid": "e95d3929-339b-4600-bd59-98f9a0e641df"
+      "uuid": "f3d1457b-071c-406c-9fad-5d72871e9bcd"
     }
   ],
   "cleanup": {
@@ -72,19 +72,19 @@
     "createdIds": [
       "10000000-0000-4000-8000-000000000001",
       "10000000-0000-4000-8000-000000000002",
-      "c07f76e8-2231-42b8-b7cd-85dff0f922ee",
-      "0c5a4367-f836-4e22-9df5-398d23eec06d",
-      "4dab3b49-31c2-4ec6-a853-12773972bf7e",
-      "630b8af3-c5f1-4ad1-9711-0014ab977df9",
-      "e0275581-5eec-4aeb-9d02-4751571aa276",
-      "e95d3929-339b-4600-bd59-98f9a0e641df"
+      "b623a70d-28dd-42a7-bed9-5d4de2d0ad86",
+      "93d86829-553b-48f5-83a4-7c4c5ebc2428",
+      "f0b3a05f-b924-4401-8a11-a149cfbfad8f",
+      "2951f438-6d8d-427b-8463-20fa62cb5270",
+      "e772839a-15d6-415d-b6f5-a07f0572c9a0",
+      "f3d1457b-071c-406c-9fad-5d72871e9bcd"
     ],
     "readback": {
       "schema_migrations": [
         {
           "version": "001",
           "checksum": "49a0e81077746411bd2825bb4893a3312518f06093250c77a7e154766f812021",
-          "applied_at": "2026-09-15T00:30:57.333Z"
+          "applied_at": "2026-09-15T03:14:59.410Z"
         }
       ],
       "tenants": [
@@ -92,13 +92,13 @@
           "id": "10000000-0000-4000-8000-000000000001",
           "name": "CODEx_TEST_M2C_20260912_storage_A",
           "plan": "internal",
-          "created_at": "2026-09-15T00:30:57.512Z"
+          "created_at": "2026-09-15T03:14:59.731Z"
         },
         {
           "id": "10000000-0000-4000-8000-000000000002",
           "name": "CODEx_TEST_M2C_20260912_storage_B",
           "plan": "internal",
-          "created_at": "2026-09-15T00:30:57.512Z"
+          "created_at": "2026-09-15T03:14:59.731Z"
         }
       ],
       "id_counters": [
@@ -135,7 +135,7 @@
       ],
       "reqs": [
         {
-          "id": "c07f76e8-2231-42b8-b7cd-85dff0f922ee",
+          "id": "b623a70d-28dd-42a7-bed9-5d4de2d0ad86",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
           "public_id": "R-1041",
           "name": "CODEx_TEST_M2C_20260912_storage_valid",
@@ -143,11 +143,11 @@
           "scope": "仅隔离验证",
           "owner": "CODEx_TEST_M2C_20260912_storage",
           "stage": "idea",
-          "created_at": "2026-09-15T00:30:57.581Z",
-          "updated_at": "2026-09-15T00:30:57.581Z"
+          "created_at": "2026-09-15T03:14:59.842Z",
+          "updated_at": "2026-09-15T03:14:59.842Z"
         },
         {
-          "id": "0c5a4367-f836-4e22-9df5-398d23eec06d",
+          "id": "93d86829-553b-48f5-83a4-7c4c5ebc2428",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
           "public_id": "R-1042",
           "name": "CODEx_TEST_M2C_20260912_storage_retry",
@@ -155,11 +155,11 @@
           "scope": "",
           "owner": "CODEx_TEST_M2C_20260912_storage",
           "stage": "idea",
-          "created_at": "2026-09-15T00:30:57.606Z",
-          "updated_at": "2026-09-15T00:30:57.606Z"
+          "created_at": "2026-09-15T03:14:59.884Z",
+          "updated_at": "2026-09-15T03:14:59.884Z"
         },
         {
-          "id": "4dab3b49-31c2-4ec6-a853-12773972bf7e",
+          "id": "f0b3a05f-b924-4401-8a11-a149cfbfad8f",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
           "public_id": "R-1043",
           "name": "CODEx_TEST_M2C_20260912_storage_parallel_1",
@@ -167,11 +167,11 @@
           "scope": "",
           "owner": "CODEx_TEST_M2C_20260912_storage",
           "stage": "idea",
-          "created_at": "2026-09-15T00:30:57.609Z",
-          "updated_at": "2026-09-15T00:30:57.609Z"
+          "created_at": "2026-09-15T03:14:59.891Z",
+          "updated_at": "2026-09-15T03:14:59.891Z"
         },
         {
-          "id": "630b8af3-c5f1-4ad1-9711-0014ab977df9",
+          "id": "2951f438-6d8d-427b-8463-20fa62cb5270",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
           "public_id": "R-1044",
           "name": "CODEx_TEST_M2C_20260912_storage_parallel_2",
@@ -179,11 +179,11 @@
           "scope": "",
           "owner": "CODEx_TEST_M2C_20260912_storage",
           "stage": "idea",
-          "created_at": "2026-09-15T00:30:57.667Z",
-          "updated_at": "2026-09-15T00:30:57.667Z"
+          "created_at": "2026-09-15T03:14:59.985Z",
+          "updated_at": "2026-09-15T03:14:59.985Z"
         },
         {
-          "id": "e0275581-5eec-4aeb-9d02-4751571aa276",
+          "id": "e772839a-15d6-415d-b6f5-a07f0572c9a0",
           "tenant_id": "10000000-0000-4000-8000-000000000002",
           "public_id": "R-1041",
           "name": "CODEx_TEST_M2C_20260912_storage_other_tenant",
@@ -191,11 +191,11 @@
           "scope": "",
           "owner": "CODEx_TEST_M2C_20260912_storage",
           "stage": "idea",
-          "created_at": "2026-09-15T00:30:57.684Z",
-          "updated_at": "2026-09-15T00:30:57.684Z"
+          "created_at": "2026-09-15T03:15:00.022Z",
+          "updated_at": "2026-09-15T03:15:00.022Z"
         },
         {
-          "id": "e95d3929-339b-4600-bd59-98f9a0e641df",
+          "id": "f3d1457b-071c-406c-9fad-5d72871e9bcd",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
           "public_id": "R-1045",
           "name": "CODEx_TEST_M2C_20260912_storage_restart",
@@ -203,15 +203,15 @@
           "scope": "",
           "owner": "CODEx_TEST_M2C_20260912_storage",
           "stage": "idea",
-          "created_at": "2026-09-15T00:30:57.869Z",
-          "updated_at": "2026-09-15T00:30:57.869Z"
+          "created_at": "2026-09-15T03:15:00.390Z",
+          "updated_at": "2026-09-15T03:15:00.390Z"
         }
       ],
       "req_versions": [
         {
-          "id": "46a9d177-bb97-4dfd-a5da-a0aaa2d6c865",
+          "id": "0aa30b54-91fb-4a0c-aa67-a210e7c8a2a3",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "c07f76e8-2231-42b8-b7cd-85dff0f922ee",
+          "req_id": "b623a70d-28dd-42a7-bed9-5d4de2d0ad86",
           "public_id": "SV-1",
           "stage": "idea",
           "version": 1,
@@ -221,12 +221,12 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.581Z"
+          "created_at": "2026-09-15T03:14:59.842Z"
         },
         {
-          "id": "cb4e85b2-7046-47a5-8608-0cc6d59cd6e6",
+          "id": "34c8b08e-70e1-4c3e-985e-c560761dac50",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "0c5a4367-f836-4e22-9df5-398d23eec06d",
+          "req_id": "93d86829-553b-48f5-83a4-7c4c5ebc2428",
           "public_id": "SV-2",
           "stage": "idea",
           "version": 1,
@@ -236,12 +236,12 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.606Z"
+          "created_at": "2026-09-15T03:14:59.884Z"
         },
         {
-          "id": "c291a976-4f7f-475f-816b-e1a469d1c71c",
+          "id": "acc9ab29-0328-4dcc-90ea-83e6d9564ca8",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "4dab3b49-31c2-4ec6-a853-12773972bf7e",
+          "req_id": "f0b3a05f-b924-4401-8a11-a149cfbfad8f",
           "public_id": "SV-3",
           "stage": "idea",
           "version": 1,
@@ -251,12 +251,12 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.609Z"
+          "created_at": "2026-09-15T03:14:59.891Z"
         },
         {
-          "id": "f4ca06ca-e7fd-4480-ba74-313ad611afc9",
+          "id": "3e137d2c-c0f9-43fe-9104-0bda0987d4f0",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "630b8af3-c5f1-4ad1-9711-0014ab977df9",
+          "req_id": "2951f438-6d8d-427b-8463-20fa62cb5270",
           "public_id": "SV-4",
           "stage": "idea",
           "version": 1,
@@ -266,12 +266,12 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.667Z"
+          "created_at": "2026-09-15T03:14:59.985Z"
         },
         {
-          "id": "919460cc-a3e4-4a54-93d7-ac77655e1520",
+          "id": "c0592da2-7332-4e90-9cec-9321a21bbbe4",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "c07f76e8-2231-42b8-b7cd-85dff0f922ee",
+          "req_id": "b623a70d-28dd-42a7-bed9-5d4de2d0ad86",
           "public_id": "SV-5",
           "stage": "idea",
           "version": 2,
@@ -279,12 +279,12 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.676Z"
+          "created_at": "2026-09-15T03:15:00.004Z"
         },
         {
-          "id": "e714a4d1-da81-479b-a609-00439c04a929",
+          "id": "5a59d1cd-14fe-4a35-b680-d732ea063196",
           "tenant_id": "10000000-0000-4000-8000-000000000002",
-          "req_id": "e0275581-5eec-4aeb-9d02-4751571aa276",
+          "req_id": "e772839a-15d6-415d-b6f5-a07f0572c9a0",
           "public_id": "SV-1",
           "stage": "idea",
           "version": 1,
@@ -294,12 +294,12 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.684Z"
+          "created_at": "2026-09-15T03:15:00.022Z"
         },
         {
-          "id": "2cb2f53b-3eed-4745-a7a3-f685e1f77489",
+          "id": "8898f525-2bcf-4727-8554-166a1368cf57",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "e95d3929-339b-4600-bd59-98f9a0e641df",
+          "req_id": "f3d1457b-071c-406c-9fad-5d72871e9bcd",
           "public_id": "SV-6",
           "stage": "idea",
           "version": 1,
@@ -309,79 +309,79 @@
           "confirmed_by": null,
           "confirmed_at": null,
           "stale": false,
-          "created_at": "2026-09-15T00:30:57.869Z"
+          "created_at": "2026-09-15T03:15:00.390Z"
         }
       ],
       "audit_logs": [
         {
-          "id": "5a10de60-9a9e-4ed0-93c7-de89fc979b45",
+          "id": "2abefa25-70b3-4523-a96a-e42d21c8a0cb",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "c07f76e8-2231-42b8-b7cd-85dff0f922ee",
+          "req_id": "b623a70d-28dd-42a7-bed9-5d4de2d0ad86",
           "public_id": "A-1",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "requirement.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.581Z"
+          "created_at": "2026-09-15T03:14:59.842Z"
         },
         {
-          "id": "a861176f-9726-487e-8c09-bc5675e656ff",
+          "id": "e788592e-9ed1-47b0-99ea-c410efa0dec6",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "0c5a4367-f836-4e22-9df5-398d23eec06d",
+          "req_id": "93d86829-553b-48f5-83a4-7c4c5ebc2428",
           "public_id": "A-2",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "requirement.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.606Z"
+          "created_at": "2026-09-15T03:14:59.884Z"
         },
         {
-          "id": "4f790123-e852-4e07-8135-44fc166fea93",
+          "id": "6e78cd2a-868b-4a87-b980-3bf6cbbc072e",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "4dab3b49-31c2-4ec6-a853-12773972bf7e",
+          "req_id": "f0b3a05f-b924-4401-8a11-a149cfbfad8f",
           "public_id": "A-3",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "requirement.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.609Z"
+          "created_at": "2026-09-15T03:14:59.891Z"
         },
         {
-          "id": "c6a4c435-170f-44e7-9057-282c1d105f67",
+          "id": "514c51d3-5e11-48dc-a9b9-6c9f4a75d5b5",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "630b8af3-c5f1-4ad1-9711-0014ab977df9",
+          "req_id": "2951f438-6d8d-427b-8463-20fa62cb5270",
           "public_id": "A-4",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "requirement.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.667Z"
+          "created_at": "2026-09-15T03:14:59.985Z"
         },
         {
-          "id": "9dd4c738-e846-49e3-a428-a2ea424bfe4d",
+          "id": "3061c4b6-d15f-4a13-a878-650e437d2463",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "c07f76e8-2231-42b8-b7cd-85dff0f922ee",
+          "req_id": "b623a70d-28dd-42a7-bed9-5d4de2d0ad86",
           "public_id": "A-5",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "version.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.676Z"
+          "created_at": "2026-09-15T03:15:00.004Z"
         },
         {
-          "id": "760b9060-7e9d-4a7b-bb84-ddd76c3c4568",
+          "id": "d0474a78-7c34-4bb8-b9ea-089f17c4b04e",
           "tenant_id": "10000000-0000-4000-8000-000000000002",
-          "req_id": "e0275581-5eec-4aeb-9d02-4751571aa276",
+          "req_id": "e772839a-15d6-415d-b6f5-a07f0572c9a0",
           "public_id": "A-1",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "requirement.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.684Z"
+          "created_at": "2026-09-15T03:15:00.022Z"
         },
         {
-          "id": "e856a8e0-52bd-494d-af09-f813e22696c0",
+          "id": "d548c6c6-f1dc-4ab7-9cbd-8664627d4947",
           "tenant_id": "10000000-0000-4000-8000-000000000001",
-          "req_id": "e95d3929-339b-4600-bd59-98f9a0e641df",
+          "req_id": "f3d1457b-071c-406c-9fad-5d72871e9bcd",
           "public_id": "A-6",
           "actor": "CODEx_TEST_M2C_20260912_storage",
           "action": "requirement.created",
           "detail": "",
-          "created_at": "2026-09-15T00:30:57.869Z"
+          "created_at": "2026-09-15T03:15:00.390Z"
         }
       ]
     },
