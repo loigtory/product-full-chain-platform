@@ -114,6 +114,18 @@
               tool: 'exec',
               workspace: execWs,
               restrictedReadDirs: P.s.ui.execRestrictedDirs || [],
+              // D5 受控执行计划（Owner 确认后冻结）：strict 默认允许 workspace 内全部改动，
+              // readonly 只读复核；执行后差异超出允许清单将被拒绝并回滚（服务端 exec-control）。
+              control: {
+                mode: P.s.ui.execControl?.mode === 'readonly' ? 'readonly' : 'strict',
+                allowedFiles: Array.isArray(P.s.ui.execControl?.allowedFiles) && P.s.ui.execControl.allowedFiles.length
+                  ? P.s.ui.execControl.allowedFiles
+                  : ['workspace/**'],
+                allowedCommands: P.s.ui.execControl?.allowedCommands || [],
+                maxFiles: 50,
+                maxBytes: 2097152,
+                approvedBy: 'owner',
+              },
             }
           : {}),
       });

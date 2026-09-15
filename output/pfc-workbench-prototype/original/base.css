@@ -432,3 +432,21 @@ div.composer{flex-wrap:wrap;}
 .exec-bar input:focus{border-color:var(--brand);box-shadow:0 0 0 2px rgba(0,160,233,.10);}
 .exec-bar input::placeholder{color:var(--text-3);}
 .exec-bar .exec-hint{font-size:11px;color:var(--text-3);white-space:nowrap;flex:none;}
+/* D5 受控执行计划（折叠区）：模式/允许文件/允许命令 */
+.exec-bar .exec-control{
+  flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  border:1px dashed var(--border);border-radius:8px;padding:8px 10px;background:var(--surface-2, rgba(0,0,0,.02));
+}
+.exec-bar .exec-control summary{
+  font-size:11px;font-weight:600;color:var(--brand-strong);cursor:pointer;user-select:none;flex:1 1 100%;
+}
+.exec-bar .exec-field{
+  display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-2);flex:1 1 100%;
+}
+.exec-bar .exec-field input{
+  flex:1 1 180px;
+}
+.exec-bar .exec-field select{
+  border:1px solid var(--border);border-radius:8px;padding:5px 8px;font-size:12px;
+  color:var(--text-1);background:var(--surface);outline:none;flex:none;
+}

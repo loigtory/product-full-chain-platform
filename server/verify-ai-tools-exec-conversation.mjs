@@ -82,7 +82,7 @@ try {
   const wd = path.resolve('.local/ai-tools-integration-20260914/preflight');
   mkdirSync(wd, { recursive: true });
   const r1 = resolveRealJobInput(
-    { tool: 'exec', workspace: wd, restrictedReadDirs: ['D:/other'] },
+    { tool: 'exec', workspace: wd, restrictedReadDirs: ['D:/other'], control: { mode: 'strict', allowedFiles: ['workspace/**'], allowedCommands: ['node --test'] } },
     base,
   );
   check('tool:exec → kind EXECUTE', () => assert.equal(r1.kind, 'EXECUTE'));
@@ -90,6 +90,9 @@ try {
   check('workspace passed through', () => assert.equal(r1.input.workspace, wd));
   check('restrictedReadDirs passed through', () =>
     assert.deepEqual(r1.input.restrictedReadDirs, ['D:/other']),
+  );
+  check('D5 control plan passed through', () =>
+    assert.deepEqual(r1.input.control, { mode: 'strict', allowedFiles: ['workspace/**'], allowedCommands: ['node --test'] }),
   );
   check('exec prompt content retained', () =>
     assert.equal(r1.input.content, '修复登录页按钮'),
@@ -99,7 +102,7 @@ try {
       r1.inputHash,
       require('node:crypto')
         .createHash('sha256')
-        .update(JSON.stringify({ content: '修复登录页按钮', workspace: wd, restrictedReadDirs: ['D:/other'] }))
+        .update(JSON.stringify({ content: '修复登录页按钮', workspace: wd, restrictedReadDirs: ['D:/other'], control: { mode: 'strict', allowedFiles: ['workspace/**'], allowedCommands: ['node --test'] } }))
         .digest('hex'),
     ),
   );

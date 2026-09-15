@@ -577,6 +577,27 @@
         .filter(Boolean);
       P.save();
     }
+    if (el.id === 'exec-control-mode') {
+      P.s.ui.execControl = P.s.ui.execControl || {};
+      P.s.ui.execControl.mode = el.value;
+      P.save();
+    }
+    if (el.id === 'exec-control-files') {
+      P.s.ui.execControl = P.s.ui.execControl || {};
+      P.s.ui.execControl.allowedFiles = el.value
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      P.save();
+    }
+    if (el.id === 'exec-control-cmds') {
+      P.s.ui.execControl = P.s.ui.execControl || {};
+      P.s.ui.execControl.allowedCommands = el.value
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      P.save();
+    }
     if (el.id === 'global-query') P.searchResults(el.value.trim());
     if (el.id === 'requirement-filter') {
       P.s.ui.search = el.value;

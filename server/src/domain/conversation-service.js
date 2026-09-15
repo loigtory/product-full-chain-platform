@@ -66,6 +66,7 @@ function resolveRealJobInput(input, ids) {
       ? {
           workspace: input.workspace,
           restrictedReadDirs: input.restrictedReadDirs,
+          control: input.control ?? null,
         }
       : null;
   if (execTool?.workspace) {
@@ -88,6 +89,7 @@ function resolveRealJobInput(input, ids) {
             ? {
                 workspace: execTool.workspace ?? null,
                 restrictedReadDirs: execTool.restrictedReadDirs ?? [],
+                control: execTool.control ?? null,
               }
             : {}),
         }),
@@ -103,6 +105,7 @@ function resolveRealJobInput(input, ids) {
         ? {
             workspace: execTool.workspace,
             restrictedReadDirs: execTool.restrictedReadDirs || [],
+            control: execTool.control ?? undefined,
           }
         : {}),
     },
