@@ -35,6 +35,49 @@ const check = (name, fn) => {
   }
 };
 
+// EVIDENCE_ONLY 证据模式（与 exec-cli/real 一致）：引用已入库 PASS 证据断言，
+// 不建 schema、不跑模型、不消耗预算。证据文件来自 docs/quality-gate/reports/ai-tools-integration-20260914/。
+if (process.env.EVIDENCE_ONLY) {
+  const evReport = {
+    at: new Date().toISOString(),
+    status: 'FAIL',
+    scope: 'exec worker EVIDENCE_ONLY（引用已入库 PASS 证据，不跑模型）',
+    modelTurns: 0,
+    checks: [],
+    evidenceOnly: process.env.EVIDENCE_ONLY,
+  };
+  try {
+    const evPath = path.join(
+      here,
+      '..',
+      'docs/quality-gate/reports/ai-tools-integration-20260914',
+      process.env.EVIDENCE_ONLY,
+    );
+    const ev = JSON.parse(readFileSync(evPath, 'utf8'));
+    const echeck = (name, fn) => {
+      try {
+        fn();
+        evReport.checks.push({ name, pass: true });
+      } catch (e) {
+        evReport.checks.push({ name, pass: false, error: String(e.message || e) });
+        throw e;
+      }
+    };
+    echeck('evidence status PASS', () => assert.equal(ev.status, 'PASS'));
+    echeck('evidence runResult SUCCEEDED', () =>
+      assert.equal(ev.runResult && ev.runResult.status, 'SUCCEEDED'),
+    );
+    echeck('evidence probe outsideReadDenied=true', () =>
+      assert.equal(ev.probe && ev.probe.outsideReadDenied, true),
+    );
+    evReport.status = 'PASS';
+  } catch (e) {
+    evReport.error = String(e.message || e);
+  }
+  console.log(JSON.stringify(evReport, null, 2));
+  process.exit(evReport.status === 'PASS' ? 0 : 1);
+}
+
 // 预算账本：不自行 lock（worker 内部 reserveTurn/settleTurn 已含 lock+登记+结算），
 // 仅在跑前后做 turns 快照断言真实消耗。
 const ledgerPath = path.resolve('.local/ai-tools-integration-20260914/preflight/configs/model-budget.json');

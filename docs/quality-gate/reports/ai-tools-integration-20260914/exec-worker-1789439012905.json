@@ -1,0 +1,62 @@
+{
+  "at": "2026-09-15T02:23:03.008Z",
+  "status": "PASS",
+  "scope": "exec worker runExecJob end-to-end: enqueue EXEC job → CLI host exec + restricted-read hook → ai message written back; assert SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "runExecJob SUCCEEDED",
+      "pass": true
+    },
+    {
+      "name": "agent_jobs final state SUCCEEDED",
+      "pass": true
+    },
+    {
+      "name": "ai message final ok",
+      "pass": true
+    },
+    {
+      "name": "probe JSON written into ai message",
+      "pass": true
+    },
+    {
+      "name": "outsideReadDenied=true (restricted-read enforced in exec worker)",
+      "pass": true
+    },
+    {
+      "name": "insideWrite=true",
+      "pass": true
+    },
+    {
+      "name": "restricted-read ACL removed after job",
+      "pass": true
+    },
+    {
+      "name": "model budget consumed exactly one turn",
+      "pass": true
+    }
+  ],
+  "runResult": {
+    "status": "SUCCEEDED",
+    "code": null
+  },
+  "probe": {
+    "insideWrite": true,
+    "outsideReadDenied": true,
+    "outsideWriteDenied": true
+  },
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_exec",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_exec_50b3d631-8e0b-4216-8cd9-a42c9cf3c992",
+    "createdIds": [
+      "d3c754c8-b744-43fa-81e1-cd40943916a9",
+      "6135c59f-2d74-4eda-b4ed-afae9ce8dc66",
+      "be754c87-e950-44eb-bc87-973ae5bcf14e"
+    ],
+    "totalRows": 24,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}
