@@ -21,9 +21,9 @@ const LEDGER = path.resolve(
   '..',
   '.local/ai-tools-integration-20260914/preflight/configs/model-budget.json',
 );
-// 上限 60 次/单次 300 秒/累计 120 分钟：用户 9-15 多次确认扩大模型预算上限，
-// 合并账本后已用 50 次，F（D5 受控执行）收口仍需 1 次真实调用（9-15 再扩一档）。
-const MAX_TURNS = 60;
+// 上限 80 次/单次 300 秒/累计 120 分钟：用户 9-15 多次确认扩大模型预算上限，
+// H 常驻验收收口后实读 58/60（剩 2），用户按需确认再扩至 80（9-15 末轮）。
+const MAX_TURNS = 80;
 const TURN_SECONDS = 300;
 const MAX_RESERVED_SECONDS = 7200;
 const PACKAGE = '44-ai-tools-integration-20260914';
