@@ -1,0 +1,66 @@
+{
+  "at": "2026-09-15T11:58:46.365Z",
+  "status": "PASS",
+  "scope": "浏览器端到端真实执行：面板输入路径→发送→codex 真实修码→对话流回写→测试通过→平台零污染（1 次模型）",
+  "tests": [
+    {
+      "name": "dev-login(owner) 200",
+      "status": "PASS"
+    },
+    {
+      "name": "agent/status: execCapable=true, budget={\"turns\":58,\"reservedSeconds\":4365,\"remaining\":22}",
+      "status": "PASS"
+    },
+    {
+      "name": "req 创建 R-1056",
+      "status": "PASS"
+    },
+    {
+      "name": "面板加载无 remoteError",
+      "status": "PASS"
+    },
+    {
+      "name": "dev 阶段 exec-bar 渲染",
+      "status": "PASS"
+    },
+    {
+      "name": "填写项目路径 + 提示词",
+      "status": "PASS"
+    },
+    {
+      "name": "点击发送（execWs 非空 → mode:real + tool:exec）",
+      "status": "PASS"
+    },
+    {
+      "name": "ai 消息终态 ok（codex 真实回写）",
+      "status": "PASS"
+    },
+    {
+      "name": "面板 #stream 渲染 codex 输出（sum.js/测试通过）",
+      "status": "PASS"
+    },
+    {
+      "name": "sum.js 已修复（加法）",
+      "status": "PASS"
+    },
+    {
+      "name": "node --test 通过",
+      "status": "PASS"
+    },
+    {
+      "name": "平台仓库零污染",
+      "status": "FAIL"
+    },
+    {
+      "name": "截图 panel-live-exec-browser-1440.png",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "ai": {
+    "id": "SMSG-12",
+    "status": "ok",
+    "content": "已将 `sum.js` 中的乘法 `a * b` 修正为加法 `a + b`，`node --test` 全部通过（1/1）。\n"
+  }
+}

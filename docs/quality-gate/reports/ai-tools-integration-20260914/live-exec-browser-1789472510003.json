@@ -1,0 +1,39 @@
+{
+  "at": "2026-09-15T11:37:45.064Z",
+  "status": "FAIL",
+  "scope": "浏览器端到端真实执行：面板输入路径→发送→codex 真实修码→对话流回写→测试通过→平台零污染（1 次模型）",
+  "tests": [
+    {
+      "name": "dev-login(owner) 200",
+      "status": "PASS"
+    },
+    {
+      "name": "agent/status: execCapable=true, budget={\"turns\":58,\"reservedSeconds\":4365,\"remaining\":22}",
+      "status": "PASS"
+    },
+    {
+      "name": "req 创建 R-1050",
+      "status": "PASS"
+    },
+    {
+      "name": "面板加载无 remoteError",
+      "status": "PASS"
+    },
+    {
+      "name": "dev 阶段 exec-bar 渲染",
+      "status": "PASS"
+    },
+    {
+      "name": "填写项目路径 + 提示词",
+      "status": "PASS"
+    },
+    {
+      "name": "点击发送（execWs 非空 → mode:real + tool:exec）",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    "ai 消息 240s 内终态"
+  ],
+  "external": []
+}
