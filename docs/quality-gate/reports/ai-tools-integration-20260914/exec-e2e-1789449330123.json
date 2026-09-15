@@ -1,0 +1,22 @@
+{
+  "at": "2026-09-15T05:15:27.807Z",
+  "status": "FAIL",
+  "scope": "exec http end-to-end: POST /messages {mode:real, tool:exec, workspace} → EXECUTE job → runExecJob → streamed ai message",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "server ready",
+      "pass": true
+    },
+    {
+      "name": "sendMessage accepted",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n"
+    }
+  ],
+  "serverLogs": "[error] COMMAND_ID_REQUIRED\n",
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n"
+  }
+}

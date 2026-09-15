@@ -8,7 +8,7 @@ function storageError(code) {
 function validateTarget({ connectionString, schema, authorizedSchema } = {}) {
   if (
     (!/^codex_test_m2c_[a-z0-9_]{1,40}$/.test(schema || '') &&
-      !/^codex_test_ai_tools_20260914_(api|real|browser|exec|execbrowser)$/.test(schema || '') &&
+      !/^codex_test_ai_tools_20260914_(api|real|browser|exec|execbrowser|exece2e)$/.test(schema || '') &&
       schema !== 'pfc_workbench') ||
     schema !== authorizedSchema
   ) {

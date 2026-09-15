@@ -1,0 +1,60 @@
+{
+  "at": "2026-09-15T07:08:19.442Z",
+  "status": "PASS",
+  "scope": "exec http end-to-end: POST /messages {mode:real, tool:exec, workspace} → EXECUTE job → runExecJob → streamed ai message",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "server ready",
+      "pass": true
+    },
+    {
+      "name": "sendMessage accepted",
+      "pass": true
+    },
+    {
+      "name": "ai message final within timeout",
+      "pass": true
+    },
+    {
+      "name": "agent_jobs EXECUTE SUCCEEDED",
+      "pass": true
+    },
+    {
+      "name": "exec output streamed into ai message",
+      "pass": true
+    },
+    {
+      "name": "ai message final ok",
+      "pass": true
+    }
+  ],
+  "getReq": "{\"req\":{\"id\":\"R-1041\",\"name\":\"CODEx_TEST_M2C_AI_TOOLS_20260914_exece2e_1988a65e-de7b-48d7-b4fc-810373acb235_积分提醒\",\"goal\":\"提前7天提醒\",\"scope\":\"合成数据\",\"owner\":\"CODEx_TEST_M2C_AI_TOOLS_20260914_exece2e_1988a65e-de7b-48d7-b4fc-810373acb235_owner\",\"stage\":\"idea\",\"revision\":0,\"materialRevision\":0,\"closed\":fal",
+  "sent": "{\"message\":{\"id\":\"SMSG-1\",\"reqId\":\"R-1041\",\"turnId\":\"T-a85e4f78-d145-426f-ada6-d200277547f7\",\"role\":\"user\",\"stage\":\"idea\",\"content\":\"CODEx_TEST_AI_TOOLS_20260914。执行 git status --short 并原样输出结果；不要额外解释。\",\"text\":\"CODEx_TEST_AI_TOOLS_20260914。执行 git status --short 并原样输出结果；不要额外解释。\",\"status\":\"ok\",\"revision jobId=dd23c68d-0950-4ca6-b976-606c432f18c3",
+  "jobId": "dd23c68d-0950-4ca6-b976-606c432f18c3",
+  "aiRaw": {
+    "status": "generating",
+    "metadata": "{\"diff\":null,\"full\":null,\"real\":true,\"refs\":[],\"attachments\":[],\"diffApplied\":false}"
+  },
+  "lastList": [
+    {
+      "role": "ai",
+      "status": "ok",
+      "real": true
+    },
+    {
+      "role": "user",
+      "status": "ok",
+      "real": false
+    }
+  ],
+  "ai": {
+    "status": "ok",
+    "content": "```text\n M ../../../server/src/persistence/connection.js\n M ../../../server/test-data/ai-tools-fixture.mjs\n?? ../../../docs/quality-gate/reports/ai-tools-integration-20260914/exec-e2e-1789449330123.json\n?? ../../../docs/quality-gate/reports/ai-tools-integration-20260914/exec-e2e-1789449490077.json\n?? ../../../docs/quality-gate/reports/ai-tools-integration-20260914/exec-e2e-1789449605128.json\n?? .."
+  },
+  "job": {
+    "kind": "EXECUTE",
+    "state": "SUCCEEDED",
+    "result": "{\"code\":0,\"text\":\"```text\\n M ../../../server/src/persistence/connection.js\\n M ../../../server/test-data/ai-tools-fixture.mjs\\n?? ../../../docs/quality-gate/reports/ai-tools-integration-20260914/exec-e2e-1789449330123.json\\n?? ../../../docs/quality-gate/reports/ai-tools-integration-20260914/exec-e2"
+  }
+}
