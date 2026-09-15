@@ -1,0 +1,125 @@
+{
+  "at": "2026-09-15T14:23:49.680Z",
+  "status": "FAIL",
+  "scope": "阶段 AI 能力：8 阶段配置 API + textThreadParams 装配单测 + 真实 TEXT 作业（1 次模型）",
+  "tests": [
+    {
+      "name": "GET /api/agent/stage-capabilities 200",
+      "status": "PASS"
+    },
+    {
+      "name": "8 阶段能力齐全",
+      "status": "PASS",
+      "stages": [
+        "idea",
+        "req",
+        "design",
+        "dev",
+        "test",
+        "accept",
+        "release",
+        "observe"
+      ]
+    },
+    {
+      "name": "阶段顺序与定义一致",
+      "status": "PASS"
+    },
+    {
+      "name": "每阶段字段完整（stage/name/goal/guide/skills/tools/mcps）",
+      "status": "PASS"
+    },
+    {
+      "name": "装配：期望 skill 命中则 enabled:true（grill-me/platform-test-case-writer）",
+      "status": "PASS",
+      "hitMap": {
+        "grill-me": true,
+        "other": false,
+        "platform-test-case-writer": true
+      }
+    },
+    {
+      "name": "装配：_enabledSkills 只含命中项",
+      "status": "PASS",
+      "enabled": [
+        "grill-me",
+        "platform-test-case-writer"
+      ]
+    },
+    {
+      "name": "装配：未命中保持全禁用（期望能力非硬依赖）",
+      "status": "PASS"
+    },
+    {
+      "name": "回归：无 enabledSkills 时默认全禁用",
+      "status": "PASS"
+    },
+    {
+      "name": "守卫：非法 inventory（相对路径）拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "真实 inventory 对齐：各阶段期望 skill 全部命中本机 codex inventory",
+      "status": "FAIL",
+      "error": "Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'"
+    },
+    {
+      "name": "创建 req（idea 阶段）",
+      "status": "PASS",
+      "pid": "R-1066"
+    },
+    {
+      "name": "发送 TEXT 真实作业（mode:real，idea 阶段）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "ai 消息终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "回写内容非空",
+      "status": "PASS",
+      "len": 923
+    },
+    {
+      "name": "按 idea 阶段工作法产出（含目标/边界/澄清问题结构）",
+      "status": "PASS",
+      "snippet": "**1. 目标（待确认）**\n\n- 服务用户：内部任务管理工具中负责版本升级的研发、测试及发布负责人，具体角色待确认。\n- 解决问题：升级前难以及时识别依赖中的高风险项，风险发现依赖人工排查。\n- 期望结果：在升级前自动扫描约定范围的依赖，输出可定位、可判断、可处理的风险清单，为升级决策提供依据。\n- “高风险”尚未定义：需确认是否仅指已知安全漏洞，还是包含停止维护、许可证不兼容等风险。\n\n**2. 边界（建议，待确认）**\n\n| 本次"
+    },
+    {
+      "name": "消息 metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "FAIL",
+      "dirty": [
+        " M output/pfc-workbench-prototype/original/workbench.js",
+        " M output/pfc-workbench-prototype/verify-ai-tools-stage-capabilities.mjs",
+        " M server/src/agent/stage-capabilities.js",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/live-server-browser-1789479958594.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789478955.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479370.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479532.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479634.json"
+      ]
+    }
+  ],
+  "errors": [
+    "B2 真实对齐失败: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'd:'",
+    "真实 inventory 对齐：各阶段期望 skill 全部命中本机 codex inventory",
+    "平台仓库零污染（server/apps/packages 无改动）"
+  ],
+  "external": [
+    {
+      "ai": {
+        "id": "SMSG-28",
+        "status": "ok",
+        "snippet": "**1. 目标（待确认）**\n\n- 服务用户：内部任务管理工具中负责版本升级的研发、测试及发布负责人，具体角色待确认。\n- 解决问题：升级前难以及时识别依赖中的高风险项，风险发现依赖人工排查。\n- 期望结果：在升级前自动扫描约定范围的依赖，输出可定位、可判断、可处理的风险清单，为升级决策提供依据。\n- “高风险”尚未定义：需确认是否仅指已知安全漏洞，还是包含停止维护、许可证不兼容等风险。\n\n**2. 边界（建议，待确认）**\n\n| 本次覆盖 | 本次暂不覆盖 |\n|---|---|\n| 对指定项目和待升级版本执行依赖扫描 | 全公司资产盘点 |\n| 按约定规则识别高风险依赖并展示依据 | 自研"
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "at": "2026-09-15T13:29:15.128Z",
+  "status": "FAIL",
+  "scope": "阶段 AI 能力：8 阶段配置 API + textThreadParams 装配单测 + 真实 TEXT 作业（1 次模型）",
+  "tests": [
+    {
+      "name": "GET /api/agent/stage-capabilities 200",
+      "status": "PASS"
+    },
+    {
+      "name": "8 阶段能力齐全",
+      "status": "PASS",
+      "stages": [
+        "idea",
+        "req",
+        "design",
+        "dev",
+        "test",
+        "accept",
+        "release",
+        "observe"
+      ]
+    },
+    {
+      "name": "阶段顺序与定义一致",
+      "status": "PASS"
+    },
+    {
+      "name": "每阶段字段完整（stage/name/goal/guide/skills/tools/mcps）",
+      "status": "PASS"
+    },
+    {
+      "name": "装配：期望 skill 命中则 enabled:true（product-manager/qa）",
+      "status": "PASS",
+      "hitMap": {
+        "product-manager": true,
+        "other": false,
+        "qa": true
+      }
+    },
+    {
+      "name": "装配：_enabledSkills 只含命中项",
+      "status": "PASS",
+      "enabled": [
+        "product-manager",
+        "qa"
+      ]
+    },
+    {
+      "name": "装配：未命中保持全禁用（期望能力非硬依赖）",
+      "status": "PASS"
+    },
+    {
+      "name": "回归：无 enabledSkills 时默认全禁用",
+      "status": "PASS"
+    },
+    {
+      "name": "守卫：非法 inventory（相对路径）拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "创建 req（idea 阶段）",
+      "status": "PASS",
+      "pid": "R-1058"
+    },
+    {
+      "name": "发送 TEXT 真实作业（mode:real，idea 阶段）",
+      "status": 201
+    },
+    {
+      "name": "ai 消息终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "FAIL",
+      "dirty": [
+        " M output/pfc-workbench-prototype/original/app.js",
+        " M output/pfc-workbench-prototype/original/workbench.js",
+        " M server/src/agent/config.js",
+        " M server/src/agent/conversation-provider.js",
+        " M server/src/agent/worker.js",
+        " M server/src/routes/agent.js",
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-capabilities.mjs",
+        "?? server/src/agent/stage-capabilities.js"
+      ]
+    }
+  ],
+  "errors": [
+    "发送 TEXT 真实作业（mode:real，idea 阶段）",
+    "ai 消息终态 ok（codex 真实回写）",
+    "平台仓库零污染（server/apps/packages 无改动）"
+  ],
+  "external": [
+    {
+      "step": "ai-final",
+      "status": "failed"
+    }
+  ]
+}

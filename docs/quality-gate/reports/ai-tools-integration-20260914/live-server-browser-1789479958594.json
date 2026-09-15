@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-15T13:45:52.359Z",
+  "status": "PASS",
+  "scope": "常驻验收服务浏览器验收：真实 req 创建 + 面板 dev 阶段 exec 入口渲染 + 项目路径持久化（零模型）",
+  "tests": [
+    {
+      "name": "dev-login(owner) 200",
+      "status": "PASS"
+    },
+    {
+      "name": "agent/status: execCapable=true, schema 007",
+      "status": "PASS"
+    },
+    {
+      "name": "POST /api/reqs 201（真实创建）",
+      "status": "PASS"
+    },
+    {
+      "name": "面板加载无 remoteError（连 5188）",
+      "status": "PASS"
+    },
+    {
+      "name": "dev 阶段 execCapable=true 就绪",
+      "status": "PASS"
+    },
+    {
+      "name": "exec-bar 渲染（开发执行入口可见）",
+      "status": "PASS"
+    },
+    {
+      "name": "exec-restricted 渲染",
+      "status": "PASS"
+    },
+    {
+      "name": "项目路径写入 P.s.ui.execWorkspace 持久化",
+      "status": "PASS"
+    },
+    {
+      "name": "截图 panel-dev-exec-1440.png",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": []
+}

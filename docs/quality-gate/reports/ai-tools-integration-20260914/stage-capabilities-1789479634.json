@@ -1,0 +1,112 @@
+{
+  "at": "2026-09-15T13:40:08.308Z",
+  "status": "FAIL",
+  "scope": "阶段 AI 能力：8 阶段配置 API + textThreadParams 装配单测 + 真实 TEXT 作业（1 次模型）",
+  "tests": [
+    {
+      "name": "GET /api/agent/stage-capabilities 200",
+      "status": "PASS"
+    },
+    {
+      "name": "8 阶段能力齐全",
+      "status": "PASS",
+      "stages": [
+        "idea",
+        "req",
+        "design",
+        "dev",
+        "test",
+        "accept",
+        "release",
+        "observe"
+      ]
+    },
+    {
+      "name": "阶段顺序与定义一致",
+      "status": "PASS"
+    },
+    {
+      "name": "每阶段字段完整（stage/name/goal/guide/skills/tools/mcps）",
+      "status": "PASS"
+    },
+    {
+      "name": "装配：期望 skill 命中则 enabled:true（product-manager/qa）",
+      "status": "PASS",
+      "hitMap": {
+        "product-manager": true,
+        "other": false,
+        "qa": true
+      }
+    },
+    {
+      "name": "装配：_enabledSkills 只含命中项",
+      "status": "PASS",
+      "enabled": [
+        "product-manager",
+        "qa"
+      ]
+    },
+    {
+      "name": "装配：未命中保持全禁用（期望能力非硬依赖）",
+      "status": "PASS"
+    },
+    {
+      "name": "回归：无 enabledSkills 时默认全禁用",
+      "status": "PASS"
+    },
+    {
+      "name": "守卫：非法 inventory（相对路径）拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "创建 req（idea 阶段）",
+      "status": "PASS",
+      "pid": "R-1061"
+    },
+    {
+      "name": "发送 TEXT 真实作业（mode:real，idea 阶段）",
+      "status": 201
+    },
+    {
+      "name": "ai 消息终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "回写内容非空",
+      "status": "PASS",
+      "len": 898
+    },
+    {
+      "name": "按 idea 阶段工作法产出（含目标/边界/澄清问题结构）",
+      "status": "PASS",
+      "snippet": "**目标**\n\n- 服务用户：内部任务管理工具的版本升级负责人；扫描结果由谁处置、谁接受风险，待明确。\n- 解决问题：升级前缺少自动检查，可能遗漏高风险依赖。\n- 期望结果：在升级前发现风险，提供可核查的依据与处置线索，支持升级决策。\n\n**边界（建议，待确认）**\n\n- 本次覆盖：确定待升级版本的依赖范围、自动扫描、风险分级、结果展示与处置状态记录。\n- 本次暂不覆盖：自动修复依赖、源代码安全审计、运行时攻击检测。\n- 待定边界：直接"
+    },
+    {
+      "name": "消息 metadata.real=true",
+      "status": "FAIL"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789478955.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479370.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479532.json",
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-capabilities.mjs"
+      ]
+    }
+  ],
+  "errors": [
+    "消息 metadata.real=true"
+  ],
+  "external": [
+    {
+      "ai": {
+        "id": "SMSG-22",
+        "status": "ok",
+        "snippet": "**目标**\n\n- 服务用户：内部任务管理工具的版本升级负责人；扫描结果由谁处置、谁接受风险，待明确。\n- 解决问题：升级前缺少自动检查，可能遗漏高风险依赖。\n- 期望结果：在升级前发现风险，提供可核查的依据与处置线索，支持升级决策。\n\n**边界（建议，待确认）**\n\n- 本次覆盖：确定待升级版本的依赖范围、自动扫描、风险分级、结果展示与处置状态记录。\n- 本次暂不覆盖：自动修复依赖、源代码安全审计、运行时攻击检测。\n- 待定边界：直接与传递依赖、漏洞与许可证风险、扫描失败处理、是否阻断升级。\n\n**必须回答的澄清问题**\n\n| 类别 | 问题 |\n|---|---|\n| 用户与范围 | 扫描"
+      }
+    }
+  ]
+}

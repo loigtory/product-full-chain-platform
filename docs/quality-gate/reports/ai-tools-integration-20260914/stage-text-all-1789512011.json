@@ -1,0 +1,103 @@
+{
+  "at": "2026-09-15T22:37:53.992Z",
+  "status": "FAIL",
+  "scope": "逐阶段真实 TEXT：8 阶段 guide+skill 组合产出质量（每阶段 1 次模型）",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1082"
+    },
+    {
+      "name": "DESIGN 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "DESIGN ai 终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "DEV 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "DEV ai 终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "TEST 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "TEST ai 终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "RELEASE 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "RELEASE ai 终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "OBSERVE 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "OBSERVE ai 终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/live-server-browser-1789479958594.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789478955.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479370.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479532.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479634.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-capabilities-1789479752.json"
+      ]
+    }
+  ],
+  "errors": [
+    "DESIGN ai 终态 ok（codex 真实回写）",
+    "DEV ai 终态 ok（codex 真实回写）",
+    "TEST ai 终态 ok（codex 真实回写）",
+    "RELEASE ai 终态 ok（codex 真实回写）",
+    "OBSERVE ai 终态 ok（codex 真实回写）"
+  ],
+  "external": [
+    {
+      "step": "DESIGN-final",
+      "status": "failed"
+    },
+    {
+      "step": "DEV-final",
+      "status": "failed"
+    },
+    {
+      "step": "TEST-final",
+      "status": "failed"
+    },
+    {
+      "step": "RELEASE-final",
+      "status": "failed"
+    },
+    {
+      "step": "OBSERVE-final",
+      "status": "failed"
+    }
+  ]
+}
