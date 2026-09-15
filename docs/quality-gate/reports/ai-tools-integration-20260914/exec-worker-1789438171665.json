@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-15T02:09:30.066Z",
+  "status": "FAIL",
+  "scope": "exec worker runExecJob end-to-end: enqueue EXEC job → CLI host exec + restricted-read hook → ai message written back; assert SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [],
+  "error": "apply is not defined",
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_exec",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_exec_df6fd6b1-2fec-45bb-af91-384d11be858c",
+    "createdIds": [
+      "7fe254a3-3323-401c-9888-11388fa1d4e2",
+      "ed253fa9-71a4-43bb-9b71-59c1c22f028a",
+      "20633667-0170-4b43-a3fc-31520c0af4ec"
+    ],
+    "totalRows": 23,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}

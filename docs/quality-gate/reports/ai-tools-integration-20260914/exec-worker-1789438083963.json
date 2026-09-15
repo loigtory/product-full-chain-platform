@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-15T02:08:02.278Z",
+  "status": "FAIL",
+  "scope": "exec worker runExecJob end-to-end: enqueue EXEC job → CLI host exec + restricted-read hook → ai message written back; assert SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [],
+  "error": "new row for relation \"agent_jobs\" violates check constraint \"agent_jobs_kind_check\"",
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_exec",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_exec_65a0e877-69c0-49d3-8e4f-3145bb29b674",
+    "createdIds": [
+      "417bd030-7666-4d7c-b450-f94ea3731878",
+      "57d3810e-4714-4a54-901d-87d388c75d1c",
+      "fd7f2eb7-f488-410f-bca1-0c58ce1472e9"
+    ],
+    "totalRows": 15,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}

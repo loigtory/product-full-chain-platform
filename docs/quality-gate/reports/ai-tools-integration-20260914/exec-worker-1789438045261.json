@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-15T02:07:25.032Z",
+  "status": "FAIL",
+  "scope": "exec worker runExecJob end-to-end: enqueue EXEC job → CLI host exec + restricted-read hook → ai message written back; assert SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [],
+  "error": "relation \"codex_test_ai_tools_20260914_exec.tenants\" does not exist",
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_exec",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_exec_7adafa64-40ad-41d3-a57e-44e19ef52360",
+    "createdIds": [],
+    "totalRows": 0,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}

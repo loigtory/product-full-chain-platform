@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-15T02:18:43.288Z",
+  "status": "FAIL",
+  "scope": "exec worker runExecJob end-to-end: enqueue EXEC job → CLI host exec + restricted-read hook → ai message written back; assert SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "runExecJob SUCCEEDED",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'FAILED'\n- 'SUCCEEDED'\n"
+    }
+  ],
+  "runResult": {
+    "status": "FAILED",
+    "code": "AGENT_LEASE_LOST"
+  },
+  "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'FAILED'\n- 'SUCCEEDED'\n",
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_exec",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_exec_5c77f3a2-8623-4103-87d7-dba784293044",
+    "createdIds": [
+      "61ea6315-f9d6-4d95-a0cf-8e584a584ad3",
+      "599b63a9-2b72-444d-8d19-4a739f05e200",
+      "38b79d1d-d5c3-4eb9-9319-cd8c0d9b2152"
+    ],
+    "totalRows": 24,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}

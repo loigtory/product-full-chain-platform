@@ -6,10 +6,15 @@
 const { TextConversation } = require('./conversation-provider');
 const { withTransaction } = require('../persistence/transaction');
 const { createHash } = require('node:crypto');
+const { spawn } = require('node:child_process');
 const path = require('node:path');
 const { readFileSync } = require('node:fs');
 const jobs = require('../persistence/agent-jobs');
 const { reserveTurn, settleTurn, release } = require('./budget');
+const {
+  applyRestrictedReadAll,
+  removeRestrictedReadAll,
+} = require('./restricted-read');
 const fail = (code) => Object.assign(new Error(code), { code });
 
 // 本机 worker 的固定运行身份（合法 uuid，用于 agent_jobs.owner_id 租约）。
@@ -195,4 +200,163 @@ async function cancel(jobId) {
   return !!entry;
 }
 
-module.exports = { runTextJob, cancel, connectionOptions, OWNER };
+// EXEC 作业超时上限（毫秒）：CLI host 长任务保护，超时 kill 并按 TIMED_OUT 结算。
+const EXEC_TIMEOUT_MS = 900000;
+
+// 执行一个 EXEC 作业：CLI host（codex exec，Windows elevated + workspace-write）+
+// 受限读 hook + 流式输出写回 ai 消息。产品形态参数从 job.input 注入：
+//   content（prompt）、workspace/cwd（工作区，默认连接 cwd）、
+//   restrictedReadDirs（工作区外受限读目录清单，默认空 = 不启用）。
+// 幂等：同一 jobId 已在运行或已终态则跳过。
+async function runExecJob({ db, ctx, reqPublicId, jobId }) {
+  if (active.has(jobId)) return { skipped: true };
+  const options = connectionOptions();
+  let child = null;
+  let timer = null;
+  let heartbeat = null;
+  let writeChain = Promise.resolve();
+  let aiMessageId = null;
+  let startedAt = Date.now();
+  let budgetActive = false;
+  let restrictedDirs = [];
+  let apply = null;
+  active.set(jobId, {
+    cancel: () => {
+      try {
+        child?.kill();
+      } catch (_) {
+        /* ignore */
+      }
+    },
+  });
+  try {
+    const job = await withTransaction(db, async (client) => {
+      const claimed = await jobs.claimById(client, db, jobId, OWNER);
+      await jobs.dispatch(client, db, jobId, OWNER);
+      return claimed;
+    });
+    aiMessageId = job.input?.aiMessageId ?? null;
+    if (!options) throw fail('CONNECTION_UNAVAILABLE');
+    const input = job.input || {};
+    const prompt = String(input.content || '').trim();
+    if (!prompt) throw fail('EMPTY_EXEC_PROMPT');
+    const workspace = String(input.workspace || input.cwd || options.cwd || process.cwd());
+    restrictedDirs = Array.isArray(input.restrictedReadDirs)
+      ? input.restrictedReadDirs.map((d) => String(d))
+      : [];
+    apply = restrictedDirs.length ? applyRestrictedReadAll(restrictedDirs) : null;
+    reserveTurn();
+    budgetActive = true;
+    startedAt = Date.now();
+    let accumulated = '';
+    const binary = options.binary;
+    const spawnBin = binary.endsWith('.js') ? process.execPath : binary;
+    const args = (binary.endsWith('.js') ? [binary] : []).concat([
+      'exec',
+      '-s', 'workspace-write',
+      '-c', 'windows.sandbox="elevated"',
+      '-c', 'sandbox_workspace_write.network_access=false',
+      '-c', 'approval_policy=never',
+      '-C', workspace,
+      '--disable', 'apps',
+      '--disable', 'plugins',
+      '--disable', 'hooks',
+      '--disable', 'browser_use',
+      '--disable', 'computer_use',
+      '--disable', 'multi_agent',
+    ]);
+    child = spawn(spawnBin, args, { cwd: workspace, windowsHide: true });
+    // 心跳续租：CLI host 真实执行可能远超 claim 的 30s lease，
+    // 每 20s 续租，避免 finish 时 owned 检查 AGENT_LEASE_LOST。
+    heartbeat = setInterval(() => {
+      withTransaction(db, async (client) => {
+        await jobs.heartbeat(client, db, jobId, OWNER);
+      }).catch(() => {
+        /* 心跳失败不阻断作业，finish 时按实际租约判定 */
+      });
+    }, 20000);
+    timer = setTimeout(() => {
+      try {
+        child.kill();
+      } catch (_) {
+        /* ignore */
+      }
+    }, EXEC_TIMEOUT_MS);
+    child.stdout.on('data', (chunk) => {
+      accumulated += chunk;
+      if (accumulated.length > 200000) {
+        try {
+          child.kill();
+        } catch (_) {
+          /* ignore */
+        }
+        writeChain = writeChain.then(() => failMessage(db, ctx, reqPublicId, aiMessageId, 'MODEL_OUTPUT_LIMIT')).catch(() => {});
+      } else {
+        writeChain = writeChain
+          .then(() =>
+            writeMessage(db, ctx, reqPublicId, job.req_id, aiMessageId, accumulated),
+          )
+          .catch(() => {});
+      }
+    });
+    const code = await new Promise((resolve, reject) => {
+      child.on('error', reject);
+      child.on('close', (c) => resolve(c ?? -1));
+      child.stdin.end(prompt);
+    });
+    clearTimeout(timer);
+    timer = null;
+    await writeChain;
+    const exceeded = accumulated.length > 200000;
+    if (exceeded) throw fail('MODEL_OUTPUT_LIMIT');
+    await writeMessage(db, ctx, reqPublicId, job.req_id, aiMessageId, accumulated, {
+      final: true,
+    });
+    if (code !== 0) throw fail('EXEC_EXIT_' + code);
+    await finishJob(db, ctx, jobId, 'SUCCEEDED', { text: accumulated, code }, null);
+    if (budgetActive)
+      settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
+        inputHash: createHash('sha256').update(prompt).digest('hex'),
+      });
+    return { status: 'SUCCEEDED', jobId };
+  } catch (e) {
+    const code = e.code || 'TURN_FAILED';
+    const state =
+      code === 'TURN_CANCELLED'
+        ? 'CANCELLED'
+        : code === 'TURN_TIMED_OUT'
+          ? 'TIMED_OUT'
+          : 'FAILED';
+    if (aiMessageId)
+      await failMessage(db, ctx, reqPublicId, aiMessageId, code).catch(() => {});
+    await finishJob(db, ctx, jobId, state, null, code).catch(() => {});
+    if (budgetActive) {
+      try {
+        settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state);
+      } catch {
+        release();
+      }
+    }
+    return { status: state, code };
+  } finally {
+    if (heartbeat) clearInterval(heartbeat);
+    if (timer) clearTimeout(timer);
+    if (child && child.exitCode === null) {
+      try {
+        child.kill();
+      } catch (_) {
+        /* ignore */
+      }
+    }
+    if (apply && restrictedDirs.length) {
+      try {
+        removeRestrictedReadAll(restrictedDirs);
+      } catch (_) {
+        /* ignore */
+      }
+    }
+    active.delete(jobId);
+  }
+}
+
+module.exports = { runTextJob, runExecJob, cancel, connectionOptions, OWNER };

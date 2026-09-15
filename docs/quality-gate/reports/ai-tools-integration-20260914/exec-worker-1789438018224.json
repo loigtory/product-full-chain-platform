@@ -1,0 +1,8 @@
+{
+  "at": "2026-09-15T02:06:58.178Z",
+  "status": "FAIL",
+  "scope": "exec worker runExecJob end-to-end: enqueue EXEC job → CLI host exec + restricted-read hook → ai message written back; assert SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [],
+  "error": "SCHEMA_NOT_AUTHORIZED"
+}
