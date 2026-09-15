@@ -415,3 +415,20 @@ input,textarea{font-family:inherit;}
 .real-toggle .real-toggle-dot{width:7px;height:7px;border-radius:50%;background:var(--text-3);transition:background .15s;}
 .real-toggle.on{color:var(--brand-strong);}
 .real-toggle.on .real-toggle-dot{background:#52C41A;box-shadow:0 0 0 3px rgba(82,196,26,.18);}
+
+/* 开发执行入口（exec-bar）：007 环境 + 开发阶段显示；独占一行 */
+div.composer{flex-wrap:wrap;}
+.exec-bar{
+  flex:1 1 100%;display:flex;align-items:center;gap:8px;padding:0 0 10px;min-width:0;
+}
+.exec-bar .exec-cap{
+  font-size:11px;font-weight:600;color:var(--brand-strong);white-space:nowrap;
+  display:flex;align-items:center;gap:5px;flex:none;
+}
+.exec-bar input{
+  flex:1 1 160px;min-width:0;border:1px solid var(--border);border-radius:8px;padding:6px 9px;
+  font-size:12px;color:var(--text-1);outline:none;background:var(--surface);
+}
+.exec-bar input:focus{border-color:var(--brand);box-shadow:0 0 0 2px rgba(0,160,233,.10);}
+.exec-bar input::placeholder{color:var(--text-3);}
+.exec-bar .exec-hint{font-size:11px;color:var(--text-3);white-space:nowrap;flex:none;}

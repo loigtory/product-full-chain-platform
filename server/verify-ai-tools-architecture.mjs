@@ -108,11 +108,15 @@ check('前端 real 模式契约一致', () => {
   assert.match(api, /agent: \[/);
   assert.match(api, /\['status', 'GET \/api\/agent\/status'\]/);
   const dc = read('output/pfc-workbench-prototype/original/domain-conversation.js');
-  assert.match(dc, /P\.s\.ui\.realMode \? \{ mode: 'real' \}/);
+  assert.match(dc, /P\.s\.ui\.realMode \|\| execWs \? \{ mode: 'real' \} : \{\}/);
+  assert.match(dc, /tool: 'exec'/);
+  assert.match(dc, /workspace: execWs/);
   assert.match(dc, /toggle-real-mode/);
   assert.match(dc, /\/api\/agent\/status/); // 开启前查 capable
   const wb = read('output/pfc-workbench-prototype/original/workbench.js');
   assert.match(wb, /real-toggle/);
+  assert.match(wb, /exec-workspace/);
+  assert.match(wb, /execCapable && P\.s\.ui\.stage === 'dev'/);
   const css = read('output/pfc-workbench-prototype/original/base.css');
   assert.match(css, /\.real-toggle/);
 });

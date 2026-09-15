@@ -566,6 +566,17 @@
       P.s.ui.drafts[P.s.ui.req] = el.value;
       P.save();
     }
+    if (el.id === 'exec-workspace') {
+      P.s.ui.execWorkspace = el.value;
+      P.save();
+    }
+    if (el.id === 'exec-restricted') {
+      P.s.ui.execRestrictedDirs = el.value
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      P.save();
+    }
     if (el.id === 'global-query') P.searchResults(el.value.trim());
     if (el.id === 'requirement-filter') {
       P.s.ui.search = el.value;
@@ -672,9 +683,22 @@
       window.PFCAPI &&
       window.PFCAPI.api
     ) {
-      (P.localSession ? P.localSession.boot() : window.PFCAPI.api.init()).then(() => {
+      (P.localSession ? P.localSession.boot() : window.PFCAPI.api.init()).then(async () => {
         /* hydrate 完成后再连 WS 订阅（Bridge 实时对话流） */
         if (window.PFCWS) window.PFCWS.connect();
+        /* 拉取真实 agent 能力（capable / execCapable），供"开发执行"入口渲染 */
+        P.s.env = P.s.env || {};
+        try {
+          const st = await window.PFCAPI.api.req('GET', '/api/agent/status');
+          P.s.env.capable = !!st?.capable;
+          P.s.env.execCapable = !!st?.execCapable;
+          P.s.env.schemaVersion = st?.schemaVersion ?? null;
+          P.save();
+          P.render({ quiet: true });
+        } catch {
+          P.s.env.capable = false;
+          P.s.env.execCapable = false;
+        }
       }).catch((e) => {
         P.toast('API 连接失败：' + e.message, 'error');
       });

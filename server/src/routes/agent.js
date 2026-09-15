@@ -32,6 +32,13 @@ function approvedSources() {
 
 // 非敏感连接状态；不返回二进制路径、token 或连接串。
 router.get('/status', (req, res) => {
+  let schemaVersion = null;
+  try {
+    schemaVersion = require('../runtime').db()?.targetVersion || null;
+  } catch {
+    schemaVersion = null;
+  }
+  const capable = !!process.env.PFC_CODEX_BINARY;
   res.json({
     mode: 'real',
     provider: 'codex',
@@ -41,8 +48,12 @@ router.get('/status', (req, res) => {
     cwdConfigured: !!process.env.PFC_CODEX_PREFLIGHT_CWD,
     connectionFingerprintSet: !!process.env.PFC_CODEX_CONNECTION_SHA256,
     authorization: authorizationState(),
+    schemaVersion,
+    // exec 工具入口能力：真实 agent 连接 + agent_jobs schema（007）就绪。
+    // 前端据此决定是否展示"开发执行"入口（006 环境不展示，避免无效作业）。
+    execCapable: capable && schemaVersion === '007',
+    capable,
     budget: budget.snapshot(),
-    capable: !!process.env.PFC_CODEX_BINARY,
   });
 });
 

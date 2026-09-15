@@ -97,6 +97,7 @@
             requirementId: ref.requirementId,
           };
         });
+      const execWs = (P.s.ui.execWorkspace || '').trim();
       await D.mutate(q, '/messages', {
         content: payload.text,
         stage: payload.stage,
@@ -107,7 +108,14 @@
         })),
         replyTo: payload.replyTo,
         parentMessageId: payload.parentMessageId,
-        ...(P.s.ui.realMode ? { mode: 'real' } : {}),
+        ...(P.s.ui.realMode || execWs ? { mode: 'real' } : {}),
+        ...(execWs
+          ? {
+              tool: 'exec',
+              workspace: execWs,
+              restrictedReadDirs: P.s.ui.execRestrictedDirs || [],
+            }
+          : {}),
       });
       if (clear) {
         P.s.ui.drafts[q.id] = '';

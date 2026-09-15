@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-15T04:19:57.699Z",
+  "status": "FAIL",
+  "scope": "Browser gate: exec entry (tool:exec + workspace) renders in dev stage when execCapable, persists input, payload carries exec params (zero model)",
+  "tests": [
+    {
+      "name": "007 + codex exec-browser server boots",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "error": {
+    "code": "ERR_ASSERTION",
+    "message": "capable should be true with PFC_CODEX_BINARY\n+ actual - expected\n\n+ undefined\n- true\n"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-15T04:22:46.314Z",
+  "status": "PASS",
+  "scope": "Browser gate: exec entry (tool:exec + workspace) renders in dev stage when execCapable, persists input, payload carries exec params (zero model)",
+  "tests": [
+    {
+      "name": "007 + codex exec-browser server boots",
+      "status": "PASS"
+    },
+    {
+      "name": "agent/status exposes execCapable=true on 007 + codex",
+      "status": "PASS"
+    },
+    {
+      "name": "workbench loads in api mode without remote error",
+      "status": "PASS"
+    },
+    {
+      "name": "P.s.env.execCapable becomes true after status fetch",
+      "status": "PASS"
+    },
+    {
+      "name": "exec-bar renders in dev stage when execCapable",
+      "status": "PASS"
+    },
+    {
+      "name": "exec-restricted input renders",
+      "status": "PASS"
+    },
+    {
+      "name": "exec workspace + restricted dirs persist to P.s.ui",
+      "status": "PASS"
+    },
+    {
+      "name": "submitTurn payload carries exec params (source assertion)",
+      "status": "PASS"
+    },
+    {
+      "name": "exec-bar gated by execCapable + dev stage (source assertion)",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": []
+}

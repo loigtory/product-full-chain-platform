@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-15T04:18:52.439Z",
+  "status": "FAIL",
+  "scope": "Browser gate: exec entry (tool:exec + workspace) renders in dev stage when execCapable, persists input, payload carries exec params (zero model)",
+  "tests": [],
+  "errors": [],
+  "external": [],
+  "error": {
+    "code": "SCHEMA_NOT_AUTHORIZED",
+    "message": "SCHEMA_NOT_AUTHORIZED"
+  }
+}
