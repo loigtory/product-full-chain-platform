@@ -74,10 +74,13 @@ function textThreadParams(summary, cwd, inventory, enabledSkills = []) {
       'features.apply_patch_freeform': false,
       'sandbox_read_only.network_access': false,
     },
-    // 诊断只读字段（前端/验收可读）：本阶段实际启用了哪些 skill
+    // 诊断只读字段（前端/验收可读）：本阶段实际启用了哪些 skill（与匹配一致取 skill 名）
     _enabledSkills: skillsConfig
       .filter((s) => s.enabled)
-      .map((s) => path.basename(s.path)),
+      .map((s) => {
+        const fb = path.basename(s.path);
+        return /^SKILL\.md$/i.test(fb) ? path.basename(path.dirname(s.path)) : fb;
+      }),
   };
 }
 // This allowlist is injected by the host's confirmed runtime configuration, never a request DTO.
