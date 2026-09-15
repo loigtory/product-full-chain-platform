@@ -1,0 +1,42 @@
+{
+  "at": "2026-09-15T00:00:43.261Z",
+  "status": "PASS",
+  "scope": "exec-worker restricted-read integration skeleton: applyRestrictedReadAll around codex exec (elevated) probe, assert outsideReadDenied=true, cleanup in finally",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "applyRestrictedReadAll applied",
+      "pass": true
+    },
+    {
+      "name": "probe JSON in stdout",
+      "pass": true
+    },
+    {
+      "name": "outsideReadDenied=true (restricted read enforced)",
+      "pass": true
+    },
+    {
+      "name": "insideWrite=true",
+      "pass": true
+    },
+    {
+      "name": "outsideWriteDenied=true",
+      "pass": true
+    }
+  ],
+  "exec": {
+    "code": 0,
+    "stdoutBytes": 126,
+    "stderrBytes": 1692,
+    "stdoutTail": "{\"externalNetworkDenied\":null,\"outsideWriteDenied\":true,\"outsideReadDenied\":true,\"loopbackReachable\":null,\"insideWrite\":true}\n",
+    "actualSeconds": 27
+  },
+  "probe": {
+    "externalNetworkDenied": null,
+    "outsideWriteDenied": true,
+    "outsideReadDenied": true,
+    "loopbackReachable": null,
+    "insideWrite": true
+  }
+}

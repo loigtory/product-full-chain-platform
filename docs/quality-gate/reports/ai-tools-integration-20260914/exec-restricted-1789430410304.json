@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-15T00:00:09.820Z",
+  "status": "FAIL",
+  "scope": "exec-worker restricted-read integration skeleton: applyRestrictedReadAll around codex exec (elevated) probe, assert outsideReadDenied=true, cleanup in finally",
+  "modelTurns": 1,
+  "checks": [
+    {
+      "name": "applyRestrictedReadAll applied",
+      "pass": true
+    }
+  ],
+  "error": "codex exec exited 1: Reading prompt from stdin...\nNot inside a trusted directory and --skip-git-repo-check was not specified.\n"
+}
