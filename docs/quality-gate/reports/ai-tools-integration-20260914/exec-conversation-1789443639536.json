@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-15T03:40:37.912Z",
+  "status": "FAIL",
+  "scope": "exec conversation end-to-end: sendMessage(tool:exec) → EXECUTE job → runExecJob → ai message written back; assert jobKind=EXECUTE + SUCCEEDED + outsideReadDenied=true + cleanup",
+  "modelTurns": 1,
+  "checks": [],
+  "error": "STORAGE_UNAVAILABLE",
+  "cleanup": {
+    "schema": "codex_test_ai_tools_20260914_exec",
+    "runId": "CODEx_TEST_M2C_AI_TOOLS_20260914_exec_d00e1995-3064-47a8-abf1-cad8f6425382",
+    "createdIds": [
+      "f162b6b3-cea3-4c56-9df1-ea83c74aeff1",
+      "2e48f08d-e0fd-4280-be69-26c3c7ced4a3",
+      "f1c3f111-196d-4668-bc55-2fea1e1f0a4f"
+    ],
+    "totalRows": 15,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  }
+}
