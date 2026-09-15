@@ -215,7 +215,7 @@ export async function aiDatabaseFixture(scope = 'api') {
     validateTarget,
     openDatabase,
   } = require('../src/persistence/connection');
-  if (!['api', 'real', 'browser', 'exec', 'execbrowser', 'exece2e', 'closedloop'].includes(scope))
+  if (!['api', 'real', 'browser', 'exec', 'execbrowser', 'exece2e', 'closedloop', 'control'].includes(scope))
     throw Error('TEST_SCOPE_INVALID');
   const schema = 'codex_test_ai_tools_20260914_' + scope;
   const runId =

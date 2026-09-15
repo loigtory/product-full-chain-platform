@@ -66,6 +66,7 @@ const ai = [
   ['server/verify-ai-tools-exec-conversation.mjs', { EVIDENCE_ONLY: 'exec-worker-1789438846903.json' }, 'exec 对话协议闸：resolveRealJobInput 单测 + exec-worker 证据（零模型）'],
   ['server/verify-ai-tools-exec-e2e.mjs', { EVIDENCE_ONLY: 'exec-e2e-1789456149199.json' }, 'exec http e2e PASS 证据（真实调用型，限额内不重跑）'],
   ['server/verify-ai-tools-exec-closedloop.mjs', { EVIDENCE_ONLY: 'exec-closedloop-1789460321622.json' }, '44-C3 闭环 PASS 证据（合成项目实际 diff+测试，真实调用型）'],
+  ['server/verify-ai-tools-exec-control.mjs', { EVIDENCE_ONLY: 'exec-control-1789461889047.json' }, '44-D5 受控执行 PASS 证据（计划冻结/基线/diff审批/回滚，真实调用型）'],
 ];
 const skipExisting = process.argv.includes('--skip-existing');
 const skipAi = process.argv.includes('--skip-ai');

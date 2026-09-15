@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-15T08:31:54.039Z",
+  "status": "FAIL",
+  "scope": "44-D5 control exec: plan freeze + allowlist + baseline + diff approval + revert",
+  "modelTurns": 2,
+  "scenarios": [],
+  "checks": [],
+  "error": {
+    "code": "ASSERTION_FAILED",
+    "message": "\"[object Object]\" is not valid JSON"
+  }
+}

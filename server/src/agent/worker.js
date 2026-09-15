@@ -245,6 +245,13 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
       ? input.restrictedReadDirs.map((d) => String(d))
       : [];
     apply = restrictedDirs.length ? applyRestrictedReadAll(restrictedDirs) : null;
+    // D5 受控执行（44 号 F 项）：input.control 存在即强制——
+    // 计划冻结（校验+基线）在 spawn 前完成，失败不消耗模型；执行后 diff 审批，越界即回滚并 FAILED。
+    const control = require('./exec-control').validatePlan(input);
+    let baseline = null;
+    if (control) {
+      baseline = require('./exec-control').scanWorkspace(workspace);
+    }
     reserveTurn();
     budgetActive = true;
     startedAt = Date.now();
@@ -313,7 +320,30 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
       final: true,
     });
     if (code !== 0) throw fail('EXEC_EXIT_' + code);
-    await finishJob(db, ctx, jobId, 'SUCCEEDED', { text: accumulated, code }, null);
+    // D5 差异审批：执行后对比基线。越界 → 回滚到基线（越界改动不落盘）并 FAILED。
+    if (control && baseline) {
+      const review = require('./exec-control').reviewDiff(control, workspace, baseline);
+      if (review.violates) {
+        const removed = require('./exec-control').revert(workspace, baseline);
+        throw Object.assign(fail('DIFF_OUT_OF_SCOPE'), {
+          detail: { reasons: review.reasons, changes: review.changes, removed },
+        });
+      }
+    }
+    await finishJob(
+      db,
+      ctx,
+      jobId,
+      'SUCCEEDED',
+      {
+        text: accumulated,
+        code,
+        controlAudit: control
+          ? require('./exec-control').auditCommands(control.allowedCommands, accumulated).warnings
+          : [],
+      },
+      null,
+    );
     if (budgetActive)
       settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
         inputHash: createHash('sha256').update(prompt).digest('hex'),
@@ -329,7 +359,7 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
           : 'FAILED';
     if (aiMessageId)
       await failMessage(db, ctx, reqPublicId, aiMessageId, code).catch(() => {});
-    await finishJob(db, ctx, jobId, state, null, code).catch(() => {});
+    await finishJob(db, ctx, jobId, state, e.detail ? { detail: e.detail } : null, code).catch(() => {});
     if (budgetActive) {
       try {
         settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state);
