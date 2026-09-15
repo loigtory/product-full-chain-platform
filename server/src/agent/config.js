@@ -33,11 +33,16 @@ function textThreadParams(summary, cwd, inventory, enabledSkills = []) {
     fail('SKILL_INVENTORY_UNVERIFIED');
   // 按阶段期望能力启用 skill：inventory skill 名（path 基名或整路径）命中 enabledSkills
   // 之一则 enabled:true；未命中保持禁用（期望能力，非硬依赖）。
+  // 注意：inventory 的 path 指向 SKILL.md 文件本身——skill 名取"父目录基名"（如 grill-me），
+  // 若 path 基名非 SKILL.md（如自定义单文件 skill）则直接用基名。
   const wanted = new Set(
     (Array.isArray(enabledSkills) ? enabledSkills : []).map((n) => String(n).trim()),
   );
   const skillsConfig = skills.map((s) => {
-    const base = path.basename(s.path);
+    const fileBase = path.basename(s.path);
+    const base = /^SKILL\.md$/i.test(fileBase)
+      ? path.basename(path.dirname(s.path))
+      : fileBase;
     const enabled = wanted.has(base) || wanted.has(s.path);
     return { path: s.path, enabled };
   });

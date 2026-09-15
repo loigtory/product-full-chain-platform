@@ -66,27 +66,38 @@ async function main() {
     data: [
       {
         skills: [
-          { path: 'C:/skills/product-manager' },
+          { path: 'C:/skills/grill-me/SKILL.md' },
           { path: 'C:/skills/other' },
-          { path: 'C:/skills/qa' },
+          { path: 'C:/skills/platform-test-case-writer/SKILL.md' },
         ],
         errors: [],
       },
     ],
   };
   const summary = { model: 'test-model' };
-  const hit = config.textThreadParams(summary, 'C:/ws', inventory, ['product-manager', 'qa']);
+  const hit = config.textThreadParams(summary, 'C:/ws', inventory, [
+    'grill-me',
+    'platform-test-case-writer',
+  ]);
+  const skillName = (p) => {
+    const parts = p.split('/');
+    const fb = parts[parts.length - 1];
+    return /^SKILL\.md$/i.test(fb) ? parts[parts.length - 2] : fb;
+  };
   const hitMap = Object.fromEntries(
-    hit.config['skills.config'].map((s) => [s.path.split('/').pop(), s.enabled]),
+    hit.config['skills.config'].map((s) => [skillName(s.path), s.enabled]),
   );
   t(
-    '装配：期望 skill 命中则 enabled:true（product-manager/qa）',
-    hitMap['product-manager'] === true && hitMap['qa'] === true && hitMap['other'] === false,
+    '装配：期望 skill 命中则 enabled:true（grill-me/platform-test-case-writer）',
+    hitMap['grill-me'] === true &&
+      hitMap['platform-test-case-writer'] === true &&
+      hitMap['other'] === false,
     { hitMap },
   );
   t(
     '装配：_enabledSkills 只含命中项',
-    JSON.stringify(hit._enabledSkills) === JSON.stringify(['product-manager', 'qa']),
+    JSON.stringify(hit._enabledSkills) ===
+      JSON.stringify(['grill-me', 'platform-test-case-writer']),
     { enabled: hit._enabledSkills },
   );
   const miss = config.textThreadParams(summary, 'C:/ws', inventory, ['not-exist']);
@@ -102,6 +113,74 @@ async function main() {
     threw = e.code === 'SKILL_INVENTORY_UNVERIFIED';
   }
   t('守卫：非法 inventory（相对路径）拒绝', threw);
+
+  // ---------- B2. 零模型：真实 codex inventory 对齐（skills/list 只读，不耗模型预算） ----------
+  try {
+    const { createHash } = await import('node:crypto');
+    const { readFileSync } = await import('node:fs');
+    const { pathToFileURL } = await import('node:url');
+    const codexBinary =
+      'C:/Users/hz19114673/AppData/Roaming/npm/node_modules/@openai/codex/node_modules/@openai/codex-win32-x64/vendor/x86_64-pc-windows-msvc/bin/codex.exe';
+    const codexSha = createHash('sha256').update(readFileSync(codexBinary)).digest('hex');
+    const { openProtocol } = await import(
+      pathToFileURL(resolve(projectRoot, 'server/src/agent/protocol.mjs')).href
+    );
+    const conn = await openProtocol({
+      binary: codexBinary,
+      expectedSha256: codexSha,
+      cwd: resolve(projectRoot, '.local/ai-tools-integration-20260914/preflight'),
+      mode: 'text',
+      expectedConnectionFingerprint:
+        'b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292',
+      approvedInstructionSources: [],
+    });
+    try {
+      const realInv = await conn.rpc.request('skills/list', {
+        cwds: [conn.cwd],
+        forceReload: true,
+      });
+      const realSkills = realInv?.data?.[0]?.skills || [];
+      const realBases = new Set(
+        realSkills.map((s) => {
+          const parts = s.path.split(/[\\/]/);
+          const fileBase = parts[parts.length - 1];
+          return /^SKILL\.md$/i.test(fileBase) ? parts[parts.length - 2] : fileBase;
+        }),
+      );
+      const stageCaps = require(resolve(projectRoot, 'server/src/agent/stage-capabilities.js'));
+      const missing = [];
+      const enabledNow = [];
+      for (const c of stageCaps.all()) {
+        if (!c.skills.length) continue;
+        for (const sk of c.skills) {
+          if (realBases.has(sk)) enabledNow.push(c.stage + ':' + sk);
+          else missing.push(c.stage + ':' + sk);
+        }
+      }
+      t(
+        '真实 inventory 对齐：各阶段期望 skill 全部命中本机 codex inventory',
+        missing.length === 0,
+        { missing, hit: enabledNow.length, total: enabledNow.length + missing.length },
+      );
+      const ideaEnabled = config.textThreadParams(summary, conn.cwd, realInv, ['grill-me']);
+      t(
+        '真实装载：grill-me 在真实 inventory 下装配 enabled:true',
+        ideaEnabled._enabledSkills.includes('grill-me'),
+        { enabled: ideaEnabled._enabledSkills },
+      );
+      report.external.push({
+        realInventoryCount: realSkills.length,
+        stageSkillHits: enabledNow,
+      });
+    } finally {
+      await conn.close();
+    }
+  } catch (e) {
+    report.errors.push('B2 真实对齐失败: ' + String(e.message || e));
+    t('真实 inventory 对齐：各阶段期望 skill 全部命中本机 codex inventory', false, {
+      error: String(e.message || e),
+    });
+  }
 
   // ---------- C. 真实 TEXT 作业（idea 阶段，1 次模型） ----------
   const created = await fetch(BASE + '/api/reqs', {
