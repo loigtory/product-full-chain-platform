@@ -141,6 +141,20 @@ report.status = failures === 0 ? 'PASS' : 'FAIL';
 mkdirSync(reports, { recursive: true });
 const file = `${reports}/c4-gates-${Date.now()}.json`;
 writeFileSync(file, JSON.stringify(report, null, 2) + '\n');
+// G 决策落地（45 号 8.11）：基线快照目录冻结——存量闸运行可能刷新 local-use-baseline 证据，
+// 统一入口跑后无条件恢复，防止基线被改写入库（codex 纠偏第 6 项）。
+try {
+  execSync('git checkout -- docs/quality-gate/reports/local-use-baseline-20260913/', {
+    cwd: root,
+    stdio: 'ignore',
+  });
+  execSync('git clean -fd docs/quality-gate/reports/local-use-baseline-20260913/', {
+    cwd: root,
+    stdio: 'ignore',
+  });
+} catch {
+  /* 恢复失败不阻断闸报告 */
+}
 console.log(JSON.stringify({ status: report.status, existing: report.existing.length, ai: report.ai.length, failures, file }));
 function branchName() {
   try {

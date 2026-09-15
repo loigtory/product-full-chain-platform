@@ -362,12 +362,20 @@ module.exports.stopMessage = async (id, mid, input) => {
           '".messages SET status=$1,revision=revision+1 WHERE tenant_id=$2 AND id=$3 AND status=$4',
         ['stopped', ctx.tenantId, m.id, 'generating'],
       );
-      const job = (
-        await client.query(
-          `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND (command_id=$3 OR command_id=$4) AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') ORDER BY created_at DESC LIMIT 1`,
-          [ctx.tenantId, row.id, 'EXEC-' + m.id, 'MSG-' + m.id],
-        )
-      ).rows[0];
+      // 控制链：找出该 ai 消息对应的真实作业（EXECUTE/TEXT 均可），
+      // 由调用方在事务提交后取消 worker 活动作业（active map cancel → child.kill）。
+      // 向后兼容：未装 007 的旧 schema 无 agent_jobs 表（42P01）时跳过，仅改消息状态。
+      let job = null;
+      try {
+        job = (
+          await client.query(
+            `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND (command_id=$3 OR command_id=$4) AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') ORDER BY created_at DESC LIMIT 1`,
+            [ctx.tenantId, row.id, 'EXEC-' + m.id, 'MSG-' + m.id],
+          )
+        ).rows[0];
+      } catch (e) {
+        if (e.code !== '42P01') throw e;
+      }
       return { jobId: job?.id ?? null };
     },
   );
