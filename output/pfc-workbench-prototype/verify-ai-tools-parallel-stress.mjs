@@ -125,16 +125,17 @@ async function main() {
     });
     await db.connect();
     const rr = await db.query(
-      `SELECT j.state, j.error_code, m.req_id, m.id AS msg_id, m.metadata->>'real' AS real_flag
+      `SELECT j.state AS job_state, j.error_code AS job_err, j.kind, r.public_id,
+              m.metadata->>'real' AS real_flag, m.status AS msg_status
        FROM "codex_test_ai_tools_20260914_execbrowser".agent_jobs j
        JOIN "codex_test_ai_tools_20260914_execbrowser".reqs r ON r.id=j.req_id
-       JOIN "codex_test_ai_tools_20260914_execbrowser".messages m ON m.req_id=j.req_id AND m.metadata->>'job_id'=j.id::text
+       JOIN "codex_test_ai_tools_20260914_execbrowser".messages m ON m.id::text = j.input->>'aiMessageId'
        WHERE r.public_id IN ($1,$2) ORDER BY j.created_at DESC LIMIT 6`,
       ['R-1088', 'R-1098'],
     );
     await db.end();
-    const jobsOk = rr.rows.filter((x) => x.state === 'SUCCEEDED' && x.real_flag === 'true');
-    const leaseErr = rr.rows.filter((x) => x.error_code === 'AGENT_LEASE_LOST');
+    const jobsOk = rr.rows.filter((x) => x.job_state === 'SUCCEEDED' && x.real_flag === 'true');
+    const leaseErr = rr.rows.filter((x) => x.job_err === 'AGENT_LEASE_LOST');
     t('DB 两作业 SUCCEEDED + real', jobsOk.length >= 2, { succeeded: jobsOk.length, rows: rr.rows.length });
     t('无 AGENT_LEASE_LOST / 租约冲突', leaseErr.length === 0, { leaseErr: leaseErr.length });
   } catch (e) {

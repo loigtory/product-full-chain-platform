@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-16T09:18:37.682Z",
+  "status": "FAIL",
+  "scope": "并行压力压测：双 req TEXT 作业并发互不干扰",
+  "tests": [
+    {
+      "name": "目标 req 存在 R-1088",
+      "status": "PASS"
+    },
+    {
+      "name": "目标 req 存在 R-1098",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "name": "作业 A 发送成功"
+    },
+    {
+      "status": "PASS",
+      "name": "作业 B 发送成功（间隔 <1s）"
+    },
+    {
+      "elapsedSec": 101,
+      "status": "PASS",
+      "name": "作业 A 到达终态"
+    },
+    {
+      "elapsedSec": 71,
+      "status": "PASS",
+      "name": "作业 B 到达终态"
+    },
+    {
+      "aFinishAfterBSubmitSec": 101,
+      "name": "真实并行（A 在 B 提交后仍运行）",
+      "status": "PASS"
+    },
+    {
+      "elapsedA": 101,
+      "elapsedB": 71,
+      "name": "总耗时接近单作业（并行非串行）",
+      "status": "PASS"
+    },
+    {
+      "succeeded": 0,
+      "rows": 0,
+      "name": "DB 两作业 SUCCEEDED + real",
+      "status": "FAIL"
+    },
+    {
+      "leaseErr": 0,
+      "name": "无 AGENT_LEASE_LOST / 租约冲突",
+      "status": "PASS"
+    },
+    {
+      "name": "平台仓库零污染",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    "DB 两作业 SUCCEEDED + real"
+  ],
+  "external": []
+}
