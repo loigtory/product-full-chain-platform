@@ -1,0 +1,42 @@
+{
+  "at": "2026-09-16T00:09:53.759Z",
+  "status": "FAIL",
+  "scope": "逐阶段真实 TEXT：8 阶段 guide+skill 组合产出质量（每阶段 1 次模型）",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1085"
+    },
+    {
+      "name": "DESIGN 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "DESIGN ai 终态 ok（codex 真实回写）",
+      "status": "FAIL",
+      "meta": null
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "FAIL",
+      "dirty": [
+        " M server/src/agent/conversation-provider.js",
+        " M server/src/agent/worker.js",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-text-all-1789516346.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-text-all-1789516948.json"
+      ]
+    }
+  ],
+  "errors": [
+    "DESIGN ai 终态 ok（codex 真实回写）",
+    "平台仓库零污染（server/apps/packages 无改动）"
+  ],
+  "external": [
+    {
+      "step": "DESIGN-final",
+      "status": "failed"
+    }
+  ]
+}
