@@ -78,6 +78,28 @@ function resolveRealJobInput(input, ids) {
     }
     if (!st.isDirectory()) access.fail('WORKSPACE_NOT_DIRECTORY', 400);
   }
+  // 跨阶段上下文传递：前端/脚本可显式传入前序阶段已确认产出
+  // （[{stage,title,text}]），worker 注入 prompt 使当前阶段基于上一步结论继续。
+  const stageContext = Array.isArray(input.stageContext)
+    ? input.stageContext
+        .filter(
+          (c) =>
+            c &&
+            typeof c.text === 'string' &&
+            c.text.trim().length > 0 &&
+            typeof c.stage === 'string' &&
+            c.stage.trim().length > 0,
+        )
+        .slice(0, 6)
+        .map((c) => ({
+          stage: String(c.stage).trim(),
+          title:
+            typeof c.title === 'string' && c.title.trim()
+              ? String(c.title).trim()
+              : String(c.stage).trim() + '阶段产出',
+          text: String(c.text).trim().slice(0, 30000),
+        }))
+    : [];
   return {
     kind: execTool ? 'EXECUTE' : 'TEXT',
     commandId: (execTool ? 'EXEC-' : 'MSG-') + userMessageId,
@@ -92,6 +114,7 @@ function resolveRealJobInput(input, ids) {
                 control: execTool.control ?? null,
               }
             : {}),
+          ...(stageContext.length ? { stageContext } : {}),
         }),
       )
       .digest('hex'),
@@ -101,6 +124,7 @@ function resolveRealJobInput(input, ids) {
       content: content || '',
       refs,
       stage,
+      ...(stageContext.length ? { stageContext } : {}),
       ...(execTool
         ? {
             workspace: execTool.workspace,

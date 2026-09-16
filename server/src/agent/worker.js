@@ -52,6 +52,24 @@ function buildTextPrompt(job) {
   if (refs.length) {
     parts.push('（附 ' + refs.length + ' 项已确认版本引用：' + refs.map((r) => r.name || r.kind || '引用').join('、') + '）');
   }
+  // 跨阶段上下文传递：前序阶段已确认产出（stageContext）注入为上下文块，
+  // 使当前阶段基于上一步结论继续，补齐"逐阶段独立线程无记忆"边界。
+  const stageContext = Array.isArray(input.stageContext) ? input.stageContext : [];
+  if (stageContext.length) {
+    const ctxBlocks = stageContext
+      .map(
+        (c) =>
+          '【上一步 ' + (c.stage || '前序') + ' 阶段产出：' + (c.title || '') + '】\n' +
+          String(c.text || '').trim(),
+      )
+      .join('\n\n');
+    if (ctxBlocks.trim()) {
+      parts.push(
+        '以下是当前任务前序阶段已确认的产出，请基于其结论继续本阶段工作，不要重复调研已确认的内容：\n\n' +
+          ctxBlocks,
+      );
+    }
+  }
   const text = parts.filter(Boolean).join('\n');
   if (!text) fail('EMPTY_TEXT_JOB');
   return text;

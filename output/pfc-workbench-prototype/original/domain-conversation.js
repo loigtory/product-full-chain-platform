@@ -98,6 +98,25 @@
           };
         });
       const execWs = (P.s.ui.execWorkspace || '').trim();
+      // 跨阶段上下文传递：自动携带前序阶段最近一条已确认 ai 产出，
+      // 使后续阶段（design/dev/test/release/observe）基于上一步结论继续。
+      const _stageOrder = ['idea', 'req', 'design', 'dev', 'test', 'accept', 'release', 'observe'];
+      const _curIdx = _stageOrder.indexOf(payload.stage || q.stage);
+      let _stageContext = [];
+      if (_curIdx > 0 && Array.isArray(q.messages)) {
+        for (const _st of _stageOrder.slice(0, _curIdx)) {
+          const _cands = q.messages
+            .filter((m) => m.role === 'ai' && m.stage === _st && m.status === 'ok' && m.content && String(m.content).trim())
+            .sort((a, b) => String(b.updatedAt || b.createdAt || '').localeCompare(String(a.updatedAt || a.createdAt || '')));
+          if (_cands[0]) {
+            _stageContext.push({
+              stage: _st,
+              title: _st + '阶段产出',
+              text: String(_cands[0].content).trim().slice(0, 30000),
+            });
+          }
+        }
+      }
       await D.mutate(q, '/messages', {
         content: payload.text,
         stage: payload.stage,
@@ -108,6 +127,11 @@
         })),
         replyTo: payload.replyTo,
         parentMessageId: payload.parentMessageId,
+        ...(payload.stageContext !== undefined
+          ? { stageContext: payload.stageContext }
+          : _stageContext.length
+            ? { stageContext: _stageContext }
+            : {}),
         ...(P.s.ui.realMode || execWs ? { mode: 'real' } : {}),
         ...(execWs
           ? {
