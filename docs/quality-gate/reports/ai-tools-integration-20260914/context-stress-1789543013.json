@@ -1,0 +1,80 @@
+{
+  "at": "2026-09-16T07:14:53.010Z",
+  "status": "PASS",
+  "scope": "超长上下文压测：stageContext 6 条上限/30000 字符截断/长上下文产出稳定",
+  "tests": [
+    {
+      "name": "跨阶段上下文传递验证",
+      "status": "PASS",
+      "pid": "R-1088"
+    },
+    {
+      "name": "消息发送成功（非 409）",
+      "status": 201
+    },
+    {
+      "name": "test 阶段 ai 作业到达终态（600s 内）",
+      "status": "PASS",
+      "elapsedSec": 120
+    },
+    {
+      "name": "ai 终态 ok + real 标记",
+      "status": "ok",
+      "bytes": 4258
+    },
+    {
+      "name": "ai 产出非空",
+      "status": "PASS",
+      "len": 4258
+    },
+    {
+      "name": "ai 产出引用前序（含压测标记）",
+      "status": "PASS",
+      "refs": 6
+    },
+    {
+      "name": "服务端 stageContext 上限 6 条截断",
+      "status": "PASS",
+      "actual": 6
+    },
+    {
+      "name": "单条 text ≤30000 字符截断",
+      "status": "PASS",
+      "lens": [
+        29032,
+        29038,
+        29044,
+        29047,
+        29053,
+        29056
+      ]
+    },
+    {
+      "name": "第 7 条（observe）被丢弃",
+      "status": "PASS"
+    },
+    {
+      "name": "平台仓库零污染",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    "ai 终态 ok + real 标记"
+  ],
+  "external": [
+    {
+      "req": "R-1088",
+      "ctxCount": 7,
+      "ctxBytes": 175348,
+      "perStageLen": [
+        29032,
+        29038,
+        29044,
+        29047,
+        29053,
+        29056,
+        687
+      ]
+    }
+  ]
+}
