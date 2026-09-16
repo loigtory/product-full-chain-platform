@@ -1,0 +1,46 @@
+{
+  "at": "2026-09-16T07:03:55.241Z",
+  "status": "FAIL",
+  "scope": "超长上下文压测：stageContext 6 条上限/30000 字符截断/长上下文产出稳定",
+  "tests": [
+    {
+      "name": "跨阶段上下文传递验证",
+      "status": "PASS",
+      "pid": "R-1088"
+    },
+    {
+      "name": "消息发送成功（非 409）",
+      "status": 400,
+      "code": "EMPTY_MESSAGE"
+    },
+    {
+      "name": "test 阶段 ai 作业到达终态（600s 内）",
+      "status": "FAIL",
+      "elapsedSec": 601
+    }
+  ],
+  "errors": [
+    "消息发送成功（非 409）",
+    "test 阶段 ai 作业到达终态（600s 内）"
+  ],
+  "external": [
+    {
+      "req": "R-1088",
+      "ctxCount": 7,
+      "ctxBytes": 175348,
+      "perStageLen": [
+        29032,
+        29038,
+        29044,
+        29047,
+        29053,
+        29056,
+        687
+      ]
+    },
+    {
+      "note": "未到达终态",
+      "lastMsgCount": 4
+    }
+  ]
+}

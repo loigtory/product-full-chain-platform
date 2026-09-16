@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-16T07:19:18.467Z",
+  "status": "FAIL",
+  "scope": "并行压力压测：双 req TEXT 作业并发互不干扰",
+  "tests": [
+    {
+      "name": "目标 req 存在 R-1088",
+      "status": "PASS"
+    },
+    {
+      "name": "目标 req 存在 R-1098",
+      "status": "PASS"
+    },
+    {
+      "status": "FAIL",
+      "code": "REVISION_CONFLICT",
+      "name": "作业 A 发送成功"
+    },
+    {
+      "status": "FAIL",
+      "code": "REVISION_CONFLICT",
+      "name": "作业 B 发送成功（间隔 <1s）"
+    }
+  ],
+  "errors": [
+    "作业 A 发送成功",
+    "作业 B 发送成功（间隔 <1s）"
+  ],
+  "external": []
+}
