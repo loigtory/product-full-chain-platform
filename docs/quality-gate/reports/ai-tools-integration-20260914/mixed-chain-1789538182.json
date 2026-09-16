@@ -1,0 +1,151 @@
+{
+  "at": "2026-09-16T05:51:48.360Z",
+  "status": "PASS",
+  "scope": "EXEC+TEXT 混合链：req(TEXT)→design(TEXT+req)→dev(EXEC 真实执行)→test(TEXT+dev 执行结果)",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1098"
+    },
+    {
+      "name": "REQ 发送 TEXT 作业",
+      "status": 201
+    },
+    {
+      "name": "REQ ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "REQ 产出非空",
+      "status": "PASS",
+      "len": 1744
+    },
+    {
+      "name": "REQ metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DESIGN 发送 TEXT 作业（带 req stageContext）",
+      "status": 201
+    },
+    {
+      "name": "DESIGN ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "DESIGN 产出非空",
+      "status": "PASS",
+      "len": 2553
+    },
+    {
+      "name": "DESIGN metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DESIGN 不再声明\"未提供上一步内容\"",
+      "status": "PASS"
+    },
+    {
+      "name": "DEV 发送 EXEC 作业（tool:exec 真实执行）",
+      "status": 201
+    },
+    {
+      "name": "DEV-EXEC ai 终态 ok（执行完成回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "DEV-EXEC 回写内容非空",
+      "status": "PASS",
+      "len": 342
+    },
+    {
+      "name": "DEV-EXEC metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DEV-EXEC 产物真实落盘（sub.js 存在）",
+      "status": "PASS",
+      "subExists": true
+    },
+    {
+      "name": "DEV-EXEC 本地复跑 node --test 通过",
+      "status": "PASS",
+      "out": "TAP version 13 # Subtest: sub subtracts positive numbers ok 1 - sub subtracts positive numbers --- duration_ms: 0.9443 type: 'test' ... # Subtest: sub preserves"
+    },
+    {
+      "name": "TEST 发送 TEXT 作业（带 req+design+dev EXEC 结果 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "TEST ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "TEST 产出非空",
+      "status": "PASS",
+      "len": 1955
+    },
+    {
+      "name": "TEST metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "TEST 不再声明\"未提供上一步内容\"",
+      "status": "PASS"
+    },
+    {
+      "name": "TEST 产出引用 dev EXEC 执行结果（sub/减法/测试通过）",
+      "status": "PASS",
+      "citesExec": true
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? output/pfc-workbench-prototype/verify-ai-tools-mixed-chain.mjs"
+      ]
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "step": "reset",
+      "removedSub": false
+    },
+    {
+      "step": "req",
+      "len": 1744
+    },
+    {
+      "step": "design",
+      "len": 2553,
+      "snippet": "本次为「sum 工具库新增减法」的**设计稿，待确认后进入开发**。沿用已知的 `sum.js`、`test/sum.test.js` 与 `node:test`，不引入其他技术栈或依赖。未读取源码，导出兼容方案仍需在开发前核实。\n\n### 1. 候选方案与取舍\n\n| 方案 | 接口与行为 | 优点 | 取舍 |\n|---|---|---|---|\n| A：原生减法 | `subtract(a, "
+    },
+    {
+      "step": "dev-exec",
+      "len": 342,
+      "snippet": "已完成，新增文件：\n\n- [sub.js](/D:/项目管理/product-full-chain-platform/.local/ai-tools-live-smoke-20260915/proj/sub.js)：导出 `module.exports = (a, b) => a - b`。\n- [test/sub.test.js](/D:/项目管理/product-full-chain-platform/.local/ai-tools-live-smoke-20260915/proj/test/sub.test.js)：新增 7 个用例，覆盖正数、负数、零、相等值、小数及运算顺序。\n\n已运行"
+    },
+    {
+      "step": "test",
+      "len": 1955,
+      "snippet": "测试矩阵依据所附需求、设计和开发摘要生成，**未读取源码、未执行测试**。当前无工具可读取 `platform-test-case-writer` 技能正文，未完成该技能校验。\n\n开发摘要显示实际新增的是 `sub.js`，直接导出 `(a, b) => a - b`；与设计建议的 `sum.js` 中 `subtract` 接口、有限数值校验存在差异。方案 B 尚未确认，因此这些差异应记为**契约待确认**，不能直接判定验收通过或失败。\n\n自动化标记：**已报告**＝开发摘要声明有测试，尚未核验；**待核验**＝可自动化，但未提供对应覆盖证据。\n\n| 编号 | 核心场景／依据 | 步骤与数据"
+    },
+    {
+      "chainConfirmed": [
+        "req:1744B",
+        "design:2553B",
+        "dev:342B"
+      ]
+    }
+  ]
+}
