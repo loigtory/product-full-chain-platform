@@ -1,7 +1,9 @@
 'use strict';
 // 真实模型调用预算账本：复用 44 号包已建立的 model-budget.json（40 次 turn/start、
 // 单次 300 秒、累计 120 分钟；上限由用户 9-15 确认从 20 次/60 分钟扩大，
-// 受限读等服务端集成验证必须真实探针，静态/单测无法替代）。文件锁保证并发调用互斥；
+// 受限读等服务端集成验证必须真实探针，静态/单测无法替代）。
+// 并发模型：文件锁互斥，锁只在账本读写的短临界区内持有（reserve/settle 各自
+// acquire→读写→释放），并发作业在锁被占用时有限等待后重试，不再 BUDGET_LOCK_HELD 秒败。
 // 账本位于被忽略的 .local/ai-tools-integration-20260914/preflight/configs/，不能删除后重置额度。
 const {
   readFileSync,
@@ -37,7 +39,6 @@ const PACKAGE = '44-ai-tools-integration-20260914';
 const fail = (code) => {
   throw Object.assign(new Error(code), { code });
 };
-let lockFd = null;
 
 function load() {
   let budget;
@@ -56,12 +57,31 @@ function save(budget) {
   writeFileSync(LEDGER, JSON.stringify(budget, null, 2) + '\n');
 }
 
-// 预留一次真实 turn。返回当次 attempts 条目；失败时抛出 MODEL_TURN_LIMIT /
-// MODEL_TIME_LIMIT，不消耗配额。调用方必须在 settleTurn 或 release 中结算。
-function reserveTurn() {
-  if (lockFd !== null) fail('BUDGET_LOCK_HELD');
+// 等待获取预算账本文件锁（短临界区互斥）。锁被其他操作持有（EEXIST）时
+// 有限等待重试（200ms 间隔，上限 90s），避免并发作业秒败；超时抛 BUDGET_LOCK_HELD。
+async function acquire() {
+  const deadline = Date.now() + 90000;
   mkdirSync(path.dirname(LEDGER), { recursive: true });
-  lockFd = openSync(LEDGER + '.lock', 'wx');
+  for (;;) {
+    try {
+      return openSync(LEDGER + '.lock', 'wx');
+    } catch (e) {
+      if (e.code !== 'EEXIST' || Date.now() >= deadline)
+        fail('BUDGET_LOCK_HELD');
+      await new Promise((r) => setTimeout(r, 200));
+    }
+  }
+}
+
+function releaseFd(fd) {
+  try { closeSync(fd); } catch { /* ignore */ }
+  try { unlinkSync(LEDGER + '.lock'); } catch { /* ignore */ }
+}
+
+// 预留一次真实 turn。返回当次 attempts 条目；失败时抛出 MODEL_TURN_LIMIT /
+// MODEL_TIME_LIMIT / BUDGET_LOCK_HELD（等待超时），不消耗配额。
+async function reserveTurn() {
+  const fd = await acquire();
   try {
     const budget = load();
     if (!Number.isSafeInteger(budget.turns) || budget.turns < 0)
@@ -84,18 +104,22 @@ function reserveTurn() {
     budget.attempts.push(entry);
     save(budget);
     return entry;
-  } catch (e) {
-    release();
-    throw e;
+  } finally {
+    releaseFd(fd);
   }
 }
 
-// 记录当次实际耗时，释放预留额度并写回。
-function settleTurn(actualSeconds, state, extra = {}) {
-  if (lockFd === null) fail('BUDGET_LOCK_HELD');
+// 别名：reserveTurn 已内置锁等待重试。
+const reserveTurnAsync = reserveTurn;
+
+// 记录当次实际耗时，释放预留额度并写回（短临界区，等待锁）。
+async function settleTurn(actualSeconds, state, extra = {}, entryAt) {
+  const fd = await acquire();
   try {
     const budget = load();
-    const entry = budget.attempts.at(-1);
+    const entry = entryAt
+      ? budget.attempts.find((e) => e.at === entryAt && e.status === 'DISPATCHING')
+      : budget.attempts.find((e) => e.status === 'DISPATCHING');
     if (!entry || entry.status !== 'DISPATCHING') fail('BUDGET_ENTRY_MISSING');
     entry.status = state || 'SUCCEEDED';
     entry.actualSeconds = Math.max(0, Math.ceil(Number(actualSeconds) || 0));
@@ -108,21 +132,12 @@ function settleTurn(actualSeconds, state, extra = {}) {
     save(budget);
     return budget;
   } finally {
-    release();
+    releaseFd(fd);
   }
 }
 
-function release() {
-  if (lockFd !== null) {
-    try {
-      closeSync(lockFd);
-      unlinkSync(LEDGER + '.lock');
-    } catch {
-      /* 锁文件已释放即视为成功 */
-    }
-    lockFd = null;
-  }
-}
+// 兼容导出：锁改为短临界区（reserve/settle 各自获取释放），此 no-op 保留旧调用点。
+async function release() {}
 
 function snapshot() {
   const budget = load();
@@ -133,4 +148,4 @@ function snapshot() {
   };
 }
 
-module.exports = { reserveTurn, settleTurn, release, snapshot, LEDGER };
+module.exports = { reserveTurn, reserveTurnAsync, settleTurn, release, snapshot, LEDGER };

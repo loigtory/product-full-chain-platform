@@ -10,7 +10,7 @@ const { spawn } = require('node:child_process');
 const path = require('node:path');
 const { readFileSync } = require('node:fs');
 const jobs = require('../persistence/agent-jobs');
-const { reserveTurn, settleTurn, release } = require('./budget');
+const { reserveTurn, reserveTurnAsync, settleTurn, release } = require('./budget');
 const {
   applyRestrictedReadAll,
   removeRestrictedReadAll,
@@ -140,6 +140,7 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
   let aiMessageId = null;
   let startedAt = Date.now();
   let budgetActive = false;
+  let budgetEntry = null;
   let jobTimer = null;
   let heartbeat = null;
   // TEXT 作业兜底超时（毫秒）：覆盖 open 之后到 runText 完成的全程，
@@ -202,8 +203,8 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
     let accumulated = '';
     const result = await session.runText({
       text,
-      reserveTurn: () => {
-        reserveTurn();
+      reserveTurn: async () => {
+        budgetEntry = await reserveTurnAsync();
         budgetActive = true;
         startedAt = Date.now();
       },
@@ -232,9 +233,9 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
       turnId: result.turnId,
     }, null);
     if (budgetActive)
-      settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
+      await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
         inputHash: createHash('sha256').update(text).digest('hex'),
-      });
+      }, budgetEntry?.at);
     return { status: 'SUCCEEDED', jobId };
   } catch (e) {
     const code = e.code || 'TURN_FAILED';
@@ -254,7 +255,7 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
     });
     if (budgetActive) {
       try {
-        settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state);
+        await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state, {}, budgetEntry?.at);
       } catch {
         release();
       }
@@ -294,6 +295,7 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
   let aiMessageId = null;
   let startedAt = Date.now();
   let budgetActive = false;
+  let budgetEntry = null;
   let restrictedDirs = [];
   let apply = null;
   active.set(jobId, {
@@ -328,7 +330,7 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
     if (control) {
       baseline = require('./exec-control').scanWorkspace(workspace);
     }
-    reserveTurn();
+    budgetEntry = await reserveTurnAsync();
     budgetActive = true;
     startedAt = Date.now();
     let accumulated = '';
@@ -421,9 +423,9 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
       null,
     );
     if (budgetActive)
-      settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
+      await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
         inputHash: createHash('sha256').update(prompt).digest('hex'),
-      });
+      }, budgetEntry?.at);
     return { status: 'SUCCEEDED', jobId };
   } catch (e) {
     const code = e.code || 'TURN_FAILED';
@@ -438,7 +440,7 @@ async function runExecJob({ db, ctx, reqPublicId, jobId }) {
     await finishJob(db, ctx, jobId, state, e.detail ? { detail: e.detail } : null, code).catch(() => {});
     if (budgetActive) {
       try {
-        settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state);
+        await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state, {}, budgetEntry?.at);
       } catch {
         release();
       }
