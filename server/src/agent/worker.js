@@ -144,7 +144,8 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
   let heartbeat = null;
   // TEXT 作业兜底超时（毫秒）：覆盖 open 之后到 runText 完成的全程，
   // 防止 codex 挂起/close 阻塞导致作业永久 RUNNING（真实缺陷收口）。
-  const TEXT_JOB_TIMEOUT_MS = 360000;
+  // 600s：跨阶段上下文传递后，后阶段（如 observe）携带多条前序产出，单次生成时间更长。
+  const TEXT_JOB_TIMEOUT_MS = 600000;
   active.set(jobId, { cancel: () => session?.close?.() });
   try {
     const job = await withTransaction(db, async (client) => {
