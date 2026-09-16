@@ -1,0 +1,78 @@
+{
+  "at": "2026-09-16T06:18:23.176Z",
+  "status": "PASS",
+  "scope": "前端自动附加 stageContext 逻辑等价验证（零模型预算）",
+  "tests": [
+    {
+      "name": "跨阶段上下文传递验证",
+      "status": "PASS",
+      "pid": "R-1088"
+    },
+    {
+      "name": "design 自动附加 req 阶段产出",
+      "status": "PASS",
+      "ctxStages": [
+        "req"
+      ]
+    },
+    {
+      "name": "附加的 req 产出=该阶段最近一条 ai ok（非空）",
+      "status": "PASS",
+      "len": 2013
+    },
+    {
+      "name": "design 只附加前序（不附加自身/后续阶段）",
+      "status": "PASS"
+    },
+    {
+      "name": "dev 自动附加 req+design 两条前序",
+      "status": "PASS",
+      "ctxStages": [
+        "req",
+        "design"
+      ]
+    },
+    {
+      "name": "dev 附加顺序按阶段序（req 在前）",
+      "status": "PASS"
+    },
+    {
+      "name": "test 自动附加全部有产出的前序阶段",
+      "status": "PASS",
+      "expect": [
+        "req",
+        "design"
+      ],
+      "actual": [
+        "req",
+        "design"
+      ]
+    },
+    {
+      "name": "首阶段 req 不附加 stageContext（无前序）",
+      "status": "PASS",
+      "len": 0
+    },
+    {
+      "name": "算法跳过 failed、取最近 ok 并 trim",
+      "status": "PASS",
+      "text": "有效产出"
+    },
+    {
+      "name": "前端源码仍包含自动附加逻辑（防漂移）",
+      "status": "PASS"
+    },
+    {
+      "name": "平台仓库零污染",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "req": "R-1088",
+      "stageCount": "req,design",
+      "msgCount": 4
+    }
+  ]
+}
