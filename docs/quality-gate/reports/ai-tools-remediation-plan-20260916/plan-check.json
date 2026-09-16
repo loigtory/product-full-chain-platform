@@ -1,0 +1,308 @@
+{
+  "at": "2026-09-16T15:10:22.557Z",
+  "status": "PASS",
+  "scope": "docs-only design validation; no product verification or acceptance",
+  "baseline": {
+    "head": "2ce418c0ad542a3c84acb88738f464ad8ee4e329",
+    "branch": "feat/ai-tools-integration",
+    "changed": [
+      "AGENTS.md",
+      "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+      "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+      "docs/planning/prototype-v3/README.md",
+      "output/pfc-workbench-prototype/README.md"
+    ],
+    "untracked": [
+      "docs/planning/prototype-v3/46-核查问题修复与主线补齐方案-20260916.md",
+      "docs/quality-gate/reports/ai-tools-remediation-plan-20260916/implementation-package.json",
+      "docs/quality-gate/reports/ai-tools-remediation-plan-20260916/plan-check.json"
+    ]
+  },
+  "packageSha256": "8efeb0b93283a9b1bea17eca1653b5ef21d07b10814a66322b73a891ae847393",
+  "checks": [
+    {
+      "name": "pinned checkout",
+      "status": "PASS",
+      "detail": {
+        "head": "2ce418c0ad542a3c84acb88738f464ad8ee4e329",
+        "branch": "feat/ai-tools-integration"
+      }
+    },
+    {
+      "name": "unique exact paths",
+      "status": "PASS",
+      "detail": {
+        "count": 38
+      }
+    },
+    {
+      "name": "source unchanged: server/src/domain/conversation-service.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/persistence/agent-jobs.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/worker.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/exec-control.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/config.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/protocol.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/conversation-provider.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/budget.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/context-service.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/routes/agent.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/local/ops-config.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/local/profile.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/local/backup.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/local/restore-check.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/local/lifecycle.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/original/domain-conversation.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/original/app.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/original/workbench.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/scripts/run-ai-tools-gates.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-exec-closedloop.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-exec-control.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/verify-ai-tools-mixed-chain.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/verify-ai-tools-context-stress.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/verify-ai-tools-parallel-stress.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/verify-ai-tools-live-exec-closedloop.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/job-control.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/agent/execution-policy.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/src/persistence/agent-approvals.js",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/test-support/gate-result.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/test-data/ai-tools-remediation-fixture.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-remediation-model.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-remediation-api.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-remediation-ops.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-remediation-real.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/verify-ai-tools-remediation-architecture.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: output/pfc-workbench-prototype/verify-ai-tools-remediation-browser.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "source unchanged: server/scripts/run-ai-tools-remediation-gates.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "only six docs and named proposal JSON changed",
+      "status": "PASS",
+      "detail": {
+        "changed": [
+          "AGENTS.md",
+          "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+          "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+          "docs/planning/prototype-v3/README.md",
+          "output/pfc-workbench-prototype/README.md",
+          "docs/planning/prototype-v3/46-核查问题修复与主线补齐方案-20260916.md",
+          "docs/quality-gate/reports/ai-tools-remediation-plan-20260916/implementation-package.json"
+        ]
+      }
+    },
+    {
+      "name": "proposal link: ../../quality-gate/reports/ai-tools-remediation-plan-20260916/implementation-package.json",
+      "status": "PASS"
+    },
+    {
+      "name": "proposal link: ../../quality-gate/reports/ai-tools-remediation-plan-20260916/plan-check.json",
+      "status": "PASS"
+    },
+    {
+      "name": "current entry links to 46: AGENTS.md",
+      "status": "PASS"
+    },
+    {
+      "name": "current entry links to 46: docs/planning/prototype-v3/19-开发路线图-20260912.md",
+      "status": "PASS"
+    },
+    {
+      "name": "current entry links to 46: docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+      "status": "PASS"
+    },
+    {
+      "name": "current entry links to 46: docs/planning/prototype-v3/README.md",
+      "status": "PASS"
+    },
+    {
+      "name": "current entry links to 46: output/pfc-workbench-prototype/README.md",
+      "status": "PASS"
+    }
+  ],
+  "observedCommands": [
+    {
+      "command": "node --version",
+      "exitCode": 0,
+      "output": "v24.20.0"
+    },
+    {
+      "command": "node .tools/node-v24.20.0-win-x64/node_modules/npm/bin/npm-cli.js --version",
+      "exitCode": 0,
+      "output": "11.19.0"
+    },
+    {
+      "command": "require.resolve for express/pg/ws/jsonwebtoken/eslint/prettier/playwright",
+      "exitCode": 0,
+      "output": "all installed dependencies resolved; no installation"
+    },
+    {
+      "command": "node scripts/run-gate.mjs quick --dry-run",
+      "exitCode": 0,
+      "output": "GATE_PLAN gate=quick commands=check:config,check:codex-protocol,check:delivery-governance,check:ui-design,check:lint,check:format,check:types,test:unit\nGATE_STATUS READY_TO_RUN",
+      "meaning": "plan only, not quick gate PASS"
+    },
+    {
+      "command": "node scripts/check-config.mjs",
+      "exitCode": 0,
+      "output": "BOOTSTRAP_CONFIG_OK node=24.20.0 policy=fail-closed"
+    },
+    {
+      "command": "node --import tsx scripts/check-delivery-governance.ts",
+      "exitCode": 0,
+      "output": "DELIVERY_GOVERNANCE_OK pod=POD-PFC-001 caps=5 units=26 milestone=M2 next=POD-PFC-001/M2/R3a/artifact-collaboration-tdd"
+    },
+    {
+      "command": "node node_modules/prettier/bin/prettier.cjs",
+      "args": [
+        "--check",
+        "--ignore-path",
+        "NUL",
+        "AGENTS.md",
+        "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+        "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+        "docs/planning/prototype-v3/README.md",
+        "output/pfc-workbench-prototype/README.md",
+        "docs/planning/prototype-v3/46-核查问题修复与主线补齐方案-20260916.md",
+        "docs/quality-gate/reports/ai-tools-remediation-plan-20260916/implementation-package.json",
+        "docs/quality-gate/reports/ai-tools-remediation-plan-20260916/plan-check.json"
+      ],
+      "exitCode": 0,
+      "output": "Checking formatting...\nAll matched files use Prettier code style!"
+    },
+    {
+      "command": "git -c core.safecrlf=false diff --check",
+      "exitCode": 0,
+      "output": "no whitespace errors; CRLF conversion warnings only"
+    }
+  ],
+  "limitations": [
+    "38 implementation paths untouched; source tests not run",
+    "no DB/model/service operations",
+    "no Git commits or remote mutations",
+    "remote head not refreshed in this plan",
+    "protocol enforcement and eight-turn coverage remain to be verified"
+  ],
+  "processes": {
+    "spawnedPersistent": [],
+    "existingServices": "preserved; no process control commands executed"
+  },
+  "next": "await precise supplemental implementation package confirmation",
+  "artifactCounts": {
+    "modifiedDocs": 5,
+    "newProposalDocs": 1,
+    "newJsonRecords": 2,
+    "sourceChanges": 0
+  }
+}
