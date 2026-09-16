@@ -1,0 +1,94 @@
+{
+  "at": "2026-09-16T02:20:31.034Z",
+  "status": "FAIL",
+  "scope": "跨阶段上下文传递：req 真实产出经 stageContext 注入 design",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1088"
+    },
+    {
+      "name": "req 发送 TEXT 作业",
+      "status": 201
+    },
+    {
+      "name": "req ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "req 产出非空",
+      "status": "PASS",
+      "len": 2013
+    },
+    {
+      "name": "req metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "design 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "design ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "design 产出非空",
+      "status": "PASS",
+      "len": 4010
+    },
+    {
+      "name": "design metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "design 不再声明\"未提供上一步内容\"（旧独立线程边界消除）",
+      "status": "PASS",
+      "hasClaim": false
+    },
+    {
+      "name": "design 产出引用/基于前序需求结论继续",
+      "status": "FAIL",
+      "citesUpstream": false
+    },
+    {
+      "name": "design 承接需求关键词（功能点/验收/优先级/范围）",
+      "status": "PASS",
+      "inherits": true
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-context.mjs"
+      ]
+    }
+  ],
+  "errors": [
+    "design 产出引用/基于前序需求结论继续"
+  ],
+  "external": [
+    {
+      "step": "req",
+      "ai": {
+        "id": "SMSG-108",
+        "len": 2013,
+        "snippet": "当前可见材料未包含“上一步澄清”的具体结论。以下仅将**“依赖与安全扫描”是本次需求对象、当前处于需求阶段**列为已确认事实；其余均为建议或待确认项，不能视为已确认需求。\n\n**需求草案：依赖与安全扫描**\n\n目标〔推断，待确认〕：帮助相关人员了解项目依赖及安全风险，并获得可定位、可处理、可复核的扫描结果。\n\n**用户角色与用户故事〔建议〕**\n\n| 角色 | 用户故事 |\n|---|---|\n| 开发人员 | 我希望查看依赖及其风险位置，以便判断影响并修复。 |\n| 安全负"
+      }
+    },
+    {
+      "step": "design",
+      "ai": {
+        "id": "SMSG-110",
+        "len": 4010,
+        "snippet": "本设计以“依赖识别与已知漏洞扫描”为**建议首期范围**，不默认技术栈、扫描工具或部署环境。前序材料中的功能范围仍属建议，因此下文是待评审设计，不能直接视为开发基线。\n\n### 1. 候选方案与取舍\n\n| 方案 | 整体方式 | 优点 | 代价与限制 |\n|---|---|---|---|\n| A：本地或流水线内扫描 | 在项目所在环境解析依赖、匹配漏洞，生成本地报告；可选择上传摘要 | 数据外发少，部署链路短，适合验证首期能力 | 扫描器与漏洞库版本较难统一；跨项目查询、权限及历史管理需额外建设 |\n| B：集中管理＋隔离执行 | 管理端负责任务、权限与报告；隔离执行器负责解析和扫描；支持组"
+      },
+      "inheritsReqKeywords": true
+    }
+  ]
+}

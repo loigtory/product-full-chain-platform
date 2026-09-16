@@ -1,0 +1,93 @@
+{
+  "at": "2026-09-16T02:23:23.993Z",
+  "status": "PASS",
+  "scope": "跨阶段上下文传递：req 真实产出经 stageContext 注入 design",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1089"
+    },
+    {
+      "name": "req 发送 TEXT 作业",
+      "status": 201
+    },
+    {
+      "name": "req ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "req 产出非空",
+      "status": "PASS",
+      "len": 2565
+    },
+    {
+      "name": "req metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "design 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "design ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "design 产出非空",
+      "status": "PASS",
+      "len": 4420
+    },
+    {
+      "name": "design metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "design 不再声明\"未提供上一步内容\"（旧独立线程边界消除）",
+      "status": "PASS",
+      "hasClaim": false
+    },
+    {
+      "name": "design 产出引用/基于前序需求结论继续",
+      "status": "PASS",
+      "citesUpstream": true
+    },
+    {
+      "name": "design 承接需求关键词（功能点/验收/优先级/范围）",
+      "status": "PASS",
+      "inherits": true
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-context-1789525371.json",
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-context.mjs"
+      ]
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "step": "req",
+      "ai": {
+        "id": "SMSG-112",
+        "len": 2565,
+        "snippet": "以下为「依赖与安全扫描」需求草案。当前对话未包含“上一步澄清”的具体结论，因此仅将**能力名称及本次交付要求视为已确认事实**；下述功能、优先级与验收标准均为建议，待确认后形成需求基线。\n\n### 1. 目标与用户故事\n\n**已确认事实**：需要将「依赖与安全扫描」固化为可作业需求，明确功能点、优先级、验收标准、范围与待确认项。\n\n**目标推断**：帮助团队识别项目依赖中的已知安全风险，提供可追溯的扫描结果，支持风险处置。\n\n以下角色与用户故事尚待确认：\n\n| 用户角色（建议"
+      }
+    },
+    {
+      "step": "design",
+      "ai": {
+        "id": "SMSG-114",
+        "len": 4420,
+        "snippet": "本次产出为**设计草案，尚未确认实施方案**。沿用前序 F01–F09，不重复调研；前序已将功能范围和优先级标为建议，因此本设计以“依赖已知漏洞扫描”为工作假设，不将其升级为已确认需求，也不默认技术栈。\n\n### 1. 候选方案与取舍\n\n| 方案 | 整体方式 | 优点 | 代价与限制 |\n|---|---|---|---|\n| A：本地／CI 执行，集中管理结果 | 在项目所在环境解析依赖并扫描，向管理端提交标准化报告 | 源码可留在原环境；易结合已有研发流程 | 执行环境、工具版本和漏洞库可能不一致；需要验证报告来源和完整性 |\n| B：集中调度，隔离执行扫描 | 平台接收扫描请求，由隔离"
+      },
+      "inheritsReqKeywords": true
+    }
+  ]
+}
