@@ -1,0 +1,190 @@
+{
+  "at": "2026-09-16T00:24:57.572Z",
+  "status": "PASS",
+  "scope": "逐阶段真实 TEXT：8 阶段 guide+skill 组合产出质量（每阶段 1 次模型）",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1087"
+    },
+    {
+      "name": "DESIGN 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "DESIGN ai 终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "DESIGN 回写内容非空",
+      "status": "PASS",
+      "len": 3738
+    },
+    {
+      "name": "DESIGN 产出含本阶段期望结构",
+      "status": "PASS",
+      "snippet": "以下为「依赖与安全扫描」设计草案。当前仅有功能名称，未提供完整需求草案；暂按“识别项目依赖、发现已知漏洞并跟踪处置”设计，供方案确认，不代表已完成技术选型。\n\n**1. 目标、边界与不确定项**\n\n目标：建立“扫描 → 风险判断 → 处置 → 复扫验证”的闭环，并为开发和发布提供可追溯证据。\n\n建议首期范围：\n\n- 依"
+    },
+    {
+      "name": "DESIGN metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DEV 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "DEV ai 终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "DEV 回写内容非空",
+      "status": "PASS",
+      "len": 1453
+    },
+    {
+      "name": "DEV 产出含本阶段期望结构",
+      "status": "PASS",
+      "snippet": "当前按**系统迭代、严格级别**规划：涉及依赖、安全扫描及可能的发布门禁。当前未提供已确认设计、仓库文件和指定工作区，因此以下是**待仓库核实的实现计划**，文件路径为候选；尚未提交或执行 `codex exec` 作业。\n\n| 顺序 | 任务 | 涉及文件（以仓库实际结构为准） | 验证方式 |\n|---|---|-"
+    },
+    {
+      "name": "DEV metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "TEST 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "TEST ai 终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "TEST 回写内容非空",
+      "status": "PASS",
+      "len": 1526
+    },
+    {
+      "name": "TEST 产出含本阶段期望结构",
+      "status": "PASS",
+      "snippet": "「依赖与安全扫描」测试矩阵草案如下。当前未提供需求草案、验收项、扫描范围及已有测试证据，因此以下为待确认用例，不能作为验收通过依据。\n\n本次无法读取 `platform-test-case-writer` 技能文件，未完成该技能流程核验；按已提供的测试阶段要求整理，未执行扫描或测试。\n\n统一前置条件：使用隔离环境、合成"
+    },
+    {
+      "name": "TEST metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "RELEASE 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "RELEASE ai 终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "RELEASE 回写内容非空",
+      "status": "PASS",
+      "len": 1821
+    },
+    {
+      "name": "RELEASE 产出含本阶段期望结构",
+      "status": "PASS",
+      "snippet": "「依赖与安全扫描」发布材料草案如下。**当前未提供验收结论、测试证据及部署环境信息，发布就绪状态待确认，不能据此判定可上线。** 当前会话无法读取 `release-checklist`、`release-ops` 技能文件，以下依据已提供信息整理，未执行发布或验证。\n\n### 一、发布检查清单\n\n| 检查项 | 放行"
+    },
+    {
+      "name": "RELEASE metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "OBSERVE 发送 TEXT 作业（mode:real）",
+      "status": "PASS",
+      "respStatus": 201
+    },
+    {
+      "name": "OBSERVE ai 终态 ok（codex 真实回写）",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "OBSERVE 回写内容非空",
+      "status": "PASS",
+      "len": 2932
+    },
+    {
+      "name": "OBSERVE 产出含本阶段期望结构",
+      "status": "PASS",
+      "snippet": "以下为「依赖与安全扫描」上线后的观察方案草案。**已知事实**：当前处于观察复盘阶段；未提供实际发布清单、基线、运行数据及 SLA。以下暂按“依赖识别、漏洞扫描、结果展示与通知”设计；涉及发布阻断的部分仅在本次上线包含该能力时适用。所有阈值均为**待验证假设**，不代表已发生异常或已达成效果。\n\n### 1. 观察目标"
+    },
+    {
+      "name": "OBSERVE metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-text-all-1789516346.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-text-all-1789516948.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-text-all-1789517474.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-text-all-1789518169.json"
+      ]
+    }
+  ],
+  "errors": [],
+  "external": [
+    {
+      "stage": "design",
+      "ai": {
+        "id": "SMSG-98",
+        "status": "ok",
+        "snippet": "以下为「依赖与安全扫描」设计草案。当前仅有功能名称，未提供完整需求草案；暂按“识别项目依赖、发现已知漏洞并跟踪处置”设计，供方案确认，不代表已完成技术选型。\n\n**1. 目标、边界与不确定项**\n\n目标：建立“扫描 → 风险判断 → 处置 → 复扫验证”的闭环，并为开发和发布提供可追溯证据。\n\n建议首期范围：\n\n- 依赖清单及直接、传递依赖识别。\n- 已知漏洞匹配、风险分级、修复建议。\n- 扫描报告、风险指派、例外审批与审计。\n- 手动扫描；CI 接入与阻断策略可按版本推进。\n\n待确认：支持的语言与包管理器、仓库数"
+      }
+    },
+    {
+      "stage": "dev",
+      "ai": {
+        "id": "SMSG-100",
+        "status": "ok",
+        "snippet": "当前按**系统迭代、严格级别**规划：涉及依赖、安全扫描及可能的发布门禁。当前未提供已确认设计、仓库文件和指定工作区，因此以下是**待仓库核实的实现计划**，文件路径为候选；尚未提交或执行 `codex exec` 作业。\n\n| 顺序 | 任务 | 涉及文件（以仓库实际结构为准） | 验证方式 |\n|---|---|---|---|\n| 1 | 核实设计与环境：确认扫描生态、范围、触发方式、严重度阈值；检查运行时、依赖、现有 CI 和质量门禁 | `AGENTS.md`、依赖清单及锁文件、CI 配置、质量配置 | "
+      }
+    },
+    {
+      "stage": "test",
+      "ai": {
+        "id": "SMSG-102",
+        "status": "ok",
+        "snippet": "「依赖与安全扫描」测试矩阵草案如下。当前未提供需求草案、验收项、扫描范围及已有测试证据，因此以下为待确认用例，不能作为验收通过依据。\n\n本次无法读取 `platform-test-case-writer` 技能文件，未完成该技能流程核验；按已提供的测试阶段要求整理，未执行扫描或测试。\n\n统一前置条件：使用隔离环境、合成依赖清单、模拟漏洞库和无效测试凭据；固定规则及漏洞库版本。禁止使用真实密钥或访问真实漏洞目标。各用例执行人待指定，验收人由需求负责人确认。\n\n| 编号 | 核心场景／覆盖风险 | 级别 | 操作步骤 "
+      }
+    },
+    {
+      "stage": "release",
+      "ai": {
+        "id": "SMSG-104",
+        "status": "ok",
+        "snippet": "「依赖与安全扫描」发布材料草案如下。**当前未提供验收结论、测试证据及部署环境信息，发布就绪状态待确认，不能据此判定可上线。** 当前会话无法读取 `release-checklist`、`release-ops` 技能文件，以下依据已提供信息整理，未执行发布或验证。\n\n### 一、发布检查清单\n\n| 检查项 | 放行条件 | 当前状态 |\n|---|---|---|\n| 验收结论 | 验收范围、结论、验收人及遗留问题明确 | 待提供 |\n| 发布范围 | 明确涉及扫描器、依赖/锁文件、规则库、CI 门禁或报告功能"
+      }
+    },
+    {
+      "stage": "observe",
+      "ai": {
+        "id": "SMSG-106",
+        "status": "ok",
+        "snippet": "以下为「依赖与安全扫描」上线后的观察方案草案。**已知事实**：当前处于观察复盘阶段；未提供实际发布清单、基线、运行数据及 SLA。以下暂按“依赖识别、漏洞扫描、结果展示与通知”设计；涉及发布阻断的部分仅在本次上线包含该能力时适用。所有阈值均为**待验证假设**，不代表已发生异常或已达成效果。\n\n### 1. 观察目标与核心指标\n\n观察目标：确认扫描覆盖充分、运行稳定、结果可信，并能推动风险修复，且不显著拖慢研发交付。\n\n| 核心指标 | 建议口径 | 观察用途 |\n|---|---|---|\n| 扫描覆盖率 | "
+      }
+    }
+  ]
+}
