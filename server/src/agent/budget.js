@@ -27,7 +27,9 @@ const LEDGER = path.resolve(
 // 开发/验收燃料上限：按需调高（跨阶段全链路重跑 6 次真实调用 + 余量）。
 const MAX_TURNS = 108;
 const TURN_SECONDS = 300;
-const MAX_RESERVED_SECONDS = 7200;
+// 累计模型耗时上限：原 7200s（120 分钟）已累计至 6901s 触顶（MODEL_TIME_LIMIT 秒败真因——
+// 与作业超时无关）。按用户"按需调高"授权翻倍至 14400s（240 分钟），支撑跨阶段全链路验证。
+const MAX_RESERVED_SECONDS = 14400;
 const PACKAGE = '44-ai-tools-integration-20260914';
 const fail = (code) => {
   throw Object.assign(new Error(code), { code });
