@@ -1,0 +1,190 @@
+{
+  "at": "2026-09-16T02:51:15.599Z",
+  "status": "FAIL",
+  "scope": "跨阶段上下文传递·全链路：req→design→dev→test→release→observe 逐级携带前序产出",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1093"
+    },
+    {
+      "name": "REQ 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "REQ ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "REQ 产出非空",
+      "status": "PASS",
+      "len": 2399
+    },
+    {
+      "name": "REQ metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DESIGN 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "DESIGN ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "DESIGN 产出非空",
+      "status": "PASS",
+      "len": 4518
+    },
+    {
+      "name": "DESIGN metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DESIGN 不再声明\"未提供上一步内容\"",
+      "status": "PASS",
+      "hasClaim": false
+    },
+    {
+      "name": "DESIGN 产出引用/基于前序结论继续",
+      "status": "PASS",
+      "cites": true
+    },
+    {
+      "name": "DEV 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "DEV ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "DEV 产出非空",
+      "status": "PASS",
+      "len": 3449
+    },
+    {
+      "name": "DEV metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "DEV 不再声明\"未提供上一步内容\"",
+      "status": "PASS",
+      "hasClaim": false
+    },
+    {
+      "name": "DEV 产出引用/基于前序结论继续",
+      "status": "PASS",
+      "cites": true
+    },
+    {
+      "name": "TEST 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "TEST ai 终态 ok",
+      "status": "PASS",
+      "meta": null
+    },
+    {
+      "name": "TEST 产出非空",
+      "status": "PASS",
+      "len": 3932
+    },
+    {
+      "name": "TEST metadata.real=true（DB 直查）",
+      "status": "PASS",
+      "realFlag": "true"
+    },
+    {
+      "name": "TEST 不再声明\"未提供上一步内容\"",
+      "status": "PASS",
+      "hasClaim": false
+    },
+    {
+      "name": "TEST 产出引用/基于前序结论继续",
+      "status": "PASS",
+      "cites": true
+    },
+    {
+      "name": "RELEASE 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "RELEASE ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "OBSERVE 发送 TEXT 作业（带 stageContext）",
+      "status": 201
+    },
+    {
+      "name": "OBSERVE ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-context-chain-1789526172.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-context-chain-1789526376.json",
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-context-chain-1789527036.json",
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs"
+      ]
+    }
+  ],
+  "errors": [
+    "RELEASE ai 终态 ok",
+    "OBSERVE ai 终态 ok"
+  ],
+  "external": [
+    {
+      "step": "req",
+      "ai": {
+        "id": "SMSG-152",
+        "len": 2399,
+        "snippet": "**「依赖与安全扫描」需求草案｜待确认**\n\n当前材料仅明确了能力主题及需求阶段的交付要求，未提供现有系统、扫描对象、用户故事或业务规则。以下将已知事实与建议分开；建议内容均不代表已确认需求。本会话无法读取需求工作法 Skill 文件，因此未执行其具体模板校验。\n\n**1. 事实与目标**\n\n- **事实**：本阶段需将“依赖与安全扫描”形成可作业需求，明确功能点、优先级、验收标准、范围及待确认项。\n- **尚未确认**：“安全扫描”是否涵盖代码漏洞、凭据泄露、镜像、基础设施"
+      }
+    },
+    {
+      "step": "design",
+      "ai": {
+        "id": "SMSG-154",
+        "len": 4518,
+        "snippet": "本方案承接前序需求草案，不重复调研。**当前确认的是能力主题，首期范围和业务规则仍待确认**。以下以“指定版本的依赖已知漏洞扫描”为设计假设，形成可评审方案；不默认技术栈、扫描工具或漏洞数据源，也不视为已获实施批准。\n\n### 1. 候选方案与取舍\n\n| 方案 | 整体方式 | 优点 | 代价与限制 |\n|---|---|---|---|\n| A：本地／CI 执行 | 扫描器在项目环境读取依赖文件，生成本地报告；按需上传标准化结果 | 源码可留在原环境，接入较轻，适合验证首期"
+      }
+    },
+    {
+      "step": "dev",
+      "ai": {
+        "id": "SMSG-156",
+        "len": 3449,
+        "snippet": "以下为可交给受控 `codex exec` 作业的实现计划。**本次仅形成计划，未启动作业、修改文件或执行测试。** 当前会话没有执行工具，且未提供指定工作区。\n\n按系统迭代、严格级别组织实施：涉及任务执行、权限、外部数据源及不可信输入。沿用前序设计，不重复调研；但前序产出仍标注方案与范围待确认，不能将建议当作已批准基线。\n\n### 1. 实施基线与启动条件\n\n计划暂按 **B：集中编排、隔离执行；V1 覆盖 F01—F06；静态解析单生态** 拆分。首期不实现自动修复、门禁"
+      }
+    },
+    {
+      "step": "test",
+      "ai": {
+        "id": "SMSG-158",
+        "len": 3932,
+        "snippet": "本次交付为**测试矩阵草案及未执行记录回填**，沿用实现计划假设：B 方案、V1 的 F01—F06、单生态静态解析。前序仅提供实现计划，没有代码、测试程序或执行证据，因此**不标记任何用例通过，也不认定已有自动化覆盖**。\n\n当前无法读取 `platform-test-case-writer` Skill 文件，未完成其模板校验；以下依据所附需求、设计及实现计划整理。\n\n### 测试口径与数据\n\n- **级别**：单元验证解析和判定规则；集成验证接口、存储与执行器协作；验收"
+      }
+    },
+    {
+      "chainConfirmed": [
+        "req:2399B",
+        "design:4518B",
+        "dev:3449B",
+        "test:3932B"
+      ]
+    }
+  ]
+}

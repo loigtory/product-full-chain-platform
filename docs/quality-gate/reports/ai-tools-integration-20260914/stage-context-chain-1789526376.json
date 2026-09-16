@@ -1,0 +1,81 @@
+{
+  "at": "2026-09-16T02:38:56.288Z",
+  "status": "FAIL",
+  "scope": "跨阶段上下文传递·全链路：req→design→dev→test→release→observe 逐级携带前序产出",
+  "tests": [
+    {
+      "name": "创建验证 req",
+      "status": "PASS",
+      "pid": "R-1091"
+    },
+    {
+      "name": "REQ 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "REQ ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "DESIGN 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "DESIGN ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "DEV 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "DEV ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "TEST 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "TEST ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "RELEASE 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "RELEASE ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "OBSERVE 发送 TEXT 作业（首阶段）",
+      "status": 201
+    },
+    {
+      "name": "OBSERVE ai 终态 ok",
+      "status": "FAIL"
+    },
+    {
+      "name": "平台仓库零污染（server/apps/packages 无改动）",
+      "status": "PASS",
+      "dirty": [
+        "?? docs/quality-gate/reports/ai-tools-integration-20260914/stage-context-chain-1789526172.json",
+        "?? output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs"
+      ]
+    }
+  ],
+  "errors": [
+    "REQ ai 终态 ok",
+    "DESIGN ai 终态 ok",
+    "DEV ai 终态 ok",
+    "TEST ai 终态 ok",
+    "RELEASE ai 终态 ok",
+    "OBSERVE ai 终态 ok"
+  ],
+  "external": [
+    {
+      "chainConfirmed": []
+    }
+  ]
+}
