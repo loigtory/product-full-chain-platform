@@ -246,15 +246,29 @@ class TextConversation {
         this.instructionSources,
         this.approvedInstructionSources,
       );
+      // 超时覆盖整个 turn（reserveTurn / turn/start / completion 任一环节挂起都触发）：
+      // 触发时 rejectTurn 收口 completion，并 kill 子进程 + rejectAll 挂起的 rpc 请求，
+      // 避免 `await rpc.request('turn/start')` 永久挂起导致作业卡 RUNNING（真实缺陷修复）。
+      console.error('[runText:diag] runText entered, setting 300s timer at', new Date().toISOString());
+      timer = setTimeout(() => {
+        console.error('[runText:diag] TURN_TIMED_OUT fired at', new Date().toISOString());
+        rejectTurn(fail('TURN_TIMED_OUT'));
+        try {
+          this.connection.rpc.child.kill();
+        } catch {
+          /* ignore */
+        }
+        try {
+          this.connection.rpc.rejectAll?.(fail('APP_SERVER_CLOSED'));
+        } catch {
+          /* ignore */
+        }
+      }, 300000);
       await reserveTurn();
       assertInstructionSources(
         this.instructionSources,
         this.approvedInstructionSources,
       );
-      timer = setTimeout(() => {
-        rejectTurn(fail('TURN_TIMED_OUT'));
-        this.connection.rpc.child.kill();
-      }, 300000);
       const started = await this.connection.rpc.request('turn/start', {
         threadId: this.threadId,
         input,
@@ -275,8 +289,15 @@ class TextConversation {
       for (const event of this.active.buffered.splice(0)) this.receive(event);
       return await completion;
     } catch (reason) {
+      console.error('[runText:diag] catch', reason.code || reason.message, 'at', new Date().toISOString());
       this.closed = true;
-      await this.connection.close();
+      // close() 末尾 `return this.exited` 在 Windows 上可能因
+      // child.kill() 杀不掉 codex.exe 而永不返回（真实缺陷）；
+      // 这里加 5s 兜底，保证 worker catch 能继续 finishJob/settleTurn。
+      await Promise.race([
+        this.connection.close(),
+        new Promise((resolve) => setTimeout(resolve, 5000)),
+      ]);
       throw reason;
     } finally {
       clearTimeout(timer);

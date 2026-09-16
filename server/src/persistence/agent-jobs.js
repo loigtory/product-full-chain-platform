@@ -179,6 +179,37 @@ async function finish(
   );
   return row;
 }
+// 强制收口：绕过 owned 租约检查直接写终态（供 worker catch 兜底，
+// 防止 AGENT_LEASE_LOST 等租约异常导致作业永久 RUNNING）。
+async function forceFinish(client, db, id, state, result = null, code = null) {
+  if (
+    !['SUCCEEDED', 'FAILED', 'CANCELLED', 'TIMED_OUT', 'UNKNOWN'].includes(
+      state,
+    )
+  )
+    fail('AGENT_STATE_INVALID');
+  const row = (
+    await client.query(
+      `UPDATE "${db.schema}".agent_jobs SET state=$1,result=$2,error_code=$3,updated_at=now() WHERE id=$4 RETURNING *`,
+      [state, result && JSON.stringify(result), code, id],
+    )
+  ).rows[0];
+  if (!row) return null;
+  await require('./agent-events').append(
+    client,
+    db,
+    row,
+    {
+      SUCCEEDED: 'completed',
+      FAILED: 'failed',
+      CANCELLED: 'cancelled',
+      TIMED_OUT: 'timed_out',
+      UNKNOWN: 'unknown',
+    }[state],
+    { state, ...(code ? { code } : {}) },
+  );
+  return row;
+}
 async function recover(client, db, expiredOwner = null) {
   const rows = (
     await client.query(
@@ -223,6 +254,7 @@ module.exports = {
   dispatch,
   heartbeat,
   finish,
+  forceFinish,
   recover,
   find,
 };

@@ -122,6 +122,11 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
   let aiMessageId = null;
   let startedAt = Date.now();
   let budgetActive = false;
+  let jobTimer = null;
+  let heartbeat = null;
+  // TEXT 作业兜底超时（毫秒）：覆盖 open 之后到 runText 完成的全程，
+  // 防止 codex 挂起/close 阻塞导致作业永久 RUNNING（真实缺陷收口）。
+  const TEXT_JOB_TIMEOUT_MS = 360000;
   active.set(jobId, { cancel: () => session?.close?.() });
   try {
     const job = await withTransaction(db, async (client) => {
@@ -131,6 +136,15 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
     });
     aiMessageId = job.input?.aiMessageId ?? null;
     if (!options) throw fail('CONNECTION_UNAVAILABLE');
+    // 心跳续租：TEXT 作业可能远超 claim 的 30s lease（模型生成/推理耗时），
+    // 每 20s 续租，避免 finish 时 owned 检查失败 AGENT_LEASE_LOST 导致作业永久 RUNNING。
+    heartbeat = setInterval(() => {
+      withTransaction(db, async (client) => {
+        await jobs.heartbeat(client, db, jobId, OWNER);
+      }).catch(() => {
+        /* 心跳失败不阻断作业，finish 时按实际租约判定 */
+      });
+    }, 20000);
     // 非终端 AI 能力按阶段注入：guide 引导模型按阶段工作法产出；
     // enabledSkills 让 text 线程的 skills.config 按期望能力启用（匹配到才启用）。
     const stage = job.input?.stage || 'idea';
@@ -141,6 +155,31 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
       ? '【本阶段：' + stageCap.name + '】' + stageCap.goal + '。\n' + stageCap.guide + '\n\n' + baseText
       : baseText;
     session = await TextConversation.open(options);
+    // 兜底超时：session 就绪后立即武装；触发时 kill codex + reject 挂起
+    // completion/rpc，保证 runText 抛错进入 worker catch 收口。
+    jobTimer = setTimeout(() => {
+      console.error('[runTextJob:diag] JOB_TIMED_OUT fired at', new Date().toISOString());
+      try {
+        session?.connection?.rpc?.child?.kill();
+      } catch (_) {
+        /* ignore */
+      }
+      try {
+        session?.active?.reject?.(fail('TURN_TIMED_OUT'));
+      } catch (_) {
+        /* ignore */
+      }
+      try {
+        session?.connection?.rpc?.rejectAll?.(fail('APP_SERVER_CLOSED'));
+      } catch (_) {
+        /* ignore */
+      }
+      try {
+        session?.close?.();
+      } catch (_) {
+        /* ignore */
+      }
+    }, TEXT_JOB_TIMEOUT_MS);
     let accumulated = '';
     const result = await session.runText({
       text,
@@ -188,7 +227,12 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
           : 'FAILED';
     if (aiMessageId)
       await failMessage(db, ctx, reqPublicId, aiMessageId, code).catch(() => {});
-    await finishJob(db, ctx, jobId, state, null, code).catch(() => {});
+    await finishJob(db, ctx, jobId, state, null, code).catch(async () => {
+      // 租约过期（AGENT_LEASE_LOST）等异常：强制收口，防止作业永久 RUNNING。
+      await withTransaction(db, async (client) => {
+        await jobs.forceFinish(client, db, jobId, state, null, code);
+      }).catch(() => {});
+    });
     if (budgetActive) {
       try {
         settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state);
@@ -198,6 +242,11 @@ async function runTextJob({ db, ctx, reqPublicId, jobId }) {
     }
     return { status: state, code };
   } finally {
+    if (heartbeat) clearInterval(heartbeat);
+    if (jobTimer) clearTimeout(jobTimer);
+    // 会话收口：fire-and-forget（不 await，避免 close 在 Windows 上
+    // 因 codex 进程不退出而阻塞 worker；进程由后台清理）。
+    if (session) session.close().catch(() => {});
     active.delete(jobId);
   }
 }
