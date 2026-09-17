@@ -307,10 +307,10 @@
     const refetchStagePlan = async (id) => {
       try {
         const r = P.r();
-        if (!r || r.id !== id || r.stage !== 'dev') return;
-        const data = await stageApi(id, 'GET', '/stage-plan?stage=dev');
+        if (!r || r.id !== id || !['design', 'dev', 'test'].includes(r.stage)) return;
+        const data = await stageApi(id, 'GET', '/stage-plan?stage=' + r.stage);
         if (P.r()?.id !== id) return;
-        const k = stageKey(r, 'dev');
+        const k = stageKey(r, r.stage);
         P.s.ui.stagePlan = P.s.ui.stagePlan || {};
         const prev = P.s.ui.stagePlan[k];
         P.s.ui.stagePlan[k] = {
@@ -339,7 +339,7 @@
       const fmtTime = (t) =>
         t ? String(t).replace('T', ' ').slice(0, 16) : '—';
       const btn = (action, label, data, cls) =>
-        P.btn(action, label, { req: r.id, ...(data || {}) }, cls || '');
+        P.btn(action, label, { req: r.id, stage, ...(data || {}) }, cls || '');
       const errHtml = draft.error
         ? '<div class="exec-err">' + e(draft.error) + '</div>'
         : '';
@@ -393,9 +393,9 @@
         '<span class="exec-hint">确认工作区与允许清单后冻结为本阶段执行契约；执行期间的改动在阶段结束复核，无违规后撤权。</span>' +
         '<details class="exec-control" open><summary>冻结执行基线</summary>' +
         '<div class="exec-fields">' +
-        '<label class="exec-field">工作区<input aria-label="阶段工作区" data-sp="workspace" value="' + f(draft.workspace) + '" placeholder="授权 workspace 绝对路径" /></label>' +
-        '<label class="exec-field">允许文件<input aria-label="允许文件" data-sp="allowedFiles" value="' + f(draft.allowedFiles) + '" placeholder="glob 逗号分隔，如 src/**, package.json" /></label>' +
-        '<label class="exec-field">允许命令<input aria-label="允许命令" data-sp="allowedCommands" value="' + f(draft.allowedCommands) + '" placeholder="命令逗号分隔，如 node --version, npm test" /></label>' +
+        '<label class="exec-field">工作区<input aria-label="阶段工作区" data-sp="workspace" value="' + f(draft.workspace) + '" placeholder="授权 workspace 绝对路径（' + (stage === 'design' ? '设计产物目录' : stage === 'test' ? '测试工程目录' : '代码工程目录') + '）" /></label>' +
+        '<label class="exec-field">允许文件<input aria-label="允许文件" data-sp="allowedFiles" value="' + f(draft.allowedFiles) + '" placeholder="' + (stage === 'design' ? 'docs/**, *.md' : stage === 'test' ? 'test/**, src/**, package.json' : 'src/**, package.json') + '" /></label>' +
+        '<label class="exec-field">允许命令<input aria-label="允许命令" data-sp="allowedCommands" value="' + f(draft.allowedCommands) + '" placeholder="命令逗号分隔，如 ' + (stage === 'design' ? 'ls, cat package.json' : stage === 'test' ? 'npm test, node --test' : 'node --version, npm test') + '" /></label>' +
         '<label class="exec-field">有效期<select data-sp="validDays"><option value="1">1 天</option><option value="2" selected>2 天</option><option value="3">3 天</option><option value="7">7 天</option></select></label>' +
         '</div>' + errHtml +
         '<div class="btn-group">' + btn('stage-freeze', '冻结执行基线', {}, 'primary') + '</div>' +
@@ -404,8 +404,9 @@
     };
     remote['stage-freeze'] = async (d) => {
       const r = P.r();
+      const stage = d.stage || r.stage;
       P.assert(r && r.id === d.req, '需求已切换');
-      const k = stageKey(r, 'dev');
+      const k = stageKey(r, stage);
       const g = (name) =>
         document.querySelector('[data-sp="' + name + '"]')?.value?.trim() || '';
       const workspace = g('workspace');
@@ -436,7 +437,7 @@
       }
       try {
         const data = await stageApi(d.req, 'POST', '/stage-plan/freeze', {
-          stage: 'dev',
+          stage,
           workspace,
           control: {
             mode: 'strict',
@@ -465,11 +466,12 @@
     };
     remote['stage-review'] = async (d) => {
       const r = P.r();
+      const stage = d.stage || r.stage;
       P.assert(r && r.id === d.req, '需求已切换');
-      const k = stageKey(r, 'dev');
+      const k = stageKey(r, stage);
       try {
         const data = await stageApi(d.req, 'POST', '/stage-plan/review', {
-          stage: 'dev',
+          stage,
         });
         P.s.ui.stagePlan = P.s.ui.stagePlan || {};
         P.s.ui.stagePlan[k] = {
@@ -489,11 +491,12 @@
     };
     remote['stage-revoke'] = async (d) => {
       const r = P.r();
+      const stage = d.stage || r.stage;
       P.assert(r && r.id === d.req, '需求已切换');
-      const k = stageKey(r, 'dev');
+      const k = stageKey(r, stage);
       try {
         const data = await stageApi(d.req, 'POST', '/stage-plan/revoke', {
-          stage: 'dev',
+          stage,
         });
         P.s.ui.stagePlan = P.s.ui.stagePlan || {};
         P.s.ui.stagePlan[k] = {
@@ -511,13 +514,14 @@
     };
     remote['stage-refreeze'] = async (d) => {
       const r = P.r();
+      const stage = d.stage || r.stage;
       P.assert(r && r.id === d.req, '需求已切换');
-      const k = stageKey(r, 'dev');
+      const k = stageKey(r, stage);
       const plan = P.s.ui.stagePlan?.[k] || {};
       const ctl = plan.control || {};
       try {
         const data = await stageApi(d.req, 'POST', '/stage-plan/freeze', {
-          stage: 'dev',
+          stage,
           workspace: plan.workspace,
           control: {
             mode: ctl.mode || 'strict',
