@@ -64,7 +64,7 @@ const artifactTables = [
   'artifact_impacts',
 ];
 function registry(target = '001') {
-  if (!['001', '002', '003', '004', '005', '006', '007'].includes(target))
+  if (!['001', '002', '003', '004', '005', '006', '007', '008'].includes(target))
     throw error('MIGRATION_VERSION_INVALID');
   const list = [baseline()];
   if (target !== '001') {
@@ -78,7 +78,7 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (['003', '004', '005', '006', '007'].includes(target)) {
+  if (['003', '004', '005', '006', '007', '008'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/003-governance-projects.sql'),
       'utf8',
@@ -89,7 +89,7 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (['004', '005', '006', '007'].includes(target)) {
+  if (['004', '005', '006', '007', '008'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/004-linked-artifacts.sql'),
       'utf8',
@@ -100,7 +100,7 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (['005', '006', '007'].includes(target)) {
+  if (['005', '006', '007', '008'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/005-testing-acceptance.sql'),
       'utf8',
@@ -111,7 +111,7 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (['006', '007'].includes(target)) {
+  if (['006', '007', '008'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/006-release-observation.sql'),
       'utf8',
@@ -122,13 +122,24 @@ function registry(target = '001') {
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
   }
-  if (target === '007') {
+  if (['007', '008'].includes(target)) {
     const sql = readFileSync(
       resolve(__dirname, '../../sql/m2c/007-ai-tools.sql'),
       'utf8',
     ).replace(/\r\n/g, '\n');
     list.push({
       version: '007',
+      sql,
+      checksum: createHash('sha256').update(sql).digest('hex'),
+    });
+  }
+  if (target === '008') {
+    const sql = readFileSync(
+      resolve(__dirname, '../../sql/m2c/008-stage-plans.sql'),
+      'utf8',
+    ).replace(/\r\n/g, '\n');
+    list.push({
+      version: '008',
       sql,
       checksum: createHash('sha256').update(sql).digest('hex'),
     });
@@ -142,7 +153,7 @@ async function assertReady(
 ) {
   db.assertScope();
   const expected = registry(target);
-  if (target === '007')
+  if (['007', '008'].includes(target))
     await require('./agent-jobs').assertReady(db, queryable);
   if (db.schema === 'pfc_workbench') {
     const ownership = (
@@ -184,10 +195,10 @@ async function assertReady(
     ![
       ...tables,
       ...(target !== '001' ? domainTables : []),
-      ...(['003', '004', '005', '006', '007'].includes(target)
+      ...(['003', '004', '005', '006', '007', '008'].includes(target)
         ? governanceTables
         : []),
-      ...(['004', '005', '006', '007'].includes(target) ? artifactTables : []),
+      ...(['004', '005', '006', '007', '008'].includes(target) ? artifactTables : []),
     ].every((t) => actual.includes(t))
   )
     throw error('MIGRATION_NOT_READY');
@@ -251,13 +262,13 @@ async function assertReady(
       )
         throw error('MIGRATION_NOT_READY');
   }
-  if (['004', '005', '006', '007'].includes(target))
+  if (['004', '005', '006', '007', '008'].includes(target))
     await assertArtifacts(db, queryable);
-  if (['006', '007'].includes(target))
+  if (['006', '007', '008'].includes(target))
     await require('./release-readiness').assertReady(db, queryable);
-  if (['005', '006', '007'].includes(target))
+  if (['005', '006', '007', '008'].includes(target))
     await require('./verification-readiness').assertReady(db, queryable);
-  if (['003', '004', '005', '006', '007'].includes(target)) {
+  if (['003', '004', '005', '006', '007', '008'].includes(target)) {
     const columns = (
       await queryable.query(
         'SELECT table_name,column_name FROM information_schema.columns WHERE table_schema=$1',
@@ -299,6 +310,38 @@ async function assertReady(
           )
         )
           throw error('MIGRATION_NOT_READY');
+  }
+  if (['008'].includes(target)) {
+    const tables_008 = ['stage_plans'];
+    const allTables = (
+      await queryable.query('SELECT tablename FROM pg_tables WHERE schemaname=$1', [
+        db.schema,
+      ])
+    ).rows.map((r) => r.tablename);
+    if (!tables_008.every((t) => allTables.includes(t)))
+      throw error('MIGRATION_NOT_READY');
+    const constraints = (
+      await queryable.query(
+        'SELECT c.relname,k.contype,k.convalidated FROM pg_constraint k JOIN pg_class c ON c.oid=k.conrelid JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname=$1',
+        [db.schema],
+      )
+    ).rows;
+    for (const table of tables_008)
+      for (const type of ['p', 'f'])
+        if (
+          !constraints.some(
+            (c) => c.relname === table && c.contype === type && c.convalidated,
+          )
+        )
+          throw error('MIGRATION_NOT_READY');
+    const triggers = (
+      await queryable.query(
+        'SELECT t.tgname,t.tgenabled FROM pg_trigger t JOIN pg_class c ON c.oid=t.tgrelid JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname=$1 AND NOT t.tgisinternal',
+        [db.schema],
+      )
+    ).rows;
+    if (!triggers.some((t) => t.tgname === 'stage_plans_guard' && t.tgenabled === 'O'))
+      throw error('MIGRATION_NOT_READY');
   }
 }
 async function assertArtifacts(db, client) {

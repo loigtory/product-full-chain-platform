@@ -451,3 +451,13 @@ div.composer{flex-wrap:wrap;}
   border:1px solid var(--border);border-radius:8px;padding:5px 8px;font-size:12px;
   color:var(--text-1);background:var(--surface);outline:none;flex:none;
 }
+
+/* 52 号：阶段执行基线（freeze/review/revoke） */
+.exec-bar .exec-fields{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;}
+.exec-bar .exec-fields .row{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-2);flex:1 1 100%;min-width:0;}
+.exec-bar .exec-fields .row b{flex:none;color:var(--text-1);font-weight:600;}
+.exec-bar .exec-fields .row code{font-size:10px;color:var(--brand-strong);background:rgba(0,160,233,.08);padding:1px 5px;border-radius:4px;}
+.exec-bar .exec-err{flex:1 1 100%;font-size:11px;color:#D4380D;background:rgba(212,56,13,.08);padding:6px 9px;border-radius:6px;}
+.exec-bar .exec-review{flex:1 1 100%;font-size:11px;color:var(--text-2);background:rgba(82,196,26,.07);padding:6px 9px;border-radius:6px;}
+.exec-bar .exec-review .row{flex:1 1 100%;display:flex;gap:6px;align-items:center;}
+.exec-bar .exec-hint{white-space:normal !important;line-height:1.5;}

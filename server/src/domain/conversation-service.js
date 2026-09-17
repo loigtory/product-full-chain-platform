@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 const { S, seedFromState, pushAudit } = require('./store');
 const sm = require('./state-machine');
 // Existing memory demonstration adapter; no PG caller may enter this block.
@@ -208,7 +208,7 @@ module.exports.sendMessage = async (id, input) => {
           '".messages SET status=$1,revision=revision+1 WHERE tenant_id=$2 AND req_id=$3 AND status=$4',
         ['stopped', ctx.tenantId, row.id, 'generating'],
       );
-      if (db.targetVersion === '007') {
+      if (['007', '008'].includes(db.targetVersion)) {
         const old = (
           await client.query(
             `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') FOR UPDATE`,
@@ -421,7 +421,7 @@ module.exports.stopMessage = async (id, mid, input) => {
       // Use the persisted AI message association; command_id belongs to the user message.
       // Version detection avoids aborting a 006 transaction by querying a missing table.
       let job = null;
-      if (db.targetVersion === '007') {
+      if (['007', '008'].includes(db.targetVersion)) {
         job = (
           await client.query(
             `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND input->>'aiMessageId'=$3 AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') ORDER BY created_at DESC LIMIT 1 FOR UPDATE`,

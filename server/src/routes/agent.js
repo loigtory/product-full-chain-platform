@@ -43,7 +43,7 @@ router.get('/status', (req, res) => {
   } catch {
     schemaVersion = null;
   }
-  const capable = !!process.env.PFC_CODEX_BINARY && schemaVersion === '007';
+  const capable = !!process.env.PFC_CODEX_BINARY && ['007', '008'].includes(schemaVersion);
   const execution = require('../agent/execution-policy').capability();
   res.json({
     mode: 'real',
@@ -180,12 +180,11 @@ router.post(
     }
   },
 );
-router.get('/requirements/:reqId/tool-control', async (req, res, next) => {
-  try {
+router.get('/requirements/:reqId/tool-control', async (req, res, next) => {  try {
     const access = require('../access'),
       ctx = access.current(),
       db = require('../runtime').db();
-    if (db.targetVersion !== '007')
+    if (!['007', '008'].includes(db.targetVersion))
       return res.status(409).json({ code: 'AGENT_SCHEMA_REQUIRED' });
     const result = await require('../domain/membership-policy').read(
       db,
@@ -238,6 +237,104 @@ router.get('/requirements/:reqId/tool-control', async (req, res, next) => {
         };
       },
     );
+    res.json(result);
+  } catch (e) {
+    next(e);
+  }
+});
+// ---- 52 号：阶段基线冻结 / 撤权复核（owner）----
+async function stageReq(db, ctx, reqId, ownerOnly = true) {
+  const access = require('../access');
+  const row = await require('../domain/membership-policy').read(
+    db,
+    ctx,
+    ownerOnly,
+    async (client) => {
+      const r = (
+        await client.query(
+          `SELECT * FROM "${db.schema}".reqs WHERE tenant_id=$1 AND public_id=$2`,
+          [ctx.tenantId, reqId],
+        )
+      ).rows[0];
+      if (!r) access.fail('NOT_FOUND', 404);
+      return r;
+    },
+  );
+  return row;
+}
+
+router.get('/requirements/:reqId/stage-plan', async (req, res, next) => {
+  try {
+    const access = require('../access'),
+      ctx = access.current(),
+      db = require('../runtime').db();
+    if (db.targetVersion !== '008')
+      return res.status(409).json({ code: 'STAGE_PLAN_SCHEMA_REQUIRED' });
+    const stage = String(req.query.stage || 'dev');
+    const reqRow = await stageReq(db, ctx, req.params.reqId, false);
+    const plan = await require('../agent/stage-plan').get(db, ctx, reqRow, stage);
+    res.json(plan);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post('/requirements/:reqId/stage-plan/freeze', async (req, res, next) => {
+  try {
+    const access = require('../access'),
+      ctx = access.current(true),
+      db = require('../runtime').db();
+    if (db.targetVersion !== '008')
+      return res.status(409).json({ code: 'STAGE_PLAN_SCHEMA_REQUIRED' });
+    const body = req.body || {};
+    if (
+      Object.keys(body).some(
+        (k) => !['stage', 'workspace', 'control'].includes(k),
+      ) ||
+      typeof body.stage !== 'string' ||
+      typeof body.workspace !== 'string' ||
+      !body.control ||
+      typeof body.control !== 'object'
+    )
+      access.fail('INVALID_INPUT', 400);
+    const reqRow = await stageReq(db, ctx, req.params.reqId);
+    const plan = await require('../agent/stage-plan').freeze(db, ctx, reqRow, {
+      stage: body.stage,
+      workspace: body.workspace,
+      control: body.control,
+    });
+    res.json(plan);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post('/requirements/:reqId/stage-plan/review', async (req, res, next) => {
+  try {
+    const access = require('../access'),
+      ctx = access.current(true),
+      db = require('../runtime').db();
+    if (db.targetVersion !== '008')
+      return res.status(409).json({ code: 'STAGE_PLAN_SCHEMA_REQUIRED' });
+    const stage = String((req.body || {}).stage || 'dev');
+    const reqRow = await stageReq(db, ctx, req.params.reqId);
+    const diff = await require('../agent/stage-plan').review(db, ctx, reqRow, stage);
+    res.json(diff);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post('/requirements/:reqId/stage-plan/revoke', async (req, res, next) => {
+  try {
+    const access = require('../access'),
+      ctx = access.current(true),
+      db = require('../runtime').db();
+    if (db.targetVersion !== '008')
+      return res.status(409).json({ code: 'STAGE_PLAN_SCHEMA_REQUIRED' });
+    const stage = String((req.body || {}).stage || 'dev');
+    const reqRow = await stageReq(db, ctx, req.params.reqId);
+    const result = await require('../agent/stage-plan').revoke(db, ctx, reqRow, stage);
     res.json(result);
   } catch (e) {
     next(e);
