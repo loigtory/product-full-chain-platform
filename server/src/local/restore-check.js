@@ -100,13 +100,20 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
     const dump = resolve(packageData.folder, 'database.dump');
     checkToc(await pgTool('pg_restore', ['--list', dump]), m);
     mark('packageCheck');
-    if (!(await portFree(5548)) || !(await portFree(5198)))
+    const runId = source.remediation
+      ? source.runId
+      : prefix + '_' + randomUUID();
+    restore = layout({
+      scope: 'restore',
+      runId,
+      sourceScope: source.scope,
+      targetVersion: m.targetVersion ?? '006',
+    });
+    if (!(await portFree(restore.dbPort)) || !(await portFree(restore.apiPort)))
       throw fault('LOCAL_RESTORE_PORT_OCCUPIED');
     const disk = fs.statfsSync(repo);
     if (disk.bavail * disk.bsize < 3 * 1073741824)
       throw fault('LOCAL_DISK_SPACE_REQUIRED');
-    const runId = prefix + '_' + randomUUID();
-    restore = layout({ scope: 'restore', runId, sourceScope: source.scope });
     root = resolve(restore.root, '..');
     noLinks(root);
     if (fs.existsSync(root)) throw fault('LOCAL_RESTORE_TARGET_EXISTS');
@@ -116,7 +123,7 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
       runId,
       sourceAttempt: source.attemptId,
       backupId: id,
-      port: 5548,
+      port: restore.dbPort,
     });
     privateDirectory(restore.root);
     const adminPassword = randomBytes(32).toString('base64url'),
@@ -140,7 +147,9 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
     mark('initdb');
     fs.appendFileSync(
       resolve(data, 'postgresql.conf'),
-      "\nlisten_addresses='127.0.0.1'\nport=5548\nunix_socket_directories=''\nmax_connections=12\nshared_buffers='32MB'\nlog_statement='none'\nlog_min_error_statement='panic'\n",
+      "\nlisten_addresses='127.0.0.1'\nport=" +
+        restore.dbPort +
+        "\nunix_socket_directories=''\nmax_connections=12\nshared_buffers='32MB'\nlog_statement='none'\nlog_min_error_statement='panic'\n",
     );
     await pgTool('pg_ctl', [
       '-D',
@@ -168,11 +177,15 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
           .toLowerCase()
     )
       throw fault('LOCAL_RESTORE_PROCESS_MISMATCH');
-    atomicJson(resolve(root, 'process.json'), { ...pgInfo, port: 5548, runId });
+    atomicJson(resolve(root, 'process.json'), {
+      ...pgInfo,
+      port: restore.dbPort,
+      runId,
+    });
     mark('clusterStart');
     admin = new Client({
       host: '127.0.0.1',
-      port: 5548,
+      port: restore.dbPort,
       database: 'postgres',
       user: 'pfc_restore_admin',
       password: adminPassword,
@@ -187,7 +200,11 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
     await admin.end();
     admin = null;
     const connectionString =
-      'postgresql://pfc_app_local:' + appPassword + '@127.0.0.1:5548/pfc_local';
+      'postgresql://pfc_app_local:' +
+      appPassword +
+      '@127.0.0.1:' +
+      restore.dbPort +
+      '/pfc_local';
     atomicJson(resolve(restore.root, 'pg-connection.json'), {
       connectionString,
     });
@@ -225,6 +242,7 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
     const profile = {
       format: 1,
       scope: 'restore',
+      targetVersion: m.targetVersion ?? '006',
       sourceScope: source.scope,
       runId,
       state: 'READY',
@@ -245,7 +263,7 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
     restore = read(restore.profileFile);
     child = await lifecycle.start(restore);
     mark('runtimeStart');
-    const base = 'http://127.0.0.1:5198';
+    const base = 'http://127.0.0.1:' + restore.apiPort;
     const request = (path, options = {}) =>
       fetch(base + path, {
         ...options,
@@ -334,7 +352,7 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
       status: 'PASS',
       runId,
       pgPid: pgInfo.pid,
-      port: 5548,
+      port: restore.dbPort,
       coldDatabaseEqual: true,
       originalBytesEqual: true,
       requirements: m.snapshot.readback.requirements.length,
@@ -364,7 +382,7 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
               actual?.pid !== pgInfo.pid ||
               actual.started !== pgInfo.started ||
               actual.exe !== pgInfo.exe ||
-              Number(lines[3]) !== 5548 ||
+              Number(lines[3]) !== restore.dbPort ||
               resolve(lines[1]) !== pgPath(data)
             )
               throw fault('LOCAL_RESTORE_CLEANUP_NOT_OWNED');
@@ -379,7 +397,10 @@ async function restoreCheck(target, id, { oldCookie, failAfter } = {}) {
               'stop',
             ]);
           }
-          if (!(await portFree(5548)) || !(await portFree(5198)))
+          if (
+            !(await portFree(restore.dbPort)) ||
+            !(await portFree(restore.apiPort))
+          )
             throw fault('LOCAL_RESTORE_PROCESS_REMAINS');
           const own = require('./ops-files').readJson(
             resolve(root, 'ownership.json'),

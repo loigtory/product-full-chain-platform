@@ -1,0 +1,23 @@
+{
+  "runtimeRemaining": false,
+  "removedBytes": 4215497.0,
+  "at": "2026-09-17T03:21:10.6520388Z",
+  "removedEntries": 433,
+  "runtimeRoot": "D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-remediation-20260916\\CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a",
+  "retained": "redacted reports/screenshots and new budget ledger; historical files unchanged",
+  "legacyTemps": [
+    {
+      "remaining": false,
+      "path": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-YR9y4n"
+    },
+    {
+      "remaining": false,
+      "path": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-DbfSjY"
+    },
+    {
+      "remaining": false,
+      "path": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-yQk8oA"
+    }
+  ],
+  "status": "PASS"
+}

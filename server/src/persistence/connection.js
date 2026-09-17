@@ -8,7 +8,10 @@ function storageError(code) {
 function validateTarget({ connectionString, schema, authorizedSchema } = {}) {
   if (
     (!/^codex_test_m2c_[a-z0-9_]{1,40}$/.test(schema || '') &&
-      !/^codex_test_ai_tools_20260914_(api|real|browser|exec|execbrowser|exece2e|closedloop|control)$/.test(schema || '') &&
+      !/^codex_test_ai_tools_20260914_(api|real|browser|exec|execbrowser|exece2e|closedloop|control)$/.test(
+        schema || '',
+      ) &&
+      !/^codex_test_ai_fix_20260916_(api|ops|browser)$/.test(schema || '') &&
       schema !== 'pfc_workbench') ||
     schema !== authorizedSchema
   ) {
@@ -42,6 +45,14 @@ function validateTarget({ connectionString, schema, authorizedSchema } = {}) {
   };
   if (pg.user !== 'pfc_app_local') throw storageError('PG_ROLE_NOT_AUTHORIZED');
   if (/^codex_test_ai_tools_/.test(schema) && ![5432, 5548].includes(pg.port))
+    throw storageError('PG_TARGET_NOT_AUTHORIZED');
+  if (
+    /^codex_test_ai_fix_/.test(schema) &&
+    !(
+      pg.port === 5432 ||
+      (schema === 'codex_test_ai_fix_20260916_ops' && pg.port === 5549)
+    )
+  )
     throw storageError('PG_TARGET_NOT_AUTHORIZED');
   return { schema, pg };
 }

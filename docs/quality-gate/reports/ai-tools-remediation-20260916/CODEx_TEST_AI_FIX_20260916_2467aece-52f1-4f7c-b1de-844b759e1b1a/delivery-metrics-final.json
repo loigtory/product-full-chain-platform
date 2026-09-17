@@ -1,0 +1,33 @@
+{
+  "at": "2026-09-17T03:30:12.169Z",
+  "failedReportsRetained": [
+    "api-1789607915135.json",
+    "api-1789610022328.json",
+    "browser-1789608591234.json",
+    "browser-1789612471143.json",
+    "browser-1789613356497.json",
+    "gates-1789613559132.json",
+    "gates-1789614308121.json",
+    "model-1789589451496.json",
+    "model-1789611957064.json",
+    "ops-1789610222553.json",
+    "real-http-1789612816615.json"
+  ],
+  "failedReportsCount": 11,
+  "finalCommandBatch": {
+    "pass": 13,
+    "blocked": 2,
+    "fail": 0,
+    "durationMs": 284261
+  },
+  "real": {
+    "turns": 7,
+    "seconds": 28,
+    "unresolved": 0,
+    "remaining": 1
+  },
+  "acceptance": "PENDING",
+  "deployment": "NOT_STARTED",
+  "postReleaseIssues": "NOT_OBSERVED",
+  "purpose": "Delivery improvement only; failed report count is not a business defect count"
+}

@@ -5,6 +5,126 @@ const { extname } = require('node:path');
 const { fail } = require('../access');
 const { fingerprint } = require('../persistence/commands');
 const extractions = require('../persistence/material-extractions');
+const stages = [
+  'idea',
+  'req',
+  'design',
+  'dev',
+  'test',
+  'accept',
+  'release',
+  'observe',
+];
+function normalizeStageContext(values = [], stage, trusted = false) {
+  if (!Array.isArray(values) || values.length > 7)
+    fail('AGENT_CONTEXT_LIMIT', 413);
+  const current = stages.indexOf(stage);
+  let chars = 0;
+  const result = values.map((c) => {
+    if (
+      !c ||
+      typeof c.text !== 'string' ||
+      !c.text.trim() ||
+      !stages.includes(c.stage) ||
+      stages.indexOf(c.stage) >= current
+    )
+      fail('INVALID_STAGE_CONTEXT', 400);
+    const text = c.text.trim();
+    chars += text.length;
+    if (text.length > 30000 || chars > 180000) fail('AGENT_CONTEXT_LIMIT', 413);
+    return {
+      stage: c.stage,
+      title: String(c.title || c.stage).slice(0, 200),
+      text,
+      provenance: trusted ? c.provenance : 'USER_SUPPLIED',
+      ...(trusted ? { sources: c.sources } : {}),
+    };
+  });
+  if (new Set(result.map((c) => c.stage)).size !== result.length)
+    fail('INVALID_STAGE_CONTEXT', 400);
+  return result;
+}
+async function stageSnapshot(client, db, ctx, req, stage, selectors = []) {
+  const preceding = stages.slice(0, stages.indexOf(stage));
+  if (!stages.includes(stage)) fail('INVALID_STAGE', 400);
+  if (!Array.isArray(selectors) || selectors.length > 7)
+    fail('INVALID_STAGE_CONTEXT', 400);
+  const versions = (
+    await client.query(
+      `SELECT DISTINCT ON (stage) * FROM "${db.schema}".req_versions WHERE tenant_id=$1 AND req_id=$2 AND stage=ANY($3) ORDER BY stage,version DESC`,
+      [ctx.tenantId, req.id, preceding],
+    )
+  ).rows;
+  const messages = (
+    await client.query(
+      `SELECT DISTINCT ON (stage) id,stage,content,revision FROM "${db.schema}".messages WHERE tenant_id=$1 AND req_id=$2 AND stage=ANY($3) AND role='ai' AND status='ok' ORDER BY stage,created_at DESC,id DESC`,
+      [ctx.tenantId, req.id, preceding],
+    )
+  ).rows;
+  for (const selected of selectors) {
+    if (!selected || !preceding.includes(selected.stage))
+      fail('INVALID_STAGE_CONTEXT', 400);
+    if (
+      selected.messageId &&
+      !messages.some(
+        (m) =>
+          m.stage === selected.stage &&
+          m.id === selected.messageId &&
+          (selected.revision === undefined || m.revision === selected.revision),
+      )
+    )
+      fail('STALE_REFERENCE');
+    if (
+      selected.versionId &&
+      !versions.some(
+        (v) =>
+          v.stage === selected.stage &&
+          v.public_id === selected.versionId &&
+          !v.stale,
+      )
+    )
+      fail('STALE_REFERENCE');
+  }
+  const blocks = preceding.flatMap((s) => {
+    const v = versions.find((v) => v.stage === s),
+      m = messages.find((m) => m.stage === s);
+    if (!v && !m) return [];
+    const confirmed = !!(v?.confirmed_by && v.confirmed_at && !v.stale);
+    return [
+      {
+        stage: s,
+        title: s,
+        provenance: 'SERVER_SNAPSHOT',
+        sources: {
+          versionId: v?.public_id ?? null,
+          version: v?.version ?? null,
+          confirmed,
+          stale: !!v?.stale,
+          messageId: m?.id ?? null,
+          messageRevision: m?.revision ?? null,
+        },
+        text: [
+          v
+            ? `【${confirmed ? '已确认版本' : '未确认或失效版本'} ${v.public_id}】\n${JSON.stringify(v.content)}`
+            : '',
+          m ? `【AI候选，未经业务确认 ${m.id}】\n${m.content}` : '',
+        ]
+          .filter(Boolean)
+          .join('\n\n'),
+      },
+    ];
+  });
+  const snapshot = {
+    reqId: req.id,
+    stage,
+    name: req.name,
+    goal: req.goal,
+    scope: req.scope,
+    artifactGroupId: req.current_artifact_group_id ?? null,
+    blocks: normalizeStageContext(blocks, stage, true),
+  };
+  return { snapshot, hash: fingerprint(snapshot) };
+}
 async function materialSource(client, db, ctx, req, selector) {
   if (
     !selector ||
@@ -151,4 +271,6 @@ module.exports = {
   extension,
   build,
   assertCurrent,
+  normalizeStageContext,
+  stageSnapshot,
 };

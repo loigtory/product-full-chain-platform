@@ -97,25 +97,18 @@
             requirementId: ref.requirementId,
           };
         });
-      const execWs = (P.s.ui.execWorkspace || '').trim();
-      // 跨阶段上下文传递：自动携带前序阶段最近一条已确认 ai 产出，
-      // 使后续阶段（design/dev/test/release/observe）基于上一步结论继续。
-      const _stageOrder = ['idea', 'req', 'design', 'dev', 'test', 'accept', 'release', 'observe'];
-      const _curIdx = _stageOrder.indexOf(payload.stage || q.stage);
-      let _stageContext = [];
-      if (_curIdx > 0 && Array.isArray(q.messages)) {
-        for (const _st of _stageOrder.slice(0, _curIdx)) {
-          const _cands = q.messages
-            .filter((m) => m.role === 'ai' && m.stage === _st && m.status === 'ok' && m.content && String(m.content).trim())
-            .sort((a, b) => String(b.updatedAt || b.createdAt || '').localeCompare(String(a.updatedAt || a.createdAt || '')));
-          if (_cands[0]) {
-            _stageContext.push({
-              stage: _st,
-              title: _st + '阶段产出',
-              text: String(_cands[0].content).trim().slice(0, 30000),
-            });
-          }
-        }
+      const stage = payload.stage || P.s.ui.stage || q.stage;
+      const key = q.id + ':' + stage;
+      const draft = P.s.ui.execDrafts?.[key];
+      const execWs =
+        P.s.ui.realMode === true ? draft?.workspace?.trim() || '' : '';
+      if (execWs) {
+        P.assert(stage === 'dev' && q.stage === 'dev', '仅当前开发阶段可执行');
+        P.assert(
+          P.s.env?.execCapable === true,
+          '开发执行暂不可用：执行前约束尚未验证',
+        );
+        P.assert(draft?.control?.confirmed === true, '请先预览并确认执行计划');
       }
       await D.mutate(q, '/messages', {
         content: payload.text,
@@ -127,29 +120,20 @@
         })),
         replyTo: payload.replyTo,
         parentMessageId: payload.parentMessageId,
+        // The server resolves prior-stage versions and labels AI drafts. Client text is optional, untrusted input.
         ...(payload.stageContext !== undefined
           ? { stageContext: payload.stageContext }
-          : _stageContext.length
-            ? { stageContext: _stageContext }
-            : {}),
+          : {}),
+        ...(payload.contextSources !== undefined
+          ? { contextSources: payload.contextSources }
+          : {}),
         ...(P.s.ui.realMode || execWs ? { mode: 'real' } : {}),
         ...(execWs
           ? {
               tool: 'exec',
               workspace: execWs,
-              restrictedReadDirs: P.s.ui.execRestrictedDirs || [],
-              // D5 受控执行计划（Owner 确认后冻结）：strict 默认允许 workspace 内全部改动，
-              // readonly 只读复核；执行后差异超出允许清单将被拒绝并回滚（服务端 exec-control）。
-              control: {
-                mode: P.s.ui.execControl?.mode === 'readonly' ? 'readonly' : 'strict',
-                allowedFiles: Array.isArray(P.s.ui.execControl?.allowedFiles) && P.s.ui.execControl.allowedFiles.length
-                  ? P.s.ui.execControl.allowedFiles
-                  : ['workspace/**'],
-                allowedCommands: P.s.ui.execControl?.allowedCommands || [],
-                maxFiles: 50,
-                maxBytes: 2097152,
-                approvedBy: 'owner',
-              },
+              restrictedReadDirs: [],
+              control: draft.control,
             }
           : {}),
       });
@@ -243,6 +227,7 @@
         }
       }
       P.s.ui.realMode = next;
+      if (!next) P.s.ui.execDrafts = {};
       P.save();
       P.render({ quiet: true });
       P.toast(
@@ -258,7 +243,9 @@
           q.messages.find((m) => m.id === (d.mid || d.id)) ||
           q.messages.findLast((m) => m.typing);
       P.assert(message, '没有正在生成的回复');
-      await D.mutate(q, '/messages/' + message.id + '/stop');
+      const result = await D.mutate(q, '/messages/' + message.id + '/stop');
+      if (result.cancellation && !result.cancellation.confirmed)
+        P.toast('已提交停止请求，进程退出尚未确认，请勿重试执行', 'error');
       await refresh(q.id);
     };
     remote['resend-message'] = (d) => {

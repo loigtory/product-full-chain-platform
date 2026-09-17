@@ -23,7 +23,7 @@ function connection(target) {
     connectionString: url,
     schema: target.schema,
     authorizedSchema: target.schema,
-    targetVersion: '006',
+    targetVersion: target.targetVersion ?? '006',
   };
   const validated = validateTarget(options);
   if (validated.pg.port !== target.dbPort)
@@ -39,6 +39,7 @@ function environment(p) {
       ),
     ),
     PFC_DB: 'pg',
+    PFC_DB_TARGET_VERSION: options.targetVersion,
     DATABASE_URL: options.connectionString,
     PFC_DB_SCHEMA: p.schema,
     PFC_AUTHORIZED_SCHEMA: p.schema,
@@ -54,6 +55,7 @@ function runtimeTarget(p) {
   const expected = environment(p);
   for (const key of [
     'PFC_DB',
+    'PFC_DB_TARGET_VERSION',
     'DATABASE_URL',
     'PFC_DB_SCHEMA',
     'PFC_AUTHORIZED_SCHEMA',

@@ -125,6 +125,7 @@ async function owned(client, db, id, ownerId) {
 }
 async function dispatch(client, db, id, ownerId) {
   const job = await owned(client, db, id, ownerId);
+  if (job.result?.cancelRequested) fail('TURN_CANCELLED');
   if (job.dispatched_at) fail('AGENT_REPLAY_FORBIDDEN');
   return (
     await client.query(
@@ -156,6 +157,8 @@ async function finish(
   )
     fail('AGENT_STATE_INVALID');
   const job = await owned(client, db, id, ownerId);
+  if (state === 'SUCCEEDED' && job.result?.cancelRequested)
+    fail('TURN_CANCELLED');
   if (state === 'SUCCEEDED' && !job.dispatched_at)
     fail('AGENT_RESULT_UNVERIFIED');
   const row = (
@@ -179,19 +182,22 @@ async function finish(
   );
   return row;
 }
-// 强制收口：绕过 owned 租约检查直接写终态（供 worker catch 兜底，
-// 防止 AGENT_LEASE_LOST 等租约异常导致作业永久 RUNNING）。
-async function forceFinish(client, db, id, state, result = null, code = null) {
-  if (
-    !['SUCCEEDED', 'FAILED', 'CANCELLED', 'TIMED_OUT', 'UNKNOWN'].includes(
-      state,
-    )
-  )
-    fail('AGENT_STATE_INVALID');
+// A failed worker may only mark its own expired, still-active lease UNKNOWN.
+// It cannot overwrite another worker or promote an unverifiable result to success.
+async function forceFinish(
+  client,
+  db,
+  id,
+  state,
+  result = null,
+  code = null,
+  ownerId,
+) {
+  if (state !== 'UNKNOWN' || !ownerId) fail('AGENT_RESULT_UNVERIFIED');
   const row = (
     await client.query(
-      `UPDATE "${db.schema}".agent_jobs SET state=$1,result=$2,error_code=$3,updated_at=now() WHERE id=$4 RETURNING *`,
-      [state, result && JSON.stringify(result), code, id],
+      `UPDATE "${db.schema}".agent_jobs SET state=$1,result=$2,error_code=$3,updated_at=now() WHERE id=$4 AND owner_id=$5 AND state IN ('RUNNING','WAITING_APPROVAL') AND lease_until<=now() RETURNING *`,
+      [state, result && JSON.stringify(result), code, id, ownerId],
     )
   ).rows[0];
   if (!row) return null;
@@ -210,6 +216,37 @@ async function forceFinish(client, db, id, state, result = null, code = null) {
   );
   return row;
 }
+async function requestCancel(client, db, ctx, reqId, id) {
+  const job = (
+    await client.query(
+      `SELECT * FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND id=$3 FOR UPDATE`,
+      [ctx.tenantId, reqId, id],
+    )
+  ).rows[0];
+  if (!job) fail('AGENT_JOB_NOT_FOUND', 404);
+  if (
+    !['QUEUED', 'RUNNING', 'WAITING_APPROVAL'].includes(job.state) ||
+    job.result?.cancelRequested
+  )
+    return job;
+  const queued = job.state === 'QUEUED';
+  const updated = (
+    await client.query(
+      `UPDATE "${db.schema}".agent_jobs SET state=$1,result=$2,updated_at=now() WHERE id=$3 RETURNING *`,
+      [
+        queued ? 'CANCELLED' : job.state,
+        JSON.stringify({ ...job.result, cancelRequested: true }),
+        id,
+      ],
+    )
+  ).rows[0];
+  if (queued)
+    await require('./agent-events').append(client, db, updated, 'cancelled', {
+      state: 'CANCELLED',
+      reason: 'USER_REQUEST',
+    });
+  return updated;
+}
 async function recover(client, db, expiredOwner = null) {
   const rows = (
     await client.query(
@@ -218,7 +255,11 @@ async function recover(client, db, expiredOwner = null) {
     )
   ).rows;
   for (const job of rows) {
-    const state = job.dispatched_at ? 'UNKNOWN' : 'QUEUED';
+    const state = job.dispatched_at
+      ? 'UNKNOWN'
+      : job.result?.cancelRequested
+        ? 'CANCELLED'
+        : 'QUEUED';
     await client.query(
       `UPDATE "${db.schema}".agent_jobs SET state=$1,owner_id=NULL,lease_until=NULL,updated_at=now() WHERE id=$2`,
       [state, job.id],
@@ -227,13 +268,21 @@ async function recover(client, db, expiredOwner = null) {
       client,
       db,
       job,
-      state === 'UNKNOWN' ? 'unknown' : 'queued',
+      state === 'UNKNOWN'
+        ? 'unknown'
+        : state === 'CANCELLED'
+          ? 'cancelled'
+          : 'queued',
       { reason: 'WORKER_LOST' },
     );
   }
   return rows.map((r) => ({
     id: r.id,
-    state: r.dispatched_at ? 'UNKNOWN' : 'QUEUED',
+    state: r.dispatched_at
+      ? 'UNKNOWN'
+      : r.result?.cancelRequested
+        ? 'CANCELLED'
+        : 'QUEUED',
   }));
 }
 async function find(client, db, ctx, reqId, id) {
@@ -257,4 +306,5 @@ module.exports = {
   forceFinish,
   recover,
   find,
+  requestCancel,
 };

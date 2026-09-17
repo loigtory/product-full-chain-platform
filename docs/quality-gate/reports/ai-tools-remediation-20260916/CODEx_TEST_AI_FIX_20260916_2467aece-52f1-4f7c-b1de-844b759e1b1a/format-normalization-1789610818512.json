@@ -1,0 +1,239 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "before": "d17a686ac451387d797a21692ae2fc69f6420dd51d338cd51af0eb504bfb3c9d",
+      "after": "b12dd8c2cfd81eecbda2dde6fa267357593ad853d69426a9475c91b131c29f60",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "before": "95d0103bdd1158a9fed5f412f86926fe37d7612ff44ef3ee5a871f0619103b38",
+      "after": "46c90be71f113e4d35c6eb2fb8ed61945a73f416c94c0afc0d021523a5229bb4",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "before": "8aadcdbdecd6197488484823ed11c540df1e04f8ba39f25b79e1ae2daf07e5d0",
+      "after": "1462e68d111657f5a76bb6a30ee417881e0aa88e3c955a7f37e5666ecd62907e",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "before": "79fff30047272ca916f16a896f3f9a90d3b18e287dd8d3fac8c1735a87a75982",
+      "after": "ed2615bc48b226ebbe44190c02d49ad7cb4dd2d1e1a6444570053dbfbc2708e6",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "before": "3ecfcadb0faf1628949c81119b6089812a820f4602464f49718d80066882593d",
+      "after": "a858965b451c8dc7c9a775858930f5f419c8c98df26ecd35e83add46546af4c3",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "before": "7542ea6b9e46ce4e71548c5d904c26da01b7f0d114475db995dfad649c559df6",
+      "after": "51900d864fd6dd1b6f009970304e5e9c7ea88f2b28377c721a4384f8bcd9e8cd",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "before": "ce512b9cbafb4c680cfc47365f5e7138f2d37b743bb877abdb2ac94c57bcc117",
+      "after": "0e3d8bdeec576bc597b771351619eeac9d296a6ba0e7de50445737487b0d42e9",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/context-service.js",
+      "before": "fbf1cfd1aa37343474e36acb9300a863a00942c5884fe02d047512907cbd8024",
+      "after": "25c8b42812fc65d282aba913db31c123397cff60e7cbcc50efb9c5a03dd2a845",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "before": "0bd0d001a5708a4090aae04115ce3baf5c8a9c42268ca921635c013670f34a60",
+      "after": "1a4223581a4b9ae5dba2d1be278242971d9de1fbc8912f56935ad47792f2d1e0",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/local/ops-config.js",
+      "before": "d0d9bf3f9d7c498a2df502760b2f2828eca44ec8bd53cd512844c0e8939ebd45",
+      "after": "d0d9bf3f9d7c498a2df502760b2f2828eca44ec8bd53cd512844c0e8939ebd45",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "before": "cd66179194929e599310d56198635ad3d308677ba76eca6e43a74df5e9a44cf2",
+      "after": "92f118c9a5dd21088a853cede312cb3666e8ae4c53daa404f5569858d74aa991",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/local/backup.js",
+      "before": "827e9487da7f7583f80e2177dddfb449dc2fcd1b00ccb2d5dda6da98444d17b0",
+      "after": "d7dd80b0b18bab0c18a309c9c9f514414c55ad2b62500dacc682a18d6a357dab",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/local/restore-check.js",
+      "before": "75dd7aa239215c98793d6ef5312ea08c27e72752367abc3da077ec61b2835901",
+      "after": "ea9869d6ae5714ff85a247e1567a8172f3c2e92d2cc456895be68aab11db383f",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/local/lifecycle.js",
+      "before": "90b68cbd8a58a4b548737c71285c875e56f93dc64a53e113d9523f33d547ec6b",
+      "after": "90b68cbd8a58a4b548737c71285c875e56f93dc64a53e113d9523f33d547ec6b",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "before": "079a6b6f7d207abbceacd5160821328d461aa8bbbcc72d031636065cd07b93fe",
+      "after": "30a94f335232d2c269cd61c795b936b3026262b11fc0d8ca2d970e26e7fa7f00",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "before": "e7104cea883ef62fe4a578eed42426ef90525e3b1461901bbcd60d5c08ac0acb",
+      "after": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "before": "e3e5adbbb1cc6f566451b8121f4adbb863739c36c30dd788b6d47c2ecacc9b3b",
+      "after": "2418af282e740b868df07e50979e169c461e53b1bd2ab8352cc4a00fdb78f50a",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/scripts/run-ai-tools-gates.mjs",
+      "before": "adc249bbdda96b07e8e3e5447456ec80e3062bca6d9636f1c3364aee133d2d0c",
+      "after": "8f4b87ae743cba62c64da91b962cd1dcc324838b5d438408a2faf88485c5ea57",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-exec-closedloop.mjs",
+      "before": "fd456e8ad8bcf8f3afb32857f5cd6b57d80b8df6f0c7e7c95dbdf3e42e37e0f2",
+      "after": "ac6cbd2ab13b811b4cef3b89c6c2296a92e7ff7b4111888fc1323b15dbf05c79",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-exec-control.mjs",
+      "before": "d87206a596b896b1d714b332705ae842e19005e52187f303661c9ec3216f9a43",
+      "after": "eca95d4a4cbcf7d9db857716a4996665957fd7520f0b8fdd15c8102666e95a2f",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs",
+      "before": "efe1d4a45b353b8edac7ea4eda6da8db93c742641ba8b48844cd0c352fc82ed2",
+      "after": "062578decd3bc11fc57b01544fad214bd3af09fb10e321339c90a5388039e6d6",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-mixed-chain.mjs",
+      "before": "daba49c3f2b2e0b72834dfcb4e3644a2884ca6ed3ddcde3052c64b9f2407339f",
+      "after": "64b6a3d74d050ebdebf0d01e08085fcfb9f3ae212edb713b40d01e7bf7f365c9",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-context-stress.mjs",
+      "before": "e0ed840a270d52a61081d408600d66baff9fac36663a8fdd95333602bcc10f0e",
+      "after": "4e034c6b32c292bc3fd1889bbcd82e6f408537bb550d405f665c33135f4a46b7",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-parallel-stress.mjs",
+      "before": "73d8bc3016dde7e25fce79e943297cdcdc8586de857af14434f8bbf45e8213f9",
+      "after": "8005069be8f65af5a7b2ef0e74faaaa14b07995e2fa0f6b3306da05ab49d96d8",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-live-exec-closedloop.mjs",
+      "before": "61a0f5a3c0736796f9ffdf4abf49a604aa2623e46e2c2abbcfa45aa617a92599",
+      "after": "9ae674c2b1ae4f0cd6a4a41edc90cab500b602b5fdde0bfd073c210ea028af77",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "before": "a49090ab1d8e3459b2d9d55453388cd52a0e9876afcf8dfc40f85ad7ff9ff0c1",
+      "after": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "before": "87ee604ac3047c4313807d3f1d2e7d5ed6101d13640185f6ab52ede2806d7b9f",
+      "after": "11f1a38542e920d3fab569dc708043c7c37d4c55dfe840e288a57f5c0e7abfc5",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "before": "6861da3be5ffe96548f54a306ece067893130a4110d0bee86df8a7e15866fe47",
+      "after": "15f0f05110f1e43584d136793fa24886b9cdf044479cc60406920ec5d12c72a8",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "before": "085f0ee74052e2d0d90bbc5ef4b80199a9bfb34755656a1a390e2fab37f02c87",
+      "after": "0ec3265360d44352a547ae36439c0966769edcb5e33a2d28173f20dfa6156525",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "before": "dcd138eb6f6c54c04d4519c7b2d0f68b1c87e6fcf13ad321600b681656672685",
+      "after": "7ca8ef69e82e85858a72eb296d35c19d83c03336d1458aac55337a506b0ea7c4",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-model.mjs",
+      "before": "00b079a498b3d8fa01a8d53606bceb7c79cf66e3d00546d63946e83cb7e0a185",
+      "after": "4e523a93b51c164725bbb334b6483391e3899231db75984a06d79c699d20b033",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-api.mjs",
+      "before": "4affeb0d579cb4fd60dc9555a65f3c0e5f6907669dcef807a09c2eef3fb0aff2",
+      "after": "83135dad24580f8fd613dcecfe32fc40b549a33413b62695fe1613a3d2c4c0f6",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-ops.mjs",
+      "before": "b182663ae46b68c05588091435b59759904aadd9441e096999d66c5949f03c18",
+      "after": "98612202d91b47e6de19a71e2fee0ade6f141512f18f6fb86f90f5aaafac720f",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-real.mjs",
+      "before": "0f51da38d5bb337ea258df84370eee52ae33a99f50df4123772f90a5087d3957",
+      "after": "2867dd52015767ab5947e6f5313009177e3daf4a47a05df6094c2a114b85cb8d",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-architecture.mjs",
+      "before": "038a55bc9971335a0ebb10505df176513881ef6799f1b7e4c8835506f6633056",
+      "after": "758eb6beef8299febe5c67fcaaa912f1a70b9e36bfffc49b7ad07f5f3ab7f2e7",
+      "astUnchanged": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-remediation-browser.mjs",
+      "before": "4aa36faf25785e454369b5d1a5d3e3b21ae35d670573eb18a8ae463b57d00cdc",
+      "after": "d958840b620fd416c07cc8d34058ea67960e063d95e2a8230c346c8eaa7137c0",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/scripts/run-ai-tools-remediation-gates.mjs",
+      "before": "801190e4f1b5078618d0877077009dd06ee893de8e371616bd12d64cc699916d",
+      "after": "66a2345b73f869a33cd321b282a46dfbb9b0b93af33506d525c3bfba5aa9be00",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/persistence/connection.js",
+      "before": "ec8c392feae570a235063cad6edfa02562092bda3cd33f9fa0b5c89cf6f2390c",
+      "after": "b0b2fe0c3ec5236a40a403f27f60ee4d551ca80c34f947fe399061eabccf42ec",
+      "astUnchanged": true
+    },
+    {
+      "path": "server/src/local/preflight.js",
+      "before": "69c7c2b4e5d3542efe2738c98c904fe3fb9366411e73a7675ba132e4f10b86c6",
+      "after": "69c7c2b4e5d3542efe2738c98c904fe3fb9366411e73a7675ba132e4f10b86c6",
+      "astUnchanged": true
+    }
+  ]
+}

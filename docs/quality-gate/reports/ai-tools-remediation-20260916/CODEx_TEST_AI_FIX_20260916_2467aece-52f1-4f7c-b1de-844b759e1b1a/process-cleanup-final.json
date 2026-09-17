@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "at": "2026-09-17T03:24:47.5755419Z",
+  "runId": "CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a",
+  "service": {
+    "final": "Stopped",
+    "initial": "Stopped",
+    "name": "pfc-postgresql-18"
+  },
+  "auditedPorts": [
+    5432,
+    5549,
+    5188,
+    5199,
+    5203,
+    5204,
+    5205,
+    5189,
+    5190,
+    5191,
+    5192,
+    5193,
+    5194,
+    5195,
+    5196,
+    5197,
+    5198
+  ],
+  "listeners": [],
+  "ownedProcesses": [],
+  "postgresProcesses": [],
+  "runtimeRootAbsent": true,
+  "note": "Read-only independent final audit; no processes terminated; unrelated processes preserved"
+}

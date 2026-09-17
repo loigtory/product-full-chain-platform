@@ -1,0 +1,8 @@
+{
+  "helperPid": 37304,
+  "at": "2026-09-17T03:17:05.4613344Z",
+  "precheck": "service-stop-precheck.json",
+  "status": "RESTORED_STOPPED",
+  "service": "pfc-postgresql-18",
+  "establishedTcpClients": 0
+}

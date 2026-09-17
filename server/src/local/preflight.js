@@ -123,7 +123,7 @@ async function preflight(target = layout()) {
     await require('../domain/membership-policy').assertOwners(db, users);
     return {
       status: 'READY',
-      schemaVersion: '006',
+      schemaVersion: db.targetVersion,
       mode: 'personal',
       apiPortFree: await portFree(p.apiPort),
     };

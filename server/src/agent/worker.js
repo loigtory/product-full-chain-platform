@@ -1,470 +1,396 @@
 'use strict';
-// 真实对话 worker：按 jobId 领取 TEXT 作业，经 Codex App Server 执行，
-// delta 增量按序回写 ai 消息与 message.updated 事件，终态写回 job 与消息。
-// 连接参数来自运行时环境（PFC_CODEX_*），授权来源为已确认的全局 AGENTS.md 例外；
-// 未配置连接或调用失败时明确落 FAILED，不回退为模拟成功。
 const { TextConversation } = require('./conversation-provider');
 const { withTransaction } = require('../persistence/transaction');
-const { createHash } = require('node:crypto');
-const { spawn } = require('node:child_process');
+const { randomUUID, createHash } = require('node:crypto');
 const path = require('node:path');
 const { readFileSync } = require('node:fs');
 const jobs = require('../persistence/agent-jobs');
-const { reserveTurn, reserveTurnAsync, settleTurn, release } = require('./budget');
-const {
-  applyRestrictedReadAll,
-  removeRestrictedReadAll,
-} = require('./restricted-read');
-const fail = (code) => Object.assign(new Error(code), { code });
-
-// 本机 worker 的固定运行身份（合法 uuid，用于 agent_jobs.owner_id 租约）。
-const OWNER = '00000000-0000-4000-8000-00000000a111';
+const { createControl } = require('./job-control');
+const budget = require('./budget');
+const fault = (code) => Object.assign(new Error(code), { code });
+const OWNER = randomUUID();
 const active = new Map();
+require('../runtime').onClose(async () => {
+  for (const control of active.values()) await control.stop('TURN_CANCELLED');
+  await Promise.all([...active.values()].map((control) => control.done));
+});
 const AUTHORIZATION_PATH = path.resolve(
-  'docs/quality-gate/reports/ai-tools-integration-20260914/context-exception-confirmation-20260914.json',
+  __dirname,
+  '../../../docs/quality-gate/reports/ai-tools-integration-20260914/context-exception-confirmation-20260914.json',
 );
-
 function connectionOptions() {
-  const binary = process.env.PFC_CODEX_BINARY;
-  if (!binary) return null;
-  const approved = [];
-  try {
-    const auth = JSON.parse(readFileSync(AUTHORIZATION_PATH, 'utf8'));
-    if (auth?.status === 'USER_CONFIRMED' && auth?.source)
-      approved.push(auth.source);
-  } catch {
-    /* 无已确认指令源时不注入全局 AGENTS.md */
-  }
+  if (!process.env.PFC_CODEX_BINARY) return null;
+  const auth = JSON.parse(readFileSync(AUTHORIZATION_PATH, 'utf8'));
   return {
-    binary,
-    expectedSha256: process.env.PFC_CODEX_BINARY_SHA256 || undefined,
-    cwd: process.env.PFC_CODEX_PREFLIGHT_CWD || undefined,
-    expectedConnectionFingerprint:
-      process.env.PFC_CODEX_CONNECTION_SHA256 || undefined,
-    approvedInstructionSources: approved,
+    binary: process.env.PFC_CODEX_BINARY,
+    expectedSha256: process.env.PFC_CODEX_BINARY_SHA256,
+    cwd: process.env.PFC_CODEX_PREFLIGHT_CWD,
+    expectedConnectionFingerprint: process.env.PFC_CODEX_CONNECTION_SHA256,
+    approvedInstructionSources:
+      auth.status === 'USER_CONFIRMED' && auth.source ? [auth.source] : [],
+    enabledSkills: [],
   };
 }
-
 function buildTextPrompt(job) {
   const input = job.input || {};
   const parts = [String(input.content || '').trim()];
-  const refs = Array.isArray(input.refs) ? input.refs : [];
-  if (refs.length) {
-    parts.push('（附 ' + refs.length + ' 项已确认版本引用：' + refs.map((r) => r.name || r.kind || '引用').join('、') + '）');
-  }
-  // 跨阶段上下文传递：前序阶段已确认产出（stageContext）注入为上下文块，
-  // 使当前阶段基于上一步结论继续，补齐"逐阶段独立线程无记忆"边界。
-  const stageContext = Array.isArray(input.stageContext) ? input.stageContext : [];
-  if (stageContext.length) {
-    const ctxBlocks = stageContext
-      .map(
-        (c) =>
-          '【上一步 ' + (c.stage || '前序') + ' 阶段产出：' + (c.title || '') + '】\n' +
-          String(c.text || '').trim(),
-      )
-      .join('\n\n');
-    if (ctxBlocks.trim()) {
-      parts.push(
-        '以下是当前任务前序阶段已确认的产出，请基于其结论继续本阶段工作，不要重复调研已确认的内容：\n\n' +
-          ctxBlocks,
-      );
-    }
-  }
-  const text = parts.filter(Boolean).join('\n');
-  if (!text) fail('EMPTY_TEXT_JOB');
+  for (const c of input.context?.blocks || [])
+    parts.push('【服务端来源 ' + c.stage + '】\n' + c.text);
+  for (const c of input.stageContext || [])
+    parts.push('【用户提供的补充，未经确认 ' + c.stage + '】\n' + c.text);
+  if (input.refs?.length)
+    parts.push('引用标识（正文未在此处展开）：' + JSON.stringify(input.refs));
+  const text = parts.filter(Boolean).join('\n\n');
+  if (!text) throw fault('EMPTY_TEXT_JOB');
+  if (text.length > 200000) throw fault('AGENT_CONTEXT_LIMIT');
   return text;
 }
-
-// 事务内更新 ai 消息 + 追加域事件 + 唤醒 WS 推送。
-async function writeMessage(db, ctx, reqPublicId, reqId, aiMessageId, text, opts = {}) {
-  const final = !!opts.final;
+async function writeMessage(db, ctx, reqPublicId, job, text) {
   await withTransaction(db, async (client) => {
-    const reqRepo = require('../persistence/requirements');
-    const req = await reqRepo.lock(client, db, ctx, reqPublicId);
-    const meta = final
-      ? { full: text, usage: opts.usage || null, real: true }
-      : { real: true };
-    await client.query(
-      `UPDATE "${db.schema}".messages SET content=$1,status=$2,metadata=$3,revision=revision+1 WHERE tenant_id=$4 AND id=$5`,
-      [text, final ? 'ok' : 'generating', JSON.stringify(meta), ctx.tenantId, aiMessageId],
+    await require('../domain/membership-policy').authorizeCommand(
+      client,
+      db,
+      ctx,
+      'message.agentWrite',
     );
+    const req = await require('../persistence/requirements').lock(
+      client,
+      db,
+      ctx,
+      reqPublicId,
+    );
+    const live = await jobs.owned(client, db, job.id, OWNER);
+    if (live.result?.cancelRequested) throw fault('TURN_CANCELLED');
+    const result = await client.query(
+      'UPDATE "' +
+        db.schema +
+        '".messages SET content=$1,metadata=metadata || $2::jsonb,revision=revision+1 WHERE tenant_id=$3 AND req_id=$4 AND id=$5 AND status=$6 RETURNING id',
+      [
+        text,
+        JSON.stringify({ real: true }),
+        ctx.tenantId,
+        job.req_id,
+        job.input.aiMessageId,
+        'generating',
+      ],
+    );
+    if (!result.rows.length) throw fault('TURN_CANCELLED');
     await require('../persistence/events').append(
       client,
       db,
       ctx,
-      final ? 'message.completed' : 'message.updated',
+      'message.updated',
       reqPublicId,
       req.revision,
-      final
-        ? { reqId: reqPublicId, messageId: aiMessageId, usage: opts.usage || null }
-        : { reqId: reqPublicId, messageId: aiMessageId, agent: true },
+      { reqId: reqPublicId, messageId: job.input.aiMessageId, agent: true },
     );
   });
   require('../domain/events').kick();
 }
-
-async function finishJob(db, ctx, jobId, state, result, code) {
+async function completeJob(db, ctx, reqPublicId, job, result) {
   await withTransaction(db, async (client) => {
-    await jobs.finish(client, db, jobId, OWNER, state, result, code);
-  });
-}
-
-async function failMessage(db, ctx, reqPublicId, aiMessageId, code) {
-  if (!aiMessageId) return;
-  await withTransaction(db, async (client) => {
-    const reqRepo = require('../persistence/requirements');
-    const req = await reqRepo.lock(client, db, ctx, reqPublicId);
-    await client.query(
-      `UPDATE "${db.schema}".messages SET status=$1,metadata=$2,revision=revision+1 WHERE tenant_id=$3 AND id=$4`,
-      ['failed', JSON.stringify({ real: true, error: code }), ctx.tenantId, aiMessageId],
+    await require('../domain/membership-policy').authorizeCommand(
+      client,
+      db,
+      ctx,
+      'message.agentComplete',
     );
+    const req = await require('../persistence/requirements').lock(
+      client,
+      db,
+      ctx,
+      reqPublicId,
+    );
+    if (job.input.contextHash) {
+      const current = await require('./context-service').stageSnapshot(
+        client,
+        db,
+        ctx,
+        req,
+        job.input.stage,
+      );
+      if (current.hash !== job.input.contextHash)
+        throw fault('AGENT_CONTEXT_CHANGED');
+    }
+    const live = await jobs.owned(client, db, job.id, OWNER);
+    if (live.result?.cancelRequested) throw fault('TURN_CANCELLED');
+    const updated = await client.query(
+      'UPDATE "' +
+        db.schema +
+        '".messages SET content=$1,status=$2,metadata=metadata || $3::jsonb,revision=revision+1 WHERE tenant_id=$4 AND req_id=$5 AND id=$6 AND status=$7 RETURNING id',
+      [
+        result.text,
+        'ok',
+        JSON.stringify({
+          real: true,
+          full: result.text,
+          usage: result.usage ?? null,
+        }),
+        ctx.tenantId,
+        job.req_id,
+        job.input.aiMessageId,
+        'generating',
+      ],
+    );
+    if (!updated.rows.length) throw fault('TURN_CANCELLED');
+    await jobs.finish(client, db, job.id, OWNER, 'SUCCEEDED', result, null);
     await require('../persistence/events').append(
       client,
       db,
       ctx,
-      'message.failed',
+      'message.completed',
       reqPublicId,
       req.revision,
-      { reqId: reqPublicId, messageId: aiMessageId, error: code },
+      { reqId: reqPublicId, messageId: job.input.aiMessageId },
     );
   });
   require('../domain/events').kick();
 }
-
-// 执行一个 TEXT 作业。幂等：同一 jobId 已在运行或已终态则跳过。
-async function runTextJob({ db, ctx, reqPublicId, jobId }) {
+async function failJob(db, ctx, reqPublicId, job, state, code) {
+  await withTransaction(db, async (client) => {
+    const req = await require('../persistence/requirements').lock(
+      client,
+      db,
+      ctx,
+      reqPublicId,
+    );
+    const live = await jobs.find(client, db, ctx, job.req_id, job.id);
+    if (
+      !live ||
+      !['RUNNING', 'WAITING_APPROVAL'].includes(live.state) ||
+      live.owner_id !== OWNER
+    )
+      return;
+    if (new Date(live.lease_until).getTime() <= Date.now()) {
+      state = 'UNKNOWN';
+      await jobs.forceFinish(client, db, job.id, state, null, code, OWNER);
+    } else await jobs.finish(client, db, job.id, OWNER, state, null, code);
+    const updated = await client.query(
+      'UPDATE "' +
+        db.schema +
+        '".messages SET status=$1,metadata=metadata || $2::jsonb,revision=revision+1 WHERE tenant_id=$3 AND req_id=$4 AND id=$5 AND status=$6 RETURNING id',
+      [
+        state === 'CANCELLED' ? 'stopped' : 'failed',
+        JSON.stringify({ real: true, error: code, agentState: state }),
+        ctx.tenantId,
+        job.req_id,
+        job.input.aiMessageId,
+        'generating',
+      ],
+    );
+    if (updated.rows.length)
+      await require('../persistence/events').append(
+        client,
+        db,
+        ctx,
+        'message.failed',
+        reqPublicId,
+        req.revision,
+        {
+          reqId: reqPublicId,
+          messageId: job.input.aiMessageId,
+          error: code,
+          agentState: state,
+        },
+      );
+  });
+  require('../domain/events').kick();
+}
+async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
   if (active.has(jobId)) return { skipped: true };
-  const options = connectionOptions();
-  let session = null;
-  let writeChain = Promise.resolve();
-  let aiMessageId = null;
-  let startedAt = Date.now();
-  let budgetActive = false;
-  let budgetEntry = null;
-  let jobTimer = null;
-  let heartbeat = null;
-  // TEXT 作业兜底超时（毫秒）：覆盖 open 之后到 runText 完成的全程，
-  // 防止 codex 挂起/close 阻塞导致作业永久 RUNNING（真实缺陷收口）。
-  // 600s：跨阶段上下文传递后，后阶段（如 observe）携带多条前序产出，单次生成时间更长。
-  const TEXT_JOB_TIMEOUT_MS = 600000;
-  active.set(jobId, { cancel: () => session?.close?.() });
+  const control = createControl();
+  active.set(jobId, control);
+  let job, session, heartbeat, timer, reservation, startedAt, writeError;
+  let writeChain = Promise.resolve(),
+    outcome;
   try {
-    const job = await withTransaction(db, async (client) => {
-      const claimed = await jobs.claimById(client, db, jobId, OWNER);
-      await jobs.dispatch(client, db, jobId, OWNER);
-      return claimed;
+    job = await withTransaction(db, async (client) => {
+      await require('../domain/membership-policy').authorizeCommand(
+        client,
+        db,
+        ctx,
+        'message.agentStart',
+      );
+      return jobs.claimById(client, db, jobId, OWNER);
     });
-    aiMessageId = job.input?.aiMessageId ?? null;
-    if (!options) throw fail('CONNECTION_UNAVAILABLE');
-    // 心跳续租：TEXT 作业可能远超 claim 的 30s lease（模型生成/推理耗时），
-    // 每 20s 续租，避免 finish 时 owned 检查失败 AGENT_LEASE_LOST 导致作业永久 RUNNING。
+    control.check();
+    if (kind === 'EXECUTE') {
+      require('./exec-control').validatePlan(job.input);
+      require('./execution-policy').requireCapability();
+    }
+    const options = connectionOptions();
+    if (!options) throw fault('CONNECTION_UNAVAILABLE');
+    if (job.input.contextHash)
+      await withTransaction(db, async (client) => {
+        const req = await require('../persistence/requirements').lock(
+          client,
+          db,
+          ctx,
+          reqPublicId,
+        );
+        const current = await require('./context-service').stageSnapshot(
+          client,
+          db,
+          ctx,
+          req,
+          job.input.stage,
+        );
+        if (current.hash !== job.input.contextHash)
+          throw fault('AGENT_CONTEXT_CHANGED');
+      });
+    timer = setTimeout(() => {
+      void control.stop('TURN_TIMED_OUT');
+    }, 300000);
     heartbeat = setInterval(() => {
       withTransaction(db, async (client) => {
+        await require('../domain/membership-policy').authorizeCommand(
+          client,
+          db,
+          ctx,
+          'message.agentHeartbeat',
+        );
+        const live = await jobs.owned(client, db, jobId, OWNER);
+        if (live.result?.cancelRequested) throw fault('TURN_CANCELLED');
         await jobs.heartbeat(client, db, jobId, OWNER);
-      }).catch(() => {
-        /* 心跳失败不阻断作业，finish 时按实际租约判定 */
+      }).catch((e) => {
+        void control.stop(
+          e.code === 'TURN_CANCELLED' ? e.code : 'AGENT_LEASE_LOST',
+        );
       });
-    }, 20000);
-    // 非终端 AI 能力按阶段注入：guide 引导模型按阶段工作法产出；
-    // enabledSkills 让 text 线程的 skills.config 按期望能力启用（匹配到才启用）。
-    const stage = job.input?.stage || 'idea';
-    const stageCap = require('./stage-capabilities').forStage(stage);
-    if (stageCap?.skills?.length) options.enabledSkills = stageCap.skills;
-    const baseText = buildTextPrompt(job);
-    const text = stageCap?.guide
-      ? '【本阶段：' + stageCap.name + '】' + stageCap.goal + '。\n' + stageCap.guide + '\n\n' + baseText
-      : baseText;
+    }, 10000);
     session = await TextConversation.open(options);
-    // 兜底超时：session 就绪后立即武装；触发时 kill codex + reject 挂起
-    // completion/rpc，保证 runText 抛错进入 worker catch 收口。
-    jobTimer = setTimeout(() => {
-      console.error('[runTextJob:diag] JOB_TIMED_OUT fired at', new Date().toISOString());
-      try {
-        session?.connection?.rpc?.child?.kill();
-      } catch (_) {
-        /* ignore */
-      }
-      try {
-        session?.active?.reject?.(fail('TURN_TIMED_OUT'));
-      } catch (_) {
-        /* ignore */
-      }
-      try {
-        session?.connection?.rpc?.rejectAll?.(fail('APP_SERVER_CLOSED'));
-      } catch (_) {
-        /* ignore */
-      }
-      try {
-        session?.close?.();
-      } catch (_) {
-        /* ignore */
-      }
-    }, TEXT_JOB_TIMEOUT_MS);
+    control.attach(session);
+    control.check();
+    const guide = require('./stage-capabilities').forStage(
+      job.input.stage || 'idea',
+    );
+    const text =
+      (guide ? '【本阶段】' + guide.goal + '\n' + guide.guide + '\n' : '') +
+      buildTextPrompt(job);
     let accumulated = '';
     const result = await session.runText({
       text,
       reserveTurn: async () => {
-        budgetEntry = await reserveTurnAsync();
-        budgetActive = true;
+        control.check();
+        reservation = await budget.reserveTurn();
         startedAt = Date.now();
+        control.check();
+        await withTransaction(db, (client) =>
+          jobs.dispatch(client, db, jobId, OWNER),
+        );
       },
       onDelta: (delta) => {
         accumulated += delta;
         if (accumulated.length > 200000) {
-          session.close().catch(() => {});
-          throw fail('MODEL_OUTPUT_LIMIT');
+          void control.stop('MODEL_OUTPUT_LIMIT');
+          return;
         }
+        const chunk = accumulated;
         writeChain = writeChain
-          .then(() =>
-            writeMessage(db, ctx, reqPublicId, job.req_id, aiMessageId, accumulated),
-          )
-          .catch(() => {});
+          .then(() => {
+            control.check();
+            return writeMessage(db, ctx, reqPublicId, job, chunk);
+          })
+          .catch((e) => {
+            writeError = e;
+            void control.stop(e.code || 'MESSAGE_WRITE_FAILED');
+          });
       },
     });
     await writeChain;
-    await writeMessage(db, ctx, reqPublicId, job.req_id, aiMessageId, result.text, {
-      final: true,
-      usage: result.usage || undefined,
-    });
-    await finishJob(db, ctx, jobId, 'SUCCEEDED', {
-      text: result.text,
-      usage: result.usage || null,
-      threadId: result.threadId,
-      turnId: result.turnId,
-    }, null);
-    if (budgetActive)
-      await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
-        inputHash: createHash('sha256').update(text).digest('hex'),
-      }, budgetEntry?.at);
-    return { status: 'SUCCEEDED', jobId };
-  } catch (e) {
-    const code = e.code || 'TURN_FAILED';
-    const state =
-      code === 'TURN_CANCELLED'
-        ? 'CANCELLED'
-        : code === 'TURN_TIMED_OUT'
-          ? 'TIMED_OUT'
-          : 'FAILED';
-    if (aiMessageId)
-      await failMessage(db, ctx, reqPublicId, aiMessageId, code).catch(() => {});
-    await finishJob(db, ctx, jobId, state, null, code).catch(async () => {
-      // 租约过期（AGENT_LEASE_LOST）等异常：强制收口，防止作业永久 RUNNING。
-      await withTransaction(db, async (client) => {
-        await jobs.forceFinish(client, db, jobId, state, null, code);
-      }).catch(() => {});
-    });
-    if (budgetActive) {
-      try {
-        await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state, {}, budgetEntry?.at);
-      } catch {
-        release();
-      }
-    }
-    return { status: state, code };
-  } finally {
-    if (heartbeat) clearInterval(heartbeat);
-    if (jobTimer) clearTimeout(jobTimer);
-    // 会话收口：fire-and-forget（不 await，避免 close 在 Windows 上
-    // 因 codex 进程不退出而阻塞 worker；进程由后台清理）。
-    if (session) session.close().catch(() => {});
-    active.delete(jobId);
-  }
-}
-
-async function cancel(jobId) {
-  const entry = active.get(jobId);
-  if (entry) await entry.cancel();
-  return !!entry;
-}
-
-// EXEC 作业超时上限（毫秒）：44 号 D5 约定单次 300 秒，超时 kill 并按 TIMED_OUT 结算。
-const EXEC_TIMEOUT_MS = 300000;
-
-// 执行一个 EXEC 作业：CLI host（codex exec，Windows elevated + workspace-write）+
-// 受限读 hook + 流式输出写回 ai 消息。产品形态参数从 job.input 注入：
-//   content（prompt）、workspace/cwd（工作区，默认连接 cwd）、
-//   restrictedReadDirs（工作区外受限读目录清单，默认空 = 不启用）。
-// 幂等：同一 jobId 已在运行或已终态则跳过。
-async function runExecJob({ db, ctx, reqPublicId, jobId }) {
-  if (active.has(jobId)) return { skipped: true };
-  const options = connectionOptions();
-  let child = null;
-  let timer = null;
-  let heartbeat = null;
-  let writeChain = Promise.resolve();
-  let aiMessageId = null;
-  let startedAt = Date.now();
-  let budgetActive = false;
-  let budgetEntry = null;
-  let restrictedDirs = [];
-  let apply = null;
-  active.set(jobId, {
-    cancel: () => {
-      try {
-        child?.kill();
-      } catch (_) {
-        /* ignore */
-      }
-    },
-  });
-  try {
-    const job = await withTransaction(db, async (client) => {
-      const claimed = await jobs.claimById(client, db, jobId, OWNER);
-      await jobs.dispatch(client, db, jobId, OWNER);
-      return claimed;
-    });
-    aiMessageId = job.input?.aiMessageId ?? null;
-    if (!options) throw fail('CONNECTION_UNAVAILABLE');
-    const input = job.input || {};
-    const prompt = String(input.content || '').trim();
-    if (!prompt) throw fail('EMPTY_EXEC_PROMPT');
-    const workspace = String(input.workspace || input.cwd || options.cwd || process.cwd());
-    restrictedDirs = Array.isArray(input.restrictedReadDirs)
-      ? input.restrictedReadDirs.map((d) => String(d))
-      : [];
-    apply = restrictedDirs.length ? applyRestrictedReadAll(restrictedDirs) : null;
-    // D5 受控执行（44 号 F 项）：input.control 存在即强制——
-    // 计划冻结（校验+基线）在 spawn 前完成，失败不消耗模型；执行后 diff 审批，越界即回滚并 FAILED。
-    const control = require('./exec-control').validatePlan(input);
-    let baseline = null;
-    if (control) {
-      baseline = require('./exec-control').scanWorkspace(workspace);
-    }
-    budgetEntry = await reserveTurnAsync();
-    budgetActive = true;
-    startedAt = Date.now();
-    let accumulated = '';
-    const binary = options.binary;
-    const spawnBin = binary.endsWith('.js') ? process.execPath : binary;
-    const args = (binary.endsWith('.js') ? [binary] : []).concat([
-      'exec',
-      '-s', 'workspace-write',
-      '-c', 'windows.sandbox="elevated"',
-      '-c', 'sandbox_workspace_write.network_access=false',
-      '-c', 'approval_policy=never',
-      '-C', workspace,
-      '--disable', 'apps',
-      '--disable', 'plugins',
-      '--disable', 'hooks',
-      '--disable', 'browser_use',
-      '--disable', 'computer_use',
-      '--disable', 'multi_agent',
-    ]);
-    child = spawn(spawnBin, args, { cwd: workspace, windowsHide: true });
-    // 心跳续租：CLI host 真实执行可能远超 claim 的 30s lease，
-    // 每 20s 续租，避免 finish 时 owned 检查 AGENT_LEASE_LOST。
-    heartbeat = setInterval(() => {
-      withTransaction(db, async (client) => {
-        await jobs.heartbeat(client, db, jobId, OWNER);
-      }).catch(() => {
-        /* 心跳失败不阻断作业，finish 时按实际租约判定 */
-      });
-    }, 20000);
-    timer = setTimeout(() => {
-      try {
-        child.kill();
-      } catch (_) {
-        /* ignore */
-      }
-    }, EXEC_TIMEOUT_MS);
-    child.stdout.on('data', (chunk) => {
-      accumulated += chunk;
-      if (accumulated.length > 200000) {
-        try {
-          child.kill();
-        } catch (_) {
-          /* ignore */
-        }
-        writeChain = writeChain.then(() => failMessage(db, ctx, reqPublicId, aiMessageId, 'MODEL_OUTPUT_LIMIT')).catch(() => {});
-      } else {
-        writeChain = writeChain
-          .then(() =>
-            writeMessage(db, ctx, reqPublicId, job.req_id, aiMessageId, accumulated),
-          )
-          .catch(() => {});
-      }
-    });
-    const code = await new Promise((resolve, reject) => {
-      child.on('error', reject);
-      child.on('close', (c) => resolve(c ?? -1));
-      child.stdin.end(prompt);
-    });
-    clearTimeout(timer);
-    timer = null;
-    await writeChain;
-    const exceeded = accumulated.length > 200000;
-    if (exceeded) throw fail('MODEL_OUTPUT_LIMIT');
-    await writeMessage(db, ctx, reqPublicId, job.req_id, aiMessageId, accumulated, {
-      final: true,
-    });
-    if (code !== 0) throw fail('EXEC_EXIT_' + code);
-    // D5 差异审批：执行后对比基线。越界 → 回滚到基线（越界改动不落盘）并 FAILED。
-    if (control && baseline) {
-      const review = require('./exec-control').reviewDiff(control, workspace, baseline);
-      if (review.violates) {
-        const removed = require('./exec-control').revert(workspace, baseline);
-        throw Object.assign(fail('DIFF_OUT_OF_SCOPE'), {
-          detail: { reasons: review.reasons, changes: review.changes, removed },
-        });
-      }
-    }
-    await finishJob(
-      db,
-      ctx,
+    if (writeError) throw writeError;
+    control.check();
+    const exit = await session.close();
+    if (exit?.childExited !== true) throw fault('PROCESS_EXIT_UNCONFIRMED');
+    await completeJob(db, ctx, reqPublicId, job, result);
+    outcome = {
+      status: 'SUCCEEDED',
       jobId,
-      'SUCCEEDED',
-      {
-        text: accumulated,
-        code,
-        controlAudit: control
-          ? require('./exec-control').auditCommands(control.allowedCommands, accumulated).warnings
-          : [],
-      },
-      null,
-    );
-    if (budgetActive)
-      await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), 'SUCCEEDED', {
-        inputHash: createHash('sha256').update(prompt).digest('hex'),
-      }, budgetEntry?.at);
-    return { status: 'SUCCEEDED', jobId };
+      inputHash: createHash('sha256').update(text).digest('hex'),
+    };
   } catch (e) {
-    const code = e.code || 'TURN_FAILED';
-    const state =
-      code === 'TURN_CANCELLED'
-        ? 'CANCELLED'
-        : code === 'TURN_TIMED_OUT'
-          ? 'TIMED_OUT'
-          : 'FAILED';
-    if (aiMessageId)
-      await failMessage(db, ctx, reqPublicId, aiMessageId, code).catch(() => {});
-    await finishJob(db, ctx, jobId, state, e.detail ? { detail: e.detail } : null, code).catch(() => {});
-    if (budgetActive) {
+    const code =
+      control.reason ||
+      (/^[A-Z][A-Z0-9_]{0,99}$/.test(e.code || '') ? e.code : 'TURN_FAILED');
+    if (session) await control.stop(code);
+    const state = control.terminalState(code);
+    if (job) {
       try {
-        await settleTurn(Math.ceil((Date.now() - startedAt) / 1000), state, {}, budgetEntry?.at);
-      } catch {
-        release();
+        await failJob(db, ctx, reqPublicId, job, state, code);
+      } catch (dbError) {
+        outcome = {
+          status: 'UNKNOWN',
+          code: 'RESULT_PERSISTENCE_UNCONFIRMED',
+          cause: dbError.code || 'DB_FAILED',
+        };
       }
     }
-    return { status: state, code };
+    outcome ??= { status: job ? state : 'SKIPPED', code };
   } finally {
-    if (heartbeat) clearInterval(heartbeat);
-    if (timer) clearTimeout(timer);
-    if (child && child.exitCode === null) {
+    clearInterval(heartbeat);
+    clearTimeout(timer);
+    await writeChain;
+    if (session) {
       try {
-        child.kill();
-      } catch (_) {
-        /* ignore */
+        await session.close();
+      } catch {
+        outcome = {
+          ...outcome,
+          status: 'UNKNOWN',
+          code: 'PROCESS_EXIT_UNCONFIRMED',
+        };
       }
     }
-    if (apply && restrictedDirs.length) {
+    if (reservation) {
       try {
-        removeRestrictedReadAll(restrictedDirs);
-      } catch (_) {
-        /* ignore */
+        await budget.settleTurn(
+          Math.ceil((Date.now() - startedAt) / 1000),
+          outcome.status === 'SKIPPED' ? 'FAILED' : outcome.status,
+          { inputHash: outcome.inputHash },
+          reservation.attemptId,
+        );
+      } catch {
+        outcome = { ...outcome, budget: 'SETTLEMENT_UNCONFIRMED' };
       }
     }
+    control.complete(outcome);
     active.delete(jobId);
   }
+  return outcome;
 }
-
-module.exports = { runTextJob, runExecJob, cancel, connectionOptions, OWNER };
+async function cancel(jobId, scope) {
+  const control = active.get(jobId);
+  if (control) {
+    await control.stop('TURN_CANCELLED');
+    let timer;
+    const result = await Promise.race([
+      control.done,
+      new Promise((resolve) => {
+        timer = setTimeout(
+          () => resolve({ status: 'UNKNOWN', code: 'CANCEL_ACK_TIMEOUT' }),
+          10000,
+        );
+      }),
+    ]);
+    clearTimeout(timer);
+    return { state: result.status, confirmed: result.status === 'CANCELLED' };
+  }
+  if (scope?.db && scope.reqId) {
+    const row = await withTransaction(scope.db, (client) =>
+      jobs.find(client, scope.db, scope.ctx, scope.reqId, jobId),
+    );
+    return {
+      state: row?.state || 'UNKNOWN',
+      confirmed: row?.state === 'CANCELLED',
+    };
+  }
+  return { state: 'UNKNOWN', confirmed: false };
+}
+module.exports = {
+  runTextJob: (args) => runJob(args, 'TEXT'),
+  runExecJob: (args) => runJob(args, 'EXECUTE'),
+  cancel,
+  connectionOptions,
+  OWNER,
+  buildTextPrompt,
+};

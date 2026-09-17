@@ -1,7 +1,6 @@
 ﻿'use strict';
-const { S, seedFromState, pushAudit, pushNotice, nextId } = require('./store');
+const { S, seedFromState, pushAudit } = require('./store');
 const sm = require('./state-machine');
-const wsBridge = require('../ws');
 // Existing memory demonstration adapter; no PG caller may enter this block.
 async function answerQuestion(id, qid, { answer }) {
   await seedFromState();
@@ -51,7 +50,6 @@ const runtime = require('../runtime'),
   repo = require('../persistence/messages'),
   reqRepo = require('../persistence/requirements');
 const { withTransaction } = require('../persistence/transaction'),
-  { command } = require('../persistence/commands'),
   { randomUUID, createHash } = require('node:crypto'),
   { statSync } = require('node:fs');
 
@@ -78,28 +76,11 @@ function resolveRealJobInput(input, ids) {
     }
     if (!st.isDirectory()) access.fail('WORKSPACE_NOT_DIRECTORY', 400);
   }
-  // 跨阶段上下文传递：前端/脚本可显式传入前序阶段已确认产出
-  // （[{stage,title,text}]），worker 注入 prompt 使当前阶段基于上一步结论继续。
-  const stageContext = Array.isArray(input.stageContext)
-    ? input.stageContext
-        .filter(
-          (c) =>
-            c &&
-            typeof c.text === 'string' &&
-            c.text.trim().length > 0 &&
-            typeof c.stage === 'string' &&
-            c.stage.trim().length > 0,
-        )
-        .slice(0, 6)
-        .map((c) => ({
-          stage: String(c.stage).trim(),
-          title:
-            typeof c.title === 'string' && c.title.trim()
-              ? String(c.title).trim()
-              : String(c.stage).trim() + '阶段产出',
-          text: String(c.text).trim().slice(0, 30000),
-        }))
-    : [];
+  const stageContext =
+    require('../agent/context-service').normalizeStageContext(
+      input.stageContext ?? [],
+      stage,
+    );
   return {
     kind: execTool ? 'EXECUTE' : 'TEXT',
     commandId: (execTool ? 'EXEC-' : 'MSG-') + userMessageId,
@@ -178,16 +159,15 @@ module.exports.sendMessage = async (id, input) => {
   const ctx = access.current(true),
     db = runtime.db();
   access.text(input.content || '', 8000);
+  let cancelContext;
+  const supersededJobs = [];
   const result = await require('./requirement-service').mutate(
     id,
     input,
     'message.sent',
     async (client, db, ctx, row) => {
       const stage = input.stage || row.stage;
-      // 阶段不晚于 req 当前阶段（默认）。PFC_ALLOW_STAGE_BYPASS=1 为验收验证专用开关：
-      // 允许在独立验证 req 上直发任意阶段 TEXT（验证各阶段 guide+skill 产出），
-      // 不改变 req 自身阶段状态机；生产/常规环境不设置该开关。
-      const allowStageBypass = process.env.PFC_ALLOW_STAGE_BYPASS === '1';
+      // The selected stage may never exceed the persisted requirement stage.
       if (
         ![
           'idea',
@@ -199,7 +179,7 @@ module.exports.sendMessage = async (id, input) => {
           'release',
           'observe',
         ].includes(stage) ||
-        (!allowStageBypass && sm.STAGES.indexOf(stage) > sm.STAGES.indexOf(row.stage))
+        sm.STAGES.indexOf(stage) > sm.STAGES.indexOf(row.stage)
       )
         access.fail('INVALID_STAGE', 400);
       const refs = await repo.references(client, db, ctx, row.id, [
@@ -228,6 +208,25 @@ module.exports.sendMessage = async (id, input) => {
           '".messages SET status=$1,revision=revision+1 WHERE tenant_id=$2 AND req_id=$3 AND status=$4',
         ['stopped', ctx.tenantId, row.id, 'generating'],
       );
+      if (db.targetVersion === '007') {
+        const old = (
+          await client.query(
+            `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') FOR UPDATE`,
+            [ctx.tenantId, row.id],
+          )
+        ).rows;
+        for (const job of old) {
+          await require('../persistence/agent-jobs').requestCancel(
+            client,
+            db,
+            ctx,
+            row.id,
+            job.id,
+          );
+          supersededJobs.push(job.id);
+        }
+        cancelContext = { db, ctx, reqId: row.id };
+      }
       const cleanRefs = refs.map(
         ({ materialVersionId, reqVersionId, artifactVersionId, ...r }) => ({
           ...r,
@@ -280,14 +279,15 @@ module.exports.sendMessage = async (id, input) => {
               fields: changes,
             }
           : null;
-      const full = input.mode === 'real'
-        ? null
-        : '【模拟回复】已保存本次对话' +
-          (refs.length ? '及 ' + refs.length + ' 项版本引用' : '') +
-          '.' +
-          (diff
-            ? '已生成字段差异，请确认后采纳。'
-            : '当前未接入真实模型；可继续整理材料、完善版本或发起模拟作业。');
+      const full =
+        input.mode === 'real'
+          ? null
+          : '【模拟回复】已保存本次对话' +
+            (refs.length ? '及 ' + refs.length + ' 项版本引用' : '') +
+            '.' +
+            (diff
+              ? '已生成字段差异，请确认后采纳。'
+              : '当前未接入真实模型；可继续整理材料、完善版本或发起模拟作业。');
       const ai = await repo.create(client, db, ctx, row, {
         turnId: user.turn_id,
         role: 'ai',
@@ -310,6 +310,14 @@ module.exports.sendMessage = async (id, input) => {
       if (input.mode === 'real') {
         // exec 工具形态：前端在开发阶段以 tool:'exec' + workspace 触发 EXECUTE 作业，
         // 经 runExecJob 在 CLI host（codex exec）执行并实时回写对话流。
+        const context = await require('../agent/context-service').stageSnapshot(
+          client,
+          db,
+          ctx,
+          row,
+          stage,
+          input.contextSources ?? [],
+        );
         const jobInput = resolveRealJobInput(input, {
           userMessageId: user.id,
           aiMessageId: ai.id,
@@ -317,6 +325,23 @@ module.exports.sendMessage = async (id, input) => {
           refs: cleanRefs,
           stage,
         });
+        jobInput.input.context = context.snapshot;
+        jobInput.input.contextHash = context.hash;
+        if (jobInput.kind === 'EXECUTE') {
+          if (stage !== 'dev' || row.stage !== 'dev' || ctx.role !== 'owner')
+            access.fail('EXEC_STAGE_OR_ROLE_INVALID', 403);
+          require('../agent/execution-policy').requireCapability();
+          jobInput.input.control =
+            require('../agent/exec-control').freezeForActor(
+              jobInput.input,
+              ctx,
+              row,
+              context.hash,
+            );
+        }
+        jobInput.inputHash = createHash('sha256')
+          .update(JSON.stringify(jobInput.input))
+          .digest('hex');
         const job = await require('../persistence/agent-jobs').enqueue(
           client,
           db,
@@ -336,6 +361,8 @@ module.exports.sendMessage = async (id, input) => {
       };
     },
   );
+  for (const jobId of supersededJobs)
+    await require('../agent/worker').cancel(jobId, cancelContext);
   if (result.jobId) {
     const worker = require('../agent/worker');
     const runner =
@@ -370,7 +397,8 @@ module.exports.getMessages = async (id, stage, offset = 0, limit = 20) => {
   });
 };
 module.exports.stopMessage = async (id, mid, input) => {
-  const result = require('./requirement-service').mutate(
+  let cancellationContext;
+  const result = await require('./requirement-service').mutate(
     id,
     input,
     'message.stopped',
@@ -390,28 +418,35 @@ module.exports.stopMessage = async (id, mid, input) => {
           '".messages SET status=$1,revision=revision+1 WHERE tenant_id=$2 AND id=$3 AND status=$4',
         ['stopped', ctx.tenantId, m.id, 'generating'],
       );
-      // 控制链：找出该 ai 消息对应的真实作业（EXECUTE/TEXT 均可），
-      // 由调用方在事务提交后取消 worker 活动作业（active map cancel → child.kill）。
-      // 向后兼容：未装 007 的旧 schema 无 agent_jobs 表（42P01）时跳过，仅改消息状态。
+      // Use the persisted AI message association; command_id belongs to the user message.
+      // Version detection avoids aborting a 006 transaction by querying a missing table.
       let job = null;
-      try {
+      if (db.targetVersion === '007') {
         job = (
           await client.query(
-            `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND (command_id=$3 OR command_id=$4) AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') ORDER BY created_at DESC LIMIT 1`,
-            [ctx.tenantId, row.id, 'EXEC-' + m.id, 'MSG-' + m.id],
+            `SELECT id FROM "${db.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND input->>'aiMessageId'=$3 AND state IN ('QUEUED','RUNNING','WAITING_APPROVAL') ORDER BY created_at DESC LIMIT 1 FOR UPDATE`,
+            [ctx.tenantId, row.id, m.id],
           )
         ).rows[0];
-      } catch (e) {
-        if (e.code !== '42P01') throw e;
+        if (job)
+          await require('../persistence/agent-jobs').requestCancel(
+            client,
+            db,
+            ctx,
+            row.id,
+            job.id,
+          );
       }
+      cancellationContext = { db, ctx, reqPublicId: id, reqId: row.id };
       return { jobId: job?.id ?? null };
     },
   );
-  // 事务提交后取消真实 worker 作业（fire-and-forget；作业不存在或已终态则无副作用）
+  // Cancellation follows commit; the caller receives the actual acknowledgement.
   if (result.jobId) {
-    void require('../agent/worker')
-      .cancel(result.jobId)
-      .catch(() => {});
+    result.cancellation = await require('../agent/worker').cancel(
+      result.jobId,
+      cancellationContext,
+    );
   }
   return result;
 };

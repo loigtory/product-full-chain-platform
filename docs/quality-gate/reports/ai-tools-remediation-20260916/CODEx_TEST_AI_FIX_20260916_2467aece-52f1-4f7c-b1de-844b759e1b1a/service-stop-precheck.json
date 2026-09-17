@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-17T03:17:05.073Z",
+  "atMs": 1789615025074,
+  "status": "PASS",
+  "schemas": [],
+  "otherClients": 0,
+  "port": 5432,
+  "requiresIndependentWindowsSocketCheck": true
+}

@@ -96,7 +96,7 @@ async function status(target) {
     !response.ok ||
     h.instanceId !== r.id ||
     h.profile !== 'personal' ||
-    h.schemaVersion !== '006'
+    h.schemaVersion !== (p.targetVersion ?? '006')
   )
     throw fault('LOCAL_HEALTH_IDENTITY_MISMATCH');
   return {
@@ -104,7 +104,7 @@ async function status(target) {
     pid: r.pid,
     port: p.apiPort,
     instanceId: r.id,
-    schemaVersion: '006',
+    schemaVersion: p.targetVersion ?? '006',
     sourceCommit: r.sourceCommit,
     sourceDirty: r.sourceDirty,
   };
@@ -256,7 +256,9 @@ async function start(target) {
         log(p, 'STARTED');
         return { child, exit, info: s };
       }
-    } catch {}
+    } catch {
+      /* Non-authoritative diagnostic/readiness output cannot establish success. */
+    }
     await new Promise((ok) => setTimeout(ok, 100));
   }
   // This handle is the exact child created above; no PID lookup/foreign process kill.

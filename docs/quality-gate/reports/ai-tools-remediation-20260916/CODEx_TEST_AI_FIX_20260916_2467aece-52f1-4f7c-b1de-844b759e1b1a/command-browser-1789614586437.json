@@ -1,0 +1,176 @@
+{
+  "name": "browser",
+  "file": "output/pfc-workbench-prototype/verify-ai-tools-remediation-browser.mjs",
+  "args": [],
+  "started": 1789614586437,
+  "durationMs": 24443,
+  "exitCode": 2,
+  "signal": null,
+  "stdout": "{\"status\":\"BLOCKED\",\"tests\":9,\"failures\":[],\"file\":\"docs\\\\quality-gate\\\\reports\\\\ai-tools-remediation-20260916\\\\CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a\\\\browser-1789614610855.json\"}\n",
+  "stderr": "",
+  "pid": 17944,
+  "source": [
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "597826736c76f9118612255416872bc255b5e113a02d094a460728a2efcd5cce"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "68de6278229cbdc8603508f888ccf518d63d88cf269695dbcdf11caf37b8c5b6"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "38653b038a2be4c11f439768a54edcdb31357b58dc88f50584a50d3b75837f50"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "43b9e4a63a219b4ae84c481352f28e92a80784e59ed715024c9f2b47994d1268"
+    },
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "a858965b451c8dc7c9a775858930f5f419c8c98df26ecd35e83add46546af4c3"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "4fb9a4a5e4e2cb05f87969ca1da34fcac9e739fd0c290d64f6854fb3f3040f6e"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "0e3d8bdeec576bc597b771351619eeac9d296a6ba0e7de50445737487b0d42e9"
+    },
+    {
+      "path": "server/src/agent/context-service.js",
+      "sha256": "25c8b42812fc65d282aba913db31c123397cff60e7cbcc50efb9c5a03dd2a845"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "cbda61ce808785c637411d800e8fd29b75337192aa5bb47ad7c7796e6527e9e2"
+    },
+    {
+      "path": "server/src/local/ops-config.js",
+      "sha256": "d0d9bf3f9d7c498a2df502760b2f2828eca44ec8bd53cd512844c0e8939ebd45"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "92f118c9a5dd21088a853cede312cb3666e8ae4c53daa404f5569858d74aa991"
+    },
+    {
+      "path": "server/src/local/backup.js",
+      "sha256": "d7dd80b0b18bab0c18a309c9c9f514414c55ad2b62500dacc682a18d6a357dab"
+    },
+    {
+      "path": "server/src/local/restore-check.js",
+      "sha256": "ea9869d6ae5714ff85a247e1567a8172f3c2e92d2cc456895be68aab11db383f"
+    },
+    {
+      "path": "server/src/local/lifecycle.js",
+      "sha256": "5a1d08d41f56f95a737328b717dab2d727f2e6001d40e646571845725b370aa8"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "44cd6de4eb9e3ca7c48767b46f97dfbe07e1bc66060c91f75e8e1de7eb1df19c"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "5268331854456dc653c8b90ad0e6a3f08c37752bdcc1317d260d997dc682d8db"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-gates.mjs",
+      "sha256": "8f4b87ae743cba62c64da91b962cd1dcc324838b5d438408a2faf88485c5ea57"
+    },
+    {
+      "path": "server/verify-ai-tools-exec-closedloop.mjs",
+      "sha256": "d784a105e0f4976e8cac4b49be5d43a3c45ed99ed71d0fce0f02c361c38f9b61"
+    },
+    {
+      "path": "server/verify-ai-tools-exec-control.mjs",
+      "sha256": "e612380268cea3b873ee2791498663ddf244a03837dddb39aa4389e33a6ae021"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs",
+      "sha256": "e9398c5c4a4b3eab0023652236116e146cf76c9d1b5b1835d0995bae87ae36f4"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-mixed-chain.mjs",
+      "sha256": "21548eb6d9a37b2deb5fb541eba2d14f062352c6625623c5abbfa42ac7088c61"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-context-stress.mjs",
+      "sha256": "4e034c6b32c292bc3fd1889bbcd82e6f408537bb550d405f665c33135f4a46b7"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-parallel-stress.mjs",
+      "sha256": "f02e14d61ec17002c8262256ee0f40e9a7fc3a4a91ec4558b3b9e111a9618297"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-live-exec-closedloop.mjs",
+      "sha256": "4e2f8a619867d5e55383c5f09700a91d878e65154d979090029e070a999c0f76"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "sha256": "11f1a38542e920d3fab569dc708043c7c37d4c55dfe840e288a57f5c0e7abfc5"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "sha256": "4de34e10277c37be8afbbcdbb339c2c5292e5a69d1f136881a1412fa6b250727"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "1747f92997cd43a118737f14580ef3594142f30552c4b79136a23ffdcadf2191"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "62e32b4ab6c8fd2391d8baf1229ac1098be038fe70ce9bb303010270abcf16fe"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-model.mjs",
+      "sha256": "2ff14a25034e11d93bff466dc68ed89c89684c4df07fa6a26a2df1ccb2623540"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-api.mjs",
+      "sha256": "30feb8ea0ac26cb09db1aae64e58e28fb947f4446fec6cc8b77a37d7124d39cf"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-ops.mjs",
+      "sha256": "98612202d91b47e6de19a71e2fee0ade6f141512f18f6fb86f90f5aaafac720f"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-real.mjs",
+      "sha256": "e5ae0219002f2711e61f318cdaa39074d02ac640595c37634e459ea2e9c8f85a"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-architecture.mjs",
+      "sha256": "e58e63dad0160769f146016a0978083414a76af607a5988feaa0d0f32c069ff5"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-remediation-browser.mjs",
+      "sha256": "ac11d775e3fa326460b939998cb1a2c66b363eb2319c448a070e9d27d3b14b64"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-remediation-gates.mjs",
+      "sha256": "4f81cbd4c3027d6753c81f0ce95cb47983f82e56c2699b2a7b498468793edbc3"
+    },
+    {
+      "path": "server/src/persistence/connection.js",
+      "sha256": "b0b2fe0c3ec5236a40a403f27f60ee4d551ca80c34f947fe399061eabccf42ec"
+    },
+    {
+      "path": "server/src/local/preflight.js",
+      "sha256": "69c7c2b4e5d3542efe2738c98c904fe3fb9366411e73a7675ba132e4f10b86c6"
+    }
+  ],
+  "status": "BLOCKED",
+  "sourceUnchanged": true
+}

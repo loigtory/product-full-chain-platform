@@ -71,9 +71,17 @@
             '#panel-term',
             '#mirror-term',
           ].map((s) => {
-            const el=document.querySelector(s);
-            const terminalScroll = ['#panel-term','#mirror-term'].includes(s) || (s === '.panel-body' && P.s.ui.panel === 'terminal');
-            return [s,el?.scrollTop || 0,!!el && terminalScroll && el.scrollHeight-el.clientHeight-el.scrollTop<32];
+            const el = document.querySelector(s);
+            const terminalScroll =
+              ['#panel-term', '#mirror-term'].includes(s) ||
+              (s === '.panel-body' && P.s.ui.panel === 'terminal');
+            return [
+              s,
+              el?.scrollTop || 0,
+              !!el &&
+                terminalScroll &&
+                el.scrollHeight - el.clientHeight - el.scrollTop < 32,
+            ];
           })
         : [];
     const focus = document.activeElement,
@@ -95,8 +103,10 @@
           '',
         )}</nav><div class="header-right"><button class="search-box" data-action="search">${i('search')} 全局搜索 / 命令</button><button class="icon-btn" data-action="notifications" aria-label="通知">${i('bell')}${(() => {
         const unread = (P.s.notices || []).filter((n) => !n.read).length;
-        return unread ? `<span class="bell-dot" title="${unread} 条未读">${unread}</span>` : '';
-      })()}</button><button class="demo-tag" data-action="${P.domainView?.pg()?'pg-info':'scenarios'}">${P.domainView?.pg()?'PG 持久化 · 对话/执行模拟':'交互原型 · 场景切换'}</button><span class="data-mode-tag" data-action="data-mode" title="数据层模式：点击切换 本地存储 / Mock 服务端 / API 模式（M1 后段）">${(() => {
+        return unread
+          ? `<span class="bell-dot" title="${unread} 条未读">${unread}</span>`
+          : '';
+      })()}</button><button class="demo-tag" data-action="${P.domainView?.pg() ? 'pg-info' : 'scenarios'}">${P.domainView?.pg() ? 'PG 持久化 · 对话/执行模拟' : '交互原型 · 场景切换'}</button><span class="data-mode-tag" data-action="data-mode" title="数据层模式：点击切换 本地存储 / Mock 服务端 / API 模式（M1 后段）">${(() => {
         try {
           return window.PFCStore ? window.PFCStore.label() : '本地存储';
         } catch {
@@ -104,7 +114,10 @@
         }
       })()}</span><span class="avatar" title="${P.s.role === 'viewer' ? '只读体验' : '负责人体验'}">${P.s.role === 'viewer' ? '读' : '陈'}</span></div>`;
     P.localSession?.header();
-    if (P.flowUI?.active()) { P.flowUI.render(); return; }
+    if (P.flowUI?.active()) {
+      P.flowUI.render();
+      return;
+    }
     const notice = P.conflict
       ? P.notice(
           '另一窗口已更新。为避免覆盖，当前只读；草稿保留。',
@@ -324,7 +337,7 @@
   A.scenarios = () =>
     P.modal(
       '原型场景 · 仅改变演示记录',
-      `<p class="muted">用这些场景检查例外路径。所有结果均为模拟，不调用实际工具。</p><div class="btn-group">${b('flow-open','连续协作演练',{disabled:window.PFCStore?.mode!=='local'},'primary')}</div><p class="source-note">连续协作演练仅在本地存储模式开放，独立保存合成数据。</p>${P.flowUI?.resumeLinks()||''}<div class="scenario-grid">${[
+      `<p class="muted">用这些场景检查例外路径。所有结果均为模拟，不调用实际工具。</p><div class="btn-group">${b('flow-open', '连续协作演练', { disabled: window.PFCStore?.mode !== 'local' }, 'primary')}</div><p class="source-note">连续协作演练仅在本地存储模式开放，独立保存合成数据。</p>${P.flowUI?.resumeLinks() || ''}<div class="scenario-grid">${[
         ['normal', '正常显示'],
         ['loading', '加载中'],
         ['error', '加载失败'],
@@ -362,7 +375,10 @@
       P.assert(q, '先创建需求');
       let run = P.run(q);
       P.assert(run, '先发起一次作业');
-      P.assert(!run._remote, '领域作业状态由服务端回读；请在 local/mock 模式体验异常场景');
+      P.assert(
+        !run._remote,
+        '领域作业状态由服务端回读；请在 local/mock 模式体验异常场景',
+      );
       if (['SUCCEEDED', 'CANCELLED', 'FAILED'].includes(run.status)) {
         run = {
           ...P.clone(run),
@@ -468,9 +484,16 @@
     if (!el || el.disabled) return;
     try {
       if (P.flowUI?.active() && !el.dataset.action.startsWith('flow-')) {
-        if (el.dataset.action === 'scenarios') { A['flow-options'](); return; }
-        if (['navigate', 'data-mode'].includes(el.dataset.action)) P.flowUI.exit();
-        else if (el.dataset.action !== 'close-modal') { P.toast('请先返回原工作区，再使用此操作'); return; }
+        if (el.dataset.action === 'scenarios') {
+          A['flow-options']();
+          return;
+        }
+        if (['navigate', 'data-mode'].includes(el.dataset.action))
+          P.flowUI.exit();
+        else if (el.dataset.action !== 'close-modal') {
+          P.toast('请先返回原工作区，再使用此操作');
+          return;
+        }
       }
       /* 对话建议绑定校验：对象或版本变化后过期，需重新评估 */
       if (el.dataset.proposal) {
@@ -492,10 +515,14 @@
       const fn = A[el.dataset.action];
       P.assert(fn, '此操作未配置');
       P.pendingActions ||= new Set();
-      const key=el.dataset.action+':'+P.s.ui.req;
-      if(P.pendingActions.has(key)) return;
+      const key = el.dataset.action + ':' + P.s.ui.req;
+      if (P.pendingActions.has(key)) return;
       P.pendingActions.add(key);
-      try { await fn(el.dataset); } finally { P.pendingActions.delete(key); }
+      try {
+        await fn(el.dataset);
+      } finally {
+        P.pendingActions.delete(key);
+      }
     } catch (error) {
       const box = document.querySelector('#form-error');
       if (box) box.textContent = error.message;
@@ -539,7 +566,11 @@
       box.classList.remove('drag-over');
   });
   document.addEventListener('drop', async (event) => {
-    if (P.flowUI?.active()) { event.preventDefault(); P.toast('演练使用固定合成材料，不读取拖入文件'); return; }
+    if (P.flowUI?.active()) {
+      event.preventDefault();
+      P.toast('演练使用固定合成材料，不读取拖入文件');
+      return;
+    }
     const t = event.target;
     if (t && t.closest && t.closest('.composer')) {
       event.preventDefault();
@@ -566,36 +597,18 @@
       P.s.ui.drafts[P.s.ui.req] = el.value;
       P.save();
     }
-    if (el.id === 'exec-workspace') {
-      P.s.ui.execWorkspace = el.value;
-      P.save();
-    }
-    if (el.id === 'exec-restricted') {
-      P.s.ui.execRestrictedDirs = el.value
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean);
-      P.save();
-    }
-    if (el.id === 'exec-control-mode') {
-      P.s.ui.execControl = P.s.ui.execControl || {};
-      P.s.ui.execControl.mode = el.value;
-      P.save();
-    }
-    if (el.id === 'exec-control-files') {
-      P.s.ui.execControl = P.s.ui.execControl || {};
-      P.s.ui.execControl.allowedFiles = el.value
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean);
-      P.save();
-    }
-    if (el.id === 'exec-control-cmds') {
-      P.s.ui.execControl = P.s.ui.execControl || {};
-      P.s.ui.execControl.allowedCommands = el.value
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean);
+    if (el.id?.startsWith('exec-')) {
+      const key = P.s.ui.req + ':' + P.s.ui.stage;
+      P.s.ui.execDrafts = P.s.ui.execDrafts || {};
+      const draft = (P.s.ui.execDrafts[key] ||= { workspace: '', control: {} });
+      draft.control.confirmed = false;
+      if (el.id === 'exec-workspace') draft.workspace = el.value;
+      if (el.id === 'exec-control-mode') draft.control.mode = el.value;
+      if (el.id === 'exec-control-files')
+        draft.control.allowedFiles = el.value
+          .split(',')
+          .map((x) => x.trim())
+          .filter(Boolean);
       P.save();
     }
     if (el.id === 'global-query') P.searchResults(el.value.trim());
@@ -704,41 +717,49 @@
       window.PFCAPI &&
       window.PFCAPI.api
     ) {
-      (P.localSession ? P.localSession.boot() : window.PFCAPI.api.init()).then(async () => {
-        /* hydrate 完成后再连 WS 订阅（Bridge 实时对话流） */
-        if (window.PFCWS) window.PFCWS.connect();
-        /* 拉取真实 agent 能力（capable / execCapable），供"开发执行"入口渲染 */
-        P.s.env = P.s.env || {};
-        try {
-          const st = await window.PFCAPI.api.req('GET', '/api/agent/status');
-          P.s.env.capable = !!st?.capable;
-          P.s.env.execCapable = !!st?.execCapable;
-          P.s.env.schemaVersion = st?.schemaVersion ?? null;
-          P.save();
-          P.render({ quiet: true });
-        } catch {
-          P.s.env.capable = false;
-          P.s.env.execCapable = false;
-        }
-        /* 各阶段 AI 能力配置（服务端 stage-capabilities），供"本阶段启用能力"面板展示 */
-        try {
-          const caps = await window.PFCAPI.api.req(
-            'GET',
-            '/api/agent/stage-capabilities',
-          );
-          P.s.stageCaps = {};
-          for (const c of caps?.stages || []) P.s.stageCaps[c.stage] = c;
-          P.save();
-        } catch {
-          P.s.stageCaps = {};
-        }
-      }).catch((e) => {
-        P.toast('API 连接失败：' + e.message, 'error');
-      });
+      (P.localSession ? P.localSession.boot() : window.PFCAPI.api.init())
+        .then(async () => {
+          /* hydrate 完成后再连 WS 订阅（Bridge 实时对话流） */
+          if (window.PFCWS) window.PFCWS.connect();
+          /* 拉取真实 agent 能力（capable / execCapable），供"开发执行"入口渲染 */
+          P.s.env = P.s.env || {};
+          try {
+            const st = await window.PFCAPI.api.req('GET', '/api/agent/status');
+            P.s.env.capable = !!st?.capable;
+            P.s.env.execCapable = !!st?.execCapable;
+            P.s.env.execution = st?.execution ?? null;
+            P.s.env.schemaVersion = st?.schemaVersion ?? null;
+            P.save();
+            P.render({ quiet: true });
+          } catch {
+            P.s.env.capable = false;
+            P.s.env.execCapable = false;
+          }
+          /* 各阶段 AI 能力配置（服务端 stage-capabilities），供"本阶段启用能力"面板展示 */
+          try {
+            const caps = await window.PFCAPI.api.req(
+              'GET',
+              '/api/agent/stage-capabilities',
+            );
+            P.s.stageCaps = {};
+            for (const c of caps?.stages || []) P.s.stageCaps[c.stage] = c;
+            P.save();
+          } catch {
+            P.s.stageCaps = {};
+          }
+        })
+        .catch((e) => {
+          P.toast('API 连接失败：' + e.message, 'error');
+        });
     }
   } catch {
     /* ignore */
   }
-  const tick = setInterval(() => { if (!P.flowUI?.active() && !P.localSession?.locked) P.tick(); }, 1200);
-  window.addEventListener('pagehide', () => { clearInterval(tick);window.PFCWS?.disconnect(); });
+  const tick = setInterval(() => {
+    if (!P.flowUI?.active() && !P.localSession?.locked) P.tick();
+  }, 1200);
+  window.addEventListener('pagehide', () => {
+    clearInterval(tick);
+    window.PFCWS?.disconnect();
+  });
 })();

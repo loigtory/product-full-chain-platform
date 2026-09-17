@@ -1,0 +1,23 @@
+{
+  "status": "PROPOSED_NOT_APPLIED",
+  "observed": {
+    "service": "pfc-postgresql-18",
+    "state": "Stopped",
+    "startMode": "Manual",
+    "portsAbsent": [
+      5432,
+      5188,
+      5199
+    ],
+    "postgresProcesses": 0
+  },
+  "proposal": {
+    "start": "Start-Service pfc-postgresql-18",
+    "purpose": "46 exact three synthetic schemas only, original 10000-row limits and cleanup",
+    "prerequisites": "Same named installed service; verify loopback5432/pfc_local/pfc_app_local before any test write",
+    "forbidden": "No personal pfc_workbench reads/writes beyond read-only external schema metadata fingerprint; no 5188/5199 start; no config changes",
+    "rollback": "After own test cleanup and no foreign clients, stop only the service started by this run to restore original Stopped; otherwise report and retain to avoid interrupting another user",
+    "duration": "This remediation test run only",
+    "evidence": "Record initial service/ports, new test IDs, independent schema cleanup, final process/service state"
+  }
+}

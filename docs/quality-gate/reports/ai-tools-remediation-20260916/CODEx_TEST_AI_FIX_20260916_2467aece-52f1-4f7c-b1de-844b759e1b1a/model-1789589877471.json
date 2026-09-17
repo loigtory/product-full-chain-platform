@@ -1,0 +1,166 @@
+{
+  "at": "2026-09-16T20:17:57.277Z",
+  "runId": "CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a",
+  "scope": "46 R1 deterministic regressions; no database or real model",
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "Stop awaits committed mutation before cancelling the matching job",
+      "status": "PASS"
+    },
+    {
+      "name": "Stop associates the AI message, never builds a command key from its ID",
+      "status": "PASS"
+    },
+    {
+      "name": "006 stop never queries the missing 007 table",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP status and arbitrary metadata cannot turn a failed assertion into PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "EXEC requires an explicit plan and server-owned approval identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Seven previous stages are retained; excessive context fails instead of truncating",
+      "status": "PASS"
+    },
+    {
+      "name": "Job cancellation is sticky and completion waits for a confirmed process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "New budget uses unique attempts, counts failures, and settles concurrent turns idempotently",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "modelCalls": 0,
+  "data": "deterministic synthetic only",
+  "cleanup": "not applicable",
+  "source": [
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "1e3a6bceb7c5568f2c236e4643316944ffaada3c359b9e193abc9a0314811607"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "2a86853d176f236ac4d3dbc03717e8aacde1d5c8473b1879e15662fb4c64f0e0"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "39e1e1a18c2f1b525d972dd1502858dcf21cdc2bc2f20e546d4a5fa133daa21d"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "dc5572febddd8aab5a70cb66337c09fd2686a84fb89a3b5208c79304f703e363"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "fab13719b9ba476881a1f9fd144355892c5f4c0c93ef22ad9060d0ae0857c7a1"
+    },
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "2ce5d14e4df56a4988be95ddeb82f629ced398000db098fc1fbc57fe41764c02"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "50870956c6abc9f4de6beba6db23109424b6ac00ff50c651e0b4512f3b7ac80b"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "36a3588380e8ca714df96eb50c2ea505c77c5a3cc94fa11c4afbbf65dd71d546"
+    },
+    {
+      "path": "server/src/agent/context-service.js",
+      "sha256": "fbf1cfd1aa37343474e36acb9300a863a00942c5884fe02d047512907cbd8024"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "39b48a40c14318a3dc8a61b54778303db2cb163bc2780efe4b2fbdf826ce704d"
+    },
+    {
+      "path": "server/src/local/ops-config.js",
+      "sha256": "5254495a872afa4e81dbd232cd3c7a3f2b748d55b3483683d0ab76fb9b4abbc0"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "377d09617b580b1fb9c28cf04236eccdb7c90488ca85cd1a5d6a41c1402ebc7f"
+    },
+    {
+      "path": "server/src/local/backup.js",
+      "sha256": "64979563d12c7e445902c48888538ac7e4561a36146abac807f60ae05d3d1c4a"
+    },
+    {
+      "path": "server/src/local/restore-check.js",
+      "sha256": "688f8718333325d726ffdaebec2f380db9551220777e1799046c0ae15d23d917"
+    },
+    {
+      "path": "server/src/local/lifecycle.js",
+      "sha256": "65b3385777e97f819d845e23a9ecec1b8c7b5b102991cc9d72709a142f208627"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "ca0ac4c9c771251b828bf87a52ab8a6eb54da75072eb20a012a2778d76f7a785"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "28e13b0a0cd7389e53f96cd3e78cc82e30835c6cc183126f40ecd155e653cb28"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "785fc1c2114cd09e7a7150fd3f4a548deaf96c7da3c40a481249dbb844e24ee5"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-gates.mjs",
+      "sha256": "5d9e8beece739821175a416cdb0056cd5ed73a1fe9329a7b266d4f6c50f92b41"
+    },
+    {
+      "path": "server/verify-ai-tools-exec-closedloop.mjs",
+      "sha256": "4cf74bcb57e12b8b3c44c4cbf64355d6bb0919d7db567f0c6673d8bc1e2125bd"
+    },
+    {
+      "path": "server/verify-ai-tools-exec-control.mjs",
+      "sha256": "7dfeddd9abc16bbcfbd3f7fa75bb77deb20b469b6114b42d4f06f03959164343"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs",
+      "sha256": "f77c81a3cb605cc96524953e315850e8852b31cafdec510dcdc64675d55067d7"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-mixed-chain.mjs",
+      "sha256": "99776083c67330331c9298e95321e91a13e6fcc1d5bf2d891655444f7a18b23a"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-context-stress.mjs",
+      "sha256": "75be0ea83d78fc0a45cc6c49d2ab19393c0656633d414ead6f2bcf6934646f71"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-parallel-stress.mjs",
+      "sha256": "4250fcabf1258b2a1692ef0e6efc9666c7cd68a680f93890037edf6ec0a139f3"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-live-exec-closedloop.mjs",
+      "sha256": "5f1d010702c2e43ce17645d0c1a85b541094a6f2b9826ac9761635d6114193f7"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "a49090ab1d8e3459b2d9d55453388cd52a0e9876afcf8dfc40f85ad7ff9ff0c1"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "4a95456a3a95b0df3066f045971aca188d9e3a6f68b556a4e0e52fc243a2c206"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "18371b2c2f951169f4b60ecc2a737387240015a7e392077b139d37418ceba215"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-model.mjs",
+      "sha256": "0c31c16ae20992b8066e08a00d109483df0a43aa8e438630cb5cf3e2196dd5a0"
+    }
+  ]
+}

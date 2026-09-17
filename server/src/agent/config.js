@@ -36,7 +36,9 @@ function textThreadParams(summary, cwd, inventory, enabledSkills = []) {
   // 注意：inventory 的 path 指向 SKILL.md 文件本身——skill 名取"父目录基名"（如 grill-me），
   // 若 path 基名非 SKILL.md（如自定义单文件 skill）则直接用基名。
   const wanted = new Set(
-    (Array.isArray(enabledSkills) ? enabledSkills : []).map((n) => String(n).trim()),
+    (Array.isArray(enabledSkills) ? enabledSkills : []).map((n) =>
+      String(n).trim(),
+    ),
   );
   const skillsConfig = skills.map((s) => {
     const fileBase = path.basename(s.path);
@@ -46,7 +48,6 @@ function textThreadParams(summary, cwd, inventory, enabledSkills = []) {
     const enabled = wanted.has(base) || wanted.has(s.path);
     return { path: s.path, enabled };
   });
-  const enabledCount = skillsConfig.filter((s) => s.enabled).length;
   return {
     cwd,
     model: summary.model,
@@ -79,7 +80,9 @@ function textThreadParams(summary, cwd, inventory, enabledSkills = []) {
       .filter((s) => s.enabled)
       .map((s) => {
         const fb = path.basename(s.path);
-        return /^SKILL\.md$/i.test(fb) ? path.basename(path.dirname(s.path)) : fb;
+        return /^SKILL\.md$/i.test(fb)
+          ? path.basename(path.dirname(s.path))
+          : fb;
       }),
   };
 }

@@ -28,6 +28,7 @@ class TextConversation {
   static async open(options) {
     const self = new TextConversation();
     self.execMode = options.mode === 'exec';
+    if (self.execMode) require('./execution-policy').requireCapability();
     self.onTurnEvent = options.onTurnEvent ?? null;
     self.enabledSkills = Array.isArray(options.enabledSkills)
       ? options.enabledSkills.map((n) => String(n))
@@ -132,7 +133,9 @@ class TextConversation {
     if (this.onTurnEvent) {
       try {
         this.onTurnEvent(event);
-      } catch {}
+      } catch {
+        /* Non-authoritative diagnostic/readiness output cannot establish success. */
+      }
     }
     const p = event.params;
     if (!this.active || p?.threadId !== this.threadId) return;
@@ -249,9 +252,15 @@ class TextConversation {
       // 超时覆盖整个 turn（reserveTurn / turn/start / completion 任一环节挂起都触发）：
       // 触发时 rejectTurn 收口 completion，并 kill 子进程 + rejectAll 挂起的 rpc 请求，
       // 避免 `await rpc.request('turn/start')` 永久挂起导致作业卡 RUNNING（真实缺陷修复）。
-      console.error('[runText:diag] runText entered, setting 300s timer at', new Date().toISOString());
+      console.error(
+        '[runText:diag] runText entered, setting 300s timer at',
+        new Date().toISOString(),
+      );
       timer = setTimeout(() => {
-        console.error('[runText:diag] TURN_TIMED_OUT fired at', new Date().toISOString());
+        console.error(
+          '[runText:diag] TURN_TIMED_OUT fired at',
+          new Date().toISOString(),
+        );
         rejectTurn(fail('TURN_TIMED_OUT'));
         try {
           this.connection.rpc.child.kill();
@@ -289,36 +298,38 @@ class TextConversation {
       for (const event of this.active.buffered.splice(0)) this.receive(event);
       return await completion;
     } catch (reason) {
-      console.error('[runText:diag] catch', reason.code || reason.message, 'at', new Date().toISOString());
-      this.closed = true;
-      // close() 末尾 `return this.exited` 在 Windows 上可能因
-      // child.kill() 杀不掉 codex.exe 而永不返回（真实缺陷）；
-      // 这里加 5s 兜底，保证 worker catch 能继续 finishJob/settleTurn。
-      await Promise.race([
-        this.connection.close(),
-        new Promise((resolve) => setTimeout(resolve, 5000)),
-      ]);
+      await this.close();
       throw reason;
     } finally {
       clearTimeout(timer);
       this.active = null;
     }
   }
-  async close() {
-    if (this.closed) return this.connection.summary;
+  close() {
+    if (this.closePromise) return this.closePromise;
     this.closed = true;
-    if (this.active) {
-      const current = this.active;
-      if (current.turnId)
-        await this.connection.rpc
-          .request('turn/interrupt', {
-            threadId: this.threadId,
-            turnId: current.turnId,
-          })
-          .catch(() => {});
-      current.reject(fail('TURN_CANCELLED'));
-    }
-    return this.connection.close();
+    const current = this.active;
+    // Reject the caller immediately; interrupt and process exit are separately acknowledged.
+    current?.reject(fail('TURN_CANCELLED'));
+    this.closePromise = (async () => {
+      if (current?.turnId) {
+        let timer;
+        await Promise.race([
+          this.connection.rpc
+            .request('turn/interrupt', {
+              threadId: this.threadId,
+              turnId: current.turnId,
+            })
+            .catch(() => {}),
+          new Promise((resolve) => {
+            timer = setTimeout(resolve, 500);
+          }),
+        ]);
+        clearTimeout(timer);
+      }
+      return this.connection.close();
+    })();
+    return this.closePromise;
   }
 }
 module.exports = { TextConversation };

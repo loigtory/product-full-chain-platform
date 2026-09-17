@@ -1,0 +1,19 @@
+{
+  "status": "USER_CONFIRMED",
+  "reason": "46 authorizes three exact schemas and version compatibility but omits the two shared guards that reject those schemas/report version 006 unconditionally",
+  "files": [
+    {
+      "path": "server/src/persistence/connection.js",
+      "change": "Allow only codex_test_ai_fix_20260916_(api|ops|browser); permit 5432 and ops-only 5549; retain existing targets and all host/database/role checks",
+      "sha256": "744f9c483c80e7a9b0fdc0a15c9e7847c62ff08afc3c7cc2166d9d8aa99c85c2"
+    },
+    {
+      "path": "server/src/local/preflight.js",
+      "change": "Read and report verified targetVersion 006/007 instead of literal 006; retain current checks",
+      "sha256": "4d231fee0f8ca4575296bdd7b5af02c825ef3bebf46081059f86c9034663ae00"
+    }
+  ],
+  "limits": "No SQL, dependencies, personal activation/service or data changes; only original three isolated schemas and 5549 restore; scope becomes 40 source/test paths",
+  "confirmedAt": "2026-09-17T01:13:49.801Z",
+  "confirmation": "同意补入这两个文件"
+}

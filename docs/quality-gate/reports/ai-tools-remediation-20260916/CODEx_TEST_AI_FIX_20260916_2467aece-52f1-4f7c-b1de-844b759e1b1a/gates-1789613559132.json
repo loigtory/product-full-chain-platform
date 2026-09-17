@@ -1,0 +1,95 @@
+{
+  "runId": "CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "model",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 3522
+    },
+    {
+      "name": "api",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 25073
+    },
+    {
+      "name": "ops",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 144400
+    },
+    {
+      "name": "browser",
+      "status": "FAIL",
+      "exitCode": 1,
+      "durationMs": 65639
+    },
+    {
+      "name": "real",
+      "status": "BLOCKED",
+      "reason": "NOT_SELECTED"
+    },
+    {
+      "name": "verify-prototype.mjs",
+      "status": "FAIL",
+      "exitCode": 1,
+      "durationMs": 131117
+    },
+    {
+      "name": "verify-m1-layer.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 7702
+    },
+    {
+      "name": "verify-m1-e2e.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 8905
+    },
+    {
+      "name": "verify-m2b2-model.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 277
+    },
+    {
+      "name": "verify-m2b2-browser.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 26014
+    },
+    {
+      "name": "verify-server.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1413
+    },
+    {
+      "name": "verify-server-m2.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1471
+    },
+    {
+      "name": "verify-m2b.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 7618
+    },
+    {
+      "name": "verify-m2b2-domain.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 585
+    },
+    {
+      "name": "architecture",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 17143
+    }
+  ]
+}

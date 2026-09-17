@@ -1,0 +1,226 @@
+{
+  "at": "2026-09-17T02:26:14.803Z",
+  "runId": "CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a",
+  "scope": "46 R1 deterministic regressions; no database or real model",
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "Stop awaits committed mutation before cancelling the matching job",
+      "status": "PASS"
+    },
+    {
+      "name": "Stop associates the AI message, never builds a command key from its ID",
+      "status": "PASS"
+    },
+    {
+      "name": "006 stop never queries the missing 007 table",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP status and arbitrary metadata cannot turn a failed assertion into PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "EXEC requires an explicit plan and server-owned approval identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Seven previous stages are retained; excessive context fails instead of truncating",
+      "status": "PASS"
+    },
+    {
+      "name": "Job cancellation is sticky and completion waits for a confirmed process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "New budget uses unique attempts, counts failures, and settles concurrent turns idempotently",
+      "status": "PASS"
+    },
+    {
+      "name": "Repeated provider close waits for the same confirmed exit",
+      "status": "PASS"
+    },
+    {
+      "name": "Protocol close is bounded and cannot report an unobserved process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "006 defaults remain compatible and explicit 007 is passed to the runtime",
+      "status": "PASS"
+    },
+    {
+      "name": "New schema allowance rejects every unapproved role, name and port",
+      "status": "PASS"
+    },
+    {
+      "name": "Frozen workspace plan rejects widened commands and rollback preserves unrelated changes",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "modelCalls": 0,
+  "data": "deterministic synthetic only",
+  "cleanup": "not applicable",
+  "source": [
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "75327040f34c115f44317f8b3d15d6ebec08cd2ca216c8e1dbce3c82373ea52e"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "08da78a76bc7428df449ad6394b8c244922a53089e96ec7466eb524b1b6b1f74"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "bfe5ee91835984aa01e99dd2fc934b701eb6df1b3c4576eaa6a224455145a6c8"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "d32da18d9c7f2d3ccfcc50a98c5e35d83952086180f1e216c019ceabedc2a763"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "63082458b4bf81fd7b0bc5476c8a922efb1cbdd70b6fd069478ec6edaa7a6fad"
+    },
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "a858965b451c8dc7c9a775858930f5f419c8c98df26ecd35e83add46546af4c3"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "19251c3d3e46ed1265085ae92952113050ce0ff90d9bd25fed949361016a48af"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "0e3d8bdeec576bc597b771351619eeac9d296a6ba0e7de50445737487b0d42e9"
+    },
+    {
+      "path": "server/src/agent/context-service.js",
+      "sha256": "25c8b42812fc65d282aba913db31c123397cff60e7cbcc50efb9c5a03dd2a845"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "cd15914df87b7eff212b3bd648a3478f93be11bfe346499686b8b0ecbdaa5fc8"
+    },
+    {
+      "path": "server/src/local/ops-config.js",
+      "sha256": "d0d9bf3f9d7c498a2df502760b2f2828eca44ec8bd53cd512844c0e8939ebd45"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "92f118c9a5dd21088a853cede312cb3666e8ae4c53daa404f5569858d74aa991"
+    },
+    {
+      "path": "server/src/local/backup.js",
+      "sha256": "d7dd80b0b18bab0c18a309c9c9f514414c55ad2b62500dacc682a18d6a357dab"
+    },
+    {
+      "path": "server/src/local/restore-check.js",
+      "sha256": "ea9869d6ae5714ff85a247e1567a8172f3c2e92d2cc456895be68aab11db383f"
+    },
+    {
+      "path": "server/src/local/lifecycle.js",
+      "sha256": "f6fdfd4cdb65a610c17318b35d3da7dc741e322a867be0c223c85400b10cbac1"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "ea193fcab86291cba73935b88938922447caffb1ad23b306b00f20b2f84f1f93"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "2418af282e740b868df07e50979e169c461e53b1bd2ab8352cc4a00fdb78f50a"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-gates.mjs",
+      "sha256": "8f4b87ae743cba62c64da91b962cd1dcc324838b5d438408a2faf88485c5ea57"
+    },
+    {
+      "path": "server/verify-ai-tools-exec-closedloop.mjs",
+      "sha256": "00fa173fab619d99462f27642d1703cde7da41dc9ed196bea470be8d4cb3610c"
+    },
+    {
+      "path": "server/verify-ai-tools-exec-control.mjs",
+      "sha256": "88e6759740317766eed49f611e04d33fa609d35ff7884fc55265b0bef6a910b9"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-stage-context-chain.mjs",
+      "sha256": "1189d36d38cd2995a3fb06179a5e054b13e0d0368b4d64399b2e262e59e25847"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-mixed-chain.mjs",
+      "sha256": "1cf3553c1d1459ab12f08a54cef285f9fd9e102393f64089fe49f2efc20ac1d3"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-context-stress.mjs",
+      "sha256": "4e034c6b32c292bc3fd1889bbcd82e6f408537bb550d405f665c33135f4a46b7"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-parallel-stress.mjs",
+      "sha256": "f02e14d61ec17002c8262256ee0f40e9a7fc3a4a91ec4558b3b9e111a9618297"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-live-exec-closedloop.mjs",
+      "sha256": "b0de59c68aec2247b3f54c8cdd118b9d0eabcc75099897f3c96389c4161abcf0"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "sha256": "11f1a38542e920d3fab569dc708043c7c37d4c55dfe840e288a57f5c0e7abfc5"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "sha256": "15f0f05110f1e43584d136793fa24886b9cdf044479cc60406920ec5d12c72a8"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "0ec3265360d44352a547ae36439c0966769edcb5e33a2d28173f20dfa6156525"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "7ca8ef69e82e85858a72eb296d35c19d83c03336d1458aac55337a506b0ea7c4"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-model.mjs",
+      "sha256": "f254b8bf4fa7dd7c23428a9e9d815e74fb7a88aba117d19a01c5b93cb842ff38"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-api.mjs",
+      "sha256": "39b5f399ca15d202251ade37361018b3d9218f903566aaef8012d0b8abd244f7"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-ops.mjs",
+      "sha256": "98612202d91b47e6de19a71e2fee0ade6f141512f18f6fb86f90f5aaafac720f"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-real.mjs",
+      "sha256": "1b9f96f107b716c7c605cee260a4a9ec363e2ebdc9b3381f42a8f93cc60ef8ab"
+    },
+    {
+      "path": "server/verify-ai-tools-remediation-architecture.mjs",
+      "sha256": "029c9d72f17f2a520f62397d5aa2a90248889f840d396bc1d6086fed98178255"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-remediation-browser.mjs",
+      "sha256": "f2bf41ceca35a4364093c3e7940076fe0c2b8434fbed80d131e54112550066ec"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-remediation-gates.mjs",
+      "sha256": "d8177fc835b029513102f9e0e8227877c6a16383d6282f7ada307e5bb6d58fdd"
+    },
+    {
+      "path": "server/src/persistence/connection.js",
+      "sha256": "b0b2fe0c3ec5236a40a403f27f60ee4d551ca80c34f947fe399061eabccf42ec"
+    },
+    {
+      "path": "server/src/local/preflight.js",
+      "sha256": "69c7c2b4e5d3542efe2738c98c904fe3fb9366411e73a7675ba132e4f10b86c6"
+    }
+  ]
+}

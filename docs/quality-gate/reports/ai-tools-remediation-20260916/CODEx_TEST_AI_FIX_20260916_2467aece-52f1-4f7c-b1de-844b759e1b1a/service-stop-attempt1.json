@@ -1,0 +1,7 @@
+{
+  "helperPid": 39432,
+  "code": "SERVICE_RESTORE_FAILED",
+  "status": "BLOCKED",
+  "at": "2026-09-17T03:13:54.0963920Z",
+  "service": "pfc-postgresql-18"
+}

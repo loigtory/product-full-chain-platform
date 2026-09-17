@@ -1,0 +1,47 @@
+{
+  "at": "2026-09-17T03:31:40.929Z",
+  "status": "PASS",
+  "scope": "Final document links, source provenance and post-document architecture; independent cleanup in process-cleanup-final.json",
+  "architecture": "architecture-1789615868062.json",
+  "sourceSame": true,
+  "sourceCount": 40,
+  "documents": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7add33c1d37ff1d856ea8df3e805607ea10e233ccf7628f9e621c9ed02be6242"
+    },
+    {
+      "path": "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+      "sha256": "e8dc0c56eabe77b89947de4ec5ab4a9c50d23a2186ea24f50b4d0c36ea83dcda"
+    },
+    {
+      "path": "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+      "sha256": "54b6021ce196abf7d86517563c1feeada55d93cae9a321a8ada83059fdc3a536"
+    },
+    {
+      "path": "docs/planning/prototype-v3/README.md",
+      "sha256": "c30c2919d5bc9e1423b895a9db2903119b9a1aa81d5f77656e819fd2d237bdee"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/README.md",
+      "sha256": "c1d6f9ea2832a8c57c4c5a66ad33d201be1db1d865dfec4a9fda67e26288255a"
+    },
+    {
+      "path": "docs/planning/prototype-v3/46-核查问题修复与主线补齐方案-20260916.md",
+      "sha256": "086c2dbc8e3596ff7f42a6584829fb57644d20d6ca79cc9d78d3772018327b63"
+    },
+    {
+      "path": "docs/planning/prototype-v3/47-控制与验收修复实施检查点-20260916.md",
+      "sha256": "9cf1a86522950b908cc7b53642a65874930afc23f6d6c1dcb5481bceff193b07"
+    }
+  ],
+  "missingLinks": [],
+  "sensitiveScan": {
+    "scope": "New evidence JSON/Markdown",
+    "credentialPatternCandidates": 0,
+    "note": "Pattern scan plus review of redacted output; not a claim of exhaustive secret detection"
+  },
+  "acceptance": "PENDING",
+  "exec": "BLOCKED",
+  "git": "local closeout only; no push or merge"
+}

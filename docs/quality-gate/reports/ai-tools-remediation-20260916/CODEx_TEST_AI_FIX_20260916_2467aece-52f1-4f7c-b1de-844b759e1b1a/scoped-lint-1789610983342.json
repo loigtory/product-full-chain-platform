@@ -1,0 +1,198 @@
+{
+  "status": "FAIL",
+  "adapter": "ESLint recommended; Node/browser globals and CommonJS per actual source; no repository config edit",
+  "errors": [
+    {
+      "file": "\\server\\src\\domain\\conversation-service.js",
+      "line": 2,
+      "rule": "no-unused-vars",
+      "message": "'pushNotice' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\src\\domain\\conversation-service.js",
+      "line": 2,
+      "rule": "no-unused-vars",
+      "message": "'nextId' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\src\\domain\\conversation-service.js",
+      "line": 4,
+      "rule": "no-unused-vars",
+      "message": "'wsBridge' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\src\\domain\\conversation-service.js",
+      "line": 54,
+      "rule": "no-unused-vars",
+      "message": "'command' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\src\\domain\\conversation-service.js",
+      "line": 489,
+      "rule": "no-undef",
+      "message": "'structuredClone' is not defined."
+    },
+    {
+      "file": "\\server\\src\\agent\\exec-control.js",
+      "line": 84,
+      "rule": "no-control-regex",
+      "message": "Unexpected control character(s) in regular expression: \\x00, \\x1f."
+    },
+    {
+      "file": "\\server\\src\\agent\\exec-control.js",
+      "line": 177,
+      "rule": "no-useless-escape",
+      "message": "Unnecessary escape character: \\/."
+    },
+    {
+      "file": "\\server\\src\\agent\\exec-control.js",
+      "line": 177,
+      "rule": "no-useless-escape",
+      "message": "Unnecessary escape character: \\/."
+    },
+    {
+      "file": "\\server\\src\\agent\\config.js",
+      "line": 49,
+      "rule": "no-unused-vars",
+      "message": "'enabledCount' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\src\\agent\\conversation-provider.js",
+      "line": 136,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\server\\src\\routes\\agent.js",
+      "line": 40,
+      "rule": "no-useless-assignment",
+      "message": "The value assigned to 'schemaVersion' is not used in subsequent statements."
+    },
+    {
+      "file": "\\server\\src\\local\\lifecycle.js",
+      "line": 259,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-exec-closedloop.mjs",
+      "line": 1,
+      "rule": "no-unused-vars",
+      "message": "'assertion' is defined but never used."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-exec-closedloop.mjs",
+      "line": 16,
+      "rule": "no-unused-vars",
+      "message": "'existsSync' is defined but never used."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-exec-closedloop.mjs",
+      "line": 308,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-exec-control.mjs",
+      "line": 1,
+      "rule": "no-unused-vars",
+      "message": "'assertion' is defined but never used."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-exec-control.mjs",
+      "line": 16,
+      "rule": "no-unused-vars",
+      "message": "'existsSync' is defined but never used."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-exec-control.mjs",
+      "line": 358,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-stage-context-chain.mjs",
+      "line": 153,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-stage-context-chain.mjs",
+      "line": 163,
+      "rule": "no-unused-vars",
+      "message": "'i' is defined but never used. Allowed unused args must match /^_/u."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-stage-context-chain.mjs",
+      "line": 178,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-mixed-chain.mjs",
+      "line": 256,
+      "rule": "no-useless-assignment",
+      "message": "The value assigned to 'testOut' is not used in subsequent statements."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-mixed-chain.mjs",
+      "line": 364,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-parallel-stress.mjs",
+      "line": 181,
+      "rule": "no-unused-vars",
+      "message": "'tEnd' is assigned a value but never used."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-live-exec-closedloop.mjs",
+      "line": 2,
+      "rule": "no-unused-vars",
+      "message": "'assertion' is defined but never used."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-live-exec-closedloop.mjs",
+      "line": 10,
+      "rule": "no-unused-vars",
+      "message": "'mkdirSync' is defined but never used."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-live-exec-closedloop.mjs",
+      "line": 10,
+      "rule": "no-unused-vars",
+      "message": "'rmSync' is defined but never used."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-live-exec-closedloop.mjs",
+      "line": 24,
+      "rule": "no-unused-vars",
+      "message": "'require' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-remediation-api.mjs",
+      "line": 77,
+      "rule": "no-unused-vars",
+      "message": "'row' is assigned a value but never used."
+    },
+    {
+      "file": "\\server\\verify-ai-tools-remediation-real.mjs",
+      "line": 8,
+      "rule": "no-unused-vars",
+      "message": "'evidenceRoot' is defined but never used."
+    },
+    {
+      "file": "\\output\\pfc-workbench-prototype\\verify-ai-tools-remediation-browser.mjs",
+      "line": 143,
+      "rule": "no-undef",
+      "message": "'innerWidth' is not defined."
+    },
+    {
+      "file": "\\server\\scripts\\run-ai-tools-remediation-gates.mjs",
+      "line": 182,
+      "rule": "no-empty",
+      "message": "Empty block statement."
+    }
+  ]
+}

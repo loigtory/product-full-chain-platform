@@ -41,7 +41,12 @@ async function snapshot(p) {
     await pool.query("SET LOCAL timezone='UTC'");
     await pool.query('SET LOCAL search_path TO "' + p.schema + '",pg_catalog');
     await assertReady(
-      { schema: p.schema, pool, targetVersion: '006', assertScope() {} },
+      {
+        schema: p.schema,
+        pool,
+        targetVersion: p.targetVersion ?? '006',
+        assertScope() {},
+      },
       pool,
     );
     const names = (
@@ -198,13 +203,18 @@ function verify(p, id) {
     throw fault('LOCAL_BACKUP_MANIFEST_MISMATCH');
   if (
     m.format !== 1 ||
+    !['006', '007'].includes(m.targetVersion ?? '006') ||
+    (m.targetVersion ?? '006') !== (p.targetVersion ?? '006') ||
     m.status !== 'COMPLETE' ||
     m.id !== id ||
     m.attemptId !== p.attemptId ||
     m.schema !== p.schema ||
     JSON.stringify(m.migrations) !==
       JSON.stringify(
-        registry('006').map(({ version, checksum }) => ({ version, checksum })),
+        registry(m.targetVersion ?? '006').map(({ version, checksum }) => ({
+          version,
+          checksum,
+        })),
       )
   )
     throw fault('LOCAL_BACKUP_INCOMPATIBLE');
@@ -297,10 +307,13 @@ async function backup(target, { failAfter } = {}) {
         memberId: p.memberId,
         ownerName: p.ownerName,
       },
-      migrations: registry('006').map(({ version, checksum }) => ({
-        version,
-        checksum,
-      })),
+      targetVersion: p.targetVersion ?? '006',
+      migrations: registry(p.targetVersion ?? '006').map(
+        ({ version, checksum }) => ({
+          version,
+          checksum,
+        }),
+      ),
       snapshot: snap,
       packageFiles: manifest(partial).files,
     };

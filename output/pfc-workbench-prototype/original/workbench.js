@@ -64,7 +64,9 @@
     )
       actions.push(b('resend-message', '重发（保留原文与附件）', { id: m.id }));
     if (m.status === 'stopped')
-      body.push('<div class="msg-note">已停止生成（保留已输出部分）</div>');
+      body.push(
+        '<div class="msg-note">已请求停止（保留已输出部分；执行状态以服务端确认为准）</div>',
+      );
     if (m.status === 'failed')
       body.push(`<div class="msg-note err">${e(m.error || '答复失败')}</div>`);
     if (m.proposal && !m.typing && m.status === 'ok')
@@ -613,23 +615,45 @@
                 .join('')
           : '';
       })()}${b('space-tab', '关系追踪', { tab: 'trace' })}</div>` +
-      `<div class="rail-section"><div class="rail-title">本阶段启用能力</div><div class="bind-cell">${
-        (function () {
-          const c = P.s.stageCaps?.[stage];
-          if (!c) return '<p class="muted">阶段能力未配置</p>';
-          let html = '<p class="muted" style="font-size:11px;line-height:1.4" title="' + e(c.goal) + '">' + e(c.goal) + '</p>';
-          if (Array.isArray(c.skills) && c.skills.length) html += c.skills.map((sk) => '<span class="skill-chip">' + e(sk) + '</span>').join('');
-          else if (Array.isArray(c.skills)) html += '<p class="muted" style="font-size:11px;margin-top:2px">本机无匹配能力</p>';
-          if (Array.isArray(c.tools) && c.tools.length) html += '<p class="muted" style="font-size:11px;margin-top:4px">工具：' + e(c.tools.join('、')) + '</p>';
-          return html;
-        })()
-      }${
-        (function () {
-          const eff = P.effective(r, stage);
-          if (!eff.length) return '';
-          return '<div class="rail-sub">已装载</div>' + eff.map((c) => '<span class="skill-chip on">' + i('check') + e(c.name) + '</span>').join('');
-        })()
-      }</div></div></aside>`;
+      `<div class="rail-section"><div class="rail-title">本阶段能力</div><div class="bind-cell">${(function () {
+        const c = P.s.stageCaps?.[stage];
+        if (!c) return '<p class="muted">阶段能力未配置</p>';
+        let html =
+          '<p class="muted" style="font-size:11px;line-height:1.4" title="' +
+          e(c.goal) +
+          '">' +
+          e(c.goal) +
+          '</p>';
+        if (Array.isArray(c.skills) && c.skills.length)
+          html += c.skills
+            .map((sk) => '<span class="skill-chip">' + e(sk) + '</span>')
+            .join('');
+        else if (Array.isArray(c.skills))
+          html +=
+            '<p class="muted" style="font-size:11px;margin-top:2px">外部 Skill 尚未装载</p>';
+        if (Array.isArray(c.tools) && c.tools.length)
+          html +=
+            '<p class="muted" style="font-size:11px;margin-top:4px">工具：' +
+            e(c.tools.join('、')) +
+            '</p>';
+        return html;
+      })()}${(function () {
+        if (P.domainView?.pg()) return '';
+        const eff = P.effective(r, stage);
+        if (!eff.length) return '';
+        return (
+          '<div class="rail-sub">已装载</div>' +
+          eff
+            .map(
+              (c) =>
+                '<span class="skill-chip on">' +
+                i('check') +
+                e(c.name) +
+                '</span>',
+            )
+            .join('')
+        );
+      })()}${P.domainView?.pg() ? '' : b('session-caps', '调整模拟能力')}</div></div></aside>`;
     let content =
       stage === 'dev'
         ? P.runCard(r)
@@ -759,7 +783,7 @@
     return P.workbenchShell.frame({
       context: r.id + ':' + stage,
       rail,
-      main: `<main class="chat-main"><div class="req-context-bar"><strong class="name">${e(r.id + ' · ' + r.name)}</strong>${badge('阶段 · ' + P.stageName(r.stage))}${!isCurrent ? badge('查看 · ' + P.stageName(stage), 'gray') : ''}${badge('Owner ' + r.owner, 'gray')}${b('navigate', '返回工作台', { route: 'home' })}</div><div class="stream" id="stream">${r.impact ? P.notice('材料已有新版本，需评估对当前范围和产物的影响。', 'material-impact', '评估影响') : ''}${intro}${content}${filterBar}${msgs}</div>${footer}<div class="composer">${composerExtra ? `<div class="composer-context" tabindex="0" aria-label="待发送附件与引用">${composerExtra}</div>` : ''}${P.s.env?.execCapable && P.s.ui.stage === 'dev' ? `<div class="exec-bar"><span class="exec-cap">${i('cpu')} 开发执行（Codex · 受限读 · 受控计划）</span><input id="exec-workspace" placeholder="本地项目目录，如 D:/projects/demo" value="${e(P.s.ui.execWorkspace || '')}" aria-label="开发执行项目目录" /><input id="exec-restricted" placeholder="受限读目录（可选，逗号分隔）" value="${e((P.s.ui.execRestrictedDirs || []).join(', '))}" aria-label="受限读目录" /><details class="exec-control"><summary>受控执行计划（D5）</summary><label class="exec-field">模式<select id="exec-control-mode"><option value="strict" ${P.s.ui.execControl?.mode !== 'readonly' ? 'selected' : ''}>strict · 允许清单</option><option value="readonly" ${P.s.ui.execControl?.mode === 'readonly' ? 'selected' : ''}>readonly · 只读复核</option></select></label><label class="exec-field">允许文件（相对 workspace，逗号分隔）<input id="exec-control-files" value="${e((P.s.ui.execControl?.allowedFiles || ['workspace/**']).join(', '))}" aria-label="允许文件清单" /></label><label class="exec-field">允许命令（审计，逗号分隔）<input id="exec-control-cmds" value="${e((P.s.ui.execControl?.allowedCommands || []).join(', '))}" aria-label="允许命令清单" placeholder="如 node --test" /></label><span class="exec-hint">发送即按计划冻结；执行后差异超出允许清单将被拒绝并回滚到基线</span></details><span class="exec-hint">填写路径后发送即触发开发终端作业，输出实时回到对话流</span></div>` : ''}<div class="composer-row">${P.domainView?.pg() ? `<button class="attch-btn real-toggle ${P.s.ui.realMode ? 'on' : ''}" data-action="toggle-real-mode" aria-label="真实 AI 模式" title="真实 AI：调用本机 Codex 生成回复（消耗模型预算；未配置时会明确失败）"><span class="real-toggle-dot"></span><span class="real-toggle-label">${P.s.ui.realMode ? '真实' : '模拟'}</span></button>` : ''}<button class="attch-btn" data-action="attach-menu" aria-label="添加附件" title="添加附件 / 引用上下文">${i('clip')}</button><div class="composer-box"><textarea id="chat-input" rows="1" aria-label="继续对话" placeholder="继续对话：描述意图、追问、或让 Agent 发起作业…（支持拖拽 / 粘贴截图）">${e(P.s.ui.drafts[r.id] || '')}</textarea></div><button class="send-btn" data-action="send" aria-label="发送" ${!P.canWrite() || queue.some((a) => a.status !== 'ready') ? 'disabled' : ''}>${i('send')}</button></div></div></main>`,
+      main: `<main class="chat-main"><div class="req-context-bar"><strong class="name">${e(r.id + ' · ' + r.name)}</strong>${badge('阶段 · ' + P.stageName(r.stage))}${!isCurrent ? badge('查看 · ' + P.stageName(stage), 'gray') : ''}${badge('Owner ' + r.owner, 'gray')}${b('navigate', '返回工作台', { route: 'home' })}</div><div class="stream" id="stream">${r.impact ? P.notice('材料已有新版本，需评估对当前范围和产物的影响。', 'material-impact', '评估影响') : ''}${intro}${content}${filterBar}${msgs}</div>${footer}<div class="composer" style="flex-direction:column;flex-wrap:nowrap;align-items:stretch;min-width:0">${composerExtra ? `<div class="composer-context" tabindex="0" aria-label="待发送附件与引用">${composerExtra}</div>` : ''}${P.domainView?.pg() && stage === 'dev' ? `<div class="exec-bar" role="status" style="flex:0 0 auto;flex-wrap:wrap;width:100%;min-width:0;box-sizing:border-box"><span class="exec-cap">开发执行暂不可用</span><span class="exec-hint" style="white-space:normal;flex:1 1 220px">执行前的命令与文件约束尚未验证。可以继续讨论方案，当前发送不会运行本地工具。</span><details class="exec-control"><summary>执行范围草稿（尚不可提交）</summary><fieldset disabled><label>工作区<input aria-label="开发执行项目目录" value="${e(P.s.ui.execDrafts?.[r.id + ':' + stage]?.workspace || '')}" /></label><label>允许文件<input aria-label="允许文件清单" value="${e((P.s.ui.execDrafts?.[r.id + ':' + stage]?.control?.allowedFiles || []).join(', '))}" /></label><label>允许命令<input aria-label="允许命令清单" value="" /></label><span>有效期和基线将在执行预览时核验。</span><button disabled>预览并确认执行计划</button></fieldset></details></div>` : ''}<div class="composer-row" style="min-width:0;width:100%">${P.domainView?.pg() ? `<button class="attch-btn real-toggle ${P.s.ui.realMode ? 'on' : ''}" data-action="toggle-real-mode" aria-label="真实 AI 模式" title="真实 AI：调用本机 Codex 生成回复（消耗模型预算；未配置时会明确失败）"><span class="real-toggle-dot"></span><span class="real-toggle-label">${P.s.ui.realMode ? '真实' : '模拟'}</span></button>` : ''}<button class="attch-btn" data-action="attach-menu" aria-label="添加附件" title="添加附件 / 引用上下文">${i('clip')}</button><div class="composer-box"><textarea id="chat-input" rows="1" aria-label="继续对话" placeholder="继续对话：描述意图、追问、或让 Agent 发起作业…（支持拖拽 / 粘贴截图）">${e(P.s.ui.drafts[r.id] || '')}</textarea></div><button class="send-btn" data-action="send" aria-label="发送" ${!P.canWrite() || queue.some((a) => a.status !== 'ready') ? 'disabled' : ''}>${i('send')}</button></div></div></main>`,
       panel: P.renderPanel(r),
     });
   };

@@ -1,7 +1,8 @@
 import { spawn, spawnSync } from 'node:child_process';
-import { readFileSync, realpathSync } from 'node:fs';
+import { readFileSync, realpathSync, existsSync, lstatSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { Buffer } from 'node:buffer';
 import { setTimeout, clearTimeout } from 'node:timers';
 
@@ -27,7 +28,8 @@ export function instanceArguments(disabledMcpNames = [], mode = 'text') {
   )
     throw error('MCP_NAME_INVALID');
   // preflight 只读预检模式：instance 参数与 text 对齐（全禁工具、只读），供连接探测/取指纹。
-  if (!['preflight', 'text', 'exec'].includes(mode)) throw error('INSTANCE_MODE_INVALID');
+  if (!['preflight', 'text', 'exec'].includes(mode))
+    throw error('INSTANCE_MODE_INVALID');
   const values = [
     ...requiredDisabled.map((name) => `features.${name}=false`),
     'features.multi_agent_v2=false',
@@ -208,7 +210,7 @@ export function imageToolDisabled(response) {
 }
 
 // Deliberately only exposes non-generating preflight requests. It cannot start a turn.
-class PreflightRpc {
+export class PreflightRpc {
   constructor(binary, cwd, disabledMcpNames = [], options = {}) {
     this.pending = new Map();
     this.nextId = 1;
@@ -327,7 +329,13 @@ class PreflightRpc {
 
   request(method, params) {
     if (
-      !['initialize', 'config/read', 'account/read', 'model/list', 'account/rateLimits/read'].includes(method) &&
+      ![
+        'initialize',
+        'config/read',
+        'account/read',
+        'model/list',
+        'account/rateLimits/read',
+      ].includes(method) &&
       !(
         ['text', 'exec'].includes(this.mode) &&
         [
@@ -356,21 +364,43 @@ class PreflightRpc {
     });
   }
 
-  async close() {
-    this.rejectAll(error('APP_SERVER_CLOSED'));
-    this.child.stdin.end();
-    let timer;
-    await Promise.race([
-      this.exited,
-      new Promise((resolve) => {
-        timer = setTimeout(() => {
-          this.child.kill();
-          resolve();
-        }, 3000);
-      }),
-    ]);
-    clearTimeout(timer);
-    return this.exited;
+  close() {
+    if (this.closePromise) return this.closePromise;
+    this.closePromise = (async () => {
+      this.rejectAll(error('APP_SERVER_CLOSED'));
+      if (!this.child.stdin.destroyed) this.child.stdin.end();
+      const wait = async (ms) => {
+        let timer;
+        const result = await Promise.race([
+          this.exited,
+          new Promise((resolve) => {
+            timer = setTimeout(() => resolve(null), ms);
+          }),
+        ]);
+        clearTimeout(timer);
+        return result;
+      };
+      let exit = await wait(1000);
+      if (!this.closed) {
+        this.child.kill();
+        exit = await wait(2000);
+      }
+      // Only the child started by this instance is owned. An unconfirmed exit is never success.
+      if (
+        !this.closed &&
+        process.platform === 'win32' &&
+        Number.isInteger(this.child.pid)
+      ) {
+        spawnSync(
+          'taskkill.exe',
+          ['/PID', String(this.child.pid), '/T', '/F'],
+          { windowsHide: true, shell: false, timeout: 3000, stdio: 'ignore' },
+        );
+        exit = await wait(1000);
+      }
+      return { ...(exit || {}), childExited: this.closed };
+    })();
+    return this.closePromise;
   }
 }
 
@@ -398,13 +428,31 @@ export async function openProtocol({
     .update(readFileSync(binary))
     .digest('hex');
   if (actualHash !== expectedSha256) throw error('CODEX_BINARY_CHANGED');
-  const allowedRoot = realpathSync(
-    path.resolve('.local/ai-tools-integration-20260914'),
+  const repoRoot = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    '../../..',
   );
+  const roots = [
+    'ai-tools-integration-20260914',
+    'ai-tools-remediation-20260916',
+  ].map((name) => path.resolve(repoRoot, '.local', name));
   const actualCwd = realpathSync(cwd);
-  const relative = path.relative(allowedRoot, actualCwd);
-  if (!relative || relative.startsWith('..') || path.isAbsolute(relative))
+  const allowed = roots.find(
+    (root) =>
+      existsSync(root) &&
+      (() => {
+        const rel = path.relative(realpathSync(root), actualCwd);
+        return rel && !rel.startsWith('..') && !path.isAbsolute(rel);
+      })(),
+  );
+  if (!allowed || path.resolve(cwd).toLowerCase() !== actualCwd.toLowerCase())
     throw error('PREFLIGHT_WORKSPACE_NOT_AUTHORIZED');
+  let checked = allowed;
+  for (const part of path.relative(allowed, actualCwd).split(path.sep)) {
+    checked = path.join(checked, part);
+    if (lstatSync(checked).isSymbolicLink())
+      throw error('PREFLIGHT_WORKSPACE_NOT_AUTHORIZED');
+  }
   const versionResult = spawnSync(binary, ['--version'], {
     cwd: actualCwd,
     encoding: 'utf8',
@@ -427,7 +475,7 @@ export async function openProtocol({
     const exit = await rpc.close();
     processes.push({
       pid: rpc.child.pid,
-      closed: rpc.closed,
+      closed: exit.childExited === true,
       exitCode: exit.code ?? null,
     });
   };
@@ -492,6 +540,7 @@ export async function openProtocol({
         result.process = processes.at(-1);
         result.processes = processes;
         result.stderrBytes = rpc.stderrBytes;
+        result.childExited = result.process.closed;
         return result;
       },
     };

@@ -1,0 +1,39 @@
+{
+  "status": "OWNERSHIP_VERIFIED",
+  "tempRoot": "C:\\Users\\hz19114673\\AppData\\Local\\Temp",
+  "targets": [
+    {
+      "path": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-YR9y4n",
+      "command": "command-verify-server-mjs-1789613530731.json",
+      "birthtime": "2026-09-17T02:52:10.977Z",
+      "files": [
+        {
+          "file": "server.log",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-DbfSjY",
+      "command": "command-verify-server-mjs-1789614292082.json",
+      "birthtime": "2026-09-17T03:04:52.185Z",
+      "files": [
+        {
+          "file": "server.log",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-server-yQk8oA",
+      "command": "command-verify-server-mjs-1789614724470.json",
+      "birthtime": "2026-09-17T03:12:04.577Z",
+      "files": [
+        {
+          "file": "server.log",
+          "bytes": 0
+        }
+      ]
+    }
+  ]
+}
