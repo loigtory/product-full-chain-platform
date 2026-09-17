@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-17T05:05:59.7280893Z",
+  "status": "PASS",
+  "removedRoot": "D:\\项目管理\\product-full-chain-platform\\.local\\ai-tools-remediation-20260916\\CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a\\continuation-protocol",
+  "generatedJsonFiles": 426,
+  "bytes": 4210655.0,
+  "runRootAbsent": true,
+  "service": "Stopped",
+  "listeners": [],
+  "serviceOperations": 0,
+  "modelTurns": 0,
+  "processNote": "Schema generator was a synchronous process and exited 0; no App Server session, browser or API was started"
+}

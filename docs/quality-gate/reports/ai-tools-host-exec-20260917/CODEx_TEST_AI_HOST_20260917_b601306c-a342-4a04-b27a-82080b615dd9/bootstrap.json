@@ -1,0 +1,28 @@
+{
+  "at": "2026-09-17T05:32:28.338Z",
+  "node": "v24.20.0",
+  "branch": "feat/ai-tools-integration",
+  "head": "227ca65168080dd8d1d5f3e9a50fdaabb1bd4063",
+  "dependencies": [
+    {
+      "name": "express",
+      "resolved": true
+    },
+    {
+      "name": "pg",
+      "resolved": true
+    },
+    {
+      "name": "ws",
+      "resolved": true
+    },
+    {
+      "name": "jsonwebtoken",
+      "resolved": true
+    }
+  ],
+  "install": "Existing dependencies resolve; installs excluded",
+  "qualityDryRun": "node scripts/run-gate.mjs quick --dry-run: READY_TO_RUN",
+  "initialService": "Stopped",
+  "sourceBaselines": true
+}

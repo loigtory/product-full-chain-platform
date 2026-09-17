@@ -1,0 +1,416 @@
+{
+  "at": "2026-09-17T05:03:45.897Z",
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "task": "AI-TOOLS-HOST-EXEC",
+  "classification": "system iteration / strict",
+  "baseline": {
+    "branch": "feat/ai-tools-integration",
+    "head": "227ca65168080dd8d1d5f3e9a50fdaabb1bd4063",
+    "humanAcceptance": "PENDING"
+  },
+  "selectedApproach": "A_RECOMMENDED_PENDING_CONFIRMATION",
+  "entries": [
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "a858965b451c8dc7c9a775858930f5f419c8c98df26ecd35e83add46546af4c3",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "43b9e4a63a219b4ae84c481352f28e92a80784e59ed715024c9f2b47994d1268",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "4fb9a4a5e4e2cb05f87969ca1da34fcac9e739fd0c290d64f6854fb3f3040f6e",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "68de6278229cbdc8603508f888ccf518d63d88cf269695dbcdf11caf37b8c5b6",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "38653b038a2be4c11f439768a54edcdb31357b58dc88f50584a50d3b75837f50",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "11f1a38542e920d3fab569dc708043c7c37d4c55dfe840e288a57f5c0e7abfc5",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "0e3d8bdeec576bc597b771351619eeac9d296a6ba0e7de50445737487b0d42e9",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "server/src/agent/approval-service.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false
+    },
+    {
+      "path": "server/src/agent/scope-policy.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false
+    },
+    {
+      "path": "server/src/agent/test-runner.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false
+    },
+    {
+      "path": "server/src/persistence/tool-executions.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "4de34e10277c37be8afbbcdbb339c2c5292e5a69d1f136881a1412fa6b250727",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "597826736c76f9118612255416872bc255b5e113a02d094a460728a2efcd5cce",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9",
+      "in44": true,
+      "in46": false
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "cbda61ce808785c637411d800e8fd29b75337192aa5bb47ad7c7796e6527e9e2",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "92f118c9a5dd21088a853cede312cb3666e8ae4c53daa404f5569858d74aa991",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "group": "ui",
+      "change": "modify",
+      "baselineSha256": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "group": "ui",
+      "change": "modify",
+      "baselineSha256": "5268331854456dc653c8b90ad0e6a3f08c37752bdcc1317d260d997dc682d8db",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "group": "ui",
+      "change": "modify",
+      "baselineSha256": "44cd6de4eb9e3ca7c48767b46f97dfbe07e1bc66060c91f75e8e1de7eb1df19c",
+      "in44": true,
+      "in46": true
+    },
+    {
+      "path": "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-model.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-protocol.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-api.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-host-exec-browser.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-real.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-architecture.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/scripts/run-ai-tools-host-exec-gates.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "group": "verification",
+      "change": "modify",
+      "baselineSha256": "1747f92997cd43a118737f14580ef3594142f30552c4b79136a23ffdcadf2191",
+      "in44": false,
+      "in46": true
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "group": "verification",
+      "change": "modify",
+      "baselineSha256": "62e32b4ab6c8fd2391d8baf1229ac1098be038fe70ce9bb303010270abcf16fe",
+      "in44": false,
+      "in46": true
+    }
+  ],
+  "documents": [
+    "AGENTS.md",
+    "docs/planning/prototype-v3/19-开发路线图-20260912.md",
+    "docs/planning/prototype-v3/20-Codex交接提示词-20260912.md",
+    "docs/planning/prototype-v3/47-控制与验收修复实施检查点-20260916.md",
+    "docs/planning/prototype-v3/48-宿主工具执行链实施与验收-20260917.md",
+    "docs/planning/prototype-v3/README.md",
+    "output/pfc-workbench-prototype/README.md"
+  ],
+  "evidenceRoot": "docs/quality-gate/reports/ai-tools-host-exec-20260917/<runId>/",
+  "scopeSummary": {
+    "sourceAndTestPaths": 31,
+    "modify": 19,
+    "new": 12,
+    "notIn44Or46": [
+      "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "server/verify-ai-tools-host-exec-model.mjs",
+      "server/verify-ai-tools-host-exec-protocol.mjs",
+      "server/verify-ai-tools-host-exec-api.mjs",
+      "output/pfc-workbench-prototype/verify-ai-tools-host-exec-browser.mjs",
+      "server/verify-ai-tools-host-exec-real.mjs",
+      "server/verify-ai-tools-host-exec-architecture.mjs",
+      "server/scripts/run-ai-tools-host-exec-gates.mjs"
+    ]
+  },
+  "data": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "pfc_local",
+    "role": "pfc_app_local",
+    "schemas": [
+      "codex_test_ai_fix_20260916_api",
+      "codex_test_ai_fix_20260916_ops",
+      "codex_test_ai_fix_20260916_browser"
+    ],
+    "renewal": true,
+    "maxRowsPerSchema": 10000,
+    "runtimeRoot": ".local/ai-tools-host-exec-20260917/<runId>/",
+    "maxWorkspaceFiles": 50,
+    "maxWorkspaceBytes": 5242880,
+    "maxSourceAndBackupBytesEach": 104857600,
+    "apiPorts": [
+      5203,
+      5204
+    ],
+    "restorePort": 5549,
+    "restoreApiPort": 5205,
+    "service": {
+      "name": "pfc-postgresql-18",
+      "expectedInitial": "Stopped",
+      "temporaryStart": true,
+      "restoreAfterOwnedCleanupAndNoOtherClients": true
+    },
+    "sensitiveData": "synthetic-only; no personal files/backups/data; no credential logging"
+  },
+  "realCalls": {
+    "additionalTurns": 8,
+    "ledger": ".local/ai-tools-host-exec-20260917/budget.json",
+    "oldLedgers": "read-only preserve including unused 46 quota; no pooling",
+    "maxSecondsPerTurn": 300,
+    "maxSecondsTotal": 2400,
+    "maxConcurrency": 1,
+    "failuresAndRetriesCount": true,
+    "pinnedModelProviderUnchanged": true,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "instructionSourceSha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c",
+    "moneyCap": "unspecified; turns/time are not currency"
+  },
+  "tools": {
+    "dynamic": [
+      "pfc_read_file",
+      "pfc_write_file",
+      "pfc_run_checks",
+      "pfc_git_status",
+      "pfc_git_diff"
+    ],
+    "nativeEffectfulTools": "disabled and must be verified before execution",
+    "commandTransport": "command/exec with explicit sandbox, timeout and argv; no process/spawn or thread/shellCommand",
+    "commands": [
+      [
+        "<pinned node.exe>",
+        "--test",
+        "--test-reporter=tap"
+      ],
+      [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      [
+        "git",
+        "diff",
+        "--no-ext-diff",
+        "--no-textconv"
+      ]
+    ],
+    "commandTimeoutMs": 120000,
+    "stdoutStderrBytesEach": 262144,
+    "network": false,
+    "systemSetupOrAclChanges": false,
+    "externalReadWriteNegativeProbes": "owned canaries only; no real private paths; positive canary result alone is insufficient for a security claim"
+  },
+  "gates": [
+    "node server/verify-ai-tools-host-exec-model.mjs",
+    "node server/verify-ai-tools-host-exec-protocol.mjs",
+    "node server/verify-ai-tools-host-exec-api.mjs",
+    "node output/pfc-workbench-prototype/verify-ai-tools-host-exec-browser.mjs",
+    "node server/verify-ai-tools-host-exec-real.mjs --real",
+    "node server/verify-ai-tools-host-exec-architecture.mjs",
+    "node server/verify-ai-tools-remediation-model.mjs",
+    "node server/verify-ai-tools-remediation-api.mjs --pg",
+    "node server/verify-ai-tools-remediation-ops.mjs --pg",
+    "node output/pfc-workbench-prototype/verify-prototype.mjs",
+    "node output/pfc-workbench-prototype/verify-m1-layer.mjs",
+    "node output/pfc-workbench-prototype/verify-m1-e2e.mjs",
+    "node server/verify-server.mjs",
+    "node server/verify-server-m2.mjs",
+    "node server/verify-m2b.mjs",
+    "node output/pfc-workbench-prototype/verify-m2b2-model.mjs",
+    "node server/verify-m2b2-domain.mjs",
+    "node output/pfc-workbench-prototype/verify-m2b2-browser.mjs"
+  ],
+  "runner": "node server/scripts/run-ai-tools-host-exec-gates.mjs --offline --integration --real",
+  "git": {
+    "localOpeningAndClosingCommits": true,
+    "continueCurrentFeature": true,
+    "push": false,
+    "merge": false,
+    "branchDeletion": false
+  },
+  "excluded": [
+    "SQL/migration changes",
+    "dependencies or installs",
+    "personal5188/5199 operation",
+    "Windows sandbox setup and ACL/account/config changes",
+    "arbitrary shell or interpreters",
+    "real business projects",
+    "production/deployment",
+    "subagents",
+    "formal ledger advancement"
+  ],
+  "exitCriteria": [
+    "Real dynamic request is bound before effect to server identity, live lease and frozen scope",
+    "Complete command vector and file content/path checked before action",
+    "Current Windows read/write/network boundary demonstrated or command path remains BLOCKED",
+    "Actual approved file diff and sandboxed fixed test result independently read back",
+    "Denial/revocation/expiry/duplicate/cancel/recovery have no unauthorized effects",
+    "Fresh applicable regression evidence and owned cleanup; human acceptance remains separate"
+  ],
+  "deferred": [
+    "44 D2/D3 material and linked proposal adoption",
+    "44 D6 LOCAL_RUNNER business batch mapping; this package only creates trustworthy command/tool evidence",
+    "Full44 C4 and personal activation"
+  ]
+}
