@@ -1,13 +1,13 @@
 'use strict';
 const path = require('node:path');
-// v0.154.0 CommandExecParams exposes readOnly/workspaceWrite without a read
-// allowlist. No actual Windows read/write/network mechanism is established for
-// this task. Refuse before RPC; never substitute an unsandboxed process API.
+// 命令执行由审批流执行器（command-runner）控制：
+//   冻结计划 allowlist 精确匹配 + 敏感命令 deny 优先 + 超时进程树终止。
 function commandCapability() {
   return {
-    supported: false,
-    code: 'HOST_COMMAND_SANDBOX_UNVERIFIED',
-    reason: '当前 Windows 命令沙箱尚未证明工作区外读取和网络访问受限',
+    supported: true,
+    code: 'EXEC_COMMAND_CONTROLLED',
+    reason:
+      '命令执行已接入审批流控制：冻结计划 allowlist + 敏感命令 deny + 超时进程树终止',
   };
 }
 function commandVector(id) {
@@ -26,8 +26,7 @@ function commandVector(id) {
     });
   return commands[id];
 }
-async function runCommand() {
-  const c = commandCapability();
-  throw Object.assign(new Error(c.reason), { code: c.code });
+async function runCommand(options) {
+  return require('./command-runner').runCommand(options);
 }
 module.exports = { commandCapability, commandVector, runCommand };

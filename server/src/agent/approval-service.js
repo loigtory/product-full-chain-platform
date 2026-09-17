@@ -157,6 +157,15 @@ function createHostDispatcher({
   async function dispatch(bound) {
     let begun;
     const isFile = ['pfc_read_file', 'pfc_write_file'].includes(bound.tool);
+    // 命令工具 → 命令向量 id（test-runner.commandVector）
+    const COMMAND_TOOLS = {
+      pfc_run_checks: 'node-test',
+      pfc_git_status: 'git-status',
+      pfc_git_diff: 'git-diff',
+    };
+    const commandId = COMMAND_TOOLS[bound.tool] ?? null;
+    const isCommand = commandId !== null;
+    let commandVector = null;
     const prepared = await withTransaction(db, async (client) => {
       const { job, snapshot } = await live(client);
       await jobs.bindToolTurn(client, db, job, bound.threadId, bound.turnId);
@@ -165,19 +174,19 @@ function createHostDispatcher({
         if (prior.hash !== fingerprint(bound)) fail('TOOL_CALL_REUSED');
         return { response: prior.response };
       }
-      if (
-        !isFile &&
-        !['pfc_run_checks', 'pfc_git_status', 'pfc_git_diff'].includes(
-          bound.tool,
-        )
-      )
-        fail('TOOL_NOT_ALLOWED');
+      if (!isFile && !isCommand) fail('TOOL_NOT_ALLOWED');
       let rejection;
       try {
         if (isFile) scope.inspect(bound.tool, bound.arguments);
         else {
           require('./scope-policy').exactArgs(bound.arguments, []);
-          fail('HOST_COMMAND_SANDBOX_UNVERIFIED');
+          // 命令执行：命令向量必须精确匹配冻结计划 allowedCommands，
+          // 且不命中敏感 deny 规则（deny 优先于 allowlist）。
+          commandVector = require('./test-runner').commandVector(commandId);
+          require('./command-runner').assertCommandAllowed(
+            commandVector,
+            scope.plan,
+          );
         }
       } catch (e) {
         rejection = e.code || 'TOOL_ARGUMENTS_INVALID';
@@ -257,6 +266,69 @@ function createHostDispatcher({
     }
     // RUNNING is durable before the effect; a crash is never replayed as success.
     try {
+      if (!isCommand) {
+        const response = await withTransaction(db, async (client) => {
+          const { job, snapshot } = await live(client);
+          const approval = (
+            await client.query(
+              'SELECT * FROM "' +
+                db.schema +
+                '".agent_approvals WHERE id=$1 FOR UPDATE',
+              [prepared.approval.id],
+            )
+          ).rows[0];
+          if (
+            approval?.state !== 'APPROVED' ||
+            new Date(approval.expires_at).getTime() <= Date.now()
+          )
+            fail('TOOL_APPROVAL_INVALID');
+          control.check();
+          scope.check();
+          const started = Date.now();
+          const data =
+            bound.tool === 'pfc_read_file'
+              ? scope.read(bound.arguments)
+              : scope.write(bound.arguments);
+          const evidence = {
+            tool: bound.tool,
+            path: data.path,
+            sha256: data.sha256,
+            bytes: data.bytes ?? Buffer.byteLength(data.content),
+            scopeHash: approval.scope_hash,
+            contextHash: snapshot.hash,
+          };
+          await tools.finish(
+            client,
+            db,
+            begun.row,
+            'SUCCEEDED',
+            evidence,
+            Date.now() - started,
+          );
+          await require('../persistence/agent-events').append(
+            client,
+            db,
+            job,
+            'tool',
+            { toolExecutionId: begun.row.id, ...evidence },
+          );
+          return toolResponse(true, data);
+        });
+        results.set(begun.row.id, response);
+        requests.set(bound.requestId, {
+          hash: fingerprint(bound),
+          response,
+        });
+        return response;
+      }
+      // 命令执行：在事务外运行，避免长命令持锁；结果以独立事务落审计。
+      const started = Date.now();
+      const data = await require('./command-runner').runCommand({
+        command: commandVector,
+        cwd: scope.root,
+        plan: scope.plan,
+        timeoutMs: 300000,
+      });
       const response = await withTransaction(db, async (client) => {
         const { job, snapshot } = await live(client);
         const approval = (
@@ -274,16 +346,16 @@ function createHostDispatcher({
           fail('TOOL_APPROVAL_INVALID');
         control.check();
         scope.check();
-        const started = Date.now();
-        const data =
-          bound.tool === 'pfc_read_file'
-            ? scope.read(bound.arguments)
-            : scope.write(bound.arguments);
         const evidence = {
           tool: bound.tool,
-          path: data.path,
-          sha256: data.sha256,
-          bytes: data.bytes ?? Buffer.byteLength(data.content),
+          command: commandVector,
+          exitCode: data.exitCode,
+          timedOut: data.timedOut,
+          stdoutBytes: Buffer.byteLength(data.stdout),
+          stderrBytes: Buffer.byteLength(data.stderr),
+          stdoutTruncated: data.stdoutTruncated,
+          stderrTruncated: data.stderrTruncated,
+          warnings: data.warnings,
           scopeHash: approval.scope_hash,
           contextHash: snapshot.hash,
         };
@@ -302,10 +374,19 @@ function createHostDispatcher({
           'tool',
           { toolExecutionId: begun.row.id, ...evidence },
         );
-        return toolResponse(true, data);
+        return toolResponse(true, {
+          exitCode: data.exitCode,
+          timedOut: data.timedOut,
+          stdout: data.stdout.slice(0, 200000),
+          stderr: data.stderr.slice(0, 100000),
+          warnings: data.warnings.slice(0, 20),
+        });
       });
       results.set(begun.row.id, response);
-      requests.set(bound.requestId, { hash: fingerprint(bound), response });
+      requests.set(bound.requestId, {
+        hash: fingerprint(bound),
+        response,
+      });
       return response;
     } catch (e) {
       await withTransaction(db, (c) =>

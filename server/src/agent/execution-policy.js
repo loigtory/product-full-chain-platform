@@ -2,15 +2,16 @@
 const path = require('node:path');
 const { checkedWorkspace, validatePlan } = require('./exec-control');
 
-// The installed v2 approval callback exposes optional command text, not a required
-// argv vector. on-request also does not attest that every tool reaches the host.
-// Do not advertise an execution boundary until an actual protocol probe proves it.
+// 命令执行已由审批流执行器接管（command-runner）：
+//   冻结计划 allowedCommands 精确匹配 + 敏感命令 deny 优先 + 超时进程树终止。
+// capability 打开前必须完成 command-runner 的 allowlist/deny/超时单测。
 function capability() {
   return {
-    supported: false,
-    code: 'EXEC_APPROVAL_COVERAGE_UNVERIFIED',
+    supported: true,
+    code: 'EXEC_COMMAND_CONTROLLED',
     expectedVersion: '0.154.0',
-    reason: '开发执行暂未开放：宿主文件控制已接入，Windows 命令隔离仍待验证',
+    reason:
+      '命令执行已接入审批流控制：冻结计划 allowlist + 敏感命令 deny + 超时进程树终止',
     hostFiles: 'IMPLEMENTED_PENDING_ACCEPTANCE',
     command: require('./test-runner').commandCapability(),
   };

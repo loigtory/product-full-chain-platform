@@ -218,5 +218,7 @@ module.exports = {
       ledger: HOST_LEDGER,
       packageId: '48-ai-tools-host-exec-20260917',
       maxConcurrency: 1,
+      maxTurns: 80,
+      maxSeconds: 24000,
     }),
 };
