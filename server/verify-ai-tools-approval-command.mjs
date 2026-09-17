@@ -181,23 +181,24 @@ try {
     assert.match(data.stdout, /^\?\? /m);
   });
 
-  // ---- 2) 计划外命令拒绝 ----
+  // ---- 2) 计划外命令 → PENDING（51 号交互式审批：等待 owner 决策）----
   const B = await makeDispatch([]);
-  await check('pfc_run_checks: 计划外命令被拒绝 COMMAND_NOT_IN_PLAN', async () => {
+  await check('pfc_run_checks: 计划外命令进入 PENDING（COMMAND_NOT_IN_PLAN）', async () => {
     const r = await B.dispatch(bound('pfc_run_checks', 'r1'));
     assert.equal(r.success, false);
     const data = JSON.parse(r.contentItems[0].text);
     assert.equal(data.code, 'COMMAND_NOT_IN_PLAN');
+    assert.equal(data.requiresNewPlan, true);
+    assert.ok(data.approvalId);
   });
-  await check('pfc_run_checks: 拒绝记录为 DENIED 审批', async () => {
+  await check('pfc_run_checks: 计划外审批记录为 PENDING + agent_events 审计', async () => {
     const rows = (
       await fixture.db.pool.query(
         `SELECT state FROM "${fixture.db.schema}".agent_approvals WHERE job_id=$1 ORDER BY created_at DESC LIMIT 1`,
         [B.job.id],
       )
     ).rows;
-    assert.equal(rows[0]?.state, 'DENIED');
-    // rejection code 落在 agent_events 审计
+    assert.equal(rows[0]?.state, 'PENDING');
     const ev = (
       await fixture.db.pool.query(
         `SELECT payload FROM "${fixture.db.schema}".agent_events WHERE job_id=$1 AND type='approval' ORDER BY created_at DESC LIMIT 1`,
@@ -206,6 +207,87 @@ try {
     ).rows;
     assert.ok(ev.length >= 1);
     assert.equal(ev[0].payload?.code, 'COMMAND_NOT_IN_PLAN');
+    assert.equal(ev[0].payload?.state, 'PENDING');
+  });
+
+  // ---- 5) 审批 decide：owner approve / deny 决策落库（51 号）----
+  const approvalsP = require('./src/persistence/agent-approvals');
+  const refreshLease = async (jobId, ownerId) => {
+    await tx(fixture.db, (c) => jobs.heartbeat(c, fixture.db, jobId, ownerId));
+  };
+  await check('审批 decide: approve → APPROVED（owner 授权留痕）', async () => {
+    await refreshLease(B.job.id, B.ownerId);
+    const row = (
+      await fixture.db.pool.query(
+        `SELECT id,request_id,scope_hash,job_id FROM "${fixture.db.schema}".agent_approvals WHERE job_id=$1 AND state='PENDING' ORDER BY created_at DESC LIMIT 1`,
+        [B.job.id],
+      )
+    ).rows[0];
+    assert.ok(row, '存在 PENDING 审批');
+    const job = (
+      await fixture.db.pool.query(
+        `SELECT * FROM "${fixture.db.schema}".agent_jobs WHERE id=$1`,
+        [B.job.id],
+      )
+    ).rows[0];
+    const out = await tx(fixture.db, async (client) => {
+      const reqRow = (
+        await client.query(
+          `SELECT * FROM "${fixture.db.schema}".reqs WHERE id=$1 FOR UPDATE`,
+          [job.req_id],
+        )
+      ).rows[0];
+      return approvalsP.decide(client, fixture.db, B.ctx, reqRow, row.id, {
+        decision: 'approve',
+        scopeHash: row.scope_hash,
+        expectedState: 'PENDING',
+        commandId: randomUUID(),
+        contextHash: job.input.contextHash,
+      });
+    });
+    assert.equal(out.state, 'APPROVED');
+  });
+  await check('审批 decide: deny → DENIED（owner 拒绝留痕）', async () => {
+    // 触发新的计划外调用 → 新 PENDING 审批
+    const r = await B.dispatch(bound('pfc_git_status', 'r3'));
+    assert.equal(r.success, false);
+    await refreshLease(B.job.id, B.ownerId);
+    const row = (
+      await fixture.db.pool.query(
+        `SELECT id,request_id,scope_hash,job_id FROM "${fixture.db.schema}".agent_approvals WHERE job_id=$1 AND state='PENDING' ORDER BY created_at DESC LIMIT 1`,
+        [B.job.id],
+      )
+    ).rows[0];
+    assert.ok(row, '存在新 PENDING 审批');
+    const job = (
+      await fixture.db.pool.query(
+        `SELECT * FROM "${fixture.db.schema}".agent_jobs WHERE id=$1`,
+        [B.job.id],
+      )
+    ).rows[0];
+    const out = await tx(fixture.db, async (client) => {
+      const reqRow = (
+        await client.query(
+          `SELECT * FROM "${fixture.db.schema}".reqs WHERE id=$1 FOR UPDATE`,
+          [job.req_id],
+        )
+      ).rows[0];
+      return approvalsP.decide(client, fixture.db, B.ctx, reqRow, row.id, {
+        decision: 'deny',
+        scopeHash: row.scope_hash,
+        expectedState: 'PENDING',
+        commandId: randomUUID(),
+        contextHash: job.input.contextHash,
+      });
+    });
+    assert.equal(out.state, 'DENIED');
+    const ev = (
+      await fixture.db.pool.query(
+        `SELECT payload FROM "${fixture.db.schema}".agent_events WHERE job_id=$1 AND type='approval' ORDER BY created_at DESC LIMIT 1`,
+        [B.job.id],
+      )
+    ).rows;
+    assert.equal(ev[0]?.payload?.state, 'DENIED');
   });
 
   // ---- 4) 未知工具拒绝 ----

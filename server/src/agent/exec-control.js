@@ -12,8 +12,9 @@ const {
 } = require('node:fs');
 const path = require('node:path');
 
-const fail = (code) => {
-  throw Object.assign(new Error(code), { code });
+const fail = (code, status = 409) => {
+  // status 必带：让 HTTP 错误处理原样透出 code/msg，避免被降级为 STORAGE_UNAVAILABLE
+  throw Object.assign(new Error(code), { code, status });
 };
 
 // 简单 glob：支持 *（单层）、**（多层）、/ 分隔；返回布尔。

@@ -221,7 +221,12 @@ function createHostDispatcher({
         request,
       );
       if (rejection) {
-        const pending = rejection === 'TOOL_OUT_OF_SCOPE';
+        // 交互式审批（51 号）：deny 规则命中（安全红线）立即 DENIED；
+        // 计划外但安全形态的命令（COMMAND_NOT_IN_PLAN）与文件越界（TOOL_OUT_OF_SCOPE）
+        // 进入 PENDING，等待 owner 在前端审批卡片 approve/deny 后决定。
+        const pending =
+          rejection === 'TOOL_OUT_OF_SCOPE' ||
+          rejection === 'COMMAND_NOT_IN_PLAN';
         if (!pending)
           await client.query(
             `UPDATE "${db.schema}".agent_approvals SET state='DENIED',decided_by=$1,decided_at=now() WHERE id=$2 AND state='PENDING'`,

@@ -219,6 +219,7 @@ input,textarea{font-family:inherit;}
 .approval-scope{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 11px;font-size:13px;margin-top:8px;}
 .approval-scope .row{display:flex;gap:8px;padding:2px 0;color:var(--text-2);}
 .approval-scope .row b{color:var(--text-1);width:64px;flex:none;font-weight:600;}
+/* 51 号：聊天消息流内嵌审批卡片 */.pfc-approval-banner{background:linear-gradient(135deg, rgba(250,173,20,0.08), rgba(250,173,20,0.16));border:1px solid rgba(250,173,20,0.45);border-radius:var(--radius-sm);padding:10px 12px;margin:10px 0 4px;}.pfc-approval-banner .approval-banner-head{font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:6px;}.pfc-approval-banner .approval-scope{margin-top:6px;}.pfc-approval-banner .btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
 
 /* 观察指标 */
 .kpi-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px;}

@@ -30,6 +30,81 @@
       enqueue = P.enqueueFile,
       renderMsg = P.renderMsg,
       close = P.close;
+    // ---- 51 号：聊天消息流内嵌审批卡片（remote 模式，PENDING 交互式审批）----
+    // 渲染完成后异步拉取 tool-control，将当前需求的 PENDING 审批注入消息流底部，
+    // owner 可直接在对话中 approve/deny（复用 host-tool-decision，落 decide API 与审计）。
+    const approvalBanner = async (id) => {
+      try {
+        const data = await window.PFCAPI.api.req(
+          'GET',
+          '/api/agent/requirements/' + encodeURIComponent(id) + '/tool-control',
+        );
+        if (P.r()?.id !== id || !data.reqId) return;
+        const pend = (data.approvals || []).filter(
+          (a) => a.state === 'PENDING',
+        );
+        const stream = document.querySelector('#stream');
+        document
+          .querySelectorAll('.pfc-approval-banner')
+          .forEach((n) => n.remove());
+        if (!stream || !pend.length) return;
+        const div = document.createElement('div');
+        div.className = 'pfc-approval-banner';
+        div.innerHTML =
+          '<div class="approval-banner-head">' +
+          pend.length +
+          ' 项工具操作待审批 · 计划外操作需 owner 确认后并入执行计划</div>' +
+          pend
+            .map(
+              (a) =>
+                '<div class="approval-scope">' +
+                '<div class="row"><b>工具</b>' +
+                P.esc(a.tool || '—') +
+                '</div>' +
+                '<div class="row"><b>范围</b>' +
+                P.esc(a.path || '固定命令') +
+                '</div>' +
+                '<div class="row"><b>状态</b>待审批</div>' +
+                '<div class="row"><b>哈希</b><code>' +
+                P.esc(String(a.scopeHash || '').slice(0, 16)) +
+                '…</code></div>' +
+                '<div class="btn-group">' +
+                P.btn(
+                  'host-tool-decision',
+                  '同意范围（需新计划）',
+                  {
+                    req: id,
+                    job: a.jobId,
+                    approval: a.id,
+                    hash: a.scopeHash,
+                    decision: 'approve',
+                  },
+                  'primary',
+                ) +
+                P.btn('host-tool-decision', '拒绝', {
+                  req: id,
+                  job: a.jobId,
+                  approval: a.id,
+                  hash: a.scopeHash,
+                  decision: 'deny',
+                }) +
+                '</div></div>',
+            )
+            .join('');
+        stream.appendChild(div);
+      } catch {
+        /* 审批拉取失败不阻塞对话渲染 */
+      }
+    };
+    const baseRender = P.render;
+    P.render = (opts = {}) => {
+      const ret = baseRender(opts);
+      if (V.pg()) {
+        const id = P.r()?.id;
+        if (id) setTimeout(() => approvalBanner(id), 80);
+      }
+      return ret;
+    };
     P.close = (...args) => {
       previewEpoch++;
       if (previewUrl) {
@@ -216,7 +291,10 @@
           commandId: crypto.randomUUID(),
         },
       );
-      if (P.r()?.id === d.req) await remote['host-tool-records']();
+      if (P.r()?.id === d.req) {
+        await remote['host-tool-records']();
+        P.render({ quiet: true }); // 刷新消息流内嵌审批卡片
+      }
     };
     P.enqueueFile = async (file, reqId = P.r().id) => {
       if (!V.pg()) return enqueue(file, reqId);

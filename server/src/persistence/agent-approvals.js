@@ -128,11 +128,26 @@ async function decide(client, db, ctx, req, id, input) {
       req,
       current.hash,
     );
-  return (
+  const updated = (
     await client.query(
       `UPDATE "${db.schema}".agent_approvals SET state=$1,decided_by=$2,decided_at=now() WHERE id=$3 AND state='PENDING' RETURNING *`,
       [state, ctx.memberId, id],
     )
   ).rows[0];
+  // 决策审计（51 号）：owner approve/deny 均落 agent_events，
+  // 与 dispatch 创建审批时的 approval 事件同源，前端 tool-control 与审计流可追溯。
+  if (updated) {
+    await require('./agent-events').append(client, db, {
+      id: item.job_id,
+      tenant_id: item.tenant_id,
+      req_id: item.req_id,
+    }, 'approval', {
+      approvalId: id,
+      scopeHash: updated.scope_hash,
+      state: updated.state,
+      decidedBy: ctx.memberId,
+    });
+  }
+  return updated;
 }
 module.exports = { create, decide };
