@@ -1,0 +1,42 @@
+{
+  "listeners": [],
+  "runtimeRootRemoved": true,
+  "status": "PASS",
+  "removedFiles": [
+    {
+      "path": ".local/ai-tools-host-exec-20260917/CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9/service-start-result.json",
+      "bytes": 100,
+      "sha256": "dedd89c59c44f1ca8d5f18a3a385bda5348fb6bcab36265a4be2cb1f0f96e61a"
+    },
+    {
+      "path": ".local/ai-tools-host-exec-20260917/CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9/start-pg.ps1",
+      "bytes": 1029,
+      "sha256": "3e8b4114131631474d118cbe2697dff029dec0f7c65bfb5d25c2a9a8ca5d6840"
+    },
+    {
+      "path": ".local/ai-tools-host-exec-20260917/CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9/stop-pg.ps1",
+      "bytes": 2275,
+      "sha256": "356f9a84f62ff3d77c92061ac5d4f15898d961925c0d82aa539c0b798208ac99"
+    }
+  ],
+  "ownedTestHelpers": [],
+  "checkedPorts": [
+    5188,
+    5199,
+    5203,
+    5204,
+    5205,
+    5432,
+    5549
+  ],
+  "budget": "Retained ignored independent ledger, unchanged",
+  "at": "2026-09-17T07:27:07.7582515+00:00",
+  "historicalFailure": "service-restore-attempt-cancelled.json preserved",
+  "service": {
+    "state": "Stopped",
+    "pid": 0,
+    "initial": "Stopped",
+    "name": "pfc-postgresql-18"
+  },
+  "stopHelperCommandExited": true
+}

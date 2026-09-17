@@ -1,6 +1,6 @@
 # 宿主工具控制质量与差异评审
 
-结论：PARTIAL / HOST_FILE_CONTROL_VERIFIED / COMMAND_BLOCKED。人工验收待定；当前环境恢复还有 Windows 管理员确认未完成，见 service-restore-attempt-cancelled.json。
+结论：PARTIAL / HOST_FILE_CONTROL_VERIFIED / COMMAND_BLOCKED。人工验收待定；用户确认处理管理员弹窗后，环境已恢复 Stopped，见 cleanup-post-restore.json。首次取消记录保留历史语义。
 
 ## 实际范围与验证
 
@@ -28,11 +28,11 @@
 
 先保存模型/协议失败回归再实施。实际调试失败包括：code_mode_host 关闭导致 2 次真实调用无动态工具；fixture 状态字段/search_path；私有 profile 新前缀；浏览器关闭按钮多匹配；HTTP 调用未导出的 repository.read；合法写入后拒绝审批受旧基线阻挡。均保留失败并做相应回归。最后一次完整门禁发生一次 page.goto load 超时，同源码独立复跑 9 组通过；不把该超时诊断为产品缺陷，保留环境时序风险。
 
-服务停止尝试的 UAC 取消单独记录，未绕过或自动重试；源码测试结果与环境恢复状态分开。指标见 delivery-metrics.json，开工/收工耗时及返工只用于改善流程，无上线后缺陷数据。
+首次服务停止尝试的 UAC 取消单独记录；用户再次确认后重新核查客户端并执行同一停止脚本，服务恢复 PASS，未绕过。源码测试结果与环境恢复状态分开。指标见 delivery-metrics.json，开工/收工耗时及返工只用于改善流程，无上线后缺陷数据。
 
 ## 交付与后续
 
-当前未发布/未启用个人服务，观察窗口与发布后冒烟 NOT_STARTED。授权三 schema 已独立读回不存在，其他客户端 0；服务恢复受 Windows RunAs 取消阻断：pfc-postgresql-18 仍 Running（服务 PID 24432，5432），process-final.json 为独立读回。私有 profile/工作区/恢复集群已清理，runtime 只留三份无凭据的启停归属记录；没有本轮常驻 helper。需用户处理管理员弹窗后重做无其他客户端检查并恢复停止。合成截图/去敏报告保留评审，独立预算保留且 Git 忽略。
+当前未发布/未启用个人服务，观察窗口与发布后冒烟 NOT_STARTED。授权三 schema 已独立读回不存在，其他客户端 0；用户处理管理员弹窗后，已恢复 pfc-postgresql-18 为 Stopped（服务 PID 0），5432 与各本轮端口关闭，cleanup-post-restore.json 为最新独立读回。私有 profile/工作区/恢复集群及剩余三个启停记录文件、空 runtime 根均已按归属核实后清理；没有本轮常驻 helper。process-final.json 和取消记录保留为恢复前历史，未覆盖失败。合成截图/去敏报告保留评审，独立预算保留且 Git 忽略。
 
 后续需准确的 Windows 沙箱机制/环境方案与负例证明，然后完成公共 EXEC 全链与 44 D2/D3/D6/C4。扩系统、路径或额度必须重新确认。人工验收依据本地提交差异、48 和这些证据作出；未代签风险。源码回退按 77b2d94 对比选择性还原；禁止清除其他人改动或受保护历史。没有需要回滚的发布。
 

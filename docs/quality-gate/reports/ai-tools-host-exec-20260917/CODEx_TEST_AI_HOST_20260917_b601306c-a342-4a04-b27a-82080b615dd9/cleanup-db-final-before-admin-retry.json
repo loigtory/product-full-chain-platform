@@ -1,6 +1,6 @@
 {
-  "atMs": 1789629878903,
-  "at": "2026-09-17T07:24:38.903Z",
+  "atMs": 1789626928922,
+  "at": "2026-09-17T06:35:28.922Z",
   "status": "PASS",
   "target": {
     "database": "pfc_local",
@@ -15,5 +15,5 @@
   ],
   "remainingSchemas": [],
   "otherClients": [],
-  "method": "Fresh read-only catalog; excludes own connection; pool closed before service stop"
+  "method": "read-only catalog, excludes own connection; pool closed in finally"
 }

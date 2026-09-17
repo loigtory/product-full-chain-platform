@@ -1,10 +1,9 @@
 {
-  "service": "Running",
-  "pgEstablishedConnections": 0,
-  "ownedHelpers": [],
-  "status": "PASS",
   "listeners": [],
-  "servicePid": 24432,
+  "pgEstablishedConnections": 0,
+  "service": "Running",
+  "status": "PASS",
+  "ownedHelpers": [],
   "checkedPorts": [
     5188,
     5199,
@@ -13,5 +12,5 @@
     5205,
     5549
   ],
-  "atMs": 1789629879316
+  "atMs": 1789626929347
 }

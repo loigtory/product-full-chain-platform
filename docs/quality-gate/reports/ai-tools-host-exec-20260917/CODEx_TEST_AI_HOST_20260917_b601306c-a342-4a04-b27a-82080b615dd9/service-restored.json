@@ -1,0 +1,8 @@
+{
+  "initial": "Stopped",
+  "port5432Closed": true,
+  "status": "PASS",
+  "temporary": "Running",
+  "final": "Stopped",
+  "atMs": 1789629948496
+}
