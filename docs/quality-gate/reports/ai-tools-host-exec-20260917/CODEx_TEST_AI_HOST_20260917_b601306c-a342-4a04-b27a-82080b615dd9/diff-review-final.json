@@ -1,0 +1,347 @@
+{
+  "at": "2026-09-17T06:44:15.474Z",
+  "status": "PASS_WITH_DECLARED_BLOCKERS",
+  "baseline": "77b2d94",
+  "counts": {
+    "modified": 17,
+    "new": 12,
+    "unchanged": 2
+  },
+  "entries": [
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "a858965b451c8dc7c9a775858930f5f419c8c98df26ecd35e83add46546af4c3",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "86e74ed9760921575bda15b919dbb4c372cc19802d31a36ce5283d8e3655cc65",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "43b9e4a63a219b4ae84c481352f28e92a80784e59ed715024c9f2b47994d1268",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "ec28c6c53901a9080c0a1a0797a3b80546e31b454501359ec330b46dfc5e5555",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "4fb9a4a5e4e2cb05f87969ca1da34fcac9e739fd0c290d64f6854fb3f3040f6e",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "93aa9a1fdb02b1bb4c9ce84c827c069844a7d9c12334907b09054f88154cdd19",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "68de6278229cbdc8603508f888ccf518d63d88cf269695dbcdf11caf37b8c5b6",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "b3ecdae2a5335bfb8b999d6034883a6cd19a22ccc33e807db8f8ba5de0bc3e91",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "38653b038a2be4c11f439768a54edcdb31357b58dc88f50584a50d3b75837f50",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "c4bd4134df4e2a85346c36a83cdf16911580acb6ee7146ea4775b1bfa08e03aa",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "11f1a38542e920d3fab569dc708043c7c37d4c55dfe840e288a57f5c0e7abfc5",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "d740bb34be256eb91a5bfaa8d873d97ca810e5e31c8b6a584e7c992b596c57c3",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "c32c38f660abd91181ca9007795d54fd5a9c15d4bbe60eda995aa5cc9c8cc0eb",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "0e3d8bdeec576bc597b771351619eeac9d296a6ba0e7de50445737487b0d42e9",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "0676f3520803d2556459b7f0bec71643ceea3736075efb780b7750d7e516019a",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/agent/approval-service.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false,
+      "currentSha256": "2308f424add8a314fd1388dbafdcecb08551309e54116a5c24efa153bef97126",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/src/agent/scope-policy.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false,
+      "currentSha256": "d8f5eadba4caf9c691518ddb9a973de49e51e9040d66e1bf440b97fde2c7c5b7",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/src/agent/test-runner.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false,
+      "currentSha256": "996e40b5a21468e6e5a0dda98d38ecf91d0e837b4a478e595cf7e966e3821a4e",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/src/persistence/tool-executions.js",
+      "group": "runtime",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": true,
+      "in46": false,
+      "currentSha256": "232baf217d72352f258e4a0ac3880f394f5a0a9390d2c5bd96fcaa6d3e8c0471",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "4de34e10277c37be8afbbcdbb339c2c5292e5a69d1f136881a1412fa6b250727",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "e60ac6b1231f6939208bdd6a2adf440c77cfbba2d13cd2c464135358281e85b1",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "597826736c76f9118612255416872bc255b5e113a02d094a460728a2efcd5cce",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "038c2f2f0577535b66db42f487d92a29e6a93a7de48dba5b68776cd701a3d090",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9",
+      "in44": true,
+      "in46": false,
+      "currentSha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9",
+      "actualChange": "unchanged"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d",
+      "actualChange": "unchanged"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "cbda61ce808785c637411d800e8fd29b75337192aa5bb47ad7c7796e6527e9e2",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "1950f96444fb9486a8c4e2a98b50314d663a309018661a7baacee02a84bae796",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "group": "runtime",
+      "change": "modify",
+      "baselineSha256": "92f118c9a5dd21088a853cede312cb3666e8ae4c53daa404f5569858d74aa991",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "d132eca2c4b7505be6f7c44cea219b099ba5e135f6225a5c6e8bb4889e158406",
+      "actualChange": "modified"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "group": "ui",
+      "change": "modify",
+      "baselineSha256": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "c164a9d606a9dff281cec2efe6d2c8cb1a44e6923605aac88aa77a8587419178",
+      "actualChange": "modified"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "group": "ui",
+      "change": "modify",
+      "baselineSha256": "5268331854456dc653c8b90ad0e6a3f08c37752bdcc1317d260d997dc682d8db",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "a90ba35d857abbc785ca3f1465510ce6717e6272537fcd3c4607b7697faa0f25",
+      "actualChange": "modified"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "group": "ui",
+      "change": "modify",
+      "baselineSha256": "44cd6de4eb9e3ca7c48767b46f97dfbe07e1bc66060c91f75e8e1de7eb1df19c",
+      "in44": true,
+      "in46": true,
+      "currentSha256": "f76e87225ece21d1e7f4378811d5f6a86ba85a1cd0a8ad494eaf93e185f9b3fd",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "171734a80724c39c578c6758f7c4ec6f3955d0330eed51dbf7d5f4b320603e8d",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-model.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "669ef7b1536473da7de91d725450a5d141377ca50ece628b1eba2d196ef54016",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-protocol.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "001fdaa1a3bccabef8d9d36115d1a3c8629ca86c8cc8ad104eb01f08f948df32",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-api.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "b97d74674d57b62051730e8f14673861141de9af889a1743055626dd49bf4272",
+      "actualChange": "new"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-host-exec-browser.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "a18995e9f0cb0927afb64d75d789138435d05fadc7f7cf2d61a74b28ba33d9dc",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-real.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "f7036ab0ab59f24b4ce8d53468b48b1ed4ff3cc534c4b1dc199193e96f683465",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-architecture.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "6cba1c455426f6fabcecc26099fb9f664f6915767abe0f7c813fa5489d76417a",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-host-exec-gates.mjs",
+      "group": "verification",
+      "change": "new",
+      "baselineSha256": null,
+      "in44": false,
+      "in46": false,
+      "currentSha256": "fc878134b7840ffaed5fcd06191e0db06084423f9a9d51b4295f78c6692f52d5",
+      "actualChange": "new"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "group": "verification",
+      "change": "modify",
+      "baselineSha256": "1747f92997cd43a118737f14580ef3594142f30552c4b79136a23ffdcadf2191",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "58e619ca8c84dadd4eb1d702f985963314fddeb8a7ff506ea722c552d3ebba9b",
+      "actualChange": "modified"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "group": "verification",
+      "change": "modify",
+      "baselineSha256": "62e32b4ab6c8fd2391d8baf1229ac1098be038fe70ce9bb303010270abcf16fe",
+      "in44": false,
+      "in46": true,
+      "currentSha256": "f2146f8b4a3f116eb97d17dc57eaae4bf3ee1a6db75c5087fc472cf6364329da",
+      "actualChange": "modified"
+    }
+  ],
+  "reviewer": "Codex controller; no subagent",
+  "reviewed": [
+    "dynamic request identity, native tool isolation and dispatch ordering",
+    "file arguments, baseline, links, own rollback and conflict preservation",
+    "PG live membership/tenant/lease/context and commit-before-effect",
+    "duplicate/cross-turn/cancellation/recovery/UNKNOWN outcomes",
+    "approval denial after prior authorized write",
+    "UI escaping/requirement switching and blocked public EXEC",
+    "independent budget limits and preservation of original assertions/history"
+  ],
+  "blockingLimitations": [
+    "Windows command isolation unverified; command and public EXEC closed",
+    "Public HTTP-worker-UI EXEC chain not verified",
+    "Adversarial concurrent OS filesystem isolation not demonstrated",
+    "Human acceptance pending"
+  ],
+  "evidencePrivacy": {
+    "textArtifactsChecked": 85,
+    "secretValueMatches": 0,
+    "configSource": ".env.local; contents not reported",
+    "limits": "Known configured secret values; not a general DLP claim"
+  },
+  "protectedUnchanged": 4291,
+  "sourceManifest": "source-final.json",
+  "gateEvidence": "gates-final.json"
+}

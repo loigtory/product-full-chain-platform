@@ -180,4 +180,67 @@ router.post(
     }
   },
 );
+router.get('/requirements/:reqId/tool-control', async (req, res, next) => {
+  try {
+    const access = require('../access'),
+      ctx = access.current(),
+      db = require('../runtime').db();
+    if (db.targetVersion !== '007')
+      return res.status(409).json({ code: 'AGENT_SCHEMA_REQUIRED' });
+    const result = await require('../domain/membership-policy').read(
+      db,
+      ctx,
+      false,
+      async (client) => {
+        const requirement = (
+          await client.query(
+            `SELECT id FROM "${db.schema}".reqs WHERE tenant_id=$1 AND public_id=$2`,
+            [ctx.tenantId, req.params.reqId],
+          )
+        ).rows[0];
+        if (!requirement) access.fail('NOT_FOUND', 404);
+        const reqId = requirement.id;
+        const approvals = (
+          await client.query(
+            `SELECT a.id,a.job_id,a.state,a.scope_hash,a.expires_at,a.request FROM "${db.schema}".agent_approvals a WHERE a.tenant_id=$1 AND a.req_id=$2 ORDER BY a.created_at DESC LIMIT 100`,
+            [ctx.tenantId, reqId],
+          )
+        ).rows.map((a) => ({
+          id: a.id,
+          jobId: a.job_id,
+          state: a.state,
+          scopeHash: a.scope_hash,
+          expiresAt: a.expires_at,
+          tool: a.request.tool ?? a.request.kind,
+          path: a.request.arguments?.path ?? null,
+          requiresNewPlan: true,
+        }));
+        const executions = (
+          await client.query(
+            `SELECT id,job_id,state,evidence,exit_code FROM "${db.schema}".tool_executions WHERE tenant_id=$1 AND req_id=$2 ORDER BY created_at DESC LIMIT 100`,
+            [ctx.tenantId, reqId],
+          )
+        ).rows.map((t) => ({
+          id: t.id,
+          jobId: t.job_id,
+          state: t.state,
+          exitCode: t.exit_code,
+          tool: t.evidence?.tool ?? null,
+          path: t.evidence?.path ?? null,
+          sha256: t.evidence?.sha256 ?? null,
+          code: t.evidence?.code ?? null,
+        }));
+        return {
+          reqId: req.params.reqId,
+          approvals,
+          executions,
+          execution: require('../agent/execution-policy').capability(),
+        };
+      },
+    );
+    res.json(result);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;

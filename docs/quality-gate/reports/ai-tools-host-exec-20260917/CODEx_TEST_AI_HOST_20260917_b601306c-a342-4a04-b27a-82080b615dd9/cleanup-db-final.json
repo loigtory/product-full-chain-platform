@@ -1,0 +1,19 @@
+{
+  "atMs": 1789626928922,
+  "at": "2026-09-17T06:35:28.922Z",
+  "status": "PASS",
+  "target": {
+    "database": "pfc_local",
+    "role": "pfc_app_local",
+    "host": "127.0.0.1",
+    "port": 5432
+  },
+  "checkedSchemas": [
+    "codex_test_ai_fix_20260916_api",
+    "codex_test_ai_fix_20260916_ops",
+    "codex_test_ai_fix_20260916_browser"
+  ],
+  "remainingSchemas": [],
+  "otherClients": [],
+  "method": "read-only catalog, excludes own connection; pool closed in finally"
+}

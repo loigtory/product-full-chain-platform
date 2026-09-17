@@ -4,6 +4,7 @@ const { resolve, relative, isAbsolute, sep } = require('node:path');
 const repo = resolve(__dirname, '../../..');
 const prefix = 'CODEx_TEST_M2C_20260913_localuse';
 const remediationPrefix = 'CODEx_TEST_AI_FIX_20260916';
+const hostPrefix = 'CODEx_TEST_AI_HOST_20260917';
 const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 function fault(code, status = 503) {
   return Object.assign(new Error(code), { code, status });
@@ -17,9 +18,15 @@ function layout({
 } = {}) {
   if (!['006', '007'].includes(targetVersion))
     throw fault('LOCAL_VERSION_INVALID');
+  const host = typeof runId === 'string' && runId.startsWith(hostPrefix + '_');
   const remediation =
-    typeof runId === 'string' && runId.startsWith(remediationPrefix + '_');
-  const activePrefix = remediation ? remediationPrefix : prefix;
+    host ||
+    (typeof runId === 'string' && runId.startsWith(remediationPrefix + '_'));
+  const activePrefix = host
+    ? hostPrefix
+    : remediation
+      ? remediationPrefix
+      : prefix;
   if (
     !['api', 'ops', 'browser'].includes(fixtureScope) ||
     (remediation && scope === 'restore' && fixtureScope !== 'ops')
@@ -47,7 +54,9 @@ function layout({
       : remediation
         ? resolve(
             repo,
-            '.local/ai-tools-remediation-20260916',
+            host
+              ? '.local/ai-tools-host-exec-20260917'
+              : '.local/ai-tools-remediation-20260916',
             runId,
             scope === 'source' ? fixtureScope : 'restore/app',
           )
@@ -64,6 +73,7 @@ function layout({
     root,
     targetVersion,
     remediation,
+    host,
     fixtureScope,
     ...(sourceScope ? { sourceScope } : {}),
     schema:
@@ -114,8 +124,18 @@ function noLinks(path) {
 function location(file) {
   const full = noLinks(file);
   if (full === layout().profileFile) return layout();
+  const hostRel = relative(
+    resolve(repo, '.local/ai-tools-host-exec-20260917'),
+    full,
+  );
+  const host = !hostRel.startsWith('..') && !isAbsolute(hostRel);
   const fix = relative(
-    resolve(repo, '.local/ai-tools-remediation-20260916'),
+    resolve(
+      repo,
+      host
+        ? '.local/ai-tools-host-exec-20260917'
+        : '.local/ai-tools-remediation-20260916',
+    ),
     full,
   ).split(sep);
   if (
@@ -181,7 +201,13 @@ function read(file, ready = true) {
     throw fault('LOCAL_PROFILE_INVALID');
   if (
     target.schema !== 'pfc_workbench' &&
-    !data.ownerName.startsWith(target.remediation ? remediationPrefix : prefix)
+    !data.ownerName.startsWith(
+      target.host
+        ? hostPrefix
+        : target.remediation
+          ? remediationPrefix
+          : prefix,
+    )
   )
     throw fault('SYNTHETIC_IDENTITY_REQUIRED');
   if (

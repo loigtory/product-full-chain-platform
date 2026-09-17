@@ -114,6 +114,14 @@ async function completeJob(db, ctx, reqPublicId, job, result) {
     }
     const live = await jobs.owned(client, db, job.id, OWNER);
     if (live.result?.cancelRequested) throw fault('TURN_CANCELLED');
+    if (job.kind === 'EXECUTE') {
+      const unverified = await client.query(
+        `SELECT id FROM "${db.schema}".tool_executions WHERE job_id=$1 AND state<>'SUCCEEDED' LIMIT 1`,
+        [job.id],
+      );
+      if (unverified.rowCount) throw fault('TOOL_EFFECT_UNCONFIRMED');
+      if (result.fileDiff?.violates) throw fault('TOOL_EFFECT_UNCONFIRMED');
+    }
     const updated = await client.query(
       'UPDATE "' +
         db.schema +
@@ -201,6 +209,8 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
   const control = createControl();
   active.set(jobId, control);
   let job, session, heartbeat, timer, reservation, startedAt, writeError;
+  let hostScope;
+  const jobBudget = kind === 'EXECUTE' ? budget.hostBudget() : budget;
   let writeChain = Promise.resolve(),
     outcome;
   try {
@@ -258,6 +268,23 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
         );
       });
     }, 10000);
+    if (kind === 'EXECUTE') {
+      hostScope = require('./scope-policy').createScope(
+        job.input.workspace,
+        job.input.control,
+      );
+      options.mode = 'host';
+      options.cwd = job.input.workspace;
+      options.onToolCall = require('./approval-service').createHostDispatcher({
+        db,
+        ctx,
+        reqPublicId,
+        jobId,
+        ownerId: OWNER,
+        scope: hostScope,
+        control,
+      });
+    }
     session = await TextConversation.open(options);
     control.attach(session);
     control.check();
@@ -272,7 +299,7 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
       text,
       reserveTurn: async () => {
         control.check();
-        reservation = await budget.reserveTurn();
+        reservation = await jobBudget.reserveTurn();
         startedAt = Date.now();
         control.check();
         await withTransaction(db, (client) =>
@@ -302,6 +329,7 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
     control.check();
     const exit = await session.close();
     if (exit?.childExited !== true) throw fault('PROCESS_EXIT_UNCONFIRMED');
+    if (hostScope) result.fileDiff = hostScope.diff();
     await completeJob(db, ctx, reqPublicId, job, result);
     outcome = {
       status: 'SUCCEEDED',
@@ -327,6 +355,7 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
     }
     outcome ??= { status: job ? state : 'SKIPPED', code };
   } finally {
+    hostScope?.stop();
     clearInterval(heartbeat);
     clearTimeout(timer);
     await writeChain;
@@ -343,7 +372,7 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
     }
     if (reservation) {
       try {
-        await budget.settleTurn(
+        await jobBudget.settleTurn(
           Math.ceil((Date.now() - startedAt) / 1000),
           outcome.status === 'SKIPPED' ? 'FAILED' : outcome.status,
           { inputHash: outcome.inputHash },

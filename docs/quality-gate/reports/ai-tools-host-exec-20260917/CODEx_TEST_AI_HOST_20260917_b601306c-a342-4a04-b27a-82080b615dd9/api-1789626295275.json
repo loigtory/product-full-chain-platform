@@ -1,0 +1,301 @@
+{
+  "at": "2026-09-17T06:24:52.863Z",
+  "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+  "scope": "host-api-pg",
+  "tests": [
+    {
+      "name": "Owner file read/write persists approval and tool evidence, independently matched to file hash",
+      "status": "PASS",
+      "details": {
+        "jobId": "beff5de7-4e59-4c1a-a4cb-36390516f703",
+        "toolRows": 2,
+        "fileRestored": true
+      }
+    },
+    {
+      "name": "revoked refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "MEMBER_INACTIVE",
+        "jobId": "c26b9ef8-14f5-4388-ab7e-0c2a36febc0b"
+      }
+    },
+    {
+      "name": "viewer refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "FORBIDDEN",
+        "jobId": "e57b6f06-7e63-4940-8582-ef2b6d0afc81"
+      }
+    },
+    {
+      "name": "nonmember refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "MEMBER_NOT_CONFIGURED",
+        "jobId": "0cd026cd-d0f1-4015-8efb-940f0be6f723"
+      }
+    },
+    {
+      "name": "closed-phase refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "TOOL_IDENTITY_MISMATCH",
+        "jobId": "09c2dba3-125e-427c-94f8-39e0c65b6086"
+      }
+    },
+    {
+      "name": "cancelled refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "TURN_CANCELLED",
+        "jobId": "c0240dd5-7981-48c9-924a-0fd8ec61caf4"
+      }
+    },
+    {
+      "name": "expired-lease refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "AGENT_LEASE_LOST",
+        "jobId": "5e78af39-d4a2-496c-ada0-3a04d47be1d0"
+      }
+    },
+    {
+      "name": "context-changed refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "AGENT_CONTEXT_CHANGED",
+        "jobId": "3c83e078-0069-4a8c-bb49-130c4055cf60"
+      }
+    },
+    {
+      "name": "Out-of-scope request creates a visible pending decision; shell stays denied",
+      "status": "PASS",
+      "details": {
+        "jobId": "c221a560-0700-4bb9-ad30-4b41eed005dc",
+        "states": [
+          "PENDING",
+          "DENIED"
+        ]
+      }
+    },
+    {
+      "name": "HTTP control readback is tenant scoped and contains hashes rather than file content",
+      "status": "PASS"
+    },
+    {
+      "name": "A pending scope expansion can be denied after an earlier approved file write",
+      "status": "PASS"
+    },
+    {
+      "name": "Identical callback replay returns its prior result; another turn and undispatched job cannot act",
+      "status": "PASS"
+    },
+    {
+      "name": "Restart never replays a durable RUNNING file operation as success",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "modelCalls": 0,
+  "data": "Deterministic owned synthetic fixtures. Owner is this run; no customer data.",
+  "acceptance": "PENDING",
+  "cleanup": {
+    "schema": "codex_test_ai_fix_20260916_api",
+    "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+    "createdIds": [
+      "c5f609de-ce94-4a21-8f8e-63d808ab2aea",
+      "cfb78c36-2f4b-48e7-beb9-31b535e4d7c1",
+      "e5359e75-4bac-45fd-a5b1-b5b482661886",
+      "beff5de7-4e59-4c1a-a4cb-36390516f703",
+      "56db06f8-08f0-4034-97ce-d3ba54832c49",
+      "5e6503fa-f391-4e78-8b7f-f5229fa2c30d",
+      "3fa57950-6e0c-4080-8244-cbccc886807e",
+      "c26b9ef8-14f5-4388-ab7e-0c2a36febc0b",
+      "aca89c4d-c428-4c06-8d49-fd82d3284393",
+      "ca384121-f836-4594-918c-06e67786b17d",
+      "50805581-80fa-427b-876e-defa6400b428",
+      "2136f9ff-0fc3-4a58-abe6-0ab77f3a4dc6",
+      "e57b6f06-7e63-4940-8582-ef2b6d0afc81",
+      "671b49d2-d964-45c9-9dc1-55ae6dea5d6f",
+      "2e860fd0-7294-4de2-843b-c2839a7446b6",
+      "995537e0-55a4-4641-8272-08326838b238",
+      "0cd026cd-d0f1-4015-8efb-940f0be6f723",
+      "22705cda-558c-421a-b090-7bac5d06033d",
+      "c747920a-8b80-4edf-90cc-bb58215813f3",
+      "c9fcc1e4-a434-447f-bcbc-3e528bae36cb",
+      "09c2dba3-125e-427c-94f8-39e0c65b6086",
+      "d8cf1da4-86bf-4c8c-8d16-5748673d8801",
+      "a7ec9af5-ccbd-43be-80ff-cce97dd514e3",
+      "70e0669d-6223-40f0-a0a0-e82a53561a32",
+      "c0240dd5-7981-48c9-924a-0fd8ec61caf4",
+      "22eaa489-4fec-4aa3-b636-2f46481e75d6",
+      "aef16dab-3b15-4ee6-870e-996490d5cb60",
+      "1a7dae9f-db85-40cf-b5c7-51e0025b1aa6",
+      "5e78af39-d4a2-496c-ada0-3a04d47be1d0",
+      "063004b5-76ec-42b1-8f5c-c6ecd3ed73b6",
+      "181b1d54-c4db-4382-871a-7dec5f2a9253",
+      "aa21f381-45a0-42a4-be34-c13393fafd54",
+      "3c83e078-0069-4a8c-bb49-130c4055cf60",
+      "c125ccd4-02fd-40db-973c-4d08e377fc69",
+      "6a789f19-ad54-4ca1-a76a-99882e44b10e",
+      "57989956-49ae-4c41-a9e6-667d88a51c32",
+      "c221a560-0700-4bb9-ad30-4b41eed005dc",
+      "e3a70189-dc47-4bf8-9893-5f22e675b812",
+      "9e248915-7570-4bae-a4c6-b04b2901cadd",
+      "7d4a7429-043d-4e98-b69f-ba28594a3b55",
+      "95c805b2-1bb9-47cd-98c6-0622275a6f7f",
+      "4a2dd017-efea-4d8c-b1b0-26297106984d",
+      "39513a0c-9142-4ec5-a3e7-54e0d9d80d37",
+      "7558561a-d8d9-465b-9061-1e9ddfd00a8e",
+      "b25cab52-f2fa-4065-9628-b0e8d69bafb9",
+      "88043cb0-8ffa-4500-bfe2-42ab1e98d6fc",
+      "6dccfa8e-f144-4d0c-aa3f-47d39acb628f",
+      "25d2191c-1a63-48fb-b8c4-8441b3df69f5",
+      "3226d1a6-201c-451d-9d6c-897da7075f95",
+      "beaba4b4-3db6-4890-9e1d-2cb02bd43c93",
+      "5443706c-8acb-4ab9-bbf8-199973a48fd1",
+      "555722a5-7bb5-4cb6-ba5c-9b7fd66a54aa",
+      "3914285d-884a-410f-bb22-d825f4464801",
+      "f6757dd0-0dd3-49fd-8b52-2b7d12310801",
+      "f3f9d4a5-2f39-4940-8c7f-febbc5830fed",
+      "48d73af2-e0a1-43c0-9f5c-07c41e8b96ab",
+      "ad9cff88-710c-47aa-babf-7dec34975d60",
+      "a971008f-dc4c-43c2-9e2b-9227f25cbbce",
+      "f3e00d2b-cd36-4dfb-a257-39a084b19f4b",
+      "67ca67ab-cb96-4424-98f2-fd1f3546de0b",
+      "fa9707b4-f6b9-4cee-82eb-c475aa5449b8"
+    ],
+    "totalRows": 198,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  },
+  "status": "PASS",
+  "source": [
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "86e74ed9760921575bda15b919dbb4c372cc19802d31a36ce5283d8e3655cc65"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "ec28c6c53901a9080c0a1a0797a3b80546e31b454501359ec330b46dfc5e5555"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "93aa9a1fdb02b1bb4c9ce84c827c069844a7d9c12334907b09054f88154cdd19"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "b3ecdae2a5335bfb8b999d6034883a6cd19a22ccc33e807db8f8ba5de0bc3e91"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "c4bd4134df4e2a85346c36a83cdf16911580acb6ee7146ea4775b1bfa08e03aa"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "sha256": "d740bb34be256eb91a5bfaa8d873d97ca810e5e31c8b6a584e7c992b596c57c3"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "c32c38f660abd91181ca9007795d54fd5a9c15d4bbe60eda995aa5cc9c8cc0eb"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "0676f3520803d2556459b7f0bec71643ceea3736075efb780b7750d7e516019a"
+    },
+    {
+      "path": "server/src/agent/approval-service.js",
+      "sha256": "2308f424add8a314fd1388dbafdcecb08551309e54116a5c24efa153bef97126"
+    },
+    {
+      "path": "server/src/agent/scope-policy.js",
+      "sha256": "d8f5eadba4caf9c691518ddb9a973de49e51e9040d66e1bf440b97fde2c7c5b7"
+    },
+    {
+      "path": "server/src/agent/test-runner.js",
+      "sha256": "996e40b5a21468e6e5a0dda98d38ecf91d0e837b4a478e595cf7e966e3821a4e"
+    },
+    {
+      "path": "server/src/persistence/tool-executions.js",
+      "sha256": "232baf217d72352f258e4a0ac3880f394f5a0a9390d2c5bd96fcaa6d3e8c0471"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "sha256": "e60ac6b1231f6939208bdd6a2adf440c77cfbba2d13cd2c464135358281e85b1"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "038c2f2f0577535b66db42f487d92a29e6a93a7de48dba5b68776cd701a3d090"
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "sha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "1950f96444fb9486a8c4e2a98b50314d663a309018661a7baacee02a84bae796"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "d132eca2c4b7505be6f7c44cea219b099ba5e135f6225a5c6e8bb4889e158406"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "c164a9d606a9dff281cec2efe6d2c8cb1a44e6923605aac88aa77a8587419178"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "a90ba35d857abbc785ca3f1465510ce6717e6272537fcd3c4607b7697faa0f25"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "f76e87225ece21d1e7f4378811d5f6a86ba85a1cd0a8ad494eaf93e185f9b3fd"
+    },
+    {
+      "path": "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "sha256": "171734a80724c39c578c6758f7c4ec6f3955d0330eed51dbf7d5f4b320603e8d"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-model.mjs",
+      "sha256": "669ef7b1536473da7de91d725450a5d141377ca50ece628b1eba2d196ef54016"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-protocol.mjs",
+      "sha256": "001fdaa1a3bccabef8d9d36115d1a3c8629ca86c8cc8ad104eb01f08f948df32"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-api.mjs",
+      "sha256": "b97d74674d57b62051730e8f14673861141de9af889a1743055626dd49bf4272"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-host-exec-browser.mjs",
+      "sha256": "a18995e9f0cb0927afb64d75d789138435d05fadc7f7cf2d61a74b28ba33d9dc"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-real.mjs",
+      "sha256": "f7036ab0ab59f24b4ce8d53468b48b1ed4ff3cc534c4b1dc199193e96f683465"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-architecture.mjs",
+      "sha256": "6cba1c455426f6fabcecc26099fb9f664f6915767abe0f7c813fa5489d76417a"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-host-exec-gates.mjs",
+      "sha256": "fc878134b7840ffaed5fcd06191e0db06084423f9a9d51b4295f78c6692f52d5"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "58e619ca8c84dadd4eb1d702f985963314fddeb8a7ff506ea722c552d3ebba9b"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "f2146f8b4a3f116eb97d17dc57eaae4bf3ee1a6db75c5087fc472cf6364329da"
+    }
+  ]
+}

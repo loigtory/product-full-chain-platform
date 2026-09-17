@@ -1,0 +1,493 @@
+{
+  "at": "2026-09-17T06:25:57.931Z",
+  "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+  "scope": "host-real",
+  "tests": [
+    {
+      "name": "Pinned connection and native-tool config verified without model generation",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual dynamic request matches independent item identity and exact read arguments",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual model file write passes live PG authorization and durable evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual cancellation persists before tool effect and awaits process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "Windows command isolation mechanism",
+      "status": "BLOCKED",
+      "error": "HOST_COMMAND_SANDBOX_UNVERIFIED: installed 0.154.0 policy lacks a read allowlist; setup/ACL changes are excluded. No command was dispatched."
+    }
+  ],
+  "errors": [],
+  "modelCalls": 3,
+  "data": "Deterministic owned synthetic fixtures. Owner is this run; no customer data.",
+  "acceptance": "PENDING",
+  "cleanup": {
+    "workspaceRemoved": true,
+    "helpers": "Closed in finally"
+  },
+  "preflight": {
+    "status": "READ_ONLY_PRECHECK_READY",
+    "expectedVersion": "0.154.0",
+    "actualVersion": "0.154.0",
+    "initialized": true,
+    "accountMode": "apiKey",
+    "model": "gpt-6-astra",
+    "providerConfirmed": true,
+    "instanceIsolation": "CONFIG_VERIFIED",
+    "toolSandbox": "NOT_VERIFIED",
+    "realTools": false,
+    "modelTurns": 0,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "isolationChecks": {
+      "disabledFeatures": {
+        "apps": true,
+        "plugins": true,
+        "hooks": true,
+        "multi_agent": true,
+        "browser_use": true,
+        "computer_use": true,
+        "skill_mcp_dependency_install": true
+      },
+      "enabledMcpServers": 0,
+      "readOnly": true,
+      "workspaceWrite": false,
+      "webSearchDisabled": true
+    },
+    "selectedModel": "gpt-6-astra",
+    "modelListed": true,
+    "textIsolation": {
+      "shellDisabled": true,
+      "patchDisabled": true,
+      "codeModeDisabled": true,
+      "codeHostMatchesMode": true,
+      "execDisabled": true,
+      "imageToolDisabled": true,
+      "memoriesDisabled": true,
+      "memoryInputDisabled": true,
+      "memoryOutputDisabled": true,
+      "projectInstructionsDisabled": true
+    },
+    "binarySha256": "be96b992178b1e467c225800da0d65f2c86d5eba1ef0b14632f65db381cbdfde",
+    "process": {
+      "pid": 17440,
+      "closed": true,
+      "exitCode": 0
+    },
+    "processes": [
+      {
+        "pid": 17440,
+        "closed": true,
+        "exitCode": 0
+      }
+    ],
+    "stderrBytes": 0,
+    "childExited": true
+  },
+  "preflightExit": {
+    "status": "READ_ONLY_PRECHECK_READY",
+    "expectedVersion": "0.154.0",
+    "actualVersion": "0.154.0",
+    "initialized": true,
+    "accountMode": "apiKey",
+    "model": "gpt-6-astra",
+    "providerConfirmed": true,
+    "instanceIsolation": "CONFIG_VERIFIED",
+    "toolSandbox": "NOT_VERIFIED",
+    "realTools": false,
+    "modelTurns": 0,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "isolationChecks": {
+      "disabledFeatures": {
+        "apps": true,
+        "plugins": true,
+        "hooks": true,
+        "multi_agent": true,
+        "browser_use": true,
+        "computer_use": true,
+        "skill_mcp_dependency_install": true
+      },
+      "enabledMcpServers": 0,
+      "readOnly": true,
+      "workspaceWrite": false,
+      "webSearchDisabled": true
+    },
+    "selectedModel": "gpt-6-astra",
+    "modelListed": true,
+    "textIsolation": {
+      "shellDisabled": true,
+      "patchDisabled": true,
+      "codeModeDisabled": true,
+      "codeHostMatchesMode": true,
+      "execDisabled": true,
+      "imageToolDisabled": true,
+      "memoriesDisabled": true,
+      "memoryInputDisabled": true,
+      "memoryOutputDisabled": true,
+      "projectInstructionsDisabled": true
+    },
+    "binarySha256": "be96b992178b1e467c225800da0d65f2c86d5eba1ef0b14632f65db381cbdfde",
+    "process": {
+      "pid": 17440,
+      "closed": true,
+      "exitCode": 0
+    },
+    "processes": [
+      {
+        "pid": 17440,
+        "closed": true,
+        "exitCode": 0
+      }
+    ],
+    "stderrBytes": 0,
+    "childExited": true
+  },
+  "dynamic": {
+    "calls": [
+      {
+        "requestId": "0",
+        "callId": "exec-19fa5f0f-3749-4f01-bc1b-f20306155d83",
+        "itemId": "exec-19fa5f0f-3749-4f01-bc1b-f20306155d83",
+        "threadId": "01a0ae0b-1f53-77a0-a936-f273ee6de409",
+        "turnId": "01a0ae0b-1fe1-7f31-b6f0-42c75264e569",
+        "tool": "pfc_read_file",
+        "argumentsHash": "22962ab19e16bcc6c87760cc2a0d8706197bbeeb6864f00087d158bb65eac2ed"
+      }
+    ],
+    "events": [
+      {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "type": "dynamicToolCall",
+            "id": "exec-19fa5f0f-3749-4f01-bc1b-f20306155d83",
+            "namespace": null,
+            "tool": "pfc_read_file",
+            "arguments": {
+              "path": "example.txt"
+            },
+            "status": "inProgress",
+            "contentItems": null,
+            "success": null,
+            "durationMs": null
+          },
+          "threadId": "01a0ae0b-1f53-77a0-a936-f273ee6de409",
+          "turnId": "01a0ae0b-1fe1-7f31-b6f0-42c75264e569",
+          "startedAtMs": 1789626365735
+        }
+      },
+      {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "type": "dynamicToolCall",
+            "id": "exec-19fa5f0f-3749-4f01-bc1b-f20306155d83",
+            "namespace": null,
+            "tool": "pfc_read_file",
+            "arguments": {
+              "path": "example.txt"
+            },
+            "status": "completed",
+            "contentItems": [
+              {
+                "type": "inputText",
+                "text": "synthetic baseline\n"
+              }
+            ],
+            "success": true,
+            "durationMs": 2
+          },
+          "threadId": "01a0ae0b-1f53-77a0-a936-f273ee6de409",
+          "turnId": "01a0ae0b-1fe1-7f31-b6f0-42c75264e569",
+          "completedAtMs": 1789626365738
+        }
+      }
+    ],
+    "resultHash": "17c68053195aa29879707dfb24d75e217eef088b68a4bdda1e3a9987917e263d",
+    "readback": {
+      "instructionSourceCount": 1,
+      "disabledSkillCount": 56,
+      "modelMatches": true,
+      "sandboxType": "readOnly",
+      "networkAccess": false,
+      "instructionSources": [
+        {
+          "kind": "GLOBAL_INSTRUCTIONS",
+          "file": "AGENTS.md",
+          "bytes": 28443,
+          "sha256": "b77f388f6dcbbc729550c5a3ac73d91a68264e33421173ba02c337390d3f892c"
+        }
+      ]
+    }
+  },
+  "modelExit": {
+    "status": "READ_ONLY_PRECHECK_READY",
+    "expectedVersion": "0.154.0",
+    "actualVersion": "0.154.0",
+    "initialized": true,
+    "accountMode": "apiKey",
+    "model": "gpt-6-astra",
+    "providerConfirmed": true,
+    "instanceIsolation": "CONFIG_VERIFIED",
+    "toolSandbox": "NOT_VERIFIED",
+    "realTools": false,
+    "modelTurns": 0,
+    "connectionFingerprint": "b585d723d61d18a815b77a2d81627cd71038d1f8cf7f4446f56e48eba4937292",
+    "isolationChecks": {
+      "disabledFeatures": {
+        "apps": true,
+        "plugins": true,
+        "hooks": true,
+        "multi_agent": true,
+        "browser_use": true,
+        "computer_use": true,
+        "skill_mcp_dependency_install": true
+      },
+      "enabledMcpServers": 0,
+      "readOnly": true,
+      "workspaceWrite": false,
+      "webSearchDisabled": true
+    },
+    "selectedModel": "gpt-6-astra",
+    "modelListed": true,
+    "textIsolation": {
+      "shellDisabled": true,
+      "patchDisabled": true,
+      "codeModeDisabled": true,
+      "codeHostMatchesMode": true,
+      "execDisabled": true,
+      "imageToolDisabled": true,
+      "memoriesDisabled": true,
+      "memoryInputDisabled": true,
+      "memoryOutputDisabled": true,
+      "projectInstructionsDisabled": true
+    },
+    "binarySha256": "be96b992178b1e467c225800da0d65f2c86d5eba1ef0b14632f65db381cbdfde",
+    "process": {
+      "pid": 27832,
+      "closed": true,
+      "exitCode": 0
+    },
+    "processes": [
+      {
+        "pid": 27832,
+        "closed": true,
+        "exitCode": 0
+      }
+    ],
+    "stderrBytes": 0,
+    "childExited": true
+  },
+  "budget": {
+    "turns": 6,
+    "reservedSeconds": 71,
+    "maxTurns": 8,
+    "maxSeconds": 2400,
+    "remaining": 2,
+    "packageId": "48-ai-tools-host-exec-20260917",
+    "unresolved": 0
+  },
+  "actualWrite": {
+    "calls": [
+      {
+        "tool": "pfc_read_file",
+        "callId": "exec-669b9c82-41dc-44a4-9bca-b8bfe2b88fa4",
+        "itemId": "exec-669b9c82-41dc-44a4-9bca-b8bfe2b88fa4"
+      },
+      {
+        "tool": "pfc_write_file",
+        "callId": "exec-9ce3accb-c3fe-4ca9-a535-19d7d2709d98",
+        "itemId": "exec-9ce3accb-c3fe-4ca9-a535-19d7d2709d98"
+      }
+    ],
+    "fileHash": "969563942d8e23a0fc042e8c166ce23ef1cb8847f264f3b7b61591a9c614ed70",
+    "toolRows": 2,
+    "jobId": "f06d46ce-5a80-47d8-9094-29db5407bc6e",
+    "process": {
+      "pid": 34676,
+      "closed": true,
+      "exitCode": 0
+    }
+  },
+  "databaseCleanup": [
+    {
+      "schema": "codex_test_ai_fix_20260916_api",
+      "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+      "createdIds": [
+        "a8c74201-e3e6-4d8a-98ac-28d6d73f7495",
+        "ed231245-9934-4b2b-a33c-cb50c06d2e09",
+        "fc9e8153-a256-4536-bc8b-ad4115fbea47",
+        "f06d46ce-5a80-47d8-9094-29db5407bc6e"
+      ],
+      "totalRows": 25,
+      "remaining": 0,
+      "externalSchemaMetadataUnchanged": true,
+      "poolsClosed": true
+    },
+    {
+      "schema": "codex_test_ai_fix_20260916_api",
+      "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+      "createdIds": [
+        "0cbffcc3-fbb1-427f-b626-e40b99f9061d",
+        "577e00c2-f064-49ec-a62f-33e665503f4c",
+        "44bfa177-153f-4d6a-8ff1-047965b625bf",
+        "c9526e4b-28b8-47e9-998f-666fd649e35f"
+      ],
+      "totalRows": 19,
+      "remaining": 0,
+      "externalSchemaMetadataUnchanged": true,
+      "poolsClosed": true
+    }
+  ],
+  "actualCancel": {
+    "calls": [
+      {
+        "tool": "pfc_read_file",
+        "callId": "exec-c13f0b53-ea42-45d8-bb41-b6eec5c556fb",
+        "itemId": "exec-c13f0b53-ea42-45d8-bb41-b6eec5c556fb"
+      }
+    ],
+    "fileHash": "948dc3d9fdcf63692f20198ccbb9cfecc52a40793cb3b651c677c3a245cb68ce",
+    "toolRows": 0,
+    "jobId": "c9526e4b-28b8-47e9-998f-666fd649e35f",
+    "process": {
+      "pid": 34196,
+      "closed": true,
+      "exitCode": 0
+    }
+  },
+  "status": "BLOCKED",
+  "source": [
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "86e74ed9760921575bda15b919dbb4c372cc19802d31a36ce5283d8e3655cc65"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "ec28c6c53901a9080c0a1a0797a3b80546e31b454501359ec330b46dfc5e5555"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "93aa9a1fdb02b1bb4c9ce84c827c069844a7d9c12334907b09054f88154cdd19"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "b3ecdae2a5335bfb8b999d6034883a6cd19a22ccc33e807db8f8ba5de0bc3e91"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "c4bd4134df4e2a85346c36a83cdf16911580acb6ee7146ea4775b1bfa08e03aa"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "sha256": "d740bb34be256eb91a5bfaa8d873d97ca810e5e31c8b6a584e7c992b596c57c3"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "c32c38f660abd91181ca9007795d54fd5a9c15d4bbe60eda995aa5cc9c8cc0eb"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "0676f3520803d2556459b7f0bec71643ceea3736075efb780b7750d7e516019a"
+    },
+    {
+      "path": "server/src/agent/approval-service.js",
+      "sha256": "2308f424add8a314fd1388dbafdcecb08551309e54116a5c24efa153bef97126"
+    },
+    {
+      "path": "server/src/agent/scope-policy.js",
+      "sha256": "d8f5eadba4caf9c691518ddb9a973de49e51e9040d66e1bf440b97fde2c7c5b7"
+    },
+    {
+      "path": "server/src/agent/test-runner.js",
+      "sha256": "996e40b5a21468e6e5a0dda98d38ecf91d0e837b4a478e595cf7e966e3821a4e"
+    },
+    {
+      "path": "server/src/persistence/tool-executions.js",
+      "sha256": "232baf217d72352f258e4a0ac3880f394f5a0a9390d2c5bd96fcaa6d3e8c0471"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "sha256": "e60ac6b1231f6939208bdd6a2adf440c77cfbba2d13cd2c464135358281e85b1"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "038c2f2f0577535b66db42f487d92a29e6a93a7de48dba5b68776cd701a3d090"
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "sha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "1950f96444fb9486a8c4e2a98b50314d663a309018661a7baacee02a84bae796"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "d132eca2c4b7505be6f7c44cea219b099ba5e135f6225a5c6e8bb4889e158406"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "c164a9d606a9dff281cec2efe6d2c8cb1a44e6923605aac88aa77a8587419178"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "a90ba35d857abbc785ca3f1465510ce6717e6272537fcd3c4607b7697faa0f25"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "f76e87225ece21d1e7f4378811d5f6a86ba85a1cd0a8ad494eaf93e185f9b3fd"
+    },
+    {
+      "path": "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "sha256": "171734a80724c39c578c6758f7c4ec6f3955d0330eed51dbf7d5f4b320603e8d"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-model.mjs",
+      "sha256": "669ef7b1536473da7de91d725450a5d141377ca50ece628b1eba2d196ef54016"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-protocol.mjs",
+      "sha256": "001fdaa1a3bccabef8d9d36115d1a3c8629ca86c8cc8ad104eb01f08f948df32"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-api.mjs",
+      "sha256": "b97d74674d57b62051730e8f14673861141de9af889a1743055626dd49bf4272"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/verify-ai-tools-host-exec-browser.mjs",
+      "sha256": "a18995e9f0cb0927afb64d75d789138435d05fadc7f7cf2d61a74b28ba33d9dc"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-real.mjs",
+      "sha256": "f7036ab0ab59f24b4ce8d53468b48b1ed4ff3cc534c4b1dc199193e96f683465"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-architecture.mjs",
+      "sha256": "6cba1c455426f6fabcecc26099fb9f664f6915767abe0f7c813fa5489d76417a"
+    },
+    {
+      "path": "server/scripts/run-ai-tools-host-exec-gates.mjs",
+      "sha256": "fc878134b7840ffaed5fcd06191e0db06084423f9a9d51b4295f78c6692f52d5"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "58e619ca8c84dadd4eb1d702f985963314fddeb8a7ff506ea722c552d3ebba9b"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "f2146f8b4a3f116eb97d17dc57eaae4bf3ee1a6db75c5087fc472cf6364329da"
+    }
+  ]
+}

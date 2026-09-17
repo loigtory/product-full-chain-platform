@@ -46,6 +46,7 @@ function createControl() {
           'AGENT_LEASE_LOST',
           'TURN_CONNECTION_LOST',
           'PROCESS_EXIT_UNCONFIRMED',
+          'TOOL_EFFECT_UNCONFIRMED',
         ].includes(code)
       )
         return 'UNKNOWN';

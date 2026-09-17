@@ -255,6 +255,14 @@ async function recover(client, db, expiredOwner = null) {
     )
   ).rows;
   for (const job of rows) {
+    await client.query(
+      `UPDATE "${db.schema}".tool_executions SET state='UNKNOWN',evidence=COALESCE(evidence,'{}'::jsonb) || $2::jsonb WHERE job_id=$1 AND state='RUNNING'`,
+      [job.id, JSON.stringify({ code: 'WORKER_LOST_EFFECT_UNCONFIRMED' })],
+    );
+    await client.query(
+      `UPDATE "${db.schema}".agent_approvals SET state='EXPIRED',decided_at=now() WHERE job_id=$1 AND state='PENDING'`,
+      [job.id],
+    );
     const state = job.dispatched_at
       ? 'UNKNOWN'
       : job.result?.cancelRequested
@@ -294,6 +302,7 @@ async function find(client, db, ctx, reqId, id) {
   ).rows[0];
 }
 module.exports = {
+  bindToolTurn,
   tables,
   assertReady,
   enqueue,
@@ -308,3 +317,16 @@ module.exports = {
   find,
   requestCancel,
 };
+
+async function bindToolTurn(client, db, job, threadId, turnId) {
+  if (
+    job.result?.toolThreadId &&
+    (job.result.toolThreadId !== threadId || job.result.toolTurnId !== turnId)
+  )
+    fail('TOOL_IDENTITY_MISMATCH');
+  if (job.result?.toolThreadId) return;
+  await client.query(
+    `UPDATE "${db.schema}".agent_jobs SET result=COALESCE(result,'{}'::jsonb) || $1::jsonb WHERE id=$2`,
+    [JSON.stringify({ toolThreadId: threadId, toolTurnId: turnId }), job.id],
+  );
+}

@@ -1,0 +1,36 @@
+{
+  "at": "2026-09-17T05:49:17.931Z",
+  "status": "READY",
+  "source": "deterministic synthetic factory",
+  "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+  "owner": "current task",
+  "acceptor": "product owner pending",
+  "scenarios": [
+    {
+      "scenario": "approved read/write then independent file and tool_executions readback",
+      "risk": "unbound effects",
+      "assertions": "exact hashes, same job/approval, success evidence"
+    },
+    {
+      "scenario": "wrong tenant/nonmember/viewer/revoked owner/closed phase/expired plan/cancelled job",
+      "risk": "stale authority",
+      "assertions": "no file changes and no successful tool rows"
+    },
+    {
+      "scenario": "reused call/arguments/path traversal/hardlink/external edit",
+      "risk": "replay and escaping scope",
+      "assertions": "deny, no overwrite, no arbitrary execution"
+    },
+    {
+      "scenario": "006 and007 original API plus backup/5549 restore",
+      "risk": "compatibility",
+      "assertions": "unchanged original assertions"
+    }
+  ],
+  "isolation": "three exact schemas and owned runtime roots from authorization",
+  "createdIds": "recorded per factory report",
+  "cleanup": "verify OID/comment/role/prefix/row limits; drop only owned schema; verify zero and close helpers; PG restore Stopped",
+  "sensitive": "no customer files, credentials only private ignored config, redacted reports",
+  "automation": "model/protocol/API/browser/real and old gates",
+  "shell": "BLOCKED pending OS enforcement; no effect probe without safe mechanism"
+}

@@ -11,6 +11,10 @@ const LEGACY = path.join(
   repo,
   '.local/ai-tools-integration-20260914/preflight/configs/model-budget.json',
 );
+const HOST_LEDGER = path.join(
+  repo,
+  '.local/ai-tools-host-exec-20260917/budget.json',
+);
 const fault = (code) => Object.assign(new Error(code), { code });
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 function createBudget({
@@ -18,9 +22,26 @@ function createBudget({
   maxTurns = 8,
   maxSeconds = 2400,
   packageId = '46-ai-tools-remediation-20260916',
+  maxConcurrency = Infinity,
 } = {}) {
   const full = path.resolve(ledger);
-  const allowedRoot = path.join(repo, '.local/ai-tools-remediation-20260916');
+  const host = packageId === '48-ai-tools-host-exec-20260917';
+  if (host) maxConcurrency = 1;
+  const hostRoot = path.join(repo, '.local/ai-tools-host-exec-20260917');
+  const hostRelative = path.relative(hostRoot, full);
+  const hostFixture =
+    packageId === 'unit-fixture' &&
+    maxTurns === 2 &&
+    maxSeconds === 600 &&
+    /[/\\]unit-budget[/\\]budget\.json$/.test(full) &&
+    !hostRelative.startsWith('..') &&
+    !path.isAbsolute(hostRelative);
+  const allowedRoot = path.join(
+    repo,
+    host || hostFixture
+      ? '.local/ai-tools-host-exec-20260917'
+      : '.local/ai-tools-remediation-20260916',
+  );
   const rel = path.relative(allowedRoot, full);
   if (!rel || rel.startsWith('..') || path.isAbsolute(rel))
     throw fault('BUDGET_TARGET_INVALID');
@@ -107,6 +128,11 @@ function createBudget({
     return locked(() => {
       const b = load(),
         total = totals(b);
+      if (
+        b.attempts.filter((a) => a.status === 'DISPATCHING').length >=
+        maxConcurrency
+      )
+        throw fault('MODEL_CONCURRENCY_LIMIT');
       if (total.turns >= maxTurns) throw fault('MODEL_TURN_LIMIT');
       if (total.reservedSeconds + 300 > maxSeconds)
         throw fault('MODEL_TIME_LIMIT');
@@ -182,4 +208,15 @@ function createBudget({
   };
 }
 const active = createBudget();
-module.exports = { ...active, LEDGER, createBudget };
+module.exports = {
+  ...active,
+  LEDGER,
+  HOST_LEDGER,
+  createBudget,
+  hostBudget: () =>
+    createBudget({
+      ledger: HOST_LEDGER,
+      packageId: '48-ai-tools-host-exec-20260917',
+      maxConcurrency: 1,
+    }),
+};

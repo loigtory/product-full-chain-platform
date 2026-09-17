@@ -22,7 +22,7 @@ async function create(client, db, ctx, jobId, ownerId, request) {
     )
       fail('APPROVAL_REQUEST_INVALID', 400);
   if (
-    !['command', 'fileChange'].includes(request.kind) ||
+    !['command', 'fileChange', 'fileRead'].includes(request.kind) ||
     !/^[a-f0-9]{64}$/.test(request.contextHash || '') ||
     request.contextHash !== job.input.contextHash
   )
@@ -119,12 +119,15 @@ async function decide(client, db, ctx, req, id, input) {
     item.input.stage,
   );
   if (current.hash !== item.input.contextHash) fail('AGENT_CONTEXT_CHANGED');
-  require('../agent/exec-control').freezeForActor(
-    { ...item.input, control: { ...item.input.control, confirmed: true } },
-    ctx,
-    req,
-    current.hash,
-  );
+  // Denial grants no filesystem authority. An earlier approved host write may
+  // have advanced the file baseline; that must not prevent refusing new scope.
+  if (state === 'APPROVED')
+    require('../agent/exec-control').freezeForActor(
+      { ...item.input, control: { ...item.input.control, confirmed: true } },
+      ctx,
+      req,
+      current.hash,
+    );
   return (
     await client.query(
       `UPDATE "${db.schema}".agent_approvals SET state=$1,decided_by=$2,decided_at=now() WHERE id=$3 AND state='PENDING' RETURNING *`,

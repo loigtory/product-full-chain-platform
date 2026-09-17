@@ -1,0 +1,21 @@
+{
+  "retainedRuntime": "only start/stop scripts and start-result ownership record; no profile, model workspace or restore files",
+  "listeners": [
+    {
+      "port": 5432,
+      "address": "127.0.0.1"
+    }
+  ],
+  "ownedTestHelpers": [],
+  "at": "2026-09-17T06:47:02.5376294+00:00",
+  "reason": "Windows RunAs cancelled; waiting user response; no bypass",
+  "status": "BLOCKED_SERVICE_RESTORE",
+  "service": {
+    "purpose": "temporary approved isolated PG tests",
+    "stopCommand": "Stop-Service -Name 'pfc-postgresql-18' (administrator; recheck other clients first)",
+    "initial": "Stopped",
+    "pid": 24432,
+    "name": "pfc-postgresql-18",
+    "state": "Running"
+  }
+}

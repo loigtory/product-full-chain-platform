@@ -28,7 +28,7 @@ export function instanceArguments(disabledMcpNames = [], mode = 'text') {
   )
     throw error('MCP_NAME_INVALID');
   // preflight 只读预检模式：instance 参数与 text 对齐（全禁工具、只读），供连接探测/取指纹。
-  if (!['preflight', 'text', 'exec'].includes(mode))
+  if (!['preflight', 'text', 'exec', 'host'].includes(mode))
     throw error('INSTANCE_MODE_INVALID');
   const values = [
     ...requiredDisabled.map((name) => `features.${name}=false`),
@@ -58,8 +58,23 @@ export function instanceArguments(disabledMcpNames = [], mode = 'text') {
     values.push('features.apply_patch_freeform=true');
   } else {
     values.push('features.code_mode=false');
-    values.push('features.code_mode_host=false');
+    values.push(
+      mode === 'host'
+        ? 'features.code_mode_host=true'
+        : 'features.code_mode_host=false',
+    );
   }
+  if (mode === 'host')
+    values.push(
+      'features.shell_tool=false',
+      'features.unified_exec=false',
+      'features.apply_patch_freeform=false',
+      'tools.view_image=false',
+      'features.memories=false',
+      'memories.use_memories=false',
+      'memories.generate_memories=false',
+      'project_doc_max_bytes=0',
+    );
   return ['app-server', '--stdio', ...values.flatMap((value) => ['-c', value])];
 }
 
@@ -219,8 +234,10 @@ export class PreflightRpc {
     this.stderrBytes = 0;
     this.mode = options.mode ?? 'preflight';
     this.onNotification = options.onNotification ?? (() => {});
+    this.onToolCall = options.onToolCall;
+    this.serverRequests = new Map();
     const args = instanceArguments(disabledMcpNames, this.mode);
-    if (this.mode === 'text') {
+    if (['text', 'host'].includes(this.mode)) {
       for (const value of [
         'features.shell_tool=false',
         'features.unified_exec=false',
@@ -294,7 +311,58 @@ export class PreflightRpc {
         Object.hasOwn(message, 'id') &&
         typeof message.method === 'string'
       ) {
-        // No approval, login, tool or external callback is permitted during this probe.
+        if (
+          this.mode === 'host' &&
+          message.method === 'item/tool/call' &&
+          typeof this.onToolCall === 'function'
+        ) {
+          const key = JSON.stringify(message.id),
+            fingerprint = JSON.stringify(message);
+          const prior = this.serverRequests.get(key);
+          if (prior && prior.fingerprint !== fingerprint) {
+            this.write({
+              id: message.id,
+              error: { code: -32602, message: 'PFC_REQUEST_ID_CONFLICT' },
+            });
+            continue;
+          }
+          if (!prior && this.serverRequests.size >= 100) {
+            this.write({
+              id: message.id,
+              error: { code: -32602, message: 'PFC_TOOL_LIMIT' },
+            });
+            continue;
+          }
+          const entry = prior || {
+            fingerprint,
+            result: Promise.resolve().then(() => this.onToolCall(message)),
+          };
+          this.serverRequests.set(key, entry);
+          entry.result
+            .then(
+              (result) => {
+                if (!this.closed) this.write({ id: message.id, result });
+              },
+              () => {
+                if (!this.closed)
+                  this.write({
+                    id: message.id,
+                    result: {
+                      success: false,
+                      contentItems: [
+                        {
+                          type: 'inputText',
+                          text: 'PFC_TOOL_REQUEST_REJECTED',
+                        },
+                      ],
+                    },
+                  });
+              },
+            )
+            .catch(() => {});
+          continue;
+        }
+        // Preflight and TEXT never grant a server request.
         this.write({
           id: message.id,
           error: { code: -32601, message: 'PFC_PREFLIGHT_REQUEST_DENIED' },
@@ -328,6 +396,8 @@ export class PreflightRpc {
   }
 
   request(method, params) {
+    if (this.mode === 'host' && method === 'command/exec')
+      return Promise.reject(error('HOST_COMMAND_SANDBOX_UNVERIFIED'));
     if (
       ![
         'initialize',
@@ -337,22 +407,29 @@ export class PreflightRpc {
         'account/rateLimits/read',
       ].includes(method) &&
       !(
-        ['text', 'exec'].includes(this.mode) &&
+        ['text', 'exec', 'host'].includes(this.mode) &&
         [
           'skills/list',
           'thread/start',
           'turn/start',
           'turn/interrupt',
         ].includes(method)
+      ) &&
+      !(
+        this.mode === 'host' &&
+        ['command/exec', 'command/exec/terminate'].includes(method)
       )
     )
       return Promise.reject(error('PREFLIGHT_METHOD_NOT_ALLOWED'));
     const id = this.nextId++;
     return new Promise((resolve, reject) => {
-      const timer = setTimeout(() => {
-        this.pending.delete(id);
-        reject(error('APP_SERVER_REQUEST_TIMEOUT'));
-      }, 15000);
+      const timer = setTimeout(
+        () => {
+          this.pending.delete(id);
+          reject(error('APP_SERVER_REQUEST_TIMEOUT'));
+        },
+        method === 'command/exec' ? 125000 : 15000,
+      );
       this.pending.set(id, { resolve, reject, timer, method });
       try {
         this.write({ id, method, params });
@@ -411,6 +488,7 @@ export async function openProtocol({
   expectedConnectionFingerprint,
   mode = 'preflight',
   onNotification,
+  onToolCall,
 }) {
   if (
     !binary ||
@@ -419,7 +497,7 @@ export async function openProtocol({
     !path.isAbsolute(cwd) ||
     path.basename(binary).toLowerCase() !== 'codex.exe' ||
     !/^[a-f0-9]{64}$/.test(expectedSha256 ?? '') ||
-    !['preflight', 'text', 'exec'].includes(mode) ||
+    !['preflight', 'text', 'exec', 'host'].includes(mode) ||
     (mode !== 'preflight' &&
       !/^[a-f0-9]{64}$/.test(expectedConnectionFingerprint ?? ''))
   )
@@ -435,6 +513,7 @@ export async function openProtocol({
   const roots = [
     'ai-tools-integration-20260914',
     'ai-tools-remediation-20260916',
+    'ai-tools-host-exec-20260917',
   ].map((name) => path.resolve(repoRoot, '.local', name));
   const actualCwd = realpathSync(cwd);
   const allowed = roots.find(
@@ -469,6 +548,7 @@ export async function openProtocol({
   const rpc = new PreflightRpc(binary, actualCwd, disabledMcpNames, {
     mode,
     onNotification,
+    onToolCall,
   });
   const processes = [];
   const close = async () => {
@@ -487,7 +567,7 @@ export async function openProtocol({
     });
     rpc.write({ method: 'initialized', params: {} });
     const config = await rpc.request('config/read', {
-      includeLayers: mode === 'text',
+      includeLayers: ['text', 'host'].includes(mode),
       cwd: actualCwd,
     });
     const account = await rpc.request('account/read', { refreshToken: false });
@@ -516,10 +596,13 @@ export async function openProtocol({
     }
     if (result.status !== 'READ_ONLY_PRECHECK_READY')
       throw Object.assign(error(result.status), { preflight: result });
-    if (mode === 'text') {
+    if (['text', 'host'].includes(mode)) {
       const cfg = config.config;
       result.textIsolation = {
         shellDisabled: cfg.features?.shell_tool === false,
+        patchDisabled: cfg.features?.apply_patch_freeform === false,
+        codeModeDisabled: cfg.features?.code_mode === false,
+        codeHostMatchesMode: cfg.features?.code_mode_host === (mode === 'host'),
         execDisabled: cfg.features?.unified_exec === false,
         imageToolDisabled: imageToolDisabled(config),
         memoriesDisabled: cfg.features?.memories === false,

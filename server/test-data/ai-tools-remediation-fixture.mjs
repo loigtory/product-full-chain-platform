@@ -8,16 +8,22 @@ export const repoRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '../..',
 );
-export const runId =
-  'CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a';
+const hostPackage = process.env.PFC_HOST_EXEC_TEST_PACKAGE === '48';
+export const runId = hostPackage
+  ? 'CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9'
+  : 'CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a';
 export const evidenceRoot = path.join(
   repoRoot,
-  'docs/quality-gate/reports/ai-tools-remediation-20260916',
+  hostPackage
+    ? 'docs/quality-gate/reports/ai-tools-host-exec-20260917'
+    : 'docs/quality-gate/reports/ai-tools-remediation-20260916',
   runId,
 );
 export const workRoot = path.join(
   repoRoot,
-  '.local/ai-tools-remediation-20260916',
+  hostPackage
+    ? '.local/ai-tools-host-exec-20260917'
+    : '.local/ai-tools-remediation-20260916',
   runId,
 );
 export const hash = (value) => createHash('sha256').update(value).digest('hex');
@@ -70,7 +76,13 @@ export function saveReport(report, prefix) {
     pkg.entries.push(
       ...JSON.parse(fs.readFileSync(amendmentFile, 'utf8')).files,
     );
-  report.source = pkg.entries
+  if (hostPackage)
+    pkg.entries.push(
+      ...JSON.parse(
+        fs.readFileSync(path.join(evidenceRoot, 'authorization.json')),
+      ).entries,
+    );
+  report.source = [...new Map(pkg.entries.map((e) => [e.path, e])).values()]
     .filter((e) => fs.existsSync(path.join(repoRoot, e.path)))
     .map((e) => ({
       path: e.path,

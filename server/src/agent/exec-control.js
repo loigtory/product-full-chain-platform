@@ -131,13 +131,24 @@ function validatePlan(input) {
 // 返回 Map(relPath → { size, sha256, content })。
 function checkedWorkspace(workspace) {
   const full = path.resolve(String(workspace || ''));
-  const root = path.resolve(
+  let root = path.resolve(
     __dirname,
     '../../../.local/ai-tools-remediation-20260916',
   );
+  const hostRoot = path.resolve(
+    __dirname,
+    '../../../.local/ai-tools-host-exec-20260917',
+  );
+  const hostRel = path.relative(hostRoot, full);
+  const host = !hostRel.startsWith('..') && !path.isAbsolute(hostRel);
+  if (host) root = hostRoot;
   const rel = path.relative(root, full).split(path.sep);
   if (
-    !/^CODEx_TEST_AI_FIX_20260916_[a-f0-9-]{36}$/.test(rel[0] || '') ||
+    !(
+      host
+        ? /^CODEx_TEST_AI_HOST_20260917_[a-f0-9-]{36}$/
+        : /^CODEx_TEST_AI_FIX_20260916_[a-f0-9-]{36}$/
+    ).test(rel[0] || '') ||
     rel[1] !== 'workspace' ||
     rel.includes('..') ||
     path.isAbsolute(path.relative(root, full))
@@ -167,7 +178,8 @@ function scanWorkspace(workspace, maxFiles = 50, maxBytes = 5242880) {
       const full = path.join(dir, e.name),
         key = rel ? rel + '/' + e.name : e.name;
       const stat = lstatSync(full);
-      if (stat.isSymbolicLink()) fail('WORKSPACE_LINK_DENIED');
+      if (stat.isSymbolicLink() || (stat.isFile() && stat.nlink !== 1))
+        fail('WORKSPACE_LINK_DENIED');
       if (stat.isDirectory()) {
         if (e.name !== '.git' && e.name !== 'node_modules') walk(full, key);
         continue;

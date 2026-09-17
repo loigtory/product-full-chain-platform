@@ -47,7 +47,10 @@ export function verifyEvidence(report, expected) {
 }
 // The legacy gates share a historical output folder. A scoped child-process preload
 // redirects only that folder into this run; test code and assertions stay unchanged.
-if (process.env.PFC_REMEDIATION_EVIDENCE === '46') {
+if (
+  process.env.PFC_REMEDIATION_EVIDENCE === '46' ||
+  process.env.PFC_HOST_EXEC_TEST_PACKAGE === '48'
+) {
   const fs = await import('node:fs');
   const promises = await import('node:fs/promises');
   const path = await import('node:path');
@@ -66,7 +69,9 @@ if (process.env.PFC_REMEDIATION_EVIDENCE === '46') {
     throw Error('LEGACY_ATTEMPT_INVALID');
   const target = path.join(
     repo,
-    'docs/quality-gate/reports/ai-tools-remediation-20260916/CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a/legacy',
+    process.env.PFC_HOST_EXEC_TEST_PACKAGE === '48'
+      ? 'docs/quality-gate/reports/ai-tools-host-exec-20260917/CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9/legacy'
+      : 'docs/quality-gate/reports/ai-tools-remediation-20260916/CODEx_TEST_AI_FIX_20260916_2467aece-52f1-4f7c-b1de-844b759e1b1a/legacy',
     attempt || '',
   );
   const mapped = (value) => {

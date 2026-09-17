@@ -1,6 +1,6 @@
 # 产品与技术规划：采用原版工作台交互基线
 
-> CURRENT HOST-EXEC IMPLEMENTATION CONFIRMED 2026-09-17: user approved option A with 继续. Execute exact31 source/test paths,seven docs including48,eight new serial turns in independent budget,renewed three schemas/ports and temporary service restoration. Run CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9 owns evidence. P0 protocol/sandbox proof -> P1 host TDD -> P2 PG/API/UI -> P3 bounded real calls -> P4 gates/cleanup/local commits. Preserve old proposal/evidence/ledgers. No push/main merge/subagents/SQL/dependency/system changes. Command path stays BLOCKED without Windows boundary proof; finish independent controls. Human acceptance PENDING;44 D2/D3/D6 deferred.
+> CURRENT HOST-EXEC PARTIAL / COMMAND_BLOCKED 2026-09-17：当前以 [48](48-宿主工具执行链实施与验收-20260917.md) 为准。已确认方案 A 的 31 路径中新增 12、修改 17、未改 2；文件控制/持久化审批/真实模型读写与取消已验证，公共 EXEC 保持关闭。18 项入口经同源码浏览器复跑后 16 PASS / 2 BLOCKED；31 指纹一致、4291 保护文件不变；独立额度 6/8 次、71 秒、未决 0。三个 schema/测试进程已清理，但 Windows RunAs 停止服务被取消，pfc-postgresql-18 仍 Running，等待用户处理管理员弹窗；不得称环境恢复完成或绕过。48 与本轮 evidence 为当前事实；下方 pending/proposal 段落为历史。人工验收 PENDING，44 D2/D3/D6/全 C4 延后。只做已授权本地 feature 收工，不 push/main 合并/系统变更/继续模型调用。
 
 > **2026-09-17 续接核查**：当前源码仍为227ca65。已核实本机动态工具/command-exec协议的七项结构，尚未证明实际隔离与执行。宿主工具补充方案已写入 [47](47-控制与验收修复实施检查点-20260916.md)，31路径/七文档/新8次调用及准确隔离目标续用均为待确认，未改业务源码或启服务；R1验收仍待定。
 

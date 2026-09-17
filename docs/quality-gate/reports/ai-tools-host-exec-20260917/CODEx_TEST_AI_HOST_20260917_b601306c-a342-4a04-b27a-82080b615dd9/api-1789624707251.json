@@ -1,0 +1,257 @@
+{
+  "at": "2026-09-17T05:58:25.512Z",
+  "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+  "scope": "host-api-pg",
+  "tests": [
+    {
+      "name": "Owner file read/write persists approval and tool evidence, independently matched to file hash",
+      "status": "PASS",
+      "details": {
+        "jobId": "468ae229-1a0f-4086-b144-0b8ac9af919f",
+        "toolRows": 2,
+        "fileRestored": true
+      }
+    },
+    {
+      "name": "revoked refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "MEMBER_INACTIVE",
+        "jobId": "c8b7460f-0e4b-4994-9f34-ec565922c0de"
+      }
+    },
+    {
+      "name": "viewer refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "FORBIDDEN",
+        "jobId": "8e9b191b-00d5-4f6f-948d-1bca25140d72"
+      }
+    },
+    {
+      "name": "nonmember refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "MEMBER_NOT_CONFIGURED",
+        "jobId": "f3afaa49-3db4-4b37-bf1a-0e5ee0cf90fc"
+      }
+    },
+    {
+      "name": "closed-phase refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "TOOL_IDENTITY_MISMATCH",
+        "jobId": "494a1429-1244-4628-8e75-1082508c6e75"
+      }
+    },
+    {
+      "name": "cancelled refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "TURN_CANCELLED",
+        "jobId": "46bbb33d-e185-4ad0-8752-88f40e896a07"
+      }
+    },
+    {
+      "name": "expired-lease refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "AGENT_LEASE_LOST",
+        "jobId": "8297cdd8-f256-49d3-ad39-8c72bca625ff"
+      }
+    },
+    {
+      "name": "context-changed refuses before filesystem effect",
+      "status": "PASS",
+      "details": {
+        "code": "AGENT_CONTEXT_CHANGED",
+        "jobId": "4b407ede-c0c0-45a2-85fa-39eea29211d4"
+      }
+    },
+    {
+      "name": "Out-of-scope request creates a visible pending decision; shell stays denied",
+      "status": "PASS",
+      "details": {
+        "jobId": "d570bbc7-cda1-42e7-ae7c-40e17ac2321c",
+        "states": [
+          "PENDING",
+          "DENIED"
+        ]
+      }
+    },
+    {
+      "name": "Restart never replays a durable RUNNING file operation as success",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "modelCalls": 0,
+  "data": "Deterministic owned synthetic fixtures. Owner is this run; no customer data.",
+  "acceptance": "PENDING",
+  "cleanup": {
+    "schema": "codex_test_ai_fix_20260916_api",
+    "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+    "createdIds": [
+      "5a6b9f51-355f-43cc-8299-7d80750857dc",
+      "1e64e8a8-34f9-42d0-a2c7-94479b1ba403",
+      "90383b3b-34ee-4c36-99ce-951182804b4a",
+      "468ae229-1a0f-4086-b144-0b8ac9af919f",
+      "5fd669fd-9b97-47d7-b826-e9c7156ccc10",
+      "a5aabd5f-a683-4261-8513-ff83997a49bb",
+      "ebbf172e-0355-4270-b36c-903f23d6ff6a",
+      "c8b7460f-0e4b-4994-9f34-ec565922c0de",
+      "c43e1fde-7f61-44dd-8215-53288fba806c",
+      "3ffe29c7-928a-4baa-a366-abbbb20a9845",
+      "11c3450b-edf8-40f2-bd6d-7bdca7477fe0",
+      "2e8a771f-fe7c-409b-93e8-bf8e7f079e76",
+      "8e9b191b-00d5-4f6f-948d-1bca25140d72",
+      "d0e2ca99-b6fc-4792-95e3-27d9539b8caa",
+      "5bf99d5b-e548-45a6-bdfb-f2b323f5778e",
+      "b61d3f42-d295-4679-9825-fdc7a57c5600",
+      "f3afaa49-3db4-4b37-bf1a-0e5ee0cf90fc",
+      "e3755ea4-71cf-4311-aea7-143d36cc9a5b",
+      "c4c6d596-487b-4715-ad6d-a8243337fff3",
+      "fffdc715-792f-4218-8f05-0f98a5858a17",
+      "494a1429-1244-4628-8e75-1082508c6e75",
+      "c16f58b6-2678-4607-8bfa-94f145bf1f71",
+      "adc26f7c-dc37-4e3e-a2cc-b3d14e807cfe",
+      "d6df9b41-1e42-448a-be27-87fc141505a7",
+      "46bbb33d-e185-4ad0-8752-88f40e896a07",
+      "ab62a867-077e-4595-9e1e-6b80891406c2",
+      "04a63b0b-dea8-4f8d-a709-10cd84dfb451",
+      "073a5f11-f8f5-4670-9a7c-a28032f73590",
+      "8297cdd8-f256-49d3-ad39-8c72bca625ff",
+      "c29c5e72-b120-45ac-823c-faeffd0904d5",
+      "a87ac53e-b6e1-4b59-8103-56fbc42d1d7f",
+      "6b16c14b-039d-4ea2-b3a8-b5f6a5bd27b6",
+      "4b407ede-c0c0-45a2-85fa-39eea29211d4",
+      "bc4f0642-af79-442e-b278-8c6116194162",
+      "fe609676-0fc4-401e-8f5b-02727dd0804e",
+      "def07a5c-a3fa-41f5-b88b-15b705172c8c",
+      "d570bbc7-cda1-42e7-ae7c-40e17ac2321c",
+      "99391b4b-6053-4639-b623-b53f64608aa8",
+      "45a4be48-4566-4aef-af9b-c19aa09995a9",
+      "9573eb48-b331-402e-a8c7-e311f53bab56",
+      "90a80973-2c00-4f85-810a-db9ae34b7c21"
+    ],
+    "totalRows": 130,
+    "remaining": 0,
+    "externalSchemaMetadataUnchanged": true,
+    "poolsClosed": true
+  },
+  "status": "PASS",
+  "source": [
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "f53244cc3a698672e0ae4e6cc63b48de5cd246b649308e9db7a39ec4e37405bf"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "391da066d0af82ce9077770ca6e89839aab76ba24ed192ac2029c399ca71c4f7"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "779f8a157e5469ff3996baf139631271d202b43298251990f8d53652d4d61f1d"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "7bcd782841a40188300d1fa72095a834559c8059fcfc2a9bc05f7b740eea886d"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "e134705ef6bc4b2a7a11af32478c67e7a35f9cdd0a2e12770b7aa23b22dead02"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "sha256": "d740bb34be256eb91a5bfaa8d873d97ca810e5e31c8b6a584e7c992b596c57c3"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "6aef3d163ee9774fb3f172287a11a2d71becb50bf40bd30f00fcfcc96e4b1354"
+    },
+    {
+      "path": "server/src/agent/approval-service.js",
+      "sha256": "cc2b8961a957c28810864a8baa905267f586d874b508578a492591d692c99b84"
+    },
+    {
+      "path": "server/src/agent/scope-policy.js",
+      "sha256": "1d108c950947951510c02f877c849716f931232eb865c3d9acb8957eb67d4c6f"
+    },
+    {
+      "path": "server/src/agent/test-runner.js",
+      "sha256": "0cf43345bbc3b2869b3f9cc3488131aab73f4f01dfc0e184ce3d910fd7309f17"
+    },
+    {
+      "path": "server/src/persistence/tool-executions.js",
+      "sha256": "e2a15577a75d656bdbfa5b578f9e35e656d692c5ea4ca9d3007aa6c35a7ccd5e"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "sha256": "b3c831710b66f52c8d2cf5949aab18a1a5dd9001f3f33c188fd3a14a60989021"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "98e29c19ea1b22f233dd07fec41281e5aff2b202769942962ab50199c2b3d97e"
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "sha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "cbda61ce808785c637411d800e8fd29b75337192aa5bb47ad7c7796e6527e9e2"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "44cdd3dd4bdc3bba04faba321a82ed4d453cb67b939c8299219a55545a8b332d"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "5268331854456dc653c8b90ad0e6a3f08c37752bdcc1317d260d997dc682d8db"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "44cd6de4eb9e3ca7c48767b46f97dfbe07e1bc66060c91f75e8e1de7eb1df19c"
+    },
+    {
+      "path": "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "sha256": "82197fa818a5240b1d942a0ea1edf72d61a8bdae3cca0148689e0e28175061cb"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-model.mjs",
+      "sha256": "7837c9959152c045828fa40ee5a84e52c9f71bef0bb55da9111900acadf0c5c2"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-protocol.mjs",
+      "sha256": "3614e3f10262df3c1d3c783118624737d724ed24559d3b8d40df9fa0e45f1506"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-api.mjs",
+      "sha256": "ab9fc732b7c3d2818786de97dc81a17114964270e1901196c1d1b5e55632a308"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-real.mjs",
+      "sha256": "c69e79928d285147c38fb824c7e5fee26d37cce6e6039e87ec0a8892822bfde1"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "5c52d3d490c22ed3f8941ba5e76d1337ff0dbbc4e5fa3938adfb5860a4378dc4"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "8c72e701dc7666789b6fc6af927a6bc9e1a411dae18ad4b4a2eeaec19582aa72"
+    }
+  ]
+}

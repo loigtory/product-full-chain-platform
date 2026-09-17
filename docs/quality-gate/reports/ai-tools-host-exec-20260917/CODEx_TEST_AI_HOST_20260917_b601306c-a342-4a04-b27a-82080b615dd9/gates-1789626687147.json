@@ -1,0 +1,114 @@
+{
+  "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "verify-ai-tools-host-exec-model",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 216
+    },
+    {
+      "name": "verify-ai-tools-host-exec-protocol",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 125
+    },
+    {
+      "name": "verify-ai-tools-host-exec-api",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 2538
+    },
+    {
+      "name": "verify-ai-tools-host-exec-browser",
+      "status": "FAIL",
+      "exitCode": 1,
+      "durationMs": 62500
+    },
+    {
+      "name": "verify-ai-tools-host-exec-real",
+      "status": "BLOCKED",
+      "exitCode": 2,
+      "durationMs": 44010
+    },
+    {
+      "name": "verify-ai-tools-host-exec-architecture",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 6573
+    },
+    {
+      "name": "verify-ai-tools-remediation-model",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 3456
+    },
+    {
+      "name": "verify-ai-tools-remediation-api",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 19697
+    },
+    {
+      "name": "verify-ai-tools-remediation-ops",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 118734
+    },
+    {
+      "name": "verify-prototype",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 102289
+    },
+    {
+      "name": "verify-m1-layer",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 5212
+    },
+    {
+      "name": "verify-m1-e2e",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 5629
+    },
+    {
+      "name": "verify-server",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 741
+    },
+    {
+      "name": "verify-server-m2",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 776
+    },
+    {
+      "name": "verify-m2b",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 6863
+    },
+    {
+      "name": "verify-m2b2-model",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 121
+    },
+    {
+      "name": "verify-m2b2-domain",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 234
+    },
+    {
+      "name": "verify-m2b2-browser",
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 14794
+    }
+  ]
+}

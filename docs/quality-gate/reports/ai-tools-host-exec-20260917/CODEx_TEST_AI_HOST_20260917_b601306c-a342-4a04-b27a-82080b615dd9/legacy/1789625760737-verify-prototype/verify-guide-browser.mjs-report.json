@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "01-original-entry-and-mirrors",
+      "status": "PASS"
+    },
+    {
+      "name": "02-new-requirement-full-lifecycle",
+      "status": "PASS"
+    },
+    {
+      "name": "03-cancel-unknown-verification-retry",
+      "status": "PASS"
+    },
+    {
+      "name": "04-input-scope-and-controller-handoff",
+      "status": "PASS"
+    },
+    {
+      "name": "05-version-edit-diff-conflict-and-immutability",
+      "status": "PASS"
+    },
+    {
+      "name": "06-material-scope-upload-impact",
+      "status": "PASS"
+    },
+    {
+      "name": "07-session-team-policy-and-readonly",
+      "status": "PASS"
+    },
+    {
+      "name": "08-search-route-drafts-keyboard",
+      "status": "PASS"
+    },
+    {
+      "name": "09-error-empty-reset-and-storage-isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "10-team-capability-workspace-bridge-and-audit",
+      "status": "PASS"
+    },
+    {
+      "name": "11-verification-outcomes-and-mcp-evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "12-acceptance-rejection-rework-release-expiry-and-rollback",
+      "status": "PASS"
+    },
+    {
+      "name": "13-three-width-reference-and-navigation",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "outbound": [],
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-guide-kvHR2d",
+  "environment": "Windows / project Node / isolated Edge / blocked page HTTP(S)",
+  "data": "CODEx_TEST_GUIDE; deterministic local prototype factory; isolated context destroyed"
+}

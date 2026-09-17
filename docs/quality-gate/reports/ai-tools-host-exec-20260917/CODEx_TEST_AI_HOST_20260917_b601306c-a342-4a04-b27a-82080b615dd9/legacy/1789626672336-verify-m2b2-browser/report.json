@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "runId": "CODEx_TEST_M2B2_20260912",
+  "results": [
+    {
+      "name": "page-identity",
+      "status": "PASS"
+    },
+    {
+      "name": "ui-create-confirm-advance-api",
+      "status": "PASS"
+    },
+    {
+      "name": "sim-lines-visible-before-completion",
+      "status": "PASS"
+    },
+    {
+      "name": "execution-source-and-unknown-git-lease",
+      "status": "PASS"
+    },
+    {
+      "name": "succeeded-lines-replay-readback",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-success-has-no-simulated-preview-action",
+      "status": "PASS"
+    },
+    {
+      "name": "refresh-restores-domain-run",
+      "status": "PASS"
+    },
+    {
+      "name": "three-desktop-widths",
+      "status": "PASS"
+    },
+    {
+      "name": "reject-reason-required-and-audited",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-simulation-is-labelled-and-read-back",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate-approval-does-not-create-another-run",
+      "status": "PASS"
+    },
+    {
+      "name": "long-output-follows-tail-and-preserves-reading",
+      "status": "PASS"
+    },
+    {
+      "name": "web-reconnect-recovers-missed-lines",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel-waits-for-bridge-ack-and-ignores-late-done",
+      "status": "PASS"
+    },
+    {
+      "name": "remote-model-controls-never-simulate-state",
+      "status": "PASS"
+    },
+    {
+      "name": "bridge-disconnect-stays-unknown-after-verification",
+      "status": "PASS"
+    },
+    {
+      "name": "readonly-ui-blocks-run-command",
+      "status": "PASS"
+    },
+    {
+      "name": "demo-scenario-cannot-mutate-remote-job",
+      "status": "PASS"
+    },
+    {
+      "name": "console-health",
+      "status": "PASS"
+    }
+  ],
+  "cleanup": {
+    "children": [
+      {
+        "pid": 18188,
+        "exited": true
+      },
+      {
+        "pid": 22332,
+        "exited": true
+      }
+    ],
+    "port": 5194,
+    "portFree": true,
+    "contextsClosed": true,
+    "data": "memory discarded",
+    "createdIds": [
+      "R-1201",
+      "R-1202",
+      "R-1203",
+      "R-1204"
+    ]
+  },
+  "evidence": "D:\\项目管理\\product-full-chain-platform\\docs\\quality-gate\\reports\\local-use-baseline-20260913\\legacy"
+}

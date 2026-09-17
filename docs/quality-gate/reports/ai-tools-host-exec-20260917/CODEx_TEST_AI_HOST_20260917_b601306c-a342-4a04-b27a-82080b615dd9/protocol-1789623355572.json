@@ -1,0 +1,111 @@
+{
+  "at": "2026-09-17T05:35:55.560Z",
+  "runId": "CODEx_TEST_AI_HOST_20260917_b601306c-a342-4a04-b27a-82080b615dd9",
+  "scope": "host-protocol",
+  "tests": [
+    {
+      "name": "Host mode disables native tools and registers exactly five strict dynamic contracts",
+      "status": "PASS"
+    },
+    {
+      "name": "Only host mode dispatches item/tool/call; text rejects all server requests",
+      "status": "PASS"
+    },
+    {
+      "name": "Host protocol rejects dangerous RPC methods without starting a process",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "modelCalls": 0,
+  "data": "Deterministic owned synthetic fixtures. Owner is this run; no customer data.",
+  "acceptance": "PENDING",
+  "cleanup": "No retained test helpers",
+  "status": "PASS",
+  "source": [
+    {
+      "path": "server/src/agent/protocol.mjs",
+      "sha256": "5966e19fd9e8232638c100bdfdedd3c929b351dfee86678160c6bc6e4a45b597"
+    },
+    {
+      "path": "server/src/agent/config.js",
+      "sha256": "391da066d0af82ce9077770ca6e89839aab76ba24ed192ac2029c399ca71c4f7"
+    },
+    {
+      "path": "server/src/agent/conversation-provider.js",
+      "sha256": "4fb9a4a5e4e2cb05f87969ca1da34fcac9e739fd0c290d64f6854fb3f3040f6e"
+    },
+    {
+      "path": "server/src/agent/worker.js",
+      "sha256": "68de6278229cbdc8603508f888ccf518d63d88cf269695dbcdf11caf37b8c5b6"
+    },
+    {
+      "path": "server/src/agent/exec-control.js",
+      "sha256": "38653b038a2be4c11f439768a54edcdb31357b58dc88f50584a50d3b75837f50"
+    },
+    {
+      "path": "server/src/agent/execution-policy.js",
+      "sha256": "11f1a38542e920d3fab569dc708043c7c37d4c55dfe840e288a57f5c0e7abfc5"
+    },
+    {
+      "path": "server/src/agent/job-control.js",
+      "sha256": "c542e85d187c2f2c58d8ed6820a7ffdd5c253c170525cd668d219357401a2f48"
+    },
+    {
+      "path": "server/src/agent/budget.js",
+      "sha256": "0e3d8bdeec576bc597b771351619eeac9d296a6ba0e7de50445737487b0d42e9"
+    },
+    {
+      "path": "server/src/persistence/agent-approvals.js",
+      "sha256": "4de34e10277c37be8afbbcdbb339c2c5292e5a69d1f136881a1412fa6b250727"
+    },
+    {
+      "path": "server/src/persistence/agent-jobs.js",
+      "sha256": "597826736c76f9118612255416872bc255b5e113a02d094a460728a2efcd5cce"
+    },
+    {
+      "path": "server/src/persistence/agent-events.js",
+      "sha256": "604ec3ff85fcab2e7c11b9cbf5aced36cf12e8e5911636cd0a518deaf7a930b9"
+    },
+    {
+      "path": "server/src/domain/conversation-service.js",
+      "sha256": "02b6211d82a9ada43c135e62c2d66ca40a00972eba3210bc8e8da688be46815d"
+    },
+    {
+      "path": "server/src/routes/agent.js",
+      "sha256": "cbda61ce808785c637411d800e8fd29b75337192aa5bb47ad7c7796e6527e9e2"
+    },
+    {
+      "path": "server/src/local/profile.js",
+      "sha256": "92f118c9a5dd21088a853cede312cb3666e8ae4c53daa404f5569858d74aa991"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/app.js",
+      "sha256": "2ba56bc7e7a6ef160aae046f4144ec808c2718a7b1dc442b31b5e54dd93e0669"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/workbench.js",
+      "sha256": "5268331854456dc653c8b90ad0e6a3f08c37752bdcc1317d260d997dc682d8db"
+    },
+    {
+      "path": "output/pfc-workbench-prototype/original/domain-conversation.js",
+      "sha256": "44cd6de4eb9e3ca7c48767b46f97dfbe07e1bc66060c91f75e8e1de7eb1df19c"
+    },
+    {
+      "path": "server/test-data/ai-tools-host-exec-fixture.mjs",
+      "sha256": "1a2ee4c7eae3ba074013e307d27a55a2e044c5a94641fdcdb898ffacb850accc"
+    },
+    {
+      "path": "server/verify-ai-tools-host-exec-protocol.mjs",
+      "sha256": "3614e3f10262df3c1d3c783118624737d724ed24559d3b8d40df9fa0e45f1506"
+    },
+    {
+      "path": "server/test-support/gate-result.mjs",
+      "sha256": "1747f92997cd43a118737f14580ef3594142f30552c4b79136a23ffdcadf2191"
+    },
+    {
+      "path": "server/test-data/ai-tools-remediation-fixture.mjs",
+      "sha256": "62e32b4ab6c8fd2391d8baf1229ac1098be038fe70ce9bb303010270abcf16fe"
+    }
+  ]
+}

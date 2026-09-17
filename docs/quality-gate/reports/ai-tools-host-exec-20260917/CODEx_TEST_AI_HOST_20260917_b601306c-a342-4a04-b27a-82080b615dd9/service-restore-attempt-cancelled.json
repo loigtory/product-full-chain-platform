@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-17T06:44:15.452Z",
+  "status": "BLOCKED",
+  "action": "Start exact authorized stop-pg.ps1 via Windows RunAs",
+  "reason": "Windows Start-Process reported operation cancelled by user; elevated helper did not start",
+  "service": "pfc-postgresql-18",
+  "observed": "Running",
+  "automaticApproval": "Not rejected; Windows UAC launch cancelled",
+  "scope": "Restoration already authorized; awaiting user handling of Windows admin prompt",
+  "noRetryOrBypass": true
+}

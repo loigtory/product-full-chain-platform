@@ -1,0 +1,997 @@
+{
+  "review": "production-grade prototype audit",
+  "source": "D:\\项目管理\\product-full-chain-platform\\output\\pfc-workbench-prototype",
+  "results": [
+    {
+      "id": "A01",
+      "title": "纯附件发送与已发送文本预览",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "attachment": "CODEx_TEST_PROD_REVIEW.md",
+          "version": "user updated original"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A01-PASS.png"
+    },
+    {
+      "id": "A02",
+      "title": "待发送附件可预览",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "toast": "",
+          "dialog": 1
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A02-PASS.png"
+    },
+    {
+      "id": "A03",
+      "title": "附件草稿按需求隔离",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "req": "R-1031",
+          "queue": []
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A03-PASS.png"
+    },
+    {
+      "id": "A04",
+      "title": "引用草稿按需求隔离",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "req": "R-1031",
+          "refs": []
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A04-PASS.png"
+    },
+    {
+      "id": "A05",
+      "title": "受限且禁止AI材料不能加入本轮上下文",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "material": {
+            "id": "M-1201",
+            "name": "CODEx_TEST_RESTRICTED",
+            "type": "文本",
+            "size": 6,
+            "content": "合成受限资料",
+            "classification": "受限",
+            "allowed": false,
+            "status": "仅登记",
+            "version": 1
+          }
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A05-PASS.png"
+    },
+    {
+      "id": "A06",
+      "title": "重试不能绕过不支持文件类型",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "id": "ATT-1201",
+          "requirementId": "R-1042",
+          "name": "CODEx_TEST_INVALID.exe",
+          "bytes": 27,
+          "size": "1 KB",
+          "status": "error",
+          "error": "不支持的文件类型",
+          "origin": "browser",
+          "attempt": 1
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A06-PASS.png"
+    },
+    {
+      "id": "A07",
+      "title": "文件读取中发送不能留下永久解析附件",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "sent": false
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A07-PASS.png"
+    },
+    {
+      "id": "A08",
+      "title": "截图粘贴和放大预览保留原图尺寸",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "width": 1200,
+          "height": 800
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A08-PASS.png"
+    },
+    {
+      "id": "A09",
+      "title": "上下文引用可以回到来源",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "dialog": 1,
+          "clickable": true
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "A09-PASS.png"
+    },
+    {
+      "id": "D01",
+      "title": "单个差异采纳保存并立即更新画布",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "memory": "R-1042-idea-v2",
+          "storage": "R-1042-idea-v2",
+          "remainingButtons": 0
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D01-PASS.png"
+    },
+    {
+      "id": "D02",
+      "title": "点击哪条差异就处理哪条",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "version": "R-1042-idea-v2",
+          "content": "会员积分过期提醒\n提前触达积分即将过期的会员，减少积分浪费，提升 App 活跃与满意度\n积分到期前 45 天开始提醒；7 天、1 天各加强一次；不包含积分清零后的补救\n不做积分商城、不做积分延期兑换\n1) 到期前 30/7/1 天准时触发；2) 双渠道送达；3) 退订后不再打扰"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D02-PASS.png"
+    },
+    {
+      "id": "D03",
+      "title": "选择历史版本后下载相同版本",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "viewed": "R-1042-req-v1",
+          "download": "R-1042-req-v1.md",
+          "firstLine": "# 需求文档 · R-1042-req-v1"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D03-PASS.png"
+    },
+    {
+      "id": "D04",
+      "title": "失败消息重发形成可继续的答复",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        [
+          {
+            "id": "CODEx_TEST_FAILED",
+            "role": "user",
+            "status": "failed"
+          },
+          {
+            "id": "MSG-1202",
+            "role": "user",
+            "status": "ok",
+            "resent": true
+          },
+          {
+            "id": "MSG-1203",
+            "role": "ai",
+            "status": "ok"
+          }
+        ]
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D04-PASS.png"
+    },
+    {
+      "id": "D05",
+      "title": "刷新恢复未执行且未过期的对话建议",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "toast": "",
+          "dialog": 1
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "D05-PASS.png"
+    },
+    {
+      "id": "W01",
+      "title": "工作区文件下载返回所选文件内容",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "selected": "src/feature/service.ts",
+          "download": "service.ts",
+          "body": "export async function handleExpiryNotify(userId: string) {\n  const plan = await loadPlan(userId);\n  if (!plan?.expiresAt) return;\n"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "W01-PASS.png"
+    },
+    {
+      "id": "W02",
+      "title": "历史作业搜索定位准确runId",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "resultHTML": "<button type=\"button\" class=\"btn \" data-action=\"search-open\" data-req=\"R-1042\" data-stage=\"dev\" data-panel=\"terminal\" data-runid=\"R-102\">R-1042 · R-102 · 开发实现</button>"
+        },
+        {
+          "selectedRun": "R-102",
+          "terminal": " R-102 · pfc-notify · Web"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "W02-PASS.png"
+    },
+    {
+      "id": "G01",
+      "title": "多窗口冲突不能通过导航覆盖新数据",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "created": "R-1201",
+          "conflict": true,
+          "presentBefore": true,
+          "presentAfter": true
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G01-PASS.png"
+    },
+    {
+      "id": "G02",
+      "title": "只读成员拖入文件有受控拒绝",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "errors": [],
+          "queue": 0
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G02-PASS.png"
+    },
+    {
+      "id": "G03",
+      "title": "需求范围重排保留身份且追踪不改变",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "oldRows": [
+            "R-1042-U01陈立—待开始AC-01R-102 / 未测试",
+            "R-1042-U02陈立R-1042-U01待开始AC-02R-102 / 未测试"
+          ],
+          "rows": [
+            "R-1042-U01陈立—待开始AC-01R-102 / 未测试",
+            "R-1042-U02陈立R-1042-U01待开始AC-02R-102 / 未测试"
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G03-PASS.png"
+    },
+    {
+      "id": "G04",
+      "title": "多材料影响逐项有明确处理对象",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "dialog": "评估材料变更影响\n关闭\nCODEx_TEST_IMPACT_1 · v1\n编号\nM-1201\n级别\n内部\n摘要\n合成材料1\n\n另还有 1 条待处理变更，将按队列逐条评估。\n\n纳入后建立新材料基线，返回需求阶段重新评审；旧版本与旧执行记录保留。受影响对象：需求文档、技术方案、开发作业、测试和发布审批。\n\n纳入并重新评审\n排除本次变更\n稍后处理"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G04-PASS.png"
+    },
+    {
+      "id": "G05",
+      "title": "测试批次失败详情可回看",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "history": [
+            "TEST-1204",
+            "TEST-1207"
+          ],
+          "buttons": [
+            "我的工作台",
+            "产品空间",
+            "交付中心",
+            "治理中心",
+            " 全局搜索 / 命令",
+            "2",
+            "交互原型 · 场景切换",
+            " 切换需求",
+            "想法",
+            "需求",
+            "设计",
+            "开发",
+            "测试当前",
+            "验收",
+            "发布",
+            "观察复盘",
+            " 原始想法",
+            "添加材料",
+            "切换 / 加载项目",
+            "关系追踪",
+            "调整模拟能力",
+            "返回工作台",
+            "执行测试（演示）",
+            "演示测试失败",
+            "用例与提测说明",
+            "TEST-1207 · PASS",
+            "TEST-1204 · FAIL",
+            "登记修复",
+            "仅当前阶段",
+            "全部阶段",
+            "进入验收",
+            "",
+            "",
+            "终端",
+            "画布",
+            "证据",
+            "执行范围与证据"
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G05-PASS.png"
+    },
+    {
+      "id": "G06",
+      "title": "材料加入引用后刷新仍保留草稿",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "refs": [
+            {
+              "kind": "material",
+              "id": "R-1042-M1",
+              "label": "原始想法 v1",
+              "version": 1,
+              "target": "R-1042-M1",
+              "requirementId": "R-1042",
+              "snapshot": {
+                "id": "R-1042-M1",
+                "name": "原始想法",
+                "type": "文本",
+                "content": "积分过期无提醒导致资产流失感知，客诉占比 8%",
+                "classification": "内部",
+                "allowed": true,
+                "status": "已纳入",
+                "version": 1
+              }
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "G06-PASS.png"
+    },
+    {
+      "id": "V01",
+      "title": "三档PC常规页面与输入区布局",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        [
+          {
+            "route": "home",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 420
+          },
+          {
+            "route": "work",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 1448
+          },
+          {
+            "route": "product",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 319
+          },
+          {
+            "route": "delivery",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 263
+          },
+          {
+            "route": "gov",
+            "width": 1280,
+            "scroll": 1280,
+            "header": 52,
+            "body": 1126
+          },
+          {
+            "route": "home",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 420
+          },
+          {
+            "route": "work",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 1448
+          },
+          {
+            "route": "product",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 319
+          },
+          {
+            "route": "delivery",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 263
+          },
+          {
+            "route": "gov",
+            "width": 1440,
+            "scroll": 1440,
+            "header": 52,
+            "body": 1126
+          },
+          {
+            "route": "home",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 420
+          },
+          {
+            "route": "work",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 1448
+          },
+          {
+            "route": "product",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 319
+          },
+          {
+            "route": "delivery",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 263
+          },
+          {
+            "route": "gov",
+            "width": 1920,
+            "scroll": 1920,
+            "header": 52,
+            "body": 1126
+          }
+        ]
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "V01-PASS.png"
+    },
+    {
+      "id": "V02",
+      "title": "多附件时聊天输入和对话区仍可使用",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          ".stream": {
+            "top": 106,
+            "bottom": 399.3125,
+            "height": 293.3125
+          },
+          ".composer": {
+            "top": 449.3125,
+            "bottom": 720,
+            "height": 270.6875
+          },
+          "#chat-input": {
+            "top": 662.3125,
+            "bottom": 696,
+            "height": 33.6875
+          }
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "V02-PASS.png"
+    },
+    {
+      "id": "B01",
+      "title": "冲突后编辑输入不得覆盖另一窗口记录",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "created": "R-1201",
+          "conflict": true,
+          "survives": true
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B01-PASS.png"
+    },
+    {
+      "id": "B02",
+      "title": "点击历史消息引用返回该消息来源",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "clicked": "原始想法 v1",
+          "dialog": "引用来源 · 材料\n关闭\n名称\n原始想法\n编号\nR-1042-M1 · v1\n级别 / 使用\n内部 · 允许分析\n状态\n已纳入\n\n积分过期无提醒导致资产流失感知，客诉占比 8%\n\n关闭"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B02-PASS.png"
+    },
+    {
+      "id": "B03",
+      "title": "下载全文包含截断之后的文本",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "inputLength": 59038,
+          "downloadLength": 59038,
+          "name": "CODEx_TEST_LONG.txt",
+          "hasEnd": true
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B03-PASS.png"
+    },
+    {
+      "id": "B04",
+      "title": "已发送附件也能下载正文",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "download": true,
+          "toast": "已下载完整文本 CODEx_TEST_PROD_REVIEW.md"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B04-PASS.png"
+    },
+    {
+      "id": "B05",
+      "title": "冻结交付包不能混入批准后新增产物",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "frozen": "R-1042-req-v1",
+          "current": "R-1042-req-v2",
+          "containsNew": false,
+          "labelsFrozen": true
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B05-PASS.png"
+    },
+    {
+      "id": "B06",
+      "title": "引用后被排除的材料在发送时重新校验",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "material": {
+            "id": "M-1201",
+            "name": "CODEx_TEST_REVOKED_SOURCE",
+            "type": "文本",
+            "size": 7,
+            "content": "合成可撤销内容",
+            "classification": "内部",
+            "allowed": false,
+            "status": "排除",
+            "version": 1
+          },
+          "badReferenceSent": false
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B06-PASS.png"
+    },
+    {
+      "id": "B07",
+      "title": "旧版待发送附件和引用升级后仍可见",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "currentAtts": [
+            {
+              "id": "CODEx_TEST_LEGACY_ATT",
+              "name": "CODEx_TEST_LEGACY.md",
+              "type": "text",
+              "status": "ready",
+              "content": "合成旧稿",
+              "size": "1 KB"
+            }
+          ],
+          "currentRefs": [
+            {
+              "kind": "material",
+              "id": "R-1042-M1",
+              "version": 1,
+              "label": "原始想法 v1"
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B07-PASS.png"
+    },
+    {
+      "id": "B08",
+      "title": "多选文件读取中切换需求仍保持整批归属",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "R-1042": {
+            "atts": [
+              {
+                "id": "ATT-1201",
+                "requirementId": "R-1042",
+                "name": "CODEx_TEST_BATCH_FIRST.md",
+                "bytes": 3,
+                "size": "1 KB",
+                "status": "ready",
+                "error": "",
+                "origin": "browser",
+                "attempt": 1,
+                "type": "text",
+                "fullContent": "合成首个文件",
+                "content": "合成首个文件",
+                "meta": {
+                  "origin": "text",
+                  "charCount": 6,
+                  "truncated": false,
+                  "fullInMemory": true
+                },
+                "digest": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed"
+              },
+              {
+                "id": "ATT-1202",
+                "requirementId": "R-1042",
+                "name": "CODEx_TEST_BATCH_SECOND.md",
+                "bytes": 3,
+                "size": "1 KB",
+                "status": "ready",
+                "error": "",
+                "origin": "browser",
+                "attempt": 1,
+                "type": "text",
+                "fullContent": "two",
+                "content": "two",
+                "meta": {
+                  "origin": "text",
+                  "charCount": 3,
+                  "truncated": false,
+                  "fullInMemory": true
+                },
+                "digest": "3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3"
+              }
+            ],
+            "refs": [],
+            "reply": null
+          },
+          "R-1031": {
+            "atts": [],
+            "refs": [],
+            "reply": null
+          },
+          "R-1018": {
+            "atts": [],
+            "refs": [],
+            "reply": null
+          }
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B08-PASS.png"
+    },
+    {
+      "id": "B09",
+      "title": "读取失败重试必须恢复实际正文",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "id": "ATT-1201",
+          "requirementId": "R-1042",
+          "name": "CODEx_TEST_READ_RETRY.md",
+          "bytes": 24,
+          "size": "1 KB",
+          "status": "ready",
+          "error": "",
+          "origin": "browser",
+          "attempt": 2,
+          "type": "text",
+          "fullContent": "合成恢复后的正文",
+          "content": "合成恢复后的正文",
+          "meta": {
+            "origin": "text",
+            "charCount": 8,
+            "truncated": false,
+            "fullInMemory": true
+          },
+          "digest": "8a1c3ce4de6001e149ed1f172f4538f52650e17f346c8d5e68aab80132ee1c23"
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B09-PASS.png"
+    },
+    {
+      "id": "B10",
+      "title": "新增观测保留多条历史与后续事项",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "startedAt": 1788994800000,
+          "hours": 24,
+          "metrics": "CODEx_TEST_METRIC_2 来源：合成",
+          "conclusion": "",
+          "entries": [
+            {
+              "at": "2026-09-11T00:00:00.000Z",
+              "metrics": "CODEx_TEST_METRIC_1 来源：合成",
+              "source": "成员录入（演示标识）",
+              "releaseStamp": "1|R-1018-idea-v1|R-1018-req-v1|R-1018-design-v1"
+            },
+            {
+              "at": "2026-09-11T00:00:01.000Z",
+              "metrics": "CODEx_TEST_METRIC_2 来源：合成",
+              "source": "成员录入（演示标识）",
+              "releaseStamp": "1|R-1018-idea-v1|R-1018-req-v1|R-1018-design-v1"
+            }
+          ],
+          "knowledgeType": "",
+          "followups": [
+            {
+              "text": "CODEx_TEST_FOLLOWUP",
+              "owner": "陈立",
+              "status": "进行中"
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B10-PASS.png"
+    },
+    {
+      "id": "B11",
+      "title": "新增Unit负责人分配保存并回显",
+      "status": "PASS",
+      "error": "",
+      "notes": [
+        {
+          "acIds": [
+            "AC-01"
+          ],
+          "id": "R-1042-U01",
+          "name": "规则与数据处理",
+          "status": "进行中",
+          "owner": "体验成员",
+          "dep": null
+        }
+      ],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "B11-PASS.png"
+    },
+    {
+      "id": "C01",
+      "title": "部分采纳只修改勾选字段并持久化决定",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C01-PASS.png"
+    },
+    {
+      "id": "C02",
+      "title": "显式编辑AC关联刷新后回显且按ID查询测试",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C02-PASS.png"
+    },
+    {
+      "id": "C03",
+      "title": "中断读取后重新关联原件发送仍使用同一完整资产",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C03-PASS.png"
+    },
+    {
+      "id": "C04",
+      "title": "重试回合关系幂等及只读状态二次校验",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C04-PASS.png"
+    },
+    {
+      "id": "C05",
+      "title": "建议刷新后仍校验当前版本拒绝过期执行",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C05-PASS.png"
+    },
+    {
+      "id": "C06",
+      "title": "批次容量边界不产生部分上传",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C06-PASS.png"
+    },
+    {
+      "id": "C07",
+      "title": "刷新中断答复后可从原消息重试新回合",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C07-PASS.png"
+    },
+    {
+      "id": "C08",
+      "title": "原件恢复拒绝同名同大小但内容不同的文件",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C08-PASS.png"
+    },
+    {
+      "id": "C09",
+      "title": "冻结交付包在当前记录变化和刷新后逐字节一致",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C09-PASS.png"
+    },
+    {
+      "id": "C10",
+      "title": "不存在的差异消息禁止回退采纳另一条建议",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C10-PASS.png"
+    },
+    {
+      "id": "C11",
+      "title": "新增作业使旧对话建议失效即使未显式选中作业",
+      "status": "PASS",
+      "error": "",
+      "notes": [],
+      "errors": [],
+      "outbound": [],
+      "screenshot": "C11-PASS.png"
+    }
+  ],
+  "passed": 46,
+  "failed": 0,
+  "evidence": "C:\\Users\\hz19114673\\AppData\\Local\\Temp\\pfc-remediation-6sLkDY",
+  "environment": "Windows/project Node/isolated Edge/file-only/page HTTP(S) blocked",
+  "data": "CODEx_TEST_PROD_REVIEW; synthetic fixtures; contexts closed; no external writes"
+}

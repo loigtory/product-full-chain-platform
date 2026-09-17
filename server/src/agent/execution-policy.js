@@ -10,7 +10,9 @@ function capability() {
     supported: false,
     code: 'EXEC_APPROVAL_COVERAGE_UNVERIFIED',
     expectedVersion: '0.154.0',
-    reason: '当前协议尚未证明每次命令和文件操作均经过执行前校验',
+    reason: '开发执行暂未开放：宿主文件控制已接入，Windows 命令隔离仍待验证',
+    hostFiles: 'IMPLEMENTED_PENDING_ACCEPTANCE',
+    command: require('./test-runner').commandCapability(),
   };
 }
 function exactCommand(command, workspace, plan) {

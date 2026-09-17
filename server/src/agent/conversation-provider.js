@@ -1,6 +1,7 @@
 'use strict';
 const {
   textThreadParams,
+  hostThreadParams,
   execThreadParams,
   assertTextThread,
   assertExecThread,
@@ -28,6 +29,13 @@ class TextConversation {
   static async open(options) {
     const self = new TextConversation();
     self.execMode = options.mode === 'exec';
+    self.hostMode = options.mode === 'host';
+    if (self.hostMode && typeof options.onToolCall !== 'function')
+      throw fail('HOST_DISPATCHER_REQUIRED');
+    self.bindings = self.hostMode
+      ? new (require('./approval-service').DynamicBindings)()
+      : null;
+    self.onToolCall = options.onToolCall;
     if (self.execMode) require('./execution-policy').requireCapability();
     self.onTurnEvent = options.onTurnEvent ?? null;
     self.enabledSkills = Array.isArray(options.enabledSkills)
@@ -43,7 +51,8 @@ class TextConversation {
     const { openProtocol } = await import('./protocol.mjs');
     self.connection = await openProtocol({
       ...options,
-      mode: self.execMode ? 'exec' : 'text',
+      mode: self.hostMode ? 'host' : self.execMode ? 'exec' : 'text',
+      onToolCall: (message) => self.receiveToolCall(message),
       onNotification: (event) => self.receive(event),
     });
     self.connection.rpc.child.once('exit', () =>
@@ -54,18 +63,24 @@ class TextConversation {
         cwds: [self.connection.cwd],
         forceReload: true,
       });
-      const params = self.execMode
-        ? execThreadParams(
+      const params = self.hostMode
+        ? hostThreadParams(
             self.connection.summary,
             self.connection.cwd,
             inventory,
           )
-        : textThreadParams(
-            self.connection.summary,
-            self.connection.cwd,
-            inventory,
-            self.enabledSkills,
-          );
+        : self.execMode
+          ? execThreadParams(
+              self.connection.summary,
+              self.connection.cwd,
+              inventory,
+            )
+          : textThreadParams(
+              self.connection.summary,
+              self.connection.cwd,
+              inventory,
+              self.enabledSkills,
+            );
       const thread = await self.connection.rpc.request('thread/start', params);
       self.readback = {
         instructionSourceCount: Array.isArray(thread.instructionSources)
@@ -162,7 +177,13 @@ class TextConversation {
           'applyPatch',
           'customToolCall',
         ]
-      : ['userMessage', 'agentMessage', 'reasoning'];
+      : [
+          'userMessage',
+          'agentMessage',
+          'reasoning',
+          ...(this.hostMode ? ['dynamicToolCall'] : []),
+        ];
+    if (this.hostMode) this.bindings.observe(event);
     if (
       event.method === 'item/started' &&
       !allowedItems.includes(p.item?.type)
@@ -224,6 +245,21 @@ class TextConversation {
       });
     }
   }
+  async receiveToolCall(message) {
+    const a = this.active;
+    if (!this.hostMode || !a || this.closed) throw fail('TURN_CANCELLED');
+    await a.ready;
+    if (this.closed || this.active !== a) throw fail('TURN_CANCELLED');
+    const bound = this.bindings.bind(message);
+    // Serialize dynamic dispatches even if the model issues concurrent callbacks.
+    const dispatch = () => {
+      if (this.closed || this.active !== a) throw fail('TURN_CANCELLED');
+      return this.onToolCall(bound);
+    };
+    const result = (a.tools || Promise.resolve()).then(dispatch);
+    a.tools = result.catch(() => {});
+    return result;
+  }
   async runText({ text, reserveTurn, onDelta, outputSchema }) {
     if (this.closed || this.active || typeof reserveTurn !== 'function')
       throw fail('TEXT_SESSION_NOT_READY');
@@ -236,7 +272,13 @@ class TextConversation {
     });
     // Attach rejection handling before the asynchronous turn/start acknowledgement.
     completion.catch(() => {});
+    let readyResolve;
+    const ready = new Promise((resolve) => {
+      readyResolve = resolve;
+    });
     this.active = {
+      ready,
+      readyResolve,
       resolve: resolveTurn,
       reject: rejectTurn,
       onDelta,
@@ -295,8 +337,12 @@ class TextConversation {
       if (typeof started?.turn?.id !== 'string')
         throw fail('TURN_PROTOCOL_MISMATCH');
       this.active.turnId = started.turn.id;
+      if (this.hostMode) this.bindings.start(this.threadId, started.turn.id);
       for (const event of this.active.buffered.splice(0)) this.receive(event);
-      return await completion;
+      this.active.readyResolve();
+      const result = await completion;
+      await this.active.tools;
+      return result;
     } catch (reason) {
       await this.close();
       throw reason;
@@ -308,9 +354,11 @@ class TextConversation {
   close() {
     if (this.closePromise) return this.closePromise;
     this.closed = true;
+    this.bindings?.stop();
     const current = this.active;
     // Reject the caller immediately; interrupt and process exit are separately acknowledged.
     current?.reject(fail('TURN_CANCELLED'));
+    current?.readyResolve?.();
     this.closePromise = (async () => {
       if (current?.turnId) {
         let timer;
@@ -327,6 +375,7 @@ class TextConversation {
         ]);
         clearTimeout(timer);
       }
+      await current?.tools;
       return this.connection.close();
     })();
     return this.closePromise;

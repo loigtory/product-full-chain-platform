@@ -106,7 +106,7 @@
         P.assert(stage === 'dev' && q.stage === 'dev', '仅当前开发阶段可执行');
         P.assert(
           P.s.env?.execCapable === true,
-          '开发执行暂不可用：执行前约束尚未验证',
+          P.s.env?.execution?.reason || '开发执行暂不可用：执行前约束尚未验证',
         );
         P.assert(draft?.control?.confirmed === true, '请先预览并确认执行计划');
       }
@@ -160,6 +160,63 @@
         },
         true,
       );
+    };
+    remote['host-tool-records'] = async () => {
+      const id = P.r()?.id;
+      P.assert(id, '请选择需求');
+      const data = await window.PFCAPI.api.req(
+        'GET',
+        '/api/agent/requirements/' + encodeURIComponent(id) + '/tool-control',
+      );
+      if (P.r()?.id !== id || data.reqId !== id) return;
+      const e = P.esc,
+        states = {
+          PENDING: '待确认',
+          APPROVED: '已同意',
+          DENIED: '已拒绝',
+          EXPIRED: '已失效',
+          SUCCEEDED: '成功',
+          FAILED: '失败',
+          UNKNOWN: '结果未知',
+          RUNNING: '进行中',
+          CANCELLED: '已取消',
+          TIMED_OUT: '超时',
+        };
+      const approvals = data.approvals
+        .map(
+          (a) =>
+            `<li>${e(a.tool || '工具')} · ${e(a.path || '固定命令')} · ${e(states[a.state] || a.state)}${a.state === 'PENDING' && P.s.role === 'owner' ? `<div>${P.btn('host-tool-decision', '同意范围（需新计划）', { req: id, job: a.jobId, approval: a.id, hash: a.scopeHash, decision: 'approve' })}${P.btn('host-tool-decision', '拒绝', { req: id, job: a.jobId, approval: a.id, hash: a.scopeHash, decision: 'deny' })}</div>` : ''}</li>`,
+        )
+        .join('');
+      const records = data.executions
+        .map(
+          (t) =>
+            `<li>${e(t.tool || '工具')} · ${e(t.path || '')} · ${e(states[t.state] || t.state)}${t.sha256 ? `<code> ${e(t.sha256.slice(0, 12))}</code>` : ''}</li>`,
+        )
+        .join('');
+      P.modal(
+        '工具审批与记录',
+        `<p>范围内的操作自动校验。超出范围需重新确认执行计划；此处同意不会立即执行。</p><h3>范围确认</h3>${approvals ? '<ul>' + approvals + '</ul>' : '<p>暂无待处理或历史确认</p>'}<h3>执行记录</h3>${records ? '<ul>' + records + '</ul>' : '<p>暂无工具执行记录</p>'}`,
+        P.btn('close-modal', '关闭'),
+      );
+    };
+    remote['host-tool-decision'] = async (d) => {
+      P.assert(P.r()?.id === d.req, '需求已切换，请重新打开记录');
+      await window.PFCAPI.api.req(
+        'POST',
+        '/api/agent/jobs/' +
+          encodeURIComponent(d.job) +
+          '/approvals/' +
+          encodeURIComponent(d.approval) +
+          '/decision',
+        {
+          decision: d.decision,
+          scopeHash: d.hash,
+          expectedState: 'PENDING',
+          commandId: crypto.randomUUID(),
+        },
+      );
+      if (P.r()?.id === d.req) await remote['host-tool-records']();
     };
     P.enqueueFile = async (file, reqId = P.r().id) => {
       if (!V.pg()) return enqueue(file, reqId);
