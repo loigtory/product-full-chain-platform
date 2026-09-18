@@ -56,13 +56,22 @@ export function WorkbenchHeader({
         </span>
       }
       actions={
-        <Button
-          aria-label="新建需求"
-          icon={<Plus aria-hidden="true" size={17} strokeWidth={2} />}
-          onClick={onCreate}
-        >
-          新建需求
-        </Button>
+        <>
+          <Button
+            aria-label="预算报表"
+            onClick={() => window.location.assign('/budget')}
+            variant="secondary"
+          >
+            预算
+          </Button>
+          <Button
+            aria-label="新建需求"
+            icon={<Plus aria-hidden="true" size={17} strokeWidth={2} />}
+            onClick={onCreate}
+          >
+            新建需求
+          </Button>
+        </>
       }
       brand={
         <div

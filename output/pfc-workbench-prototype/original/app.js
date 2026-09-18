@@ -101,7 +101,7 @@
         )
         .join(
           '',
-        )}</nav><div class="header-right"><button class="search-box" data-action="search">${i('search')} 全局搜索 / 命令</button><button class="icon-btn" data-action="notifications" aria-label="通知">${i('bell')}${(() => {
+        )}</nav><div class="header-right"><button class="search-box" data-action="search">${i('search')} 全局搜索 / 命令</button><button class="icon-btn" onclick="window.PFCBudget&&window.PFCBudget.open()" aria-label="预算/资源耗用报表" title="预算/资源耗用报表" style="font-size:12px;padding:0 8px">预算</button><button class="icon-btn" data-action="notifications" aria-label="通知">${i('bell')}${(() => {
         const unread = (P.s.notices || []).filter((n) => !n.read).length;
         return unread
           ? `<span class="bell-dot" title="${unread} 条未读">${unread}</span>`

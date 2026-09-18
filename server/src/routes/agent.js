@@ -64,6 +64,119 @@ router.get('/status', (req, res) => {
   });
 });
 
+// 63 号：EXEC 作业命令级输出流（owner 专属；jobId 须存在于 agent_jobs）
+router.get('/exec-stream', async (req, res, next) => {
+  try {
+    const ctx = require('../access').current();
+    if (ctx.role !== 'owner') require('../access').fail('FORBIDDEN', 403);
+    const jobId = String(req.query.jobId || '');
+    const store = require('../agent/exec-stream-store');
+    const db = require('../runtime').db();
+    const hit = await db.pool.query(
+      'SELECT 1 FROM "' + db.schema + '".agent_jobs WHERE id=$1',
+      [jobId],
+    );
+    if (!hit.rowCount) {
+      res.status(404).json({ error: { code: 'EXEC_STREAM_NOT_FOUND' } });
+      return;
+    }
+    res.json(store.read(jobId));
+  } catch (e) {
+    next(e);
+  }
+});
+
+// 63 号：EXEC 作业命令级输出流（owner 专属；jobId 须存在于 agent_jobs）
+router.get('/requirements/:reqId/exec-stream', async (req, res, next) => {
+  try {
+    const ctx = require('../access').current();
+    if (ctx.role !== 'owner') require('../access').fail('FORBIDDEN', 403);
+    const jobId = String(req.query.jobId || '');
+    const store = require('../agent/exec-stream-store');
+    const db = require('../runtime').db();
+    const hit = await db.pool.query(
+      'SELECT 1 FROM "' + db.schema + '".agent_jobs WHERE id=$1',
+      [jobId],
+    );
+    if (!hit.rowCount) {
+      res.status(404).json({ error: { code: 'EXEC_STREAM_NOT_FOUND' } });
+      return;
+    }
+    res.json(store.read(jobId));
+  } catch (e) {
+    next(e);
+  }
+});
+
+// 62 号：预算/资源耗用报表（owner 专属；两个账本为唯一事实源，汇总现算不缓存）
+//  remediation 账本（active 预算）+ host-exec 账本（EXEC 真实作业预算，上限 80）
+router.get('/budget', async (req, res, next) => {
+  try {
+    const ctx = require('../access').current();
+    if (ctx.role !== 'owner') require('../access').fail('FORBIDDEN', 403);
+    const fs = require('node:fs');
+    function summarize(snap, ledgerPath) {
+      const ledger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+      const byStatus = {};
+      const byDay = {};
+      const byStage = {};
+      let seconds = 0;
+      for (const a of ledger.attempts) {
+        const sec = a.status === 'DISPATCHING' ? a.reservedSeconds : a.actualSeconds;
+        seconds += sec;
+        byStatus[a.status] = (byStatus[a.status] || 0) + 1;
+        const day = String(a.createdAt || '').slice(0, 10);
+        if (day) {
+          byDay[day] = byDay[day] || { turns: 0, seconds: 0 };
+          byDay[day].turns += 1;
+          byDay[day].seconds += sec;
+        }
+        const stage = a.details?.stage || 'unknown';
+        byStage[stage] = byStage[stage] || { turns: 0, seconds: 0 };
+        byStage[stage].turns += 1;
+        byStage[stage].seconds += sec;
+      }
+      return {
+        packageId: snap.packageId,
+        limits: { maxTurns: snap.maxTurns, maxSeconds: snap.maxSeconds },
+        usage: { turns: snap.turns, seconds, remainingTurns: snap.remaining },
+        byStatus,
+        byDay: Object.keys(byDay).sort().map((d) => ({ date: d, ...byDay[d] })),
+        byStage: Object.entries(byStage)
+          .map(([stage, v]) => ({ stage, ...v }))
+          .sort((x, y) => y.seconds - x.seconds),
+        recent: [...ledger.attempts]
+          .sort((x, y) => String(y.createdAt).localeCompare(String(x.createdAt)))
+          .slice(0, 30)
+          .map((a) => ({
+            attemptId: String(a.attemptId).slice(0, 8) + '…',
+            status: a.status,
+            stage: a.details?.stage || null,
+            tool: a.details?.tool || null,
+            jobId: a.details?.jobId || null,
+            seconds: a.status === 'DISPATCHING' ? a.reservedSeconds : a.actualSeconds,
+            createdAt: a.createdAt,
+          })),
+      };
+    }
+    const active = summarize(budget.snapshot(), budget.LEDGER);
+    const exec = summarize(budget.hostBudget().snapshot(), budget.HOST_LEDGER);
+    res.json({
+      ledgers: {
+        remediation: active,
+        exec: exec,
+      },
+      overall: {
+        turns: active.usage.turns + exec.usage.turns,
+        seconds: active.usage.seconds + exec.usage.seconds,
+        remainingExecTurns: exec.usage.remainingTurns,
+      },
+      source: 'ledger',
+    });
+  } catch (e) {
+    next(e);
+  }
+});
 // 阶段能力配置中心（55 号）：静态声明（goal/guide）+ 配置表（stage_capabilities 热插拔）。
 // 返回 8 阶段实际启用能力（skill/tool/mcp 的 enabled/source/priority 来自配置表，页面可改）。
 router.get('/stage-capabilities', async (req, res, next) => {

@@ -150,8 +150,9 @@ function killTree(pid) {
 //   cwd: 工作区绝对路径（执行前 checkedWorkspace 校验）
 //   plan: 冻结计划（allowedCommands 供 allowlist 匹配与审计）
 //   timeoutMs: 超时毫秒（默认 300000，与 worker 一致）
+//   onChunk: 可选（63 号终端流）逐块回调 { stream: 'stdout'|'stderr', text }
 // 返回 { exitCode, timedOut, stdout, stderr, warnings }
-async function runCommand({ command, cwd, plan, timeoutMs = 300000 }) {
+async function runCommand({ command, cwd, plan, timeoutMs = 300000, onChunk }) {
   validateCommand(command);
   const workspace = checkedWorkspace(cwd);
   const denied = denyMatch(command);
@@ -176,24 +177,36 @@ async function runCommand({ command, cwd, plan, timeoutMs = 300000 }) {
   let stdoutTruncated = false;
   let stderrTruncated = false;
   child.stdout.on('data', (d) => {
+    const text = d.toString('utf8');
+    if (onChunk) {
+      try {
+        onChunk({ stream: 'stdout', text });
+      } catch {
+        /* 流采集失败不阻断命令 */
+      }
+    }
     if (stdout.length + d.length > MAX_OUTPUT_BYTES) {
       stdoutTruncated = true;
-      stdout += d
-        .toString('utf8')
-        .slice(0, Math.max(0, MAX_OUTPUT_BYTES - stdout.length));
+      stdout += text.slice(0, Math.max(0, MAX_OUTPUT_BYTES - stdout.length));
       return;
     }
-    stdout += d.toString('utf8');
+    stdout += text;
   });
   child.stderr.on('data', (d) => {
+    const text = d.toString('utf8');
+    if (onChunk) {
+      try {
+        onChunk({ stream: 'stderr', text });
+      } catch {
+        /* 流采集失败不阻断命令 */
+      }
+    }
     if (stderr.length + d.length > MAX_OUTPUT_BYTES) {
       stderrTruncated = true;
-      stderr += d
-        .toString('utf8')
-        .slice(0, Math.max(0, MAX_OUTPUT_BYTES - stderr.length));
+      stderr += text.slice(0, Math.max(0, MAX_OUTPUT_BYTES - stderr.length));
       return;
     }
-    stderr += d.toString('utf8');
+    stderr += text;
   });
 
   let timedOut = false;

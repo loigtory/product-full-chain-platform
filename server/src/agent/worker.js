@@ -396,7 +396,7 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
         await jobBudget.settleTurn(
           Math.ceil((Date.now() - startedAt) / 1000),
           outcome.status === 'SKIPPED' ? 'FAILED' : outcome.status,
-          { inputHash: outcome.inputHash },
+          { inputHash: outcome.inputHash, stage: job.input.stage ?? null, tool: job.input.tool ?? null, jobId },
           reservation.attemptId,
         );
       } catch {

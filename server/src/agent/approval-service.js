@@ -346,12 +346,31 @@ function createHostDispatcher({
       }
       // 命令执行：在事务外运行，避免长命令持锁；结果以独立事务落审计。
       const started = Date.now();
+      const streamStore = require('./exec-stream-store');
+      let streamSeq = 0;
       const data = await require('./command-runner').runCommand({
         command: commandVector,
         cwd: scope.root,
         plan: scope.plan,
         timeoutMs: 300000,
+        onChunk: (c) =>
+          streamStore.append(jobId, {
+            seq: ++streamSeq,
+            stream: c.stream,
+            text: c.text,
+          }),
       });
+      try {
+        streamStore.append(jobId, {
+          seq: ++streamSeq,
+          type: 'exit',
+          text: '',
+          exitCode: data.exitCode,
+          timedOut: data.timedOut,
+        });
+      } catch {
+        /* exit 行写入失败不阻断审计 */
+      }
       const response = await withTransaction(db, async (client) => {
         const { job, snapshot } = await live(client);
         const approval = (

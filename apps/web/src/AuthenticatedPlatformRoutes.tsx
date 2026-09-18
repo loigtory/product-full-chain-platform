@@ -6,6 +6,7 @@ import {
 } from './agent-runs/AgentRunsPage.tsx';
 import { ArtifactCatalogPage } from './artifacts/ArtifactCatalogPage.tsx';
 import { ArtifactWorkspacePage } from './artifact-workspace/ArtifactWorkspacePage.tsx';
+import { BudgetPage } from './budget/BudgetPage.tsx';
 import { RequirementWorkbenchApp } from './RequirementWorkbenchApp.tsx';
 import { TeamAdminPage } from './team-admin/TeamAdminPage.tsx';
 import { ProductWorkSessionPage } from './work-sessions/ProductWorkSessionPage.tsx';
@@ -19,6 +20,9 @@ export function AuthenticatedPlatformRoutes({
   jobsEnabled: boolean;
   onLogout: () => void;
 }) {
+  if (window.location.pathname === '/budget') {
+    return <BudgetPage />;
+  }
   if (window.location.pathname === '/team-admin') {
     return (
       <TeamAdminPage
