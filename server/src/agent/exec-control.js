@@ -51,7 +51,7 @@ function validatePlan(input) {
   const control = input.control;
   if (!control) fail('PLAN_REQUIRED');
   if (
-    control.approvalSource !== 'SERVER_AUTHENTICATED' ||
+    !['SERVER_AUTHENTICATED', 'STAGE_PLAN'].includes(control.approvalSource) ||
     !/^[a-f0-9-]{36}$/i.test(control.approvedBy || '') ||
     !control.reqId ||
     !/^[a-f0-9]{64}$/.test(control.contextHash || '')

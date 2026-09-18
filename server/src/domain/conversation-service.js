@@ -328,14 +328,21 @@ module.exports.sendMessage = async (id, input) => {
         jobInput.input.context = context.snapshot;
         jobInput.input.contextHash = context.hash;
         if (jobInput.kind === 'EXECUTE') {
-          if (stage !== 'dev' || row.stage !== 'dev' || ctx.role !== 'owner')
+          // 54 号：执行阶段与 53 号前端对齐为 design/dev/test；需求当前阶段必须与作业阶段一致。
+          if (
+            !['design', 'dev', 'test'].includes(stage) ||
+            row.stage !== stage ||
+            ctx.role !== 'owner'
+          )
             access.fail('EXEC_STAGE_OR_ROLE_INVALID', 403);
           require('../agent/execution-policy').requireCapability();
           jobInput.input.control =
-            require('../agent/exec-control').freezeForActor(
-              jobInput.input,
+            await require('../agent/stage-plan').deriveExecControl(
+              db,
               ctx,
               row,
+              stage,
+              jobInput.input,
               context.hash,
             );
         }

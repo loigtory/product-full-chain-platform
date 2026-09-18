@@ -1,8 +1,10 @@
 'use strict';
 // 52 号：阶段基线冻结 / 撤权复核。
 // 阶段计划是 owner 确认的阶段级执行契约（工作区 + 允许文件/命令 + 限额 + 有效期）；
-// 执行时由 job.input.control 派生（turn 级仍走 exec-control.validatePlan）。
+// 54 号：EXECUTE 作业发起时若当前阶段已有冻结计划，由阶段计划派生执行约束
+//（turn 级仍走 exec-control.validatePlan，执行窗口 5 分钟）。
 const { createHash } = require('node:crypto');
+const path = require('node:path');
 const { withTransaction } = require('../persistence/transaction');
 const access = require('../access');
 const {
@@ -94,7 +96,7 @@ async function freeze(db, ctx, req, { stage, workspace, control }) {
   });
   const frozen = {
     ...plan,
-    approvalSource: 'SERVER_AUTHENTICATED',
+    approvalSource: 'STAGE_PLAN',
     approvedBy: ctx.memberId,
     tenantId: ctx.tenantId,
     reqId: req.id,
@@ -253,4 +255,62 @@ async function revoke(db, ctx, req, stage) {
   });
 }
 
-module.exports = { freeze, get, review, revoke, STAGES, sanitizeControl };
+// 54 号：EXECUTE 作业发起时派生执行约束。
+// - 当前阶段已有 frozen stage_plan：执行约束以冻结计划为准（工作区必须一致、基线未漂移、
+//   未过期），control 由阶段计划派生（执行窗口重算为 turn 级 5 分钟），发起方传入的
+//   control 不再作为执行依据 —— 阶段基线的权威来源是 stage_plans。
+// - revoked（曾冻结又撤权）：阶段已收尾，拒绝新执行。
+// - 无阶段计划：回退 turn 级 freezeForActor（50 号 approve 流，兼容既有流程）。
+async function deriveExecControl(db, ctx, req, stage, input, contextHash) {
+  if (!STAGES.includes(stage)) fail('STAGE_INVALID', 400);
+  const execControl = require('./exec-control');
+  const row = await withTransaction(db, async (client) =>
+    (
+      await client.query(
+        `SELECT * FROM "${db.schema}".stage_plans WHERE tenant_id=$1 AND req_id=$2 AND stage=$3`,
+        [ctx.tenantId, req.id, stage],
+      )
+    ).rows[0],
+  );
+  if (!row)
+    return execControl.freezeForActor(input, ctx, req, contextHash);
+  if (row.state !== 'frozen') fail('PLAN_TERMINATED', 409);
+  const root = execControl.checkedWorkspace(input.workspace);
+  if (
+    path.resolve(root).toLowerCase() !==
+    path.resolve(row.workspace).toLowerCase()
+  )
+    fail('PLAN_WORKSPACE_MISMATCH', 409);
+  const actual = execControl.baselineHash(execControl.scanWorkspace(root));
+  if (row.baseline_hash !== actual) fail('PLAN_BASELINE_CHANGED', 409);
+  const until = new Date(row.control?.validUntil).getTime();
+  if (!Number.isFinite(until) || until <= Date.now()) fail('PLAN_EXPIRED', 409);
+  return execControl.validatePlan({
+    control: {
+      mode: row.control.mode,
+      allowedFiles: row.control.allowedFiles,
+      allowedCommands: row.control.allowedCommands,
+      forbidden: row.control.forbidden,
+      maxFiles: row.control.maxFiles,
+      maxBytes: row.control.maxBytes,
+      // 阶段有效期在上层约束（≤7 天）；执行窗口按 turn 级 5 分钟重算。
+      validUntil: new Date(Date.now() + 300000).toISOString(),
+      baselineHash: row.baseline_hash,
+      approvalSource: 'STAGE_PLAN',
+      approvedBy: row.created_by,
+      tenantId: ctx.tenantId,
+      reqId: req.id,
+      contextHash,
+    },
+  });
+}
+
+module.exports = {
+  freeze,
+  get,
+  review,
+  revoke,
+  deriveExecControl,
+  STAGES,
+  sanitizeControl,
+};
