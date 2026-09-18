@@ -75,6 +75,19 @@ async function forStage(db, ctx, stage) {
   });
 }
 
+// 56 号：EXEC 作业装载用——某阶段启用的 tool/mcp 名称列表（host 工具热插拔候选）
+async function enabledHostToolsForStage(db, tenantId, stage) {
+  const rows = (
+    await db.pool.query(
+      `SELECT name FROM "${db.schema}".stage_capabilities
+        WHERE tenant_id=$1 AND stage=$2 AND kind='tool' AND enabled=true
+        ORDER BY priority, name`,
+      [tenantId, stage],
+    )
+  ).rows;
+  return rows.map((r) => r.name);
+}
+
 // worker 装载用：某阶段启用的 skill 名称列表（轻量读，不依赖成员上下文）
 async function enabledSkillsForStage(db, tenantId, stage) {
   const rows = (
@@ -169,4 +182,4 @@ async function setEnabled(db, ctx, stage, kind, name, enabled) {
   });
 }
 
-module.exports = { STAGES, KINDS, SOURCES, list, forStage, enabledSkillsForStage, upsert, remove, setEnabled };
+module.exports = { STAGES, KINDS, SOURCES, list, forStage, enabledSkillsForStage, enabledHostToolsForStage, upsert, remove, setEnabled };

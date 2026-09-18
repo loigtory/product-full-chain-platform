@@ -68,6 +68,7 @@ class TextConversation {
             self.connection.summary,
             self.connection.cwd,
             inventory,
+            options.extraHostTools ?? [],
           )
         : self.execMode
           ? execThreadParams(

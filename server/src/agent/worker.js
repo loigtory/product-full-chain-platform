@@ -238,6 +238,19 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
           ctx.tenantId,
           job.input.stage,
         );
+    // 56 号：EXEC 作业按阶段从配置表读取 tool 名称，经 host-tools-registry 白名单
+    // 解析（仅 READY 工具注入；终端类工具待 57 号真实接入），核心 pfc_* 工具恒在。
+    if (kind === 'EXECUTE' && job.input.stage) {
+      const names =
+        await require('./stage-capabilities-config').enabledHostToolsForStage(
+          db,
+          ctx.tenantId,
+          job.input.stage,
+        );
+      options.extraHostTools = require('./host-tools-registry').resolveHostTools(
+        names,
+      );
+    }
     if (job.input.contextHash)
       await withTransaction(db, async (client) => {
         const req = await require('../persistence/requirements').lock(
