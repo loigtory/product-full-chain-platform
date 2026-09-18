@@ -53,6 +53,33 @@ async function confirm(id, gid, input, kind) {
           design?.public_id !== input.designVersionId
         )
           access.fail('ARTIFACT_CONFIRMATION_REQUIRED');
+        // 65 号：设计产物门禁——确认设计推进 dev 前，校验四类设计产物齐套且格式达标；
+        // 缺失/不达标阻断推进（缺失证据不得声称可进入开发）。
+        {
+          const da = await require('./design-artifact-service').listForReq(
+            db,
+            ctx,
+            req.public_id,
+          );
+          const required = ['design', 'sequence', 'flow', 'prototype'];
+          const missing = required.filter((k) => !da[k]);
+          const formatIssues = [];
+          if (!missing.includes('design') && !/(背景与目标|背景)/.test(da.design.content)) formatIssues.push('方案文档缺「背景」章节');
+          if (!missing.includes('design') && !/(总体架构|架构)/.test(da.design.content)) formatIssues.push('方案文档缺「总体架构」章节');
+          if (!missing.includes('sequence') && !/sequenceDiagram/i.test(da.sequence.content)) formatIssues.push('时序图缺 sequenceDiagram 标记');
+          if (!missing.includes('flow') && !/flowchart/i.test(da.flow.content)) formatIssues.push('流程图缺 flowchart 标记');
+          if (!missing.includes('prototype') && !(/<html/i.test(da.prototype.content) && /<input/i.test(da.prototype.content) && /<button/i.test(da.prototype.content))) formatIssues.push('原型缺 HTML 交互要素（html/input/button）');
+          if (missing.length || formatIssues.length)
+            access.fail(
+              'DESIGN_ARTIFACTS_INCOMPLETE',
+              409,
+              [
+                ...missing.map((k) => '缺 ' + k),
+                ...formatIssues,
+                '请先在设计阶段完成 EXEC 作业产出四类产物，或人工补录后重试',
+              ].join('；'),
+            );
+        }
         scope = policy.scope(input.scope);
         const caps = await require('./capability-service').context(
           client,
