@@ -12,6 +12,20 @@ function create(id, input) {
     input,
     'verification.delivery.create',
     async (c, d, x, q) => {
+      // 67 号：dev→test 真实 EXEC 证据门禁——开发不是填表，
+      // 提测前必须存在 dev 阶段真实 EXEC 代码作业（平台检出 SUCCEEDED 记录）。
+      {
+        const hit = await c.query(
+          `SELECT 1 FROM "${d.schema}".agent_jobs WHERE tenant_id=$1 AND req_id=$2 AND kind='EXECUTE' AND state='SUCCEEDED' AND input->>'stage'='dev' LIMIT 1`,
+          [x.tenantId, q.id],
+        );
+        if (!hit.rowCount)
+          access.fail(
+            'DEV_EXEC_EVIDENCE_REQUIRED',
+            409,
+            '开发阶段尚未完成真实 EXEC 代码作业（平台未检出任何 dev 阶段成功执行记录）。请先在开发阶段发起真实执行完成代码实现并通过，再交接测试。',
+          );
+      }
       const value = policy.delivery(input),
         state = await impact.inspect(c, d, x, q, { files: true });
       if (

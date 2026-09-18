@@ -143,6 +143,8 @@ app.use((err, req, res, _next) => {
             ? 'STORAGE_UNAVAILABLE'
             : 'INTERNAL';
   console.error('[error]', code);
+  if (err.message && err.message !== code)
+    console.error('[error-detail]', String(err.message).slice(0, 300));
   res.status(status).json({
     error: {
       code,

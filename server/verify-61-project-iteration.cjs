@@ -66,6 +66,17 @@ async function main() {
   {
     const dv = [...(d.versions || [])].reverse().find((x) => x.stage === 'design');
     if (dv) { await fetch(BASE + '/api/reqs/' + reqId + '/versions/' + (dv.id || dv.public_id) + '/confirm', { method: 'POST', headers: auth, body: JSON.stringify({ expectedRevision: d.revision, commandId: '61-cf-design-' + Date.now().toString(36) }) }); d = await getDetail(reqId); }
+    // 64/65 号设计产物门禁：confirm-design 前补齐四类产物
+    const ART61 = {
+      design: '# 方案设计\n\n## 背景与目标\n\n迭代现有 session-store，新增 publicId 能力。\n\n## 总体架构\n\n前端 + 服务端 + 数据库三层。',
+      sequence: '\`\`\`sequenceDiagram\nsequenceDiagram\n    PM->>Platform: 提交想法\n    Platform->>Agent: 指派作业\n\`\`\`',
+      flow: '\`\`\`flowchart\nflowchart TD\n    A[提交想法] --> B[需求澄清]\n    B --> C[确认方案]\n\`\`\`',
+      prototype: '<!doctype html><html><head></head><body><input id="q" placeholder="提问" /><button onclick="alert(1)">提交</button></body></html>',
+    };
+    for (const k of ['design', 'sequence', 'flow', 'prototype']) {
+      const r = await fetch(BASE + '/api/agent/requirements/' + reqId + '/design-artifacts', { method: 'PUT', headers: auth, body: JSON.stringify({ kind: k, name: '61-' + k, content: ART61[k] }) });
+      if (r.status !== 200 && r.status !== 201) throw new Error('ARTIFACT_PUT_FAILED ' + k + ' ' + JSON.stringify(await r.json().catch(() => ({}))).slice(0, 120));
+    }
     const dv2 = [...(d.versions || [])].reverse().find((x) => x.stage === 'design');
     const ad = await fetch(BASE + '/api/reqs/' + reqId + '/artifact-groups/' + gid + '/confirm-design', { method: 'POST', headers: auth, body: JSON.stringify({ comment: '实施设计已确认（61）', advanceTo: 'dev', designVersionId: dv2?.id || dv2?.public_id, scope: { goal: '现有系统迭代：session-store 新增 publicId + 补测试', files: 'src/session-store.cjs, test/*.test.js', validation: 'node --test', exit: '汇报真实测试输出', rollback: 'git revert', capabilityIds: [] }, expectedRevision: d.revision, commandId: '61-cd-' + Date.now().toString(36) }) });
     const adj = await ad.json();
