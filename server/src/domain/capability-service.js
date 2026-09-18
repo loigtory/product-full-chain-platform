@@ -156,7 +156,19 @@ async function update(id, input, review = false) {
   );
 }
 function bindingDto(row) {
-  return { stage: row.stage, revision: row.revision, capIds: row.capIds };
+  return {
+    stage: row.stage,
+    revision: row.revision,
+    capIds: row.capIds,
+    caps: (row.caps || []).map((c) => ({
+      id: c.public_id,
+      name: c.name,
+      type: c.type,
+      protocol: c.protocol,
+      src: c.src,
+      enabled: c.enabled,
+    })),
+  };
 }
 async function listBindings() {
   const ctx = access.current(),

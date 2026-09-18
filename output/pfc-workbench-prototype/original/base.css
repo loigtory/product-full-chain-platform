@@ -381,6 +381,11 @@ input,textarea{font-family:inherit;}
 .bind-grid tr.stage-row:hover td{background:var(--surface-2);}
 .bind-grid .st-name{font-weight:600;white-space:nowrap;}
 .bind-cell{display:flex;flex-wrap:wrap;gap:6px;}
+.bind-ops{display:flex;flex-wrap:wrap;gap:4px;max-width:340px;}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:12px;background:#eef3fb;color:#234;border:1px solid #cfe0f5;}
+.chip-off{background:#f2f2f2;color:#888;border-color:#ddd;}
+.chip-src{font-size:10px;color:#8a94a6;}
+
 .bind-chip{
   display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:3px 9px;border-radius:999px;
   border:1px solid var(--border);background:var(--surface);color:var(--text-2);cursor:pointer;user-select:none;

@@ -71,32 +71,49 @@
       '阶段默认能力',
       '<p class="muted">新配置用于新计划。既有计划保留原集合，但所用能力停用后不可启动。</p>' +
         P.table(
-          ['阶段 / 修订', '默认能力'],
-          G.bindings.map((s) => [
-            e(P.stageName(s.stage)) +
-              `<p class="muted">修订 ${s.revision} · ${s.capIds.length} 项</p>`,
-            `<div class="bind-cell">${
-              page('catalog')
-                .items.map((c) =>
-                  action(
-                    'toggle-binding',
-                    e(c.name) + (c.enabled ? '' : '（不可装载）'),
-                    {
-                      stage: s.stage,
-                      id: c.id,
-                      disabled:
-                        !owner() || (!c.enabled && !s.capIds.includes(c.id)),
-                    },
-                    s.capIds.includes(c.id) ? 'primary' : '',
-                    true,
-                  ),
-                )
-                .join('') ||
-              '<span class="muted">先在能力目录登记、复核并启用能力</span>'
-            }</div>`,
-          ]),
+          ['阶段 / 修订', '默认能力', '操作'],
+          G.bindings.map((s) => {
+            const list = (s.caps || []).filter((c) => s.capIds.includes(c.id));
+            const label = (c) =>
+              '<span class="chip' + (c.enabled ? '' : ' chip-off') + '">' +
+              e(c.name) + '</span><span class="chip-src">' + e(c.src || '') + '</span>';
+            const row = list.length
+              ? '<div class="bind-cell">' +
+                list
+                  .map((c) =>
+                    action('toggle-binding', label(c), { stage: s.stage, id: c.id }, 'primary', true),
+                  )
+                  .join('') +
+                '</div>'
+              : '<span class="muted">未绑定能力，可在右侧从目录添加</span>';
+            const ops =
+              '<div class="bind-ops">' +
+              (owner()
+                ? (page('catalog').items
+                    .filter((c) => !s.capIds.includes(c.id))
+                    .slice(0, 8)
+                    .map((c) =>
+                      action(
+                        'toggle-binding',
+                        '＋' + e(c.name),
+                        { stage: s.stage, id: c.id },
+                        '',
+                        true,
+                      ),
+                    )
+                    .join('') ||
+                  '<span class="muted">目录无更多可添加项</span>')
+                : '<span class="muted">仅负责人可配置</span>') +
+              '</div>';
+            return [
+              e(P.stageName(s.stage)) +
+                '<p class="muted">修订 ' + s.revision + ' · ' + list.length + ' 项</p>',
+              row,
+              ops,
+            ];
+          }),
         ) +
-        '<p class="source-note">显示能力目录当前页。更多能力可在目录筛选后返回绑定；未显示的已绑定项仍保留。</p>',
+        '<p class="source-note">只显示已绑定能力；添加入口展示能力目录当前页未绑定项（最多 8 个），更多能力请在目录筛选后返回绑定。点已绑定名称可解除绑定。</p>',
     );
   const team = () =>
     card(
