@@ -626,7 +626,7 @@
           '</p>';
         if (Array.isArray(c.skills) && c.skills.length)
           html += c.skills
-            .map((sk) => '<span class="skill-chip">' + e(sk) + '</span>')
+            .map((sk) => '<span class="skill-chip">' + e(typeof sk === 'string' ? sk : sk.name) + '</span>')
             .join('');
         else if (Array.isArray(c.skills))
           html +=
@@ -634,7 +634,7 @@
         if (Array.isArray(c.tools) && c.tools.length)
           html +=
             '<p class="muted" style="font-size:11px;margin-top:4px">工具：' +
-            e(c.tools.join('、')) +
+            e(c.tools.map((t) => (typeof t === 'string' ? t : t.name)).join('、')) +
             '</p>';
         return html;
       })()}${(function () {

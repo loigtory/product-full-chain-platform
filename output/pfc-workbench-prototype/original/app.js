@@ -745,6 +745,7 @@
             P.s.stageCaps = {};
             for (const c of caps?.stages || []) P.s.stageCaps[c.stage] = c;
             P.save();
+            P.render({ quiet: true });
           } catch {
             P.s.stageCaps = {};
           }
