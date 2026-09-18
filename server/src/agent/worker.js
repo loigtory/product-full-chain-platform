@@ -230,6 +230,14 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
     }
     const options = connectionOptions();
     if (!options) throw fault('CONNECTION_UNAVAILABLE');
+    // 55 号：TEXT 作业按阶段从 stage_capabilities 配置表装载启用 skills（热插拔，页面可改）。
+    if (kind === 'TEXT' && job.input.stage)
+      options.enabledSkills =
+        await require('./stage-capabilities-config').enabledSkillsForStage(
+          db,
+          ctx.tenantId,
+          job.input.stage,
+        );
     if (job.input.contextHash)
       await withTransaction(db, async (client) => {
         const req = await require('../persistence/requirements').lock(

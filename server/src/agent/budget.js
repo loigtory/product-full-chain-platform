@@ -47,8 +47,18 @@ function createBudget({
     throw fault('BUDGET_TARGET_INVALID');
   function load() {
     require('../local/profile').noLinks(full);
-    if (!fs.existsSync(full))
-      return { format: 2, packageId, attempts: [], maxTurns, maxSeconds };
+    if (!fs.existsSync(full)) {
+      // 账本缺失时自动初始化落盘（防超支依赖持久化 attempts 计数）
+      const b0 = { format: 2, packageId, maxTurns, maxSeconds, attempts: [] };
+      const temp0 = full + '.' + randomUUID() + '.init.tmp';
+      try {
+        fs.writeFileSync(temp0, JSON.stringify(b0, null, 2) + '\n', { flag: 'wx' });
+        fs.renameSync(temp0, full);
+      } finally {
+        if (fs.existsSync(temp0)) fs.unlinkSync(temp0);
+      }
+      return b0;
+    }
     const value = JSON.parse(fs.readFileSync(full, 'utf8'));
     if (
       value.format !== 2 ||

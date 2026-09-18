@@ -64,19 +64,101 @@ router.get('/status', (req, res) => {
   });
 });
 
-// Report actual enabled capabilities; the stage catalog describes future candidates.
-router.get('/stage-capabilities', (req, res) => {
-  const caps = require('../agent/stage-capabilities');
-  res.json({
-    stages: caps.all().map((stage) => ({
-      ...stage,
-      skills: [],
-      tools: ['文本对话'],
-      mcps: [],
-      execution: 'BLOCKED',
-      configuredCandidates: stage.skills,
-    })),
-  });
+// 阶段能力配置中心（55 号）：静态声明（goal/guide）+ 配置表（stage_capabilities 热插拔）。
+// 返回 8 阶段实际启用能力（skill/tool/mcp 的 enabled/source/priority 来自配置表，页面可改）。
+router.get('/stage-capabilities', async (req, res, next) => {
+  try {
+    const db = require('../runtime').db();
+    const ctx = require('../access').current();
+    const rows = await require('../agent/stage-capabilities-config').list(db, ctx);
+    const byStage = new Map();
+    for (const row of rows) {
+      if (!byStage.has(row.stage))
+        byStage.set(row.stage, { skills: [], tools: [], mcps: [] });
+      const bucket = byStage.get(row.stage)[
+        row.kind === 'skill' ? 'skills' : row.kind === 'tool' ? 'tools' : 'mcps'
+      ];
+      bucket.push({
+        name: row.name,
+        source: row.source,
+        sourceUrl: row.source_url,
+        description: row.description,
+        enabled: row.enabled,
+        priority: row.priority,
+        updatedAt: row.updated_at,
+      });
+    }
+    const caps = require('../agent/stage-capabilities');
+    res.json({
+      stages: caps.all().map((stage) => ({
+        stage: stage.stage,
+        name: stage.name,
+        goal: stage.goal,
+        guide: stage.guide,
+        skills: byStage.get(stage.stage)?.skills || [],
+        tools: byStage.get(stage.stage)?.tools || [],
+        mcps: byStage.get(stage.stage)?.mcps || [],
+        execution: stage.stage === 'dev' ? 'EXEC' : 'BLOCKED',
+      })),
+    });
+  } catch (e) {
+    next(e);
+  }
+});
+
+// 单阶段配置（配置中心详情视图）
+router.get('/stage-capabilities/:stage', async (req, res, next) => {
+  try {
+    const db = require('../runtime').db();
+    const ctx = require('../access').current();
+    const rows = await require('../agent/stage-capabilities-config').forStage(
+      db,
+      ctx,
+      req.params.stage,
+    );
+    res.json({ stage: req.params.stage, entries: rows });
+  } catch (e) {
+    next(e);
+  }
+});
+
+// 批量保存阶段配置（owner 专属；幂等 upsert，页面保存入口）
+router.put('/stage-capabilities/:stage', async (req, res, next) => {
+  try {
+    const db = require('../runtime').db();
+    const ctx = require('../access').current();
+    const svc = require('../agent/stage-capabilities-config');
+    const stage = String(req.params.stage);
+    const entries = Array.isArray(req.body?.entries) ? req.body.entries : [];
+    if (!entries.length) {
+      res.status(400).json({ error: { code: 'ENTRIES_REQUIRED' } });
+      return;
+    }
+    const results = [];
+    for (const entry of entries)
+      results.push(await svc.upsert(db, ctx, { ...entry, stage }));
+    res.json({ stage, results });
+  } catch (e) {
+    next(e);
+  }
+});
+
+// 移除阶段能力（热插拔；owner 专属）
+router.delete('/stage-capabilities/:stage/:kind/:name', async (req, res, next) => {
+  try {
+    const db = require('../runtime').db();
+    const ctx = require('../access').current();
+    const result = await require('../agent/stage-capabilities-config').remove(
+      db,
+      ctx,
+      req.params.stage,
+      req.params.kind,
+      decodeURIComponent(req.params.name),
+    );
+    res.json(result);
+  } catch (e) {
+    next(e);
+  }
 });
 
 // 只读预检：验证 CLI 版本、账号模式、连接指纹与隔离配置；不发起模型生成。

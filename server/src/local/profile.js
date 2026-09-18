@@ -16,7 +16,7 @@ function layout({
   targetVersion = '006',
   fixtureScope = 'ops',
 } = {}) {
-  if (!['006', '007', '008'].includes(targetVersion))
+  if (!['006', '007', '008', '009'].includes(targetVersion))
     throw fault('LOCAL_VERSION_INVALID');
   const host = typeof runId === 'string' && runId.startsWith(hostPrefix + '_');
   const remediation =

@@ -34,13 +34,21 @@ import { BridgeCenter } from './BridgeCenter.tsx';
 import { agentRunsApi, type AgentRunsApi } from './api.ts';
 import { routeAgentRunId } from './model.ts';
 import { SkillCatalog } from './SkillCatalog.tsx';
+import { StageCapabilityConfigPanel } from './StageCapabilityConfigPanel.tsx';
 import './agent-runs.css';
 
-type AgentRunsView = 'RUNS' | 'APPROVALS' | 'BRIDGES' | 'SKILLS' | 'AUDIT';
+type AgentRunsView =
+  | 'RUNS'
+  | 'APPROVALS'
+  | 'BRIDGES'
+  | 'SKILLS'
+  | 'CAPABILITIES'
+  | 'AUDIT';
 
 function initialView(): AgentRunsView {
   const value = new URLSearchParams(window.location.search).get('view');
   if (value === 'skills') return 'SKILLS';
+  if (value === 'capabilities') return 'CAPABILITIES';
   if (value === 'bridges') return 'BRIDGES';
   if (value === 'approvals') return 'APPROVALS';
   if (value === 'audit') return 'AUDIT';
@@ -277,6 +285,7 @@ export function AgentRunsPage({
               { label: '审批', value: 'APPROVALS' },
               { label: 'Bridge', value: 'BRIDGES' },
               { label: 'Skills', value: 'SKILLS' },
+              { label: '阶段能力', value: 'CAPABILITIES' },
               { label: '审计', value: 'AUDIT' },
             ]}
             value={view}
@@ -365,6 +374,8 @@ export function AgentRunsPage({
             />
           ) : view === 'SKILLS' ? (
             <SkillCatalog items={skills} loading={skillsLoading} />
+          ) : view === 'CAPABILITIES' ? (
+            <StageCapabilityConfigPanel />
           ) : (
             <AgentAuditPanel
               api={api}
