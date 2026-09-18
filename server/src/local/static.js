@@ -7,7 +7,7 @@ function source() {
   const html = fs.readFileSync(resolve(root, 'index.html'), 'utf8');
   const paths = [
     ...html.matchAll(
-      /<(?:script|link)\b[^>]*(?:src|href)="(original\/[a-z0-9-]+\.(?:js|css))"/g,
+      /<(?:script|link)\b[^>]*(?:src|href)="(original\/[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:js|css))"/g,
     ),
   ].map((m) => m[1]);
   return { root, html, paths: new Set(paths) };

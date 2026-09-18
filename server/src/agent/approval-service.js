@@ -128,8 +128,8 @@ function createHostDispatcher({
       job.tenant_id !== ctx.tenantId ||
       job.created_by !== ctx.memberId ||
       job.req_id !== req.id ||
-      req.stage !== 'dev' ||
-      job.input.stage !== 'dev'
+      !['design', 'dev', 'test'].includes(req.stage) ||
+      !['design', 'dev', 'test'].includes(job.input.stage)
     )
       fail('TOOL_IDENTITY_MISMATCH');
     if (job.result?.cancelRequested) fail('TURN_CANCELLED');
@@ -139,7 +139,7 @@ function createHostDispatcher({
       db,
       ctx,
       req,
-      'dev',
+      job.input.stage,
     );
     if (
       snapshot.hash !== job.input.contextHash ||

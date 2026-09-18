@@ -352,6 +352,21 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
     if (exit?.childExited !== true) throw fault('PROCESS_EXIT_UNCONFIRMED');
     if (hostScope) result.fileDiff = hostScope.diff();
     await completeJob(db, ctx, reqPublicId, job, result);
+    // 64 号：design 阶段 EXEC 完成后收集设计产物（design/design.md、sequence.mmd、
+    // flow.mmd、prototype.html），登记为需求设计产物快照；收集失败不阻断作业。
+    if (kind === 'EXECUTE' && job.input.stage === 'design' && hostScope) {
+      try {
+        await require('../domain/design-artifact-service').collectFromWorkspace(
+          db,
+          ctx,
+          reqPublicId,
+          job.input.workspace,
+          jobId,
+        );
+      } catch (e) {
+        // 产物收集失败仅记录，不改变作业结论。
+      }
+    }
     outcome = {
       status: 'SUCCEEDED',
       jobId,

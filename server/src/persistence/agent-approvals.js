@@ -8,7 +8,7 @@ async function create(client, db, ctx, jobId, ownerId, request) {
   const job = await jobs.owned(client, db, jobId, ownerId);
   if (
     job.kind !== 'EXECUTE' ||
-    job.input.stage !== 'dev' ||
+    !['design', 'dev', 'test'].includes(job.input.stage) ||
     job.result?.cancelRequested
   )
     fail('APPROVAL_SCOPE_CHANGED');

@@ -108,6 +108,18 @@ router.get('/requirements/:reqId/exec-stream', async (req, res, next) => {
   }
 });
 
+// 64 号：设计阶段产物（方案设计/时序图/流程图/可交互原型）读取
+router.get('/requirements/:reqId/design-artifacts', async (req, res, next) => {
+  try {
+    const ctx = require('../access').current();
+    const db = require('../runtime').db();
+    const svc = require('../domain/design-artifact-service');
+    res.json(await svc.listForReq(db, ctx, req.params.reqId));
+  } catch (e) {
+    next(e);
+  }
+});
+
 // 62 号：预算/资源耗用报表（owner 专属；两个账本为唯一事实源，汇总现算不缓存）
 //  remediation 账本（active 预算）+ host-exec 账本（EXEC 真实作业预算，上限 80）
 router.get('/budget', async (req, res, next) => {
@@ -211,7 +223,7 @@ router.get('/stage-capabilities', async (req, res, next) => {
         skills: byStage.get(stage.stage)?.skills || [],
         tools: byStage.get(stage.stage)?.tools || [],
         mcps: byStage.get(stage.stage)?.mcps || [],
-        execution: stage.stage === 'dev' ? 'EXEC' : 'BLOCKED',
+        execution: ['design', 'dev', 'test'].includes(stage.stage) ? 'EXEC' : 'BLOCKED',
       })),
     });
   } catch (e) {

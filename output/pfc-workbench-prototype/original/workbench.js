@@ -716,6 +716,8 @@
       );
     if (stage === 'dev' && run?.status === 'SUCCEEDED')
       content += P.artifactCard(r, 'dev');
+    if (stage === 'design' && window.PFCDesignArtifacts)
+      content += window.PFCDesignArtifacts.card(r.id);
     const stageAll = !!u.stageAll;
     const filterBar = `<div class="msg-filter" role="group" aria-label="消息范围">${b('toggle-stage-all', '仅当前阶段', { all: '0' }, !stageAll ? 'primary' : '')}${b('toggle-stage-all', '全部阶段', { all: '1' }, stageAll ? 'primary' : '')}</div>`;
     let msgs;
