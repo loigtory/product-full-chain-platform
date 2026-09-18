@@ -20,16 +20,16 @@ console.log('A. host-tools-registry 白名单');
   // resolveHostTools(core) 返回 5 个函数定义
   const coreDefs = registry.resolveHostTools(registry.coreToolNames());
   t('core resolve=2', coreDefs.length === 2 && coreDefs.every((d) => d.type === 'function' && d.inputSchema?.type === 'object'));
-  // 57 号后：codex_cli 已提升 READY；PENDING 语义由 zed/vscode 承担（不注入）
+  // 60 号后：zed/vscode 已提升 READY（terminal 语义），PENDING 语义暂无承载工具
   const pendingDefs = registry.resolveHostTools(['zed', 'vscode']);
-  t('PENDING(zed/vscode) 不注入', pendingDefs.length === 0, pendingDefs);
+  t('READY(zed/vscode) 注入=2', pendingDefs.length === 2 && pendingDefs.every((d) => ['zed_terminal', 'vscode_terminal'].includes(d.name)), pendingDefs.map((d) => d.name));
   // 未知名过滤
   t('未知名过滤', registry.resolveHostTools(['nope', '随便']).length === 0);
   // 别名解析 + 去重（codex-cli/codex 同一工具；与 READY core 可并存）
   const alias = registry.resolveHostTools(['codex-cli', 'codex', 'pfc_read_file']);
   t('别名+去重', alias.length === 2 && alias.some((d) => d.name === 'codex_cli'), alias.map((d) => d.name));
   // 状态查询
-  t('statusOf', registry.statusOf('codex-cli') === 'READY' && registry.statusOf('zed') === 'PENDING_HOST_SUPPORT' && registry.statusOf('x') === 'UNKNOWN');
+  t('statusOf', registry.statusOf('codex-cli') === 'READY' && registry.statusOf('zed') === 'READY' && registry.statusOf('vscode') === 'READY' && registry.statusOf('x') === 'UNKNOWN');
 }
 
 console.log('B. hostThreadParams 装配（无 DB）');
@@ -45,7 +45,7 @@ console.log('B. hostThreadParams 装配（无 DB）');
   const p1 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['pfc_read_file']);
   t('重复 core 不重复注入', p1.dynamicTools.length === 2);
   const p2 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['zed']);
-  t('PENDING(zed) 不注入=2', p2.dynamicTools.length === 2);
+  t('READY(zed) 注入=3', p2.dynamicTools.length === 3 && p2.dynamicTools.some((d) => d.name === 'zed_terminal'), p2.dynamicTools.map((d) => d.name));
   const p3 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['nope']);
   t('未知名=2', p3.dynamicTools.length === 2);
   const p4 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['codex-cli']);
@@ -74,7 +74,7 @@ console.log('C. 配置装载（PG，迁移 009 + seed-55）');
     t('dev 配置经白名单解析（codex-cli 注入）', resolved.some((d) => d.name === 'codex_cli') && resolved.every((d) => d.name !== 'zed_terminal'), resolved.map((d) => d.name));
     // 模拟混合配置（READY 重复去重 + PENDING 过滤）
     const mock = registry.resolveHostTools(['pfc_read_file', 'codex-cli', 'codex-cli', 'zed']);
-    t('混合配置：READY 去重注入 + PENDING 过滤', mock.length === 2 && mock.some((d) => d.name === 'codex_cli'), mock.map((d) => d.name));
+    t('混合配置：READY 去重注入（60 号 zed 已 READY）', mock.length === 3 && mock.some((d) => d.name === 'codex_cli') && mock.some((d) => d.name === 'zed_terminal'), mock.map((d) => d.name));
   } catch (e) {
     t('DB 装载', false, e.message);
   } finally {

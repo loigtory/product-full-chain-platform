@@ -163,6 +163,8 @@ function createHostDispatcher({
       pfc_git_status: 'git-status',
       pfc_git_diff: 'git-diff',
       codex_cli: 'terminal',
+      zed_terminal: 'terminal',
+      vscode_terminal: 'terminal',
     };
     const commandId = COMMAND_TOOLS[bound.tool] ?? null;
     const isCommand = commandId !== null;

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { Buffer } from 'node:buffer';
 import { setTimeout, clearTimeout } from 'node:timers';
 
-const VERSION = '0.153.4';
+const VERSION = '0.154.0'; // 60 号：同步本机 codex 升级（0.153.4→0.154.0），小版本协议兼容
 const requiredDisabled = [
   'apps',
   'plugins',

@@ -56,20 +56,9 @@ const CORE_TOOLS = {
 // 终端类工具：zed/vscode 真实 IDE 会话接入（57 号后续）前保持 PENDING；
 // codex_cli 已提升 READY——语义为"在冻结计划批准的命令范围内执行命令向量"
 // （cwd=授权工作区，deny 优先 + 计划精确匹配 + 超时进程树终止，由 command-runner 保证）。
-const PENDING_TOOLS = {
-  zed_terminal: {
-    status: 'PENDING_HOST_SUPPORT',
-    kind: 'tool',
-    description: 'Zed 开发终端会话（真实 IDE 会话流接入待后续）。',
-    inputSchema: { type: 'object', properties: {}, required: [], additionalProperties: false },
-  },
-  vscode_terminal: {
-    status: 'PENDING_HOST_SUPPORT',
-    kind: 'tool',
-    description: 'VSCode 开发终端会话（真实 IDE 会话流接入待后续）。',
-    inputSchema: { type: 'object', properties: {}, required: [], additionalProperties: false },
-  },
-};
+// 60 号：zed/vscode 已提升 READY（EXTRA_READY_TOOLS）；PENDING 语义暂无承载工具。
+const PENDING_TOOLS = {};
+
 
 // 57 号：codex_cli 作为 READY 命令执行工具（配置里启用 codex-cli/codex 即注入）
 const EXTRA_READY_TOOLS = {
@@ -78,6 +67,46 @@ const EXTRA_READY_TOOLS = {
     kind: 'tool',
     description:
       '在冻结计划批准的命令范围内执行命令向量（cwd=授权工作区；deny 优先、计划精确匹配、超时终止）。',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        command: {
+          type: 'array',
+          items: { type: 'string' },
+          minItems: 1,
+          maxItems: 32,
+        },
+      },
+      required: ['command'],
+      additionalProperties: false,
+    },
+  },
+  // 60 号：zed/vscode 终端提升 READY——语义与 codex_cli 一致（受控命令执行器），
+  // 供「阶段能力」按团队偏好切换开发终端来源；IDE 专属会话流的实时跟踪为后续 UI 里程碑。
+  zed_terminal: {
+    status: 'READY',
+    kind: 'tool',
+    description:
+      'Zed 终端：在冻结计划批准的命令范围内执行命令向量（与 codex_cli 同语义的受控执行器）。',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        command: {
+          type: 'array',
+          items: { type: 'string' },
+          minItems: 1,
+          maxItems: 32,
+        },
+      },
+      required: ['command'],
+      additionalProperties: false,
+    },
+  },
+  vscode_terminal: {
+    status: 'READY',
+    kind: 'tool',
+    description:
+      'VSCode 终端：在冻结计划批准的命令范围内执行命令向量（与 codex_cli 同语义的受控执行器）。',
     inputSchema: {
       type: 'object',
       properties: {

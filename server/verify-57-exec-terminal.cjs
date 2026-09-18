@@ -13,13 +13,13 @@ const t = (name, ok, extra) => {
   else { fail++; console.log('  FAIL ' + name + (extra ? ' :: ' + JSON.stringify(extra) : '')); }
 };
 
-console.log('A. registry：codex_cli READY / zed vscode PENDING');
+console.log('A. registry：codex_cli / zed / vscode 均 READY（60 号）');
 {
   t('codex_cli READY', registry.statusOf('codex-cli') === 'READY');
-  t('zed PENDING', registry.statusOf('zed') === 'PENDING_HOST_SUPPORT');
-  t('vscode PENDING', registry.statusOf('vscode') === 'PENDING_HOST_SUPPORT');
+  t('zed READY', registry.statusOf('zed') === 'READY');
+  t('vscode READY', registry.statusOf('vscode') === 'READY');
   const defs = registry.resolveHostTools(['codex-cli', 'zed', 'vscode']);
-  t('仅 codex_cli 注入', defs.length === 1 && defs[0].name === 'codex_cli', defs.map((d) => d.name));
+  t('codex_cli/zed/vscode 注入=3（60 号）', defs.length === 3 && ['codex_cli', 'zed_terminal', 'vscode_terminal'].every((n) => defs.some((d) => d.name === n)), defs.map((d) => d.name));
   t('codex_cli schema 带 command', defs[0].inputSchema.required[0] === 'command');
 }
 
@@ -30,7 +30,7 @@ console.log('B. hostThreadParams 装配（codex_cli 注入后）');
   t('2 core + codex_cli = 3', p.dynamicTools.length === 3, p.dynamicTools.map((d) => d.name));
   t('codex_cli 在列', p.dynamicTools.some((d) => d.name === 'codex_cli'));
   const p2 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['zed']);
-  t('zed 不注入=2', p2.dynamicTools.length === 2);
+  t('zed 注入=3', p2.dynamicTools.length === 3 && p2.dynamicTools.some((d) => d.name === 'zed_terminal'), p2.dynamicTools.map((d) => d.name));
 }
 
 console.log('C. 命令批准语义（assertCommandAllowed，不真实执行）');
