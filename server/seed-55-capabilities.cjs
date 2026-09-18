@@ -60,7 +60,6 @@ const DEFAULT = [
   ['release', 'tool', '发布清单', 'local', null, '发布检查清单', 10],
   ['release', 'tool', '回滚方案', 'local', null, '回滚方案', 20],
   // ---- observe ----
-  ['observe', 'skill', 'rdc-data-analysis', 'local', null, '数据分析', 10],
   ['observe', 'skill', 'statistical-and-uncertainty-visualization', 'local', null, '统计与不确定性可视化', 20],
   ['observe', 'skill', 'metrics-dashboard', 'github', 'https://github.com/phuryn/pm-skills', '指标看板（北极星+输入+健康）', 30],
   ['observe', 'skill', '数据分析助手', 'company', 'https://ai-dev.hzins.com/categories', '端到端 EDA', 40],
@@ -79,17 +78,24 @@ const DEFAULT = [
     console.error('OWNER_MEMBER_MISSING');
     process.exit(1);
   }
+  // 010 号：公司市场 skill 的装载名 slug（worker 按真实 codex 目录名匹配）
+  const SLUG_BY_NAME = {
+    '代码审查': 'rdc-code-review',
+    '前端工时估算': 'cha-estimate-workload',
+    '数据分析助手': 'rdc-data-analysis',
+  };
   let upserted = 0;
   for (const [stage, kind, name, source, sourceUrl, description, priority] of DEFAULT) {
+    const slug = SLUG_BY_NAME[name] || null;
     await pool.query(
       `INSERT INTO "${SCHEMA}".stage_capabilities
-         (id,tenant_id,stage,kind,name,source,source_url,description,enabled,priority,updated_by)
-       VALUES($1,$2,$3,$4,$5,$6,$7,$8,true,$9,$10)
+         (id,tenant_id,stage,kind,name,slug,source,source_url,description,enabled,priority,updated_by)
+       VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,true,$10,$11)
        ON CONFLICT (tenant_id,stage,kind,name) DO UPDATE SET
-         source=EXCLUDED.source,source_url=EXCLUDED.source_url,
+         slug=EXCLUDED.slug,source=EXCLUDED.source,source_url=EXCLUDED.source_url,
          description=EXCLUDED.description,enabled=EXCLUDED.enabled,
          priority=EXCLUDED.priority,updated_by=EXCLUDED.updated_by,updated_at=now()`,
-      [crypto.randomUUID(), TENANT, stage, kind, name, source, sourceUrl, description, priority, owner.id],
+      [crypto.randomUUID(), TENANT, stage, kind, name, slug, source, sourceUrl, description, priority, owner.id],
     );
     upserted++;
   }

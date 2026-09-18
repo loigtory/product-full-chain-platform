@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 const fs = require('node:fs');
 const { resolve, relative, isAbsolute, sep } = require('node:path');
 const repo = resolve(__dirname, '../../..');
@@ -16,7 +16,7 @@ function layout({
   targetVersion = '006',
   fixtureScope = 'ops',
 } = {}) {
-  if (!['006', '007', '008', '009'].includes(targetVersion))
+  if (!['006', '007', '008', '009', '010'].includes(targetVersion))
     throw fault('LOCAL_VERSION_INVALID');
   const host = typeof runId === 'string' && runId.startsWith(hostPrefix + '_');
   const remediation =

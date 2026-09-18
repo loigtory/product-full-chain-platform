@@ -86,10 +86,39 @@
 - `node server\verify-57-exec-terminal.cjs`（无 DB）；`node server\verify-57-http.cjs`（需 5188）
 - dev 阶段在页面「阶段能力」启用 codex-cli 后，下一个 EXEC 作业 host 会话会注入 codex_cli 工具（白名单内计划命令）
 
-## 六、结论与后续
+## 六、57 追加（用户授权后）：公司市场 skill 实际安装 + slug 装载修正
 
-57 号完成"开发终端工具"的第一段真实落地：**codex-cli 作为计划内命令执行工具可配置可注入**（安全批准链不变），GitHub 生态 13 个 skill 已实装。剩余：
+用户授权安装 ai-dev 市场（公司内部）skill。下载机制确认：skill 详情页提供内部 Git 仓库
+`https://git.hzins.com/ai-dev/skills-public.git`（`npx skills add <repo> --skill <slug>`）。
+git clone 后按 slug 定位并安装到 `~/.codex/skills`：
+
+| 配置表显示名 | 实装 slug | 来源位置 | 安装 |
+| --- | --- | --- | --- |
+| 代码审查 | rdc-code-review | skills-public/skills/rd-center/rdc-code-review | ✅ |
+| 前端工时估算 | cha-estimate-workload | skills-public/skills/channel-a/cha-estimate-workload | ✅ |
+| 数据分析助手 | rdc-data-analysis | skills-public/skills/rd-center/rdc-data-analysis | ✅ |
+
+**发现的真实缺口（55 号遗留）**：配置表 name 是中文显示名（"代码审查"），而 worker 装载按
+`~/.codex/skills` 目录 slug 匹配（config.js skills.config.enabled：base=SKILL.md 父目录基名）
+——company 条目装载永远命中不了真实 skill。**修正（迁移 010）**：
+
+- `server/sql/m2c/010-stage-capability-slug.sql`：stage_capabilities 加 `slug` 列（显示名/装载名分离）
+- `enabledSkillsForStage` 返回 `COALESCE(slug, name)`（slug 空回退 name，兼容旧数据）
+- seed 增加公司 3 条 slug 映射；observe 移除 local 占位 `rdc-data-analysis`（与 company 重复）
+- profile.js targetVersion 白名单扩至 010；profile.json 升 010（注意 PowerShell 重写会产生 BOM 导致 JSON.parse 失败，需 node 无 BOM 写回）
+
+**010 后装载结果**（verify-55-worker 6/6 PASS）：
+- idea → grill-me, brainstorm-ideas-new, identify-assumptions-new
+- dev → frontend-app-builder, fullstack-quality-gate, rdc-code-review, cha-estimate-workload
+- observe → statistical-and-uncertainty-visualization, metrics-dashboard, rdc-data-analysis
+
+**全量回归（PG/010）**：55-http 15/15、55-worker 6/6、56-exec 15/15、56-smoke 6/6、57-exec 14/14、57-http 2/2、vite build ✅。
+提交：`244e2c4`（57 初版）+ 本轮追加（010 迁移 + 公司安装）。
+
+## 七、结论与后续
+
+57 号完成"开发终端工具"的第一段真实落地：**codex-cli 作为计划内命令执行工具可配置可注入**（安全批准链不变），GitHub 生态 13 个 skill + 公司市场 3 个 skill 实装，配置表与真实能力完全对齐（slug 装载）。剩余：
 
 1. **zed/vscode 真实 IDE 会话接入**：需 IDE 端插件/协议支持（PENDING 保留），与"终端流实时镜像"是同一后续方向；
-2. **公司市场 skill 安装**：需 ai-dev 下载授权机制确认；
-3. **user-story-canvas 来源更正**：GitHub 无此 skill，design 阶段以本机 uml/figma skill 覆盖（已记录）。
+2. **user-story-canvas 来源更正**：GitHub 无此 skill，design 阶段以本机 uml/figma skill 覆盖（已记录）；
+3. **ai-dev 更多公司 skill**：git.hzins.com skills-public 全量可见（11 套件），可按阶段继续补齐。
