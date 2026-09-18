@@ -16,10 +16,10 @@ const t = (name, ok, extra) => {
 console.log('A. host-tools-registry 白名单');
 {
   // 核心 5 工具恒在
-  t('core 5 READY', registry.coreToolNames().length === 5, registry.coreToolNames());
+  t('core 2 READY（58-C：命令工具移交 codex_cli）', registry.coreToolNames().length === 2, registry.coreToolNames());
   // resolveHostTools(core) 返回 5 个函数定义
   const coreDefs = registry.resolveHostTools(registry.coreToolNames());
-  t('core resolve=5', coreDefs.length === 5 && coreDefs.every((d) => d.type === 'function' && d.inputSchema?.type === 'object'));
+  t('core resolve=2', coreDefs.length === 2 && coreDefs.every((d) => d.type === 'function' && d.inputSchema?.type === 'object'));
   // 57 号后：codex_cli 已提升 READY；PENDING 语义由 zed/vscode 承担（不注入）
   const pendingDefs = registry.resolveHostTools(['zed', 'vscode']);
   t('PENDING(zed/vscode) 不注入', pendingDefs.length === 0, pendingDefs);
@@ -39,17 +39,17 @@ console.log('B. hostThreadParams 装配（无 DB）');
   };
   // 不带 extraTools：5 个核心工具
   const p0 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory);
-  t('默认=5 核心工具', p0.dynamicTools.length === 5, p0.dynamicTools.map((d) => d.name));
+  t('默认=2 核心工具', p0.dynamicTools.length === 2, p0.dynamicTools.map((d) => d.name));
   t('guide 引用 PFC host tools', /PFC host tools/.test(p0.baseInstructions));
   // 带 READY extra：5+1=6；重复 core 不重复注入
   const p1 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['pfc_read_file']);
-  t('重复 core 不重复注入', p1.dynamicTools.length === 5);
+  t('重复 core 不重复注入', p1.dynamicTools.length === 2);
   const p2 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['zed']);
-  t('PENDING(zed) 不注入=5', p2.dynamicTools.length === 5);
+  t('PENDING(zed) 不注入=2', p2.dynamicTools.length === 2);
   const p3 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['nope']);
-  t('未知名=5', p3.dynamicTools.length === 5);
+  t('未知名=2', p3.dynamicTools.length === 2);
   const p4 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['codex-cli']);
-  t('codex-cli(READY) 注入=6', p4.dynamicTools.length === 6 && p4.dynamicTools.some((d) => d.name === 'codex_cli'), p4.dynamicTools.map((d) => d.name));
+  t('codex-cli(READY) 注入=3', p4.dynamicTools.length === 3 && p4.dynamicTools.some((d) => d.name === 'codex_cli'), p4.dynamicTools.map((d) => d.name));
 }
 
 console.log('C. 配置装载（PG，迁移 009 + seed-55）');

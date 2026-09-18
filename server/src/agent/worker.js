@@ -247,9 +247,9 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
           ctx.tenantId,
           job.input.stage,
         );
-      options.extraHostTools = require('./host-tools-registry').resolveHostTools(
-        names,
-      );
+      // 58-C：传原始名称数组；hostThreadParams 内部按 host-tools-registry 白名单统一解析，
+      // 避免二次 resolve（对象数组被 String 化丢弃）。
+      options.extraHostTools = names;
     }
     if (job.input.contextHash)
       await withTransaction(db, async (client) => {

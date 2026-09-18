@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "skills": {
+    "cha-estimate-workload": {
+      "source": "https://git.hzins.com/ai-dev/skills-public.git",
+      "sourceUrl": "https://git.hzins.com/ai-dev/skills-public.git",
+      "sourceType": "git",
+      "skillPath": "skills/channel-a/cha-estimate-workload/SKILL.md",
+      "computedHash": "25556cdb349a9de8d039a4f4a291227588b8d98e49c90cc988d1fd2e31773b9e"
+    },
+    "rdc-code-review": {
+      "source": "https://git.hzins.com/ai-dev/skills-public.git",
+      "sourceUrl": "https://git.hzins.com/ai-dev/skills-public.git",
+      "sourceType": "git",
+      "skillPath": "skills/rd-center/rdc-code-review/SKILL.md",
+      "computedHash": "ba0d1fc8ef511d327bfaa4924943c1066858a1d387de717b900522550054634e"
+    },
+    "rdc-data-analysis": {
+      "source": "https://git.hzins.com/ai-dev/skills-public.git",
+      "sourceUrl": "https://git.hzins.com/ai-dev/skills-public.git",
+      "sourceType": "git",
+      "skillPath": "skills/rd-center/rdc-data-analysis/SKILL.md",
+      "computedHash": "c63779c8f82eeffc467207448860f2816719b9d91b2bbe4b35ff54ffac66cf60"
+    }
+  }
+}

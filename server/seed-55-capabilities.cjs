@@ -40,6 +40,7 @@ const DEFAULT = [
   ['dev', 'skill', '代码审查', 'company', 'https://ai-dev.hzins.com/categories', '提交前安全/逻辑/规范审查', 30],
   ['dev', 'skill', '前端工时估算', 'company', 'https://ai-dev.hzins.com/categories', '需求→工时评估', 40],
   ['dev', 'tool', '开发终端', 'local', null, '开发终端（Zed/Codex/VSCode，EXEC 受控执行）', 10],
+  ['dev', 'tool', 'codex-cli', 'local', null, 'codex CLI 会话（EXEC 受控执行，注册表映射 codex_cli）', 5],
   ['dev', 'mcp', 'codex-cli', 'local', null, 'codex CLI 会话', 10],
   // ---- test ----
   ['test', 'skill', 'platform-test-case-writer', 'local', null, '平台测试用例编写', 10],

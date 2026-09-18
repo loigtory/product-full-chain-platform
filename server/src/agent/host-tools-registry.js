@@ -131,7 +131,11 @@ function resolveHostTools(names = []) {
 }
 
 function coreToolNames() {
-  return Object.keys(CORE_TOOLS);
+  // 58-C：EXEC host 会话的命令执行统一走 terminal 工具（codex_cli，携带计划内命令向量），
+  // 移除 core 固定命令工具（pfc_run_checks/pfc_git_status/pfc_git_diff），避免模型误选后与精确向量不匹配。
+  return Object.keys(CORE_TOOLS).filter(
+    (n) => !['pfc_run_checks', 'pfc_git_status', 'pfc_git_diff'].includes(n),
+  );
 }
 
 function statusOf(name) {

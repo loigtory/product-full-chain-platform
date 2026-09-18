@@ -1,0 +1,1 @@
+const b = require('./src/agent/budget').hostBudget(); console.log(JSON.stringify(b.snapshot()));

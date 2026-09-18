@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { Buffer } from 'node:buffer';
 import { setTimeout, clearTimeout } from 'node:timers';
 
-const VERSION = '0.154.0';
+const VERSION = '0.153.4';
 const requiredDisabled = [
   'apps',
   'plugins',

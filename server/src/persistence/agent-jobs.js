@@ -47,7 +47,7 @@ async function assertReady(db, client = db.pool) {
       fail('MIGRATION_NOT_READY', 503);
 }
 async function enqueue(client, db, ctx, req, input) {
-  if (!['007', '008'].includes(db.targetVersion)) fail('AGENT_SCHEMA_REQUIRED', 503);
+  if (!['007', '008', '009', '010'].includes(db.targetVersion)) fail('AGENT_SCHEMA_REQUIRED', 503);
   await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
     ctx.tenantId + ':agent:' + req.id + ':' + input.commandId,
   ]);

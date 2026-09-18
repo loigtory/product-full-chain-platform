@@ -27,10 +27,10 @@ console.log('B. hostThreadParams 装配（codex_cli 注入后）');
 {
   const inventory = { data: [{ skills: [{ path: 'C:/x/SKILL.md' }], errors: [] }] };
   const p = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['codex-cli']);
-  t('5 core + codex_cli = 6', p.dynamicTools.length === 6, p.dynamicTools.map((d) => d.name));
+  t('2 core + codex_cli = 3', p.dynamicTools.length === 3, p.dynamicTools.map((d) => d.name));
   t('codex_cli 在列', p.dynamicTools.some((d) => d.name === 'codex_cli'));
   const p2 = config.hostThreadParams({ model: 'codex' }, process.cwd(), inventory, ['zed']);
-  t('zed 不注入=5', p2.dynamicTools.length === 5);
+  t('zed 不注入=2', p2.dynamicTools.length === 2);
 }
 
 console.log('C. 命令批准语义（assertCommandAllowed，不真实执行）');

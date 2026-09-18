@@ -1,0 +1,10 @@
+{
+  "projects": [
+    {
+      "projectName": "展业包",
+      "projectCode": "hjhs-hxzb-qw",
+      "repoUrl": "http://techdoc.oa.com/huiju/hjhs-hxzb-qw.git",
+      "aliases": ["HJYY_QW", "展业包", "展业"]
+    }
+  ]
+}
