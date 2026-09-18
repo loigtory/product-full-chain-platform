@@ -162,6 +162,7 @@ function createHostDispatcher({
       pfc_run_checks: 'node-test',
       pfc_git_status: 'git-status',
       pfc_git_diff: 'git-diff',
+      codex_cli: 'terminal',
     };
     const commandId = COMMAND_TOOLS[bound.tool] ?? null;
     const isCommand = commandId !== null;
@@ -179,10 +180,25 @@ function createHostDispatcher({
       try {
         if (isFile) scope.inspect(bound.tool, bound.arguments);
         else {
-          require('./scope-policy').exactArgs(bound.arguments, []);
-          // 命令执行：命令向量必须精确匹配冻结计划 allowedCommands，
-          // 且不命中敏感 deny 规则（deny 优先于 allowlist）。
-          commandVector = require('./test-runner').commandVector(commandId);
+          // 57 号：terminal 命令工具（codex_cli）允许携带计划内命令向量参数，
+          // 其余命令工具仍要求空参数；批准语义不变（deny 优先 + 计划精确匹配）。
+          if (commandId !== 'terminal')
+            require('./scope-policy').exactArgs(bound.arguments, []);
+          if (commandId === 'terminal') {
+            const cmd = bound.arguments?.command;
+            if (
+              !Array.isArray(cmd) ||
+              cmd.length === 0 ||
+              cmd.length > 32 ||
+              cmd.some((x) => typeof x !== 'string' || /[\r\n\0]/.test(x))
+            )
+              throw Object.assign(new Error('COMMAND_ARGUMENTS_INVALID'), {
+                code: 'COMMAND_ARGUMENTS_INVALID',
+              });
+            commandVector = cmd;
+          } else {
+            commandVector = require('./test-runner').commandVector(commandId);
+          }
           require('./command-runner').assertCommandAllowed(
             commandVector,
             scope.plan,

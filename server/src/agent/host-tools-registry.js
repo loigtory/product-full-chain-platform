@@ -53,29 +53,48 @@ const CORE_TOOLS = {
   },
 };
 
-// 终端类工具：配置可声明，但真实 host 会话流接入（57 号）前不会注入执行器。
+// 终端类工具：zed/vscode 真实 IDE 会话接入（57 号后续）前保持 PENDING；
+// codex_cli 已提升 READY——语义为"在冻结计划批准的命令范围内执行命令向量"
+// （cwd=授权工作区，deny 优先 + 计划精确匹配 + 超时进程树终止，由 command-runner 保证）。
 const PENDING_TOOLS = {
-  codex_cli: {
-    status: 'PENDING_HOST_SUPPORT',
-    kind: 'tool',
-    description: 'Codex CLI 会话（终端流实时镜像接入待 57 号）。',
-    inputSchema: { type: 'object', properties: {}, required: [], additionalProperties: false },
-  },
   zed_terminal: {
     status: 'PENDING_HOST_SUPPORT',
     kind: 'tool',
-    description: 'Zed 开发终端会话（终端流实时镜像接入待 57 号）。',
+    description: 'Zed 开发终端会话（真实 IDE 会话流接入待后续）。',
     inputSchema: { type: 'object', properties: {}, required: [], additionalProperties: false },
   },
   vscode_terminal: {
     status: 'PENDING_HOST_SUPPORT',
     kind: 'tool',
-    description: 'VSCode 开发终端会话（终端流实时镜像接入待 57 号）。',
+    description: 'VSCode 开发终端会话（真实 IDE 会话流接入待后续）。',
     inputSchema: { type: 'object', properties: {}, required: [], additionalProperties: false },
   },
 };
 
-const REGISTRY = { ...CORE_TOOLS, ...PENDING_TOOLS };
+// 57 号：codex_cli 作为 READY 命令执行工具（配置里启用 codex-cli/codex 即注入）
+const EXTRA_READY_TOOLS = {
+  codex_cli: {
+    status: 'READY',
+    kind: 'tool',
+    description:
+      '在冻结计划批准的命令范围内执行命令向量（cwd=授权工作区；deny 优先、计划精确匹配、超时终止）。',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        command: {
+          type: 'array',
+          items: { type: 'string' },
+          minItems: 1,
+          maxItems: 32,
+        },
+      },
+      required: ['command'],
+      additionalProperties: false,
+    },
+  },
+};
+
+const REGISTRY = { ...CORE_TOOLS, ...EXTRA_READY_TOOLS, ...PENDING_TOOLS };
 
 // 配置名 → 注册工具名映射（兼容 seed 清单里的 "codex-cli" 写法）
 const ALIASES = {
@@ -120,4 +139,4 @@ function statusOf(name) {
   return key ? REGISTRY[key].status : 'UNKNOWN';
 }
 
-module.exports = { CORE_TOOLS, PENDING_TOOLS, REGISTRY, resolveHostTools, coreToolNames, statusOf, normalize };
+module.exports = { CORE_TOOLS, EXTRA_READY_TOOLS, PENDING_TOOLS, REGISTRY, resolveHostTools, coreToolNames, statusOf, normalize };
