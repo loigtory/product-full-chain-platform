@@ -68,12 +68,12 @@ async function register(db, ctx, reqPublicId, input) {
   });
 }
 
-// 读取某需求的全部设计产物（kind -> {name, content, fingerprint, updatedAt}）
+// 读取某需求的全部设计产物（kind -> {name, content, fingerprint, updatedAt, source}）
 async function listForReq(db, ctx, reqPublicId) {
   return withReq(db, ctx, reqPublicId, async (req) => {
     const rows = (
       await db.pool.query(
-        'SELECT kind,name,content,fingerprint,created_at FROM "' +
+        'SELECT kind,name,content,fingerprint,source,created_at FROM "' +
           db.schema +
           '".design_artifacts WHERE tenant_id=$1 AND req_id=$2 ORDER BY kind',
         [ctx.tenantId, req.id],
@@ -85,6 +85,7 @@ async function listForReq(db, ctx, reqPublicId) {
         name: r.name,
         content: r.content,
         fingerprint: r.fingerprint,
+        source: r.source,
         updatedAt: r.created_at,
       };
     }

@@ -120,6 +120,30 @@ router.get('/requirements/:reqId/design-artifacts', async (req, res, next) => {
   }
 });
 
+// 66 号：设计产物人工补录/更新（EXEC 产物缺失或需修正时的兜底入口；
+//  source 固定 origin=manual 记录补录人，与 EXEC 产物可区分；格式是否达标由 65 门禁在确认时统一校验）
+router.put('/requirements/:reqId/design-artifacts', async (req, res, next) => {
+  try {
+    const ctx = require('../access').current();
+    if (ctx.role !== 'owner') {
+      const e = new Error('DESIGN_ARTIFACT_FORBIDDEN');
+      e.status = 403;
+      throw e;
+    }
+    const db = require('../runtime').db();
+    const svc = require('../domain/design-artifact-service');
+    const r = await svc.register(db, ctx, req.params.reqId, {
+      kind: req.body && req.body.kind,
+      name: req.body && req.body.name,
+      content: req.body && req.body.content,
+      source: { origin: 'manual', by: ctx.memberPublicId || ctx.actor, at: new Date().toISOString() },
+    });
+    res.json(r);
+  } catch (e) {
+    next(e);
+  }
+});
+
 // 62 号：预算/资源耗用报表（owner 专属；两个账本为唯一事实源，汇总现算不缓存）
 //  remediation 账本（active 预算）+ host-exec 账本（EXEC 真实作业预算，上限 80）
 router.get('/budget', async (req, res, next) => {

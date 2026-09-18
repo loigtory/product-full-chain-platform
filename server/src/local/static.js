@@ -20,6 +20,7 @@ function middleware(req, res, next) {
   if (raw === '/' || raw === '/index.html') {
     return res
       .type('html')
+      .set('Cache-Control', 'no-store')
       .send(
         s.html.replace(
           '<head>',
@@ -30,11 +31,15 @@ function middleware(req, res, next) {
   if (raw === '/local-config.js')
     return res
       .type('js')
+      .set('Cache-Control', 'no-store')
       .send(
         "Object.defineProperty(window,'PFC_LOCAL_PERSONAL',{value:true});window.PFC_DATA_MODE='api';window.PFC_API_BASE=location.origin;",
       );
   const key = raw.slice(1);
-  if (s.paths.has(key)) return res.sendFile(noLinks(resolve(s.root, key)));
+  if (s.paths.has(key))
+    return res
+      .set('Cache-Control', 'no-cache')
+      .sendFile(noLinks(resolve(s.root, key)));
   return next();
 }
 module.exports = { source, middleware };
