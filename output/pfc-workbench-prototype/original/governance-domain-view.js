@@ -39,7 +39,7 @@
   const catalogTabs = () => {
     const kinds = [['全部', 'all'], ['Skill', 'Skill'], ['终端工具', '终端工具'], ['MCP', 'MCP'], ['模型', '模型']];
     const cur = (P.q && P.q.govKind) || 'all';
-    return `<div class="tabs">${kinds.map(([label, k]) => `<button class="tab ${cur === k ? 'active' : ''}" onclick="P.go(P.path,{govKind:'${k}',govQ:''})">${label}</button>`).join('')}</div>`;
+    return `<div class="tabs">${kinds.map(([label, k]) => `<button class="tab ${cur === k ? 'active' : ''}" onclick="P.go({govKind:'${k}',govQ:''})">${label}</button>`).join('')}</div>`;
   };
   const catalog = () =>
     card(
