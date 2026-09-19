@@ -47,6 +47,42 @@
         : [...ids, d.id];
       P.log(null, '阶段绑定调整', d.stage + ' · ' + d.id);
     });
+  A['bind-pick'] = (d) => {
+    const set = P.s.bindings[d.stage] || [];
+    const items = (P.s.caps || []).filter(
+      (x) => x.type === d.type && !set.includes(x.id) && x.enabled !== false,
+    );
+    const typeName = d.type === 'MCP' ? 'MCP 连接器' : d.type;
+    P.modal(
+      '为「' + P.stageName(d.stage) + '」添加' + typeName,
+      items.length
+        ? '<div class="bind-pick-list">' +
+          items
+            .map((x) =>
+              b(
+                'bind-cap-pick',
+                '<span class="chip chip-add">' + e(x.name) + '</span>' +
+                  '<span class="chip-src">' + e(x.src || '') + '</span>' +
+                  (x.desc ? '<span class="muted bind-pick-desc">' + e(x.desc) + '</span>' : ''),
+                { stage: d.stage, id: x.id },
+              ),
+            )
+            .join('') +
+          '</div>'
+        : '<p class="muted">该类型没有更多可添加能力</p>',
+      b('close-modal', '关闭'),
+    );
+  };
+  A['bind-cap-pick'] = (d) => {
+    const ids = P.s.bindings[d.stage] || [];
+    if (!ids.includes(d.id)) {
+      commit(() => {
+        P.s.bindings[d.stage] = [...ids, d.id];
+        P.log(null, '阶段绑定添加', d.stage + ' · ' + d.id);
+      });
+    }
+    P.close();
+  };
   A['cap-detail'] = (d) => {
     const c = P.s.caps.find((x) => x.id === d.id);
     P.modal(

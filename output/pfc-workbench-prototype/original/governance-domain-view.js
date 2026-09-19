@@ -66,55 +66,61 @@
         paging('catalog'),
       action('register-cap', '登记能力', {}, 'primary', true),
     );
+  const bindGroups = [
+    ['Skill', 'Skills'],
+    ['终端工具', '终端工具'],
+    ['MCP', 'MCP 连接器'],
+  ];
   const bindings = () =>
     card(
       '阶段默认能力',
       '<p class="muted">新配置用于新计划。既有计划保留原集合，但所用能力停用后不可启动。</p>' +
         P.table(
-          ['阶段 / 修订', '默认能力', '操作'],
+          ['阶段 / 修订', 'Skills', '终端工具', 'MCP 连接器'],
           G.bindings.map((s) => {
-            const list = (s.caps || []).filter((c) => s.capIds.includes(c.id));
-            const label = (c) =>
-              '<span class="chip' + (c.enabled ? '' : ' chip-off') + '">' +
-              e(c.name) + '</span><span class="chip-src">' + e(c.src || '') + '</span>';
-            const row = list.length
-              ? '<div class="bind-cell">' +
-                list
-                  .map((c) =>
-                    action('toggle-binding', label(c), { stage: s.stage, id: c.id }, '', true),
-                  )
-                  .join('') +
+            const bound = (s.caps || []).filter((c) => s.capIds.includes(c.id));
+            const col = (type) => {
+              const items = bound.filter((c) => c.type === type);
+              const cells = items
+                .map((c) =>
+                  action(
+                    'toggle-binding',
+                    '<span class="chip">' + e(c.name) + '</span>',
+                    { stage: s.stage, id: c.id },
+                    '',
+                    true,
+                  ),
+                )
+                .join('');
+              const avail = page('catalog').items.filter(
+                (c) => c.type === type && !s.capIds.includes(c.id) && c.enabled !== false,
+              ).length;
+              const plus = owner()
+                ? action(
+                    'bind-pick',
+                    '＋',
+                    { stage: s.stage, type },
+                    'primary',
+                    true,
+                  ) + '<span class="chip-src">' + avail + ' 可选</span>'
+                : '';
+              return (
+                '<div class="bind-cell">' +
+                (cells || '<span class="muted">—</span>') +
+                plus +
                 '</div>'
-              : '<span class="muted">未绑定能力，可在右侧从目录添加</span>';
-            const addable = page('catalog').items.filter((c) => !s.capIds.includes(c.id) && c.enabled !== false);
-            const ops = owner()
-              ? '<details class="bind-add"><summary>＋ 添加能力' +
-                (addable.length ? '（' + addable.length + '）' : '') +
-                '</summary><div class="bind-add-list">' +
-                (addable.length
-                  ? addable
-                      .map((c) =>
-                        action(
-                          'toggle-binding',
-                          '<span class="chip chip-add">' + e(c.name) + '</span>',
-                          { stage: s.stage, id: c.id },
-                          '',
-                          true,
-                        ),
-                      )
-                      .join('')
-                  : '<span class="muted">目录无更多可添加项</span>') +
-                '</div></details>'
-              : '<span class="muted">仅负责人可配置</span>';
+              );
+            };
             return [
               e(P.stageName(s.stage)) +
-                '<p class="muted">修订 ' + s.revision + ' · ' + list.length + ' 项</p>',
-              row,
-              ops,
+                '<p class="muted">修订 ' + s.revision + ' · ' + bound.length + ' 项</p>',
+              col('Skill'),
+              col('终端工具'),
+              col('MCP'),
             ];
           }),
         ) +
-        '<p class="source-note">已绑定能力显示为浅蓝标签，点击可解除；点右侧「＋ 添加能力」展开可添加项。更多能力请在目录筛选后返回绑定。</p>',
+        '<p class="source-note">已绑定能力为浅蓝标签，点击解除；点「＋」弹窗按类型选择可添加能力。更多能力请在能力目录登记后使用。</p>',
     );
   const team = () =>
     card(
@@ -379,7 +385,7 @@
       if (text) text.textContent = '当前数据库角色为只读成员，修改操作不可用。';
     }
     const ownerActions = new Set(
-      'register-cap save-cap review-cap toggle-cap toggle-binding add-member save-member edit-member save-member-role remove-member gov-disable-member export-audit'.split(
+      'register-cap save-cap review-cap toggle-cap toggle-binding bind-pick bind-cap-pick add-member save-member edit-member save-member-role remove-member gov-disable-member export-audit'.split(
         ' ',
       ),
     );

@@ -376,7 +376,7 @@
     },
   };
   const viewActions = new Set(
-    'close-modal navigate open-work view-stage panel select-run product-tab space-tab gov-tab switch-req pick-req search search-open notifications data-mode add-material answer-question open-artifact focus-artifact compare-artifact edit-artifact confirm-artifact review-artifact advance material-impact attach-menu attach-files attach-material-ref attach-artifact-ref pick-ref toggle-ref remove-pending retry-pending open-attachment download-attachment-text reply-message cancel-reply clear-reply expand-early-msgs ref-source msg-source resend-message send stop-reply diff-full accept-diff accept-selected-diff reject-diff view-reference reference-detail message-detail expand-message toggle-stage-all toggle-expand-all plan-run reject-plan start-run plan-retry replay-run replay-play replay-pause replay-reset'.split(
+    'close-modal navigate open-work view-stage panel select-run product-tab space-tab gov-tab switch-req pick-req search search-open notifications data-mode add-material answer-question open-artifact focus-artifact compare-artifact edit-artifact confirm-artifact review-artifact advance material-impact attach-menu attach-files attach-material-ref attach-artifact-ref pick-ref toggle-ref remove-pending retry-pending open-attachment download-attachment-text reply-message cancel-reply clear-reply expand-early-msgs ref-source msg-source resend-message send stop-reply diff-full accept-diff accept-selected-diff reject-diff view-reference reference-detail message-detail expand-message toggle-stage-all toggle-expand-all plan-run reject-plan start-run plan-retry replay-run replay-play replay-pause replay-reset bind-pick bind-cap-pick'.split(
       ' ',
     ),
   );
