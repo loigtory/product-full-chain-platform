@@ -36,10 +36,15 @@
     const f = G.filter(tab);
     return `<form id="gov-filter"><div class="actions">${tab === 'audit' ? P.field('actor', '操作人', f.actor || '') + P.field('action', '动作', f.action || '') : P.field('q', tab === 'knowledge' ? '标题 / 标签' : '名称', f.q || '')}${tab === 'knowledge' ? P.select('type', '类型', [['', '全部'], ...['复盘结论', '组件规范', '接口契约', '踩坑记录', 'Playbook'].map((t) => [t, t])], f.type || '') : ''}${b('gov-filter', '筛选', { tab })}</div></form>`;
   };
+  const catalogTabs = () => {
+    const kinds = [['全部', 'all'], ['Skill', 'Skill'], ['终端工具', '终端工具'], ['MCP', 'MCP'], ['模型', '模型']];
+    const cur = (P.q && P.q.govKind) || 'all';
+    return `<div class="tabs">${kinds.map(([label, k]) => `<button class="tab ${cur === k ? 'active' : ''}" onclick="P.go(P.path,{govKind:'${k}'})">${label}</button>`).join('')}</div>`;
+  };
   const catalog = () =>
     card(
       '能力目录',
-      `<p class="muted">登记元数据 → 复核 → 显式启用。名称与版本不可变；登记本身不会安装、连接或执行工具。</p>${filter('catalog')}` +
+      `<p class="muted">登记元数据 → 复核 → 显式启用。名称与版本不可变；登记本身不会安装、连接或执行工具。</p>${catalogTabs()}${filter('catalog')}` +
         P.table(
           ['能力 / 版本', '协议与来源', '描述', '状态', '操作'],
           page('catalog').items.map((c) => [
