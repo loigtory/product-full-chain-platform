@@ -38,7 +38,7 @@
   };
   const catalogTabs = () => {
     const kinds = [['全部', 'all'], ['Skill', 'Skill'], ['终端工具', '终端工具'], ['MCP', 'MCP'], ['模型', '模型']];
-    const cur = (P.q && P.q.govKind) || 'all';
+    const cur = (P.s.ui.govKind) || 'all';
     return `<div class="tabs">${kinds.map(([label, k]) => `<button class="tab ${cur === k ? 'active' : ''}" onclick="P.go({govKind:'${k}',govQ:''})">${label}</button>`).join('')}</div>`;
   };
   const catalog = () =>
@@ -47,7 +47,7 @@
       `<p class="muted">登记元数据 → 复核 → 显式启用。名称与版本不可变；登记本身不会安装、连接或执行工具。</p>${catalogTabs()}${filter('catalog')}` +
         P.table(
           ['能力 / 版本', '协议与来源', '描述', '状态', '操作'],
-          (page('catalog').items || []).filter((c) => { const cur = (P.q && P.q.govKind) || 'all'; return cur === 'all' || c.type === cur; }).map((c) => [
+          (page('catalog').items || []).filter((c) => { const cur = (P.s.ui.govKind) || 'all'; return cur === 'all' || c.type === cur; }).map((c) => [
             e(c.name) + `<p class="muted">${e(c.id)} · ${e(c.ver)}</p>`,
             badge(c.type, 'purple') +
               `<p>${e(c.src || '未填写')}</p><small>${e(c.endpoint || '未填写连接描述')}</small>`,
