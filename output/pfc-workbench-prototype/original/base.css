@@ -526,3 +526,11 @@ table tbody td { padding: 10px 14px !important; }
 .btn { transition: all .15s; }
 .btn:hover { box-shadow: 0 1px 2px rgba(15, 23, 42, .06); }
 .btn.primary:hover { box-shadow: 0 2px 4px rgba(59, 130, 246, .2); }
+
+/* 表格 hover 行高亮 */
+table tbody tr:hover { background: #f8fafc; }
+table tbody tr { transition: background .12s; }
+
+/* 卡片 hover 阴影 */
+.card { transition: box-shadow .15s; }
+.card:hover { box-shadow: 0 4px 12px rgba(15, 23, 42, .08); }
