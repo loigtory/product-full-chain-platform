@@ -88,7 +88,7 @@
               const items = bound.filter((c) => c.type === type);
               const cells = items
                 .map((c) =>
-                  '<span class="chip chip-bound">' +
+                  '<span class="chip chip-bound ' + (type === 'Skill' ? 'chip-skill' : type === '终端工具' ? 'chip-tool' : type === 'MCP' ? 'chip-mcp' : type === '模型' ? 'chip-model' : '') + '">' +
                     action('cap-detail', e(c.name), { id: c.id }, '', true) +
                     action(
                       'unbind-binding',
