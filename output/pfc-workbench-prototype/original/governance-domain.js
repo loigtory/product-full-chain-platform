@@ -174,6 +174,10 @@
       P.go({ govTab: d.tab });
       await G.refresh();
     },
+    'gov-kind-tab': async (d) => {
+      P.go({ govKind: d.kind, govQ: '' });
+      await G.refresh();
+    },
     'gov-page': async (d) => {
       prefs().filters[d.tab] = { ...G.filter(d.tab), offset: Number(d.offset) };
       await G.page(d.tab);
