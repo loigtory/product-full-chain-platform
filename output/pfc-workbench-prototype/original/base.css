@@ -477,6 +477,8 @@ div.composer{flex-wrap:wrap;}
 .exec-bar .exec-review{flex:1 1 100%;font-size:11px;color:var(--text-2);background:rgba(82,196,26,.07);padding:6px 9px;border-radius:6px;}
 .exec-bar .exec-review .row{flex:1 1 100%;display:flex;gap:6px;align-items:center;}
 .exec-bar .exec-hint{white-space:normal !important;line-height:1.5;}
+.bind-pick-search{width:100%;padding:8px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;margin-bottom:10px;box-sizing:border-box;}
+.bind-pick-search:focus{outline:none;border-color:#2563eb;}
 .bind-pick-list{display:flex;flex-direction:column;gap:6px;max-height:420px;overflow:auto;}
 .bind-pick-list button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:8px 10px;border:1px solid #e5e7eb;border-radius:8px;background:#fff;cursor:pointer;}
 .bind-pick-list button:hover{background:#f9fafb;border-color:#93c5fd;}

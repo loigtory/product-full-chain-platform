@@ -56,16 +56,19 @@
     P.modal(
       '为「' + P.stageName(d.stage) + '」添加' + typeName,
       items.length
-        ? '<div class="bind-pick-list">' +
+        ? '<input class="bind-pick-search" placeholder="搜索能力名称或描述…" oninput="const q=this.value.toLowerCase();document.querySelectorAll(\'.bind-pick-list .bind-pick-item\').forEach(it=>{it.style.display=it.dataset.search.includes(q)?\'\':\'none\';});">' +
+          '<div class="bind-pick-list">' +
           items
             .map((x) =>
-              b(
-                'bind-cap-pick',
-                '<span class="chip chip-add">' + e(x.name) + '</span>' +
-                  '<span class="chip-src">' + e(x.src || '') + '</span>' +
-                  (x.desc ? '<span class="muted bind-pick-desc">' + e(x.desc) + '</span>' : ''),
-                { stage: d.stage, id: x.id },
-              ),
+              '<div class="bind-pick-item" data-search="' + e((x.name + ' ' + (x.desc || '') + ' ' + (x.src || '')).toLowerCase()) + '">' +
+                b(
+                  'bind-cap-pick',
+                  '<span class="chip chip-add">' + e(x.name) + '</span>' +
+                    '<span class="chip-src">' + e(x.src || '') + '</span>' +
+                    (x.desc ? '<span class="muted bind-pick-desc">' + e(x.desc) + '</span>' : ''),
+                  { stage: d.stage, id: x.id },
+                ) +
+              '</div>',
             )
             .join('') +
           '</div>'
