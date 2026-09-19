@@ -115,7 +115,7 @@
               );
             };
             return [
-              e(P.stageName(s.stage)) +
+              '<b class="bind-stage-name">' + e(P.stageName(s.stage)) + '</b>' +
                 '<p class="muted">修订 ' + s.revision + ' · ' + bound.length + ' 项</p>',
               col('Skill'),
               col('终端工具'),
