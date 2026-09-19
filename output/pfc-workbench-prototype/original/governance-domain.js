@@ -20,7 +20,7 @@
   G.filter = (tab) => prefs().filters[tab] || { q: '', offset: 0 };
   G.query = (tab) => {
     const f = G.filter(tab),
-      p = new URLSearchParams({ limit: '20', offset: String(f.offset || 0) });
+      p = new URLSearchParams({ limit: tab === 'catalog' ? '100' : '20', offset: String(f.offset || 0) });
     for (const k of ['q', 'type', 'actor', 'action']) if (f[k]) p.set(k, f[k]);
     return p;
   };
