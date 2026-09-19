@@ -385,7 +385,7 @@ input,textarea{font-family:inherit;}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:6px;font-size:12px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;line-height:1.4;cursor:pointer;transition:all .12s;}
 .chip:hover{background:#dbeafe;border-color:#93c5fd;}
 .chip-off{background:#f3f4f6;color:#9ca3af;border-color:#e5e7eb;}
-.chip-add{background:#fff;color:#374151;border:1px dashed #d1d5db;}
+.chip-add{background:#fff;color:#6b7280;border:1px dashed #d1d5db;font-size:11px;padding:2px 8px;}
 .chip-add:hover{background:#f9fafb;border-color:#9ca3af;color:#111827;}
 .chip-src{font-size:10px;color:#9ca3af;font-weight:400;}
 .bind-add{display:inline-block;min-width:160px;}

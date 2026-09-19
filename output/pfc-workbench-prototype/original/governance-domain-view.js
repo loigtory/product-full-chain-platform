@@ -86,7 +86,7 @@
                   .join('') +
                 '</div>'
               : '<span class="muted">未绑定能力，可在右侧从目录添加</span>';
-            const addable = page('catalog').items.filter((c) => !s.capIds.includes(c.id));
+            const addable = page('catalog').items.filter((c) => !s.capIds.includes(c.id) && c.enabled !== false);
             const ops = owner()
               ? '<details class="bind-add"><summary>＋ 添加能力' +
                 (addable.length ? '（' + addable.length + '）' : '') +
