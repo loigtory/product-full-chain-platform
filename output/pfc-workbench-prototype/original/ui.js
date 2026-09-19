@@ -55,7 +55,7 @@
   P.modal = (title, body, footer = '', wide = false) => {
     P.origin = document.activeElement;
     document.querySelector('#modal-root').innerHTML =
-      `<div class="modal-mask" data-action="close-modal"></div><section class="guide-dialog ${wide ? 'wide' : ''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="cap-head"><h2 id="dialog-title">${P.esc(title)}</h2>${P.btn('close-modal', P.icon('x') + ' 关闭')}</div><div class="dialog-body">${body}<p class="form-error" role="alert" id="form-error"></p></div>${footer ? `<div class="dialog-footer">${footer}</div>` : ''}</section>`;
+      `<div class="modal-mask" data-action="close-modal"></div><section class="guide-dialog ${wide ? 'wide' : ''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="cap-head"><h2 id="dialog-title">${P.esc(title)}</h2>${P.btn('close-modal', P.icon('x'), '', true)}</div><div class="dialog-body">${body}<p class="form-error" role="alert" id="form-error"></p></div>${footer ? `<div class="dialog-footer">${footer}</div>` : ''}</section>`;
     setTimeout(
       () =>
         document
