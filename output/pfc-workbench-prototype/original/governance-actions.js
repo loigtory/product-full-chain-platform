@@ -70,7 +70,7 @@
             .join('') +
           '</div>'
         : '<p class="muted">该类型没有更多可添加能力</p>',
-      b('close-modal', '关闭'),
+      '',
     );
   };
   A['bind-cap-pick'] = (d) => {
@@ -103,7 +103,7 @@
     P.modal(
       c.name,
       `<p>${e(c.desc)}</p><p>${e(c.type + ' · ' + c.src + ' · ' + c.ver + ' · ' + c.perm)}</p><p>协议：${e(c.protocol || (c.type === 'MCP' ? 'MCP' : c.type === '终端工具' ? '终端' : '原生 Skill'))}${c.endpoint ? ' · ' + e(c.endpoint) : ''}</p><p>状态：${c.pending ? '待复核' : P.s.enabled.includes(c.id) ? '团队启用' : '团队停用'}</p><p>运行时匹配工具名、输入结构和版本指纹；登记本身不会安装软件或连接账号。正式平台通过 MCP/ACP 开放协议接入任意 agent 与工具。</p>`,
-      b('close-modal', '关闭'),
+      '',
     );
   };
   A['register-cap'] = () => {
