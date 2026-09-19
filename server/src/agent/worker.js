@@ -238,6 +238,14 @@ async function runJob({ db, ctx, reqPublicId, jobId }, kind) {
           ctx.tenantId,
           job.input.stage,
         );
+    // 70 号：按阶段绑定的 LLM 模型（传给 codex -c model=xxx）。
+    if (job.input.stage)
+      options.model =
+        await require('./stage-capabilities-config').enabledModelForStage(
+          db,
+          ctx.tenantId,
+          job.input.stage,
+        );
     // 56 号：EXEC 作业按阶段从配置表读取 tool 名称，经 host-tools-registry 白名单
     // 解析（仅 READY 工具注入；终端类工具待 57 号真实接入），核心 pfc_* 工具恒在。
     if (kind === 'EXECUTE' && job.input.stage) {

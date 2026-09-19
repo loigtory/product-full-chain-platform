@@ -6,7 +6,7 @@ const { randomUUID } = require('node:crypto');
 const { withTransaction } = require('../persistence/transaction');
 
 const STAGES = ['idea', 'req', 'design', 'dev', 'test', 'accept', 'release', 'observe'];
-const KINDS = ['skill', 'tool', 'mcp'];
+const KINDS = ['skill', 'tool', 'mcp', 'model'];
 const SOURCES = ['local', 'github', 'company'];
 
 const fail = (code, status = 409) => {
@@ -105,6 +105,19 @@ async function enabledSkillsForStage(db, tenantId, stage) {
   return rows.map((r) => r.name);
 }
 
+// 70 号：按阶段绑定的 LLM 模型名（传给 codex -c model=xxx）。
+async function enabledModelForStage(db, tenantId, stage) {
+  const rows = (
+    await db.pool.query(
+      `SELECT name FROM "${db.schema}".stage_capabilities
+        WHERE tenant_id=$1 AND stage=$2 AND kind='model' AND enabled=true
+        ORDER BY priority, name LIMIT 1`,
+      [tenantId, stage],
+    )
+  ).rows;
+  return rows.length ? rows[0].name : null;
+}
+
 async function upsert(db, ctx, input) {
   const v = sanitize(input);
   return withTransaction(db, async (client) => {
@@ -187,4 +200,4 @@ async function setEnabled(db, ctx, stage, kind, name, enabled) {
   });
 }
 
-module.exports = { STAGES, KINDS, SOURCES, list, forStage, enabledSkillsForStage, enabledHostToolsForStage, upsert, remove, setEnabled };
+module.exports = { STAGES, KINDS, SOURCES, list, forStage, enabledSkillsForStage, enabledHostToolsForStage, enabledModelForStage, upsert, remove, setEnabled };

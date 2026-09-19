@@ -20,7 +20,7 @@ const error = (code) => Object.assign(new Error(code), { code });
 
 // Instance-only overrides. Effective config must still be checked after layering.
 // mode 'text' = 纯文本对话（全禁工具，C2）；'exec' = 真实工具执行（elevated Windows 沙箱，C3）。
-export function instanceArguments(disabledMcpNames = [], mode = 'text') {
+export function instanceArguments(disabledMcpNames = [], mode = 'text', model = null) {
   if (
     !Array.isArray(disabledMcpNames) ||
     disabledMcpNames.length > 100 ||
@@ -45,6 +45,7 @@ export function instanceArguments(disabledMcpNames = [], mode = 'text') {
       : 'sandbox_mode="read-only"',
     'approval_policy="on-request"',
     'analytics.enabled=false',
+    ...(model ? ['-c', "model="] : []),
   ];
   if (mode === 'exec') {
     // 执行链路：unified exec 由 code-mode host 承载，exec_command 需要 code_mode
@@ -236,7 +237,7 @@ export class PreflightRpc {
     this.onNotification = options.onNotification ?? (() => {});
     this.onToolCall = options.onToolCall;
     this.serverRequests = new Map();
-    const args = instanceArguments(disabledMcpNames, this.mode);
+    const args = instanceArguments(disabledMcpNames, this.mode, options.model ?? null);
     if (['text', 'host'].includes(this.mode)) {
       for (const value of [
         'features.shell_tool=false',
@@ -549,6 +550,7 @@ export async function openProtocol({
     mode,
     onNotification,
     onToolCall,
+    model: options.model ?? null,
   });
   const processes = [];
   const close = async () => {
