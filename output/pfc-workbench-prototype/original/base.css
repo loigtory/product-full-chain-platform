@@ -385,8 +385,8 @@ input,textarea{font-family:inherit;}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:6px;font-size:12px;background:#f3f4f6;color:#374151;border:1px solid #e5e7eb;line-height:1.4;cursor:pointer;transition:all .12s;font-weight:500;}
 .chip:hover{background:#e5e7eb;border-color:#9ca3af;}
 .chip-off{background:#f3f4f6;color:#9ca3af;border-color:#e5e7eb;}
-.chip-add{background:#fff;color:#6b7280;border:1px dashed #d1d5db;font-size:11px;padding:2px 8px;}
-.chip-add:hover{background:#f9fafb;border-color:#9ca3af;color:#111827;}
+.chip-add{background:#fff;color:#2563eb;border:1px dashed #93c5fd;font-size:12px;padding:4px 12px;border-radius:6px;font-weight:500;}
+.chip-add:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8;}
 .chip-src{font-size:10px;color:#9ca3af;font-weight:400;}
 /* chip 类型色 */
 .chip-skill { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
@@ -505,3 +505,5 @@ div.composer{flex-wrap:wrap;}
 .tab { padding: 8px 16px; border: none; background: transparent; color: var(--text-2); font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .tab:hover { color: var(--brand); }
 .tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
+/* 表头加粗 */
+thead th { font-weight: 600 !important; color: #374151 !important; }
