@@ -83,6 +83,21 @@
     }
     P.close();
   };
+  A['unbind-binding'] = (d) => {
+    P.modal(
+      '解除阶段绑定',
+      '<p>确认将「' + e(d.name) + '」从「' + P.stageName(d.stage) + '」阶段移除？</p><p class="muted">解除后该阶段作业不再默认装载此能力；既有计划保留原集合。</p>',
+      b('unbind-binding-confirm', '确认解除', { stage: d.stage, id: d.id }, 'primary') +
+        b('close-modal', '取消'),
+    );
+  };
+  A['unbind-binding-confirm'] = (d) =>
+    commit(() => {
+      const ids = P.s.bindings[d.stage] || [];
+      P.s.bindings[d.stage] = ids.filter((x) => x !== d.id);
+      P.log(null, '阶段绑定解除', d.stage + ' · ' + d.id);
+      P.close();
+    });
   A['cap-detail'] = (d) => {
     const c = P.s.caps.find((x) => x.id === d.id);
     P.modal(

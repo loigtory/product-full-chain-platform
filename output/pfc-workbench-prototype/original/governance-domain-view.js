@@ -83,13 +83,16 @@
               const items = bound.filter((c) => c.type === type);
               const cells = items
                 .map((c) =>
-                  action(
-                    'toggle-binding',
-                    '<span class="chip">' + e(c.name) + '</span>',
-                    { stage: s.stage, id: c.id },
-                    '',
-                    true,
-                  ),
+                  '<span class="chip chip-bound">' +
+                    action('cap-detail', e(c.name), { id: c.id }, '', true) +
+                    action(
+                      'unbind-binding',
+                      '×',
+                      { stage: s.stage, id: c.id, name: c.name },
+                      '',
+                      true,
+                    ) +
+                  '</span>',
                 )
                 .join('');
               const avail = page('catalog').items.filter(
@@ -98,9 +101,9 @@
               const plus = owner()
                 ? action(
                     'bind-pick',
-                    '＋',
+                    '＋ 添加',
                     { stage: s.stage, type },
-                    'primary',
+                    '',
                     true,
                   ) + '<span class="chip-src">' + avail + ' 可选</span>'
                 : '';
