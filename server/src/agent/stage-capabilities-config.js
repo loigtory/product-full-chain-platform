@@ -106,6 +106,14 @@ async function enabledSkillsForStage(db, tenantId, stage) {
 }
 
 // 70 号：按阶段绑定的 LLM 模型名（传给 codex -c model=xxx）。
+// 显示名 → codex model 名映射（caps 表 name 是友好显示名，codex 要小写横杠）。
+const MODEL_NAME_MAP = {
+  'GPT-6 Astra': 'gpt-6-astra',
+  'GPT-5': 'gpt-5',
+  'Claude Sonnet 4': 'claude-sonnet-4',
+  'DeepSeek V3.5': 'deepseek-v3.5',
+  'Qwen Max': 'qwen-max',
+};
 async function enabledModelForStage(db, tenantId, stage) {
   const rows = (
     await db.pool.query(
@@ -115,7 +123,9 @@ async function enabledModelForStage(db, tenantId, stage) {
       [tenantId, stage],
     )
   ).rows;
-  return rows.length ? rows[0].name : null;
+  if (!rows.length) return null;
+  const displayName = rows[0].name;
+  return MODEL_NAME_MAP[displayName] || displayName;
 }
 
 async function upsert(db, ctx, input) {
