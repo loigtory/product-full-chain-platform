@@ -45,7 +45,7 @@ export function instanceArguments(disabledMcpNames = [], mode = 'text', model = 
       : 'sandbox_mode="read-only"',
     'approval_policy="on-request"',
     'analytics.enabled=false',
-    ...(model ? ['-c', "model="] : []),
+    ...(model ? ['-c', `model=${model}`] : []),
   ];
   if (mode === 'exec') {
     // 执行链路：unified exec 由 code-mode host 承载，exec_command 需要 code_mode
