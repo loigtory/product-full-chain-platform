@@ -490,3 +490,8 @@ div.composer{flex-wrap:wrap;}
 .guide-dialog .cap-head h2{margin:0;}
 .guide-dialog .cap-head .btn{flex-shrink:0;}
 .bind-stage-name{font-weight:700;color:#0ea5e9;font-size:13px;}
+/* 分类 Tabs */
+.tabs { display: flex; gap: 4px; margin: 12px 0 16px; border-bottom: 1px solid var(--border); }
+.tab { padding: 8px 16px; border: none; background: transparent; color: var(--text-2); font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab:hover { color: var(--brand); }
+.tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
