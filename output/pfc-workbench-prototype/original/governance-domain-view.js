@@ -81,30 +81,31 @@
               ? '<div class="bind-cell">' +
                 list
                   .map((c) =>
-                    action('toggle-binding', label(c), { stage: s.stage, id: c.id }, 'primary', true),
+                    action('toggle-binding', label(c), { stage: s.stage, id: c.id }, '', true),
                   )
                   .join('') +
                 '</div>'
               : '<span class="muted">未绑定能力，可在右侧从目录添加</span>';
-            const ops =
-              '<div class="bind-ops">' +
-              (owner()
-                ? (page('catalog').items
-                    .filter((c) => !s.capIds.includes(c.id))
-                    .slice(0, 8)
-                    .map((c) =>
-                      action(
-                        'toggle-binding',
-                        '＋' + e(c.name),
-                        { stage: s.stage, id: c.id },
-                        '',
-                        true,
-                      ),
-                    )
-                    .join('') ||
-                  '<span class="muted">目录无更多可添加项</span>')
-                : '<span class="muted">仅负责人可配置</span>') +
-              '</div>';
+            const addable = page('catalog').items.filter((c) => !s.capIds.includes(c.id));
+            const ops = owner()
+              ? '<details class="bind-add"><summary>＋ 添加能力' +
+                (addable.length ? '（' + addable.length + '）' : '') +
+                '</summary><div class="bind-add-list">' +
+                (addable.length
+                  ? addable
+                      .map((c) =>
+                        action(
+                          'toggle-binding',
+                          '<span class="chip chip-add">' + e(c.name) + '</span>',
+                          { stage: s.stage, id: c.id },
+                          '',
+                          true,
+                        ),
+                      )
+                      .join('')
+                  : '<span class="muted">目录无更多可添加项</span>') +
+                '</div></details>'
+              : '<span class="muted">仅负责人可配置</span>';
             return [
               e(P.stageName(s.stage)) +
                 '<p class="muted">修订 ' + s.revision + ' · ' + list.length + ' 项</p>',
@@ -113,7 +114,7 @@
             ];
           }),
         ) +
-        '<p class="source-note">只显示已绑定能力；添加入口展示能力目录当前页未绑定项（最多 8 个），更多能力请在目录筛选后返回绑定。点已绑定名称可解除绑定。</p>',
+        '<p class="source-note">已绑定能力显示为浅蓝标签，点击可解除；点右侧「＋ 添加能力」展开可添加项。更多能力请在目录筛选后返回绑定。</p>',
     );
   const team = () =>
     card(
