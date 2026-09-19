@@ -76,7 +76,7 @@
       '阶段默认能力',
       '<p class="muted">新配置用于新计划。既有计划保留原集合，但所用能力停用后不可启动。</p>' +
         P.table(
-          ['阶段 / 修订', 'Skills', '终端工具', 'MCP 连接器'],
+          ['阶段 / 修订', 'Skills', '终端工具', 'MCP 连接器', '模型'],
           G.bindings.map((s) => {
             const bound = (s.caps || []).filter((c) => s.capIds.includes(c.id));
             const col = (type) => {
@@ -120,6 +120,7 @@
               col('Skill'),
               col('终端工具'),
               col('MCP'),
+              col('模型'),
             ];
           }),
         ) +
