@@ -382,8 +382,8 @@ input,textarea{font-family:inherit;}
 .bind-grid .st-name{font-weight:600;white-space:nowrap;}
 .bind-cell{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
 .bind-ops{display:flex;flex-wrap:wrap;gap:4px;max-width:340px;}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:6px;font-size:12px;background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd;line-height:1.4;cursor:pointer;transition:all .12s;font-weight:500;}
-.chip:hover{background:#ddd6fe;border-color:#8b5cf6;}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:6px;font-size:12px;background:#f3f4f6;color:#374151;border:1px solid #e5e7eb;line-height:1.4;cursor:pointer;transition:all .12s;font-weight:500;}
+.chip:hover{background:#e5e7eb;border-color:#9ca3af;}
 .chip-off{background:#f3f4f6;color:#9ca3af;border-color:#e5e7eb;}
 .chip-add{background:#fff;color:#6b7280;border:1px dashed #d1d5db;font-size:11px;padding:2px 8px;}
 .chip-add:hover{background:#f9fafb;border-color:#9ca3af;color:#111827;}
