@@ -38,6 +38,7 @@
   A['view-stage'] = (d) =>
     P.go({ stage: d.stage, artifactStage: null, version: null });
   A.panel = (d) => P.go({ panel: d.panel });
+  A['home-todo-page'] = (d) => { P.s.todoPage = Math.max(1, d.page); P.render(); };
   A['select-run'] = (d) => P.go({ runId: d.id });
   A['product-tab'] = (d) => P.go({ productTab: d.tab });
   A['space-tab'] = (d) => P.go({ route: 'product', productTab: d.tab });

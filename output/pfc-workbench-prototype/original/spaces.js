@@ -16,15 +16,28 @@
         );
     return (
       `<main class="guide-page"><div class="page-head"><div><h1>${P.domainView?.pg() ? '我的工作台 · ' + e(window.PFCAPI.api.user?.name) : '早上好，陈立'}</h1><p>围绕需求继续推进。${pending.length} 条需求待处理，${runs.length} 个作业需关注。</p></div><div class="actions">${b('new-requirement', i('plus') + ' 创建需求')}${P.r() ? b('open-work', i('terminal') + ' 继续作业：' + e(P.r().id), { req: P.r().id }, 'primary') : ''}</div></div><div class="guide-grid">` +
-      card(
-        i('clock') + ' 我的待办',
-        pending
-          .map(
-            (r) =>
-              `<div class="event"><div class="page-head"><div><b>${e(r.id + ' · ' + r.name)}</b><p class="muted">${P.stageName(r.stage)} · ${e(P.blockers(r).join('；') || '可推进下一阶段')}</p></div>${open(r)}</div></div>`,
-          )
-          .join('') || '<div class="empty-stage">当前没有待办</div>',
-      ) +
+      (() => {
+        const PAGE = 20;
+        const pages = Math.max(1, Math.ceil(pending.length / PAGE));
+        const cur = Math.min(P.s.todoPage || 1, pages);
+        const slice = pending.slice((cur - 1) * PAGE, cur * PAGE);
+        const pageBar = pending.length > PAGE
+          ? '<div class="pager">' +
+            b('home-todo-page', '上一页', { page: cur - 1 }, cur <= 1 ? 'disabled' : '') +
+            '<span class="pager-info">第 ' + cur + ' / ' + pages + ' 页 · 共 ' + pending.length + ' 条</span>' +
+            b('home-todo-page', '下一页', { page: cur + 1 }, cur >= pages ? 'disabled' : '') +
+            '</div>'
+          : '';
+        return card(
+          i('clock') + ' 我的待办',
+          slice
+            .map(
+              (r) =>
+                `<div class="event"><div class="page-head"><div><b>${e(r.id + ' · ' + r.name)}</b><p class="muted">${P.stageName(r.stage)} · ${e(P.blockers(r).join('；') || '可推进下一阶段')}</p></div>${open(r)}</div></div>`,
+            )
+            .join('') || '<div class="empty-stage">当前没有待办</div>' + pageBar,
+        );
+      })() +
       card(
         i('activity') + ' 运行与恢复',
         runs
